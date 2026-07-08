@@ -1,0 +1,122 @@
+{
+  "health": {
+    "findings": [
+      {
+        "path": "src/App.js",
+        "name": "App",
+        "line": 26,
+        "col": 15,
+        "cyclomatic": 14,
+        "cognitive": 16,
+        "line_count": 82,
+        "param_count": 0,
+        "react_hook_count": 3,
+        "react_jsx_max_depth": 6,
+        "react_hook_profile": {
+          "state": 3,
+          "effect": 0,
+          "memo": 0,
+          "callback": 0,
+          "custom": 0
+        },
+        "exceeded": "cognitive_crap",
+        "severity": "critical",
+        "crap": 210,
+        "coverage_tier": "none",
+        "coverage_source": "estimated",
+        "actions": [
+          {
+            "type": "add-tests",
+            "auto_fixable": false,
+            "description": "Add test coverage for `App` to lower its CRAP score (coverage reduces risk even without refactoring)",
+            "note": "CRAP = CC^2 * (1 - cov/100)^3 + CC; higher coverage is the fastest way to bring CRAP under threshold"
+          },
+          {
+            "type": "refactor-function",
+            "auto_fixable": false,
+            "description": "Refactor `App` to reduce complexity (extract helper functions, simplify branching)",
+            "note": "Consider splitting into smaller functions with single responsibilities"
+          },
+          {
+            "type": "suppress-line",
+            "auto_fixable": false,
+            "description": "Suppress with an inline comment above the function declaration",
+            "comment": "// fallow-ignore-next-line complexity",
+            "placement": "above-function-declaration"
+          }
+        ]
+      }
+    ],
+    "file_scores": [
+      {
+        "path": "src/App.js",
+        "fan_in": 1,
+        "fan_out": 0,
+        "dead_code_ratio": 0,
+        "complexity_density": 0.09,
+        "maintainability_index": 97.3,
+        "total_cyclomatic": 25,
+        "total_cognitive": 20,
+        "function_count": 8,
+        "lines": 285,
+        "crap_max": 210,
+        "crap_above_threshold": 1
+      }
+    ],
+    "targets": [],
+    "small_files": []
+  },
+  "dupes": {
+    "clone_groups": []
+  },
+  "check": {
+    "unused_files": [],
+    "unused_exports": [],
+    "unused_dependencies": [
+      {
+        "package_name": "@expo/metro-runtime",
+        "location": "dependencies",
+        "path": "package.json",
+        "line": 6,
+        "actions": [
+          {
+            "type": "remove-dependency",
+            "auto_fixable": true,
+            "description": "Remove from dependencies in package.json"
+          },
+          {
+            "type": "add-to-config",
+            "auto_fixable": false,
+            "description": "Add \"@expo/metro-runtime\" to ignoreDependencies in fallow config",
+            "config_key": "ignoreDependencies",
+            "value": "@expo/metro-runtime",
+            "value_schema": "https://raw.githubusercontent.com/fallow-rs/fallow/main/schema.json#/properties/ignoreDependencies/items"
+          }
+        ]
+      },
+      {
+        "package_name": "react-native-web",
+        "location": "dependencies",
+        "path": "package.json",
+        "line": 12,
+        "actions": [
+          {
+            "type": "remove-dependency",
+            "auto_fixable": true,
+            "description": "Remove from dependencies in package.json"
+          },
+          {
+            "type": "add-to-config",
+            "auto_fixable": false,
+            "description": "Add \"react-native-web\" to ignoreDependencies in fallow config",
+            "config_key": "ignoreDependencies",
+            "value": "react-native-web",
+            "value_schema": "https://raw.githubusercontent.com/fallow-rs/fallow/main/schema.json#/properties/ignoreDependencies/items"
+          }
+        ]
+      }
+    ],
+    "unlisted_dependencies": [],
+    "circular_dependencies": []
+  }
+}
