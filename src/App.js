@@ -14,7 +14,7 @@ import SearchBar from './components/SearchBar';
 import CatalogView from './components/CatalogView';
 import AdminDashboard from './components/Admin/AdminDashboard';
 
-import { HIERARCHY } from './data/hierarchy';
+import { CatalogProvider, useCatalog } from './context/CatalogContext';
 import { TRANSLATIONS } from './data/translations';
 import useCart from './hooks/useCart';
 import styles from './AppStyles';
@@ -36,11 +36,21 @@ function useThemeAndLang() {
   return { theme, isDark, lang, t, showLangMenu, setShowLangMenu, toggleTheme, selectLanguage };
 }
 
-function useNavigationState(setShowLangMenu) {
+function useNavigationState(setShowLangMenu, catalogTree) {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [showCart, setShowCart] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
-  const [navigationStack, setNavigationStack] = useState([{ label: 'Catalog', items: HIERARCHY }]);
+  const [navigationStack, setNavigationStack] = useState([{ label: 'Catalog', items: catalogTree }]);
+
+  // Keep root level in sync when catalog changes
+  React.useEffect(() => {
+    setNavigationStack((prev) => {
+      const updated = [...prev];
+      updated[0] = { label: 'Catalog', items: catalogTree };
+      return updated;
+    });
+  }, [catalogTree]);
+
   const handleCardPress = (node) => {
     if (!node.children?.length) return setSelectedProduct(node);
     setNavigationStack((p) => [...p, { label: node.label, items: node.children }]);
@@ -54,7 +64,7 @@ function useNavigationState(setShowLangMenu) {
     setShowLangMenu(false);
   };
   const handleHome = () => {
-    setNavigationStack([{ label: 'Catalog', items: HIERARCHY }]);
+    setNavigationStack([{ label: 'Catalog', items: catalogTree }]);
     setSelectedProduct(null);
     setShowCart(false);
     setShowLangMenu(false);
@@ -126,19 +136,15 @@ function MainContent({ showCart, selectedProduct, isDark, isWide, depth, current
   );
 }
 
-export default function App() {
+function StorefrontApp({ onOpenAdmin }) {
   const { isDark, lang, t, showLangMenu, setShowLangMenu, toggleTheme, selectLanguage } = useThemeAndLang();
-  const nav = useNavigationState(setShowLangMenu);
+  const { categoryTree } = useCatalog();
+  const nav = useNavigationState(setShowLangMenu, categoryTree);
   const cart = useCart();
   const { width: windowWidth } = useWindowDimensions();
-  const [showAdmin, setShowAdmin] = useState(false);
   const currentLevel = nav.navigationStack[nav.navigationStack.length - 1];
   const crumbs = nav.navigationStack.slice(1).map((s) => ({ label: s.label }));
   const canGoBack = nav.showCart || !!nav.selectedProduct || nav.navigationStack.length > 1;
-
-  if (showAdmin) {
-    return <AdminDashboard onClose={() => setShowAdmin(false)} />;
-  }
 
   return (
     <AppLayout isDark={isDark} setShowLangMenu={setShowLangMenu}>
@@ -146,7 +152,7 @@ export default function App() {
         isDark={isDark} t={t} canGoBack={canGoBack} nav={nav} lang={lang}
         showLangMenu={showLangMenu} setShowLangMenu={setShowLangMenu} selectLanguage={selectLanguage}
         toggleTheme={toggleTheme} cart={cart} currentLevel={currentLevel} handleHome={nav.handleHome}
-        onAdminPress={() => setShowAdmin(true)}
+        onAdminPress={onOpenAdmin}
       />
       <SearchBar isDark={isDark} onSelectResult={(p) => { nav.setSelectedProduct(p); nav.setShowCart(false); nav.setShowMenu(false); }} />
       <View style={styles.mainContent}>
@@ -157,5 +163,18 @@ export default function App() {
         />
       </View>
     </AppLayout>
+  );
+}
+
+export default function App() {
+  const [showAdmin, setShowAdmin] = useState(false);
+
+  return (
+    <CatalogProvider>
+      {showAdmin
+        ? <AdminDashboard onClose={() => setShowAdmin(false)} />
+        : <StorefrontApp onOpenAdmin={() => setShowAdmin(true)} />
+      }
+    </CatalogProvider>
   );
 }

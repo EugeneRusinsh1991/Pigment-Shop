@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
-import { SEARCH_INDEX } from '../data/searchIndex';
+import { useCatalog } from '../context/CatalogContext';
 import useSearch from '../hooks/useSearch';
 import styles from './SearchBar/SearchBarStyles';
 import SearchInput from './SearchBar/SearchInput';
@@ -8,7 +8,8 @@ import SearchDropdown from './SearchBar/SearchDropdown';
 
 export default function SearchBar({ isDark, onSelectResult }) {
   const [query, setQuery] = useState('');
-  const results = useSearch(SEARCH_INDEX, query);
+  const { flatList } = useCatalog();
+  const results = useSearch(flatList, query);
 
   const handleSelect = (item) => {
     onSelectResult(item);

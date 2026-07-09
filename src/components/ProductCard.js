@@ -88,7 +88,7 @@ export default function ProductCard({ item, onPress, isDark, depth = 1 }) {
           { height: imgContainerHeight }
         ]}
       >
-        <Image source={{ uri: PRODUCT_PLACEHOLDER }} style={styles.prodImage} resizeMode="cover" />
+        <Image source={{ uri: item.image || PRODUCT_PLACEHOLDER }} style={styles.prodImage} resizeMode="cover" />
         <ProductBadges isNew={item.isNew} discountPercent={item.discountPercent} />
       </View>
       <View style={styles.prodInfo}>

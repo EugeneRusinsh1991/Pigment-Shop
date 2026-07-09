@@ -1,10 +1,9 @@
 import React from 'react';
 import { Image, Text, TouchableOpacity, View } from 'react-native';
 import Breadcrumb from './Breadcrumb';
-import { HIERARCHY } from '../data/hierarchy';
 import styles from '../AppStyles';
 
-function HeroBanner({ isDark, isWide, t, onCardPress }) {
+function HeroBanner({ isDark, isWide, t, onCardPress, firstCategory }) {
   return (
     <View style={[styles.heroContainer, isWide ? styles.heroRow : styles.heroStack]}>
       <View style={styles.heroLeft}>
@@ -15,7 +14,7 @@ function HeroBanner({ isDark, isWide, t, onCardPress }) {
         <Text style={[styles.heroSub, isDark ? styles.descDark : styles.descLight]}>
           {t.heroSub}
         </Text>
-        <TouchableOpacity style={styles.heroBtn} onPress={() => onCardPress(HIERARCHY[0] || {})}>
+        <TouchableOpacity style={styles.heroBtn} onPress={() => firstCategory && onCardPress(firstCategory)}>
           <Text style={styles.heroBtnText}>{t.heroBtn}</Text>
         </TouchableOpacity>
       </View>
@@ -55,10 +54,11 @@ function SectionTitleRow({ isDark, depth, currentLevel, t }) {
 }
 
 export default function CatalogHeader({ isDark, isWide, depth, currentLevel, crumbs, t, onCrumbPress, onCardPress }) {
+  const firstCategory = currentLevel?.items?.[0] || null;
   return (
     <>
       <CatalogBreadcrumbs crumbs={crumbs} isDark={isDark} onCrumbPress={onCrumbPress} />
-      {depth === 0 && <HeroBanner isDark={isDark} isWide={isWide} t={t} onCardPress={onCardPress} />}
+      {depth === 0 && <HeroBanner isDark={isDark} isWide={isWide} t={t} onCardPress={onCardPress} firstCategory={firstCategory} />}
       <SectionTitleRow isDark={isDark} depth={depth} currentLevel={currentLevel} t={t} />
     </>
   );

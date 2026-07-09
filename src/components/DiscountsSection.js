@@ -2,12 +2,13 @@ import React from 'react';
 import { FlatList, Text, View } from 'react-native';
 import PlaceholderCard from './PlaceholderCard';
 import { CountdownTimer } from './FeaturedSections';
-import { SEARCH_INDEX } from '../data/searchIndex';
+import { useCatalog } from '../context/CatalogContext';
 import styles from '../AppStyles';
 
 export default function DiscountsSection({ isDark, isWide, t, onCardPress }) {
   const cols = isWide ? 4 : 2;
-  const discountedProducts = SEARCH_INDEX.filter((item) => item.discountPercent > 0);
+  const { flatList } = useCatalog();
+  const discountedProducts = flatList.filter((item) => item.discountPercent > 0);
 
   return (
     <View style={styles.footerProductsSection}>

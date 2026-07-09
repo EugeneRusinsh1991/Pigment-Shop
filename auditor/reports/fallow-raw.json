@@ -1,7 +1,83 @@
 {
   "health": {
-    "findings": [],
-    "file_scores": [],
+    "findings": [
+      {
+        "path": "src/components/Admin/Products/ProductFormModal.js",
+        "name": "buildInitialForm",
+        "line": 25,
+        "col": 0,
+        "cyclomatic": 11,
+        "cognitive": 10,
+        "line_count": 16,
+        "param_count": 1,
+        "exceeded": "crap",
+        "severity": "critical",
+        "crap": 132,
+        "coverage_tier": "none",
+        "coverage_source": "estimated",
+        "actions": [
+          {
+            "type": "add-tests",
+            "auto_fixable": false,
+            "description": "Add test coverage for `buildInitialForm` to lower its CRAP score (coverage reduces risk even without refactoring)",
+            "note": "CRAP = CC^2 * (1 - cov/100)^3 + CC; higher coverage is the fastest way to bring CRAP under threshold"
+          },
+          {
+            "type": "suppress-line",
+            "auto_fixable": false,
+            "description": "Suppress with an inline comment above the function declaration",
+            "comment": "// fallow-ignore-next-line complexity",
+            "placement": "above-function-declaration"
+          }
+        ]
+      },
+      {
+        "path": "src/components/Admin/Products/ProductFormHelpers.js",
+        "name": "handleLayout",
+        "line": 78,
+        "col": 41,
+        "cyclomatic": 8,
+        "cognitive": 5,
+        "line_count": 9,
+        "param_count": 1,
+        "exceeded": "crap",
+        "severity": "high",
+        "crap": 72,
+        "coverage_tier": "none",
+        "coverage_source": "estimated",
+        "actions": [
+          {
+            "type": "add-tests",
+            "auto_fixable": false,
+            "description": "Add test coverage for `handleLayout` to lower its CRAP score (coverage reduces risk even without refactoring)",
+            "note": "CRAP = CC^2 * (1 - cov/100)^3 + CC; higher coverage is the fastest way to bring CRAP under threshold"
+          },
+          {
+            "type": "suppress-line",
+            "auto_fixable": false,
+            "description": "Suppress with an inline comment above the function declaration",
+            "comment": "// fallow-ignore-next-line complexity",
+            "placement": "above-function-declaration"
+          }
+        ]
+      }
+    ],
+    "file_scores": [
+      {
+        "path": "src/components/Admin/Products/ProductFormModal.js",
+        "fan_in": 1,
+        "fan_out": 2,
+        "dead_code_ratio": 0,
+        "complexity_density": 0.24,
+        "maintainability_index": 88.4,
+        "total_cyclomatic": 32,
+        "total_cognitive": 22,
+        "function_count": 12,
+        "lines": 135,
+        "crap_max": 132,
+        "crap_above_threshold": 1
+      }
+    ],
     "targets": [
       {
         "path": "src/components/Typography.js",
@@ -72,11 +148,25 @@
         "recommendation": "This file contains very few lines; review if it adds unnecessary system noise."
       },
       {
+        "path": "src/components/Admin/Analytics/StatCard.js",
+        "lines": 21,
+        "size": 537,
+        "type": "Tiny Component",
+        "recommendation": "This component is very small; consider declaring it inline within its parent component."
+      },
+      {
         "path": "src/components/NavMenu/NavUtilActions.js",
         "lines": 24,
         "size": 857,
         "type": "Tiny Component",
         "recommendation": "This component is very small; consider declaring it inline within its parent component."
+      },
+      {
+        "path": "src/components/Admin/Products/ProductFormHelpers.js",
+        "lines": 99,
+        "size": 3058,
+        "type": "Helper File",
+        "recommendation": "Consider merging this helper file into the main component that consumes it."
       }
     ]
   },
@@ -141,6 +231,40 @@
         ]
       },
       {
+        "path": "src/context/CatalogContext.js",
+        "actions": [
+          {
+            "type": "delete-file",
+            "auto_fixable": false,
+            "description": "Delete this file",
+            "note": "File deletion may remove runtime functionality not visible to static analysis"
+          },
+          {
+            "type": "suppress-file",
+            "auto_fixable": false,
+            "description": "Suppress with a file-level comment at the top of the file",
+            "comment": "// fallow-ignore-file unused-file"
+          }
+        ]
+      },
+      {
+        "path": "src/services/catalogBuilder.js",
+        "actions": [
+          {
+            "type": "delete-file",
+            "auto_fixable": false,
+            "description": "Delete this file",
+            "note": "File deletion may remove runtime functionality not visible to static analysis"
+          },
+          {
+            "type": "suppress-file",
+            "auto_fixable": false,
+            "description": "Suppress with a file-level comment at the top of the file",
+            "comment": "// fallow-ignore-file unused-file"
+          }
+        ]
+      },
+      {
         "path": "src/theme/typography.js",
         "actions": [
           {
@@ -159,6 +283,28 @@
       }
     ],
     "unused_exports": [
+      {
+        "path": "src/components/Admin/Products/ProductFormHelpers.js",
+        "export_name": "CATEGORIES",
+        "is_type_only": false,
+        "line": 11,
+        "col": 13,
+        "span_start": 292,
+        "is_re_export": false,
+        "actions": [
+          {
+            "type": "remove-export",
+            "auto_fixable": true,
+            "description": "Remove the unused export from the public API"
+          },
+          {
+            "type": "suppress-line",
+            "auto_fixable": false,
+            "description": "Suppress with an inline comment above the line",
+            "comment": "// fallow-ignore-next-line unused-export"
+          }
+        ]
+      },
       {
         "path": "src/components/FeaturedSections.js",
         "export_name": "FeaturedCard",
@@ -210,6 +356,50 @@
         "line": 1,
         "col": 13,
         "span_start": 13,
+        "is_re_export": false,
+        "actions": [
+          {
+            "type": "remove-export",
+            "auto_fixable": true,
+            "description": "Remove the unused export from the public API"
+          },
+          {
+            "type": "suppress-line",
+            "auto_fixable": false,
+            "description": "Suppress with an inline comment above the line",
+            "comment": "// fallow-ignore-next-line unused-export"
+          }
+        ]
+      },
+      {
+        "path": "src/services/catalogBuilder.js",
+        "export_name": "buildCatalogTree",
+        "is_type_only": false,
+        "line": 66,
+        "col": 16,
+        "span_start": 2620,
+        "is_re_export": false,
+        "actions": [
+          {
+            "type": "remove-export",
+            "auto_fixable": true,
+            "description": "Remove the unused export from the public API"
+          },
+          {
+            "type": "suppress-line",
+            "auto_fixable": false,
+            "description": "Suppress with an inline comment above the line",
+            "comment": "// fallow-ignore-next-line unused-export"
+          }
+        ]
+      },
+      {
+        "path": "src/services/catalogBuilder.js",
+        "export_name": "buildFlatProductList",
+        "is_type_only": false,
+        "line": 84,
+        "col": 16,
+        "span_start": 3139,
         "is_re_export": false,
         "actions": [
           {

@@ -1,6 +1,6 @@
 # 📄 Small & Pass-Through Files Findings
 
-*Generated on: 09.07.2026, 12:02:22*
+*Generated on: 09.07.2026, 12:25:42*
 
 This report lists very small, redundant, or "pass-through" (bridge/proxy/barrel) files that increase cognitive overhead, add complexity to the file structure, and complicate imports without providing significant architectural value.
 
@@ -16,7 +16,11 @@ This report lists very small, redundant, or "pass-through" (bridge/proxy/barrel)
 
 | [ProductImagePanel.js](file:///D:/Magazine/_PigmentShop/src/components/ProductPage/ProductImagePanel.js) | 18 | 537 | **Tiny Component** | This component is very small; consider declaring it inline within its parent component. |
 
+| [StatCard.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Analytics/StatCard.js) | 21 | 537 | **Tiny Component** | This component is very small; consider declaring it inline within its parent component. |
+
 | [NavUtilActions.js](file:///D:/Magazine/_PigmentShop/src/components/NavMenu/NavUtilActions.js) | 24 | 857 | **Tiny Component** | This component is very small; consider declaring it inline within its parent component. |
+
+| [ProductFormHelpers.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductFormHelpers.js) | 99 | 3058 | **Helper File** | Consider merging this helper file into the main component that consumes it. |
 
 
 [← Back to Main Report](file:///D:/Magazine/_PigmentShop/auditor/reports/auditreport.md)

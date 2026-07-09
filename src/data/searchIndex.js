@@ -1,25 +1,15 @@
-import { HIERARCHY } from './hierarchy';
-
 /**
- * Recursively collects every leaf node (no children) from a hierarchy tree.
+ * searchIndex.js
  *
- * @param {Array} nodes
- * @param {Array} acc – accumulator (mutated in place for performance)
- * @returns {Array}
+ * Re-exports the admin product store as a flat list.
+ * Kept for backward compatibility with any remaining static imports.
+ * Prefer using CatalogContext.flatList for reactive reads.
  */
-function collectLeaves(nodes, acc = []) {
-  for (const node of nodes) {
-    if (!node.children || node.children.length === 0) {
-      acc.push(node);
-    } else {
-      collectLeaves(node.children, acc);
-    }
-  }
-  return acc;
+import { getAdminProducts } from './adminProducts';
+
+export function getSearchIndex() {
+  return getAdminProducts().filter((p) => p.active !== false);
 }
 
-/**
- * Flat list of all product (leaf) nodes, built once at module load time.
- * Used as the source for the global search feature.
- */
-export const SEARCH_INDEX = collectLeaves(HIERARCHY);
+// Static snapshot for components that haven't migrated to context yet
+export const SEARCH_INDEX = getSearchIndex();
