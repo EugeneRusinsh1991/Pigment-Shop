@@ -1,0 +1,174 @@
+/**
+ * ProductFormStyles.js
+ *
+ * Styles for the product create/edit form modal and its fields.
+ */
+import { StyleSheet } from 'react-native';
+
+export default StyleSheet.create({
+  /* Modal overlay */
+  modalOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.4)',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  modalCard: {
+    width: 520,
+    maxHeight: '90%',
+    backgroundColor: '#FFFFFF',
+    borderRadius: 16,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 16 },
+    shadowOpacity: 0.15,
+    shadowRadius: 40,
+    elevation: 10,
+  },
+  modalHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 24,
+    paddingTop: 24,
+    paddingBottom: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: '#F1E8E4',
+  },
+  modalTitle: {
+    fontFamily: '"Cormorant Garamond", "Playfair Display", Georgia, serif',
+    fontSize: 20,
+    fontWeight: '600',
+    color: '#1C1C1C',
+  },
+  modalCloseBtn: {
+    fontSize: 20,
+    color: '#94a3b8',
+    padding: 4,
+  },
+  modalBody: {
+    paddingHorizontal: 24,
+    paddingVertical: 20,
+  },
+  modalFooter: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    gap: 12,
+    paddingHorizontal: 24,
+    paddingBottom: 24,
+    paddingTop: 12,
+    borderTopWidth: 1,
+    borderTopColor: '#F1E8E4',
+  },
+
+  /* Form fields */
+  fieldRow: {
+    flexDirection: 'row',
+    gap: 16,
+    marginBottom: 14,
+  },
+  fieldGroup: {
+    flex: 1,
+  },
+  fieldLabel: {
+    fontSize: 12,
+    fontWeight: '600',
+    color: '#475569',
+    marginBottom: 5,
+    letterSpacing: 0.3,
+  },
+  fieldInput: {
+    height: 40,
+    backgroundColor: '#F5F7FA',
+    borderRadius: 8,
+    paddingHorizontal: 12,
+    fontSize: 13,
+    color: '#1C1C1C',
+    borderWidth: 1,
+    borderColor: '#E8EDF5',
+    outlineStyle: 'none',
+  },
+  fieldInputError: {
+    borderColor: '#E87A8E',
+  },
+  fieldTextarea: {
+    height: 72,
+    backgroundColor: '#F5F7FA',
+    borderRadius: 8,
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+    fontSize: 13,
+    color: '#1C1C1C',
+    borderWidth: 1,
+    borderColor: '#E8EDF5',
+    textAlignVertical: 'top',
+    outlineStyle: 'none',
+  },
+  fieldSelect: {
+    height: 40,
+    backgroundColor: '#F5F7FA',
+    borderRadius: 8,
+    paddingHorizontal: 12,
+    fontSize: 13,
+    color: '#1C1C1C',
+    borderWidth: 1,
+    borderColor: '#E8EDF5',
+    outlineStyle: 'none',
+  },
+  checkRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
+    marginBottom: 14,
+  },
+  checkBox: {
+    width: 20,
+    height: 20,
+    borderRadius: 5,
+    borderWidth: 2,
+    borderColor: '#CBD5E1',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  checkBoxActive: {
+    backgroundColor: '#1C1C1C',
+    borderColor: '#1C1C1C',
+  },
+  checkMark: {
+    color: '#FFFFFF',
+    fontSize: 12,
+    fontWeight: '700',
+  },
+  checkLabel: {
+    fontSize: 13,
+    color: '#475569',
+  },
+  errorText: {
+    color: '#E87A8E',
+    fontSize: 11,
+    marginTop: 2,
+  },
+
+  /* Buttons */
+  cancelBtn: {
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 8,
+    backgroundColor: '#F5F7FA',
+  },
+  cancelBtnText: {
+    fontSize: 13,
+    fontWeight: '600',
+    color: '#475569',
+  },
+  saveBtn: {
+    paddingVertical: 10,
+    paddingHorizontal: 24,
+    borderRadius: 8,
+    backgroundColor: '#1C1C1C',
+  },
+  saveBtnText: {
+    fontSize: 13,
+    fontWeight: '700',
+    color: '#FFFFFF',
+  },
+});

@@ -1,77 +1,253 @@
 {
   "health": {
-    "findings": [
+    "findings": [],
+    "file_scores": [],
+    "targets": [
       {
-        "path": "src/App.js",
-        "name": "App",
-        "line": 26,
-        "col": 15,
-        "cyclomatic": 14,
-        "cognitive": 16,
-        "line_count": 82,
-        "param_count": 0,
-        "react_hook_count": 3,
-        "react_jsx_max_depth": 6,
-        "react_hook_profile": {
-          "state": 3,
-          "effect": 0,
-          "memo": 0,
-          "callback": 0,
-          "custom": 0
+        "path": "src/components/Typography.js",
+        "priority": 22.8,
+        "efficiency": 22.8,
+        "recommendation": "Remove 3 unused exports to reduce surface area (100% dead)",
+        "category": "remove_dead_code",
+        "effort": "low",
+        "confidence": "high",
+        "factors": [
+          {
+            "metric": "dead_code_ratio",
+            "value": 1,
+            "threshold": 0.5,
+            "detail": "3 unused of 3 value exports (100%)"
+          }
+        ],
+        "evidence": {
+          "unused_exports": [
+            "Header",
+            "Subheader",
+            "BodyText"
+          ]
         },
-        "exceeded": "cognitive_crap",
-        "severity": "critical",
-        "crap": 210,
-        "coverage_tier": "none",
-        "coverage_source": "estimated",
         "actions": [
           {
-            "type": "add-tests",
+            "type": "apply-refactoring",
             "auto_fixable": false,
-            "description": "Add test coverage for `App` to lower its CRAP score (coverage reduces risk even without refactoring)",
-            "note": "CRAP = CC^2 * (1 - cov/100)^3 + CC; higher coverage is the fastest way to bring CRAP under threshold"
-          },
-          {
-            "type": "refactor-function",
-            "auto_fixable": false,
-            "description": "Refactor `App` to reduce complexity (extract helper functions, simplify branching)",
-            "note": "Consider splitting into smaller functions with single responsibilities"
+            "description": "Remove 3 unused exports to reduce surface area (100% dead)",
+            "category": "remove_dead_code"
           },
           {
             "type": "suppress-line",
             "auto_fixable": false,
-            "description": "Suppress with an inline comment above the function declaration",
-            "comment": "// fallow-ignore-next-line complexity",
-            "placement": "above-function-declaration"
+            "description": "Suppress the underlying complexity finding",
+            "comment": "// fallow-ignore-next-line complexity"
           }
         ]
       }
     ],
-    "file_scores": [
+    "small_files": [
       {
-        "path": "src/App.js",
-        "fan_in": 1,
-        "fan_out": 0,
-        "dead_code_ratio": 0,
-        "complexity_density": 0.09,
-        "maintainability_index": 97.3,
-        "total_cyclomatic": 25,
-        "total_cognitive": 20,
-        "function_count": 8,
-        "lines": 285,
-        "crap_max": 210,
-        "crap_above_threshold": 1
+        "path": "src/components/PlaceholderCard.js",
+        "lines": 15,
+        "size": 512,
+        "type": "Tiny Component",
+        "recommendation": "This component is very small; consider declaring it inline within its parent component."
+      },
+      {
+        "path": "src/components/NavMenu/NavPanelHeader.js",
+        "lines": 17,
+        "size": 651,
+        "type": "Tiny Component",
+        "recommendation": "This component is very small; consider declaring it inline within its parent component."
+      },
+      {
+        "path": "src/components/ProductPage/ProductImagePanel.js",
+        "lines": 18,
+        "size": 537,
+        "type": "Tiny Component",
+        "recommendation": "This component is very small; consider declaring it inline within its parent component."
+      },
+      {
+        "path": "src/hooks/useSearch.js",
+        "lines": 20,
+        "size": 563,
+        "type": "Tiny File",
+        "recommendation": "This file contains very few lines; review if it adds unnecessary system noise."
+      },
+      {
+        "path": "src/components/NavMenu/NavUtilActions.js",
+        "lines": 24,
+        "size": 857,
+        "type": "Tiny Component",
+        "recommendation": "This component is very small; consider declaring it inline within its parent component."
       }
-    ],
-    "targets": [],
-    "small_files": []
+    ]
   },
   "dupes": {
-    "clone_groups": []
+    "clone_groups": [
+      {
+        "instances": [
+          {
+            "file": "src/components/DiscountsSection.js",
+            "start_line": 20,
+            "end_line": 33,
+            "start_col": 8,
+            "end_col": 11,
+            "fragment": "keyExtractor={(item) => item.id}\n        numColumns={cols}\n        key={`sale-grid-${cols}`}\n        renderItem={({ item }) => (\n          <PlaceholderCard\n            item={item}\n            onPress={() => onCardPress(item)}\n            isDark={isDark}\n            isLeaf={true}\n          />\n        )}\n        scrollEnabled={false}\n      />\n    </View>"
+          },
+          {
+            "file": "src/components/NewArrivalsFooter.js",
+            "start_line": 18,
+            "end_line": 31,
+            "start_col": 8,
+            "end_col": 11,
+            "fragment": "keyExtractor={(item) => item.id}\n        numColumns={cols}\n        key={`prod-grid-${cols}`}\n        renderItem={({ item }) => (\n          <PlaceholderCard\n            item={item}\n            onPress={() => onCardPress(item)}\n            isDark={isDark}\n            isLeaf={true}\n          />\n        )}\n        scrollEnabled={false}\n      />\n    </View>"
+          }
+        ],
+        "token_count": 51,
+        "line_count": 14,
+        "fingerprint": "dup:81965cb7",
+        "suggested_name": "isDark",
+        "actions": [
+          {
+            "type": "extract-shared",
+            "auto_fixable": false,
+            "description": "Extract duplicated code (14 lines, 2 instances) into a shared function"
+          },
+          {
+            "type": "suppress-line",
+            "auto_fixable": false,
+            "description": "Suppress with an inline comment above the duplicated code",
+            "comment": "// fallow-ignore-next-line code-duplication"
+          }
+        ]
+      }
+    ]
   },
   "check": {
-    "unused_files": [],
-    "unused_exports": [],
+    "unused_files": [
+      {
+        "path": "src/components/Typography.js",
+        "actions": [
+          {
+            "type": "delete-file",
+            "auto_fixable": false,
+            "description": "Delete this file",
+            "note": "File deletion may remove runtime functionality not visible to static analysis"
+          },
+          {
+            "type": "suppress-file",
+            "auto_fixable": false,
+            "description": "Suppress with a file-level comment at the top of the file",
+            "comment": "// fallow-ignore-file unused-file"
+          }
+        ]
+      },
+      {
+        "path": "src/theme/typography.js",
+        "actions": [
+          {
+            "type": "delete-file",
+            "auto_fixable": false,
+            "description": "Delete this file",
+            "note": "File deletion may remove runtime functionality not visible to static analysis"
+          },
+          {
+            "type": "suppress-file",
+            "auto_fixable": false,
+            "description": "Suppress with a file-level comment at the top of the file",
+            "comment": "// fallow-ignore-file unused-file"
+          }
+        ]
+      }
+    ],
+    "unused_exports": [
+      {
+        "path": "src/components/FeaturedSections.js",
+        "export_name": "FeaturedCard",
+        "is_type_only": false,
+        "line": 72,
+        "col": 16,
+        "span_start": 2843,
+        "is_re_export": false,
+        "actions": [
+          {
+            "type": "remove-export",
+            "auto_fixable": true,
+            "description": "Remove the unused export from the public API"
+          },
+          {
+            "type": "suppress-line",
+            "auto_fixable": false,
+            "description": "Suppress with an inline comment above the line",
+            "comment": "// fallow-ignore-next-line unused-export"
+          }
+        ]
+      },
+      {
+        "path": "src/components/ProductPage/ProductImagePanel.js",
+        "export_name": "PRODUCT_PLACEHOLDER",
+        "is_type_only": false,
+        "line": 5,
+        "col": 13,
+        "span_start": 127,
+        "is_re_export": false,
+        "actions": [
+          {
+            "type": "remove-export",
+            "auto_fixable": true,
+            "description": "Remove the unused export from the public API"
+          },
+          {
+            "type": "suppress-line",
+            "auto_fixable": false,
+            "description": "Suppress with an inline comment above the line",
+            "comment": "// fallow-ignore-next-line unused-export"
+          }
+        ]
+      },
+      {
+        "path": "src/data/hierarchy.js",
+        "export_name": "LEVEL_NAMES",
+        "is_type_only": false,
+        "line": 1,
+        "col": 13,
+        "span_start": 13,
+        "is_re_export": false,
+        "actions": [
+          {
+            "type": "remove-export",
+            "auto_fixable": true,
+            "description": "Remove the unused export from the public API"
+          },
+          {
+            "type": "suppress-line",
+            "auto_fixable": false,
+            "description": "Suppress with an inline comment above the line",
+            "comment": "// fallow-ignore-next-line unused-export"
+          }
+        ]
+      },
+      {
+        "path": "src/theme/typography.js",
+        "export_name": "typography",
+        "is_type_only": false,
+        "line": 9,
+        "col": 13,
+        "span_start": 231,
+        "is_re_export": false,
+        "actions": [
+          {
+            "type": "remove-export",
+            "auto_fixable": true,
+            "description": "Remove the unused export from the public API"
+          },
+          {
+            "type": "suppress-line",
+            "auto_fixable": false,
+            "description": "Suppress with an inline comment above the line",
+            "comment": "// fallow-ignore-next-line unused-export"
+          }
+        ]
+      }
+    ],
     "unused_dependencies": [
       {
         "package_name": "@expo/metro-runtime",

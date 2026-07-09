@@ -1,10 +1,8 @@
 # 🩺 Complexity Health Findings (Critical & High)
 
-*Generated on: 09.07.2026, 01:26:53*
+*Generated on: 09.07.2026, 12:02:22*
 
-| Severity | Function / Method | File | Lines | Cyclomatic | Cognitive | CRAP | Location |
-| :---: | :--- | :--- | :---: | :---: | :---: | :---: | :---: |
-| 🔴 Critical | `App` | [App.js](file:///D:/Magazine/Pigment shop/src/App.js) | 82 | 14 | 16 | 210 | [L26](file:///D:/Magazine/Pigment shop/src/App.js#L26) |
+*No critical or high-severity complexity findings found.*
 
 
-[← Back to Main Report](file:///D:/Magazine/Pigment shop/auditor/reports/auditreport.md)
+[← Back to Main Report](file:///D:/Magazine/_PigmentShop/auditor/reports/auditreport.md)

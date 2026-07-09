@@ -1,0 +1,140 @@
+import React from 'react';
+import { StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native';
+
+export default function CartItem({ item, isDark, onIncrease, onDecrease, onRemove }) {
+  const subtotal = `$${(parseFloat(item.price.slice(1)) * item.qty).toFixed(2)}`;
+  const ic = (dark, light) => (isDark ? dark : light);
+
+  return (
+    <View style={[styles.card, ic(styles.cardDark, styles.cardLight)]}>
+      {/* Product Image */}
+      <View style={[styles.imageWrap, ic(styles.imageWrapDark, styles.imageWrapLight)]}>
+        <Image
+          source={{ uri: 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=600&auto=format&fit=crop' }}
+          style={styles.img}
+          resizeMode="cover"
+        />
+      </View>
+
+      {/* Product Info & Controls */}
+      <View style={styles.details}>
+        <View style={styles.headerRow}>
+          <Text style={[styles.label, ic(styles.labelDark, styles.labelLight)]} numberOfLines={2}>
+            {item.label}
+          </Text>
+          <TouchableOpacity style={styles.removeBtn} onPress={onRemove} activeOpacity={0.7}>
+            <Text style={[styles.removeTxt, ic(styles.removeTxtDark, styles.removeTxtLight)]}>✕</Text>
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.priceRow}>
+          <Text style={[styles.unitPrice, ic(styles.unitPriceDark, styles.unitPriceLight)]}>
+            {item.price}
+          </Text>
+        </View>
+
+        <View style={styles.footerRow}>
+          <View style={styles.qtyRow}>
+            <TouchableOpacity
+              style={[styles.qtyBtn, ic(styles.qtyBtnDark, styles.qtyBtnLight)]}
+              onPress={onDecrease}
+              activeOpacity={0.7}
+            >
+              <Text style={[styles.qtyBtnTxt, ic(styles.qtyBtnTxtDark, styles.qtyBtnTxtLight)]}>−</Text>
+            </TouchableOpacity>
+
+            <Text style={[styles.qty, ic(styles.qtyDark, styles.qtyLight)]}>{item.qty}</Text>
+
+            <TouchableOpacity
+              style={[styles.qtyBtn, ic(styles.qtyBtnDark, styles.qtyBtnLight)]}
+              onPress={onIncrease}
+              activeOpacity={0.7}
+            >
+              <Text style={[styles.qtyBtnTxt, ic(styles.qtyBtnTxtDark, styles.qtyBtnTxtLight)]}>+</Text>
+            </TouchableOpacity>
+          </View>
+
+          <Text style={[styles.subtotal, ic(styles.subtotalDark, styles.subtotalLight)]}>
+            {subtotal}
+          </Text>
+        </View>
+      </View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  card: {
+    flexDirection: 'row',
+    marginHorizontal: 16,
+    marginVertical: 6,
+    borderRadius: 16,
+    padding: 12,
+    borderWidth: 1,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
+    elevation: 2,
+  },
+  cardDark: { backgroundColor: '#121212', borderColor: '#242424' },
+  cardLight: { backgroundColor: '#ffffff', borderColor: '#e2e8f0' },
+
+  imageWrap: {
+    width: 80,
+    height: 80,
+    borderRadius: 12,
+    overflow: 'hidden',
+  },
+  imageWrapDark: { backgroundColor: '#1E1E1E' },
+  imageWrapLight: { backgroundColor: '#e8edf5' },
+  img: {
+    width: '100%',
+    height: '100%',
+  },
+
+  details: {
+    flex: 1,
+    marginLeft: 12,
+    justifyContent: 'space-between',
+  },
+
+  headerRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+  },
+  label: { fontSize: 13, fontWeight: '700', flex: 1, marginRight: 8, lineHeight: 18 },
+  labelDark: { color: '#ffffff' },
+  labelLight: { color: '#0f172a' },
+
+  removeBtn: { padding: 4, marginTop: -4 },
+  removeTxt: { fontSize: 14, fontWeight: '600' },
+  removeTxtDark: { color: '#64748b' },
+  removeTxtLight: { color: '#94a3b8' },
+
+  priceRow: { marginBottom: 2 },
+  unitPrice: { fontSize: 12 },
+  unitPriceDark: { color: '#64748b' },
+  unitPriceLight: { color: '#94a3b8' },
+
+  footerRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  qtyRow: { flexDirection: 'row', alignItems: 'center' },
+  qtyBtn: { width: 28, height: 28, borderRadius: 8, alignItems: 'center', justifyContent: 'center', borderWidth: 1 },
+  qtyBtnDark: { backgroundColor: '#0f172a', borderColor: '#334155' },
+  qtyBtnLight: { backgroundColor: '#f1f5f9', borderColor: '#e2e8f0' },
+  qtyBtnTxt: { fontSize: 16, lineHeight: 20, fontWeight: '500' },
+  qtyBtnTxtDark: { color: '#f1f5f9' },
+  qtyBtnTxtLight: { color: '#0f172a' },
+  qty: { fontSize: 14, fontWeight: '700', marginHorizontal: 8, minWidth: 20, textAlign: 'center' },
+  qtyDark: { color: '#f1f5f9' },
+  qtyLight: { color: '#0f172a' },
+
+  subtotal: { fontSize: 13, fontWeight: '800' },
+  subtotalDark: { color: '#38bdf8' },
+  subtotalLight: { color: '#7c3aed' },
+});
