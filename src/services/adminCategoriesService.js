@@ -1,12 +1,17 @@
 /**
  * adminCategoriesService.js
  *
- * CRUD helpers for the admin category catalog.
- * All mutation functions return a new categories array — they do NOT write
- * to the store or to Firestore. Callers decide whether to commit.
+ * Pure transform helpers for the admin category catalog.
  *
- * Firestore persistence is handled by adminCatalogBoundary.persistCategories().
- * In-memory state reads come from catalogState.getCategories().
+ * All functions return a new categories array — they do NOT write to the store
+ * or to Firestore. Callers (e.g. CategoriesManager) decide whether to commit
+ * the result by calling adminCatalogBoundary.persistCategories().
+ *
+ * The read from catalogState.getCategories() is used only as a convenience
+ * default argument so callers can omit the current list. This is a read-only
+ * dependency and does not couple category mutation logic to the storefront path.
+ *
+ * Firestore persistence is handled exclusively by adminCatalogBoundary.persistCategories().
  */
 
 import { getCategories } from '../data/catalogState';

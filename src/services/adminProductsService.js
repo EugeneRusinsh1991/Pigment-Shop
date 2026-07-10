@@ -2,12 +2,25 @@
  * adminProductsService.js
  *
  * CRUD operations for the admin product catalog.
- * Reads from and writes to catalogState — mutations automatically notify all subscribers.
+ *
+ * All mutations are now delegated to adminCatalogBoundary, which is the
+ * single owner of admin-side product state changes. This service retains
+ * the search helpers and re-exports the boundary commands so that the admin
+ * UI has a stable, single-import surface.
  *
  * Product data lives in memory only (no Firestore backing for products).
  */
 
-import { getProducts, setProducts } from '../data/catalogState';
+import { getProducts } from '../data/catalogState';
+import {
+  addProduct,
+  updateProduct,
+  removeProduct,
+} from './adminCatalogBoundary';
+
+// Re-export boundary commands so callers that import from this service
+// do not need to be updated.
+export { addProduct, updateProduct, removeProduct };
 
 /** Returns all products (current snapshot). */
 export function getAllProducts() {
@@ -49,51 +62,4 @@ export function searchProducts(query) {
   if (!query || !query.trim()) return getProducts();
   const q = query.toLowerCase();
   return getProducts().filter((p) => productMatchesQuery(p, q));
-}
-
-/**
- * Add a new product. Auto-generates an id.
- * @param {Object} product
- * @returns {Object} The created product.
- */
-export function addProduct(product) {
-  const newProduct = {
-    ...product,
-    id: `p-admin-${Date.now()}`,
-    sold: product.sold ?? 0,
-    stock: product.stock ?? 0,
-    active: product.active ?? true,
-  };
-  setProducts([...getProducts(), newProduct]);
-  return newProduct;
-}
-
-/**
- * Update an existing product by id.
- * @param {string} id
- * @param {Object} changes
- * @returns {Object|null} Updated product or null if not found.
- */
-export function updateProduct(id, changes) {
-  const products = getProducts();
-  const idx = products.findIndex((p) => p.id === id);
-  if (idx === -1) return null;
-  const updated = { ...products[idx], ...changes };
-  const newList = [...products];
-  newList[idx] = updated;
-  setProducts(newList);
-  return updated;
-}
-
-/**
- * Remove a product by id.
- * @param {string} id
- * @returns {boolean} True if removed.
- */
-export function removeProduct(id) {
-  const before = getProducts();
-  const after = before.filter((p) => p.id !== id);
-  if (after.length === before.length) return false;
-  setProducts(after);
-  return true;
 }
