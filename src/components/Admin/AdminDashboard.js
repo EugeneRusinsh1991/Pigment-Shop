@@ -3,23 +3,17 @@
  *
  * Root admin entry point. Manages auth state.
  * Renders LoginScreen when unauthenticated, AdminPanel otherwise.
- * Calls CatalogContext.refresh() when the panel closes so the storefront
- * immediately reflects any changes made in the admin.
+ *
+ * No manual catalog refresh needed on close — CatalogStore notifies
+ * the storefront automatically after every admin mutation.
  */
 import React, { useState } from 'react';
 import { isAuthenticated } from '../../services/adminAuth';
-import { useCatalog } from '../../context/CatalogContext';
 import AdminLoginScreen from './AdminLoginScreen';
 import AdminPanel from './AdminPanel';
 
 export default function AdminDashboard({ onClose }) {
   const [authed, setAuthed] = useState(isAuthenticated());
-  const { refresh } = useCatalog();
-
-  const handleClose = () => {
-    refresh();
-    onClose();
-  };
 
   if (!authed) {
     return <AdminLoginScreen onAuthenticated={() => setAuthed(true)} />;
@@ -27,7 +21,7 @@ export default function AdminDashboard({ onClose }) {
 
   return (
     <AdminPanel
-      onBack={handleClose}
+      onBack={onClose}
       onLogout={() => setAuthed(false)}
     />
   );

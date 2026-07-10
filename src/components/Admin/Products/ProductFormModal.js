@@ -16,87 +16,24 @@ import {
   PriceDiscountRow,
 } from './ProductFormFields';
 import styles from './ProductFormStyles';
+import { useTheme } from '../../../context/ThemeContext';
 
-const EMPTY_FORM = {
-  label: '', description: '', price: '', discountPercent: '', isNew: false,
-  brand: '', sku: '', category: 'Другое', stock: '', image: '', active: true,
-};
-
-function buildInitialForm(product) {
-  if (!product) return { ...EMPTY_FORM };
-  return {
-    label: product.label ?? '',
-    description: product.description ?? '',
-    price: String(product.price ?? ''),
-    discountPercent: String(product.discountPercent ?? ''),
-    isNew: !!product.isNew,
-    brand: product.brand ?? '',
-    sku: product.sku ?? '',
-    category: product.category ?? 'Другое',
-    stock: String(product.stock ?? ''),
-    image: product.image ?? '',
-    active: product.active !== false,
-  };
-}
-
-function validateForm(form) {
-  const errors = {};
-  if (!form.label.trim()) errors.label = 'Обязательное поле';
-  const price = parseFloat(form.price);
-  if (isNaN(price) || price <= 0) errors.price = 'Введите корректную цену';
-  return errors;
-}
-
-function parseFormToProduct(form) {
-  return {
-    label: form.label.trim(),
-    description: form.description.trim(),
-    price: parseFloat(form.price) || 0,
-    discountPercent: parseInt(form.discountPercent, 10) || 0,
-    isNew: form.isNew,
-    brand: form.brand.trim(),
-    sku: form.sku.trim(),
-    category: form.category,
-    stock: parseInt(form.stock, 10) || 0,
-    image: form.image.trim(),
-    active: form.active,
-  };
-}
-
-function ModalHeader({ isEdit, onClose }) {
-  return (
-    <View style={styles.modalHeader}>
-      <Text style={styles.modalTitle}>{isEdit ? 'Редактировать товар' : 'Новый товар'}</Text>
-      <TouchableOpacity onPress={onClose}>
-        <Text style={styles.modalCloseBtn}>✕</Text>
-      </TouchableOpacity>
-    </View>
-  );
-}
-
-function ModalFooter({ onCancel, onSave }) {
-  return (
-    <View style={styles.modalFooter}>
-      <TouchableOpacity style={styles.cancelBtn} onPress={onCancel}>
-        <Text style={styles.cancelBtnText}>Отмена</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.saveBtn} onPress={onSave}>
-        <Text style={styles.saveBtnText}>Сохранить</Text>
-      </TouchableOpacity>
-    </View>
-  );
-}
+import { FormModalLayout, LanguageTabs } from '../SharedFormComponents';
+import { buildInitialForm, validateForm, parseFormToProduct } from './productFormLogic';
 
 export default function ProductFormModal({ visible, product, onSave, onClose }) {
-  const [form, setForm] = useState(() => buildInitialForm(product));
+  const { t, lang } = useTheme();
+  const [form, setForm] = useState(() => buildInitialForm(product, lang));
   const [errors, setErrors] = useState({});
+  const [activeLang, setActiveLang] = useState(lang);
 
   React.useEffect(() => {
     if (visible) {
-      setForm(buildInitialForm(product));
+      setForm(buildInitialForm(product, lang));
       setErrors({});
+      setActiveLang(lang);
     }
-  }, [visible, product]);
+  }, [visible, product, lang]);
 
   const handleChange = (field, value) => {
     setForm((prev) => ({ ...prev, [field]: value }));
@@ -104,31 +41,31 @@ export default function ProductFormModal({ visible, product, onSave, onClose }) 
   };
 
   const handleSave = () => {
-    const validationErrors = validateForm(form);
+    const validationErrors = validateForm(form, t);
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
       return;
     }
-    onSave(parseFormToProduct(form));
+    onSave(parseFormToProduct(form, product, lang));
   };
 
   return (
-    <Modal visible={visible} transparent animationType="fade" onRequestClose={onClose}>
-      <View style={styles.modalOverlay}>
-        <View style={styles.modalCard}>
-          <ModalHeader isEdit={!!product} onClose={onClose} />
-          <ScrollView style={styles.modalBody}>
-            <NameField form={form} onChange={handleChange} errors={errors} />
-            <DescriptionField form={form} onChange={handleChange} />
-            <PriceDiscountRow form={form} onChange={handleChange} errors={errors} />
-            <BrandSkuRow form={form} onChange={handleChange} />
-            <CategoryStockRow form={form} onChange={handleChange} />
-            <ImageField form={form} onChange={handleChange} />
-            <FlagsSection form={form} onChange={handleChange} />
-          </ScrollView>
-          <ModalFooter onCancel={onClose} onSave={handleSave} />
-        </View>
-      </View>
-    </Modal>
+    <FormModalLayout
+      visible={visible}
+      title={product ? t('adminProductsEditTitle') : t('adminProductsNewTitle')}
+      onClose={onClose}
+      onSave={handleSave}
+      styles={styles}
+      cardWidth={520}
+    >
+      <LanguageTabs activeLang={activeLang} onChange={setActiveLang} />
+      <NameField form={form} onChange={handleChange} errors={errors} activeLang={activeLang} />
+      <DescriptionField form={form} onChange={handleChange} activeLang={activeLang} />
+      <PriceDiscountRow form={form} onChange={handleChange} errors={errors} />
+      <BrandSkuRow form={form} onChange={handleChange} />
+      <CategoryStockRow form={form} onChange={handleChange} />
+      <ImageField form={form} onChange={handleChange} />
+      <FlagsSection form={form} onChange={handleChange} />
+    </FormModalLayout>
   );
 }

@@ -15,8 +15,10 @@ import {
 import ProductFormModal from './ProductFormModal';
 import ProductsTable from './ProductsTable';
 import styles from './ProductsStyles';
+import { useTheme } from '../../../context/ThemeContext';
 
 function SearchToolbar({ query, onChangeQuery, onAdd }) {
+  const { t } = useTheme();
   return (
     <View style={styles.toolbar}>
       <View style={styles.searchInputWrap}>
@@ -25,13 +27,13 @@ function SearchToolbar({ query, onChangeQuery, onAdd }) {
           style={styles.searchInput}
           value={query}
           onChangeText={onChangeQuery}
-          placeholder="Поиск по названию, бренду, артикулу..."
+          placeholder={t('adminProductsSearchPlaceholder')}
           placeholderTextColor="#CBD5E1"
           autoCapitalize="none"
         />
       </View>
       <TouchableOpacity style={styles.addBtn} onPress={onAdd} activeOpacity={0.85}>
-        <Text style={styles.addBtnText}>+ Добавить товар</Text>
+        <Text style={styles.addBtnText}>{t('adminProductsAddBtn')}</Text>
       </TouchableOpacity>
     </View>
   );

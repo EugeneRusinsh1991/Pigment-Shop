@@ -5,14 +5,18 @@ import CatalogHeader from './CatalogHeader';
 import DiscountsSection from './DiscountsSection';
 import NewArrivalsFooter from './NewArrivalsFooter';
 import styles from '../AppStyles';
+import { useFavoritesContext } from '../context/FavoritesContext';
+import { useNavigation } from '../context/NavigationContext';
+import { useTheme } from '../context/ThemeContext';
 
 const COLS_MAP = {
-  wide: { depth0: 2, depthRest: 4 },
-  narrow: { depth0: 2, depthRest: 2 },
+  desktop: { depth0: 4, depthRest: 4 },
+  tablet: { depth0: 2, depthRest: 4 },
+  mobile: { depth0: 2, depthRest: 2 },
 };
 
 const CARD_WIDTH_MAP = {
-  depth0: { desktop: 480, tablet: 340, mobile: 145 },
+  depth0: { desktop: 250, tablet: 340, mobile: 145 },
   depthRest: { desktop: 250, tablet: 250, mobile: 250 },
 };
 
@@ -24,10 +28,9 @@ function getCatalogLayout(isWide, depth, windowWidth) {
     ? 'desktop' 
     : (windowWidth >= 768 ? 'tablet' : 'mobile');
 
-  const wideKey = isWide ? 'wide' : 'narrow';
   const depthKey = depth === 0 ? 'depth0' : 'depthRest';
 
-  const cols = COLS_MAP[wideKey][depthKey];
+  const cols = COLS_MAP[device][depthKey];
   const cardWidth = CARD_WIDTH_MAP[depthKey][device];
   const gridWidth = cols * (cardWidth + 16);
 
@@ -38,15 +41,15 @@ function getCatalogLayout(isWide, depth, windowWidth) {
  * CatalogFooter Helper Component
  * Renders the discounts and new arrivals sections for depth 0.
  */
-function CatalogFooter({ depth, isDark, isWide, t, onCardPress }) {
+function CatalogFooter({ depth, isDark, isWide, t, onCardPress, favs }) {
   if (depth !== 0) {
     return null;
   }
 
   return (
     <View style={{ gap: 32 }}>
-      <DiscountsSection isDark={isDark} isWide={isWide} t={t} onCardPress={onCardPress} />
-      <NewArrivalsFooter isDark={isDark} isWide={isWide} t={t} onCardPress={onCardPress} />
+      <DiscountsSection isDark={isDark} isWide={isWide} t={t} onCardPress={onCardPress} favs={favs} />
+      <NewArrivalsFooter isDark={isDark} isWide={isWide} t={t} onCardPress={onCardPress} favs={favs} />
     </View>
   );
 }
@@ -54,8 +57,8 @@ function CatalogFooter({ depth, isDark, isWide, t, onCardPress }) {
 /**
  * Helper to render catalog list items.
  */
-function renderCatalogItem({ item, onCardPress, isDark, depth }) {
-  const isLeaf = !item.children || item.children.length === 0;
+function renderCatalogItem({ item, onCardPress, isDark, depth, favs }) {
+  const isLeaf = !item.isCategory;
   return (
     <PlaceholderCard
       item={item}
@@ -63,6 +66,8 @@ function renderCatalogItem({ item, onCardPress, isDark, depth }) {
       isDark={isDark}
       isLeaf={isLeaf}
       depth={depth}
+      isFavorite={favs?.isFavorite(item.id)}
+      onToggleFavorite={favs?.toggleFavorite}
     />
   );
 }
@@ -78,11 +83,13 @@ export default function CatalogView({
   currentLevel,
   items,
   crumbs,
-  t,
-  onCrumbPress,
-  onCardPress,
 }) {
   const { width: windowWidth } = useWindowDimensions();
+  const { t } = useTheme();
+  const favs = useFavoritesContext();
+  const { handleCrumbPress, handleCardPress } = useNavigation();
+  const onCrumbPress = handleCrumbPress;
+  const onCardPress = handleCardPress;
   const { cols, gridWidth } = getCatalogLayout(isWide, depth, windowWidth);
 
   return (
@@ -103,7 +110,7 @@ export default function CatalogView({
       keyExtractor={(item) => item.id}
       numColumns={cols}
       key={`grid-${cols}`}
-      renderItem={({ item }) => renderCatalogItem({ item, onCardPress, isDark, depth })}
+      renderItem={({ item }) => renderCatalogItem({ item, onCardPress, isDark, depth, favs })}
       contentContainerStyle={[styles.list, { alignSelf: 'center', width: gridWidth }]}
       showsVerticalScrollIndicator={false}
       ListFooterComponent={
@@ -113,6 +120,7 @@ export default function CatalogView({
           isWide={isWide}
           t={t}
           onCardPress={onCardPress}
+          favs={favs}
         />
       }
     />

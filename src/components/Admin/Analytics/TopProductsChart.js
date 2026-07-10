@@ -7,14 +7,31 @@ import React, { useMemo } from 'react';
 import { Text, View } from 'react-native';
 import { getTopProducts } from '../../../data/adminAnalytics';
 import styles from './AnalyticsStyles';
+import { useTheme } from '../../../context/ThemeContext';
 
 function truncateLabel(label, maxLen = 28) {
   if (label.length <= maxLen) return label;
   return label.slice(0, maxLen - 1) + '…';
 }
 
+function resolveLocalizedValue(val, lang) {
+  if (!val) return '';
+  if (typeof val === 'object') {
+    return val[lang] || val.en || val.ru || '';
+  }
+  return val;
+}
+
 export default function TopProductsChart() {
-  const products = useMemo(() => getTopProducts(5), []);
+  const { lang } = useTheme();
+  
+  const products = useMemo(() => {
+    return getTopProducts(5).map((p) => ({
+      ...p,
+      label: resolveLocalizedValue(p.label, lang),
+    }));
+  }, [lang]);
+
   const maxValue = Math.max(...products.map((p) => p.value), 1);
 
   return (

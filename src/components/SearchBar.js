@@ -1,18 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { View } from 'react-native';
 import { useCatalog } from '../context/CatalogContext';
-import useSearch from '../hooks/useSearch';
+import { useNavigation } from '../context/NavigationContext';
 import styles from './SearchBar/SearchBarStyles';
 import SearchInput from './SearchBar/SearchInput';
 import SearchDropdown from './SearchBar/SearchDropdown';
 
-export default function SearchBar({ isDark, onSelectResult }) {
+export default function SearchBar({ isDark }) {
   const [query, setQuery] = useState('');
   const { flatList } = useCatalog();
-  const results = useSearch(flatList, query);
+  const { selectProductFromSearch } = useNavigation();
+
+  const results = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    if (!q) return [];
+    return flatList.filter((item) => item.label.toLowerCase().includes(q));
+  }, [flatList, query]);
 
   const handleSelect = (item) => {
-    onSelectResult(item);
+    selectProductFromSearch(item);
     setQuery('');
   };
 

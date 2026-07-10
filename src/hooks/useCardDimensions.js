@@ -1,8 +1,8 @@
 import { useWindowDimensions } from 'react-native';
 
 const WIDTH_MAP = {
-  depth0: { desktop: 480, tablet: 340, mobile: 145 },
-  depthRest: { desktop: 230, tablet: 160, mobile: 145 },
+  depth0: { desktop: 250, tablet: 340, mobile: 145 },
+  depthRest: { desktop: 250, tablet: 160, mobile: 145 },
 };
 
 const STANDARD_HEIGHTS = { desktop: 340, tablet: 280, mobile: 220 };

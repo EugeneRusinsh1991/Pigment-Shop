@@ -1,10 +1,10 @@
 # 🎯 Priority Refactoring Targets
 
-*Generated on: 09.07.2026, 12:25:42*
+*Generated on: 11.07.2026, 01:48:57*
 
 | Priority | File | Recommendation | Effort | Category |
 | :---: | :--- | :--- | :---: | :--- |
-| 1 (22.8) | [Typography.js](file:///D:/Magazine/_PigmentShop/src/components/Typography.js) | Remove 3 unused exports to reduce surface area (100% dead) | 低度 (Low) | remove dead code |
+| 1 (25.6) | [ThemeContext.js](file:///D:/Magazine/_PigmentShop/src/context/ThemeContext.js) | Split high-impact file (54 LOC), 42 dependents amplify every change | 高度 (High) | split high impact |
 
 
 [← Back to Main Report](file:///D:/Magazine/_PigmentShop/auditor/reports/auditreport.md)

@@ -3,15 +3,15 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
   wrapper: {
     zIndex: 500,
-    borderBottomWidth: 1,
+    borderBottomWidth: 0,
   },
-  wrapperDark: { backgroundColor: '#0f172a', borderBottomColor: '#1e293b' },
-  wrapperLight: { backgroundColor: '#f8fafc', borderBottomColor: '#e2e8f0' },
+  wrapperDark: { backgroundColor: 'transparent' },
+  wrapperLight: { backgroundColor: 'transparent' },
 
   inputRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginHorizontal: 12,
+    marginHorizontal: 0,
     marginVertical: 8,
     paddingHorizontal: 12,
     borderRadius: 10,
@@ -34,8 +34,8 @@ export default StyleSheet.create({
   dropdown: {
     position: 'absolute',
     top: 56,
-    left: 12,
-    right: 12,
+    left: 0,
+    right: 0,
     borderRadius: 12,
     borderWidth: 1,
     maxHeight: 280,

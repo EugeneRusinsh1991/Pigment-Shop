@@ -1,22 +1,30 @@
 import React, { useState } from 'react';
-import { ScrollView, useWindowDimensions, View, TouchableOpacity, Text } from 'react-native';
+import { ScrollView, useWindowDimensions, View } from 'react-native';
 import styles from './ProductPage/ProductPageStyles';
-import ProductImagePanel from './ProductPage/ProductImagePanel';
-import ProductInfoPanel from './ProductPage/ProductInfoPanel';
 import ProductReviews from './ProductPage/ProductReviews';
-import Breadcrumb from './Breadcrumb';
+import { useCartContext } from '../context/CartContext';
+import { useFavoritesContext } from '../context/FavoritesContext';
+import { useNavigation } from '../context/NavigationContext';
+import { useTheme } from '../context/ThemeContext';
+import { useCatalog } from '../context/CatalogContext';
+import { ProductInfoPanel, ProductImagePanel } from './ProductPage/ProductInfoPanel';
 
-export default function ProductPage({ product, isDark, crumbs, onCrumbPress, onBack, onAddToCart }) {
+export default function ProductPage({ product: initialProduct, isDark }) {
   const [qty, setQty] = useState(1);
   const { width: windowWidth } = useWindowDimensions();
   const isWide = windowWidth >= 768;
+  const { flatList } = useCatalog();
+  const product = flatList.find((p) => p.id === initialProduct.id) || initialProduct;
+  const { addItem } = useCartContext();
+  const { isFavorite, toggleFavorite } = useFavoritesContext();
+  const { setShowCart: navSetShowCart } = useNavigation();
+
+  const onAddToCart = (prod, prc, q) => { addItem(prod, prc, q); navSetShowCart(true); };
+  const productIsFavorite = isFavorite(product.id);
+  const onToggleFavorite = toggleFavorite;
 
   const decreaseQty = () => setQty((q) => Math.max(1, q - 1));
   const increaseQty = () => setQty((q) => Math.min(99, q + 1));
-
-  const productCrumbs = [...crumbs, { label: product.label }];
-  const tc = isDark ? styles.textDark : styles.textLight;
-  const ph = isWide ? 32 : 16;
 
   const cols = isWide ? 4 : 2;
   const cardWidth = 250;
@@ -26,18 +34,6 @@ export default function ProductPage({ product, isDark, crumbs, onCrumbPress, onB
     <View style={[styles.root, isDark ? styles.rootDark : styles.rootLight]}>
       <ScrollView contentContainerStyle={styles.scroll} showsVerticalScrollIndicator={false}>
         <View style={{ alignSelf: 'center', width: gridWidth, maxWidth: '100%' }}>
-          <View style={{ paddingHorizontal: ph, paddingTop: 16 }}>
-            <Breadcrumb stack={productCrumbs} onPress={onCrumbPress} isDark={isDark} />
-          </View>
-
-          <TouchableOpacity 
-            style={{ paddingHorizontal: ph, paddingTop: 8, paddingBottom: 8, alignSelf: 'flex-start' }} 
-            onPress={onBack} 
-            activeOpacity={0.7}
-          >
-            <Text style={[{ fontSize: 14, fontWeight: '500' }, tc]}>‹ Назад</Text>
-          </TouchableOpacity>
-
           <View style={isWide ? styles.wideRow : styles.narrowStack}>
             <ProductImagePanel image={product.image} isWide={isWide} />
             <ProductInfoPanel
@@ -48,6 +44,8 @@ export default function ProductPage({ product, isDark, crumbs, onCrumbPress, onB
               onDecrease={decreaseQty}
               onIncrease={increaseQty}
               onAddToCart={onAddToCart}
+              isFavorite={productIsFavorite}
+              onToggleFavorite={onToggleFavorite}
             />
           </View>
           <ProductReviews product={product} isDark={isDark} />

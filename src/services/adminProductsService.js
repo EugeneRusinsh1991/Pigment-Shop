@@ -2,15 +2,43 @@
  * adminProductsService.js
  *
  * CRUD operations for the admin product catalog.
- * Operates on the in-memory store from adminProducts.js
+ * Reads from and writes to catalogState — mutations automatically notify all subscribers.
+ *
+ * Product data lives in memory only (no Firestore backing for products).
  */
 
-import { getAdminProducts, setAdminProducts } from '../data/adminProducts';
+import { getProducts, setProducts } from '../data/catalogState';
 
-/** Returns all products (copy). */
+/** Returns all products (current snapshot). */
 export function getAllProducts() {
-  return getAdminProducts();
+  return getProducts();
 }
+
+const getDictValuesString = (dict) => {
+  const ru = dict.ru || '';
+  const uk = dict.uk || '';
+  const en = dict.en || '';
+  return `${ru} ${uk} ${en}`;
+};
+
+function getSearchableString(val) {
+  if (!val) return '';
+  if (typeof val === 'object') {
+    return getDictValuesString(val);
+  }
+  return val;
+}
+
+const getProductField = (field) => {
+  return field || '';
+};
+
+const productMatchesQuery = (p, q) => {
+  if (getSearchableString(p.label).toLowerCase().includes(q)) return true;
+  if (getProductField(p.brand).toLowerCase().includes(q)) return true;
+  if (getProductField(p.sku).toLowerCase().includes(q)) return true;
+  return false;
+};
 
 /**
  * Search products by name, brand, or SKU (case-insensitive).
@@ -18,14 +46,9 @@ export function getAllProducts() {
  * @returns {Array}
  */
 export function searchProducts(query) {
-  if (!query || !query.trim()) return getAdminProducts();
+  if (!query || !query.trim()) return getProducts();
   const q = query.toLowerCase();
-  return getAdminProducts().filter(
-    (p) =>
-      p.label.toLowerCase().includes(q) ||
-      (p.brand && p.brand.toLowerCase().includes(q)) ||
-      (p.sku && p.sku.toLowerCase().includes(q))
-  );
+  return getProducts().filter((p) => productMatchesQuery(p, q));
 }
 
 /**
@@ -41,7 +64,7 @@ export function addProduct(product) {
     stock: product.stock ?? 0,
     active: product.active ?? true,
   };
-  setAdminProducts([...getAdminProducts(), newProduct]);
+  setProducts([...getProducts(), newProduct]);
   return newProduct;
 }
 
@@ -52,13 +75,13 @@ export function addProduct(product) {
  * @returns {Object|null} Updated product or null if not found.
  */
 export function updateProduct(id, changes) {
-  const products = getAdminProducts();
+  const products = getProducts();
   const idx = products.findIndex((p) => p.id === id);
   if (idx === -1) return null;
   const updated = { ...products[idx], ...changes };
   const newList = [...products];
   newList[idx] = updated;
-  setAdminProducts(newList);
+  setProducts(newList);
   return updated;
 }
 
@@ -68,9 +91,9 @@ export function updateProduct(id, changes) {
  * @returns {boolean} True if removed.
  */
 export function removeProduct(id) {
-  const before = getAdminProducts();
+  const before = getProducts();
   const after = before.filter((p) => p.id !== id);
   if (after.length === before.length) return false;
-  setAdminProducts(after);
+  setProducts(after);
   return true;
 }

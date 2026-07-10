@@ -9,7 +9,7 @@ export default StyleSheet.create({
 
   breadcrumbBar: {
     borderBottomWidth: 1,
-    paddingHorizontal: 16,
+    paddingHorizontal: 8,
     paddingVertical: 8,
   },
   breadcrumbBarDark: {
@@ -23,7 +23,7 @@ export default StyleSheet.create({
 
   // Hero Section Styles
   heroContainer: {
-    paddingHorizontal: 32,
+    paddingHorizontal: 8,
     paddingVertical: 48,
     gap: 32,
     alignItems: 'center',
@@ -87,7 +87,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: 32,
+    paddingHorizontal: 8,
     marginTop: 32,
     marginBottom: 16,
   },
@@ -105,7 +105,7 @@ export default StyleSheet.create({
 
   list: {
     paddingBottom: 48,
-    paddingHorizontal: 24,
+    paddingHorizontal: 0,
   },
 
   footerProductsSection: {

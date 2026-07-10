@@ -20,7 +20,7 @@ function NavItem({ item, isDark, onSelect }) {
 }
 
 export default function NavItemList({ items, isDark, onSelect }) {
-  if (items.length === 0) return null;
+  if (!items || items.length === 0) return null;
 
   return (
     <>

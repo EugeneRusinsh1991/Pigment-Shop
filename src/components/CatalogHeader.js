@@ -1,7 +1,7 @@
 import React from 'react';
-import { Image, Text, TouchableOpacity, View } from 'react-native';
-import Breadcrumb from './Breadcrumb';
+import { Text, TouchableOpacity, View } from 'react-native';
 import styles from '../AppStyles';
+import HeroCarousel from './HeroCarousel';
 
 function HeroBanner({ isDark, isWide, t, onCardPress, firstCategory }) {
   return (
@@ -18,25 +18,12 @@ function HeroBanner({ isDark, isWide, t, onCardPress, firstCategory }) {
           <Text style={styles.heroBtnText}>{t.heroBtn}</Text>
         </TouchableOpacity>
       </View>
-      <View style={styles.heroRight}>
-        <Image
-          source={{ uri: 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=600&auto=format&fit=crop' }}
-          style={styles.heroImage}
-          resizeMode="cover"
-        />
-      </View>
+      <HeroCarousel isDark={isDark} />
     </View>
   );
 }
 
-function CatalogBreadcrumbs({ crumbs, isDark, onCrumbPress }) {
-  if (crumbs.length === 0) return null;
-  return (
-    <View style={[styles.breadcrumbBar, isDark ? styles.breadcrumbBarDark : styles.breadcrumbBarLight]}>
-      <Breadcrumb stack={crumbs} onPress={onCrumbPress} isDark={isDark} />
-    </View>
-  );
-}
+
 
 function SectionTitleRow({ isDark, depth, currentLevel, t }) {
   const tc = isDark ? styles.textDark : styles.textLight;
@@ -57,7 +44,6 @@ export default function CatalogHeader({ isDark, isWide, depth, currentLevel, cru
   const firstCategory = currentLevel?.items?.[0] || null;
   return (
     <>
-      <CatalogBreadcrumbs crumbs={crumbs} isDark={isDark} onCrumbPress={onCrumbPress} />
       {depth === 0 && <HeroBanner isDark={isDark} isWide={isWide} t={t} onCardPress={onCardPress} firstCategory={firstCategory} />}
       <SectionTitleRow isDark={isDark} depth={depth} currentLevel={currentLevel} t={t} />
     </>

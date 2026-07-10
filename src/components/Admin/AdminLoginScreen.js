@@ -8,11 +8,13 @@ import React, { useState } from 'react';
 import { Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { login } from '../../services/adminAuth';
 import styles from './AdminLoginStyles';
+import { ShieldIcon, KeyIcon, LockIcon } from '../Icons';
+import { useTheme } from '../../context/ThemeContext';
 
 function LoginIcon() {
   return (
-    <View style={styles.iconWrapper}>
-      <Text style={styles.iconText}>🛡️</Text>
+    <View style={[styles.iconWrapper, { justifyContent: 'center', alignItems: 'center' }]}>
+      <ShieldIcon color="#E87A8E" size={32} />
     </View>
   );
 }
@@ -22,7 +24,7 @@ function LoginField({ label, value, onChangeText, secureTextEntry, icon, placeho
     <>
       <Text style={styles.fieldLabel}>{label}</Text>
       <View style={styles.inputRow}>
-        <Text style={styles.inputIcon}>{icon}</Text>
+        {icon}
         <TextInput
           style={styles.input}
           value={value}
@@ -39,21 +41,22 @@ function LoginField({ label, value, onChangeText, secureTextEntry, icon, placeho
 }
 
 export default function AdminLoginScreen({ onAuthenticated }) {
+  const { t } = useTheme();
   const [loginVal, setLoginVal] = useState('');
   const [passwordVal, setPasswordVal] = useState('');
   const [error, setError] = useState('');
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     setError('');
     if (!loginVal.trim() || !passwordVal.trim()) {
-      setError('Введите логин и пароль');
+      setError(t('adminLoginRequiredError'));
       return;
     }
-    const ok = login(loginVal.trim(), passwordVal.trim());
+    const ok = await login(loginVal.trim(), passwordVal.trim());
     if (ok) {
       onAuthenticated();
     } else {
-      setError('Неверный логин или пароль');
+      setError(t('loginErrorInvalid'));
     }
   };
 
@@ -61,22 +64,22 @@ export default function AdminLoginScreen({ onAuthenticated }) {
     <View style={styles.container}>
       <View style={styles.card}>
         <LoginIcon />
-        <Text style={styles.title}>Админ-панель</Text>
-        <Text style={styles.subtitle}>Введите учётные данные</Text>
+        <Text style={styles.title}>{t('adminTitle')}</Text>
+        <Text style={styles.subtitle}>{t('adminLoginPrompt')}</Text>
 
         <LoginField
-          label="Логин"
+          label={t('adminUsernameLabel')}
           value={loginVal}
           onChangeText={setLoginVal}
-          icon="🔑"
+          icon={<KeyIcon color="#94a3b8" size={16} style={{ marginRight: 8 }} />}
           placeholder="111111"
           secureTextEntry={false}
         />
         <LoginField
-          label="Пароль"
+          label={t('loginPasswordLabel')}
           value={passwordVal}
           onChangeText={setPasswordVal}
-          icon="🔒"
+          icon={<LockIcon color="#94a3b8" size={16} style={{ marginRight: 8 }} />}
           placeholder="••••••"
           secureTextEntry
         />
@@ -84,7 +87,7 @@ export default function AdminLoginScreen({ onAuthenticated }) {
         {!!error && <Text style={styles.errorText}>{error}</Text>}
 
         <TouchableOpacity style={styles.submitBtn} onPress={handleSubmit} activeOpacity={0.85}>
-          <Text style={styles.submitBtnText}>Войти</Text>
+          <Text style={styles.submitBtnText}>{t('adminLoginBtn')}</Text>
         </TouchableOpacity>
       </View>
     </View>

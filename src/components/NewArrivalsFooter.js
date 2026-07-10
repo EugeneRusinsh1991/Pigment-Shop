@@ -1,10 +1,10 @@
 import React from 'react';
-import { FlatList, Text, View } from 'react-native';
-import PlaceholderCard from './PlaceholderCard';
+import { Text, View } from 'react-native';
+import { PlaceholderGrid } from './PlaceholderCard';
 import { useCatalog } from '../context/CatalogContext';
 import styles from '../AppStyles';
 
-export default function NewArrivalsFooter({ isDark, isWide, t, onCardPress }) {
+export default function NewArrivalsFooter({ isDark, isWide, t, onCardPress, favs }) {
   const cols = isWide ? 4 : 2;
   const { flatList } = useCatalog();
   const newArrivals = flatList.filter((item) => item.isNew);
@@ -14,21 +14,15 @@ export default function NewArrivalsFooter({ isDark, isWide, t, onCardPress }) {
       <Text style={[styles.sectionTitle, isDark ? styles.textDark : styles.textLight, styles.footerTitlePadding]}>
         {t.newArrivals}
       </Text>
-      <FlatList
+      <PlaceholderGrid
         data={newArrivals}
-        keyExtractor={(item) => item.id}
-        numColumns={cols}
-        key={`prod-grid-${cols}`}
-        renderItem={({ item }) => (
-          <PlaceholderCard
-            item={item}
-            onPress={() => onCardPress(item)}
-            isDark={isDark}
-            isLeaf={true}
-          />
-        )}
-        scrollEnabled={false}
+        cols={cols}
+        gridKey="prod-grid"
+        isDark={isDark}
+        onCardPress={onCardPress}
+        favs={favs}
       />
     </View>
   );
 }
+

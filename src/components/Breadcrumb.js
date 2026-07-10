@@ -1,5 +1,6 @@
 import React from 'react';
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { useTheme } from '../context/ThemeContext';
 
 /**
  * Breadcrumb
@@ -10,6 +11,10 @@ import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-nati
  *   isDark  boolean
  */
 export default function Breadcrumb({ stack, onPress, isDark }) {
+  const { t } = useTheme();
+  // Preparatory variable for future text-based Home label localization
+  const homeText = t('navHome') || 'Home'; 
+
   return (
     <ScrollView
       horizontal
@@ -21,6 +26,8 @@ export default function Breadcrumb({ stack, onPress, isDark }) {
       <TouchableOpacity onPress={() => onPress(-1)} activeOpacity={0.7}>
         <Text style={[styles.crumb, isDark ? styles.crumbActiveDark : styles.crumbActiveLight]}>
           🏠
+          {/* Note: If a text-based "Home" label is ever added here in the future, */}
+          {/* it should render the `homeText` variable. */}
         </Text>
       </TouchableOpacity>
 
@@ -62,8 +69,8 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 16,
-    paddingVertical: 10,
+    paddingHorizontal: 0,
+    paddingVertical: 8,
     flexWrap: 'nowrap',
   },
   crumbRow: {

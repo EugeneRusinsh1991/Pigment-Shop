@@ -22,6 +22,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 16,
+    flexShrink: 0,
   },
   menuBtn: {
     paddingRight: 4,
@@ -49,6 +50,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 24,
+    flexShrink: 0,
   },
   navLink: {
     paddingVertical: 8,
@@ -62,6 +64,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 16,
+    flexShrink: 0,
   },
   iconBtn: {
     width: 36,
@@ -129,14 +132,24 @@ export default StyleSheet.create({
     width: 16,
     height: 16,
     borderRadius: 8,
-    backgroundColor: '#E87A8E',
     alignItems: 'center',
     justifyContent: 'center',
   },
+  badgeDark: {
+    backgroundColor: '#FFFFFF',
+  },
+  badgeLight: {
+    backgroundColor: '#1C1C1C',
+  },
   badgeText: {
-    color: '#FFFFFF',
     fontSize: 9,
     fontWeight: 'bold',
+  },
+  badgeTextDark: {
+    color: '#1C1C1C',
+  },
+  badgeTextLight: {
+    color: '#FFFFFF',
   },
   textDark: { color: '#FFFFFF' },
   textLight: { color: '#1C1C1C' },
@@ -144,17 +157,22 @@ export default StyleSheet.create({
   subtextLight: { color: '#475569' },
   adminBtn: {
     paddingVertical: 6,
-    paddingHorizontal: 12,
+    paddingHorizontal: 10,
     borderRadius: 8,
     borderWidth: 1,
-    borderColor: '#E87A8E',
-    justifyContent: 'center',
+    flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
+  },
+  adminBtnDark: {
+    borderColor: '#334155',
+  },
+  adminBtnLight: {
+    borderColor: '#e2e8f0',
   },
   adminBtnText: {
     fontSize: 12,
     fontWeight: '700',
     letterSpacing: 0.3,
-    color: '#E87A8E',
   },
 });

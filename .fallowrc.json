@@ -1,0 +1,6 @@
+{
+  "ignoreDependencies": [
+    "@expo/metro-runtime",
+    "react-native-web"
+  ]
+}

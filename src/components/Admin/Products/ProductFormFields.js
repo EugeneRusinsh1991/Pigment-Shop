@@ -1,129 +1,102 @@
-/**
- * ProductFormFields.js
- *
- * Exported composed field groups for the product create/edit form.
- * Used by ProductFormModal.
- */
 import React from 'react';
-import { View } from 'react-native';
-import {
-  CategorySelect,
-  FieldCheckbox,
-  FieldInput,
-  FieldTextarea,
-} from './ProductFormHelpers';
+import { Text, TextInput, TouchableOpacity, View } from 'react-native';
 import styles from './ProductFormStyles';
+import { CheckIcon } from '../../Icons';
+import { useTheme } from '../../../context/ThemeContext';
+import CategorySelect from './CategorySelect';
 
-/** Main row: name */
-export function NameField({ form, onChange, errors }) {
+import { FieldInput as SharedFieldInput, FieldTextarea as SharedFieldTextarea } from '../SharedFormComponents';
+
+/* ─── shared primitives wrappers ────────────────────────────── */
+
+const FieldInput = (props) => <SharedFieldInput {...props} styles={styles} />;
+const FieldTextarea = (props) => <SharedFieldTextarea {...props} styles={styles} numberOfLines={3} />;
+
+function FieldCheckbox({ label, value, onChange }) {
+  return (
+    <TouchableOpacity style={styles.checkRow} onPress={() => onChange(!value)} activeOpacity={0.7}>
+      <View style={[styles.checkBox, value && styles.checkBoxActive, { justifyContent: 'center', alignItems: 'center' }]}>
+        {value && <CheckIcon color="#FFFFFF" size={10} />}
+      </View>
+      <Text style={styles.checkLabel}>{label}</Text>
+    </TouchableOpacity>
+  );
+}
+
+
+export const NameField = ({ form, onChange, errors, activeLang }) => {
+  const { t } = useTheme();
+  const labelKey = `label_${activeLang}`;
   return (
     <FieldInput
-      label="Название *"
-      value={form.label}
-      onChangeText={(v) => onChange('label', v)}
-      placeholder="Название товара"
+      label={`${t('adminProductsFormName')} (${activeLang === 'uk' ? 'UA' : activeLang.toUpperCase()}) *`}
+      value={form[labelKey]}
+      onChangeText={(v) => onChange(labelKey, v)}
+      placeholder={t('adminProductsFormNamePlaceholder')}
       error={errors.label}
     />
   );
-}
+};
 
-/** Row: description */
-export function DescriptionField({ form, onChange }) {
+export const DescriptionField = ({ form, onChange, activeLang }) => {
+  const { t } = useTheme();
+  const descKey = `description_${activeLang}`;
   return (
     <FieldTextarea
-      label="Описание"
-      value={form.description}
-      onChangeText={(v) => onChange('description', v)}
-      placeholder="Описание товара..."
+      label={`${t('adminProductsFormDesc')} (${activeLang === 'uk' ? 'UA' : activeLang.toUpperCase()})`}
+      value={form[descKey]}
+      onChangeText={(v) => onChange(descKey, v)}
+      placeholder={t('adminProductsFormDescPlaceholder')}
     />
   );
-}
+};
 
-/** Row: price + discount */
-export function PriceDiscountRow({ form, onChange, errors }) {
+export const PriceDiscountRow = ({ form, onChange, errors }) => {
+  const { t } = useTheme();
   return (
     <View style={styles.fieldRow}>
-      <FieldInput
-        label="Цена (₴) *"
-        value={form.price}
-        onChangeText={(v) => onChange('price', v)}
-        placeholder="0"
-        keyboardType="numeric"
-        error={errors.price}
-      />
-      <FieldInput
-        label="Скидка %"
-        value={form.discountPercent}
-        onChangeText={(v) => onChange('discountPercent', v)}
-        placeholder="0"
-        keyboardType="numeric"
-      />
+      <FieldInput label={t('adminProductsFormPrice') + ' (₴) *'} value={form.price} onChangeText={(v) => onChange('price', v)} placeholder="0" keyboardType="numeric" error={errors.price} />
+      <FieldInput label={t('adminProductsFormDiscount')} value={form.discountPercent} onChangeText={(v) => onChange('discountPercent', v)} placeholder="0" keyboardType="numeric" />
     </View>
   );
-}
+};
 
-/** Row: brand + SKU */
-export function BrandSkuRow({ form, onChange }) {
+export const BrandSkuRow = ({ form, onChange }) => {
+  const { t } = useTheme();
   return (
     <View style={styles.fieldRow}>
-      <FieldInput
-        label="Бренд"
-        value={form.brand}
-        onChangeText={(v) => onChange('brand', v)}
-        placeholder="Бренд"
-      />
-      <FieldInput
-        label="Артикул (SKU)"
-        value={form.sku}
-        onChangeText={(v) => onChange('sku', v)}
-        placeholder="SKU-001"
-      />
+      <FieldInput label={t('adminProductsFormBrand')} value={form.brand} onChangeText={(v) => onChange('brand', v)} placeholder={t('adminProductsFormBrand')} />
+      <FieldInput label={t('adminProductsFormSku')} value={form.sku} onChangeText={(v) => onChange('sku', v)} placeholder="SKU-001" />
     </View>
   );
-}
+};
 
-/** Row: category + stock */
-export function CategoryStockRow({ form, onChange }) {
+export const CategoryStockRow = ({ form, onChange }) => {
+  const { t } = useTheme();
   return (
     <View style={styles.fieldRow}>
       <CategorySelect value={form.category} onChange={(v) => onChange('category', v)} />
-      <FieldInput
-        label="Остаток"
-        value={form.stock}
-        onChangeText={(v) => onChange('stock', v)}
-        placeholder="0"
-        keyboardType="numeric"
-      />
+      <FieldInput label={t('adminProductsFormStock')} value={form.stock} onChangeText={(v) => onChange('stock', v)} placeholder="0" keyboardType="numeric" />
     </View>
   );
-}
+};
 
-/** Image URL field */
-export function ImageField({ form, onChange }) {
+export const ImageField = ({ form, onChange }) => {
+  const { t } = useTheme();
   return (
-    <FieldInput
-      label="URL изображения"
-      value={form.image}
-      onChangeText={(v) => onChange('image', v)}
-      placeholder="https://..."
-    />
+    <FieldInput label={t('adminProductsFormImage')} value={form.image} onChangeText={(v) => onChange('image', v)} placeholder="https://..." />
   );
-}
+};
 
-/** Checkboxes: isNew, active */
-export function FlagsSection({ form, onChange }) {
+export const FlagsSection = ({ form, onChange }) => {
+  const { t } = useTheme();
   return (
     <>
-      <FieldCheckbox
-        label="Новинка (значок NEW)"
-        value={!!form.isNew}
-        onChange={(v) => onChange('isNew', v)}
-      />
-      <FieldCheckbox
-        label="Товар активен (виден в каталоге)"
-        value={!!form.active}
-        onChange={(v) => onChange('active', v)}
-      />
+      <FieldCheckbox label={t('adminProductsFormNew')} value={!!form.isNew} onChange={(v) => onChange('isNew', v)} />
+      <FieldCheckbox label={t('adminProductsFormActive')} value={!!form.active} onChange={(v) => onChange('active', v)} />
     </>
   );
-}
+};
+
+
+

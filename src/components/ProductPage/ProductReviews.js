@@ -6,20 +6,25 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import styles from './ProductReviewsStyles';
+import { useTheme } from '../../context/ThemeContext';
 
 const getAvgRating = (list) => list.length
   ? (list.reduce((sum, r) => sum + r.rating, 0) / list.length).toFixed(1)
   : '0.0';
 
-const createReview = (author, comment, rating) => ({
-  id: String(Date.now()),
-  author,
-  comment,
-  rating,
-  date: new Date().toLocaleDateString('ru-RU'),
-});
+const createReview = (author, comment, rating, lang) => {
+  const locale = lang === 'uk' ? 'uk-UA' : lang === 'en' ? 'en-US' : 'ru-RU';
+  return {
+    id: String(Date.now()),
+    author,
+    comment,
+    rating,
+    date: new Date().toLocaleDateString(locale),
+  };
+};
 
 function useReviewsState(product) {
+  const { lang } = useTheme();
   const [reviewsList, setReviewsList] = useState(product.reviews || []);
   const [newAuthor, setNewAuthor] = useState('');
   const [newComment, setNewComment] = useState('');
@@ -27,7 +32,7 @@ function useReviewsState(product) {
 
   const addReview = () => {
     if (!newAuthor.trim() || !newComment.trim()) return;
-    setReviewsList([createReview(newAuthor, newComment, newRating), ...reviewsList]);
+    setReviewsList([createReview(newAuthor, newComment, newRating, lang), ...reviewsList]);
     setNewAuthor('');
     setNewComment('');
     setNewRating(5);
@@ -60,9 +65,10 @@ function ReviewCard({ rev, isDark }) {
 }
 
 function RatingSelector({ isDark, rating, onChangeRating }) {
+  const { t } = useTheme();
   return (
     <View style={styles.ratingSelector}>
-      <Text style={[styles.ratingLabel, isDark ? styles.textDark : styles.textLight]}>Оценка: </Text>
+      <Text style={[styles.ratingLabel, isDark ? styles.textDark : styles.textLight]}>{t('reviewsRatingLabel')}: </Text>
       {[1, 2, 3, 4, 5].map((star) => (
         <TouchableOpacity key={star} onPress={() => onChangeRating(star)}>
           <Text style={star <= rating ? styles.activeStar : styles.inactiveStar}>★</Text>
@@ -82,19 +88,20 @@ function ReviewForm({
   setNewRating,
   addReview,
 }) {
+  const { t } = useTheme();
   return (
     <View style={[styles.reviewForm, isDark ? styles.formDark : styles.formLight]}>
-      <Text style={[styles.formTitle, isDark ? styles.textDark : styles.textLight]}>Оставить отзыв</Text>
+      <Text style={[styles.formTitle, isDark ? styles.textDark : styles.textLight]}>{t('reviewsWrite')}</Text>
       <TextInput
         style={[styles.input, isDark ? styles.inputDark : styles.inputLight]}
-        placeholder="Ваше имя"
+        placeholder={t('reviewsAuthorPlaceholder')}
         placeholderTextColor="#94a3b8"
         value={newAuthor}
         onChangeText={setNewAuthor}
       />
       <TextInput
         style={[styles.input, isDark ? styles.inputDark : styles.inputLight, styles.textArea]}
-        placeholder="Ваш комментарий"
+        placeholder={t('reviewsPlaceholder')}
         placeholderTextColor="#94a3b8"
         multiline
         numberOfLines={3}
@@ -103,23 +110,24 @@ function ReviewForm({
       />
       <RatingSelector isDark={isDark} rating={newRating} onChangeRating={setNewRating} />
       <TouchableOpacity style={styles.submitBtn} onPress={addReview}>
-        <Text style={styles.submitBtnText}>Отправить</Text>
+        <Text style={styles.submitBtnText}>{t('reviewsSubmitBtn')}</Text>
       </TouchableOpacity>
     </View>
   );
 }
 
 export default function ProductReviews({ product, isDark }) {
+  const { t } = useTheme();
   const state = useReviewsState(product);
   const avgRating = getAvgRating(state.reviewsList);
 
   return (
     <View style={[styles.reviewsSection, isDark ? styles.reviewsDark : styles.reviewsLight]}>
-      <Text style={[styles.sectionTitle, isDark ? styles.textDark : styles.textLight]}>Отзывы</Text>
+      <Text style={[styles.sectionTitle, isDark ? styles.textDark : styles.textLight]}>{t('reviewsTitle')}</Text>
       <View style={styles.ratingSummary}>
         <Text style={styles.starDisplay}>★★★★★</Text>
         <Text style={[styles.ratingValueText, isDark ? styles.descDark : styles.descLight]}>
-          {avgRating} - {state.reviewsList.length} отзывов
+          {avgRating} - {t('reviewsCount').replace('{count}', state.reviewsList.length)}
         </Text>
       </View>
       <ReviewForm isDark={isDark} {...state} />

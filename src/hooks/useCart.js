@@ -25,7 +25,11 @@ export default function useCart() {
           i.id === product.id ? { ...i, qty: Math.min(99, i.qty + qty) } : i
         );
       }
-      return [...prev, { id: product.id, label: product.label, icon: product.icon, price, qty }];
+      
+      const newItem = { id: product.id, label: product.label, price, qty };
+      if (product.image) newItem.image = product.image;
+      if (product.icon) newItem.icon = product.icon;
+      return [...prev, newItem];
     });
   }, []);
 
@@ -45,7 +49,11 @@ export default function useCart() {
     setItems((prev) => prev.filter((i) => i.id !== id));
   }, []);
 
+  const clearCart = useCallback(() => {
+    setItems([]);
+  }, []);
+
   const totalCount = items.reduce((sum, i) => sum + i.qty, 0);
 
-  return { items, addItem, increaseQty, decreaseQty, removeItem, totalCount };
+  return { items, addItem, increaseQty, decreaseQty, removeItem, clearCart, totalCount };
 }

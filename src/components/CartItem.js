@@ -1,7 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native';
+import { useTheme } from '../context/ThemeContext';
 
 export default function CartItem({ item, isDark, onIncrease, onDecrease, onRemove }) {
+  const { lang } = useTheme();
   const subtotal = `$${(parseFloat(item.price.slice(1)) * item.qty).toFixed(2)}`;
   const ic = (dark, light) => (isDark ? dark : light);
 
@@ -20,7 +22,7 @@ export default function CartItem({ item, isDark, onIncrease, onDecrease, onRemov
       <View style={styles.details}>
         <View style={styles.headerRow}>
           <Text style={[styles.label, ic(styles.labelDark, styles.labelLight)]} numberOfLines={2}>
-            {item.label}
+            {(item.label && typeof item.label === 'object' ? item.label[lang] : null) || item.label}
           </Text>
           <TouchableOpacity style={styles.removeBtn} onPress={onRemove} activeOpacity={0.7}>
             <Text style={[styles.removeTxt, ic(styles.removeTxtDark, styles.removeTxtLight)]}>✕</Text>
