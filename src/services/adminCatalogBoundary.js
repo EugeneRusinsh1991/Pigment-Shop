@@ -1,23 +1,87 @@
 /**
  * adminCatalogBoundary.js
  *
- * Dedicated admin-facing boundary for catalog persistence operations.
+ * The single admin-facing boundary for all catalog mutations.
  *
- * This is the ONLY module that performs Firestore write operations for the
- * catalog domain. Admin workflows (product CRUD, category persistence) flow
- * through this boundary instead of directly mutating the storefront state.
+ * This module owns every admin-side create / update / delete operation for
+ * both products and categories.  Storefront consumers (CatalogContext, UI
+ * components) read from catalogState and are notified automatically whenever
+ * this boundary commits a change.
  *
- * Storefront consumers (CatalogContext, UI components) read from catalogState
- * and are automatically notified when this boundary updates the state.
+ * Contract
+ * --------
+ * Product commands (in-memory only — products have no Firestore backing):
+ *   addProduct(data)          → Object   created product
+ *   updateProduct(id, data)   → Object|null  updated product, or null
+ *   removeProduct(id)         → boolean  true if removed
  *
- * Public API
- * ----------
- * persistCategories(categories)   – batch-write categories to Firestore + update state
+ * Category commands (Firestore + in-memory):
+ *   persistCategories(categories) → Promise<void>
+ *
+ * Update propagation
+ * ------------------
+ * Every command calls catalogState setters which call notify(), so all
+ * useSyncExternalStore subscribers re-render without any manual refresh.
  */
 
 import { db } from '../firebase';
 import { collection, doc, writeBatch } from 'firebase/firestore';
-import { getCategories, setCategories } from '../data/catalogState';
+import { getCategories, getProducts, setCategories, setProducts } from '../data/catalogState';
+
+// ---------------------------------------------------------------------------
+// Product commands
+// ---------------------------------------------------------------------------
+
+/**
+ * Add a new product. Auto-generates an id and applies safe defaults.
+ * @param {Object} data  Raw product fields from the admin form.
+ * @returns {Object}     The created product stored in catalogState.
+ */
+export function addProduct(data) {
+  const product = {
+    ...data,
+    id: `p-admin-${Date.now()}`,
+    sold: data.sold ?? 0,
+    stock: data.stock ?? 0,
+    active: data.active ?? true,
+  };
+  setProducts([...getProducts(), product]);
+  return product;
+}
+
+/**
+ * Update an existing product by id.
+ * @param {string} id
+ * @param {Object} changes  Partial product fields to merge.
+ * @returns {Object|null}   Updated product, or null if not found.
+ */
+export function updateProduct(id, changes) {
+  const products = getProducts();
+  const idx = products.findIndex((p) => p.id === id);
+  if (idx === -1) return null;
+  const updated = { ...products[idx], ...changes };
+  const next = [...products];
+  next[idx] = updated;
+  setProducts(next);
+  return updated;
+}
+
+/**
+ * Remove a product by id.
+ * @param {string} id
+ * @returns {boolean}  True if the product was found and removed.
+ */
+export function removeProduct(id) {
+  const before = getProducts();
+  const after = before.filter((p) => p.id !== id);
+  if (after.length === before.length) return false;
+  setProducts(after);
+  return true;
+}
+
+// ---------------------------------------------------------------------------
+// Category commands
+// ---------------------------------------------------------------------------
 
 /**
  * Persist the given categories array to Firestore in a batch write,

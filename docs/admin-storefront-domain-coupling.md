@@ -131,8 +131,8 @@ The prompts below are ordered to guide the implementation step by step. Each pro
 
 - [x] 1. Analyze the current admin and storefront catalog data flow end to end, including [src/components/Admin](src/components/Admin), [src/services/adminProductsService.js](src/services/adminProductsService.js), [src/services/adminCategoriesService.js](src/services/adminCategoriesService.js), [src/data/catalogState.js](src/data/catalogState.js), and [src/context/CatalogContext.js](src/context/CatalogContext.js).
 - [x] 2. Inventory every module that currently reads or mutates catalog state and list the behavior that must remain intact during the refactor.
-- [ ] 3. Define the new admin catalog boundary contract for product and category mutations, including the input shape, return shape, and update propagation rules.
-- [ ] 4. Implement a dedicated admin catalog command or repository layer that owns admin-side product and category mutations without depending directly on the storefront state path.
+- [x] 3. Define the new admin catalog boundary contract for product and category mutations, including the input shape, return shape, and update propagation rules.
+- [x] 4. Implement a dedicated admin catalog command or repository layer that owns admin-side product and category mutations without depending directly on the storefront state path.
 - [ ] 5. Refactor [src/services/adminProductsService.js](src/services/adminProductsService.js) and [src/services/adminCategoriesService.js](src/services/adminCategoriesService.js) so they delegate to the new boundary while preserving the existing CRUD behavior.
 - [ ] 6. Update the admin managers in [src/components/Admin/Products/ProductsManager.js](src/components/Admin/Products/ProductsManager.js) and [src/components/Admin/Categories/CategoriesManager.js](src/components/Admin/Categories/CategoriesManager.js) to use the new boundary and keep the current user experience intact.
 - [ ] 7. Refactor [src/context/CatalogContext.js](src/context/CatalogContext.js) so the storefront continues to receive a stable catalog view model without coupling to admin mutation logic.
