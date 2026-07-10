@@ -2,6 +2,11 @@
  * CategoriesManager.js
  *
  * Categories tab: toolbar + add button + collapsible category tree + form modal.
+ *
+ * All mutations flow through adminCatalogBoundary (persistCategories).
+ * Local staging changes use the pure transform helpers from adminCategoriesService.
+ * The catalogState subscription is kept to pick up external changes (e.g. from
+ * catalogSync when Firestore updates) only while there are no unsaved local edits.
  */
 import React, { useCallback, useEffect, useState, useMemo } from 'react';
 import { Alert, Text, TouchableOpacity, View } from 'react-native';
@@ -22,7 +27,8 @@ function useCategoriesState() {
   const [allCategories, setAllCategories] = useState(getCategories());
   const [isDirty, setIsDirty] = useState(false);
 
-  // Auto-update from store only if there are no unsaved local changes
+  // Pick up external state changes (Firestore sync, auth-driven reloads) only
+  // when there are no unsaved local edits, so admin changes are not overwritten.
   useEffect(() => {
     const unsub = subscribe(() => {
       if (!isDirty) {

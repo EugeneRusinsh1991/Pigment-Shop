@@ -2,16 +2,19 @@
  * ProductsManager.js
  *
  * Products tab: search toolbar + add button + products table + form modal.
+ *
+ * Mutations flow through adminCatalogBoundary (the dedicated admin command
+ * layer) rather than directly touching the shared catalog state.
+ * Read helpers (getAllProducts, searchProducts) remain in adminProductsService.
  */
 import React, { useCallback, useEffect, useState } from 'react';
 import { Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { getAllProducts, searchProducts } from '../../../services/adminProductsService';
 import {
   addProduct,
-  getAllProducts,
-  removeProduct,
-  searchProducts,
   updateProduct,
-} from '../../../services/adminProductsService';
+  removeProduct,
+} from '../../../services/adminCatalogBoundary';
 import ProductFormModal from './ProductFormModal';
 import ProductsTable from './ProductsTable';
 import styles from './ProductsStyles';
