@@ -1,6 +1,14 @@
-import { getCategoryTree } from './adminCategoriesService';
+/**
+ * catalogAssemblyService.js
+ *
+ * Assembles the CatalogContext storefront view model from raw catalog arrays.
+ *
+ * All imports are from pure builder modules (catalogBuilder, adminCategoryMerger).
+ * This service has no dependency on admin mutation services or admin command layers,
+ * keeping the storefront read path clearly separated from the admin write path.
+ */
 import { mergeWithAdminCategories } from './adminCategoryMerger';
-import { buildCatalogTree, buildFlatProductList } from './catalogBuilder';
+import { buildCatalogTree, buildFlatProductList, buildCategoryTreeFromFlat } from './catalogBuilder';
 
 function resolveLocalizedValue(value, lang) {
   if (!value) return '';
@@ -22,7 +30,7 @@ export function buildCatalogViewModel({ products = [], categories = [], lang = '
   const activeProducts = localizedProducts.filter((product) => product.active !== false);
   const flatList = buildFlatProductList(activeProducts);
   const productTree = buildCatalogTree(activeProducts);
-  const adminCategoryTree = getCategoryTree(categories);
+  const adminCategoryTree = buildCategoryTreeFromFlat(categories);
   const categoryTree = mergeWithAdminCategories(productTree, adminCategoryTree);
 
   return {

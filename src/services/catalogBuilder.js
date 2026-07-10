@@ -1,7 +1,10 @@
 /**
  * catalogBuilder.js
  *
- * Derives storefront data structures from the flat admin product list.
+ * Pure functions that derive storefront data structures from the flat catalog
+ * source arrays. No side effects, no imports from admin or state modules.
+ *
+ * Used by catalogAssemblyService to build the CatalogContext view model.
  */
 
 export const CATEGORY_IMAGES = {
@@ -48,7 +51,6 @@ function groupByCategory(products) {
   products.forEach((p) => {
     const cat = p.category || 'Другое';
     const subcat = p.subcategory || 'Все товары';
-    
     const subMap = getOrCreateSubMap(map, cat);
     const list = getOrCreateList(subMap, subcat);
     list.push(productToLeaf(p));
@@ -89,8 +91,25 @@ export function buildCatalogTree(products) {
   );
 }
 
-
-
 export function buildFlatProductList(products) {
   return products.map(productToLeaf);
+}
+
+/**
+ * Build a category tree from the flat categories array.
+ * This is a pure transform with no side effects — safe to use in the
+ * storefront assembly path without importing any admin-domain module.
+ *
+ * @param {Array} categories - Flat array of category objects with id/parentId.
+ * @returns {Array} Roots of the category tree, each node has a `children` array.
+ */
+export function buildCategoryTreeFromFlat(categories = []) {
+  const map = {};
+  categories.forEach((c) => { map[c.id] = { ...c, children: [] }; });
+  const roots = [];
+  categories.forEach((c) => {
+    if (c.parentId && map[c.parentId]) map[c.parentId].children.push(map[c.id]);
+    else roots.push(map[c.id]);
+  });
+  return roots;
 }

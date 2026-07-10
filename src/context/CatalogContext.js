@@ -1,12 +1,17 @@
 /**
  * CatalogContext.js
  *
- * Single source of truth for all product and category data exposed to the UI.
+ * Storefront-facing catalog context. Provides a stable read-only view model
+ * of the product and category catalog to all public UI components.
  *
- * Subscribes to catalogState via useSyncExternalStore (React 18+).
- * Any mutation made through adminProductsService or adminCatalogBoundary
- * calls catalogState.notify() which automatically triggers a re-render here —
- * no version counters or manual refresh() calls are needed.
+ * This context is a PASSIVE READER. It:
+ *   - Subscribes to catalogState via useSyncExternalStore (React 18+).
+ *   - Derives the storefront view model via catalogAssemblyService.
+ *   - Has NO dependency on admin mutation services or the admin domain.
+ *
+ * Any admin-side mutation (add/update/remove product or category) flows through
+ * adminCatalogBoundary, which calls catalogState.notify() — that automatically
+ * triggers a re-render here without any manual refresh() calls.
  *
  * All derived values are memoized with useMemo so that downstream consumers
  * (e.g. useNavigationState) receive stable object references between renders
