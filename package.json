@@ -20,7 +20,12 @@
     "web": "expo start --web",
     "backup": "node backuper/backup.js",
     "restore": "node backuper/restore.js",
-    "audit": "node auditor/run-audit.cjs"
+    "audit": "node auditor/run-audit.cjs",
+    "generate-media": "node scripts/generateMediaManifest.js",
+    "regenerate-database": "node scripts/regenerateDatabase.js"
+  },
+  "mediaConfig": {
+    "scanSubdirectories": true
   },
   "private": true,
   "devDependencies": {

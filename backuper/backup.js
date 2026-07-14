@@ -8,7 +8,9 @@ function parseStepArg() {
   if (idx !== -1 && args[idx + 1]) {
     return args[idx + 1];
   }
-  return null;
+
+  const positionalArg = args.find((arg) => !arg.startsWith('--'));
+  return positionalArg || null;
 }
 
 // Parse optional --name <NAME> or --name=<NAME> argument

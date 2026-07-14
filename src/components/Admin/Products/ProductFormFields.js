@@ -1,9 +1,7 @@
-import React from 'react';
-import { Text, TextInput, TouchableOpacity, View } from 'react-native';
-import styles from './ProductFormStyles';
-import { CheckIcon } from '../../Icons';
+import { Text, TouchableOpacity, View } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
-import CategorySelect from './CategorySelect';
+import { CheckIcon } from '../../Icons';
+import styles from './ProductFormStyles';
 
 import { FieldInput as SharedFieldInput, FieldTextarea as SharedFieldTextarea } from '../SharedFormComponents';
 
@@ -75,16 +73,19 @@ export const CategoryStockRow = ({ form, onChange }) => {
   const { t } = useTheme();
   return (
     <View style={styles.fieldRow}>
-      <CategorySelect value={form.category} onChange={(v) => onChange('category', v)} />
       <FieldInput label={t('adminProductsFormStock')} value={form.stock} onChangeText={(v) => onChange('stock', v)} placeholder="0" keyboardType="numeric" />
     </View>
   );
 };
 
-export const ImageField = ({ form, onChange }) => {
+export const ImageFields = ({ form, onChange }) => {
   const { t } = useTheme();
   return (
-    <FieldInput label={t('adminProductsFormImage')} value={form.image} onChangeText={(v) => onChange('image', v)} placeholder="https://..." />
+    <View style={{ gap: 8, marginBottom: 12 }}>
+      <FieldInput label={`${t('adminProductsFormImage')} 1 *`} value={form.image1} onChangeText={(v) => onChange('image1', v)} placeholder="https://..." />
+      <FieldInput label={`${t('adminProductsFormImage')} 2`} value={form.image2} onChangeText={(v) => onChange('image2', v)} placeholder="https://... (optional)" />
+      <FieldInput label={`${t('adminProductsFormImage')} 3`} value={form.image3} onChangeText={(v) => onChange('image3', v)} placeholder="https://... (optional)" />
+    </View>
   );
 };
 

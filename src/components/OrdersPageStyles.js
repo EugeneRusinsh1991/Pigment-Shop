@@ -16,10 +16,16 @@ export default StyleSheet.create({
   },
   orderStatus: {
     fontSize: 14,
-    fontWeight: '500',
+    fontWeight: '600',
   },
-  statusDark: { color: '#34D399' },
-  statusLight: { color: '#15803D' },
+  statusNewDark: { color: '#60A5FA' },
+  statusNewLight: { color: '#2563EB' },
+  statusProcessingDark: { color: '#FBBF24' },
+  statusProcessingLight: { color: '#D97706' },
+  statusCompletedDark: { color: '#34D399' },
+  statusCompletedLight: { color: '#15803D' },
+  statusCancelledDark: { color: '#F87171' },
+  statusCancelledLight: { color: '#DC2626' },
   orderDate: {
     fontSize: 14,
     marginBottom: 16,
@@ -79,5 +85,33 @@ export default StyleSheet.create({
   itemSubtotal: {
     fontSize: 14,
     fontWeight: '600',
+  },
+  adminCardNew: {
+    backgroundColor: '#EFF6FF',
+    borderColor: '#DBEAFE',
+  },
+  adminCardProcessing: {
+    backgroundColor: '#FFFBEB',
+    borderColor: '#FEF3C7',
+  },
+  adminCardCompleted: {
+    backgroundColor: '#ECFDF5',
+    borderColor: '#D1FAE5',
+  },
+  adminCardCancelled: {
+    backgroundColor: '#FEF2F2',
+    borderColor: '#FEE2E2',
+  },
+  adminCardSpecific: {
+    paddingVertical: 10,
+    paddingHorizontal: 16,
+    marginBottom: 8,
+    borderRadius: 12,
+  },
+  adminOrderHeader: {
+    marginBottom: 4,
+  },
+  adminOrderDate: {
+    marginBottom: 6,
   },
 });

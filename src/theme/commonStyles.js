@@ -1,4 +1,7 @@
-import { StyleSheet } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
+
+const { width } = Dimensions.get('window');
+const isMobile = width < 768;
 
 export default StyleSheet.create({
   container: {
@@ -8,10 +11,14 @@ export default StyleSheet.create({
   containerDark: { backgroundColor: '#0D0D0D' },
   containerLight: { backgroundColor: '#FAF8F6' },
   content: {
-    padding: 24,
+    padding: isMobile ? 8 : 24,
     maxWidth: 800,
     alignSelf: 'center',
     width: '100%',
+  },
+  scrollContent: {
+    flexGrow: 1,
+    justifyContent: 'space-between',
   },
   title: {
     fontFamily: '"Cormorant Garamond", "Playfair Display", Georgia, serif',

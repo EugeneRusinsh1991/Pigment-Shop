@@ -3,7 +3,12 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
   wrapper: {
     zIndex: 500,
+    position: 'relative',
     borderBottomWidth: 0,
+  },
+  wrapperActive: {
+    zIndex: 10000,
+    elevation: 10000,
   },
   wrapperDark: { backgroundColor: 'transparent' },
   wrapperLight: { backgroundColor: 'transparent' },

@@ -3,7 +3,7 @@
  *
  * Categories tab: toolbar + add button + collapsible category tree + form modal.
  *
- * All mutations flow through adminCatalogBoundary (persistCategories).
+ * All mutations flow through adminDomain (persistCategories).
  * Local staging changes use the pure transform helpers from adminCategoriesService.
  * The catalogState subscription is kept to pick up external changes (e.g. from
  * catalogSync when Firestore updates) only while there are no unsaved local edits.
@@ -12,7 +12,7 @@ import React, { useCallback, useEffect, useState, useMemo } from 'react';
 import { Alert, Text, TouchableOpacity, View } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
 import { getCategories, subscribe } from '../../../data/catalogState';
-import { persistCategories } from '../../../services/adminCatalogBoundary';
+import { useAdminDomain } from '../../../services/adminDomain';
 import {
   addCategory,
   getCategoryTree,
@@ -24,6 +24,7 @@ import CategoryTree from './CategoryTree';
 import styles from './CategoriesStyles';
 
 function useCategoriesState() {
+  const { persistCategories } = useAdminDomain();
   const [allCategories, setAllCategories] = useState(getCategories());
   const [isDirty, setIsDirty] = useState(false);
 
@@ -79,11 +80,16 @@ function useCategoriesState() {
   return { tree, allCategories, handleAdd, handleUpdate, handleDelete, handleSaveToFirebase, isDirty };
 }
 
+import { FolderIcon, CheckIcon } from '../../Icons';
+
 function Toolbar({ onAdd }) {
   const { t } = useTheme();
   return (
     <View style={styles.toolbar}>
-      <Text style={styles.toolbarTitle}>🗂️ {t('adminCategoriesTitle')}</Text>
+      <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+        <FolderIcon color="#1C1C1C" size={16} style={{ marginRight: 6 }} />
+        <Text style={styles.toolbarTitle}>{t('adminCategoriesTitle')}</Text>
+      </View>
       <TouchableOpacity style={styles.addBtn} onPress={onAdd} activeOpacity={0.85}>
         <Text style={styles.addBtnText}>{t('adminCategoriesAddBtn')}</Text>
       </TouchableOpacity>
@@ -128,7 +134,8 @@ export default function CategoriesManager() {
         onDelete={handleDelete}
       />
       {isDirty && (
-        <TouchableOpacity style={styles.saveBtn} onPress={handleSaveToFirebase} activeOpacity={0.85}>
+        <TouchableOpacity style={[styles.saveBtn, { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 6 }]} onPress={handleSaveToFirebase} activeOpacity={0.85}>
+          <CheckIcon color="#FFFFFF" size={14} />
           <Text style={styles.saveBtnText}>{t('adminCategoriesSaveBtn')}</Text>
         </TouchableOpacity>
       )}

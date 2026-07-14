@@ -3,24 +3,44 @@
  *
  * Scrollable table showing all products with edit/delete actions.
  */
-import React from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
-import styles from './ProductsStyles';
-import { EditIcon, TrashIcon } from '../../Icons';
+import { Text, TouchableOpacity, View, useWindowDimensions } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
+import styles from './ProductsStyles';
 
-function TableHeader() {
+function TableHeader({ sortField, sortDirection, onSort }) {
   const { t } = useTheme();
+
+  const renderSortIndicator = (field) => {
+    if (sortField !== field) return null;
+    return (
+      <Text style={styles.sortArrow}>
+        {sortDirection === 'asc' ? ' ▲' : ' ▼'}
+      </Text>
+    );
+  };
+
+  const HeaderCell = ({ field, labelKey, style, extraStyle }) => {
+    return (
+      <TouchableOpacity
+        style={[styles.colHeader, style, extraStyle]}
+        onPress={() => onSort(field)}
+        activeOpacity={0.7}
+      >
+        <Text style={styles.thText}>{t(labelKey)}</Text>
+        {renderSortIndicator(field)}
+      </TouchableOpacity>
+    );
+  };
+
   return (
     <View style={styles.tableHeader}>
       <Text style={[styles.thText, { width: 32 }]}>#</Text>
-      <Text style={[styles.thText, styles.colProduct]}>{t('adminProductsColProduct')}</Text>
-      <Text style={[styles.thText, styles.colCategory]}>{t('adminProductsColCategory')}</Text>
-      <Text style={[styles.thText, styles.colBrand]}>{t('adminProductsColBrand')}</Text>
-      <Text style={[styles.thText, styles.colPrice]}>{t('adminProductsColPrice')}</Text>
-      <Text style={[styles.thText, styles.colDiscount]}>{t('adminProductsColDiscount')}</Text>
-      <Text style={[styles.thText, styles.colStock]}>{t('adminProductsColStock')}</Text>
-      <Text style={[styles.thText, styles.colStatus]}>{t('adminProductsColStatus')}</Text>
+      <HeaderCell field="label" labelKey="adminProductsColProduct" style={styles.colProduct} />
+      <HeaderCell field="brand" labelKey="adminProductsColBrand" style={styles.colBrand} />
+      <HeaderCell field="price" labelKey="adminProductsColPrice" style={styles.colPrice} />
+      <HeaderCell field="discountPercent" labelKey="adminProductsColDiscount" style={styles.colDiscount} />
+      <HeaderCell field="stock" labelKey="adminProductsColStock" style={styles.colStock} />
+      <HeaderCell field="active" labelKey="adminProductsColStatus" style={styles.colStatus} />
       <Text style={[styles.thText, styles.colActions]}>{t('adminProductsColActions')}</Text>
     </View>
   );
@@ -53,12 +73,12 @@ function StatusBadge({ active }) {
 
 function RowActions({ onEdit, onDelete }) {
   return (
-    <View style={styles.colActions}>
-      <TouchableOpacity style={styles.actionBtn} onPress={onEdit}>
-        <EditIcon color="#475569" size={14} />
+    <View style={styles.rowActions}>
+      <TouchableOpacity style={[styles.actionBtn, styles.editBtn]} onPress={onEdit} activeOpacity={0.85}>
+        <Text style={styles.actionBtnText}>Edit</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.actionBtn} onPress={onDelete}>
-        <TrashIcon color="#EF4444" size={14} />
+      <TouchableOpacity style={[styles.actionBtn, styles.deleteBtn]} onPress={onDelete} activeOpacity={0.85}>
+        <Text style={styles.actionBtnText}>Delete</Text>
       </TouchableOpacity>
     </View>
   );
@@ -78,8 +98,11 @@ const getEffectivePrice = (price, discountPercent) => {
   return price;
 };
 
-const getRowStyle = (index) => {
-  return [styles.tableRow, index % 2 === 1 && styles.tableRowAlt];
+const getRowStyle = (index, isMobile) => {
+  if (isMobile) {
+    return [styles.tableRow, index % 2 === 1 && styles.tableRowAlt];
+  }
+  return [styles.tableRowDesktop, index % 2 === 1 && styles.tableRowAlt];
 };
 
 const getPlaceholderVal = (val) => {
@@ -93,41 +116,58 @@ function DiscountCell({ discountPercent }) {
   return <Text style={[styles.discountNone, styles.colDiscount]}>—</Text>;
 }
 
-function ProductRow({ product, index, onEdit, onDelete }) {
+function ProductRow({ product, index, isMobile, onEdit, onDelete }) {
   const { lang } = useTheme();
   const label = resolveLocalizedValue(product.label, lang);
-  const category = resolveLocalizedValue(product.category, lang);
   const effectivePrice = getEffectivePrice(product.price, product.discountPercent);
 
-  return (
-    <View style={getRowStyle(index)}>
-      <Text style={styles.rowNum}>{index + 1}</Text>
-      <View style={styles.colProduct}>
-        <Text style={styles.productName} numberOfLines={1}>{label}</Text>
-        <Text style={styles.productSku}>{product.sku}</Text>
-        <ProductBadges isNew={product.isNew} />
+  return isMobile ? (
+    <View style={getRowStyle(index, true)}>
+      <View style={styles.cardTopRow}>
+        <Text style={styles.productName}>{label}</Text>
+        <Text style={styles.priceText}>${effectivePrice.toLocaleString()}</Text>
       </View>
-      <Text style={[styles.cellText, styles.colCategory]} numberOfLines={1}>
-        {getPlaceholderVal(category)}
-      </Text>
-      <Text style={[styles.cellText, styles.colBrand]} numberOfLines={1}>
-        {getPlaceholderVal(product.brand)}
-      </Text>
-      <Text style={[styles.cellText, styles.colPrice]}>
-        ${effectivePrice.toLocaleString()}
-      </Text>
-      <DiscountCell discountPercent={product.discountPercent} />
-      <Text style={[styles.cellText, styles.colStock]}>{product.stock}</Text>
-      <View style={styles.colStatus}>
-        <StatusBadge active={product.active} />
+      <View style={styles.cardMiddleRow}>
+        <Text style={styles.metaText}>{getPlaceholderVal(product.brand)}</Text>
+        <DiscountCell discountPercent={product.discountPercent} />
+        <Text style={styles.metaText}>{product.stock}</Text>
+        <View style={styles.colStatus}>
+          <StatusBadge active={product.active} />
+        </View>
       </View>
-      <RowActions onEdit={() => onEdit(product)} onDelete={() => onDelete(product.id)} />
+      <View style={styles.cardBottomRow}> 
+        <RowActions onEdit={() => onEdit(product)} onDelete={() => onDelete(product.id)} />
+      </View>
+    </View>
+  ) : (
+    <View style={getRowStyle(index, false)}>
+      <View style={styles.desktopTopRow}>
+        <Text style={styles.desktopCell}>{index + 1}</Text>
+        <View style={[styles.desktopCell, styles.desktopProductCell]}>
+          <Text style={styles.productName} numberOfLines={1}>{label}</Text>
+        </View>
+        <Text style={[styles.cellText, styles.desktopCell]} numberOfLines={1}>
+          {getPlaceholderVal(product.brand)}
+        </Text>
+        <Text style={[styles.cellText, styles.desktopCell]}>${effectivePrice.toLocaleString()}</Text>
+        <DiscountCell discountPercent={product.discountPercent} />
+        <Text style={[styles.cellText, styles.desktopCell]}>{product.stock}</Text>
+      </View>
+      <View style={styles.desktopBottomRow}>
+        <View style={styles.desktopStatusCell}>
+          <StatusBadge active={product.active} />
+        </View>
+        <RowActions onEdit={() => onEdit(product)} onDelete={() => onDelete(product.id)} />
+      </View>
     </View>
   );
 }
 
-export default function ProductsTable({ products, onEdit, onDelete }) {
+export default function ProductsTable({ products, sortField, sortDirection, onSort, onEdit, onDelete }) {
   const { t } = useTheme();
+  const { width } = useWindowDimensions();
+  const isMobile = width < 768;
+
   if (products.length === 0) {
     return (
       <View style={styles.tableCard}>
@@ -138,12 +178,13 @@ export default function ProductsTable({ products, onEdit, onDelete }) {
 
   return (
     <View style={styles.tableCard}>
-      <TableHeader />
+      {!isMobile && <TableHeader sortField={sortField} sortDirection={sortDirection} onSort={onSort} />}
       {products.map((p, idx) => (
         <ProductRow
           key={p.id}
           product={p}
           index={idx}
+          isMobile={isMobile}
           onEdit={onEdit}
           onDelete={onDelete}
         />

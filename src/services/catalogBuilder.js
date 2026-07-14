@@ -27,10 +27,10 @@ function productToLeaf(p) {
     isNew: !!p.isNew,
     description: p.description,
     image: p.image,
-    category: p.category,
-    subcategory: p.subcategory,
     stock: p.stock,
     sold: p.sold,
+    category: p.category || '',
+    subcategory: p.subcategory || '',
     children: [],
     reviews: [],
   };
@@ -46,16 +46,53 @@ function getOrCreateList(subMap, subcat) {
   return subMap.get(subcat);
 }
 
-function groupByCategory(products) {
+function buildCategoryProductTree(products, categories) {
   const map = new Map();
-  products.forEach((p) => {
-    const cat = p.category || 'Другое';
-    const subcat = p.subcategory || 'Все товары';
-    const subMap = getOrCreateSubMap(map, cat);
-    const list = getOrCreateList(subMap, subcat);
-    list.push(productToLeaf(p));
+
+  categories.forEach((category) => {
+    const categoryKey = category.id;
+    const subMap = getOrCreateSubMap(map, categoryKey);
+    const root = subMap.get('__meta__') || {
+      label: category.name?.ru || category.name?.en || category.id,
+      id: category.id,
+      categoryId: category.id,
+    };
+    subMap.set('__meta__', root);
+
+    const assignedProducts = (category.productIds || [])
+      .map((productId) => products.find((product) => product.id === productId))
+      .filter(Boolean);
+
+    assignedProducts.forEach((product) => {
+      const productNode = productToLeaf(product);
+      productNode.category = root.label;
+      productNode.categoryId = category.id;
+      subMap.set(product.id, [productNode]);
+    });
   });
+
   return map;
+}
+
+export function buildCatalogTree(products, categories = []) {
+  const grouped = buildCategoryProductTree(products, categories);
+  return Array.from(grouped.values()).map((subMap) => {
+    const rootMeta = subMap.get('__meta__');
+    const categoryName = rootMeta.label;
+    const categoryId = rootMeta.categoryId;
+    const children = Array.from(subMap.entries())
+      .filter(([key]) => key !== '__meta__')
+      .flatMap(([, leaves]) => leaves);
+
+    return {
+      id: categoryId || `cat-${categoryName}`,
+      label: categoryName,
+      image: CATEGORY_IMAGES[categoryName] || CATEGORY_IMAGES['Другое'],
+      description: `Товары категории «${categoryName}»`,
+      children,
+      isCategory: true,
+    };
+  });
 }
 
 function buildSubcategoryNode(catName, subcatName, leaves) {
@@ -67,28 +104,6 @@ function buildSubcategoryNode(catName, subcatName, leaves) {
     children: leaves,
     isCategory: true,
   };
-}
-
-function buildCategoryNode(catName, subMap) {
-  const children = Array.from(subMap.entries()).map(([subcatName, leaves]) =>
-    buildSubcategoryNode(catName, subcatName, leaves)
-  );
-
-  return {
-    id: `cat-${catName}`,
-    label: catName,
-    image: CATEGORY_IMAGES[catName] || CATEGORY_IMAGES['Другое'],
-    description: `Товары категории «${catName}»`,
-    children,
-    isCategory: true,
-  };
-}
-
-export function buildCatalogTree(products) {
-  const grouped = groupByCategory(products);
-  return Array.from(grouped.entries()).map(([catName, subMap]) =>
-    buildCategoryNode(catName, subMap)
-  );
 }
 
 export function buildFlatProductList(products) {

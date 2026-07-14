@@ -1,23 +1,24 @@
-import React from 'react';
-import { FlatList, useWindowDimensions, View } from 'react-native';
-import PlaceholderCard from './PlaceholderCard';
-import CatalogHeader from './CatalogHeader';
-import DiscountsSection from './DiscountsSection';
-import NewArrivalsFooter from './NewArrivalsFooter';
+import { FlatList, StyleSheet, useWindowDimensions, View } from 'react-native';
 import styles from '../AppStyles';
 import { useFavoritesContext } from '../context/FavoritesContext';
 import { useNavigation } from '../context/NavigationContext';
 import { useTheme } from '../context/ThemeContext';
+import CatalogHeader from './CatalogHeader';
+import DiscountsSection from './DiscountsSection';
+import NewArrivalsFooter from './NewArrivalsFooter';
+import PageNavigation from './PageNavigation';
+import PlaceholderCard from './PlaceholderCard';
+import SharedLayoutWrapper from './SharedLayoutWrapper';
 
 const COLS_MAP = {
   desktop: { depth0: 4, depthRest: 4 },
-  tablet: { depth0: 2, depthRest: 4 },
+  tablet: { depth0: 4, depthRest: 4 },
   mobile: { depth0: 2, depthRest: 2 },
 };
 
 const CARD_WIDTH_MAP = {
-  depth0: { desktop: 250, tablet: 340, mobile: 145 },
-  depthRest: { desktop: 250, tablet: 250, mobile: 250 },
+  depth0: { desktop: 250, tablet: 250, mobile: 165 },
+  depthRest: { desktop: 250, tablet: 250, mobile: 165 },
 };
 
 /**
@@ -32,14 +33,15 @@ function getCatalogLayout(isWide, depth, windowWidth) {
 
   const cols = COLS_MAP[device][depthKey];
   const cardWidth = CARD_WIDTH_MAP[depthKey][device];
-  const gridWidth = cols * (cardWidth + 16);
+  const cardMargin = device === 'mobile' ? 4 : 8;
+  const gridWidth = cols * (cardWidth + cardMargin * 2);
 
   return { cols, gridWidth };
 }
 
 /**
  * CatalogFooter Helper Component
- * Renders the discounts and new arrivals sections for depth 0.
+ * Renders the new arrivals and discounts sections for depth 0.
  */
 function CatalogFooter({ depth, isDark, isWide, t, onCardPress, favs }) {
   if (depth !== 0) {
@@ -47,9 +49,9 @@ function CatalogFooter({ depth, isDark, isWide, t, onCardPress, favs }) {
   }
 
   return (
-    <View style={{ gap: 32 }}>
-      <DiscountsSection isDark={isDark} isWide={isWide} t={t} onCardPress={onCardPress} favs={favs} />
+    <View>
       <NewArrivalsFooter isDark={isDark} isWide={isWide} t={t} onCardPress={onCardPress} favs={favs} />
+      <DiscountsSection isDark={isDark} isWide={isWide} t={t} onCardPress={onCardPress} favs={favs} />
     </View>
   );
 }
@@ -83,46 +85,98 @@ export default function CatalogView({
   currentLevel,
   items,
   crumbs,
+  showCategoryGrid = true,
+  showSectionTitle = true,
+  showPromotionalSections = true,
+  showHeroBanner = true,
+  showNavigation = false,
 }) {
   const { width: windowWidth } = useWindowDimensions();
   const { t } = useTheme();
   const favs = useFavoritesContext();
-  const { handleCrumbPress, handleCardPress } = useNavigation();
-  const onCrumbPress = handleCrumbPress;
+  const { handleCrumbPress, handleCardPress, handleBackPress, handleCatalogPress } = useNavigation();
   const onCardPress = handleCardPress;
+  const onCatalogPress = handleCatalogPress;
   const { cols, gridWidth } = getCatalogLayout(isWide, depth, windowWidth);
 
   return (
-    <FlatList
-      ListHeaderComponent={
-        <CatalogHeader
-          isDark={isDark}
-          isWide={isWide}
-          depth={depth}
-          currentLevel={currentLevel}
-          crumbs={crumbs}
-          t={t}
-          onCrumbPress={onCrumbPress}
-          onCardPress={onCardPress}
-        />
-      }
-      data={items}
-      keyExtractor={(item) => item.id}
-      numColumns={cols}
-      key={`grid-${cols}`}
-      renderItem={({ item }) => renderCatalogItem({ item, onCardPress, isDark, depth, favs })}
-      contentContainerStyle={[styles.list, { alignSelf: 'center', width: gridWidth }]}
-      showsVerticalScrollIndicator={false}
-      ListFooterComponent={
-        <CatalogFooter
-          depth={depth}
-          isDark={isDark}
-          isWide={isWide}
-          t={t}
-          onCardPress={onCardPress}
-          favs={favs}
-        />
-      }
-    />
+    <SharedLayoutWrapper isDark={isDark}>
+      <View style={[layoutStyles.catalogContainer, isDark ? styles.containerDark : styles.containerLight]}>
+        {showNavigation && (
+          <View style={{ alignSelf: 'center', width: gridWidth, maxWidth: '100%' }}>
+            <PageNavigation
+              isDark={isDark}
+              crumbs={crumbs}
+              onCrumbPress={handleCrumbPress}
+              onBack={handleBackPress}
+              showBack={true}
+              showBreadcrumbs={true}
+            />
+          </View>
+        )}
+        <FlatList
+          ListHeaderComponent={
+            <CatalogHeader
+              isDark={isDark}
+              isWide={isWide}
+              depth={depth}
+              currentLevel={currentLevel}
+              crumbs={crumbs}
+              t={t}
+              onCrumbPress={handleCrumbPress}
+              onCardPress={onCardPress}
+              onCatalogPress={onCatalogPress}
+              showSectionTitle={showSectionTitle}
+              showHeroBanner={showHeroBanner}
+            />
+          }
+          data={showCategoryGrid ? items : []}
+          keyExtractor={(item) => item.id}
+          numColumns={cols}
+          key={`grid-${cols}`}
+          renderItem={({ item }) => renderCatalogItem({ item, onCardPress, isDark, depth, favs })}
+          contentContainerStyle={[styles.list, { alignSelf: 'center', width: gridWidth, paddingBottom: 0, flexGrow: 1 }]}
+          showsVerticalScrollIndicator={false}
+          ListFooterComponent={
+            <View style={[styles.footerWrapper, { width: '100%' }]}>
+            {showPromotionalSections && (
+              <CatalogFooter
+                depth={depth}
+                isDark={isDark}
+                isWide={isWide}
+                t={t}
+                onCardPress={onCardPress}
+                favs={favs}
+              />
+            )}
+          </View>
+        }
+        style={layoutStyles.listContainer}
+      />
+      </View>
+    </SharedLayoutWrapper>
   );
 }
+
+const layoutStyles = StyleSheet.create({
+  catalogContainer: {
+    flex: 1,
+  },
+  searchWrapper: {
+    alignSelf: 'center',
+    width: '100%',
+    maxWidth: 1064,
+    marginTop: 8,
+    marginBottom: 4,
+    paddingHorizontal: 8,
+    zIndex: 1,
+    elevation: 1,
+    position: 'relative',
+  },
+  footerWrapper: {
+    width: '100%',
+  },
+  listContainer: {
+    flex: 1,
+  },
+});

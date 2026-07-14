@@ -11,7 +11,7 @@ import {
   CategoryStockRow,
   DescriptionField,
   FlagsSection,
-  ImageField,
+  ImageFields,
   NameField,
   PriceDiscountRow,
 } from './ProductFormFields';
@@ -64,7 +64,7 @@ export default function ProductFormModal({ visible, product, onSave, onClose }) 
       <PriceDiscountRow form={form} onChange={handleChange} errors={errors} />
       <BrandSkuRow form={form} onChange={handleChange} />
       <CategoryStockRow form={form} onChange={handleChange} />
-      <ImageField form={form} onChange={handleChange} />
+      <ImageFields form={form} onChange={handleChange} errors={errors} />
       <FlagsSection form={form} onChange={handleChange} />
     </FormModalLayout>
   );

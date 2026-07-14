@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
-import { db } from '../firebase';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
+import { useEffect, useState } from 'react';
+import { db } from '../firebase';
 
 function parseDisplayName(displayName) {
   if (!displayName) return { firstName: '', lastName: '' };
@@ -8,19 +8,21 @@ function parseDisplayName(displayName) {
   return { firstName: parts[0] || '', lastName: parts.slice(1).join(' ') || '' };
 }
 
+const EMPTY_PROFILE = { firstName: '', lastName: '', phone: '', city: '' };
+
 function buildGoogleFallbackProfile(user) {
   const { firstName, lastName } = parseDisplayName(user.displayName);
-  return { firstName, lastName, phone: user.phoneNumber || '' };
+  return { ...EMPTY_PROFILE, firstName, lastName, phone: user.phoneNumber || '' };
 }
 
 export function useProfile(user) {
-  const [profile, setProfile] = useState({ firstName: '', lastName: '', phone: '' });
+  const [profile, setProfile] = useState(EMPTY_PROFILE);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
 
   useEffect(() => {
     if (!user) {
-      setProfile({ firstName: '', lastName: '', phone: '' });
+      setProfile(EMPTY_PROFILE);
       setLoading(false);
       return;
     }
@@ -31,7 +33,8 @@ export function useProfile(user) {
         const docRef = doc(db, 'users', user.uid);
         const docSnap = await getDoc(docRef);
         const saved = docSnap.exists() && docSnap.data().profile;
-        setProfile(saved ? docSnap.data().profile : buildGoogleFallbackProfile(user));
+        const normalizedProfile = saved ? { ...EMPTY_PROFILE, ...saved } : buildGoogleFallbackProfile(user);
+        setProfile(normalizedProfile);
       } catch (error) {
         console.warn('Failed to load profile', error);
       } finally {
@@ -47,8 +50,9 @@ export function useProfile(user) {
     setSaving(true);
     try {
       const docRef = doc(db, 'users', user.uid);
-      await setDoc(docRef, { profile: newProfile }, { merge: true });
-      setProfile(newProfile);
+      const nextProfile = { ...profile, ...newProfile };
+      await setDoc(docRef, { profile: nextProfile }, { merge: true });
+      setProfile(nextProfile);
     } catch (error) {
       console.warn("Failed to save profile", error);
       throw error;

@@ -75,7 +75,7 @@ export default function PriceRangeSlider({
     })
   ).current;
 
-  const activeColor = '#E87A8E';
+  const activeColor = '#E31B23';
   const inactiveColor = isDark ? '#242424' : '#e5d8d3';
 
   return (

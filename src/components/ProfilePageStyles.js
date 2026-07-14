@@ -85,6 +85,33 @@ const styles = StyleSheet.create({
   promoTextDark: { color: '#34D399' },
   promoTextLight: { color: '#15803D' },
   promoRemove: { fontSize: 12, fontWeight: '500' },
+  requiredNote: {
+    fontSize: 12,
+    marginTop: 12,
+    textAlign: 'left',
+  },
+  saveMessage: {
+    marginTop: 12,
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+    borderRadius: 8,
+  },
+  saveMessageDark: {
+    backgroundColor: 'rgba(52, 211, 153, 0.16)',
+  },
+  saveMessageLight: {
+    backgroundColor: '#F0FDF4',
+  },
+  saveMessageText: {
+    fontSize: 14,
+    fontWeight: '500',
+  },
+  saveMessageTextDark: {
+    color: '#34D399',
+  },
+  saveMessageTextLight: {
+    color: '#15803D',
+  },
 });
 
 export default styles;

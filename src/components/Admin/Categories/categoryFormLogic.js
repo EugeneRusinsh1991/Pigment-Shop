@@ -4,8 +4,8 @@
  * Pure logic helpers for CategoryFormModal:
  * form initialization, locale extraction, validation, save execution.
  */
-import { getDepthForParent, MAX_DEPTH } from '../../../services/adminCategoriesService';
 import { getProducts } from '../../../data/catalogState';
+import { getDepthForParent, MAX_DEPTH } from '../../../services/adminCategoriesService';
 
 
 function getLocaleValue(fieldObj, lang) {
@@ -34,6 +34,7 @@ const buildEmptyForm = (presetParentId, defaultType) => ({
   description: extractLocales(null),
   image: '',
   type: defaultType,
+  productIds: [],
 });
 
 const buildExistingForm = (category, defaultType) => ({
@@ -42,6 +43,7 @@ const buildExistingForm = (category, defaultType) => ({
   description: extractLocales(category.description),
   image: category.image || '',
   type: defaultType,
+  productIds: (category.productIds || []).filter(Boolean),
 });
 
 export function buildInitialForm(category, presetParentId, categories) {
@@ -82,7 +84,7 @@ function productMatchesCategory(pCat, categoryName) {
 
 function hasAssignedProducts(category, products) {
   if (!category || !products) return false;
-  return products.some((p) => productMatchesCategory(p.category, category.name));
+  return (category.productIds || []).some((productId) => products.some((p) => p.id === productId));
 }
 
 const validateProductHolderChange = (category, categories) => {
@@ -163,6 +165,7 @@ export function executeSave(form, categories, onSave, setErrors, t, category) {
     description: { ...form.description },
     image: form.image.trim(),
     type: form.type,
+    productIds: (form.productIds || []).filter(Boolean),
   });
 }
 

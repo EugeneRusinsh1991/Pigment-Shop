@@ -1,13 +1,16 @@
 import React from 'react';
-import { Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { TextInput, TouchableOpacity, View } from 'react-native';
 import styles from './SearchBarStyles';
 import { useTheme } from '../../context/ThemeContext';
+import { SearchIcon, CrossIcon } from '../Icons';
 
-export default function SearchInput({ isDark, query, onChangeText, onClear }) {
+export default function SearchInput({ isDark, query, onChangeText, onClear, onFocus, onBlur }) {
   const { t } = useTheme();
+  const iconColor = isDark ? '#64748b' : '#94a3b8';
+
   return (
     <View style={[styles.inputRow, isDark ? styles.inputRowDark : styles.inputRowLight]}>
-      <Text style={styles.searchIcon}>🔍</Text>
+      <SearchIcon color={iconColor} size={16} style={{ marginRight: 8 }} />
       <TextInput
         style={[styles.input, isDark ? styles.inputDark : styles.inputLight]}
         value={query}
@@ -18,12 +21,15 @@ export default function SearchInput({ isDark, query, onChangeText, onClear }) {
         clearButtonMode="never"
         autoCorrect={false}
         autoCapitalize="none"
+        onFocus={onFocus}
+        onBlur={onBlur}
       />
       {query.length > 0 && (
         <TouchableOpacity onPress={onClear} style={styles.clearBtn} activeOpacity={0.7}>
-          <Text style={[styles.clearIcon, isDark ? styles.clearIconDark : styles.clearIconLight]}>✕</Text>
+          <CrossIcon color={iconColor} size={12} />
         </TouchableOpacity>
       )}
     </View>
   );
 }
+

@@ -6,10 +6,19 @@ import styles from './SearchBar/SearchBarStyles';
 import SearchInput from './SearchBar/SearchInput';
 import SearchDropdown from './SearchBar/SearchDropdown';
 
-export default function SearchBar({ isDark }) {
+export default function SearchBar({ isDark, onActiveChange }) {
   const [query, setQuery] = useState('');
+  const [isFocused, setIsFocused] = useState(false);
   const { flatList } = useCatalog();
   const { selectProductFromSearch } = useNavigation();
+
+  const isActive = isFocused || query.trim().length > 0;
+
+  React.useEffect(() => {
+    if (onActiveChange) {
+      onActiveChange(isActive);
+    }
+  }, [isActive, onActiveChange]);
 
   const results = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -23,8 +32,19 @@ export default function SearchBar({ isDark }) {
   };
 
   return (
-    <View style={[styles.wrapper, isDark ? styles.wrapperDark : styles.wrapperLight]}>
-      <SearchInput isDark={isDark} query={query} onChangeText={setQuery} onClear={() => setQuery('')} />
+    <View style={[
+      styles.wrapper,
+      isDark ? styles.wrapperDark : styles.wrapperLight,
+      isActive && styles.wrapperActive
+    ]}>
+      <SearchInput
+        isDark={isDark}
+        query={query}
+        onChangeText={setQuery}
+        onClear={() => setQuery('')}
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
+      />
       {results.length > 0 && (
         <SearchDropdown results={results} isDark={isDark} onSelect={handleSelect} />
       )}

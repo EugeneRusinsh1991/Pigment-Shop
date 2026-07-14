@@ -6,7 +6,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: 32,
+    paddingHorizontal: 8,
     borderBottomWidth: 1,
     zIndex: 1000,
   },
@@ -45,6 +45,7 @@ export default StyleSheet.create({
     fontFamily: '"Cormorant Garamond", "Playfair Display", Georgia, serif',
     fontSize: 22,
     fontWeight: '600',
+    color: '#E31B23',
   },
   centerSec: {
     flexDirection: 'row',
@@ -174,5 +175,41 @@ export default StyleSheet.create({
     fontSize: 12,
     fontWeight: '700',
     letterSpacing: 0.3,
+  },
+  logoWrapper: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: -8,
+  },
+  logoImage: {
+    width: 160,
+    height: 36,
+  },
+  betaBadge: {
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: 10,
+    borderWidth: 1.5,
+    marginLeft: -8,
+  },
+  betaBadgeDark: {
+    backgroundColor: '#1F1315',
+    borderColor: '#451A20',
+  },
+  betaBadgeLight: {
+    backgroundColor: '#FEF2F2',
+    borderColor: '#FEE2E2',
+  },
+  betaText: {
+    fontFamily: 'System, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+    fontSize: 13,
+    fontWeight: '700',
+    lineHeight: 14,
+  },
+  betaTextDark: {
+    color: '#E31B23',
+  },
+  betaTextLight: {
+    color: '#E31B23',
   },
 });

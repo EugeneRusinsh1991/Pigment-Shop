@@ -65,7 +65,7 @@ export default StyleSheet.create({
     borderBottomColor: 'transparent',
   },
   tabActive: {
-    borderBottomColor: '#E87A8E',
+    borderBottomColor: '#E31B23',
   },
   tabText: {
     fontSize: 13,

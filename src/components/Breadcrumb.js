@@ -1,6 +1,8 @@
-import React from 'react';
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useTheme } from '../context/ThemeContext';
+
+import { HomeIcon } from './Icons';
+import { ACCENT_COLOR } from './NavMenu/constants';
 
 /**
  * Breadcrumb
@@ -23,13 +25,10 @@ export default function Breadcrumb({ stack, onPress, isDark }) {
       contentContainerStyle={styles.container}
     >
       {/* "Home" crumb */}
-      <TouchableOpacity onPress={() => onPress(-1)} activeOpacity={0.7}>
-        <Text style={[styles.crumb, isDark ? styles.crumbActiveDark : styles.crumbActiveLight]}>
-          🏠
-          {/* Note: If a text-based "Home" label is ever added here in the future, */}
-          {/* it should render the `homeText` variable. */}
-        </Text>
+      <TouchableOpacity onPress={() => onPress(-1)} activeOpacity={0.7} style={{ paddingVertical: 2 }}>
+        <HomeIcon color={ACCENT_COLOR} size={14} />
       </TouchableOpacity>
+
 
       {stack.map((crumb, index) => (
         <View key={`crumb-${index}`} style={styles.crumbRow}>
@@ -64,7 +63,8 @@ export default function Breadcrumb({ stack, onPress, isDark }) {
 
 const styles = StyleSheet.create({
   scroll: {
-    flexGrow: 0,
+    flexGrow: 1,
+    width: '100%',
   },
   container: {
     flexDirection: 'row',
@@ -72,6 +72,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 0,
     paddingVertical: 8,
     flexWrap: 'nowrap',
+    minWidth: 0,
   },
   crumbRow: {
     flexDirection: 'row',
@@ -82,10 +83,10 @@ const styles = StyleSheet.create({
     marginHorizontal: 6,
   },
   separatorDark: {
-    color: '#475569',
+    color: ACCENT_COLOR,
   },
   separatorLight: {
-    color: '#cbd5e1',
+    color: ACCENT_COLOR,
   },
   crumb: {
     fontSize: 13,
@@ -93,10 +94,10 @@ const styles = StyleSheet.create({
     maxWidth: 120,
   },
   crumbActiveDark: {
-    color: '#38bdf8',
+    color: ACCENT_COLOR,
   },
   crumbActiveLight: {
-    color: '#7c3aed',
+    color: ACCENT_COLOR,
   },
   crumbCurrentDark: {
     color: '#94a3b8',

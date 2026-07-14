@@ -6,7 +6,7 @@
  */
 import React, { useState } from 'react';
 import { Text, TextInput, TouchableOpacity, View } from 'react-native';
-import { login } from '../../services/adminAuth';
+import { useAdminDomain } from '../../services/adminDomain';
 import styles from './AdminLoginStyles';
 import { ShieldIcon, KeyIcon, LockIcon } from '../Icons';
 import { useTheme } from '../../context/ThemeContext';
@@ -40,8 +40,9 @@ function LoginField({ label, value, onChangeText, secureTextEntry, icon, placeho
   );
 }
 
-export default function AdminLoginScreen({ onAuthenticated }) {
+export default function AdminLoginScreen() {
   const { t } = useTheme();
+  const { loginAdmin } = useAdminDomain();
   const [loginVal, setLoginVal] = useState('');
   const [passwordVal, setPasswordVal] = useState('');
   const [error, setError] = useState('');
@@ -52,10 +53,8 @@ export default function AdminLoginScreen({ onAuthenticated }) {
       setError(t('adminLoginRequiredError'));
       return;
     }
-    const ok = await login(loginVal.trim(), passwordVal.trim());
-    if (ok) {
-      onAuthenticated();
-    } else {
+    const ok = await loginAdmin(loginVal.trim(), passwordVal.trim());
+    if (!ok) {
       setError(t('loginErrorInvalid'));
     }
   };

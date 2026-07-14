@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, ScrollView } from 'react-native';
-import commonStyles from '../theme/commonStyles';
+import { collection, onSnapshot, query, where } from 'firebase/firestore';
+import { useEffect, useState } from 'react';
+import { ScrollView, Text, View } from 'react-native';
 import { useAuth } from '../context/AuthContext';
-import { db } from '../firebase';
-import { collection, query, where, onSnapshot } from 'firebase/firestore';
-import OrderCard from './OrderCard';
 import { useTheme } from '../context/ThemeContext';
+import { db } from '../firebase';
+import commonStyles from '../theme/commonStyles';
+import OrderCard from './OrderCard';
+import SharedLayoutWrapper from './SharedLayoutWrapper';
 
 export default function OrdersPage({ isDark }) {
   const { t } = useTheme();
@@ -50,33 +51,35 @@ export default function OrdersPage({ isDark }) {
   };
 
   return (
-    <ScrollView 
-      style={[commonStyles.container, getStyle(commonStyles.containerDark, commonStyles.containerLight)]}
-      showsVerticalScrollIndicator={false}
-    >
-      <View style={commonStyles.content}>
-        <Text style={[commonStyles.title, getStyle(commonStyles.textDark, commonStyles.textLight)]}>
-          {t('ordersTitle')}
-        </Text>
-        
-        {orders.length === 0 ? (
-          <Text style={[getStyle(commonStyles.subtextDark, commonStyles.subtextLight), { marginTop: 20 }]}>
-            {t('ordersEmpty')}
+    <SharedLayoutWrapper isDark={isDark}>
+      <ScrollView 
+        style={[commonStyles.container, getStyle(commonStyles.containerDark, commonStyles.containerLight)]}
+        showsVerticalScrollIndicator={false}
+      >
+        <View style={commonStyles.content}>
+          <Text style={[commonStyles.title, getStyle(commonStyles.textDark, commonStyles.textLight)]}>
+            {t('ordersTitle')}
           </Text>
-        ) : (
-          orders.map((order) => (
-            <OrderCard
-              key={order.id}
-              order={order}
-              isDark={isDark}
-              isExpanded={!!expandedOrders[order.id]}
-              onToggle={() => toggleExpand(order.id)}
-              getStyle={getStyle}
-            />
-          ))
-        )}
-      </View>
-    </ScrollView>
+          
+          {orders.length === 0 ? (
+            <Text style={[getStyle(commonStyles.subtextDark, commonStyles.subtextLight), { marginTop: 20 }]}>
+              {t('ordersEmpty')}
+            </Text>
+          ) : (
+            orders.map((order) => (
+              <OrderCard
+                key={order.id}
+                order={order}
+                isDark={isDark}
+                isExpanded={!!expandedOrders[order.id]}
+                onToggle={() => toggleExpand(order.id)}
+                getStyle={getStyle}
+              />
+            ))
+          )}
+        </View>
+      </ScrollView>
+    </SharedLayoutWrapper>
   );
 }
 

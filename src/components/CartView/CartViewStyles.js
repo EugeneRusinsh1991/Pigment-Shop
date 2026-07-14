@@ -3,7 +3,45 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    padding: 16,
+    width: '100%',
+  },
+  pageContent: {
+    paddingHorizontal: 16,
+  },
+  scrollContent: {
+    flexGrow: 1,
+    justifyContent: 'space-between',
+  },
+  inputGroup: {
+    marginBottom: 12,
+  },
+  label: {
+    fontSize: 13,
+    marginBottom: 6,
+  },
+  inputContainer: {
+    borderWidth: 1,
+    borderRadius: 8,
+    paddingHorizontal: 12,
+    height: 44,
+    justifyContent: 'center',
+  },
+  inputContainerDark: {
+    borderColor: '#333',
+    backgroundColor: '#1E1E1E',
+  },
+  inputContainerLight: {
+    borderColor: '#E5E7EB',
+    backgroundColor: '#F9FAFB',
+  },
+  input: {
+    fontSize: 15,
+    height: '100%',
+  },
+  requiredNote: {
+    fontSize: 12,
+    marginTop: 10,
+    textAlign: 'left',
   },
   containerDark: { backgroundColor: '#0D0D0D' },
   containerLight: { backgroundColor: '#FAF8F6' },
@@ -13,13 +51,15 @@ export default StyleSheet.create({
     fontSize: 32,
     fontWeight: '600',
     marginBottom: 24,
-    marginLeft: 16,
   },
 
   containerRow: {
     flex: 1,
     flexDirection: 'row',
     gap: 24,
+  },
+  wideContainer: {
+    justifyContent: 'space-between',
   },
   containerCol: {
     flex: 1,
@@ -35,9 +75,9 @@ export default StyleSheet.create({
   list: { paddingVertical: 12 },
 
   emptyState: {
-    flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
+    paddingTop: 64,
+    paddingBottom: 24,
   },
   emptyIcon: { fontSize: 48, marginBottom: 12 },
   emptyText: { fontSize: 16, fontWeight: '500' },
@@ -85,7 +125,7 @@ export default StyleSheet.create({
   summaryDivider: {
     height: 1,
     backgroundColor: '#334155',
-    marginVertical: 16,
+    marginVertical: 12,
     opacity: 0.2,
   },
 
@@ -109,7 +149,7 @@ export default StyleSheet.create({
     height: 48,
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 24,
+    marginTop: 20,
   },
   checkoutBtnDark: {
     backgroundColor: '#F3ECE7',
@@ -126,6 +166,34 @@ export default StyleSheet.create({
 
   textDark: { color: '#ffffff' },
   textLight: { color: '#1c1c1c' },
+
+  noteInput: {
+    fontFamily: 'System, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+    fontSize: 14,
+    borderRadius: 12,
+    borderWidth: 1,
+    padding: 12,
+    minHeight: 80,
+    marginTop: 6,
+    marginBottom: 12,
+    textAlignVertical: 'top',
+  },
+  noteInputDark: {
+    backgroundColor: '#1C1C1C',
+    borderColor: '#334155',
+    color: '#ffffff',
+  },
+  noteInputLight: {
+    backgroundColor: '#F8FAFC',
+    borderColor: '#E2E8F0',
+    color: '#0f172a',
+  },
+  noteLabel: {
+    fontFamily: 'System, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+    fontSize: 14,
+    fontWeight: '500',
+    marginBottom: 4,
+  },
 
   // Footer branding
   footerBranding: {

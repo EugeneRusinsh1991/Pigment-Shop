@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { useEffect, useState } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 import { useTheme } from '../context/ThemeContext';
 
 // ─── Countdown Timer Component ──────────────────────────────────────────────
@@ -42,21 +42,27 @@ export function CountdownTimer({ isDark }) {
       </Text>
       <Text style={[styles.compactTimerValue, ic(styles.compactTimerValueDark, styles.compactTimerValueLight)]}>
         {timeData.days}
-        <Text style={[styles.compactTimerUnit, ic(styles.compactTimerUnitDark, styles.compactTimerUnitLight)]}>
-          {t('days')}{' '}
-        </Text>
+      </Text>
+      <Text style={[styles.compactTimerUnit, ic(styles.compactTimerUnitDark, styles.compactTimerUnitLight)]}>
+        {' D '}
+      </Text>
+      <Text style={[styles.compactTimerValue, ic(styles.compactTimerValueDark, styles.compactTimerValueLight)]}>
         {timeData.hours}
-        <Text style={[styles.compactTimerUnit, ic(styles.compactTimerUnitDark, styles.compactTimerUnitLight)]}>
-          {t('hours')}{' '}
-        </Text>
+      </Text>
+      <Text style={[styles.compactTimerUnit, ic(styles.compactTimerUnitDark, styles.compactTimerUnitLight)]}>
+        {' H '}
+      </Text>
+      <Text style={[styles.compactTimerValue, ic(styles.compactTimerValueDark, styles.compactTimerValueLight)]}>
         {timeData.minutes}
-        <Text style={[styles.compactTimerUnit, ic(styles.compactTimerUnitDark, styles.compactTimerUnitLight)]}>
-          {t('mins')}{' '}
-        </Text>
+      </Text>
+      <Text style={[styles.compactTimerUnit, ic(styles.compactTimerUnitDark, styles.compactTimerUnitLight)]}>
+        {' M '}
+      </Text>
+      <Text style={[styles.compactTimerValue, ic(styles.compactTimerValueDark, styles.compactTimerValueLight)]}>
         {timeData.seconds}
-        <Text style={[styles.compactTimerUnit, ic(styles.compactTimerUnitDark, styles.compactTimerUnitLight)]}>
-          {t('secs')}
-        </Text>
+      </Text>
+      <Text style={[styles.compactTimerUnit, ic(styles.compactTimerUnitDark, styles.compactTimerUnitLight)]}>
+        {' S'}
       </Text>
     </View>
   );
@@ -81,14 +87,14 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '700',
   },
-  compactTimerValueDark: { color: '#38bdf8' },
-  compactTimerValueLight: { color: '#7c3aed' },
+  compactTimerValueDark: { color: '#E31B23' },
+  compactTimerValueLight: { color: '#E31B23' },
   compactTimerUnit: {
-    fontSize: 11,
-    fontWeight: '500',
+    fontSize: 13,
+    fontWeight: '600',
   },
-  compactTimerUnitDark: { color: '#64748b' },
-  compactTimerUnitLight: { color: '#94a3b8' },
+  compactTimerUnitDark: { color: '#94a3b8' },
+  compactTimerUnitLight: { color: '#64748b' },
 
   // Card Styles
   card: {

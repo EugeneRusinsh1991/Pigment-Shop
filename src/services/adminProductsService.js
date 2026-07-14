@@ -11,16 +11,9 @@
  * Product data lives in memory only (no Firestore backing for products).
  */
 
-import { getProducts } from '../data/catalogState';
-import {
-  addProduct,
-  updateProduct,
-  removeProduct,
-} from './adminCatalogBoundary';
 
-// Re-export boundary commands so callers that import from this service
-// do not need to be updated.
-export { addProduct, updateProduct, removeProduct };
+import { getProducts } from '../data/catalogState';
+
 
 /** Returns all products (current snapshot). */
 export function getAllProducts() {

@@ -41,6 +41,13 @@
                 "panel": "shared"
             },
             "problemMatcher": []
+        },
+        {
+            "label": "Generate Media",
+            "type": "shell",
+            "command": "npm run generate-media",
+            "group": "build",
+            "problemMatcher": []
         }
     ]
 }

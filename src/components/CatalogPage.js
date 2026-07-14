@@ -4,15 +4,15 @@
  * Full-page Catalog layout: left sidebar (filters) + right area (sort bar + product grid).
  * Reuses ProductCard via PlaceholderGrid and existing product navigation.
  */
-import React from 'react';
-import { View, Text, FlatList, useWindowDimensions, StyleSheet } from 'react-native';
+import { FlatList, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { useCatalog } from '../context/CatalogContext';
 import { useFavoritesContext } from '../context/FavoritesContext';
 import { useNavigation } from '../context/NavigationContext';
-import useCatalogFilters from './Catalog/useCatalogFilters';
 import CatalogFilterSidebar from './Catalog/CatalogFilterSidebar';
 import CatalogSortBar from './Catalog/CatalogSortBar';
+import useCatalogFilters from './Catalog/useCatalogFilters';
 import ProductCard from './ProductCard';
+import SharedLayoutWrapper from './SharedLayoutWrapper';
 
 const CARD_MARGIN = 8;
 const SIDEBAR_WIDTH = 176; // 160px sidebar + 16px content padding
@@ -55,7 +55,7 @@ function ProductGrid({ products, cols, cardWidth, isDark, onCardPress, favs }) {
           onToggleFavorite={favs?.toggleFavorite}
         />
       )}
-      contentContainerStyle={styles.grid}
+      contentContainerStyle={[styles.grid, { flexGrow: 1 }]}
     />
   );
 }
@@ -63,8 +63,8 @@ function ProductGrid({ products, cols, cardWidth, isDark, onCardPress, favs }) {
 export default function CatalogPage({ isDark }) {
   const { flatList, categoryTree } = useCatalog();
   const favs = useFavoritesContext();
-  const { setSelectedProduct, setShowCatalog } = useNavigation();
-  const onCardPress = (p) => { setSelectedProduct(p); setShowCatalog(false); };
+  const { setSelectedProduct, setShowCatalog, setShowAllProducts } = useNavigation();
+  const onCardPress = (p) => { setSelectedProduct(p); setShowCatalog(false); setShowAllProducts(false); };
   const { filters, sortKey, setSortKey, setFilter, toggleCategory, toggleSubcategory, resetFilters, sortedProducts } =
     useCatalogFilters(flatList);
 
@@ -76,26 +76,28 @@ export default function CatalogPage({ isDark }) {
   const cardWidth = computeCardWidth(gridWidth - MAIN_PADDING, cols);
 
   return (
-    <View style={[isNarrow ? styles.container : styles.row, isDark ? styles.containerDark : styles.containerLight]}>
-      <CatalogFilterSidebar
-        categoryTree={categoryTree}
-        filters={filters}
-        setFilter={setFilter}
-        toggleCategory={toggleCategory}
-        toggleSubcategory={toggleSubcategory}
-        resetFilters={resetFilters}
-        isDark={isDark}
-      />
-      <View style={styles.main}>
-        <CatalogSortBar
-          sortKey={sortKey}
-          onSortChange={setSortKey}
-          resultCount={sortedProducts.length}
+    <SharedLayoutWrapper isDark={isDark}>
+      <View style={[isNarrow ? styles.container : styles.row, isDark ? styles.containerDark : styles.containerLight]}>
+        <CatalogFilterSidebar
+          categoryTree={categoryTree}
+          filters={filters}
+          setFilter={setFilter}
+          toggleCategory={toggleCategory}
+          toggleSubcategory={toggleSubcategory}
+          resetFilters={resetFilters}
           isDark={isDark}
         />
-        <ProductGrid products={sortedProducts} cols={cols} cardWidth={cardWidth} isDark={isDark} onCardPress={onCardPress} favs={favs} />
+        <View style={styles.main}>
+          <CatalogSortBar
+            sortKey={sortKey}
+            onSortChange={setSortKey}
+            resultCount={sortedProducts.length}
+            isDark={isDark}
+          />
+          <ProductGrid products={sortedProducts} cols={cols} cardWidth={cardWidth} isDark={isDark} onCardPress={onCardPress} favs={favs} />
+        </View>
       </View>
-    </View>
+    </SharedLayoutWrapper>
   );
 }
 

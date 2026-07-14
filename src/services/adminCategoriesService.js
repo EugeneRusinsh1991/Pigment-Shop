@@ -42,7 +42,12 @@ export function getCategoryTree(all = getCategories()) {
 export function addCategory(category, all = getCategories()) {
   const depth = getDepthForParent(category.parentId, all);
   if (depth > MAX_DEPTH) return null;
-  const newCategory = { ...category, id: `cat-admin-${Date.now()}`, depth };
+  const newCategory = {
+    ...category,
+    id: `cat-admin-${Date.now()}`,
+    depth,
+    productIds: (category.productIds || []).filter(Boolean),
+  };
   return recalculateAllDepths([...all, newCategory]);
 }
 
@@ -54,7 +59,11 @@ export function updateCategory(id, changes, all = getCategories()) {
   const idx = all.findIndex((c) => c.id === id);
   if (idx === -1) return null;
   const next = [...all];
-  next[idx] = { ...all[idx], ...changes };
+  next[idx] = {
+    ...all[idx],
+    ...changes,
+    productIds: (changes.productIds || all[idx].productIds || []).filter(Boolean),
+  };
   return recalculateAllDepths(next);
 }
 

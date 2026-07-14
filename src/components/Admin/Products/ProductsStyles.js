@@ -80,12 +80,20 @@ export default StyleSheet.create({
     textTransform: 'uppercase',
   },
   tableRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: 'column',
     paddingHorizontal: 16,
-    paddingVertical: 14,
+    paddingVertical: 16,
     borderBottomWidth: 1,
-    borderBottomColor: '#F9F5F3',
+    borderBottomColor: '#E2E8F0',
+    gap: 12,
+  },
+  tableRowDesktop: {
+    flexDirection: 'column',
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    borderBottomWidth: 1,
+    borderBottomColor: '#E2E8F0',
+    gap: 8,
   },
   tableRowAlt: {
     backgroundColor: '#FEFEFE',
@@ -95,6 +103,89 @@ export default StyleSheet.create({
     fontSize: 12,
     color: '#94a3b8',
     marginRight: 8,
+  },
+  desktopTopRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: 10,
+    flexWrap: 'wrap',
+  },
+  desktopBottomRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: 10,
+  },
+  desktopStatusCell: {
+    flex: 1,
+    minWidth: 120,
+  },
+  desktopCell: {
+    fontSize: 13,
+    color: '#1C1C1C',
+    minWidth: 80,
+  },
+  desktopProductCell: {
+    flex: 1,
+    minWidth: 120,
+  },
+  cardTopRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    flexWrap: 'wrap',
+    gap: 12,
+    alignItems: 'center',
+  },
+  cardMiddleRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 10,
+    alignItems: 'center',
+  },
+  cardBottomRow: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+  },
+  priceText: {
+    fontSize: 13,
+    fontWeight: '700',
+    color: '#1C1C1C',
+  },
+  metaText: {
+    fontSize: 13,
+    color: '#64748B',
+    minWidth: 80,
+  },
+  actionBtn: {
+    minWidth: 90,
+    paddingVertical: 10,
+    paddingHorizontal: 14,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 8,
+    backgroundColor: '#F5F7FA',
+  },
+  rowActions: {
+    flexDirection: 'row',
+    gap: 10,
+    flexWrap: 'wrap',
+    alignItems: 'center',
+  },
+  editBtn: {
+    backgroundColor: '#FFFFFF',
+    borderWidth: 1,
+    borderColor: '#D1D5DB',
+  },
+  deleteBtn: {
+    backgroundColor: '#FEF2F2',
+    borderWidth: 1,
+    borderColor: '#FECACA',
+  },
+  actionBtnText: {
+    fontSize: 13,
+    fontWeight: '600',
+    color: '#111827',
   },
 
   /* Cell widths */
@@ -143,7 +234,7 @@ export default StyleSheet.create({
   },
   discountText: {
     fontSize: 13,
-    color: '#E87A8E',
+    color: '#E31B23',
     fontWeight: '600',
   },
   discountNone: {
@@ -166,14 +257,6 @@ export default StyleSheet.create({
   statusInactiveText: { color: '#64748B' },
 
   /* Action buttons */
-  actionBtn: {
-    width: 30,
-    height: 30,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 6,
-    backgroundColor: '#F5F7FA',
-  },
   actionIcon: {
     fontSize: 14,
   },
@@ -184,6 +267,81 @@ export default StyleSheet.create({
     padding: 40,
     color: '#94a3b8',
     fontSize: 14,
+  },
+
+  /* Save Button (mirrors categories) */
+  saveBtn: {
+    marginTop: 20,
+    backgroundColor: '#16A34A',
+    borderRadius: 10,
+    paddingVertical: 14,
+    alignItems: 'center',
+  },
+  saveBtnText: {
+    color: '#FFFFFF',
+    fontSize: 14,
+    fontWeight: '700',
+  },
+
+  /* Filter bar */
+  filterBar: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flexWrap: 'wrap',
+    gap: 10,
+    marginBottom: 16,
+  },
+  filterToggles: {
+    flexDirection: 'row',
+    gap: 8,
+    flexWrap: 'wrap',
+  },
+  filterToggle: {
+    height: 36,
+    paddingHorizontal: 14,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: '#E2E8F0',
+    backgroundColor: '#FFFFFF',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  filterToggleActive: {
+    backgroundColor: '#1C1C1C',
+    borderColor: '#1C1C1C',
+  },
+  filterToggleText: {
+    fontSize: 13,
+    fontWeight: '500',
+    color: '#475569',
+  },
+  filterToggleTextActive: {
+    color: '#FFFFFF',
+    fontWeight: '600',
+  },
+  sortPickerNative: {
+    height: 36,
+    paddingHorizontal: 12,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: '#F1E8E4',
+    backgroundColor: '#FFFFFF',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  sortPickerNativeText: {
+    fontSize: 13,
+    color: '#475569',
+  },
+  colHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    cursor: 'pointer', // Web enhancement
+  },
+  sortArrow: {
+    fontSize: 10,
+    color: '#E31B23',
+    marginLeft: 4,
   },
 });
 

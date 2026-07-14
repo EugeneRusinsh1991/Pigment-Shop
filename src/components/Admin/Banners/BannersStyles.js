@@ -42,12 +42,17 @@ export default StyleSheet.create({
     gap: 20,
   },
   bannerRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 16,
+    flexDirection: 'column',
+    gap: 12,
     paddingBottom: 20,
     borderBottomWidth: 1,
     borderBottomColor: '#F3F4F6',
+  },
+  previewTitleRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+    flexWrap: 'wrap',
   },
   previewContainer: {
     width: 120,
@@ -81,14 +86,24 @@ export default StyleSheet.create({
     fontSize: 14,
     fontWeight: '600',
     color: '#374151',
+    flex: 1,
+    minWidth: 120,
   },
-  inputRow: {
+  urlRow: {
+    width: '100%',
+  },
+  actionsRow: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
     gap: 8,
     width: '100%',
   },
-  input: {
+  actionBtn: {
     flex: 1,
+    minWidth: 140,
+  },
+  input: {
+    width: '100%',
     height: 40,
     backgroundColor: '#F9FAFB',
     borderWidth: 1,

@@ -1,15 +1,27 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, Image } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import styles from './ProductPageStyles';
 import { CartIcon, HeartIcon } from '../Icons';
 import { useTheme } from '../../context/ThemeContext';
 
-const PRODUCT_PLACEHOLDER = 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=600&auto=format&fit=crop';
+// ─── Price helpers ────────────────────────────────────────────────────────────
 
-function getFinalPrice(product) {
-  const pct = product.discountPercent || 0;
-  return pct > 0 ? Math.round(product.price * (1 - pct / 100)) : product.price;
-}
+const getSafePrice = (price) => (typeof price === 'number' ? price : 0);
+
+const calcFinalPrice = (price, discountPercent) => {
+  const pct = discountPercent || 0;
+  return pct > 0 ? Math.round(price * (1 - pct / 100)) : price;
+};
+
+// ─── Description / label helpers ──────────────────────────────────────────────
+
+const resolveLocalized = (value, lang, fallback = '') => {
+  if (!value) return fallback;
+  if (typeof value === 'object') return value[lang] || fallback;
+  return value;
+};
+
+// ─── Sub-components ───────────────────────────────────────────────────────────
 
 function QtySelector({ qty, isDark, onDecrease, onIncrease }) {
   const tc = isDark ? styles.textDark : styles.textLight;
@@ -28,8 +40,8 @@ function QtySelector({ qty, isDark, onDecrease, onIncrease }) {
 
 function ProductInfoBadges({ isNew, discountPercent }) {
   const badges = [
-    isNew && { key: 'new', style: { backgroundColor: '#7c3aed' }, text: 'NEW' },
-    discountPercent > 0 && { key: 'discount', style: { backgroundColor: '#E87A8E' }, text: `-${discountPercent}%` }
+    isNew && { key: 'new', style: { backgroundColor: '#E31B23' }, textStyle: { color: '#FFFFFF' }, text: 'NEW' },
+    discountPercent > 0 && { key: 'discount', style: { backgroundColor: '#FFFFFF', borderColor: '#E31B23', borderWidth: 1 }, textStyle: { color: '#E31B23' }, text: `-${discountPercent}%` },
   ].filter(Boolean);
 
   if (badges.length === 0) return null;
@@ -38,34 +50,22 @@ function ProductInfoBadges({ isNew, discountPercent }) {
     <View style={{ flexDirection: 'row', gap: 6, marginBottom: 8, flexWrap: 'wrap' }}>
       {badges.map((b) => (
         <View key={b.key} style={[b.style, { paddingHorizontal: 8, paddingVertical: 4, borderRadius: 6 }]}>
-          <Text style={{ color: '#FFFFFF', fontSize: 10, fontWeight: 'bold' }}>{b.text}</Text>
+          <Text style={[{ fontSize: 10, fontWeight: 'bold' }, b.textStyle]}>{b.text}</Text>
         </View>
       ))}
     </View>
   );
 }
 
-const getSafePrice = (price) => {
-  return typeof price === 'number' ? price : 0;
-};
-
-const getFinalPriceValue = (price, discountPercent) => {
-  const pct = discountPercent || 0;
-  if (pct > 0) {
-    return Math.round(price * (1 - pct / 100));
-  }
-  return price;
-};
-
 function ProductInfoPrice({ price, discountPercent, tc }) {
-  const pct = discountPercent || 0;
   const safePrice = getSafePrice(price);
-  const finalPrice = getFinalPriceValue(safePrice, discountPercent);
+  const finalPrice = calcFinalPrice(safePrice, discountPercent);
+  const hasDiscount = (discountPercent || 0) > 0;
 
   return (
     <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 8 }}>
       <Text style={[styles.priceText, tc]}>${finalPrice.toLocaleString()}</Text>
-      {pct > 0 && (
+      {hasDiscount && (
         <Text style={{ fontSize: 14, color: '#94a3b8', textDecorationLine: 'line-through' }}>
           ${safePrice.toLocaleString()}
         </Text>
@@ -74,36 +74,13 @@ function ProductInfoPrice({ price, discountPercent, tc }) {
   );
 }
 
-const resolveDescription = (desc, lang, fallback) => {
-  if (!desc) return fallback;
-  if (typeof desc === 'object') return desc[lang] || fallback;
-  return desc;
-};
-
-function getProductDescription(product, lang, fallbackText) {
-  return resolveDescription(product.description, lang, fallbackText);
-}
-
-const resolveLabel = (label, lang) => {
-  if (!label) return '';
-  if (typeof label === 'object') return label[lang] || '';
-  return label;
-};
-
-function getProductLabel(product, lang) {
-  return resolveLabel(product.label, lang);
-}
-
-function ProductMetaInfo({ product, isDark, tc, dc }) {
+function ProductMetaInfo({ product, tc, dc }) {
   const { t, lang } = useTheme();
-  
-  const desc = getProductDescription(product, lang, t('productNoDesc'));
-  const label = getProductLabel(product, lang);
-  const isInStock = product.inStock !== false;
-
+  const desc = resolveLocalized(product.description, lang, t('productNoDesc'));
+  const label = resolveLocalized(product.label, lang);
   const brand = product.brand || 'BEAUTY';
   const sku = product.sku || 'N/A';
-  const stockText = isInStock ? t('productInStock') : t('productOutOfStock');
+  const stockText = product.inStock !== false ? t('productInStock') : t('productOutOfStock');
 
   return (
     <>
@@ -118,29 +95,34 @@ function ProductMetaInfo({ product, isDark, tc, dc }) {
   );
 }
 
-function ProductActionRow({ product, qty, isDark, onDecrease, onIncrease, onAddToCart, isFavorite, onToggleFavorite }) {
+function ProductActionRow({ product, qty, isDark, isWide, onDecrease, onIncrease, onAddToCart, isFavorite, onToggleFavorite }) {
   const { t } = useTheme();
-  const finalPrice = getFinalPrice(product);
+  const finalPrice = calcFinalPrice(getSafePrice(product.price), product.discountPercent);
   const handleToggle = () => onToggleFavorite && onToggleFavorite(product);
+
   return (
     <View style={styles.actionRow}>
       <QtySelector qty={qty} isDark={isDark} onDecrease={onDecrease} onIncrease={onIncrease} />
       <TouchableOpacity
-        style={[styles.cartBtn, { flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }]}
+        style={[styles.cartBtn, { flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }]}
         onPress={() => onAddToCart(product, `$${finalPrice}`, qty)}
       >
         <CartIcon color="#FFFFFF" size={16} />
         <Text style={[styles.cartBtnText, { marginLeft: 6 }]}>{t('productAddToCart')}</Text>
       </TouchableOpacity>
-      <TouchableOpacity
-        style={[styles.favBtn, isDark ? styles.favBtnDark : styles.favBtnLight]}
-        onPress={handleToggle}
-      >
-        <HeartIcon filled={isFavorite} color={isFavorite ? '#E87A8E' : (isDark ? '#FFFFFF' : '#1C1C1C')} size={16} />
-      </TouchableOpacity>
+      {isWide && (
+        <TouchableOpacity
+          style={[styles.favBtn, isDark ? styles.favBtnDark : styles.favBtnLight]}
+          onPress={handleToggle}
+        >
+          <HeartIcon filled={isFavorite} color={isFavorite ? '#E31B23' : (isDark ? '#FFFFFF' : '#1C1C1C')} size={16} />
+        </TouchableOpacity>
+      )}
     </View>
   );
 }
+
+// ─── Export ───────────────────────────────────────────────────────────────────
 
 export function ProductInfoPanel({ product, isDark, isWide, qty, onDecrease, onIncrease, onAddToCart, isFavorite, onToggleFavorite }) {
   const { t } = useTheme();
@@ -151,25 +133,13 @@ export function ProductInfoPanel({ product, isDark, isWide, qty, onDecrease, onI
     <View style={[styles.infoArea, isWide && styles.infoAreaWide]}>
       <ProductMetaInfo product={product} isDark={isDark} tc={tc} dc={dc} />
       <ProductActionRow
-        product={product} qty={qty} isDark={isDark}
+        product={product} qty={qty} isDark={isDark} isWide={isWide}
         onDecrease={onDecrease} onIncrease={onIncrease} onAddToCart={onAddToCart}
         isFavorite={isFavorite} onToggleFavorite={onToggleFavorite}
       />
       <TouchableOpacity style={styles.goToCartLink}>
         <Text style={styles.goToCartText}>{t('productGoToCart')} →</Text>
       </TouchableOpacity>
-    </View>
-  );
-}
-
-export function ProductImagePanel({ image, isWide }) {
-  return (
-    <View style={[styles.imageArea, isWide && styles.imageAreaWide]}>
-      <Image
-        source={{ uri: PRODUCT_PLACEHOLDER }}
-        style={styles.prodImage}
-        resizeMode="cover"
-      />
     </View>
   );
 }

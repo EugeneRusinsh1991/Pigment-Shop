@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
   loginBtnTextDark: { color: '#1C1C1C' },
   loginBtnTextLight: { color: '#FFFFFF' },
   errorText: {
-    color: '#E87A8E',
+    color: '#E31B23',
     fontSize: 13,
     marginBottom: 16,
     textAlign: 'center',

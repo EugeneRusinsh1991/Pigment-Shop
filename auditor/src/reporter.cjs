@@ -152,7 +152,7 @@ function generateSmallFilesReport(cleaned, dateStr, rootPath, backLink) {
 
   const rows = sortedFiles
     .map(f => `| [${require("path").basename(f.path)}](file:///${cleanPath(rootPath, f.path)}) | ${f.lines} | ${f.size} | **${f.type}** | ${f.recommendation} |`)
-    .join("\n\n");
+    .join("\n");
   return `${header}This report lists very small, redundant, or "pass-through" (bridge/proxy/barrel) files that increase cognitive overhead, add complexity to the file structure, and complicate imports without providing significant architectural value.\n\n### Candidate Files for Refactoring/Elimination\n\n| File Path | Lines | Size (Bytes) | Type | Recommendation |\n| :--- | :---: | :---: | :--- | :--- |\n${rows}\n\n${backLink}`;
 }
 
@@ -162,7 +162,7 @@ function generateSmallFilesReport(cleaned, dateStr, rootPath, backLink) {
 
 function generateReports(cleaned, rootPath, projectName) {
   const dateStr  = new Date().toLocaleString();
-  const backLink = `\n[← Back to Main Report](file:///${cleanPath(rootPath, "auditor/reports/auditreport.md")})\n`;
+  const backLink = "";
   const paths = {
     complexity:  cleanPath(rootPath, "auditor/reports/complexity-health-findings.md"),
     largeFiles:  cleanPath(rootPath, "auditor/reports/large-files.md"),

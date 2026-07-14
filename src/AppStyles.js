@@ -1,11 +1,15 @@
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
+
+const rootStyles = Platform.OS === 'web' ? { minHeight: '100vh' } : {};
 
 export default StyleSheet.create({
-  container: { flex: 1 },
+  container: { flex: 1, ...rootStyles },
   containerDark: { backgroundColor: '#0D0D0D' },
   containerLight: { backgroundColor: '#FAF8F6' },
   
-  mainContent: { flex: 1 },
+  mainContent: { flex: 1, minHeight: 0 },
+  mainContentBody: { flex: 1, minHeight: 0 },
+  footerContainer: { paddingTop: 16, paddingBottom: 12, flexShrink: 0 },
 
   breadcrumbBar: {
     borderBottomWidth: 1,
@@ -24,26 +28,21 @@ export default StyleSheet.create({
   // Hero Section Styles
   heroContainer: {
     paddingHorizontal: 8,
-    paddingVertical: 48,
-    gap: 32,
+    paddingTop: 16,
+    paddingBottom: 24,
+    gap: 24,
     alignItems: 'center',
   },
-  heroRow: {
-    flexDirection: 'row',
-  },
-  heroStack: {
-    flexDirection: 'column',
-  },
-  heroLeft: {
-    flex: 1.2,
-    alignItems: 'flex-start',
-  },
   heroRight: {
-    flex: 0.8,
     width: '100%',
-    height: 300,
     borderRadius: 24,
     overflow: 'hidden',
+  },
+  heroRightMobile: {
+    height: 180,
+  },
+  heroRightWide: {
+    height: 360,
   },
   heroImage: {
     width: '100%',
@@ -53,25 +52,12 @@ export default StyleSheet.create({
     fontFamily: 'System, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
     fontSize: 10,
     fontWeight: 'bold',
-    color: '#E87A8E',
+    color: '#E31B23',
     letterSpacing: 1.5,
-    marginBottom: 16,
-  },
-  heroTitle: {
-    fontFamily: '"Cormorant Garamond", "Playfair Display", Georgia, serif',
-    fontSize: 44,
-    fontWeight: '600',
-    lineHeight: 52,
-    marginBottom: 16,
-  },
-  heroSub: {
-    fontFamily: 'System, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-    fontSize: 14,
-    lineHeight: 22,
-    marginBottom: 32,
+    textAlign: 'center',
   },
   heroBtn: {
-    backgroundColor: '#1C1C1C',
+    backgroundColor: '#E31B23',
     borderRadius: 50,
     paddingHorizontal: 32,
     paddingVertical: 14,
@@ -88,7 +74,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 8,
-    marginTop: 32,
+    marginTop: 24,
     marginBottom: 16,
   },
   sectionTitle: {
@@ -100,7 +86,7 @@ export default StyleSheet.create({
     fontFamily: 'System, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
     fontSize: 12,
     fontWeight: '600',
-    color: '#E87A8E',
+    color: '#E31B23',
   },
 
   list: {
@@ -109,7 +95,7 @@ export default StyleSheet.create({
   },
 
   footerProductsSection: {
-    marginTop: 48,
+    marginTop: 32,
   },
   footerTitlePadding: {
     marginBottom: 24,
@@ -120,4 +106,23 @@ export default StyleSheet.create({
   textLight: { color: '#1C1C1C' },
   descDark: { color: '#94a3b8' },
   descLight: { color: '#475569' },
+  stickySearchContainer: {
+    position: 'sticky',
+    top: 0,
+    zIndex: 500,
+    width: '100%',
+    paddingVertical: 8,
+    paddingHorizontal: 8,
+    alignSelf: 'center',
+  },
+  stickySearchContainerDark: {
+    backgroundColor: '#0D0D0D',
+    borderBottomWidth: 1,
+    borderBottomColor: '#242424',
+  },
+  stickySearchContainerLight: {
+    backgroundColor: '#FAF8F6',
+    borderBottomWidth: 1,
+    borderBottomColor: '#f1e8e4',
+  },
 });

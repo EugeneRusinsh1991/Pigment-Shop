@@ -1,5 +1,4 @@
-import React from 'react';
-import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { Text, TextInput, TouchableOpacity, View } from 'react-native';
 import commonStyles from '../theme/commonStyles';
 import styles from './ProfilePageStyles';
 
@@ -55,22 +54,51 @@ function SaveButton({ saving, loading, onSave, selectTheme, label }) {
   );
 }
 
+function buildFieldConfig(t, values, setters) {
+  const { firstName, lastName, phone, city } = values;
+  const { setFirstName, setLastName, setPhone, setCity } = setters;
+  return [
+    { key: 'firstName', labelKey: 'profileFirstName', fallback: 'First Name',  value: firstName,  onChange: setFirstName },
+    { key: 'lastName',  labelKey: 'profileLastName',  fallback: 'Last Name',   value: lastName,   onChange: setLastName  },
+    { key: 'phone',     labelKey: 'profilePhone',      fallback: 'Phone',       value: phone,      onChange: setPhone, placeholder: '+1 234 567 8900', keyboardType: 'phone-pad' },
+    { key: 'city',      labelKey: 'profileCity',       fallback: 'City',        value: city,       onChange: setCity  },
+  ].map((f) => ({
+    ...f,
+    label: `${t(f.labelKey) || f.fallback} *`,
+    placeholder: f.placeholder || t(f.labelKey) || f.fallback,
+  }));
+}
+
 export default function ProfileFormCard({
-  email, firstName, lastName, phone,
-  setFirstName, setLastName, setPhone,
+  email, firstName, lastName, phone, city,
+  setFirstName, setLastName, setPhone, setCity,
   saving, loading, onSave,
   isDark, selectTheme, t,
 }) {
   const fieldProps = { isDark, selectTheme };
+  const fields = buildFieldConfig(t, { firstName, lastName, phone, city }, { setFirstName, setLastName, setPhone, setCity });
+
   return (
-    <View style={[commonStyles.card, selectTheme(commonStyles.cardDark, commonStyles.cardLight), styles.cardSpecific]}>
+    <View style={[commonStyles.card, selectTheme(commonStyles.cardDark, selectTheme(commonStyles.cardLight)), styles.cardSpecific]}>
       <EmailField label={t('profileEmail')} email={email} selectTheme={selectTheme} />
 
-      <ProfileTextField {...fieldProps} label={t('profileFirstName') || 'First Name'} placeholder={t('profileFirstName') || 'First Name'} value={firstName} onChangeText={setFirstName} />
-      <ProfileTextField {...fieldProps} label={t('profileLastName') || 'Last Name'} placeholder={t('profileLastName') || 'Last Name'} value={lastName} onChangeText={setLastName} />
-      <ProfileTextField {...fieldProps} label={t('profilePhone') || 'Phone'} placeholder="+1 234 567 8900" value={phone} onChangeText={setPhone} keyboardType="phone-pad" />
+      {fields.map((f) => (
+        <ProfileTextField
+          key={f.key}
+          {...fieldProps}
+          label={f.label}
+          placeholder={f.placeholder}
+          value={f.value}
+          onChangeText={f.onChange}
+          keyboardType={f.keyboardType}
+        />
+      ))}
 
       <SaveButton saving={saving} loading={loading} onSave={onSave} selectTheme={selectTheme} label={t('profileSaveBtn')} />
+
+      <Text style={[styles.requiredNote, selectTheme(commonStyles.subtextDark, commonStyles.subtextLight)]}>
+        {t('profileRequiredNote')}
+      </Text>
     </View>
   );
 }

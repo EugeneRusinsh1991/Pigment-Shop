@@ -1,8 +1,7 @@
-import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native';
-import useCardDimensions from '../hooks/useCardDimensions';
+import { Image, Platform, StyleSheet, Text, TouchableOpacity, useWindowDimensions, View } from 'react-native';
 import { useTheme } from '../context/ThemeContext';
 import { getCategories } from '../data/catalogState';
+import useCardDimensions from '../hooks/useCardDimensions';
 
 const CATEGORY_PLACEHOLDER = 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=600&auto=format&fit=crop';
 
@@ -51,40 +50,56 @@ function getCategoryLabel(rawNameObj, item, lang) {
   return getRawName(rawNameObj, lang) || item.label;
 }
 
+function useCategoryContent(item, lang) {
+  const rawCategories = getCategories();
+  const rawCat = rawCategories.find(c => c.id === item.id);
+  return {
+    desc: getCategoryDescription(rawCat?.description, item, lang),
+    label: getCategoryLabel(rawCat?.name, item, lang),
+  };
+}
+
+function getCategoryCardStyles(isDark, isMobile, { cardWidth, cardHeight, cardMargin }) {
+  const mobileOverride = isMobile ? { bottom: 12, left: 12, right: 12 } : undefined;
+  const mobileLogo    = isMobile ? { fontSize: 18, lineHeight: 22 } : undefined;
+  const mobileDesc    = isMobile ? { fontSize: 10, lineHeight: 13 } : undefined;
+  const themeStyle    = isDark ? styles.catCardDark : styles.catCardLight;
+  const nativeTextShadow = Platform.OS !== 'web' ? {
+    textShadowColor: 'rgba(0, 0, 0, 0.85)',
+    textShadowOffset: { width: 0, height: 1 },
+    textShadowRadius: 5,
+  } : undefined;
+  const nativeOverlay = Platform.OS !== 'web' ? { backgroundColor: 'rgba(0, 0, 0, 0.4)' } : undefined;
+  const nativeDescColor = Platform.OS !== 'web' ? '#F3F3F3' : undefined;
+
+  return {
+    card: [styles.catCard, themeStyle, { width: cardWidth, minWidth: cardWidth, height: cardHeight, flex: 0, flexGrow: 0, margin: cardMargin }],
+    content: [styles.catContent, mobileOverride],
+    label:   [styles.catLabel, mobileLogo, nativeTextShadow],
+    desc:    [styles.catDesc, mobileDesc, nativeTextShadow, nativeDescColor && { color: nativeDescColor }],
+    overlay: nativeOverlay,
+  };
+}
+
 /**
  * CategoryCard Component
  * Renders a category item with layout dimensions determined by depth and viewport size.
  */
 export default function CategoryCard({ item, onPress, isDark, depth }) {
-  const { t, lang } = useTheme();
-  const { cardWidth, cardHeight } = useCardDimensions(depth, false);
-  
-  const rawCategories = getCategories();
-  const rawCat = rawCategories.find(c => c.id === item.id);
-  const rawDescObj = rawCat?.description;
-  const rawNameObj = rawCat?.name;
-
-  const desc = getCategoryDescription(rawDescObj, item, lang);
-  const label = getCategoryLabel(rawNameObj, item, lang);
+  const { lang } = useTheme();
+  const dims = useCardDimensions(depth, false);
+  const { width: windowWidth } = useWindowDimensions();
+  const isMobile = windowWidth < 768;
+  const { desc, label } = useCategoryContent(item, lang);
+  const s = getCategoryCardStyles(isDark, isMobile, dims);
 
   return (
-    <TouchableOpacity
-      style={[
-        styles.catCard, 
-        isDark ? styles.catCardDark : styles.catCardLight, 
-        { width: cardWidth, height: cardHeight, flex: 0, flexGrow: 0 }
-      ]}
-      onPress={onPress}
-      activeOpacity={0.85}
-    >
+    <TouchableOpacity style={s.card} onPress={onPress} activeOpacity={0.85}>
       <Image source={{ uri: CATEGORY_PLACEHOLDER }} style={styles.catImage} resizeMode="cover" />
-      <View style={styles.overlay} />
-      <View style={styles.catContent}>
-        <Text style={styles.catLabel} numberOfLines={2}>{label}</Text>
-        <Text style={styles.catDesc} numberOfLines={2}>{desc}</Text>
-      </View>
-      <View style={styles.arrowCircle}>
-        <Text style={styles.arrowCircleText}>↗</Text>
+      <View style={[styles.overlay, s.overlay]} />
+      <View style={s.content}>
+        <Text style={s.label} numberOfLines={2}>{label}</Text>
+        <Text style={s.desc}  numberOfLines={2}>{desc}</Text>
       </View>
     </TouchableOpacity>
   );
@@ -98,7 +113,6 @@ const styles = StyleSheet.create({
     margin: 8,
     overflow: 'hidden',
     position: 'relative',
-    minWidth: 250,
   },
   catCardDark: {
     backgroundColor: '#1E1E1E',
@@ -117,7 +131,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 24,
     left: 24,
-    right: 70,
+    right: 24,
   },
   catLabel: {
     fontFamily: '"Cormorant Garamond", "Playfair Display", Georgia, serif',

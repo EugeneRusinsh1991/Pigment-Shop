@@ -13,16 +13,17 @@ export default function DiscountsSection({ isDark, isWide, t, onCardPress, favs 
   return (
     <View style={styles.footerProductsSection}>
       <View style={{
-        flexDirection: 'row',
+        flexDirection: isWide ? 'row' : 'column',
         justifyContent: 'space-between',
-        alignItems: 'center',
+        alignItems: isWide ? 'center' : 'flex-start',
         paddingHorizontal: 8,
         marginBottom: 16,
+        gap: isWide ? 0 : 8,
       }}>
         <Text style={[styles.sectionTitle, isDark ? styles.textDark : styles.textLight]}>
           {t.discounts}
         </Text>
-        <CountdownTimer isDark={isDark} t={t} />
+        <CountdownTimer isDark={isDark} />
       </View>
       <PlaceholderGrid
         data={discountedProducts}

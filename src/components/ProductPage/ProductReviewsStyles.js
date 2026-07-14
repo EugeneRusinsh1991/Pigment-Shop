@@ -93,7 +93,7 @@ export default StyleSheet.create({
     fontSize: 24,
   },
   submitBtn: {
-    backgroundColor: '#E87A8E',
+    backgroundColor: '#E31B23',
     borderRadius: 8,
     height: 40,
     justifyContent: 'center',

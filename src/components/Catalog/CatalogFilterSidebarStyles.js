@@ -21,10 +21,10 @@ const styles = StyleSheet.create({
 
   checkRow: { flexDirection: 'row', alignItems: 'center', gap: 8, paddingVertical: 4 },
   checkbox: {
-    width: 18, height: 18, borderRadius: 4, borderWidth: 1.5, borderColor: '#E87A8E',
+    width: 18, height: 18, borderRadius: 4, borderWidth: 1.5, borderColor: '#E31B23',
     alignItems: 'center', justifyContent: 'center',
   },
-  checkboxActive: { backgroundColor: '#E87A8E' },
+  checkboxActive: { backgroundColor: '#E31B23' },
   checkMark: { color: '#FFF', fontSize: 11, fontWeight: '700' },
   checkLabel: { fontSize: 13 },
 
@@ -34,8 +34,8 @@ const styles = StyleSheet.create({
 
   resetBtn: { marginTop: 4 },
   resetText: { fontSize: 13, fontWeight: '600' },
-  accentDark: { color: '#E87A8E' },
-  accentLight: { color: '#E87A8E' },
+  accentDark: { color: '#E31B23' },
+  accentLight: { color: '#E31B23' },
 });
 
 export default styles;

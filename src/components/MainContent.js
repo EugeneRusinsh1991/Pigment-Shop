@@ -1,23 +1,22 @@
-import React from 'react';
-import { useNavigation } from '../context/NavigationContext';
 import { useAuth } from '../context/AuthContext';
+import { useNavigation } from '../context/NavigationContext';
 
-import CatalogPage from './CatalogPage';
-import LoginPage from './LoginPage';
-import ProfilePage from './ProfilePage';
-import OrdersPage from './OrdersPage';
-import FavoritesPage from './FavoritesPage';
 import CartView from './CartView';
-import ProductPage from './ProductPage';
+import CatalogPage from './CatalogPage';
 import CatalogView from './CatalogView';
+import FavoritesPage from './FavoritesPage';
+import LoginPage from './LoginPage';
+import OrdersPage from './OrdersPage';
+import ProductPage from './ProductPage';
+import ProfilePage from './ProfilePage';
 
 const SCREENS = {
-  catalog: CatalogPage,
   login: LoginPage,
   profile: ProfilePage,
   orders: OrdersPage,
   favorites: FavoritesPage,
   cart: CartView,
+  allProducts: CatalogPage,
 };
 
 const SCREEN_KEYS = [
@@ -27,6 +26,7 @@ const SCREEN_KEYS = [
   'showOrders',
   'showFavorites',
   'showCart',
+  'showAllProducts',
 ];
 
 const KEY_MAPPING = {
@@ -36,6 +36,7 @@ const KEY_MAPPING = {
   showOrders: 'orders',
   showFavorites: 'favorites',
   showCart: 'cart',
+  showAllProducts: 'allProducts',
 };
 
 function getActiveScreenKey(nav) {
@@ -48,13 +49,31 @@ export default function MainContent({ isDark, isWide }) {
   const auth = useAuth();
 
   const key = getActiveScreenKey(nav);
+  if (key === 'catalog') {
+    return (
+      <CatalogView
+        isDark={isDark}
+        isWide={isWide}
+        depth={nav.depth}
+        currentLevel={nav.currentLevel}
+        items={nav.currentLevel.items}
+        crumbs={nav.crumbs}
+        showCategoryGrid
+        showSectionTitle
+        showPromotionalSections={false}
+        showHeroBanner={false}
+        showNavigation={true}
+      />
+    );
+  }
+
   if (key) {
     const Component = SCREENS[key];
     return <Component isDark={isDark} auth={auth} />;
   }
 
   if (nav.selectedProduct) {
-    return <ProductPage product={nav.selectedProduct} isDark={isDark} />;
+    return <ProductPage product={nav.selectedProduct} isDark={isDark} showNavigation={true} />;
   }
 
   return (
@@ -65,6 +84,8 @@ export default function MainContent({ isDark, isWide }) {
       currentLevel={nav.currentLevel}
       items={nav.currentLevel.items}
       crumbs={nav.crumbs}
+      showCategoryGrid={false}
+      showSectionTitle={false}
     />
   );
 }

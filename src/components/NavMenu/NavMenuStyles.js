@@ -48,10 +48,13 @@ export default StyleSheet.create({
   utilRowLight: { backgroundColor: '#ffffff' },
   utilIcon: { fontSize: 20, width: 28, textAlign: 'center' },
   utilLabel: { flex: 1, fontSize: 14, fontWeight: '600', marginLeft: 10 },
-  accentDark: { color: '#38bdf8' },
-  accentLight: { color: '#7c3aed' },
+  accentDark: { color: '#E31B23' },
+  accentLight: { color: '#E31B23' },
+  mainNavLabel: { color: '#E31B23' },
 
   divider: { height: 1, marginHorizontal: 16, marginVertical: 4 },
+  sectionSeparator: { height: 1, marginHorizontal: 16, marginVertical: 12 },
+  sectionHeading: { paddingHorizontal: 16, paddingVertical: 8, fontSize: 12, fontWeight: '700', textTransform: 'uppercase', letterSpacing: 0.5 },
   dividerDark: { backgroundColor: '#1e293b' },
   dividerLight: { backgroundColor: '#e2e8f0' },
 

@@ -1,15 +1,17 @@
-import React from 'react';
-import { View, TouchableOpacity, Text } from 'react-native';
-import styles from './AppHeaderStyles';
-import { useTheme } from '../../context/ThemeContext';
+import { Text, TouchableOpacity, View } from 'react-native';
 import { useAuth } from '../../context/AuthContext';
+import { useTheme } from '../../context/ThemeContext';
 import { useProfile } from '../../hooks/useProfile';
+import { useAdminDomain } from '../../services/adminDomain';
 import {
-  UserIcon,
-  ClipboardIcon,
-  LogoutIcon,
-  LoginIcon
+    AdminIcon,
+    ClipboardIcon,
+    HeartIcon,
+    LoginIcon,
+    LogoutIcon,
+    UserIcon
 } from '../Icons';
+import styles from './AppHeaderStyles';
 
 const getTrimmedValue = (val) => {
   return typeof val === 'string' ? val.trim() : '';
@@ -50,11 +52,15 @@ export default function UserDropdown({
   onOrdersPress,
   onLogout,
   onLoginPress,
-  onToggleUserMenu
+  onToggleUserMenu,
+  isMobile,
+  onFavoritesPress,
+  onAdminPress
 }) {
   const { t } = useTheme();
   const { user } = useAuth();
   const { profile } = useProfile(user);
+  const { isAdmin } = useAdminDomain();
 
   if (!showUserMenu) return null;
   
@@ -73,20 +79,36 @@ export default function UserDropdown({
             <UserIcon color={dStyles.iconColor} size={14} style={{ marginRight: 8 }} />
             <Text style={dStyles.itemText}>{t('userProfile')}</Text>
           </TouchableOpacity>
+          <TouchableOpacity style={[styles.dropdownItem, { flexDirection: 'row', alignItems: 'center' }]} onPress={() => { onFavoritesPress && onFavoritesPress(); onToggleUserMenu(); }}>
+            <HeartIcon color={dStyles.iconColor} size={14} style={{ marginRight: 8 }} />
+            <Text style={dStyles.itemText}>{t('navFavorites')}</Text>
+          </TouchableOpacity>
           <TouchableOpacity style={[styles.dropdownItem, { flexDirection: 'row', alignItems: 'center' }]} onPress={() => { onOrdersPress(); onToggleUserMenu(); }}>
             <ClipboardIcon color={dStyles.iconColor} size={14} style={{ marginRight: 8 }} />
             <Text style={dStyles.itemText}>{t('userOrders')}</Text>
           </TouchableOpacity>
+          {isAdmin && (
+            <TouchableOpacity style={[styles.dropdownItem, { flexDirection: 'row', alignItems: 'center' }]} onPress={() => { onAdminPress(); onToggleUserMenu(); }}>
+              <AdminIcon color={dStyles.iconColor} size={14} style={{ marginRight: 8 }} />
+              <Text style={dStyles.itemText}>{t('adminTitle')}</Text>
+            </TouchableOpacity>
+          )}
           <TouchableOpacity style={[styles.dropdownItem, { flexDirection: 'row', alignItems: 'center' }]} onPress={() => { onLogout(); onToggleUserMenu(); }}>
             <LogoutIcon color={dStyles.iconColor} size={14} style={{ marginRight: 8 }} />
             <Text style={dStyles.itemText}>{t('userLogout')}</Text>
           </TouchableOpacity>
         </>
       ) : (
-        <TouchableOpacity style={[styles.dropdownItem, { flexDirection: 'row', alignItems: 'center' }]} onPress={onLoginPress}>
-          <LoginIcon color={dStyles.iconColor} size={14} style={{ marginRight: 8 }} />
-          <Text style={dStyles.itemText}>{t('userLogin')}</Text>
-        </TouchableOpacity>
+        <>
+          <TouchableOpacity style={[styles.dropdownItem, { flexDirection: 'row', alignItems: 'center' }]} onPress={() => { onFavoritesPress && onFavoritesPress(); onToggleUserMenu(); }}>
+            <HeartIcon color={dStyles.iconColor} size={14} style={{ marginRight: 8 }} />
+            <Text style={dStyles.itemText}>{t('navFavorites')}</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={[styles.dropdownItem, { flexDirection: 'row', alignItems: 'center' }]} onPress={() => { onLoginPress(); onToggleUserMenu(); }}>
+            <LoginIcon color={dStyles.iconColor} size={14} style={{ marginRight: 8 }} />
+            <Text style={dStyles.itemText}>{t('userLogin')}</Text>
+          </TouchableOpacity>
+        </>
       )}
     </View>
   );

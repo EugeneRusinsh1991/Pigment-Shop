@@ -7,8 +7,8 @@
  * This service has no dependency on admin mutation services or admin command layers,
  * keeping the storefront read path clearly separated from the admin write path.
  */
-import { mergeWithAdminCategories } from './adminCategoryMerger';
-import { buildCatalogTree, buildFlatProductList, buildCategoryTreeFromFlat } from './catalogBuilder';
+import { mergeWithAdminCategories } from './adminCategoryMerger.js';
+import { buildCatalogTree, buildCategoryTreeFromFlat, buildFlatProductList } from './catalogBuilder.js';
 
 function resolveLocalizedValue(value, lang) {
   if (!value) return '';
@@ -18,20 +18,38 @@ function resolveLocalizedValue(value, lang) {
   return value;
 }
 
+function buildCategoryLookup(categories) {
+  return new Map(categories.map((category) => [category.id, category]));
+}
+
+function resolveProductCategory(product, categories, lang) {
+  const categoryLookup = buildCategoryLookup(categories);
+  const categoryMatch = categories.find((category) => (category.productIds || []).includes(product.id));
+  const categoryId = categoryMatch ? categoryMatch.id : null;
+  const categoryLabel = categoryMatch ? resolveLocalizedValue(categoryMatch.name, lang) : '';
+
+  return { categoryId, categoryLabel };
+}
+
 export function buildCatalogViewModel({ products = [], categories = [], lang = 'en' } = {}) {
-  const localizedProducts = products.map((product) => ({
-    ...product,
-    label: resolveLocalizedValue(product.label, lang),
-    description: resolveLocalizedValue(product.description, lang),
-    category: resolveLocalizedValue(product.category, lang),
-    subcategory: resolveLocalizedValue(product.subcategory, lang),
-  }));
+  const localizedProducts = products.map((product) => {
+    const { categoryId, categoryLabel } = resolveProductCategory(product, categories, lang);
+    return {
+      ...product,
+      label: resolveLocalizedValue(product.label, lang),
+      description: resolveLocalizedValue(product.description, lang),
+      category: categoryLabel,
+      categoryId,
+      subcategory: resolveLocalizedValue(product.subcategory, lang),
+      isCategory: false,
+    };
+  });
 
   const activeProducts = localizedProducts.filter((product) => product.active !== false);
   const flatList = buildFlatProductList(activeProducts);
-  const productTree = buildCatalogTree(activeProducts);
+  const productTree = buildCatalogTree(activeProducts, categories);
   const adminCategoryTree = buildCategoryTreeFromFlat(categories);
-  const categoryTree = mergeWithAdminCategories(productTree, adminCategoryTree);
+  const categoryTree = mergeWithAdminCategories(productTree, adminCategoryTree, lang);
 
   return {
     localizedProducts,

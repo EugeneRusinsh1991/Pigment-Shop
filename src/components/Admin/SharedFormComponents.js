@@ -37,12 +37,14 @@ export function FieldTextarea({ label, value, onChangeText, placeholder, numberO
   );
 }
 
+import { CrossIcon } from '../Icons';
+
 function ModalHeader({ title, onClose, styles }) {
   return (
     <View style={styles.modalHeader}>
       <Text style={styles.modalTitle}>{title}</Text>
-      <TouchableOpacity onPress={onClose}>
-        <Text style={styles.modalCloseBtn}>✕</Text>
+      <TouchableOpacity onPress={onClose} style={{ padding: 4 }}>
+        <CrossIcon color="#94A3B8" size={14} />
       </TouchableOpacity>
     </View>
   );

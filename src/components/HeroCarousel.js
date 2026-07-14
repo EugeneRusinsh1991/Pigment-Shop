@@ -1,8 +1,9 @@
-import React from 'react';
-import { View, Image, TouchableOpacity, Text, Animated, StyleSheet } from 'react-native';
+import { useEffect, useMemo, useState } from 'react';
+import { Animated, StyleSheet, Text, TouchableOpacity, useWindowDimensions, View } from 'react-native';
+import globalStyles from '../AppStyles';
 import { useCatalog } from '../context/CatalogContext';
 import { useCarouselState } from '../hooks/useCarouselState';
-import globalStyles from '../AppStyles';
+import { MediaRenderer } from '../media';
 
 function CarouselArrows({ show, onPrev, onNext }) {
   if (!show) return null;
@@ -45,53 +46,77 @@ function CarouselDots({ banners, currentIndex, handleSwitch }) {
   );
 }
 
-export default function HeroCarousel({ isDark }) {
+function getBreakoutStyle(isWide, windowWidth) {
+  if (isWide) return {};
+  return { width: windowWidth, alignSelf: 'center', borderRadius: 0 };
+}
+
+function useBannerNavigation(banners, currentIndex, handleSwitch) {
+  const handlePrev = () => handleSwitch((currentIndex - 1 + banners.length) % banners.length);
+  const handleNext = () => handleSwitch((currentIndex + 1) % banners.length);
+  return { handlePrev, handleNext };
+}
+
+export default function HeroCarousel({ isDark, isWide }) {
   const { banners = [] } = useCatalog();
   const { currentIndex, prevIndex, fadeAnim, handleSwitch } = useCarouselState(banners);
+  const { width: windowWidth } = useWindowDimensions();
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  useEffect(() => {
+    if (currentIndex === prevIndex) {
+      setIsTransitioning(false);
+      return;
+    }
+    setIsTransitioning(true);
+  }, [currentIndex, prevIndex]);
 
   if (banners.length === 0) return null;
 
   const activeBanner = banners[currentIndex];
   const prevBanner = banners[prevIndex];
   const hasMultiple = banners.length > 1;
+  const { handlePrev, handleNext } = useBannerNavigation(banners, currentIndex, handleSwitch);
+  const breakoutStyle = getBreakoutStyle(isWide, windowWidth);
 
-  const handlePrev = () => handleSwitch((currentIndex - 1 + banners.length) % banners.length);
-  const handleNext = () => handleSwitch((currentIndex + 1) % banners.length);
+  const renderLayers = useMemo(() => {
+    const layers = [];
+    if (prevBanner) {
+      layers.push(
+        <Animated.View
+          key={`prev-${prevBanner}`}
+          style={[localStyles.imageFill, { opacity: isTransitioning ? 1 - fadeAnim : 0 }]}
+        >
+          <MediaRenderer uri={prevBanner} style={localStyles.imageFill} resizeMode="cover" />
+        </Animated.View>
+      );
+    }
+
+    if (activeBanner) {
+      layers.push(
+        <Animated.View
+          key={`active-${activeBanner}`}
+          style={[localStyles.imageFill, { opacity: isTransitioning ? fadeAnim : 1 }]}
+        >
+          <MediaRenderer uri={activeBanner} style={localStyles.imageFill} resizeMode="cover" />
+        </Animated.View>
+      );
+    }
+
+    return layers;
+  }, [activeBanner, fadeAnim, isTransitioning, prevBanner]);
 
   return (
-    <View style={globalStyles.heroRight}>
+    <View style={[globalStyles.heroRight, isWide ? globalStyles.heroRightWide : globalStyles.heroRightMobile, breakoutStyle]}>
       <View style={localStyles.carouselContainer}>
-        {prevBanner && (
-          <Image
-            source={{ uri: prevBanner }}
-            style={localStyles.imageFill}
-            resizeMode="cover"
-          />
-        )}
-        
-        {currentIndex !== prevIndex && activeBanner && (
-          <Animated.Image
-            source={{ uri: activeBanner }}
-            style={[localStyles.imageFill, { opacity: fadeAnim }]}
-            resizeMode="cover"
-          />
-        )}
-
-        <CarouselArrows
-          show={hasMultiple}
-          onPrev={handlePrev}
-          onNext={handleNext}
-        />
-
-        <CarouselDots
-          banners={banners}
-          currentIndex={currentIndex}
-          handleSwitch={handleSwitch}
-        />
+        {renderLayers}
+        <CarouselArrows show={hasMultiple} onPrev={handlePrev} onNext={handleNext} />
+        <CarouselDots banners={banners} currentIndex={currentIndex} handleSwitch={handleSwitch} />
       </View>
     </View>
   );
 }
+
 
 const localStyles = StyleSheet.create({
   carouselContainer: {

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import styles from './NavMenuStyles';
 
@@ -19,14 +18,14 @@ function NavItem({ item, isDark, onSelect }) {
   );
 }
 
-export default function NavItemList({ items, isDark, onSelect }) {
+export default function NavItemList({ items, isDark, accentLabels, onSelect }) {
   if (!items || items.length === 0) return null;
 
   return (
     <>
       <View style={[styles.divider, isDark ? styles.dividerDark : styles.dividerLight]} />
       {items.map((item) => (
-        <NavItem key={item.id} item={item} isDark={isDark} onSelect={onSelect} />
+        <NavItem key={item.id} item={item} isDark={isDark} accent={accentLabels} onSelect={onSelect} />
       ))}
     </>
   );

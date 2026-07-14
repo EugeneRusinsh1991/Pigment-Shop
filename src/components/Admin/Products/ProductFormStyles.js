@@ -88,7 +88,7 @@ export default StyleSheet.create({
     outlineStyle: 'none',
   },
   fieldInputError: {
-    borderColor: '#E87A8E',
+    borderColor: '#E31B23',
   },
   fieldTextarea: {
     height: 72,
@@ -143,7 +143,7 @@ export default StyleSheet.create({
     color: '#475569',
   },
   errorText: {
-    color: '#E87A8E',
+    color: '#E31B23',
     fontSize: 11,
     marginTop: 2,
   },

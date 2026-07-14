@@ -96,7 +96,7 @@ export default StyleSheet.create({
   },
   barFill: {
     height: '100%',
-    backgroundColor: '#E87A8E',
+    backgroundColor: '#E31B23',
     borderRadius: 4,
   },
   barValue: {
@@ -148,5 +148,84 @@ export default StyleSheet.create({
   xLabel: {
     fontSize: 9,
     color: '#94a3b8',
+  },
+
+  /* DateRangePicker */
+  datePickerContainer: {
+    backgroundColor: '#FFFFFF',
+    borderRadius: 14,
+    padding: 16,
+    marginBottom: 20,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.05,
+    shadowRadius: 8,
+    elevation: 2,
+  },
+  datePickerLabel: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#1C1C1C',
+    marginBottom: 12,
+  },
+  datePickerPresets: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
+    marginBottom: 12,
+  },
+  presetBtn: {
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    borderRadius: 8,
+    backgroundColor: '#F1F5F9',
+    borderWidth: 1,
+    borderColor: '#E2E8F0',
+  },
+  presetBtnActive: {
+    backgroundColor: '#E31B23',
+    borderColor: '#E31B23',
+  },
+  presetText: {
+    fontSize: 13,
+    color: '#475569',
+    fontWeight: '500',
+  },
+  presetTextActive: {
+    color: '#FFFFFF',
+  },
+  customDateRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    marginTop: 8,
+  },
+  customDateInput: {
+    flex: 1,
+    height: 40,
+    borderWidth: 1,
+    borderColor: '#E2E8F0',
+    borderRadius: 8,
+    paddingHorizontal: 12,
+    fontSize: 14,
+    color: '#1C1C1C',
+    backgroundColor: '#F8FAFC',
+  },
+  customDateDash: {
+    fontSize: 16,
+    color: '#94A3B8',
+  },
+  applyBtn: {
+    height: 40,
+    backgroundColor: '#10B981',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 16,
+    borderRadius: 8,
+  },
+  applyBtnText: {
+    color: '#FFFFFF',
+    fontWeight: '600',
+    fontSize: 14,
   },
 });

@@ -1,10 +1,10 @@
-import React from 'react';
-import { View, Text, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform } from 'react-native';
-import styles from './LoginPageStyles';
-import { LoginHeader, PasswordInputField, LoginFooter, ErrorText, ForgotPasswordLink, ConfirmPasswordField } from './LoginPageComponents';
+import { KeyboardAvoidingView, Platform, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { useTheme } from '../context/ThemeContext';
 import { useLoginForm } from '../hooks/useLoginForm';
 import { MailIcon } from './Icons';
-import { useTheme } from '../context/ThemeContext';
+import { ConfirmPasswordField, ErrorText, ForgotPasswordLink, LoginFooter, LoginHeader, PasswordInputField } from './LoginPageComponents';
+import styles from './LoginPageStyles';
+import SharedLayoutWrapper from './SharedLayoutWrapper';
 
 const ic = (isDark, dark, light) => (isDark ? dark : light);
 const KEYBOARD_BEHAVIOR = Platform.OS === 'ios' ? 'padding' : 'height';
@@ -31,12 +31,17 @@ export default function LoginPage({ isDark }) {
   } = useLoginForm();
 
   return (
-    <KeyboardAvoidingView 
-      behavior={KEYBOARD_BEHAVIOR}
-      style={[styles.container, ic(isDark, styles.containerDark, styles.containerLight)]}
-    >
-      <View style={styles.content}>
-        <LoginHeader isRegister={isRegister} isDark={isDark} />
+    <SharedLayoutWrapper isDark={isDark}>
+      <KeyboardAvoidingView 
+        behavior={KEYBOARD_BEHAVIOR}
+        style={[styles.container, ic(isDark, styles.containerDark, styles.containerLight), { padding: 0 }]}
+      >
+        <ScrollView
+          contentContainerStyle={{ flexGrow: 1, justifyContent: 'center', alignItems: 'center', width: '100%', paddingVertical: 24 }}
+          showsVerticalScrollIndicator={false}
+        >
+          <View style={styles.content}>
+            <LoginHeader isRegister={isRegister} isDark={isDark} />
 
         <View style={[styles.formContainer, ic(isDark, styles.formContainerDark, styles.formContainerLight)]}>
           <TouchableOpacity style={[styles.googleBtn, ic(isDark, styles.googleBtnDark, styles.googleBtnLight)]} onPress={handleGoogleSignIn}>
@@ -108,7 +113,9 @@ export default function LoginPage({ isDark }) {
           setIsRegister={setIsRegister} 
           setError={setError} 
         />
-      </View>
-    </KeyboardAvoidingView>
+          </View>
+        </ScrollView>
+      </KeyboardAvoidingView>
+    </SharedLayoutWrapper>
   );
 }

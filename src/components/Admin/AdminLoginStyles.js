@@ -77,7 +77,7 @@ export default StyleSheet.create({
     outlineStyle: 'none',
   },
   errorText: {
-    color: '#E87A8E',
+    color: '#E31B23',
     fontSize: 12,
     marginBottom: 12,
     alignSelf: 'flex-start',

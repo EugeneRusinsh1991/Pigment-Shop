@@ -7,12 +7,16 @@
  * - NameField           (localized name input)
  * - DescriptionField    (localized description textarea)
  */
-import React from 'react';
+import { useState } from 'react';
 import { Text, TextInput, TouchableOpacity, View } from 'react-native';
-import styles from './CategoryFormStyles';
-import { triggerFileInput } from '../../../utils/fileInput';
 import { useTheme } from '../../../context/ThemeContext';
+import { fromMediaRef } from '../../../media';
+import { triggerFileInput } from '../../../utils/fileInput';
+import { ImageIcon, UploadIcon } from '../../Icons';
+import MediaBrowser from '../Media/MediaBrowser';
 import { FieldInput as SharedFieldInput, FieldTextarea as SharedFieldTextarea } from '../SharedFormComponents';
+import { CATEGORY_TYPE_COLORS } from './CategoriesStyles';
+import styles from './CategoryFormStyles';
 
 /* ─── shared primitives wrappers ────────────────────────────── */
 
@@ -23,6 +27,20 @@ const FieldTextarea = (props) => <SharedFieldTextarea {...props} styles={styles}
 
 function TypeToggleButton({ typeKey, label, activeValue, disabled, onPress }) {
   const isActive = activeValue === typeKey;
+  const typeColors = CATEGORY_TYPE_COLORS[typeKey];
+  const buttonStyle = isActive
+    ? {
+        backgroundColor: typeColors.softBg,
+        borderColor: typeColors.accent,
+      }
+    : {
+        backgroundColor: '#F1F5F9',
+        borderColor: '#E2E8F0',
+      };
+  const textStyle = isActive
+    ? { color: typeColors.text }
+    : { color: '#475569' };
+
   return (
     <TouchableOpacity
       style={{
@@ -31,15 +49,14 @@ function TypeToggleButton({ typeKey, label, activeValue, disabled, onPress }) {
         borderRadius: 8,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: isActive ? '#1C1C1C' : '#F1F5F9',
         borderWidth: 1,
-        borderColor: isActive ? '#1C1C1C' : '#E2E8F0',
         opacity: disabled ? 0.6 : 1,
+        ...buttonStyle,
       }}
       onPress={() => !disabled && onPress(typeKey)}
       activeOpacity={disabled ? 1 : 0.7}
     >
-      <Text style={{ fontSize: 13, fontWeight: '600', color: isActive ? '#FFFFFF' : '#475569' }}>
+      <Text style={{ fontSize: 13, fontWeight: '600', ...textStyle }}>
         {label}
       </Text>
     </TouchableOpacity>
@@ -69,6 +86,13 @@ export function CategoryTypeSelect({ value, onChange, disabled }) {
 
 export function ImagePickerField({ value, onChange }) {
   const { t } = useTheme();
+  const [browserOpen, setBrowserOpen] = useState(false);
+
+  function handleMediaSelect(item) {
+    setBrowserOpen(false);
+    onChange(fromMediaRef(item.path));
+  }
+
   return (
     <View style={styles.fieldGroup}>
       <Text style={styles.fieldLabel}>{t('adminCategoriesFormImage')}</Text>
@@ -81,10 +105,21 @@ export function ImagePickerField({ value, onChange }) {
           placeholderTextColor="#CBD5E1"
           autoCapitalize="none"
         />
-        <TouchableOpacity style={styles.uploadBtn} onPress={() => triggerFileInput('cat-image-file-input', onChange)} activeOpacity={0.8}>
+        <TouchableOpacity style={[styles.uploadBtn, { flexDirection: 'row', alignItems: 'center', gap: 4 }]} onPress={() => triggerFileInput('cat-image-file-input', onChange)} activeOpacity={0.8}>
+          <UploadIcon color="#FFFFFF" size={12} />
           <Text style={styles.uploadBtnText}>{t('adminCategoriesFormUploadBtn')}</Text>
         </TouchableOpacity>
+        <TouchableOpacity style={[styles.uploadBtn, { flexDirection: 'row', alignItems: 'center', gap: 4 }]} onPress={() => setBrowserOpen(true)} activeOpacity={0.8}>
+          <ImageIcon color="#FFFFFF" size={12} />
+          <Text style={styles.uploadBtnText}>Browse</Text>
+        </TouchableOpacity>
       </View>
+      <MediaBrowser
+        visible={browserOpen}
+        category="images"
+        onSelect={handleMediaSelect}
+        onClose={() => setBrowserOpen(false)}
+      />
     </View>
   );
 }

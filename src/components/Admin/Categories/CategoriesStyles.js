@@ -5,6 +5,21 @@
  */
 import { StyleSheet } from 'react-native';
 
+export const CATEGORY_TYPE_COLORS = {
+  category_holder: {
+    label: 'Category Holder',
+    accent: '#8B5CF6',
+    softBg: '#F5F3FF',
+    text: '#6D28D9',
+  },
+  product_holder: {
+    label: 'Product Holder',
+    accent: '#10B981',
+    softBg: '#ECFDF5',
+    text: '#047857',
+  },
+};
+
 export default StyleSheet.create({
   container: {
     padding: 24,
@@ -14,6 +29,7 @@ export default StyleSheet.create({
   toolbar: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'space-between',
     marginBottom: 16,
     gap: 12,
   },
@@ -94,10 +110,20 @@ export default StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 11,
     borderBottomWidth: 1,
-    borderBottomColor: '#F9F5F3',
+    borderBottomColor: '#E2E8F0',
+    borderLeftWidth: 3,
+    borderLeftColor: 'transparent',
   },
   treeRowAlt: {
     backgroundColor: '#FEFEFE',
+  },
+  treeRowCategoryHolder: {
+    backgroundColor: '#F8F7FF',
+    borderLeftColor: '#8B5CF6',
+  },
+  treeRowProductHolder: {
+    backgroundColor: '#F3FCF7',
+    borderLeftColor: '#10B981',
   },
 
   /* Cell widths */
@@ -135,6 +161,19 @@ export default StyleSheet.create({
     color: '#94a3b8',
     marginTop: 1,
   },
+  typeBadge: {
+    alignSelf: 'flex-start',
+    marginTop: 3,
+    paddingHorizontal: 7,
+    paddingVertical: 2,
+    borderRadius: 999,
+  },
+  typeBadgeText: {
+    fontSize: 10,
+    fontWeight: '700',
+    letterSpacing: 0.2,
+    textTransform: 'uppercase',
+  },
 
   cellText: {
     fontSize: 13,
@@ -166,12 +205,18 @@ export default StyleSheet.create({
     backgroundColor: '#F5F7FA',
   },
   addChildBtn: {
-    width: 28,
-    height: 28,
+    minWidth: 120,
+    height: 32,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 6,
+    borderRadius: 8,
     backgroundColor: '#EFF6FF',
+    paddingHorizontal: 12,
+  },
+  addChildBtnText: {
+    fontSize: 12,
+    fontWeight: '700',
+    color: '#1D4ED8',
   },
   actionIcon: {
     fontSize: 13,

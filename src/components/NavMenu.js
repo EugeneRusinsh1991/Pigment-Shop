@@ -1,55 +1,49 @@
-import React from 'react';
 import { Modal, Pressable, ScrollView, Text, TouchableOpacity, View } from 'react-native';
-import styles from './NavMenu/NavMenuStyles';
-import NavItemList from './NavMenu/NavItemList';
 import { useTheme } from '../context/ThemeContext';
+import { CrossIcon } from './Icons';
+import { ACCENT_COLOR } from './NavMenu/constants';
+import LanguageSelector from './NavMenu/LanguageSelector';
+import NavItemList from './NavMenu/NavItemList';
+import styles from './NavMenu/NavMenuStyles';
+import NavUtilActions from './NavMenu/NavUtilActions';
 
-function NavPanelHeader({ isDark, onClose, t }) {
+function NavMenuHeader({ isDark, onClose, title }) {
   return (
     <View style={[styles.panelHeader, isDark ? styles.panelHeaderDark : styles.panelHeaderLight]}>
       <Text style={[styles.panelTitle, isDark ? styles.textDark : styles.textLight]}>
-        {t('navMenuTitle')}
+        {title}
       </Text>
       <TouchableOpacity onPress={onClose} style={styles.closeBtn} activeOpacity={0.7}>
-        <Text style={[styles.closeIcon, isDark ? styles.accentDark : styles.accentLight]}>✕</Text>
+        <CrossIcon color={ACCENT_COLOR} size={16} />
       </TouchableOpacity>
     </View>
   );
 }
 
-function NavUtilActions({ isDark, canGoBack, onBack, onHome, t }) {
-  const rowStyle = [styles.utilRow, isDark ? styles.utilRowDark : styles.utilRowLight];
-  const labelStyle = [styles.utilLabel, isDark ? styles.accentDark : styles.accentLight];
-
-  return (
-    <>
-      {canGoBack && (
-        <TouchableOpacity style={rowStyle} onPress={onBack} activeOpacity={0.7}>
-          <Text style={styles.utilIcon}>‹</Text>
-          <Text style={labelStyle}>{t('btnBack')}</Text>
-        </TouchableOpacity>
-      )}
-      <TouchableOpacity style={rowStyle} onPress={onHome} activeOpacity={0.7}>
-        <Text style={styles.utilIcon}>🏠</Text>
-        <Text style={labelStyle}>{t('btnHome')}</Text>
-      </TouchableOpacity>
-    </>
-  );
-}
-
-/**
- * NavMenu — slide-in navigation panel displayed over existing content.
- */
-export default function NavMenu({ visible, onClose, items, onSelectItem, canGoBack, onBack, onHome, isDark }) {
+export default function NavMenu({
+  visible,
+  onClose,
+  mainItems,
+  categoryItems,
+  onSelectItem,
+  canGoBack,
+  onBack,
+  isDark,
+  onAdminPress,
+  onSelectLanguage,
+  lang,
+  onToggleTheme,
+}) {
   const { t } = useTheme();
-  const handleSelect = (item) => { 
-    onSelectItem(item); 
+  
+  const handleSelect = (item) => {
+    onSelectItem(item);
     if (!item.children?.length) {
       onClose();
     }
   };
-  const handleBack = () => { onBack(); };
-  const handleHome = () => { onHome(); };
+
+  const showDivider = !!onSelectLanguage;
 
   return (
     <Modal visible={visible} transparent animationType="fade" onRequestClose={onClose}>
@@ -58,14 +52,38 @@ export default function NavMenu({ visible, onClose, items, onSelectItem, canGoBa
           style={[styles.panel, isDark ? styles.panelDark : styles.panelLight]}
           onPress={(e) => e.stopPropagation()}
         >
-          <NavPanelHeader isDark={isDark} onClose={onClose} t={t} />
+          <NavMenuHeader isDark={isDark} onClose={onClose} title={t('navMenuTitle')} />
           <ScrollView style={styles.itemList} showsVerticalScrollIndicator={false}>
-            <NavUtilActions isDark={isDark} canGoBack={canGoBack} onBack={handleBack} onHome={handleHome} t={t} />
-            <NavItemList items={items} isDark={isDark} onSelect={handleSelect} />
+            <NavUtilActions isDark={isDark} canGoBack={canGoBack} onBack={onBack} t={t} />
+            <NavItemList
+              items={mainItems}
+              isDark={isDark}
+              accentLabels
+              onSelect={handleSelect}
+            />
+            <View style={[styles.sectionSeparator, isDark ? styles.dividerDark : styles.dividerLight]} />
+            <Text style={[styles.sectionHeading, isDark ? styles.textDark : styles.textLight]}>
+              {t('categories')}
+            </Text>
+            <NavItemList
+              items={categoryItems}
+              isDark={isDark}
+              onSelect={handleSelect}
+            />
+
+            {showDivider && (
+              <View style={[styles.divider, isDark ? styles.dividerDark : styles.dividerLight, { marginVertical: 12 }]} />
+            )}
+
+            <LanguageSelector
+              isDark={isDark}
+              lang={lang}
+              onSelectLanguage={onSelectLanguage}
+              onToggleTheme={onToggleTheme}
+            />
           </ScrollView>
         </Pressable>
       </Pressable>
     </Modal>
   );
 }
-

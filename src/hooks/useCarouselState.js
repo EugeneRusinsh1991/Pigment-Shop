@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Animated } from 'react-native';
 
-export function useCarouselState(banners = []) {
+export function useCarouselState(banners = [], intervalMs = 5000) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [prevIndex, setPrevIndex] = useState(0);
   const fadeAnim = useRef(new Animated.Value(1)).current;
@@ -38,9 +38,9 @@ export function useCarouselState(banners = []) {
     const interval = setInterval(() => {
       const nextIndex = (currentIndex + 1) % banners.length;
       handleSwitch(nextIndex);
-    }, 5000); // Auto-advance every 5 seconds
+    }, intervalMs); // Auto-advance every intervalMs ms
     return () => clearInterval(interval);
-  }, [currentIndex, banners.length]);
+  }, [currentIndex, banners.length, intervalMs]);
 
   return {
     currentIndex,

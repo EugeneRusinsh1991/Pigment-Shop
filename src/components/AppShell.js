@@ -4,25 +4,26 @@
  * Top-level layout component for the storefront. Reads all state from
  * contexts — no props are drilled through this component into children.
  *
- * Replaces the former `StorefrontApp`, `AppHeaderAndMenu`, and `MainContent`
- * components that lived directly in App.js.
+ * Uses the refactored NavigationContext which is backed by the orchestration
+ * layer. Screen switching, menu dismissal, and back navigation are all
+ * delegated to the orchestrator via useNavigation().
  */
+import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { Pressable, View, useWindowDimensions } from 'react-native';
-import { StatusBar } from 'expo-status-bar';
 
-import { useTheme } from '../context/ThemeContext';
-import { useUIMenu } from '../context/UIMenuContext';
-import { useNavigation } from '../context/NavigationContext';
 import { useAuth } from '../context/AuthContext';
 import { useCartContext } from '../context/CartContext';
+import { useNavigation } from '../context/NavigationContext';
+import { useTheme } from '../context/ThemeContext';
+import { useUIMenu } from '../context/UIMenuContext';
 
+import styles from '../AppStyles';
 import AppHeader from './AppHeader';
+import MainContent from './MainContent';
 import NavMenu from './NavMenu';
 import SearchBar from './SearchBar';
-import PageNavigation from './PageNavigation';
-import MainContent from './MainContent';
-import styles from '../AppStyles';
+import SharedLayoutWrapper from './SharedLayoutWrapper';
 
 const ic = (isDark, dark, light) => (isDark ? dark : light);
 
@@ -30,14 +31,31 @@ function shouldHeaderGoBack(nav) {
   return nav.canGoBack && !nav.selectedProduct;
 }
 
-function resolveCrumbs(nav) {
-  return nav.selectedProduct 
-    ? [...nav.crumbs, { label: nav.selectedProduct.label }] 
-    : nav.crumbs;
+function isBaseScreenActive(nav) {
+  return !nav.showLogin &&
+         !nav.showProfile &&
+         !nav.showOrders &&
+         !nav.showFavorites &&
+         !nav.showCart &&
+         !nav.showAllProducts;
 }
 
-function shouldShowBreadcrumbs(nav) {
-  return !nav.showLogin && !nav.showProfile && !nav.showOrders && !nav.showFavorites && !nav.showCart;
+function isHomePage(nav) {
+  return isBaseScreenActive(nav) &&
+         !nav.showCatalog &&
+         !nav.selectedProduct &&
+         nav.depth === 0;
+}
+
+function buildMenuItems(t, catalogItems) {
+  return {
+    mainItems: [
+      { id: 'nav-home', label: t('navHome'), icon: '⌂', action: 'home' },
+      { id: 'nav-catalog', label: t('navCatalog'), icon: '▣', action: 'catalog' },
+      { id: 'nav-all-products', label: t('navAllProducts'), icon: '⬢', action: 'allProducts' },
+    ],
+    categoryItems: catalogItems || [],
+  };
 }
 
 export default function AppShell({ onOpenAdmin }) {
@@ -48,10 +66,13 @@ export default function AppShell({ onOpenAdmin }) {
   const cart = useCartContext();
 
   const { width: windowWidth } = useWindowDimensions();
+  const [isSearchActive, setIsSearchActive] = React.useState(false);
   const isWide = windowWidth >= 768;
 
-  const { currentLevel, crumbs, selectedProduct } = nav;
-
+  // Menu dismissal for header dropdowns is handled via UIMenuContext.
+  // Navigation-level menu dismissal (lang/user menus) is wired inside the
+  // orchestrator via onDismissMenus — so navigation actions automatically
+  // close those menus without extra calls here.
   const handleHome = () => {
     closeMenus();
     nav.handleHome();
@@ -62,61 +83,50 @@ export default function AppShell({ onOpenAdmin }) {
     setShowLangMenu(false);
   };
 
-  const handleLoginPress = () => {
-    nav.setShowLogin(true);
-    nav.setShowProfile(false);
-    nav.setShowOrders(false);
-    setShowUserMenu(false);
-  };
-
-  const handleCartPress = () => {
-    nav.setShowCart(true);
-    nav.setSelectedProduct(null);
-    nav.setShowLogin(false);
-    nav.setShowProfile(false);
-    nav.setShowOrders(false);
-    setShowUserMenu(false);
-  };
-
   const handleLogout = () => {
     auth.logout();
     handleHome();
   };
 
-  const handleProfilePress = () => {
-    nav.setShowProfile(true);
-    nav.setShowOrders(false);
-    nav.setShowLogin(false);
-    nav.setShowFavorites(false);
-    nav.setShowCart(false);
-    nav.setSelectedProduct(null);
+  // Uses nav.openScreen which closes all other screens and clears selectedProduct.
+  const handleNavigate = (screenKey) => {
+    nav.openScreen(screenKey);
     setShowUserMenu(false);
   };
 
-  const handleOrdersPress = () => {
-    nav.setShowOrders(true);
-    nav.setShowProfile(false);
-    nav.setShowLogin(false);
-    nav.setShowFavorites(false);
-    nav.setShowCart(false);
-    nav.setSelectedProduct(null);
-    setShowUserMenu(false);
+  const isProductHolderCategory = (item) =>
+    item?.isCategory &&
+    item.children?.length > 0 &&
+    item.children.every((child) => !child.isCategory);
+
+  const handleMenuSelect = (item) => {
+    if (item?.action === 'home') {
+      handleHome();
+      return;
+    }
+    if (item?.action === 'catalog') {
+      nav.handleCatalogPress();
+      return;
+    }
+    if (item?.action === 'allProducts') {
+      nav.handleAllProductsPress();
+      return;
+    }
+    if (item?.action === 'favorites') {
+      handleNavigate('favorites');
+      return;
+    }
+
+    nav.handleCardPress(item);
+    if (isProductHolderCategory(item)) {
+      nav.setShowMenu(false);
+    }
   };
 
-  const handleFavoritesPress = () => {
-    nav.setShowFavorites(true);
-    nav.setShowProfile(false);
-    nav.setShowOrders(false);
-    nav.setShowLogin(false);
-    nav.setShowCart(false);
-    nav.setSelectedProduct(null);
-    setShowUserMenu(false);
-  };
-
-  const handleMenuOpen = () => nav.setShowMenu(true);
-  const handleMenuClose = () => nav.setShowMenu(false);
-  const handleToggleLangMenu = () => setShowLangMenu(!showLangMenu);
-  const handleToggleUserMenu = () => setShowUserMenu(!showUserMenu);
+  const { mainItems, categoryItems } = React.useMemo(
+    () => buildMenuItems(t, nav.currentLevel.items),
+    [t, nav.currentLevel.items],
+  );
 
   return (
     <Pressable
@@ -130,52 +140,66 @@ export default function AppShell({ onOpenAdmin }) {
         appName={t.appName}
         canGoBack={shouldHeaderGoBack(nav)}
         onBack={nav.handleBackPress}
-        onMenuPress={handleMenuOpen}
+        onMenuPress={() => nav.setShowMenu(true)}
         lang={lang}
         showLangMenu={showLangMenu}
-        onToggleLangMenu={handleToggleLangMenu}
+        onToggleLangMenu={() => setShowLangMenu(!showLangMenu)}
         onSelectLanguage={handleSelectLanguage}
         onToggleTheme={toggleTheme}
         cartCount={cart.totalCount}
-        onLoginPress={handleLoginPress}
-        onCartPress={handleCartPress}
+        onLoginPress={() => handleNavigate('login')}
+        onCartPress={() => handleNavigate('cart')}
         onHome={handleHome}
         onAdminPress={onOpenAdmin}
         showUserMenu={showUserMenu}
-        onToggleUserMenu={handleToggleUserMenu}
+        onToggleUserMenu={() => setShowUserMenu(!showUserMenu)}
         isAuthenticated={auth.isAuthenticated}
         onLogout={handleLogout}
-        onProfilePress={handleProfilePress}
-        onOrdersPress={handleOrdersPress}
-        onFavoritesPress={handleFavoritesPress}
+        onProfilePress={() => handleNavigate('profile')}
+        onOrdersPress={() => handleNavigate('orders')}
+        onFavoritesPress={() => handleNavigate('favorites')}
         onCatalogPress={nav.handleCatalogPress}
+        onAllProductsPress={nav.handleAllProductsPress}
       />
 
       <NavMenu
         visible={nav.showMenu}
-        onClose={handleMenuClose}
-        items={currentLevel.items}
-        onSelectItem={nav.handleCardPress}
+        onClose={() => nav.setShowMenu(false)}
+        mainItems={mainItems}
+        categoryItems={categoryItems}
+        onSelectItem={handleMenuSelect}
         canGoBack={nav.canGoBack}
         onBack={nav.handleBackPress}
-        onHome={handleHome}
         isDark={isDark}
+        onAdminPress={onOpenAdmin}
+        onSelectLanguage={handleSelectLanguage}
+        lang={lang}
+        onToggleTheme={toggleTheme}
       />
 
-      <View style={{ alignSelf: 'center', width: '100%', maxWidth: 1064, zIndex: 500, marginTop: 16, marginBottom: 8, paddingHorizontal: 8 }}>
-        <SearchBar isDark={isDark} />
-      </View>
+      {isHomePage(nav) && (
+        <View
+          style={[
+            styles.stickySearchContainer,
+            ic(isDark, styles.stickySearchContainerDark, styles.stickySearchContainerLight),
+            isSearchActive && { zIndex: 10000, elevation: 10000 }
+          ]}
+        >
+          <View style={{ width: '100%', maxWidth: 1048, alignSelf: 'center' }}>
+            <SearchBar isDark={isDark} onActiveChange={setIsSearchActive} />
+          </View>
+        </View>
+      )}
 
       <View style={styles.mainContent}>
-        <PageNavigation
+        <SharedLayoutWrapper
           isDark={isDark}
-          crumbs={resolveCrumbs(nav)}
-          onCrumbPress={nav.handleCrumbPress}
-          onBack={nav.handleBackPress}
-          showBack={nav.canGoBack}
-          showBreadcrumbs={shouldShowBreadcrumbs(nav)}
-        />
-        <MainContent isDark={isDark} isWide={isWide} />
+          showFooter
+          contentContainerStyle={styles.mainContentBody}
+          footerContainerStyle={styles.footerContainer}
+        >
+          <MainContent isDark={isDark} isWide={isWide} />
+        </SharedLayoutWrapper>
       </View>
     </Pressable>
   );

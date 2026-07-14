@@ -3,75 +3,84 @@
  *
  * Pie/donut chart for order status distribution using inline SVG.
  */
-import React, { useMemo } from 'react';
-import { Text, View } from 'react-native';
-import { getOrderStatuses } from '../../../data/adminAnalytics';
+import { Platform, Text, View } from 'react-native';
 import styles from './AnalyticsStyles';
 
-const SIZE = 140;
-const CX = SIZE / 2;
-const CY = SIZE / 2;
-const R = 52;
-const INNER_R = 30;
+const isWeb = Platform.OS === 'web';
 
-function polarToCartesian(cx, cy, r, angleDeg) {
-  const rad = ((angleDeg - 90) * Math.PI) / 180;
-  return {
-    x: cx + r * Math.cos(rad),
-    y: cy + r * Math.sin(rad),
-  };
-}
+function SvgDonut({ data, size = 120, strokeWidth = 16 }) {
+  if (!isWeb) {
+    const totalValue = data.reduce((sum, item) => sum + item.value, 0) || 1;
+    return (
+      <View style={{ width: size, alignItems: 'center' }}>
+        <View
+          style={{
+            width: size,
+            height: size / 3,
+            borderRadius: size / 6,
+            flexDirection: 'row',
+            overflow: 'hidden',
+            backgroundColor: '#F5F7FA',
+          }}
+        >
+          {data.map((item, idx) => (
+            <View key={idx} style={{ flex: item.value / totalValue, backgroundColor: item.color }} />
+          ))}
+        </View>
+      </View>
+    );
+  }
 
-function slicePath(cx, cy, r, innerR, startAngle, endAngle) {
-  const outerStart = polarToCartesian(cx, cy, r, startAngle);
-  const outerEnd = polarToCartesian(cx, cy, r, endAngle);
-  const innerStart = polarToCartesian(cx, cy, innerR, startAngle);
-  const innerEnd = polarToCartesian(cx, cy, innerR, endAngle);
-  const largeArc = endAngle - startAngle > 180 ? 1 : 0;
-  return [
-    `M ${outerStart.x} ${outerStart.y}`,
-    `A ${r} ${r} 0 ${largeArc} 1 ${outerEnd.x} ${outerEnd.y}`,
-    `L ${innerEnd.x} ${innerEnd.y}`,
-    `A ${innerR} ${innerR} 0 ${largeArc} 0 ${innerStart.x} ${innerStart.y}`,
-    'Z',
-  ].join(' ');
-}
-
-function buildSlices(statuses) {
-  const total = statuses.reduce((s, item) => s + item.value, 0);
-  let angle = 0;
-  return statuses.map((item) => {
-    const sweep = (item.value / total) * 360;
-    const path = slicePath(CX, CY, R, INNER_R, angle, angle + sweep);
-    angle += sweep;
-    return { ...item, path };
-  });
-}
-
-export default function OrderStatusChart() {
-  const statuses = useMemo(() => getOrderStatuses(), []);
-  const slices = useMemo(() => buildSlices(statuses), [statuses]);
-
-  const svgHtml = `
-    <svg xmlns="http://www.w3.org/2000/svg" width="${SIZE}" height="${SIZE}" viewBox="0 0 ${SIZE} ${SIZE}">
-      ${slices.map((s) => `<path d="${s.path}" fill="${s.color}" />`).join('')}
-    </svg>
-  `;
+  const radius = (size - strokeWidth) / 2;
+  const cx = size / 2;
+  const cy = size / 2;
+  const circumference = 2 * Math.PI * radius;
+  let currentOffset = 0;
 
   return (
-    <View>
-      <View
-        // eslint-disable-next-line react-native/no-inline-styles
-        style={{ width: SIZE, height: SIZE, alignSelf: 'center', marginBottom: 16 }}
-        dangerouslySetInnerHTML={{ __html: svgHtml }}
-      />
-      {statuses.map((s) => (
-        <View key={s.label} style={styles.legendItem}>
-          <View style={[styles.legendDot, { backgroundColor: s.color }]} />
-          <Text style={styles.legendText}>{s.label}</Text>
-          <Text style={styles.legendValue}>{s.value}%</Text>
-        </View>
-      ))}
+    <svg width={size} height={size} style={{ transform: 'rotate(-90deg)' }}>
+      {data.map((item, idx) => {
+        const percent = item.value / 100;
+        const strokeDasharray = `${circumference * percent} ${circumference}`;
+        const strokeDashoffset = -currentOffset;
+        currentOffset += circumference * percent;
+
+        return (
+          <circle
+            key={idx}
+            cx={cx}
+            cy={cy}
+            r={radius}
+            fill="transparent"
+            stroke={item.color}
+            strokeWidth={strokeWidth}
+            strokeDasharray={strokeDasharray}
+            strokeDashoffset={strokeDashoffset}
+          />
+        );
+      })}
+    </svg>
+  );
+}
+
+export default function OrderStatusChart({ statusData }) {
+  const total = statusData.reduce((acc, curr) => acc + curr.value, 0);
+  const data = total > 0 
+    ? statusData.map((d) => ({ ...d, value: (d.value / total) * 100 }))
+    : [{ label: 'Empty', value: 100, color: '#e2e8f0' }];
+
+  return (
+    <View style={styles.donutContainer}>
+      <SvgDonut data={data} />
+      <View style={{ marginTop: 20 }}>
+        {statusData.map((s) => (
+          <View key={s.label} style={styles.legendItem}>
+            <View style={[styles.legendDot, { backgroundColor: s.color }]} />
+            <Text style={styles.legendText}>{s.label}:</Text>
+            <Text style={styles.legendValue}>{s.value}</Text>
+          </View>
+        ))}
+      </View>
     </View>
   );
 }

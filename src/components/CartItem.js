@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native';
 import { useTheme } from '../context/ThemeContext';
+import { CrossIcon } from './Icons';
 
 export default function CartItem({ item, isDark, onIncrease, onDecrease, onRemove }) {
   const { lang } = useTheme();
@@ -25,7 +26,7 @@ export default function CartItem({ item, isDark, onIncrease, onDecrease, onRemov
             {(item.label && typeof item.label === 'object' ? item.label[lang] : null) || item.label}
           </Text>
           <TouchableOpacity style={styles.removeBtn} onPress={onRemove} activeOpacity={0.7}>
-            <Text style={[styles.removeTxt, ic(styles.removeTxtDark, styles.removeTxtLight)]}>✕</Text>
+            <CrossIcon color={isDark ? '#64748b' : '#94a3b8'} size={14} />
           </TouchableOpacity>
         </View>
 

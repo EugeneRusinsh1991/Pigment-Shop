@@ -53,13 +53,23 @@ function getFallbackName(rootPath) {
     .join(" ");
 }
 
-function writeReportFile(reportPath, md) {
+function writeReportFile(reportPath, content) {
   try {
-    fs.writeFileSync(reportPath, md, "utf-8");
+    fs.writeFileSync(reportPath, content, "utf-8");
     console.log(`Report generated successfully: ${reportPath}`);
   } catch (err) {
     console.error(`Error: Failed to write report file (${reportPath}):`, err.message);
     process.exit(1);
+  }
+}
+
+function cleanupAuditArtifacts(rawJsonPath) {
+  try {
+    if (fs.existsSync(rawJsonPath)) {
+      fs.unlinkSync(rawJsonPath);
+    }
+  } catch (err) {
+    console.warn(`Warning: Unable to fully clean audit artifacts: ${err.message}`);
   }
 }
 
@@ -70,7 +80,6 @@ function main() {
   console.log(`  ${projectName} Codebase Auditor       `);
   console.log("=========================================");
 
-  // Ensure the reports directory exists before running analysis
   const reportsDir = path.resolve(__dirname, "reports");
   if (!fs.existsSync(reportsDir)) {
     fs.mkdirSync(reportsDir, { recursive: true });
@@ -82,16 +91,18 @@ function main() {
   saveCleanedJSON(cleanedJSON, RAW_JSON);
 
   const reports = generateReports(cleanedJSON, ROOT, projectName);
+  const reportFiles = [
+    [path.resolve(__dirname, "reports", "complexity-health-findings.md"), reports.complexity],
+    [path.resolve(__dirname, "reports", "large-files.md"), reports.largeFiles],
+    [path.resolve(__dirname, "reports", "code-duplication.md"), reports.duplication],
+    [path.resolve(__dirname, "reports", "unused-code-dependencies.md"), reports.unused],
+    [path.resolve(__dirname, "reports", "small-files.md"), reports.smallFiles],
+  ];
 
-  writeReportFile(path.resolve(__dirname, "reports", "auditreport.md"), reports.main);
-  writeReportFile(path.resolve(__dirname, "reports", "complexity-health-findings.md"), reports.complexity);
-  writeReportFile(path.resolve(__dirname, "reports", "large-files.md"), reports.largeFiles);
-  writeReportFile(path.resolve(__dirname, "reports", "priority-refactor-targets.md"), reports.targets);
-  writeReportFile(path.resolve(__dirname, "reports", "code-duplication.md"), reports.duplication);
-  writeReportFile(path.resolve(__dirname, "reports", "unused-code-dependencies.md"), reports.unused);
-  writeReportFile(path.resolve(__dirname, "reports", "small-files.md"), reports.smallFiles);
+  reportFiles.forEach(([reportPath, content]) => writeReportFile(reportPath, content));
 
   printSummary(cleanedJSON);
+  cleanupAuditArtifacts(RAW_JSON);
 }
 
 main();

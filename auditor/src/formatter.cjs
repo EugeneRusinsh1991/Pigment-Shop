@@ -50,7 +50,7 @@ function formatLargeFileRow(f, rootPath) {
 }
 
 function buildLargeFileRows(fileScores, rootPath) {
-  return fileScores.map(f => formatLargeFileRow(f, rootPath)).join("\n\n");
+  return fileScores.map(f => formatLargeFileRow(f, rootPath)).join("\n");
 }
 
 // ---------------------------------------------------------------------------

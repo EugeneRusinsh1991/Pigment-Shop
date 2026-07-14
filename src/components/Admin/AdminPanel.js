@@ -2,85 +2,63 @@
  * AdminPanel.js
  *
  * Main admin panel layout with header + tab bar.
- * Tabs: Analytics | Products
  */
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
-import { logout } from '../../services/adminAuth';
-import AnalyticsDashboard from './Analytics/AnalyticsDashboard';
-import CategoriesManager from './Categories/CategoriesManager';
-import ProductsManager from './Products/ProductsManager';
-import BannersManager from './Banners/BannersManager';
-import styles from './AdminPanelStyles';
-import { AnalyticsIcon, BoxIcon, FolderIcon, ImageIcon, BackArrowIcon, LogoutIcon } from '../Icons';
 import { useTheme } from '../../context/ThemeContext';
+import { useAdminDomain } from '../../services/adminDomain';
+import { BackArrowIcon, LogoutIcon } from '../Icons';
+import styles from './AdminPanelStyles';
+import AdminTabBar from './AdminTabBar';
+import AnalyticsDashboard from './Analytics/AnalyticsDashboard';
+import BannersManager from './Banners/BannersManager';
+import CategoriesManager from './Categories/CategoriesManager';
+import OrdersManager from './Orders/OrdersManager';
+import ProductsManager from './Products/ProductsManager';
+import UsersManager from './Users/UsersManager';
 
-const TABS = [
-  { id: 'analytics', labelKey: 'adminTabAnalytics', icon: (color) => <AnalyticsIcon color={color} size={16} style={{ marginRight: 8 }} /> },
-  { id: 'products', labelKey: 'adminTabProducts', icon: (color) => <BoxIcon color={color} size={16} style={{ marginRight: 8 }} /> },
-  { id: 'categories', labelKey: 'adminTabCategories', icon: (color) => <FolderIcon color={color} size={16} style={{ marginRight: 8 }} /> },
-  { id: 'banners', labelKey: 'adminTabBanners', icon: (color) => <ImageIcon color={color} size={16} style={{ marginRight: 8 }} /> },
-];
+const TAB_COMPONENTS = {
+  analytics: AnalyticsDashboard,
+  orders: OrdersManager,
+  products: ProductsManager,
+  categories: CategoriesManager,
+  banners: BannersManager,
+  users: UsersManager,
+};
 
-function AdminHeader({ onBack, onLogout }) {
-  const { t } = useTheme();
-  return (
-    <View style={styles.header}>
-      <View style={styles.headerLeft}>
-        <TouchableOpacity style={styles.headerBackBtn} onPress={onBack}>
-          <BackArrowIcon color="#1C1C1C" size={16} />
-        </TouchableOpacity>
-        <Text style={styles.headerTitle}>{t('adminTitle')}</Text>
-      </View>
-      <TouchableOpacity style={styles.logoutBtn} onPress={onLogout}>
-        <LogoutIcon color="#475569" size={14} />
-        <Text style={styles.logoutText}>{t('userLogout')}</Text>
-      </TouchableOpacity>
-    </View>
-  );
+function renderActiveTab(activeTab) {
+  const Component = TAB_COMPONENTS[activeTab];
+  return Component ? <Component /> : null;
 }
 
-function TabBar({ activeTab, onSelect }) {
-  const { t } = useTheme();
-  return (
-    <View style={styles.tabBar}>
-      {TABS.map((tab) => {
-        const isActive = activeTab === tab.id;
-        const color = isActive ? '#1C1C1C' : '#94a3b8';
-        return (
-          <TouchableOpacity
-            key={tab.id}
-            style={[styles.tab, isActive && styles.tabActive, { flexDirection: 'row', alignItems: 'center' }]}
-            onPress={() => onSelect(tab.id)}
-          >
-            {tab.icon(color)}
-            <Text style={[styles.tabText, isActive && styles.tabTextActive]}>
-              {t(tab.labelKey)}
-            </Text>
-          </TouchableOpacity>
-        );
-      })}
-    </View>
-  );
-}
-
-export default function AdminPanel({ onBack, onLogout }) {
+export default function AdminPanel({ onBack }) {
   const [activeTab, setActiveTab] = useState('analytics');
+  const { t } = useTheme();
+  const { logoutAdmin } = useAdminDomain();
 
   const handleLogout = async () => {
-    await logout();
-    onLogout();
+    await logoutAdmin();
   };
 
   return (
     <View style={styles.container}>
-      <AdminHeader onBack={onBack} onLogout={handleLogout} />
-      <TabBar activeTab={activeTab} onSelect={setActiveTab} />
+      <View style={styles.header}>
+        <View style={styles.headerLeft}>
+          <TouchableOpacity style={styles.headerBackBtn} onPress={onBack}>
+            <BackArrowIcon color="#1C1C1C" size={16} />
+          </TouchableOpacity>
+          <Text style={styles.headerTitle}>{t('adminTitle')}</Text>
+        </View>
+        <TouchableOpacity style={styles.logoutBtn} onPress={handleLogout}>
+          <LogoutIcon color="#475569" size={14} />
+          <Text style={styles.logoutText}>{t('userLogout')}</Text>
+        </TouchableOpacity>
+      </View>
+      <View>
+        <AdminTabBar activeTab={activeTab} onSelect={setActiveTab} />
+      </View>
       <ScrollView style={styles.content} contentContainerStyle={{ paddingBottom: 40 }}>
-        {activeTab === 'analytics' && <AnalyticsDashboard />}
-        {activeTab === 'products' && <ProductsManager />}
-        {activeTab === 'categories' && <CategoriesManager />}
-        {activeTab === 'banners' && <BannersManager />}
+        {renderActiveTab(activeTab)}
       </ScrollView>
     </View>
   );

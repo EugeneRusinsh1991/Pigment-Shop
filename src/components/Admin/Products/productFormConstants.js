@@ -51,6 +51,8 @@ export const EMPTY_FORM = {
   sku: '',
   category: 'Другое',
   stock: '',
-  image: '',
+  image1: '',
+  image2: '',
+  image3: '',
   active: true,
 };
