@@ -1,6 +1,7 @@
 import { ExplorerContext } from '../ExplorerContext';
 import { IWebPage } from '../driver/DriverInterfaces';
 import { ElementMetadata } from './observability/events';
+import { ElementHoverInfo } from '../../helpers/hoverInfoHelper';
 
 export interface ExplorerEventBase {
   context: ExplorerContext;
@@ -32,6 +33,13 @@ export interface AfterInteractionEvent extends ExplorerEventBase {
   elementIdentifier: string;
   success: boolean;
   metadata?: ElementMetadata;
+  hoverInfo?: ElementHoverInfo | null;
+}
+
+export interface ActionExecutedEvent extends ExplorerEventBase {
+  actionType: string;
+  elementIdentifier?: string;
+  hoverInfo?: ElementHoverInfo | null;
 }
 
 export interface NavigationStartedEvent extends ExplorerEventBase {
@@ -144,6 +152,7 @@ export interface ExplorerEventMap {
   ElementDiscovered: ElementDiscoveredEvent;
   BeforeInteraction: BeforeInteractionEvent;
   AfterInteraction: AfterInteractionEvent;
+  ActionExecuted: ActionExecutedEvent;
   NavigationStarted: NavigationStartedEvent;
   NavigationCompleted: NavigationCompletedEvent;
   NavigationFailed: NavigationFailedEvent;

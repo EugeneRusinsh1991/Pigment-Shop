@@ -1,3 +1,5 @@
+import { ElementHoverInfo } from '../../helpers/hoverInfoHelper';
+
 /**
  * Generic abstraction for a Browser instance.
  */
@@ -29,6 +31,11 @@ export interface IWebPage {
   waitForLoadState?(state?: string, options?: { timeout?: number }): Promise<void>;
   waitForFunction?<R, Arg>(pageFunction: (arg: Arg) => R, arg?: Arg, options?: { timeout?: number }): Promise<R>;
   waitForFunction?<R>(pageFunction: () => R, options?: { timeout?: number }): Promise<R>;
+
+  lastHoverInfo?: ElementHoverInfo | null;
+  getLastHoverInfo(): ElementHoverInfo | null;
+  setLastHoverInfo(info: ElementHoverInfo | null): void;
+  clearHoverInfo(): void;
 }
 
 /**

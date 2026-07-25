@@ -59,7 +59,9 @@ export class InteractionProcessor {
 
     await this.emitter.emit('BeforeInteraction', { context: this.context, timestamp: Date.now(), elementIdentifier: identifier, metadata });
     const success = await this.interactor.clickElement(page, el, diagnostics, this.watchdog);
-    await this.emitter.emit('AfterInteraction', { context: this.context, timestamp: Date.now(), elementIdentifier: identifier, success, metadata });
+    const hoverInfo = page.getLastHoverInfo ? page.getLastHoverInfo() : null;
+    await this.emitter.emit('AfterInteraction', { context: this.context, timestamp: Date.now(), elementIdentifier: identifier, success, metadata, hoverInfo });
+    await this.emitter.emit('ActionExecuted', { context: this.context, timestamp: Date.now(), actionType: 'click', elementIdentifier: identifier, hoverInfo });
 
     return success;
   }

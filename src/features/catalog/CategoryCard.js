@@ -3,7 +3,7 @@ import { Image, Platform, StyleSheet, Text, useWindowDimensions, View } from 're
 import { useTheme } from '../../context/ThemeContext';
 import { useCatalog } from '../../context/CatalogContext';
 import styles from './categoryCardStyles';
-import { BaseCard } from '../../components/Card';
+import BaseCard from '../../components/Card/BaseCard';
 import { colors, layout } from '../../theme/tokens';
 import { getLocalizedValue } from '../../utils/localization';
 

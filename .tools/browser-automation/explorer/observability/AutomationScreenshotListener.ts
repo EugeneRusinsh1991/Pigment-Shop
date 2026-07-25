@@ -2,6 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { ExplorerEventEmitter } from '../../events/ExplorerEventEmitter';
 import { IWebPage } from '../../driver/DriverInterfaces';
+import { ElementHoverInfo } from '../../helpers/hoverInfoHelper';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { takeCompressedScreenshot } = require('../../../../scripts/playwright.helpers');
@@ -14,6 +15,7 @@ export class AutomationScreenshotListener {
   private autoDir = path.join(process.cwd(), '.docs', 'automation-browser-log', 'screenshots');
   private page: IWebPage | null = null;
   private lastCapturedUrl = '';
+  private currentHoverInfo: ElementHoverInfo | null = null;
 
   constructor(emitter: ExplorerEventEmitter) {
     this.ensureDir();
@@ -32,23 +34,37 @@ export class AutomationScreenshotListener {
     });
 
     emitter.on('ScreenEntered', async (e) => {
+      this.currentHoverInfo = null;
+      if (this.page?.clearHoverInfo) {
+        this.page.clearHoverInfo();
+      }
       const url = e.context.currentScreen;
       if (url && url !== this.lastCapturedUrl) {
         this.lastCapturedUrl = url;
-        await this.capture(url);
+        await this.capture(url, null);
       }
     });
 
     emitter.on('NavigationCompleted', async (e) => {
+      this.currentHoverInfo = null;
+      if (this.page?.clearHoverInfo) {
+        this.page.clearHoverInfo();
+      }
       const url = e.newUrl;
       if (url && url !== this.lastCapturedUrl) {
         this.lastCapturedUrl = url;
-        await this.capture(url);
+        await this.capture(url, null);
       }
+    });
+
+    emitter.on('ActionExecuted', async (e) => {
+      this.currentHoverInfo = e.hoverInfo || null;
+      const url = e.context.currentScreen || this.page?.url() || '';
+      await this.capture(url, e.hoverInfo || null);
     });
   }
 
-  private async capture(url: string) {
+  private async capture(url: string, hoverInfo: ElementHoverInfo | null = null) {
     if (!this.page) return;
     try {
       this.ensureDir();
@@ -66,7 +82,8 @@ export class AutomationScreenshotListener {
         captureQuality: 70,
         exportQuality: 0.3,
         scale: 0.5,
-        overlayText
+        overlayText,
+        hoverInfo: hoverInfo || this.currentHoverInfo
       });
 
       fs.writeFileSync(filePath, base64Data);

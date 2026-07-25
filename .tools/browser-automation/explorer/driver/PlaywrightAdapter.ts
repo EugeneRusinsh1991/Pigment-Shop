@@ -1,10 +1,21 @@
 import { Browser, BrowserContext, Page, Locator } from 'playwright';
 import { IWebBrowser, IWebBrowserContext, IWebPage, IWebElement } from './DriverInterfaces';
+import { ElementHoverInfo, extractElementHoverInfo } from '../../helpers/hoverInfoHelper';
 
 export class PlaywrightElement implements IWebElement {
-  constructor(public locatorInstance: Locator) {}
+  constructor(public locatorInstance: Locator, public parentPage?: PlaywrightPage) {}
 
   async click(options?: { force?: boolean }): Promise<void> {
+    if (this.parentPage) {
+      try {
+        const info = await this.locatorInstance.evaluate(extractElementHoverInfo);
+        if (info) {
+          this.parentPage.setLastHoverInfo(info);
+        }
+      } catch {
+        // Non-blocking: fail gracefully if element extraction fails
+      }
+    }
     await this.locatorInstance.click(options);
   }
 
@@ -34,11 +45,11 @@ export class PlaywrightElement implements IWebElement {
   }
 
   nth(index: number): IWebElement {
-    return new PlaywrightElement(this.locatorInstance.nth(index));
+    return new PlaywrightElement(this.locatorInstance.nth(index), this.parentPage);
   }
 
   first(): IWebElement {
-    return new PlaywrightElement(this.locatorInstance.first());
+    return new PlaywrightElement(this.locatorInstance.first(), this.parentPage);
   }
 
   async count(): Promise<number> {
@@ -46,12 +57,26 @@ export class PlaywrightElement implements IWebElement {
   }
 
   locator(selector: string): IWebElement {
-    return new PlaywrightElement(this.locatorInstance.locator(selector));
+    return new PlaywrightElement(this.locatorInstance.locator(selector), this.parentPage);
   }
 }
 
 export class PlaywrightPage implements IWebPage {
+  public lastHoverInfo: ElementHoverInfo | null = null;
+
   constructor(public page: Page) {}
+
+  getLastHoverInfo(): ElementHoverInfo | null {
+    return this.lastHoverInfo;
+  }
+
+  setLastHoverInfo(info: ElementHoverInfo | null): void {
+    this.lastHoverInfo = info;
+  }
+
+  clearHoverInfo(): void {
+    this.lastHoverInfo = null;
+  }
 
   url(): string {
     return this.page.url();
@@ -70,7 +95,7 @@ export class PlaywrightPage implements IWebPage {
   }
 
   locator(selector: string): IWebElement {
-    return new PlaywrightElement(this.page.locator(selector));
+    return new PlaywrightElement(this.page.locator(selector), this);
   }
 
   async evaluate<R, Arg>(pageFunction: (arg: Arg) => R, arg?: Arg): Promise<R>;
