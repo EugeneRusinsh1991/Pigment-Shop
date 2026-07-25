@@ -4,6 +4,8 @@ import useCardDimensions from '../hooks/useCardDimensions';
 import InteractiveCard from './InteractiveCard';
 import StaticCard from './StaticCard';
 
+import { layout } from '../theme/tokens';
+
 /**
  * BaseCard — shared card primitive for layout, shadows, and theme.
  *
@@ -22,7 +24,7 @@ const BaseCard = React.forwardRef(({
   lightBgColor,
   darkBgColor,
   borderColor,
-  borderRadius = 20,
+  borderRadius = layout.radii.lg,
   padding,
   children,
   style,

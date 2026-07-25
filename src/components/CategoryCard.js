@@ -4,6 +4,7 @@ import { useTheme } from '../context/ThemeContext';
 import { useCatalog } from '../context/CatalogContext';
 import styles from './CategoryCard/categoryCardStyles';
 import BaseCard from './BaseCard';
+import { colors, layout } from '../theme/tokens';
 import { getLocalizedValue } from '../utils/localization';
 
 const CATEGORY_PLACEHOLDER = 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=600&auto=format&fit=crop';
@@ -87,7 +88,7 @@ const CategoryCardInner = React.forwardRef(({ item, isDark, depth, ...rest }, re
       lightBgColor="#FAF8F6"
       {...rest}
     >
-      <View style={{ ...StyleSheet.absoluteFillObject, borderRadius: 20, overflow: 'hidden' }}>
+      <View style={{ ...StyleSheet.absoluteFillObject, borderRadius: layout.radii.lg, overflow: 'hidden' }}>
         <Image source={{ uri: CATEGORY_PLACEHOLDER }} style={styles.catImage} resizeMode="cover" />
         <View style={[styles.overlay, computedStyles.overlay]} />
         <View style={computedStyles.content}>

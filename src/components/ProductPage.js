@@ -121,10 +121,18 @@ function useProductPageState({ initialProduct, onBack, isFromAllProductsProp }) 
   };
 }
 
+import SkeletonLoader from './SkeletonLoader';
+
 export default function ProductPage({ product: initialProduct, isDark, showNavigation = true, onBack, isFromAllProducts: isFromAllProductsProp }) {
   const state = useProductPageState({ initialProduct, onBack, isFromAllProductsProp });
 
-  if (!state.product) return null;
+  if (!state.product) {
+    return (
+      <View style={[styles.root, isDark ? styles.rootDark : styles.rootLight, { padding: 40, alignItems: 'center' }]}>
+        <SkeletonLoader count={4} height={40} width={300} />
+      </View>
+    );
+  }
 
   const rootStyle = [styles.root, isDark ? styles.rootDark : styles.rootLight];
   const containerStyle = { alignSelf: 'center', width: state.gridWidth, maxWidth: '100%', paddingBottom: 24 };

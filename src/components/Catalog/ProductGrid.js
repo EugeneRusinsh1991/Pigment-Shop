@@ -3,12 +3,12 @@ import { FlatList, StyleSheet, Text, View } from 'react-native';
 import { Link } from 'expo-router';
 import ProductCard from '../ProductCard';
 
-function EmptyState({ isDark, label }) {
+import GlobalEmptyState from '../EmptyState';
+
+function EmptyCatalogState({ isDark, label }) {
   return (
     <View style={styles.empty}>
-      <Text style={[styles.emptyText, isDark ? styles.textDark : styles.textLight]}>
-        {label}
-      </Text>
+      <GlobalEmptyState description={label} />
     </View>
   );
 }
@@ -42,7 +42,7 @@ export default function ProductGrid({ products, cols, cardWidth, isDark, onCardP
       ListHeaderComponent={listHeader}
       ListHeaderComponentStyle={isNarrow ? { zIndex: 1000, elevation: 1000, position: 'relative' } : undefined}
       ListFooterComponent={listFooter}
-      ListEmptyComponent={<EmptyState isDark={isDark} label={emptyLabel} />}
+      ListEmptyComponent={<EmptyCatalogState isDark={isDark} label={emptyLabel} />}
       showsVerticalScrollIndicator={!isNarrow}
       initialNumToRender={8}
       maxToRenderPerBatch={8}

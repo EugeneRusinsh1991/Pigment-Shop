@@ -1,4 +1,5 @@
 import { useWindowDimensions } from 'react-native';
+import { layout } from '../theme/tokens';
 
 const WIDTH_MAP = {
   depth0: { desktop: 250, tablet: 220, mobile: 165 },
@@ -9,8 +10,8 @@ const STANDARD_HEIGHTS = { desktop: 340, tablet: 280, mobile: 240 };
 const IMG_HEIGHTS = { desktop: 230, tablet: 180, mobile: 135 };
 
 function getDevice(windowWidth) {
-  if (windowWidth >= 1024) return 'desktop';
-  if (windowWidth >= 768) return 'tablet';
+  if (windowWidth >= layout.breakpoints.desktop) return 'desktop';
+  if (windowWidth >= layout.breakpoints.tablet) return 'tablet';
   return 'mobile';
 }
 

@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
+import { layout } from '../theme/tokens';
 
 function getDeviceType(windowWidth) {
-  if (windowWidth >= 1024) return 'desktop';
-  if (windowWidth >= 768) return 'tablet';
+  if (windowWidth >= layout.breakpoints.desktop) return 'desktop';
+  if (windowWidth >= layout.breakpoints.tablet) return 'tablet';
   return 'mobile';
 }
 

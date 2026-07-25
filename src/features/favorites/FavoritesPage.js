@@ -11,13 +11,16 @@ import PlaceholderCard, { PlaceholderGrid } from '../../components/PlaceholderCa
 import ScrollFadeUp from '../../components/ScrollFadeUp';
 
 
+import EmptyState from '../../components/EmptyState';
+
 function FavoritesEmptyState({ isDark, t }) {
-  const ic = (dark, light) => (isDark ? dark : light);
   return (
     <ScrollFadeUp style={styles.emptyState}>
-      <HeartIcon color={isDark ? '#6B7280' : '#9CA3AF'} size={48} style={{ marginBottom: 16 }} />
-      <Text style={[styles.emptyTitle, ic(styles.textDark, styles.textLight)]}>{t('favoritesEmpty')}</Text>
-      <Text style={[styles.emptyDesc, ic(styles.subtextDark, styles.subtextLight)]}>{t('favoritesEmptyDesc')}</Text>
+      <EmptyState
+        icon={<HeartIcon color={isDark ? '#6B7280' : '#9CA3AF'} size={48} />}
+        title={t('favoritesEmpty')}
+        description={t('favoritesEmptyDesc')}
+      />
     </ScrollFadeUp>
   );
 }

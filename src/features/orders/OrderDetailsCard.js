@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import BaseCard from '../../components/BaseCard';
-import { colors } from '../../theme/tokens';
+import { colors, layout } from '../../theme/tokens';
 import { OrderMetaRow, OrderItemRow } from './OrderRows';
 import { formatDateLong } from '../../utils/dateFormatting';
 
@@ -36,7 +36,7 @@ export default function OrderDetailsCard({ isDark, orderId, items = [], totalPri
     <BaseCard
       isDark={isDark}
       padding={24}
-      borderRadius={16}
+      borderRadius={layout.radii.md}
       style={styles.cardSpecific}
     >
       <Text style={[styles.sectionTitle, textStyle]}>

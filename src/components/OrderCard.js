@@ -3,6 +3,7 @@ import AnimatedButton from './AnimatedButton';
 import { useTheme } from '../context/ThemeContext';
 import commonStyles from '../theme/commonStyles';
 import BaseCard from './BaseCard';
+import { colors, layout } from '../theme/tokens';
 import {
     ExpandedItemsList,
     getAdminBgStyle,
@@ -97,7 +98,7 @@ export default function OrderCard({ order, isDark, isExpanded, onToggle, getStyl
     <BaseCard
       isDark={isDark}
       interactive={false}
-      borderRadius={isAdminView ? 12 : 20}
+      borderRadius={isAdminView ? layout.radii.md : layout.radii.lg}
       padding={isAdminView ? undefined : 24}
       style={[
         styles.cardSpecific,

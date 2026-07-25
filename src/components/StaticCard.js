@@ -1,6 +1,6 @@
 import React from 'react';
 import ScrollFadeUp from './ScrollFadeUp';
-import { colors } from '../theme/tokens';
+import { colors, layout } from '../theme/tokens';
 
 function getStaticCardBorderColor(borderColor, isDark) {
   if (borderColor) return borderColor;
@@ -35,7 +35,7 @@ const StaticCard = React.forwardRef(({
   lightBgColor,
   darkBgColor,
   borderColor,
-  borderRadius,
+  borderRadius = layout.radii.lg,
   padding,
   children,
   style,

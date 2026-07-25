@@ -1,31 +1,15 @@
 import React from 'react';
-import { Text, StyleSheet } from 'react-native';
-import { useTheme } from '../../context/ThemeContext';
-import { colors } from '../../theme/tokens';
+import GlobalEmptyState from '../EmptyState';
 
 /**
  * Shared EmptyState primitive for tables and lists.
- * Replaces duplicated `.emptyText` rendering across the codebase.
+ * Delegates to the unified global EmptyState primitive.
  */
 export default function EmptyState({ children, style }) {
-  const { isDark } = useTheme();
-  
   return (
-    <Text style={[
-      styles.emptyText, 
-      { color: isDark ? colors.textMutedDark : colors.textMutedLight },
-      style
-    ]}>
+    <GlobalEmptyState style={style}>
       {children}
-    </Text>
+    </GlobalEmptyState>
   );
 }
 
-const styles = StyleSheet.create({
-  emptyText: {
-    textAlign: 'center',
-    paddingVertical: 40,
-    paddingHorizontal: 20,
-    fontSize: 14,
-  },
-});

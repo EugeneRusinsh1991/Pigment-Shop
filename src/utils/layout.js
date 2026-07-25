@@ -1,3 +1,5 @@
+import { layout as layoutTokens } from '../theme/tokens';
+
 /**
  * Shared layout utilities for computing content grid dimensions.
  * Used by CatalogView, AppShell, and AppHeader to ensure consistent alignment.
@@ -30,8 +32,8 @@ const CARD_MARGIN_MAP = {
  * @returns {'mobile'|'tablet'|'desktop'}
  */
 export function getDeviceTier(windowWidth) {
-  if (windowWidth >= 1024) return 'desktop';
-  if (windowWidth >= 768) return 'tablet';
+  if (windowWidth >= layoutTokens.breakpoints.desktop) return 'desktop';
+  if (windowWidth >= layoutTokens.breakpoints.tablet) return 'tablet';
   return 'mobile';
 }
 
