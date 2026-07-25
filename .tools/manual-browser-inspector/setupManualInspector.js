@@ -16,7 +16,7 @@ async function setupManualInspector(page) {
 
   try {
     await page.exposeFunction('__playwright_takeScreenshotAndDumpState', async (timestamp, stateDump, overlayText) => {
-      const baseDir = path.join(process.cwd(), '.docs', 'browserLog');
+      const baseDir = path.join(process.cwd(), '.docs', 'manual-browser-log');
       const screenshotsDir = path.join(baseDir, 'screenshots');
       const stateDir = path.join(baseDir, 'state');
       const reportsDir = path.join(baseDir, 'reports');

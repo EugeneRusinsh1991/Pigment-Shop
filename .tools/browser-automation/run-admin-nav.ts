@@ -10,23 +10,10 @@ class AdminNavContext {
   private adminContext = resolveExecutionContext('admin');
   
   async prepare(page: Page, config: any): Promise<Page> {
-    // 1. Reuse the existing administrator authentication flow without modification
-    let activePage = await this.adminContext.prepare(page, config);
+    const activePage = await this.adminContext.prepare(page, config);
     
-    activePage.on('pageerror', err => {
-      console.log('--- BROWSER PAGE ERROR ---', err.message);
-    });
-    activePage.on('console', msg => {
-      if (msg.type() === 'error') console.log('--- BROWSER CONSOLE ERROR ---', msg.text());
-    });
-    
-    // Give Firebase Auth time to flush the session to IndexedDB before we navigate
-    console.log('Waiting for session persistence...');
     await activePage.waitForTimeout(2000);
     
-    // 2. Navigate directly to the Admin Panel by changing the current application URL to the `/admin` route
-    // Use client-side routing to avoid hard-reloads which can disrupt IndexedDB persistence in Playwright incognito contexts
-    console.log('Navigating to /admin via client-side routing (Playwright trusted click)...');
     const adminUrl = new URL('/admin', config.baseUrl).toString();
     await activePage.evaluate((url) => {
       const a = document.createElement('a');
@@ -42,17 +29,7 @@ class AdminNavContext {
     }, adminUrl);
     
     await activePage.locator('#experimental-admin-nav-link').click();
-    
-    console.log('✓ Triggered client-side routing to Admin Panel. Waiting for hydration...');
     await activePage.waitForTimeout(3000);
-    
-    const content = await activePage.content();
-    console.log('--- ADMIN PANEL HTML AFTER 10s ---');
-    console.log(content.substring(0, 1000));
-    if (content.length > 2000) {
-      console.log('...');
-      console.log(content.substring(content.length - 1000));
-    }
     
     return activePage;
   }
@@ -92,8 +69,6 @@ class AdminNavContext {
         submitSelector: '[data-testid="login-submit-button"]'
       }
     };
-
-    console.log('Executing experimental Admin Panel navigation flow...');
     
     // 3. Begin the existing automatic exploration only after the Admin Panel has successfully loaded
     const report = await runSmokeAutomation({}, config);

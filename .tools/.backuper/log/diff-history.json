@@ -2368,5 +2368,35 @@
         }
       ]
     }
+  },
+  "src_2026-07-25_18-59_smoke-report.json_15files": {
+    "timestamp": "2026-07-25T15:59:29.990Z",
+    "diff": {
+      "added": 6,
+      "removed": 0,
+      "modified": 9,
+      "topFolders": [
+        {
+          "folder": ".docs/browserLog/reports",
+          "count": 2
+        },
+        {
+          "folder": ".docs/browserLog/screenshots",
+          "count": 2
+        },
+        {
+          "folder": ".docs/browserLog/state",
+          "count": 2
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        },
+        {
+          "folder": ".tools/manual-browser-inspector",
+          "count": 2
+        }
+      ]
+    }
   }
 }

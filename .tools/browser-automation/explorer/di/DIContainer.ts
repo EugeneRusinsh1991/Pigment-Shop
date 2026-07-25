@@ -66,6 +66,8 @@ export interface DIFactoryOverrides {
   ) => InteractionProcessor;
 }
 
+import { AutomationScreenshotListener } from '../observability/AutomationScreenshotListener';
+
 export function createDefaultContainer(
   emitter: ExplorerEventEmitter, 
   partialConfig: Partial<ExplorerConfig> = {},
@@ -73,6 +75,8 @@ export function createDefaultContainer(
 ): DIContainer {
   const config = { ...defaultConfig, ...partialConfig };
   
+  new AutomationScreenshotListener(emitter);
+
   const context: ExplorerContext = {
     currentScreen: '',
     navigationHistory: [],
