@@ -85,6 +85,13 @@ function buildSubSubCategories(rootCat, subCat, r, s, ssCount, products, categor
   }
 }
 
+function markRandomProducts(products, count, applyMark) {
+  const shuffled = [...products].sort(() => 0.5 - Math.random());
+  for (let i = 0; i < Math.min(count, shuffled.length); i++) {
+    applyMark(shuffled[i]);
+  }
+}
+
 export function createRandomCatalogDataset(options = {}) {
   const isLow = options.mode === 'low';
   const categories = [];
@@ -108,19 +115,11 @@ export function createRandomCatalogDataset(options = {}) {
     }
   }
 
-  // Randomly select products to be marked as new
-  const newCount = Math.min(isLow ? 2 : getRandomInt(3, 8), products.length);
-  const shuffledForNew = [...products].sort(() => 0.5 - Math.random());
-  for (let i = 0; i < newCount; i++) {
-    shuffledForNew[i].isNew = true;
-  }
+  const newCount = isLow ? 2 : getRandomInt(3, 8);
+  markRandomProducts(products, newCount, (p) => { p.isNew = true; });
 
-  // Randomly select products to be marked as discounted (independent)
-  const discountCount = Math.min(isLow ? 2 : getRandomInt(3, 8), products.length);
-  const shuffledForDiscount = [...products].sort(() => 0.5 - Math.random());
-  for (let i = 0; i < discountCount; i++) {
-    shuffledForDiscount[i].discountPercent = getRandomInt(5, 50);
-  }
+  const discountCount = isLow ? 2 : getRandomInt(3, 8);
+  markRandomProducts(products, discountCount, (p) => { p.discountPercent = getRandomInt(5, 50); });
 
   return { categories, products };
 }
@@ -130,47 +129,43 @@ function getRandomQty(isLow) {
   return getRandomInt(1, 5) === 5 ? getRandomInt(5, 20) : getRandomInt(1, 4);
 }
 
-function buildRandomOrder(user, products, index, isLow = false) {
-  const orderProducts = [];
-  const productCount = isLow ? getRandomInt(1, 2) : getRandomInt(2, 3);
-  
-  const shuffledProducts = [...products].sort(() => 0.5 - Math.random());
-  const selectedProducts = shuffledProducts.slice(0, Math.min(productCount, products.length));
-  
+function buildOrderItems(products, productCount, isLow) {
+  const selected = [...products].sort(() => 0.5 - Math.random()).slice(0, Math.min(productCount, products.length));
   let totalPrice = 0;
   let totalItems = 0;
-  
-  selectedProducts.forEach(prod => {
+  const items = selected.map((prod) => {
     const qty = getRandomQty(isLow);
-    orderProducts.push({
-      id: prod.id,
-      label: prod.label,
-      price: prod.price,
-      qty,
-      image: prod.image,
-    });
     totalPrice += prod.price * qty;
     totalItems += qty;
+    return { id: prod.id, label: prod.label, price: prod.price, qty, image: prod.image };
   });
+  return { items, totalPrice, totalItems };
+}
 
-  const randomMsAgo = getRandomInt(0, 14 * 24 * 60 * 60 * 1000);
-  const createdAt = new Date(Date.now() - randomMsAgo);
+function buildCustomerInfo(user) {
+  return {
+    email: user.email || `user${user.uid}@example.com`,
+    firstName: user.firstName || 'Test',
+    lastName: user.lastName || 'User',
+    phone: user.phone || '+380990000000',
+    city: user.city || 'Kyiv',
+  };
+}
+
+function buildRandomOrder(user, products, index, isLow = false) {
+  const productCount = isLow ? getRandomInt(1, 2) : getRandomInt(2, 3);
+  const { items, totalPrice, totalItems } = buildOrderItems(products, productCount, isLow);
+  const createdAt = new Date(Date.now() - getRandomInt(0, 14 * 24 * 60 * 60 * 1000));
 
   return {
     id: `order-${user.uid}-${Date.now()}-${index}`,
     userId: user.uid,
     status: ['Новый заказ', 'В обработке', 'Выполнен', 'Отменен'][getRandomInt(0, 3)],
     createdAt,
-    items: orderProducts,
+    items,
     totalPrice,
     totalItems,
-    customerInfo: {
-      email: user.email || `user${user.uid}@example.com`,
-      firstName: user.firstName || 'Test',
-      lastName: user.lastName || 'User',
-      phone: user.phone || '+380990000000',
-      city: user.city || 'Kyiv',
-    }
+    customerInfo: buildCustomerInfo(user),
   };
 }
 

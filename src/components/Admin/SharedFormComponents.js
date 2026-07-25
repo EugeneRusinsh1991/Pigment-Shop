@@ -5,71 +5,55 @@ import { useTheme } from '../../context/ThemeContext';
 
 import FieldError from '../FieldError';
 
+function FieldLabelRow({ label, labelIcon, styles }) {
+  if (!label && !labelIcon) return null;
+  return (
+    <View style={styles?.labelRow || { flexDirection: 'row', alignItems: 'center', gap: 6, marginBottom: 4 }}>
+      {labelIcon}
+      {label ? <Text style={styles?.fieldLabel}>{label}</Text> : null}
+    </View>
+  );
+}
+
+function FieldTextInputCore({ isFocused, setIsFocused, value, onChangeText, placeholder, error, keyboardType, styles, inputStyle, extraStyle, ...props }) {
+  return (
+    <TextInput
+      testID={props.testID}
+      dataSet={{ testid: props.testID }}
+      style={[
+        styles?.fieldInput,
+        inputStyle,
+        extraStyle,
+        isFocused && { borderColor: colors.accentBlue, borderWidth: 1.5 },
+        error && styles?.fieldInputError,
+      ]}
+      value={String(value ?? '')}
+      onChangeText={onChangeText}
+      placeholder={placeholder}
+      placeholderTextColor={props.placeholderTextColor || colors.slateText}
+      keyboardType={keyboardType}
+      autoCapitalize="none"
+      onFocus={(e) => { setIsFocused(true); props.onFocus?.(e); }}
+      onBlur={(e) => { setIsFocused(false); props.onBlur?.(e); }}
+      {...props}
+    />
+  );
+}
+
 export function FieldInput({ label, labelIcon, value, onChangeText, placeholder, error, keyboardType, styles, style, inputStyle, leftIcon, rightIcon, ...props }) {
   const [isFocused, setIsFocused] = React.useState(false);
-  const containerStyle = styles?.fieldGroup || style;
+  const sharedInputProps = { isFocused, setIsFocused, value, onChangeText, placeholder, error, keyboardType, styles, inputStyle, ...props };
   return (
-    <View style={containerStyle}>
-      {label || labelIcon ? (
-        <View style={styles?.labelRow || { flexDirection: 'row', alignItems: 'center', gap: 6, marginBottom: 4 }}>
-          {labelIcon}
-          {label ? <Text style={styles?.fieldLabel}>{label}</Text> : null}
-        </View>
-      ) : null}
+    <View style={styles?.fieldGroup || style}>
+      <FieldLabelRow label={label} labelIcon={labelIcon} styles={styles} />
       {leftIcon || rightIcon ? (
         <View style={styles?.inputContainer || { flexDirection: 'row', alignItems: 'center' }}>
           {leftIcon}
-          <TextInput
-            testID={props.testID}
-            dataSet={{ testid: props.testID }}
-            style={[
-              styles?.fieldInput,
-              inputStyle,
-              isFocused && { borderColor: colors.accentBlue, borderWidth: 1.5 },
-              error && styles?.fieldInputError,
-            ]}
-            value={String(value ?? '')}
-            onChangeText={onChangeText}
-            placeholder={placeholder}
-            placeholderTextColor={props.placeholderTextColor || colors.slateText}
-            keyboardType={keyboardType}
-            autoCapitalize="none"
-            onFocus={(e) => {
-              setIsFocused(true);
-              props.onFocus?.(e);
-            }}
-            onBlur={(e) => {
-              setIsFocused(false);
-              props.onBlur?.(e);
-            }}
-            {...props}
-          />
+          <FieldTextInputCore {...sharedInputProps} />
           {rightIcon}
         </View>
       ) : (
-        <TextInput
-          style={[
-            styles?.fieldInput,
-            inputStyle,
-            isFocused && { borderColor: colors.accentBlue, borderWidth: 1.5 },
-            error && styles?.fieldInputError,
-          ]}
-          value={String(value ?? '')}
-          onChangeText={onChangeText}
-          placeholder={placeholder}
-          placeholderTextColor={props.placeholderTextColor || colors.slateText}
-          keyboardType={keyboardType}
-          autoCapitalize="none"
-          onFocus={(e) => {
-            setIsFocused(true);
-            props.onFocus?.(e);
-          }}
-          onBlur={(e) => {
-            setIsFocused(false);
-            props.onBlur?.(e);
-          }}
-          {...props}
-        />
+        <FieldTextInputCore {...sharedInputProps} />
       )}
       <FieldError error={error} />
     </View>
@@ -78,36 +62,20 @@ export function FieldInput({ label, labelIcon, value, onChangeText, placeholder,
 
 export function FieldTextarea({ label, labelIcon, value, onChangeText, placeholder, numberOfLines = 2, error, styles, style, inputStyle, ...props }) {
   const [isFocused, setIsFocused] = React.useState(false);
-  const containerStyle = styles?.fieldGroup || style;
   return (
-    <View style={containerStyle}>
-      {label || labelIcon ? (
-        <View style={styles?.labelRow || { flexDirection: 'row', alignItems: 'center', gap: 6, marginBottom: 4 }}>
-          {labelIcon}
-          {label ? <Text style={styles?.fieldLabel}>{label}</Text> : null}
-        </View>
-      ) : null}
-      <TextInput
-        style={[
-          styles?.fieldTextarea,
-          inputStyle,
-          isFocused && { borderColor: colors.accentBlue, borderWidth: 1.5 },
-          error && styles?.fieldInputError,
-        ]}
-        value={String(value ?? '')}
+    <View style={styles?.fieldGroup || style}>
+      <FieldLabelRow label={label} labelIcon={labelIcon} styles={styles} />
+      <FieldTextInputCore
+        isFocused={isFocused}
+        setIsFocused={setIsFocused}
+        value={value}
         onChangeText={onChangeText}
         placeholder={placeholder}
-        placeholderTextColor={props.placeholderTextColor || colors.slateText}
+        error={error}
+        styles={{ fieldInput: styles?.fieldTextarea, fieldInputError: styles?.fieldInputError }}
+        inputStyle={inputStyle}
         multiline
         numberOfLines={numberOfLines}
-        onFocus={(e) => {
-          setIsFocused(true);
-          props.onFocus?.(e);
-        }}
-        onBlur={(e) => {
-          setIsFocused(false);
-          props.onBlur?.(e);
-        }}
         {...props}
       />
       <FieldError error={error} />

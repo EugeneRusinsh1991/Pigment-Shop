@@ -3,25 +3,22 @@ import { Animated, StyleSheet, Text } from 'react-native';
 import { colors, layout, shadows } from '../theme/tokens';
 import { useTheme } from '../context/ThemeContext';
 
+const TOAST_THEMES = {
+  light: {
+    error:   { bg: colors.dangerBgLight,  text: colors.dangerDeep,  border: colors.dangerMid },
+    success: { bg: colors.successBgLight, text: colors.successDeep, border: colors.successMid },
+    default: { bg: colors.surfaceLight,   text: colors.textLight,   border: colors.borderLight },
+  },
+  dark: {
+    error:   { bg: colors.dangerDarkShellBg, text: colors.textDark,    border: colors.dangerMid },
+    success: { bg: colors.navSurfaceDark,    text: colors.successLight, border: colors.successMid },
+    default: { bg: colors.surfaceDark,       text: colors.textDark,     border: colors.borderDark },
+  },
+};
+
 function resolveToastTheme(type, isDark) {
-  const themes = {
-    error: {
-      bg: isDark ? colors.dangerDarkShellBg : colors.dangerBgLight,
-      text: isDark ? colors.textDark : colors.dangerDeep,
-      border: colors.dangerMid,
-    },
-    success: {
-      bg: isDark ? colors.navSurfaceDark : colors.successBgLight,
-      text: isDark ? colors.successLight : colors.successDeep,
-      border: colors.successMid,
-    },
-    default: {
-      bg: isDark ? colors.surfaceDark : colors.surfaceLight,
-      text: isDark ? colors.textDark : colors.textLight,
-      border: isDark ? colors.borderDark : colors.borderLight,
-    },
-  };
-  return themes[type] || themes.default;
+  const map = isDark ? TOAST_THEMES.dark : TOAST_THEMES.light;
+  return map[type] || map.default;
 }
 
 export function ToastView({ toast, fadeAnim }) {

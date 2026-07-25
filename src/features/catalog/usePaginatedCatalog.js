@@ -6,14 +6,18 @@ import { useCatalog } from '../../context/CatalogContext';
 
 const MAX_CLIENT_FALLBACK_ITEMS = 500;
 
+function unwrapError(res) {
+  return res.originalError || res.error || res;
+}
+
 async function loadServerPage(filters, sortKey, cursor = null, pageSize = PAGE_SIZE) {
   const [pageRes, countRes] = await Promise.all([
     fetchProductPage(filters, sortKey, cursor, pageSize),
     cursor ? Promise.resolve(null) : fetchProductCount(filters, sortKey),
   ]);
-  
-  if (!pageRes.success) throw pageRes.originalError || pageRes.error || pageRes;
-  if (countRes && !countRes.success) throw countRes.originalError || countRes.error || countRes;
+
+  if (!pageRes.success) throw unwrapError(pageRes);
+  if (countRes && !countRes.success) throw unwrapError(countRes);
 
   return { pageData: pageRes.data, count: countRes ? countRes.data : null };
 }
@@ -21,9 +25,8 @@ async function loadServerPage(filters, sortKey, cursor = null, pageSize = PAGE_S
 function isMissingIndexError(error) {
   if (error instanceof MissingIndexError) return true;
   if (error?.code === 'MISSING_INDEX' || error?.message === 'MISSING_INDEX') return true;
-  if (typeof error === 'string') return error.includes('index') || error.includes('MISSING_INDEX');
-  if (typeof error?.message === 'string') return error.message.toLowerCase().includes('index');
-  return false;
+  const msg = typeof error === 'string' ? error : (typeof error?.message === 'string' ? error.message : '');
+  return msg.toLowerCase().includes('index') || msg.includes('MISSING_INDEX');
 }
 
 function applyClientPageChange(setCurrentPage, delta) {

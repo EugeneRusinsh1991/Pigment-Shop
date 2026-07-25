@@ -7,11 +7,15 @@ import Modal from './Modal';
 
 const VARIANT_MAP = { primary: 'primary', success: 'success' };
 
+function firstDefined(...vals) {
+  return vals.find((v) => v != null && v !== '') ?? vals[vals.length - 1];
+}
+
 function resolveModalTexts(t, confirmText, cancelText, title) {
   return {
-    confirmText: confirmText || t('confirmDeleteYes') || 'Confirm',
-    cancelText: cancelText || t('confirmDeleteCancel') || 'Cancel',
-    title: title || t('confirmDeleteDefaultTitle') || 'Are you sure?',
+    confirmText: firstDefined(confirmText, t('confirmDeleteYes'), 'Confirm'),
+    cancelText: firstDefined(cancelText, t('confirmDeleteCancel'), 'Cancel'),
+    title: firstDefined(title, t('confirmDeleteDefaultTitle'), 'Are you sure?'),
   };
 }
 

@@ -1,71 +1,64 @@
+function toPascalWords(text, limit) {
+  const words = text
+    .replace(/[^a-zA-Z0-9]/g, ' ')
+    .split(/\s+/)
+    .filter(Boolean)
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase());
+  return (limit ? words.slice(0, limit) : words).join('');
+}
+
+function parsePathSegments(pathname) {
+  const segments = [];
+  for (const seg of pathname.split('/').filter(Boolean)) {
+    const cleaned = seg.replace(/[^a-zA-Z0-9]/g, ' ').trim();
+    if (!cleaned || /^\d+$/.test(cleaned)) continue;
+    const pasc = toPascalWords(cleaned);
+    if (pasc && !segments.includes(pasc)) segments.push(pasc);
+  }
+  return segments;
+}
+
+function extractModalLabel() {
+  const modal = document.querySelector('[role="dialog"], .modal, [data-modal="true"]');
+  if (!modal) return null;
+  const titleEl = modal.querySelector('h1, h2, h3, [class*="title"], [class*="Title"]');
+  const text = titleEl?.textContent?.trim();
+  return text ? toPascalWords(text, 2) : null;
+}
+
+function extractCardLabel() {
+  const cardEl = document.querySelector('[data-component], [id$="Card"], [class*="ProductCard"], [class*="product-card"]');
+  if (!cardEl) return null;
+  let compName = cardEl.getAttribute('data-component') || '';
+  if (!compName) {
+    const className = cardEl.className || '';
+    if (typeof className === 'string' && className.includes('ProductCard')) compName = 'ProductCard';
+  }
+  return compName ? toPascalWords(compName) : null;
+}
+
 export function getLocationHierarchy(stateDump) {
   const hierarchy = [];
 
-  let pathname = '';
   try {
     const rawUrl = stateDump?.url || (typeof window !== 'undefined' ? window.location.href : '');
     if (rawUrl) {
-      const parsed = new URL(rawUrl);
-      pathname = parsed.pathname;
+      const { pathname } = new URL(rawUrl);
+      const segments = parsePathSegments(pathname);
+      hierarchy.push(...(segments.length > 0 ? segments : ['Home']));
     }
-  } catch (e) {}
-
-  const rawSegments = pathname.split('/').filter(Boolean);
-
-  if (rawSegments.length === 0) {
+  } catch (e) {
     hierarchy.push('Home');
-  } else {
-    for (const seg of rawSegments) {
-      const cleaned = seg.replace(/[^a-zA-Z0-9]/g, ' ').trim();
-      if (!cleaned || /^\d+$/.test(cleaned)) continue;
-      const pasc = cleaned
-        .split(/\s+/)
-        .map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
-        .join('');
-      if (pasc && !hierarchy.includes(pasc)) {
-        hierarchy.push(pasc);
-      }
-    }
   }
 
   if (typeof document !== 'undefined') {
     try {
-      const modal = document.querySelector('[role="dialog"], .modal, [data-modal="true"]');
-      if (modal) {
-        const titleEl = modal.querySelector('h1, h2, h3, [class*="title"], [class*="Title"]');
-        const modalText = titleEl ? titleEl.textContent?.trim() : '';
-        if (modalText) {
-          const formattedModal = modalText
-            .replace(/[^a-zA-Z0-9]/g, ' ')
-            .split(/\s+/)
-            .filter(Boolean)
-            .map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
-            .slice(0, 2)
-            .join('');
-          if (formattedModal && !hierarchy.includes(formattedModal)) {
-            hierarchy.push(formattedModal);
-          }
-        }
-      }
+      const modal = extractModalLabel();
+      if (modal && !hierarchy.includes(modal)) hierarchy.push(modal);
 
-      const cardEl = document.querySelector('[data-component], [id$="Card"], [class*="ProductCard"], [class*="product-card"]');
-      if (cardEl && hierarchy.length < 4) {
-        let compName = cardEl.getAttribute('data-component') || '';
-        if (!compName) {
-          const className = cardEl.className || '';
-          if (typeof className === 'string' && className.includes('ProductCard')) compName = 'ProductCard';
-        }
-        if (compName) {
-          const formattedComp = compName
-            .replace(/[^a-zA-Z0-9]/g, ' ')
-            .split(/\s+/)
-            .filter(Boolean)
-            .map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
-            .join('');
-          if (formattedComp && !hierarchy.includes(formattedComp)) {
-            hierarchy.push(formattedComp);
-          }
-        }
+      if (hierarchy.length < 4) {
+        const card = extractCardLabel();
+        if (card && !hierarchy.includes(card)) hierarchy.push(card);
       }
     } catch (e) {}
   }

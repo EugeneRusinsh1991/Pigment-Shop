@@ -52,6 +52,40 @@ function renderButtonContent(children, loading, title, leftIcon, rightIcon, text
   );
 }
 
+function renderNonAnimatedButton({ touchableProps, containerStyle, computedHitSlop, handlePress, onPressIn, onPressOut, disabled, loading, resolvedRole, content }) {
+  return (
+    <TouchableOpacity
+      {...touchableProps}
+      style={containerStyle}
+      hitSlop={computedHitSlop}
+      onPress={handlePress}
+      onPressIn={onPressIn}
+      onPressOut={onPressOut}
+      disabled={disabled || loading}
+      accessibilityRole={resolvedRole}
+    >
+      {content}
+    </TouchableOpacity>
+  );
+}
+
+function renderAnimatedButton({ touchableProps, containerStyle, computedHitSlop, opacityAnim, scaleAnim, handlePress, handlePressIn, handlePressOut, disabled, loading, resolvedRole, content }) {
+  return (
+    <AnimatedPressable
+      {...touchableProps}
+      style={[containerStyle, { opacity: opacityAnim, transform: [{ scale: scaleAnim }] }]}
+      accessibilityRole={resolvedRole}
+      disabled={disabled || loading}
+      hitSlop={computedHitSlop}
+      onPress={handlePress}
+      onPressIn={handlePressIn}
+      onPressOut={handlePressOut}
+    >
+      {content}
+    </AnimatedPressable>
+  );
+}
+
 export default function Button({
   title,
   onPress,
@@ -106,43 +140,13 @@ export default function Button({
 
   const content = renderButtonContent(children, loading, title, leftIcon, rightIcon, textCombinedStyle);
 
+  const sharedProps = { touchableProps, containerStyle, computedHitSlop, handlePress, disabled, loading, resolvedRole, content };
+
   if (!animated || Platform.OS === 'web') {
-    return (
-      <TouchableOpacity
-        {...touchableProps}
-        style={containerStyle}
-        hitSlop={computedHitSlop}
-        onPress={handlePress}
-        onPressIn={onPressIn}
-        onPressOut={onPressOut}
-        disabled={disabled || loading}
-        accessibilityRole={resolvedRole}
-      >
-        {content}
-      </TouchableOpacity>
-    );
+    return renderNonAnimatedButton({ ...sharedProps, onPressIn, onPressOut });
   }
 
-  return (
-    <AnimatedPressable
-      {...touchableProps}
-      style={[
-        containerStyle,
-        {
-          opacity: opacityAnim,
-          transform: [{ scale: scaleAnim }],
-        },
-      ]}
-      accessibilityRole={resolvedRole}
-      disabled={disabled || loading}
-      hitSlop={computedHitSlop}
-      onPress={handlePress}
-      onPressIn={handlePressIn}
-      onPressOut={handlePressOut}
-    >
-      {content}
-    </AnimatedPressable>
-  );
+  return renderAnimatedButton({ ...sharedProps, opacityAnim, scaleAnim, handlePressIn, handlePressOut });
 }
 
 export function AnimatedButton(props) {
