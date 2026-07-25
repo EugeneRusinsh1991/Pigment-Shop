@@ -27,7 +27,7 @@ export default function BannersManager() {
   } = useBannersWorkflow();
   const [browserOpen, setBrowserOpen] = useState(false);
   const [activeBannerIndex, setActiveBannerIndex] = useState(null);
-  const { confirmDelete } = useDeleteConfirmation();
+  const { confirmDelete, confirmationDialog } = useDeleteConfirmation();
 
   function openBrowser(index) {
     setActiveBannerIndex(index);
@@ -123,6 +123,8 @@ export default function BannersManager() {
         onSelect={handleMediaSelect}
         onClose={() => setBrowserOpen(false)}
       />
+
+      {confirmationDialog}
     </View>
   );
 }

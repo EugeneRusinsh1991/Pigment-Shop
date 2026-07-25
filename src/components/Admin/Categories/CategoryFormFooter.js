@@ -15,62 +15,65 @@ export function CategoryFormFooter({
   category,
   t,
 }) {
-  const { confirmDelete } = useDeleteConfirmation();
+  const { confirmDelete, confirmationDialog } = useDeleteConfirmation();
 
   return (
-    <View style={styles.modalFooterGrid}>
-      {hasFirstRow && (
-        <View style={styles.modalFooterRow}>
-          {canAddChild ? (
-            <Button
-              title={`+ ${t('adminCategoriesAddSubSection')}`}
-              onPress={() => onAddChild(category)}
-              variant="outline"
-              size="md"
-              style={{ flex: 1 }}
-            />
-          ) : (
-            <View style={{ flex: 1 }} />
-          )}
+    <>
+      <View style={styles.modalFooterGrid}>
+        {hasFirstRow && (
+          <View style={styles.modalFooterRow}>
+            {canAddChild ? (
+              <Button
+                title={`+ ${t('adminCategoriesAddSubSection')}`}
+                onPress={() => onAddChild(category)}
+                variant="outline"
+                size="md"
+                style={{ flex: 1 }}
+              />
+            ) : (
+              <View style={{ flex: 1 }} />
+            )}
 
-          {canDelete ? (
-            <Button
-              title={t('adminCategoriesDeleteBtn')}
-              onPress={() => {
-                confirmDelete({
-                  title: t('adminCategoriesDeleteConfirm1Title'),
-                  message: t('adminCategoriesDeleteConfirm2Msg'),
-                  onConfirm: () => {
-                    onDelete(category.id);
-                    onClose();
-                  }
-                });
-              }}
-              variant="danger"
-              size="md"
-              style={{ flex: 1 }}
-            />
-          ) : (
-            <View style={{ flex: 1 }} />
-          )}
+            {canDelete ? (
+              <Button
+                title={t('adminCategoriesDeleteBtn')}
+                onPress={() => {
+                  confirmDelete({
+                    title: t('adminCategoriesDeleteConfirm1Title'),
+                    message: t('adminCategoriesDeleteConfirm2Msg'),
+                    onConfirm: () => {
+                      onDelete(category.id);
+                      onClose();
+                    }
+                  });
+                }}
+                variant="danger"
+                size="md"
+                style={{ flex: 1 }}
+              />
+            ) : (
+              <View style={{ flex: 1 }} />
+            )}
+          </View>
+        )}
+        <View style={styles.modalFooterRow}>
+          <Button
+            title={t('btnCancelLabel')}
+            onPress={onClose}
+            variant="secondary"
+            size="md"
+            style={{ flex: 1 }}
+          />
+          <Button
+            title={t('btnSaveLabel')}
+            onPress={onSave}
+            variant="success"
+            size="md"
+            style={{ flex: 1 }}
+          />
         </View>
-      )}
-      <View style={styles.modalFooterRow}>
-        <Button
-          title={t('btnCancelLabel')}
-          onPress={onClose}
-          variant="secondary"
-          size="md"
-          style={{ flex: 1 }}
-        />
-        <Button
-          title={t('btnSaveLabel')}
-          onPress={onSave}
-          variant="success"
-          size="md"
-          style={{ flex: 1 }}
-        />
       </View>
-    </View>
+      {confirmationDialog}
+    </>
   );
 }

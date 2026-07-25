@@ -1,9 +1,13 @@
 import { AlertIcon, CrossIcon, RefreshIcon } from '@/components/Icons';
-import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
+import { ScrollView, Text, View } from 'react-native';
 import { MEDIA_CATEGORY } from '../../../media';
 import EmptyState from '../../DataTable/EmptyState';
 import MediaBrowserItem from './MediaBrowserItem';
 import styles from './MediaBrowserStyles';
+import Button from '../../Button';
+import ChipButton from '../../ChipButton';
+import IconButton from '../../IconButton';
+import { colors } from '../../../theme/tokens';
 
 const TABS = [
   { key: MEDIA_CATEGORY.IMAGES, label: 'Images' },
@@ -30,13 +34,19 @@ export function BrowserHeader({ onRefresh, onClose }) {
   return (
     <View style={styles.header}>
       <Text style={styles.title}>Media Library</Text>
-      <TouchableOpacity style={[styles.refreshBtn, { flexDirection: 'row', alignItems: 'center' }]} onPress={onRefresh} activeOpacity={0.8}>
-        <RefreshIcon color="#4f46e5" size={12} style={{ marginRight: 4 }} />
-        <Text style={styles.refreshBtnText}>Refresh</Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={onClose} style={{ padding: 4 }}>
-        <CrossIcon color="#475569" size={14} />
-      </TouchableOpacity>
+      <Button
+        title="Refresh"
+        leftIcon={<RefreshIcon color="#4f46e5" size={12} style={{ marginRight: 4 }} />}
+        onPress={onRefresh}
+        variant="secondary"
+        size="sm"
+      />
+      <IconButton
+        icon={<CrossIcon color={colors.slateText} size={14} />}
+        onPress={onClose}
+        variant="transparent"
+        size="sm"
+      />
     </View>
   );
 }
@@ -45,16 +55,13 @@ export function BrowserTabs({ activeTab, onTabChange }) {
   return (
     <View style={styles.tabs}>
       {TABS.map((tab) => (
-        <TouchableOpacity
+        <ChipButton
           key={tab.key}
-          style={[styles.tab, activeTab === tab.key && styles.tabActive]}
+          label={tab.label}
+          active={activeTab === tab.key}
+          variant="rect"
           onPress={() => onTabChange(tab.key)}
-          activeOpacity={0.8}
-        >
-          <Text style={[styles.tabText, activeTab === tab.key && styles.tabTextActive]}>
-            {tab.label}
-          </Text>
-        </TouchableOpacity>
+        />
       ))}
     </View>
   );
@@ -92,17 +99,19 @@ export function BrowserBody({ currentItems, manifestReady, selectedItem, onSelec
 export function BrowserFooter({ selectedItem, onClose, onConfirm }) {
   return (
     <View style={styles.footer}>
-      <TouchableOpacity style={styles.cancelBtn} onPress={onClose} activeOpacity={0.8}>
-        <Text style={styles.cancelBtnText}>Cancel</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={[styles.selectBtn, !selectedItem && styles.selectBtnDisabled]}
+      <Button
+        title="Cancel"
+        onPress={onClose}
+        variant="secondary"
+        size="md"
+      />
+      <Button
+        title="Select"
         onPress={onConfirm}
         disabled={!selectedItem}
-        activeOpacity={0.8}
-      >
-        <Text style={styles.selectBtnText}>Select</Text>
-      </TouchableOpacity>
+        variant="primary"
+        size="md"
+      />
     </View>
   );
 }

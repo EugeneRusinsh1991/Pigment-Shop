@@ -5,8 +5,6 @@ import CardShadow from './CardShadow';
 import useHoverAnimation from '../hooks/useHoverAnimation';
 import { colors } from '../theme/tokens';
 
-const AnimatedTouchableOpacity = Animated.createAnimatedComponent(TouchableOpacity);
-
 const InteractiveCard = React.forwardRef(({
   isDark,
   cardWidth,
@@ -49,27 +47,29 @@ const InteractiveCard = React.forwardRef(({
 
   return (
     <ScrollFadeUp ref={ref} style={computedOuterStyle}>
-      <AnimatedTouchableOpacity
-        style={innerStyle}
-        activeOpacity={activeOpacity}
-        {...rest}
-        onMouseEnter={(e) => { bind.onMouseEnter(e); rest.onMouseEnter?.(e); }}
-        onMouseLeave={(e) => { bind.onMouseLeave(e); rest.onMouseLeave?.(e); }}
-        onPressIn={(e) => { bind.onPressIn(e); rest.onPressIn?.(e); }}
-        onPressOut={(e) => { bind.onPressOut(e); rest.onPressOut?.(e); }}
-      >
-        <View style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: cardWidth,
-          height: cardHeight,
-          borderRadius,
-          backgroundColor: isDark ? defaultDarkBg : defaultLightBg
-        }} />
-        <CardShadow hoverAnim={hoverAnim} isDark={isDark} lightBgColor={defaultLightBg} style={{ width: cardWidth, height: cardHeight, borderRadius }} />
-        {children}
-      </AnimatedTouchableOpacity>
+      <Animated.View style={innerStyle}>
+        <TouchableOpacity
+          activeOpacity={activeOpacity}
+          style={{ flex: 1, width: '100%', height: '100%' }}
+          {...rest}
+          onMouseEnter={(e) => { bind.onMouseEnter(e); rest.onMouseEnter?.(e); }}
+          onMouseLeave={(e) => { bind.onMouseLeave(e); rest.onMouseLeave?.(e); }}
+          onPressIn={(e) => { bind.onPressIn(e); rest.onPressIn?.(e); }}
+          onPressOut={(e) => { bind.onPressOut(e); rest.onPressOut?.(e); }}
+        >
+          <View style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: cardWidth,
+            height: cardHeight,
+            borderRadius,
+            backgroundColor: isDark ? defaultDarkBg : defaultLightBg
+          }} />
+          <CardShadow hoverAnim={hoverAnim} isDark={isDark} lightBgColor={defaultLightBg} style={{ width: cardWidth, height: cardHeight, borderRadius }} />
+          {children}
+        </TouchableOpacity>
+      </Animated.View>
     </ScrollFadeUp>
   );
 });

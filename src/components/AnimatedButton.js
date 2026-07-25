@@ -1,17 +1,24 @@
 import React, { useRef } from 'react';
-import { Animated, TouchableOpacity, Platform } from 'react-native';
+import { Animated, Pressable, Platform } from 'react-native';
 import { DEFAULT_ACTIVE_OPACITY } from '../theme/buttonCommon';
 import { motion } from '../theme/tokens';
 
-const AnimatedTouchableOpacity = Animated.createAnimatedComponent(TouchableOpacity);
+const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
-export default function AnimatedButton({ style, onPress, children, activeOpacity = DEFAULT_ACTIVE_OPACITY, scaleTo = motion.press.scale, ...props }) {
+export default function AnimatedButton({
+  style,
+  onPress,
+  children,
+  activeOpacity = DEFAULT_ACTIVE_OPACITY,
+  scaleTo = motion.press.scale,
+  disabled,
+  ...props
+}) {
   const scaleAnim = useRef(new Animated.Value(1)).current;
 
   const handlePress = (e) => {
     e?.stopPropagation?.();
 
-    // Reset and trigger pop animation (same as FavoriteButton)
     scaleAnim.setValue(1);
     Animated.sequence([
       Animated.timing(scaleAnim, {
@@ -31,14 +38,20 @@ export default function AnimatedButton({ style, onPress, children, activeOpacity
   };
 
   return (
-    <AnimatedTouchableOpacity
+    <AnimatedPressable
       accessibilityRole="button"
-      {...props}
+      disabled={disabled}
       onPress={handlePress}
-      activeOpacity={activeOpacity}
-      style={[style, { transform: [{ scale: scaleAnim }] }]}
+      style={({ pressed }) => [
+        typeof style === 'function' ? style({ pressed }) : style,
+        {
+          opacity: pressed && !disabled ? activeOpacity : 1,
+          transform: [{ scale: scaleAnim }],
+        },
+      ]}
+      {...props}
     >
-      {children}
-    </AnimatedTouchableOpacity>
+      {typeof children === 'function' ? children : children}
+    </AnimatedPressable>
   );
 }

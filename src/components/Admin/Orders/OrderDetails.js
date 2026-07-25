@@ -12,6 +12,7 @@ import React, { useState } from 'react';
 import { ScrollView, Text, View } from 'react-native';
 import AnimatedButton from '../../AnimatedButton';
 import { useTheme } from '../../../context/ThemeContext';
+import { useToast } from '../../../context/ToastContext';
 import { BackArrowIcon } from '@/components/Icons';
 import AdminNoteSection from './AdminNoteSection';
 import OrderCustomerCard from './OrderCustomerCard';
@@ -46,6 +47,7 @@ function useOrderNote(order) {
 
 export default function OrderDetails({ order, onBack, onStatusUpdated }) {
   const { t } = useTheme();
+  const { showToast } = useToast();
   const [currentStatus, setCurrentStatus] = useState(order.status);
   const [updating, setUpdating] = useState(false);
   
@@ -62,7 +64,9 @@ export default function OrderDetails({ order, onBack, onStatusUpdated }) {
       onStatusUpdated(order.id, newStatus);
     } catch (e) {
       console.error('Failed to update status', e);
-      alert(t('adminOrdersStatusUpdateError') || 'Failed to update status');
+      if (showToast) {
+        showToast(t('adminOrdersStatusUpdateError') || 'Failed to update status', 'error');
+      }
     } finally {
       setUpdating(false);
     }

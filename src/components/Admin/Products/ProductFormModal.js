@@ -34,7 +34,7 @@ export default function ProductFormModal({ visible, product, onSave, onClose, on
     (f) => validateForm(f, t)
   );
 
-  const { confirmDelete } = useDeleteConfirmation();
+  const { confirmDelete, confirmationDialog } = useDeleteConfirmation();
 
   React.useEffect(() => {
     if (visible) {
@@ -61,33 +61,36 @@ export default function ProductFormModal({ visible, product, onSave, onClose, on
   };
 
   return (
-    <FormModalLayout
-      visible={visible}
-      title={product ? t('adminProductsEditTitle') : t('adminProductsNewTitle')}
-      onClose={onClose}
-      onSave={handleSave}
-      styles={styles}
-      cardWidth={520}
-    >
-      <LanguageTabs activeLang={activeLang} onChange={setActiveLang} />
-      <NameField form={form} onChange={handleChange} errors={errors} activeLang={activeLang} />
-      <DescriptionField form={form} onChange={handleChange} activeLang={activeLang} />
-      <PriceDiscountRow form={form} onChange={handleChange} errors={errors} />
-      <BrandSkuRow form={form} onChange={handleChange} />
-      <CategoryStockRow form={form} onChange={handleChange} />
-      <ImageFields form={form} onChange={handleChange} errors={errors} />
-      <FlagsSection form={form} onChange={handleChange} />
-      {product && onDelete && (
-        <View style={{ marginTop: 20, borderTopWidth: 1, borderTopColor: colors.secondaryLightBorder, paddingTop: 20 }}>
-          <Button
-            title={t('adminProductsActionDelete')}
-            onPress={handleDelete}
-            variant="dangerSoft"
-            size="md"
-            textStyle={{ color: colors.dangerStrong }}
-          />
-        </View>
-      )}
-    </FormModalLayout>
+    <>
+      <FormModalLayout
+        visible={visible}
+        title={product ? t('adminProductsEditTitle') : t('adminProductsNewTitle')}
+        onClose={onClose}
+        onSave={handleSave}
+        styles={styles}
+        cardWidth={520}
+      >
+        <LanguageTabs activeLang={activeLang} onChange={setActiveLang} />
+        <NameField form={form} onChange={handleChange} errors={errors} activeLang={activeLang} />
+        <DescriptionField form={form} onChange={handleChange} activeLang={activeLang} />
+        <PriceDiscountRow form={form} onChange={handleChange} errors={errors} />
+        <BrandSkuRow form={form} onChange={handleChange} />
+        <CategoryStockRow form={form} onChange={handleChange} />
+        <ImageFields form={form} onChange={handleChange} errors={errors} />
+        <FlagsSection form={form} onChange={handleChange} />
+        {product && onDelete && (
+          <View style={{ marginTop: 20, borderTopWidth: 1, borderTopColor: colors.secondaryLightBorder, paddingTop: 20 }}>
+            <Button
+              title={t('adminProductsActionDelete')}
+              onPress={handleDelete}
+              variant="dangerSoft"
+              size="md"
+              textStyle={{ color: colors.dangerStrong }}
+            />
+          </View>
+        )}
+      </FormModalLayout>
+      {confirmationDialog}
+    </>
   );
 }

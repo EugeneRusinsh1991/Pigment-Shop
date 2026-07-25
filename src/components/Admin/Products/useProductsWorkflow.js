@@ -1,5 +1,4 @@
 import { useCallback, useMemo, useState } from 'react';
-import { Alert } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
 import useSort from '../../../hooks/useSort';
 import { useAdminDrafts, useAdminActions } from '../../../services/adminDomain';

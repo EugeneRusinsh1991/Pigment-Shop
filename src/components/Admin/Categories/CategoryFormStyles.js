@@ -12,9 +12,10 @@ export default StyleSheet.create({
   /* Modal overlay */
   modalOverlay: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.4)',
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
     alignItems: 'center',
     justifyContent: 'center',
+    zIndex: layout.zIndices.modal,
   },
   modalCard: {
     width: '95%',
