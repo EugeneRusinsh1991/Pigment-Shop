@@ -8,7 +8,7 @@ const { takeCompressedScreenshot } = require('../../../../scripts/playwright.hel
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { cleanOldFiles } = require('../../../../scripts/cleanOldFiles');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const { getLocationContext } = require('../../../../src/utils/appStateDump');
+const { getLocationContext, getOverlayText } = require('../../../../src/utils/appStateDump');
 
 export class AutomationScreenshotListener {
   private autoDir = path.join(process.cwd(), '.docs', 'automation-browser-log', 'screenshots');
@@ -57,6 +57,7 @@ export class AutomationScreenshotListener {
       const timeStr = `${pad(now.getHours())}-${pad(now.getMinutes())}-${pad(now.getSeconds())}`;
       const stateDump = { url };
       const context = getLocationContext(stateDump);
+      const overlayText = getOverlayText(stateDump);
       const filename = `S_${timeStr}_${context}.jpg`;
       const filePath = path.join(this.autoDir, filename);
 
@@ -64,7 +65,8 @@ export class AutomationScreenshotListener {
       const base64Data = await takeCompressedScreenshot(unwrappedPage, {
         captureQuality: 70,
         exportQuality: 0.3,
-        scale: 0.5
+        scale: 0.5,
+        overlayText
       });
 
       fs.writeFileSync(filePath, base64Data);
