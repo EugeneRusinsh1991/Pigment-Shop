@@ -15,7 +15,7 @@ async function setupManualInspector(page) {
   }
 
   try {
-    await page.exposeFunction('__playwright_takeScreenshotAndDumpState', async (timestamp, stateDump, overlayText) => {
+    await page.exposeFunction('__playwright_takeScreenshotAndDumpState', async (timestamp, stateDump, overlayText, hoverInfo) => {
       const baseDir = path.join(process.cwd(), '.docs', 'manual-browser-log');
       const screenshotsDir = path.join(baseDir, 'screenshots');
       const stateDir = path.join(baseDir, 'state');
@@ -36,7 +36,7 @@ async function setupManualInspector(page) {
       const statePath = path.join(stateDir, stateFilename);
       const reportPath = path.join(reportsDir, reportFilename);
 
-      const base64Data = await takeCompressedScreenshot(page, { captureQuality: 70, exportQuality: 0.3, scale: 0.5, overlayText });
+      const base64Data = await takeCompressedScreenshot(page, { captureQuality: 70, exportQuality: 0.3, scale: 0.5, overlayText, hoverInfo });
       fs.writeFileSync(screenshotPath, base64Data);
 
       const getCircularReplacer = () => {

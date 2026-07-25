@@ -3193,5 +3193,35 @@
         }
       ]
     }
+  },
+  "src_07-26_00-14_package.json_18files": {
+    "timestamp": "2026-07-25T21:15:03.977Z",
+    "diff": {
+      "added": 6,
+      "removed": 10,
+      "modified": 12,
+      "topFolders": [
+        {
+          "folder": ".docs/manual-browser-log/screenshots",
+          "count": 9
+        },
+        {
+          "folder": ".docs/manual-browser-log/reports",
+          "count": 5
+        },
+        {
+          "folder": ".docs/manual-browser-log/state",
+          "count": 5
+        },
+        {
+          "folder": ".tools/manual-browser-inspector",
+          "count": 3
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        }
+      ]
+    }
   }
 }

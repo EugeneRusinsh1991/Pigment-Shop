@@ -29,12 +29,59 @@ export default function ManualBrowserInspector() {
     }
   }, []);
 
+  useEffect(() => {
+    if (!isPlaywright) return;
+
+    const handleMouseMove = (e) => {
+      window.__lastMousePos = { x: e.clientX, y: e.clientY };
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, [isPlaywright]);
+
+  const getHoverInfo = () => {
+    if (typeof window === 'undefined' || !window.__lastMousePos) return null;
+    const { x, y } = window.__lastMousePos;
+    const hasFocus = typeof document !== 'undefined' ? document.hasFocus() : true;
+    if (!hasFocus) return { mouse: { x, y, active: false } };
+
+    const el = document.elementFromPoint(x, y);
+    if (!el) return { mouse: { x, y, active: true }, target: null };
+
+    const rect = el.getBoundingClientRect();
+    const tag = el.tagName ? el.tagName.toUpperCase() : '';
+    const id = el.id ? `#${el.id}` : '';
+    const className = typeof el.className === 'string' && el.className.trim() ? `.${el.className.trim().split(/\s+/).join('.')}` : '';
+    const text = (el.innerText || el.getAttribute('placeholder') || el.getAttribute('aria-label') || '').slice(0, 40).trim();
+    const testId = el.getAttribute('data-testid');
+
+    return {
+      mouse: { x, y, active: true },
+      target: {
+        tag,
+        id,
+        className,
+        text,
+        testId,
+        selector: `${tag.toLowerCase()}${id}${className ? className.slice(0, 30) : ''}`,
+        rect: {
+          x: Math.round(rect.left),
+          y: Math.round(rect.top),
+          width: Math.round(rect.width),
+          height: Math.round(rect.height)
+        }
+      }
+    };
+  };
+
   const handleCapture = async () => {
     const stateDump = getAppStateDump(contexts);
     const timestamp = getTimestamp(stateDump);
     const overlayText = getOverlayText(stateDump);
+    const hoverInfo = getHoverInfo();
     if (window.__playwright_takeScreenshotAndDumpState) {
-      await window.__playwright_takeScreenshotAndDumpState(timestamp, stateDump, overlayText);
+      await window.__playwright_takeScreenshotAndDumpState(timestamp, stateDump, overlayText, hoverInfo);
     }
   };
 
