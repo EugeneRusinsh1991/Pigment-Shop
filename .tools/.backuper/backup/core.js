@@ -175,6 +175,14 @@ function createBackup({ stepLabel, name } = {}) {
   console.log(`SMARTSAVE_BACKUP: ${backupName} | ${createdAt}`);
 
   writeBackupHistoryLog(backupName);
+
+  return {
+    backupName,
+    stepLabel: finalStepLabel,
+    backupPath,
+    totalFiles,
+    diffData
+  };
 }
 
 module.exports = {

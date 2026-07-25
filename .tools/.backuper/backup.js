@@ -28,11 +28,29 @@ function parseNameArg() {
   return null;
 }
 
+const { execSync } = require('child_process');
+
 try {
   const stepLabel = parseStepArg();
   const name = parseNameArg();
-  createBackup({ stepLabel, name });
+  const backupResult = createBackup({ stepLabel, name });
+
+  const commitMsg = backupResult ? backupResult.backupName : (name || stepLabel || 'backup');
+
+  console.log('\n🔄 Синхронизация с Git...');
+  execSync('git add .', { stdio: 'inherit' });
+  execSync(`git commit -m "${commitMsg}"`, { stdio: 'inherit' });
+  execSync('git push', { stdio: 'inherit' });
+
+  console.log('\n✅ Backup completed and sent to Git!');
+
+  console.log('⏳ Завершение через 10 секунд...');
+  const stopAt = Date.now() + 10000;
+  while (Date.now() < stopAt) {
+    // Synchronous delay to preserve terminal window before auto-close
+  }
 } catch (error) {
   console.error('❌ Ошибка при создании бекапа:', error.message);
   process.exit(1);
 }
+
