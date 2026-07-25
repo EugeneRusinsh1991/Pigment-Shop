@@ -20,6 +20,8 @@ export function FieldInput({ label, labelIcon, value, onChangeText, placeholder,
         <View style={styles?.inputContainer || { flexDirection: 'row', alignItems: 'center' }}>
           {leftIcon}
           <TextInput
+            testID={props.testID}
+            dataSet={{ testid: props.testID }}
             style={[
               styles?.fieldInput,
               inputStyle,
