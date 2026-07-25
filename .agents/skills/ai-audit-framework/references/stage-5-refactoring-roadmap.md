@@ -18,7 +18,10 @@ Transform Stage 4 global analysis findings into modular, individual refactoring 
 5. **COMPLETENESS MANDATE**:
    - Ensure `Target Files` lists all affected files identified during the audit without artificial sample limits.
 6. **Global Primitive Completeness Check**: When generating UI primitive tasks (e.g. Buttons, Inputs, Modals), the task specification MUST include EVERY file in the repository using that primitive (across Admin, Storefront, Pages, Widgets), guaranteeing 100% replacement without leaving orphan raw HTML or unstandardized controls.
-7. **Index Only Roadmap (`.docs/ai-audit-framework/stages/5-refactoring-roadmap.md`)**:
+7. **MANDATORY +20% MODEL ESCALATION & COMPLEXITY BUFFER**:
+   - Calculate raw task complexity (1-5). Add **+20% safety margin** to rating.
+   - If raw complexity is 3/5 (Medium) or task affects >5 files / global primitives -> **MUST escalate Recommended Agent Model to 🟠 Gemini 3.6 Flash (High) or Pro**.
+8. **Index Only Roadmap (`.docs/ai-audit-framework/stages/5-refactoring-roadmap.md`)**:
    - `5-refactoring-roadmap.md` serves ONLY as an index table linking to individual task markdown files.
 
 ---

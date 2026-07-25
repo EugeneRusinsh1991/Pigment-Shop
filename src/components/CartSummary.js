@@ -1,9 +1,10 @@
 import React from 'react';
-import { Text, TextInput, View } from 'react-native';
+import { Text, View } from 'react-native';
 import { useTheme } from '../context/ThemeContext';
 import styles from './CartView/CartViewStyles';
 import Button from './Button';
 import { Link } from 'expo-router';
+import { FieldInput, FieldTextarea } from './Admin/SharedFormComponents';
 export default function CartSummary({ totalItems, totalPrice, isWide, isDark, note, onNoteChange, onCheckout,
   email, firstName, lastName, phone, city,
   onEmailChange, onFirstNameChange, onLastNameChange, onPhoneChange, onCityChange,
@@ -39,22 +40,22 @@ export default function CartSummary({ totalItems, totalPrice, isWide, isDark, no
       <View style={styles.summaryDivider} />
 
       {inputFields.map((field) => (
-        <View style={styles.inputGroup} key={field.labelKey}>
-          <Text style={[styles.label, ic(styles.summaryLabelDark, styles.summaryLabelLight)]}>
-            {`${t(field.labelKey)} *`}
-          </Text>
-          <View style={[styles.inputContainer, ic(styles.inputContainerDark, styles.inputContainerLight)]}>
-            <TextInput
-              style={[styles.input, ic(styles.textDark, styles.textLight)]}
-              placeholder={t(field.labelKey)}
-              placeholderTextColor={isDark ? '#64748b' : '#94a3b8'}
-              value={field.value}
-              onChangeText={field.onChange}
-              keyboardType={field.keyboardType}
-              autoCapitalize={field.autoCapitalize || 'sentences'}
-            />
-          </View>
-        </View>
+        <FieldInput
+          key={field.labelKey}
+          label={`${t(field.labelKey)} *`}
+          value={field.value}
+          onChangeText={field.onChange}
+          placeholder={t(field.labelKey)}
+          placeholderTextColor={isDark ? '#64748b' : '#94a3b8'}
+          keyboardType={field.keyboardType}
+          autoCapitalize={field.autoCapitalize || 'sentences'}
+          style={styles.inputGroup}
+          styles={{
+            fieldLabel: [styles.label, ic(styles.summaryLabelDark, styles.summaryLabelLight)],
+            fieldInput: [styles.input, ic(styles.textDark, styles.textLight)],
+            inputContainer: [styles.inputContainer, ic(styles.inputContainerDark, styles.inputContainerLight)],
+          }}
+        />
       ))}
 
       <Text style={[styles.requiredNote, ic(styles.summaryLabelDark, styles.summaryLabelLight)]}>
@@ -63,17 +64,17 @@ export default function CartSummary({ totalItems, totalPrice, isWide, isDark, no
 
       <View style={styles.summaryDivider} />
 
-      <Text style={[styles.noteLabel, ic(styles.summaryLabelDark, styles.summaryLabelLight)]}>
-        {t('cartOrderNote')}
-      </Text>
-      <TextInput
-        style={[styles.noteInput, ic(styles.noteInputDark, styles.noteInputLight)]}
+      <FieldTextarea
+        label={t('cartOrderNote')}
         value={note}
         onChangeText={onNoteChange}
         placeholder={t('cartOrderNotePlaceholder')}
         placeholderTextColor={isDark ? '#64748b' : '#94a3b8'}
-        multiline
         numberOfLines={3}
+        styles={{
+          fieldLabel: [styles.noteLabel, ic(styles.summaryLabelDark, styles.summaryLabelLight)],
+          fieldTextarea: [styles.noteInput, ic(styles.noteInputDark, styles.noteInputLight)],
+        }}
       />
 
       <View style={styles.summaryDivider} />

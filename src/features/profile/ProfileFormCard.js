@@ -1,8 +1,9 @@
-import { Text, TextInput, View } from 'react-native';
+import { Text, View } from 'react-native';
 import BaseCard from '../../components/BaseCard';
 import styles from './ProfilePageStyles';
 import Button from '../../components/Button';
 import { colors } from '../../theme/tokens';
+import { FieldInput } from '../../components/Admin/SharedFormComponents';
 
 const getPlaceholderColor = (isDark) => (isDark ? colors.textMutedDark : colors.slateText);
 
@@ -23,21 +24,21 @@ function EmailField({ label, email, selectTheme }) {
 
 function ProfileTextField({ label, placeholder, value, onChangeText, isDark, selectTheme, keyboardType }) {
   return (
-    <View style={styles.inputGroup}>
-      <Text style={[styles.label, selectTheme(styles.textDark, styles.textLight)]}>
-        {label}
-      </Text>
-      <View style={[styles.inputContainer, selectTheme(styles.inputContainerDark, styles.inputContainerLight)]}>
-        <TextInput
-          style={[styles.input, selectTheme(styles.textDark, styles.textLight)]}
-          placeholder={placeholder}
-          placeholderTextColor={getPlaceholderColor(isDark)}
-          value={value}
-          onChangeText={onChangeText}
-          keyboardType={keyboardType}
-        />
-      </View>
-    </View>
+    <FieldInput
+      label={label}
+      value={value}
+      onChangeText={onChangeText}
+      placeholder={placeholder}
+      placeholderTextColor={getPlaceholderColor(isDark)}
+      keyboardType={keyboardType}
+      style={styles.inputGroup}
+      styles={{
+        fieldLabel: [styles.label, selectTheme(styles.textDark, styles.textLight)],
+        fieldInput: [styles.input, selectTheme(styles.textDark, styles.textLight)],
+        inputContainer: [styles.inputContainer, selectTheme(styles.inputContainerDark, styles.inputContainerLight)],
+      }}
+      leftIcon={null}
+    />
   );
 }
 

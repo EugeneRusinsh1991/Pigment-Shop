@@ -1,8 +1,9 @@
-import { Text, TextInput, View } from 'react-native';
+import { Text, View } from 'react-native';
 import { CheckIcon } from '../../components/Icons';
 import AnimatedButton from '../AnimatedButton';
 import { colors } from '../../theme/tokens';
 import styles from './CatalogFilterSidebarStyles';
+import { FieldInput } from '../Admin/SharedFormComponents';
 
 export function SectionTitle({ label, isDark, isPrice }) {
   return (
@@ -26,34 +27,37 @@ export function Checkbox({ checked, label, onToggle, isDark, testID }) {
 }
 
 export function PriceInputs({ priceMin, priceMax, onMinChange, onMaxChange, isDark, t }) {
-  const inputStyle = [styles.priceInput, isDark ? styles.inputDark : styles.inputLight];
   const placeholderColor = isDark ? colors.textMutedDark : colors.textMutedLight;
   return (
     <View style={styles.priceColumn}>
-      <View style={styles.priceFieldRow}>
-        <Text style={[styles.priceFieldLabel, isDark ? styles.textDark : styles.textLight]}>{t('catalogPriceMin')}</Text>
-        <TextInput
-          testID="filter-price-min"
-          style={inputStyle}
-          placeholder="0"
-          placeholderTextColor={placeholderColor}
-          keyboardType="numeric"
-          value={priceMin}
-          onChangeText={onMinChange}
-        />
-      </View>
-      <View style={styles.priceFieldRow}>
-        <Text style={[styles.priceFieldLabel, isDark ? styles.textDark : styles.textLight]}>{t('catalogPriceMax')}</Text>
-        <TextInput
-          testID="filter-price-max"
-          style={inputStyle}
-          placeholder="5000"
-          placeholderTextColor={placeholderColor}
-          keyboardType="numeric"
-          value={priceMax}
-          onChangeText={onMaxChange}
-        />
-      </View>
+      <FieldInput
+        testID="filter-price-min"
+        label={t('catalogPriceMin')}
+        style={styles.priceFieldRow}
+        styles={{
+          fieldLabel: [styles.priceFieldLabel, isDark ? styles.textDark : styles.textLight],
+          fieldInput: [styles.priceInput, isDark ? styles.inputDark : styles.inputLight],
+        }}
+        placeholder="0"
+        placeholderTextColor={placeholderColor}
+        keyboardType="numeric"
+        value={priceMin}
+        onChangeText={onMinChange}
+      />
+      <FieldInput
+        testID="filter-price-max"
+        label={t('catalogPriceMax')}
+        style={styles.priceFieldRow}
+        styles={{
+          fieldLabel: [styles.priceFieldLabel, isDark ? styles.textDark : styles.textLight],
+          fieldInput: [styles.priceInput, isDark ? styles.inputDark : styles.inputLight],
+        }}
+        placeholder="5000"
+        placeholderTextColor={placeholderColor}
+        keyboardType="numeric"
+        value={priceMax}
+        onChangeText={onMaxChange}
+      />
     </View>
   );
 }

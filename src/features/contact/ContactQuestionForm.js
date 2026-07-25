@@ -85,8 +85,12 @@ export default function ContactQuestionForm({ t, ic, isDark, isMobile, contentWi
     <BaseCard padding={24} style={cardStyle}>
       <FieldTextarea
         label={t('contactUsQuestion')}
-        style={[styles.textarea, ic(styles.textareaDark, styles.textareaLight)]}
+        styles={{
+          fieldLabel: [styles.questionLabel, ic(styles.textDark, styles.textLight)],
+          fieldTextarea: [styles.textarea, ic(styles.textareaDark, styles.textareaLight)],
+        }}
         placeholder={t('contactUsQuestionPlaceholder')}
+        placeholderTextColor={isDark ? '#888' : '#aaa'}
         value={questionText}
         onChangeText={handleChangeText}
         editable={!submitting}

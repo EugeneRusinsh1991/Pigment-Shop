@@ -27,7 +27,7 @@ function getToolbarStyles(isDark, style, inputStyle) {
   };
 }
 
-const SearchToolbar = forwardRef(function SearchToolbar({
+export const GlobalSearchInput = forwardRef(function GlobalSearchInput({
   value,
   onChangeText,
   placeholder,
@@ -76,6 +76,8 @@ const SearchToolbar = forwardRef(function SearchToolbar({
     </View>
   );
 });
+
+const SearchToolbar = GlobalSearchInput;
 const styles = StyleSheet.create({
   searchInputWrap: {
     flexDirection: 'row',
@@ -109,4 +111,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SearchToolbar;
+export default GlobalSearchInput;

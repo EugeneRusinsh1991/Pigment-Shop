@@ -6,6 +6,7 @@ import { useTheme } from '../../context/ThemeContext';
 
 import IconButton from '../../components/IconButton';
 import AnimatedButton from '../../components/AnimatedButton';
+import { FieldInput } from '../../components/Admin/SharedFormComponents';
 
 const ic = (isDark, dark, light) => (isDark ? dark : light);
 
@@ -28,26 +29,28 @@ export function LoginHeader({ isRegister, isDark }) {
 
 export function PasswordInputField({ value, onChangeText, showToggle, isDark, showPassword, setShowPassword }) {
   return (
-    <View style={[styles.inputContainer, ic(isDark, styles.inputContainerDark, styles.inputContainerLight), { flexDirection: 'row', alignItems: 'center' }]}>
-      <LockIcon color="#888" size={16} style={{ marginRight: 8 }} />
-      <TextInput
-        testID="login-password-input"
-        style={[styles.input, ic(isDark, styles.textDark, styles.textLight)]}
-        placeholder="......"
-        placeholderTextColor={isDark ? '#888' : '#aaa'}
-        value={value}
-        onChangeText={onChangeText}
-        secureTextEntry={!showPassword}
-      />
-      {showToggle && (
+    <FieldInput
+      testID="login-password-input"
+      value={value}
+      onChangeText={onChangeText}
+      placeholder="......"
+      placeholderTextColor={isDark ? '#888' : '#aaa'}
+      secureTextEntry={!showPassword}
+      style={{ flex: 1 }}
+      styles={{
+        fieldInput: [styles.input, ic(isDark, styles.textDark, styles.textLight)],
+        inputContainer: [styles.inputContainer, ic(isDark, styles.inputContainerDark, styles.inputContainerLight), { flexDirection: 'row', alignItems: 'center' }],
+      }}
+      leftIcon={<LockIcon color="#888" size={16} style={{ marginRight: 8 }} />}
+      rightIcon={showToggle ? (
         <IconButton
           icon={showPassword ? <EyeOffIcon color={isDark ? '#888' : '#666'} size={16} /> : <EyeIcon color={isDark ? '#888' : '#666'} size={16} />}
           onPress={() => setShowPassword(!showPassword)}
           variant="transparent"
           size="sm"
         />
-      )}
-    </View>
+      ) : null}
+    />
   );
 }
 

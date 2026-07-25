@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import SearchToolbar from '../SearchToolbar';
+import GlobalSearchInput from '../SearchToolbar';
 import { useTheme } from '../../context/ThemeContext';
 
 const SearchInput = forwardRef(function SearchInput({
@@ -14,7 +14,7 @@ const SearchInput = forwardRef(function SearchInput({
   const { t } = useTheme();
 
   return (
-    <SearchToolbar
+    <GlobalSearchInput
       ref={ref}
       value={query}
       onChangeText={onChangeText}

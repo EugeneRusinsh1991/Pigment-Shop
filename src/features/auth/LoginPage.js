@@ -8,6 +8,7 @@ import styles from './LoginPageStyles';
 import Footer from '../../components/Footer';
 import Button from '../../components/Button';
 import PageTransition from '../../components/PageTransition';
+import { FieldInput } from '../../components/Admin/SharedFormComponents';
 
 
 const ic = (isDark, dark, light) => (isDark ? dark : light);
@@ -68,22 +69,23 @@ export default function LoginPage({ isDark: isDarkProp }) {
 
                 <ErrorText error={error} />
 
-                <View style={styles.inputGroup}>
-                  <Text style={[styles.label, ic(isDark, styles.textDark, styles.textLight)]}>{t('loginEmailLabel')}</Text>
-                  <View style={[styles.inputContainer, ic(isDark, styles.inputContainerDark, styles.inputContainerLight), { flexDirection: 'row', alignItems: 'center' }]}>
-                    <MailIcon color="#888" size={16} style={{ marginRight: 8 }} />
-                    <TextInput
-                      testID="login-email-input"
-                      style={[styles.input, ic(isDark, styles.textDark, styles.textLight)]}
-                      placeholder="email@example.com"
-                      placeholderTextColor={getPlaceholderColor(isDark)}
-                      value={email}
-                      onChangeText={setEmail}
-                      keyboardType="email-address"
-                      autoCapitalize="none"
-                    />
-                  </View>
-                </View>
+                <FieldInput
+                  testID="login-email-input"
+                  label={t('loginEmailLabel')}
+                  value={email}
+                  onChangeText={setEmail}
+                  placeholder="email@example.com"
+                  placeholderTextColor={getPlaceholderColor(isDark)}
+                  keyboardType="email-address"
+                  autoCapitalize="none"
+                  style={styles.inputGroup}
+                  styles={{
+                    fieldLabel: [styles.label, ic(isDark, styles.textDark, styles.textLight)],
+                    fieldInput: [styles.input, ic(isDark, styles.textDark, styles.textLight)],
+                    inputContainer: [styles.inputContainer, ic(isDark, styles.inputContainerDark, styles.inputContainerLight), { flexDirection: 'row', alignItems: 'center' }],
+                  }}
+                  leftIcon={<MailIcon color="#888" size={16} style={{ marginRight: 8 }} />}
+                />
 
                 <View style={styles.inputGroup}>
                   <View style={styles.passwordLabelRow}>

@@ -5,34 +5,69 @@ import { useTheme } from '../../context/ThemeContext';
 
 import FieldError from '../FieldError';
 
-export function FieldInput({ label, value, onChangeText, placeholder, error, keyboardType, styles, style, ...props }) {
+export function FieldInput({ label, value, onChangeText, placeholder, error, keyboardType, styles, style, leftIcon, rightIcon, ...props }) {
   const [isFocused, setIsFocused] = React.useState(false);
   const containerStyle = styles?.fieldGroup || style;
   return (
     <View style={containerStyle}>
       {label ? <Text style={styles?.fieldLabel}>{label}</Text> : null}
-      <TextInput
-        style={[
-          styles?.fieldInput,
-          isFocused && { borderColor: colors.accentBlue, borderWidth: 1.5 },
-          error && styles?.fieldInputError,
-        ]}
-        value={String(value ?? '')}
-        onChangeText={onChangeText}
-        placeholder={placeholder}
-        placeholderTextColor={colors.slateText}
-        keyboardType={keyboardType}
-        autoCapitalize="none"
-        onFocus={() => setIsFocused(true)}
-        onBlur={() => setIsFocused(false)}
-        {...props}
-      />
+      {leftIcon || rightIcon ? (
+        <View style={styles?.inputContainer || { flexDirection: 'row', alignItems: 'center' }}>
+          {leftIcon}
+          <TextInput
+            style={[
+              styles?.fieldInput,
+              isFocused && { borderColor: colors.accentBlue, borderWidth: 1.5 },
+              error && styles?.fieldInputError,
+            ]}
+            value={String(value ?? '')}
+            onChangeText={onChangeText}
+            placeholder={placeholder}
+            placeholderTextColor={props.placeholderTextColor || colors.slateText}
+            keyboardType={keyboardType}
+            autoCapitalize="none"
+            onFocus={(e) => {
+              setIsFocused(true);
+              props.onFocus?.(e);
+            }}
+            onBlur={(e) => {
+              setIsFocused(false);
+              props.onBlur?.(e);
+            }}
+            {...props}
+          />
+          {rightIcon}
+        </View>
+      ) : (
+        <TextInput
+          style={[
+            styles?.fieldInput,
+            isFocused && { borderColor: colors.accentBlue, borderWidth: 1.5 },
+            error && styles?.fieldInputError,
+          ]}
+          value={String(value ?? '')}
+          onChangeText={onChangeText}
+          placeholder={placeholder}
+          placeholderTextColor={props.placeholderTextColor || colors.slateText}
+          keyboardType={keyboardType}
+          autoCapitalize="none"
+          onFocus={(e) => {
+            setIsFocused(true);
+            props.onFocus?.(e);
+          }}
+          onBlur={(e) => {
+            setIsFocused(false);
+            props.onBlur?.(e);
+          }}
+          {...props}
+        />
+      )}
       <FieldError error={error} />
     </View>
   );
 }
 
-export function FieldTextarea({ label, value, onChangeText, placeholder, numberOfLines = 2, styles, style, ...props }) {
+export function FieldTextarea({ label, value, onChangeText, placeholder, numberOfLines = 2, error, styles, style, ...props }) {
   const [isFocused, setIsFocused] = React.useState(false);
   const containerStyle = styles?.fieldGroup || style;
   return (
@@ -42,17 +77,25 @@ export function FieldTextarea({ label, value, onChangeText, placeholder, numberO
         style={[
           styles?.fieldTextarea,
           isFocused && { borderColor: colors.accentBlue, borderWidth: 1.5 },
+          error && styles?.fieldInputError,
         ]}
         value={String(value ?? '')}
         onChangeText={onChangeText}
         placeholder={placeholder}
-        placeholderTextColor={colors.slateText}
+        placeholderTextColor={props.placeholderTextColor || colors.slateText}
         multiline
         numberOfLines={numberOfLines}
-        onFocus={() => setIsFocused(true)}
-        onBlur={() => setIsFocused(false)}
+        onFocus={(e) => {
+          setIsFocused(true);
+          props.onFocus?.(e);
+        }}
+        onBlur={(e) => {
+          setIsFocused(false);
+          props.onBlur?.(e);
+        }}
         {...props}
       />
+      <FieldError error={error} />
     </View>
   );
 }

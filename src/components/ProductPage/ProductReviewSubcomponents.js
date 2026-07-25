@@ -1,10 +1,11 @@
 import React from 'react';
-import { View, Text, TextInput, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import styles from './ProductReviewsStyles';
 import { useTheme } from '../../context/ThemeContext';
 import AnimatedButton from '../AnimatedButton';
 import { Link } from 'expo-router';
 import { colors } from '../../theme/tokens';
+import { FieldTextarea } from '../Admin/SharedFormComponents';
 
 export { getAccountName, useReviewsState } from './useReviewsState';
 
@@ -162,11 +163,12 @@ export function ReviewForm({
         options={modeOptions}
         title={config.title}
       />
-      <TextInput
-        style={[styles.input, isDark ? styles.inputDark : styles.inputLight, styles.textArea]}
+      <FieldTextarea
+        styles={{
+          fieldTextarea: [styles.input, isDark ? styles.inputDark : styles.inputLight, styles.textArea],
+        }}
         placeholder={config.placeholder}
         placeholderTextColor={colors.secondaryDarkText}
-        multiline
         numberOfLines={3}
         value={config.value}
         onChangeText={config.onChangeText}
