@@ -5,6 +5,7 @@ import { useCartContext } from '../context/CartContext';
 import { useCatalog } from '../context/CatalogContext';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
+import { useToast } from '../context/ToastContext';
 import { useCartViewForm } from '../hooks/useCartViewForm';
 import { useProfile } from '../hooks/useProfile';
 import { calculateTotals, handleCheckoutProcess } from './CartView/cartCheckoutLogic';
@@ -15,6 +16,7 @@ import { layout } from '../theme/tokens';
 export default function CartView({ isDark: isDarkProp }) {
   const { isDark: isDarkContext } = useTheme();
   const { t } = useLanguage();
+  const { showToast } = useToast();
   const isDark = isDarkProp ?? isDarkContext;
   const router = useRouter();
   const [completedOrderParams, setCompletedOrderParams] = useState(null);
@@ -33,7 +35,7 @@ export default function CartView({ isDark: isDarkProp }) {
   const { totalPrice, totalItems } = calculateTotals(items);
 
   const handleCheckout = () => {
-    handleCheckoutProcess({ user, items, totalItems, totalPrice, note, customerInfo, clearCart, t, 
+    handleCheckoutProcess({ user, items, totalItems, totalPrice, note, customerInfo, clearCart, t, showToast, 
       openScreen: (screen, params) => {
         if (screen === 'orderConfirmation') {
           setCompletedOrderParams({

@@ -46,6 +46,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     position: 'relative',
+    zIndex: layout.zIndices.drawer,
   },
   panel: {
     height: '100%',

@@ -1,22 +1,28 @@
 import React from 'react';
 import { Modal, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import { colors } from '../../theme/tokens';
+import { colors, layout } from '../../theme/tokens';
 import { useTheme } from '../../context/ThemeContext';
 
 import FieldError from '../FieldError';
 
-export function FieldInput({ label, value, onChangeText, placeholder, error, keyboardType, styles, style, leftIcon, rightIcon, ...props }) {
+export function FieldInput({ label, labelIcon, value, onChangeText, placeholder, error, keyboardType, styles, style, inputStyle, leftIcon, rightIcon, ...props }) {
   const [isFocused, setIsFocused] = React.useState(false);
   const containerStyle = styles?.fieldGroup || style;
   return (
     <View style={containerStyle}>
-      {label ? <Text style={styles?.fieldLabel}>{label}</Text> : null}
+      {label || labelIcon ? (
+        <View style={styles?.labelRow || { flexDirection: 'row', alignItems: 'center', gap: 6, marginBottom: 4 }}>
+          {labelIcon}
+          {label ? <Text style={styles?.fieldLabel}>{label}</Text> : null}
+        </View>
+      ) : null}
       {leftIcon || rightIcon ? (
         <View style={styles?.inputContainer || { flexDirection: 'row', alignItems: 'center' }}>
           {leftIcon}
           <TextInput
             style={[
               styles?.fieldInput,
+              inputStyle,
               isFocused && { borderColor: colors.accentBlue, borderWidth: 1.5 },
               error && styles?.fieldInputError,
             ]}
@@ -42,6 +48,7 @@ export function FieldInput({ label, value, onChangeText, placeholder, error, key
         <TextInput
           style={[
             styles?.fieldInput,
+            inputStyle,
             isFocused && { borderColor: colors.accentBlue, borderWidth: 1.5 },
             error && styles?.fieldInputError,
           ]}
@@ -67,15 +74,21 @@ export function FieldInput({ label, value, onChangeText, placeholder, error, key
   );
 }
 
-export function FieldTextarea({ label, value, onChangeText, placeholder, numberOfLines = 2, error, styles, style, ...props }) {
+export function FieldTextarea({ label, labelIcon, value, onChangeText, placeholder, numberOfLines = 2, error, styles, style, inputStyle, ...props }) {
   const [isFocused, setIsFocused] = React.useState(false);
   const containerStyle = styles?.fieldGroup || style;
   return (
     <View style={containerStyle}>
-      {label ? <Text style={styles?.fieldLabel}>{label}</Text> : null}
+      {label || labelIcon ? (
+        <View style={styles?.labelRow || { flexDirection: 'row', alignItems: 'center', gap: 6, marginBottom: 4 }}>
+          {labelIcon}
+          {label ? <Text style={styles?.fieldLabel}>{label}</Text> : null}
+        </View>
+      ) : null}
       <TextInput
         style={[
           styles?.fieldTextarea,
+          inputStyle,
           isFocused && { borderColor: colors.accentBlue, borderWidth: 1.5 },
           error && styles?.fieldInputError,
         ]}
@@ -146,7 +159,7 @@ function ModalFooter({ onCancel, onSave, styles, footerLeft }) {
 export function FormModalLayout({ visible, title, onClose, onSave, styles, cardWidth, children, footerLeft, footer }) {
   return (
     <Modal visible={visible} transparent animationType="fade" onRequestClose={onClose}>
-      <View style={styles.modalOverlay}>
+      <View style={[styles.modalOverlay, { zIndex: layout.zIndices.modal }]}>
         <View style={[styles.modalCard, cardWidth ? { width: cardWidth } : null]}>
           <ModalHeader title={title} onClose={onClose} styles={styles} />
           <ScrollView style={styles.modalBody} keyboardShouldPersistTaps="handled">

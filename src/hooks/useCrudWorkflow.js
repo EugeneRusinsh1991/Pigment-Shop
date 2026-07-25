@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect } from 'react';
-import { Alert } from 'react-native';
 import { useTheme } from '../context/ThemeContext';
+import { useToast } from '../context/ToastContext';
 
 function getDefaultTitle(isError) {
   return isError ? 'Error' : 'Success';
@@ -11,18 +11,6 @@ function resolveAlertTitle(title, fallbackKey, isError, t) {
   const translated = t(fallbackKey);
   if (translated) return translated;
   return getDefaultTitle(isError);
-}
-
-function showFeedbackAlert(title, fallbackKey, message, isError, t) {
-  const resolvedTitle = resolveAlertTitle(title, fallbackKey, isError, t);
-  const isWebAlertAvailable = typeof window !== 'undefined' && Boolean(window.alert);
-
-  if (isWebAlertAvailable) {
-    const text = isError ? `${resolvedTitle}: ${message}` : resolvedTitle;
-    window.alert(text);
-    return;
-  }
-  Alert.alert(resolvedTitle, message);
 }
 
 /**
@@ -38,6 +26,7 @@ export function useCrudWorkflow({
   errorMessageTitle,
 }) {
   const { t } = useTheme();
+  const { showToast } = useToast();
   
   const [internalData, setInternalData] = useState([]);
   const [loading, setLoading] = useState(!!loadFn && !draftData);
@@ -73,14 +62,21 @@ export function useCrudWorkflow({
     try {
       const res = await saveFn();
       if (!res.success) throw new Error(res.error);
-      showFeedbackAlert(successMessageTitle, 'adminCategoriesSuccessTitle', 'Saved successfully', false, t);
+      const title = resolveAlertTitle(successMessageTitle, 'adminCategoriesSuccessTitle', false, t);
+      if (showToast) {
+        showToast(title, 'success');
+      }
     } catch (err) {
       console.error('[useCrudWorkflow] Save error:', err);
-      showFeedbackAlert(errorMessageTitle, 'adminCategoriesErrorTitle', err.message || 'Save failed', true, t);
+      const title = resolveAlertTitle(errorMessageTitle, 'adminCategoriesErrorTitle', true, t);
+      const msg = err.message ? `${title}: ${err.message}` : title;
+      if (showToast) {
+        showToast(msg, 'error');
+      }
     } finally {
       setIsSaving(false);
     }
-  }, [saveFn, successMessageTitle, errorMessageTitle, t]);
+  }, [saveFn, successMessageTitle, errorMessageTitle, t, showToast]);
 
   const data = draftData !== undefined ? draftData : internalData;
   const isDirty = externalIsDirty !== undefined ? externalIsDirty : false;

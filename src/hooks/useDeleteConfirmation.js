@@ -1,45 +1,58 @@
-import { Alert, Platform } from 'react-native';
+import React, { useState, useCallback } from 'react';
 import { useTheme } from '../context/ThemeContext';
+import ConfirmationDialog from '../components/ConfirmationDialog';
 
 /**
  * Shared hook for cross-platform delete confirmations.
- * Handles `window.confirm` for web and `Alert.alert` for native platforms.
+ * Uses custom themed ConfirmationDialog.
  */
 export function useDeleteConfirmation() {
   const { t } = useTheme();
+  const [dialogState, setDialogState] = useState({
+    visible: false,
+    title: '',
+    message: '',
+    confirmText: '',
+    cancelText: '',
+    onConfirm: null,
+  });
 
-  const confirmDelete = ({
-    title = t('confirmDeleteDefaultTitle'),
-    message = t('confirmDeleteDefaultMsg'),
-    confirmText = t('confirmDeleteYes'),
-    cancelText = t('confirmDeleteCancel'),
+  const confirmDelete = useCallback(({
+    title,
+    message,
+    confirmText,
+    cancelText,
     onConfirm,
-  }) => {
-    if (Platform.OS === 'web') {
-      // For web, use the native browser confirmation dialog which blocks the thread
-      const confirmed = window.confirm(`${title ? title + '\n\n' : ''}${message}`);
-      if (confirmed && onConfirm) {
-        onConfirm();
-      }
-    } else {
-      // For mobile, use React Native's async Alert system
-      Alert.alert(
-        title,
-        message,
-        [
-          { text: cancelText, style: 'cancel' },
-          {
-            text: confirmText,
-            style: 'destructive',
-            onPress: () => {
-              if (onConfirm) onConfirm();
-            },
-          },
-        ],
-        { cancelable: true }
-      );
-    }
-  };
+  } = {}) => {
+    setDialogState({
+      visible: true,
+      title: title || t('confirmDeleteDefaultTitle'),
+      message: message || t('confirmDeleteDefaultMsg'),
+      confirmText: confirmText || t('confirmDeleteYes'),
+      cancelText: cancelText || t('confirmDeleteCancel'),
+      onConfirm: () => {
+        setDialogState((prev) => ({ ...prev, visible: false }));
+        if (onConfirm) onConfirm();
+      },
+    });
+  }, [t]);
 
-  return { confirmDelete };
+  const closeConfirm = useCallback(() => {
+    setDialogState((prev) => ({ ...prev, visible: false }));
+  }, []);
+
+  const confirmationDialog = (
+    <ConfirmationDialog
+      visible={dialogState.visible}
+      title={dialogState.title}
+      message={dialogState.message}
+      confirmText={dialogState.confirmText}
+      cancelText={dialogState.cancelText}
+      onConfirm={dialogState.onConfirm}
+      onCancel={closeConfirm}
+      variant="danger"
+    />
+  );
+
+  return { confirmDelete, confirmationDialog, closeConfirm };
 }

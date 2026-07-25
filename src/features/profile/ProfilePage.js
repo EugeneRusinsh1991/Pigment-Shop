@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { ScrollView, Text, View } from 'react-native';
 import { useTheme } from '../../context/ThemeContext';
+import { useToast } from '../../context/ToastContext';
 import { useProfile } from '../../hooks/useProfile';
 import useGridLayout from '../../hooks/useGridLayout';
 import ProfileFormCard from './ProfileFormCard';
@@ -25,7 +26,7 @@ function mapProfileToForm(profile) {
 function useProfileForm(auth, t) {
   const { profile, loading, saving, saveProfile } = useProfile(auth?.user);
   const [form, setForm] = useState(() => mapProfileToForm(profile));
-  const [saveMessage, setSaveMessage] = useState('');
+  const { showToast } = useToast();
 
   useEffect(() => {
     if (!loading) {
@@ -40,31 +41,24 @@ function useProfileForm(auth, t) {
   const handleSave = async () => {
     try {
       await saveProfile(form);
-      setSaveMessage(t('profileSaveSuccess'));
+      if (showToast) {
+        showToast(t('profileSaveSuccess') || 'Profile saved successfully', 'success');
+      }
     } catch {
-      setSaveMessage('');
+      if (showToast) {
+        showToast(t('profileSaveError') || 'Failed to save profile', 'error');
+      }
     }
   };
 
-  return { form, loading, saving, saveMessage, updateField, handleSave };
-}
-
-function ProfileSaveAlert({ saveMessage, isDark }) {
-  if (!saveMessage) return null;
-  return (
-    <ScrollFadeUp style={[styles.saveMessage, isDark ? styles.saveMessageDark : styles.saveMessageLight]}>
-      <Text style={[styles.saveMessageText, isDark ? styles.saveMessageTextDark : styles.saveMessageTextLight]}>
-        {saveMessage}
-      </Text>
-    </ScrollFadeUp>
-  );
+  return { form, loading, saving, updateField, handleSave };
 }
 
 export default function ProfilePage({ isDark, auth }) {
   const { t } = useTheme();
   const selectTheme = (dark, light) => (isDark ? dark : light);
   const { isWide, gridWidth } = useGridLayout();
-  const { form, loading, saving, saveMessage, updateField, handleSave } = useProfileForm(auth, t);
+  const { form, loading, saving, updateField, handleSave } = useProfileForm(auth, t);
 
   return (
     <ScrollView
@@ -108,8 +102,6 @@ export default function ProfilePage({ isDark, auth }) {
               t={t}
             />
           </ScrollFadeUp>
-
-          <ProfileSaveAlert saveMessage={saveMessage} isDark={isDark} />
         </View>
       </View>
       <Footer />

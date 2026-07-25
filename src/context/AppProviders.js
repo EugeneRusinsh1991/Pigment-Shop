@@ -16,6 +16,8 @@ import { CartProvider } from './CartContext';
 import { FavoritesProvider } from './FavoritesContext';
 import BootstrapGate from '../bootstrap/BootstrapGate';
 
+import { GlobalToastProvider } from './ToastContext';
+
 /**
  * 1. Core infrastructure domain (independent of session/auth)
  */
@@ -23,7 +25,9 @@ export function CoreInfrastructureProviders({ children }) {
   return (
     <ThemeProvider>
       <LanguageProvider>
-        {children}
+        <GlobalToastProvider>
+          {children}
+        </GlobalToastProvider>
       </LanguageProvider>
     </ThemeProvider>
   );

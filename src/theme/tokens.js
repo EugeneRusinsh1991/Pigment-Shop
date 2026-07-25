@@ -207,6 +207,16 @@ export const layout = {
     lg: 8,
     xl: 16,
   },
+  zIndices: {
+    base: 1,
+    dropdown: 100,
+    sticky: 200,
+    header: 500,
+    drawer: 1000,
+    modal: 2000,
+    toast: 3000,
+    tooltip: 4000,
+  },
 };
 
 export const motion = {

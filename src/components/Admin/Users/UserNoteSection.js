@@ -1,5 +1,7 @@
-import { Text, TextInput, ActivityIndicator, View } from 'react-native';
+import React from 'react';
+import { Text, ActivityIndicator, View } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
+import { FieldTextarea } from '../SharedFormComponents';
 import styles from './UsersStyles';
 
 export default function UserNoteSection({ note, setNote, loadingNote }) {
@@ -10,18 +12,14 @@ export default function UserNoteSection({ note, setNote, loadingNote }) {
       {loadingNote ? (
         <ActivityIndicator color="#E87A8E" style={{ marginVertical: 20 }} />
       ) : (
-        <>
-          <TextInput
-            style={styles.noteInput}
-            placeholder={t('adminUserNotePlaceholder')}
-            placeholderTextColor="#CBD5E1"
-            value={note}
-            onChangeText={setNote}
-            multiline
-            numberOfLines={4}
-            editable={true}
-          />
-        </>
+        <FieldTextarea
+          value={note}
+          onChangeText={setNote}
+          placeholder={t('adminUserNotePlaceholder')}
+          placeholderTextColor="#CBD5E1"
+          numberOfLines={4}
+          inputStyle={styles.noteInput}
+        />
       )}
     </View>
   );

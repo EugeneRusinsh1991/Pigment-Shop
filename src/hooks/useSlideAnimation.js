@@ -22,7 +22,10 @@ export function useSlideAnimation(visible, panelWidth, onClose) {
     outputRange: [-panelWidth, 0],
   });
 
-  const scrimOpacity = anim;
+  const scrimOpacity = anim.interpolate({
+    inputRange: [0, 1],
+    outputRange: [0, 0.6],
+  });
 
   const handleClose = () => {
     if (onClose) onClose();

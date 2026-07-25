@@ -1,6 +1,7 @@
 import React from 'react';
-import { Text, TextInput, View } from 'react-native';
+import { Text, View } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
+import { FieldTextarea } from '../SharedFormComponents';
 import styles from './OrdersStyles';
 
 export default function AdminNoteSection({ note, setNote }) {
@@ -10,8 +11,13 @@ export default function AdminNoteSection({ note, setNote }) {
     <>
       <Text style={styles.sectionTitle}>{t('adminUserNote')}</Text>
       <View style={styles.detailCard}>
-        <TextInput
-          style={[
+        <FieldTextarea
+          value={note}
+          onChangeText={setNote}
+          placeholder={t('adminUserNotePlaceholder')}
+          placeholderTextColor="#94a3b8"
+          numberOfLines={4}
+          inputStyle={[
             styles.adminNoteInput,
             {
               borderColor: '#e2e8f0',
@@ -21,12 +27,6 @@ export default function AdminNoteSection({ note, setNote }) {
               minHeight: 100,
             },
           ]}
-          multiline
-          numberOfLines={4}
-          placeholder={t('adminUserNotePlaceholder')}
-          placeholderTextColor="#94a3b8"
-          value={note}
-          onChangeText={setNote}
         />
       </View>
     </>

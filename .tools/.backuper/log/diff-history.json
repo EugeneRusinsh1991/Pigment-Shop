@@ -1592,5 +1592,35 @@
         }
       ]
     }
+  },
+  "src_2026-07-25_12-58_smoke-report.json_25files": {
+    "timestamp": "2026-07-25T09:58:27.547Z",
+    "diff": {
+      "added": 11,
+      "removed": 5,
+      "modified": 14,
+      "topFolders": [
+        {
+          "folder": ".docs/ai-audit-framework/tasks",
+          "count": 9
+        },
+        {
+          "folder": "reports",
+          "count": 4
+        },
+        {
+          "folder": "src/components",
+          "count": 3
+        },
+        {
+          "folder": "src/hooks",
+          "count": 3
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        }
+      ]
+    }
   }
 }
