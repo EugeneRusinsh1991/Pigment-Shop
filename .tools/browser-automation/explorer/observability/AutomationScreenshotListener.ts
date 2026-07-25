@@ -4,11 +4,11 @@ import { ExplorerEventEmitter } from '../../events/ExplorerEventEmitter';
 import { IWebPage } from '../../driver/DriverInterfaces';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const { takeCompressedScreenshot } = require('../../../../../scripts/playwright.helpers');
+const { takeCompressedScreenshot } = require('../../../../scripts/playwright.helpers');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const { cleanOldFiles } = require('../../../../../scripts/cleanOldFiles');
+const { cleanOldFiles } = require('../../../../scripts/cleanOldFiles');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const { getLocationContext } = require('../../../../../src/utils/appStateDump');
+const { getLocationContext } = require('../../../../src/utils/appStateDump');
 
 export class AutomationScreenshotListener {
   private autoDir = path.join(process.cwd(), '.docs', 'automation-browser-log', 'screenshots');
