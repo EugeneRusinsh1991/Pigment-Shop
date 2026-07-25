@@ -56,6 +56,34 @@ Creates a clean, production-ready `.zip` archive of the project codebase (exclud
 
 ---
 
+### 6. `browser-automation` — Event-Driven Browser Exploration Suite
+Provides autonomous UI exploration, smoke testing, and deep diagnostics using Playwright.
+
+- **Commands**:
+  - `npx tsx .tools/browser-automation/run-smoke.ts` — Executes event-driven smoke test suite (ensures dev server readiness, runs authenticated admin & catalog exploration, generates `smoke-report.json`).
+  - `npx tsx .tools/browser-automation/run-admin-nav.ts` — Executes targeted navigation tests across admin dashboard views.
+  - `npx tsx .tools/browser-automation/run.ts` — Launches generic UI Explorer engine.
+  - `node scripts/open-playwright.js [url]` — Launches interactive Playwright Chromium browser session with persistent profile & manual inspector attached (default: `http://localhost:8081`).
+- **Key Features**:
+  - **Narrative Console Reporter**: Streamlined real-time terminal output focusing on page transitions and semantic interactions.
+  - **Environment & Auth Validation**: Validates `SMOKE_ADMIN_USERNAME` and `SMOKE_ADMIN_PASSWORD` credentials before starting automated contexts.
+  - **Structured Reports**: Generates detailed execution reports in `.tools/browser-automation/reports/`.
+
+---
+
+### 7. `manual-browser-inspector` — On-Demand Debug & Screenshot Inspector
+Enables on-demand UI state snapshotting and diagnostics directly from the browser window during Playwright sessions.
+
+- **Shortcut / Activation**:
+  - Press `Alt + 1` in Playwright browser window to trigger instant capture.
+- **Key Features**:
+  - **Descriptive File Naming**: Generates filesystem-safe, timestamped names formatted as `S_HH-MM-SS_Section_Page_View.jpg`.
+  - **On-Image Text Overlay**: Automatically renders a crisp location context banner (`Location > Hierarchy | HH:MM:SS`) on the captured screenshot.
+  - **State & Report Dumps**: Saves raw JSON application state dumps and Markdown debug reports to `.docs/browserLog/`.
+  - **Auto Retention**: Retains up to 10 recent screenshots, state dumps, and debug reports automatically.
+
+---
+
 ## How to Port `.tools` to Another Project
 
 1. Copy the `.tools` directory to the root of the target project.

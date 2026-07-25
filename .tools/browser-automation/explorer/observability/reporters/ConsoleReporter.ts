@@ -26,6 +26,29 @@ export class ConsoleReporter implements Reporter {
     return formatReportUrl(url);
   }
 
+  private isSemanticElement(el: any): boolean {
+    if (!el) return false;
+    const tag = el.type ? String(el.type).toLowerCase() : (el.tagName ? String(el.tagName).toLowerCase() : '');
+    const role = el.role ? String(el.role).toLowerCase() : '';
+
+    const isSemanticType = 
+      tag === 'button' || role === 'button' ||
+      tag === 'a' || role === 'link' ||
+      tag === 'input' ||
+      role === 'checkbox' || el.type === 'checkbox' ||
+      role === 'tab' ||
+      role === 'menuitem' ||
+      Boolean(el.testId) || Boolean(el.ariaLabel);
+
+    if (!isSemanticType) return false;
+
+    const text = (el.text || '').trim();
+    if (!text && !el.ariaLabel && !el.testId && !el.id && !el.href) return false;
+    if (!text && !el.ariaLabel && !el.testId && !el.id && el.selector && el.selector.startsWith('/')) return false;
+
+    return true;
+  }
+
   private formatElement(el: any): string {
     let semanticType = 'Element';
     const tag = el.type ? String(el.type).toLowerCase() : '';
@@ -75,11 +98,10 @@ export class ConsoleReporter implements Reporter {
       this.lastPageUrl = formatted;
       console.log();
       if (isBack) {
-        console.log(C.b(`👈 RETURNED TO  ${formatted}`));
+        console.log(C.b(`👈 RETURNED TO ${formatted}`));
       } else {
         console.log(C.g(`👉 NAVIGATED TO ${formatted}`));
       }
-      console.log(C.w(`─`.repeat(50)));
     }
   }
 
@@ -96,23 +118,25 @@ export class ConsoleReporter implements Reporter {
         if (event.success) {
           this.checkNewPage(event.destinationUrl, event.isBack);
         } else {
-          console.log(`   ${C.r('🔴 ERROR')}   Failed to navigate to ${this.formatUrl(event.destinationUrl)}`);
+          console.log(`    ${C.r('🔴 ERROR')}   Failed to navigate to ${this.formatUrl(event.destinationUrl)}`);
         }
         break;
 
       case 'ACTION':
+        if (!this.isSemanticElement(event.element)) break;
         if ('pageUrl' in event) this.checkNewPage(event.pageUrl);
         const name = this.formatElement(event.element);
         if (event.result === 'SUCCESS') {
-          console.log(`   ${C.w('⚪ CLICK')}   ${name.padEnd(45)} ${timing}`);
+          console.log(`    ${C.w('⚪ CLICK')}   ${name.padEnd(45)} ${timing}`.trimEnd());
         } else {
-          console.log(`   ${C.r('🔴 FAILED')}  ${name.padEnd(45)} ${event.result}`);
+          console.log(`    ${C.r('🔴 FAILED')}  ${name.padEnd(45)} ${event.result}`.trimEnd());
         }
         break;
 
       case 'PICK':
+        if (!this.isSemanticElement(event.element)) break;
         if ('pageUrl' in event) this.checkNewPage(event.pageUrl);
-        console.log(`   ${C.w('⚪ PICK')}    ${this.formatElement(event.element).padEnd(45)}`);
+        console.log(`    ${C.w('⚪ PICK')}    ${this.formatElement(event.element).padEnd(45)}`.trimEnd());
         break;
 
       case 'SKIP':
@@ -137,11 +161,11 @@ export class ConsoleReporter implements Reporter {
         break;
 
       case 'ERROR':
-        console.log(`   ${C.r('🔴 ERROR')}   ${event.message}`);
+        console.log(`    ${C.r('🔴 ERROR')}   ${event.message}`);
         break;
 
       case 'WARNING':
-        console.log(`   ${C.y('🟡 WARN')}    ${event.message}`);
+        console.log(`    ${C.y('🟡 WARN')}    ${event.message}`);
         break;
     }
   }
