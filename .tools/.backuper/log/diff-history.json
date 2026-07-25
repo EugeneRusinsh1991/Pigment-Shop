@@ -2282,5 +2282,35 @@
         }
       ]
     }
+  },
+  "src_2026-07-25_18-42_smoke-report.json_124files": {
+    "timestamp": "2026-07-25T15:42:48.227Z",
+    "diff": {
+      "added": 25,
+      "removed": 10,
+      "modified": 99,
+      "topFolders": [
+        {
+          "folder": ".playwright/user-data/Default",
+          "count": 15
+        },
+        {
+          "folder": ".playwright/user-data/Default/Cache/Cache_Data",
+          "count": 9
+        },
+        {
+          "folder": ".playwright/user-data",
+          "count": 8
+        },
+        {
+          "folder": ".playwright/user-data/Default/IndexedDB/http_localhost_8081.indexeddb.leveldb",
+          "count": 6
+        },
+        {
+          "folder": ".playwright/user-data/Default/Network",
+          "count": 5
+        }
+      ]
+    }
   }
 }

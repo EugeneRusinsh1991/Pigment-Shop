@@ -40,7 +40,6 @@ export function checkIsAdmin(user) {
 export function useAdminAuth() {
   const { isAuthenticated, user, logout } = useAuth();
   const isAdmin = Boolean(isAuthenticated && checkIsAdmin(user));
-  console.log('useAdminAuth evaluated:', { isAuthenticated, email: user?.email, isAdmin });
   return useMemo(() => ({
     isAdmin,
     logoutAdmin: logout,

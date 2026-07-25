@@ -1,5 +1,31 @@
+# AI Debug Report - S_18-39-55_Product_Prod2111
+
+## 📊 Environment & Diagnostics
+| Parameter | Value |
+| :--- | :--- |
+| **URL** | [http://localhost:8081/product/prod-2-1-1-1](http://localhost:8081/product/prod-2-1-1-1) |
+| **User Agent** | `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36` |
+| **Viewport Size** | 1920x1073 (PixelRatio: 1) |
+| **Screen Resolution** | 1920x1200 |
+| **Network** | Online: `true`, Type: `4g` |
+| **DOM Size** | 366 elements |
+
+## 🖼️ Screenshot
+![Screenshot](../screenshots/S_18-39-55_Product_Prod2111.jpg)
+
+## 📂 Quick Links
+* [Open Full Screenshot](file:///D:/Magazine/_PigmentShop/.docs/browserLog/screenshots/S_18-39-55_Product_Prod2111.jpg)
+* [Open Raw State JSON](file:///D:/Magazine/_PigmentShop/.docs/browserLog/state/state_S_18-39-55_Product_Prod2111.json)
+
+## 📜 Console Warnings & Errors (Recent 0)
+| Timestamp | Type | Message |
+| :--- | :--- | :--- |
+| | N/A | No warnings or errors logged | |
+
+## 📦 Application State Dump
+```json
 {
-  "url": "http://localhost:8081/admin",
+  "url": "http://localhost:8081/product/prod-2-1-1-1",
   "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
   "screen": {
     "viewportWidth": 1920,
@@ -13,10 +39,10 @@
     "effectiveType": "4g"
   },
   "dom": {
-    "elementCount": 419
+    "elementCount": 366
   },
   "history": {
-    "length": 6
+    "length": 5
   },
   "storage": {
     "localStorage": {
@@ -408,3 +434,4 @@
     }
   }
 }
+```
