@@ -1740,5 +1740,35 @@
         }
       ]
     }
+  },
+  "src_2026-07-25_13-30_audit-config.md_16files": {
+    "timestamp": "2026-07-25T10:30:39.041Z",
+    "diff": {
+      "added": 9,
+      "removed": 8,
+      "modified": 7,
+      "topFolders": [
+        {
+          "folder": ".docs/ai-audit-framework/tasks",
+          "count": 9
+        },
+        {
+          "folder": ".docs/ai-audit-framework/batches",
+          "count": 8
+        },
+        {
+          "folder": ".docs/ai-audit-framework/stages",
+          "count": 4
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        },
+        {
+          "folder": ".docs/ai-audit-framework",
+          "count": 1
+        }
+      ]
+    }
   }
 }

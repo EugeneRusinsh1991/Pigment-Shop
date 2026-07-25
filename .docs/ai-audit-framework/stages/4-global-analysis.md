@@ -1,42 +1,23 @@
-# Stage 4 — Global Architectural Analysis: Full UI Audit
+# Stage 4 — Global Architectural Analysis
 
 ## Executive Summary & System Health
-The overall UI architecture suffers from primitive fragmentation. While the foundation for a robust design system exists (`src/theme/tokens.js`, `BaseCard`, `Button.js`), these abstractions are frequently bypassed across major modules (Storefront screens vs Admin screens). The UI demonstrates medium health: it functions correctly but leaks platform-specific native behaviors (like web browser alerts) and relies on ad-hoc styling that complicates unified maintenance and cross-platform theme scaling.
+The repository exhibits a solid foundational architecture with clear separation between routing shells (`app/`), state coordination (`src/context/`), and data access (`src/services/repositories/`). However, the system's architectural integrity is currently degraded by several pervasive anti-patterns: critical client-side credential exposure, incomplete adoption of data service contracts, UI presentation leakage into global context providers, and widespread bypass of design tokens and UI primitives. Addressing these root causes is essential before scaling the application or onboarding new contributors.
 
 ## Strategic Themes
-
-- **Theme 1: UI Primitive Sprawl & Bypassed Components**
-  - Developer implementation frequently relies on raw React Native components (`TouchableOpacity`, `TextInput`, `<View>` cards) instead of the project's own design system primitives (`<Button>`, `<FieldInput>`, `<BaseCard>`).
-  - **Related Findings**: FINDING-001 (Raw Touchable Sprawl), FINDING-005 (Raw TextInput Usage), FINDING-013 (BaseCard Bypass).
-
-- **Theme 2: Missing Global Notification & Dialog Architecture**
-  - The application lacks a centralized feedback provider (Toast / Snackbar) and a unified Dialog manager, forcing developers to rely on disruptive native browser alerts (`window.alert`) or inline ad-hoc banners.
-  - **Related Findings**: FINDING-009 (Browser Alert Sprawl), FINDING-011 (Missing Toast Controls).
-
-- **Theme 3: Inconsistent Micro-Interactions & Visual Polish**
-  - The user experience degrades due to missing micro-animations, fragmented modal backdrop opacities, and missing loading skeletons. Different input and button instances present entirely distinct focus, error, and hover behaviors.
-  - **Related Findings**: FINDING-002 (Inconsistent Animations), FINDING-007 (Validation Error Highlighting), FINDING-010 (Un-unified Scrims), FINDING-014 (Missing Skeletons).
+- **Theme 1: Security & Credential Isolation**: Hardcoded administrative credentials (`admin@pigment-shop.com` / `admin123456`) in `src/services/repositories/catalogRepository.js` present an immediate security risk that must be remediated through secure backend authentication flows or environment variable injection.
+- **Theme 2: Architectural Layering & Boundary Separation**: Domain boundaries are violated by embedding React Native `<Animated.View>` presentation logic inside `src/context/ToastContext.js`, coupling global touch interceptors to routing layouts in `app/(store)/_layout.js`, and allowing raw Firestore exceptions from `catalogRepository.js` to bypass the standardized `serviceContract.js` normalization layer.
+- **Theme 3: Design System & Primitive Unification**: The presentation layer suffers from significant fragmentation, evidenced by over 100 hardcoded hex color literals bypassing `src/theme/tokens.js` and 4 competing button primitive implementations (`Button.js`, `AnimatedButton.js`, `ChipButton.js`, `IconButton.js`).
+- **Theme 4: Module Dependency & Import Architecture**: Route definitions and components rely heavily on fragile deep relative path traversals (`../../../src/`) rather than the configured `@/` module alias, increasing code brittleness during refactoring.
 
 ## Cross-Cutting Patterns & Root Causes
-
-- **Pattern**: **Storefront vs Admin Divergence**
-  - *Observation*: Admin interfaces tend to use structured form components (`FieldInput`, `FieldTextarea`), while storefront pages implement bespoke inline overrides.
-  - *Root Cause*: Lack of strict UI parity enforcement and missing generalized components capable of fulfilling both domain's visual requirements.
-
-- **Pattern**: **Token Detachment & Hardcoded Styling**
-  - *Observation*: Scattered fixed width pixels (`250px` grids), arbitrary z-indexes, and hardcoded colors (`rgba(0,0,0,0.5)`, `#94A3B8`).
-  - *Root Cause*: Direct inline styling in component files rather than strict consumption through a `useTheme()` styles builder context.
+- **Pattern**: Partial or ad-hoc adoption of core architectural abstractions (service contracts, design tokens, button primitives, path aliases).
+- **Root Cause**: Rapid feature iteration without automated lint rules or architectural enforcement gates (e.g., eslint rules for no-restricted-syntax on hardcoded colors, import path alias enforcement, or service layer wrapper checks).
+- **Risk Propagation**: Raw database exceptions and hardcoded color values propagate upward into presentational components, forcing individual UI views to handle both data layer inconsistencies and ad-hoc styling fallback logic.
 
 ## Project Maturity Assessment
-
 | Dimension | Score (1-5) | Justification |
 |-----------|-------------|---------------|
-| Design System Parity | 2/5 | Central tokens exist but are bypassed for raw primitive instances across >50% of the UI. |
-| Cross-Platform Consistency | 3/5 | Layouts generally hold, but web suffers from jarring native browser dialogs and fixed grid layouts. |
-| Micro-Interaction UX | 2/5 | Interactions are split between legacy opacity fading and modern spring scaling; missing loading skeletons. |
-| Maintainability | 3/5 | Centralized themes make broad changes possible, but fragmented local wrappers will resist global token updates. |
-
-## Stage Completion Check
-- [x] Saved as `.docs/ai-audit-framework/stages/4-global-analysis.md`
-- [x] `audit-config.md` history log updated
-- [x] Ready for Stage 5 (Refactoring Roadmap)
+| **Layering & Modularity** | 3 / 5 | Clear high-level folder separation (`app/`, `src/context/`, `src/services/`), but marred by presentation leakage in context providers and direct database error throwing. |
+| **Security & Isolation** | 2 / 5 | Presence of plaintext administrative credentials in client-side repository source code requires immediate remediation. |
+| **Design System Maturity** | 2 / 5 | While `tokens.js` exists, widespread hex bypasses (>100 instances) and 4 un-unified button components indicate low adherence to design system primitives. |
+| **Maintainability & Scale** | 3 / 5 | Clean provider composition in `AppProviders.js` and reactive catalog syncs are strong positives, offset by fragile deep relative imports and synchronous storage I/O bottlenecks. |
