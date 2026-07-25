@@ -1,77 +1,23 @@
 {
   "summary": {
-    "visitedScreens": 23,
-    "visitedInteractions": 347,
-    "successfulInteractions": 326,
+    "visitedScreens": 0,
+    "visitedInteractions": 0,
+    "successfulInteractions": 0,
     "failedInteractions": 0,
-    "warnings": 7,
+    "warnings": 1,
     "errors": 0,
-    "executionDurationMs": 261660
+    "executionDurationMs": 0
   },
   "failures": [],
   "warnings": [
     {
-      "screen": "http://localhost:8081/",
-      "interaction": "Click",
-      "elementIdentifier": "btn|Контакты",
+      "screen": "http://localhost:8081/admin",
+      "interaction": "Initial Load",
+      "elementIdentifier": "None",
       "event": "Runtime",
-      "timestamp": 1784995946508,
+      "timestamp": 1784996518472,
       "errorType": "Console Warning",
-      "errorMessage": "props.pointerEvents is deprecated. Use style.pointerEvents"
-    },
-    {
-      "screen": "http://localhost:8081/product/prod-1-2-1-1",
-      "interaction": "Click",
-      "elementIdentifier": "btn|toggleAskQuestion",
-      "event": "Runtime",
-      "timestamp": 1784996063548,
-      "errorType": "Console Error",
-      "errorMessage": "Failed to load resource: net::ERR_CONNECTION_REFUSED"
-    },
-    {
-      "screen": "http://localhost:8081/product/prod-1-2-1-1",
-      "interaction": "Click",
-      "elementIdentifier": "btn|toggleAskQuestion",
-      "event": "Runtime",
-      "timestamp": 1784996063550,
-      "errorType": "Console Warning",
-      "errorMessage": "[ServiceError] TypeError: Failed to fetch\n    at _notifyOrderCreated (http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:167753:28)\n    at http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:155271:50\n    at executeServiceOperation (http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:155243:28)\n    at http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:155271:20\n    at sendOrderNotification (http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:167624:66)\n    at _processCheckout (http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:167666:11)\n    at async executeServiceOperation (http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:155243:22)\n    at async Object.processCheckout (http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:155271:14)\n    at async handleCheckoutProcess (http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:167502:20)"
-    },
-    {
-      "screen": "http://localhost:8081/product/prod-1-2-1-1",
-      "interaction": "Click",
-      "elementIdentifier": "btn|toggleAskQuestion",
-      "event": "Runtime",
-      "timestamp": 1784996063555,
-      "errorType": "Console Warning",
-      "errorMessage": "[checkoutService] Notification failed: Failed to fetch {orderId: RXJwg3nVzxs2KqHLu37H, totalItems: 4, totalPrice: 1308, errorDetails: Object}"
-    },
-    {
-      "screen": "http://localhost:8081/catalog",
-      "interaction": "Click",
-      "elementIdentifier": "link|/catalog",
-      "event": "Runtime",
-      "timestamp": 1784996170547,
-      "errorType": "Console Error",
-      "errorMessage": "Failed to load resource: net::ERR_CONNECTION_REFUSED"
-    },
-    {
-      "screen": "http://localhost:8081/catalog",
-      "interaction": "Click",
-      "elementIdentifier": "link|/catalog",
-      "event": "Runtime",
-      "timestamp": 1784996170548,
-      "errorType": "Console Warning",
-      "errorMessage": "[ServiceError] TypeError: Failed to fetch\n    at _notifyOrderCreated (http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:167753:28)\n    at http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:155271:50\n    at executeServiceOperation (http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:155243:28)\n    at http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:155271:20\n    at sendOrderNotification (http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:167624:66)\n    at _processCheckout (http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:167666:11)\n    at async executeServiceOperation (http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:155243:22)\n    at async Object.processCheckout (http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:155271:14)\n    at async handleCheckoutProcess (http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:167502:20)"
-    },
-    {
-      "screen": "http://localhost:8081/catalog",
-      "interaction": "Click",
-      "elementIdentifier": "link|/catalog",
-      "event": "Runtime",
-      "timestamp": 1784996170552,
-      "errorType": "Console Warning",
-      "errorMessage": "[checkoutService] Notification failed: Failed to fetch {orderId: XTzyL4FgQrw9XTPogpTr, totalItems: 10, totalPrice: 5300, errorDetails: Object}"
+      "errorMessage": "\"shadow*\" style props are deprecated. Use \"boxShadow\"."
     }
   ]
 }
