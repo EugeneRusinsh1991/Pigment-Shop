@@ -28,7 +28,7 @@ Model recommendations follow the **Universal AI Audit Framework v2** rules (+20%
 
 ## 🚀 Phase 3: Consumer Migration & Legacy Cleanup
 
-- [ ] **Task 3.1**: `task-3.1_consumer_migration.md` — Update Consumer Imports (Storefront Header & Admin Managers) to `@/components/Search`.
+- [x] **Task 3.1**: `task-3.1_consumer_migration_DONE.md` — Update Consumer Imports (Storefront Header & Admin Managers) to `@/components/Search`.
   - **Recommended Model**: 🟠 **Gemini 3.6 Flash (High)**
-- [ ] **Task 3.2**: `task-3.2_legacy_cleanup.md` — Delete Legacy Proxy Files & Perform Smoke Test Verification.
+- [x] **Task 3.2**: `task-3.2_legacy_cleanup_DONE.md` — Delete Legacy Proxy Files & Perform Smoke Test Verification.
   - **Recommended Model**: 🟢 **Gemini 3.6 Flash (Low / Medium)**

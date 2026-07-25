@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { buttonColors } from '../../theme/buttonCommon';
-import { layout } from '../../theme/tokens';
+import { buttonTokens } from '../../theme/tokens';
 
 /**
  * Generates button styles dynamically from design tokens.
@@ -51,16 +51,29 @@ function createButtonStyles() {
     },
 
     // Sizes
-    sm: { height: 32, paddingHorizontal: 12, borderRadius: layout.radii.xs },
-    md: { height: 40, paddingHorizontal: 16, borderRadius: layout.radii.sm },
-    lg: { height: 48, paddingHorizontal: 24, borderRadius: layout.radii.xl },
+    sm: {
+      height: buttonTokens.sizes.sm.height,
+      paddingHorizontal: buttonTokens.sizes.sm.paddingHorizontal,
+      borderRadius: buttonTokens.sizes.sm.borderRadius,
+    },
+    md: {
+      height: buttonTokens.sizes.md.height,
+      paddingHorizontal: buttonTokens.sizes.md.paddingHorizontal,
+      borderRadius: buttonTokens.sizes.md.borderRadius,
+    },
+    lg: {
+      height: buttonTokens.sizes.lg.height,
+      paddingHorizontal: buttonTokens.sizes.lg.paddingHorizontal,
+      borderRadius: buttonTokens.sizes.lg.borderRadius,
+    },
 
     // Text sizes
-    text_sm: { fontSize: 12 },
-    text_md: { fontSize: 13 },
-    text_lg: { fontSize: 14 },
+    text_sm: { fontSize: buttonTokens.sizes.sm.fontSize },
+    text_md: { fontSize: buttonTokens.sizes.md.fontSize },
+    text_lg: { fontSize: buttonTokens.sizes.lg.fontSize },
 
     // State modifiers
+    fullWidth:    { width: '100%' },
     disabled:     { opacity: 0.5 },
     textDisabled: { opacity: 0.8 },
   };

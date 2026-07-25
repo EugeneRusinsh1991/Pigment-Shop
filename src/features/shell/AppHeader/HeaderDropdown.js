@@ -27,8 +27,7 @@ export default function HeaderDropdown({ isVisible, isDark, items, selectedValue
           key={item.code}
           style={[
             styles.dropdownItem,
-            selectedValue === item.code && ic(styles.dropdownItemActiveDark, styles.dropdownItemActiveLight),
-            { minHeight: 44, justifyContent: 'center' }
+            selectedValue === item.code && ic(styles.dropdownItemActiveDark, styles.dropdownItemActiveLight)
           ]}
           onPress={() => onSelect(item.code)}
         >

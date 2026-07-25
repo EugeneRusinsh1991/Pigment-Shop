@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import Button from './Button';
 import { buttonColors } from '../../theme/buttonCommon';
+import { buttonTokens } from '../../theme/tokens';
 import { useButtonTheme } from './useButtonTheme';
 
 function resolveChipIconColor(active, isDark) {
@@ -22,6 +23,7 @@ export function ChipButton({
   active = false,
   animated = true,
   variant = 'pill',
+  size = 'md',
   leftIcon,
   rightIcon,
   style,
@@ -36,7 +38,11 @@ export function ChipButton({
     state: active ? 'Active' : 'Inactive',
     styleMap: chipStyles,
   });
-  const shapeStyle = variant === 'rect' ? chipStyles.rect : chipStyles.pill;
+
+  const sizeToken = buttonTokens.sizes[size] || buttonTokens.sizes.md;
+  const shapeStyle = variant === 'rect' 
+    ? { borderRadius: sizeToken.borderRadius, paddingHorizontal: sizeToken.paddingHorizontal }
+    : { borderRadius: sizeToken.borderRadiusPill };
   const iconColor = resolveChipIconColor(active, isDark);
 
   return (
@@ -45,11 +51,12 @@ export function ChipButton({
       animated={animated}
       style={[
         chipStyles.base,
+        { height: sizeToken.height, paddingHorizontal: sizeToken.paddingHorizontal },
         shapeStyle,
         resolvedContainer,
         style,
       ]}
-      textStyle={[chipStyles.textBase, resolvedText, textStyle]}
+      textStyle={[chipStyles.textBase, { fontSize: sizeToken.fontSize }, resolvedText, textStyle]}
       leftIcon={renderChipIcon(leftIcon, iconColor)}
       rightIcon={renderChipIcon(rightIcon, iconColor)}
       title={label}
@@ -63,17 +70,13 @@ export function ChipButton({
 
 const chipStyles = StyleSheet.create({
   base: {
-    height: 36,
-    paddingHorizontal: 14,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     gap: 6,
     borderWidth: 1.5,
   },
-  pill: { borderRadius: 20 },
-  rect: { borderRadius: 6, borderWidth: 1, paddingVertical: 6, paddingHorizontal: 16 },
-  textBase: { fontSize: 13, fontWeight: '500' },
+  textBase: { fontWeight: '500' },
   baseLightInactive: { backgroundColor: buttonColors.surfaceLight, borderColor: buttonColors.borderLight },
   textLightInactive: { color: buttonColors.textMutedLight },
   baseLightActive: { backgroundColor: buttonColors.textLight, borderColor: buttonColors.textLight },

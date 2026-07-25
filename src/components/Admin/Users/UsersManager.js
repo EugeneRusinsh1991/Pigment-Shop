@@ -8,7 +8,7 @@
  */
 import React, { useState } from 'react';
 import { ActivityIndicator, Text, TextInput, View } from 'react-native';
-import SearchToolbar from '../../SearchToolbar';
+import { SearchInput } from '../../Search';
 import EmptyState from '../../DataTable/EmptyState';
 import { useTheme } from '../../../context/ThemeContext';
 import useSort from '../../../hooks/useSort';
@@ -143,7 +143,7 @@ export default function UsersManager() {
     <View style={styles.container}>
       {!loading && (
         <View style={styles.topRow}>
-          <SearchToolbar
+          <SearchInput
             value={searchQuery}
             onChangeText={setSearchQuery}
             placeholder={t('adminUsersSearchPlaceholder')}

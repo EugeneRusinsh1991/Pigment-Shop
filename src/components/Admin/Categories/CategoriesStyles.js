@@ -4,7 +4,7 @@
  * Styles for the categories manager container and tree table.
  */
 import { StyleSheet } from 'react-native';
-import { colors, layout } from '../../../theme/tokens';
+import { colors, layout, buttonTokens } from '../../../theme/tokens';
 import { shadow } from '../../../theme/shadows';
 
 export const CATEGORY_TYPE_COLORS = {
@@ -36,7 +36,7 @@ export default StyleSheet.create({
     marginBottom: 16,
   },
   addBtn: {
-    height: 36,
+    height: buttonTokens.sizes.sm.height,
     paddingHorizontal: 14,
     borderRadius: 20,
     borderWidth: 1.5,
@@ -59,7 +59,7 @@ export default StyleSheet.create({
     alignSelf: 'flex-start',
   },
   treeControlBtn: {
-    height: 36,
+    height: buttonTokens.sizes.sm.height,
     paddingHorizontal: 14,
     borderRadius: 20,
     borderWidth: 1.5,
@@ -186,7 +186,7 @@ export default StyleSheet.create({
 
   /* Action buttons */
   actionBtn: {
-    height: 32,
+    height: buttonTokens.sizes.sm.height,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: layout.radii.sm,
@@ -201,7 +201,7 @@ export default StyleSheet.create({
     color: colors.slateText,
   },
   addChildBtn: {
-    height: 32,
+    height: buttonTokens.sizes.sm.height,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: layout.radii.sm,

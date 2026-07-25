@@ -10,7 +10,7 @@
 import { useState } from 'react';
 import { TextInput, View, useWindowDimensions } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
-import SearchToolbar from '../../SearchToolbar';
+import { SearchInput } from '../../Search';
 import ProductFormModal from './ProductFormModal';
 import ProductsFilterBar from './ProductsFilterBar';
 import styles from './ProductsStyles';
@@ -54,7 +54,7 @@ export default function ProductsManager() {
 
   return (
     <View style={styles.container}>
-      <SearchToolbar
+      <SearchInput
         value={query}
         onChangeText={setQuery}
         placeholder={t('adminProductsSearchPlaceholder')}

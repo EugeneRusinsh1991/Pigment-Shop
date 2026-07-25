@@ -1,17 +1,15 @@
 import React, { useRef } from 'react';
 import { ActivityIndicator, Animated, Platform, Pressable, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { useButtonProps, DEFAULT_ACTIVE_OPACITY, calculateHitSlop } from '../../theme/buttonCommon';
-import { colors, motion } from '../../theme/tokens';
+import { colors, buttonTokens, motion } from '../../theme/tokens';
 import styles from './ButtonStyles';
 import { useButtonTheme } from './useButtonTheme';
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
 function getDimensionsForSize(size) {
-  if (size === 'sm') return { width: 0, height: 32 };
-  if (size === 'md') return { width: 0, height: 40 };
-  if (size === 'lg') return { width: 0, height: 48 };
-  return { width: 0, height: 40 };
+  const token = buttonTokens.sizes[size] || buttonTokens.sizes.md;
+  return { width: 0, height: token.height };
 }
 
 export default function Button({
@@ -21,6 +19,7 @@ export default function Button({
   onPressOut,
   variant = 'primary',
   size = 'md',
+  fullWidth = false,
   disabled = false,
   loading = false,
   animated = true,
@@ -59,10 +58,11 @@ export default function Button({
   const opacityAnim = useRef(new Animated.Value(1)).current;
 
   const sizeStyle = styles[size] || styles.md;
-  const containerStyle = variant === 'unstyled' ? [style] : [
+  const containerStyle = variant === 'unstyled' ? [fullWidth && styles.fullWidth, style] : [
     styles.base,
     sizeStyle,
     resolvedContainer,
+    fullWidth ? styles.fullWidth : null,
     disabled ? styles.disabled : null,
     style,
   ];

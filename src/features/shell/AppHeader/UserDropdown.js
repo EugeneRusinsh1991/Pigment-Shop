@@ -89,32 +89,32 @@ export default function UserDropdown({
             </Text>
           </View>
           <Link href="/profile" asChild>
-            <AnimatedButton style={StyleSheet.flatten([styles.dropdownItem, { flexDirection: 'row', alignItems: 'center', minHeight: 44 }])} onPress={onToggleUserMenu}>
+            <AnimatedButton style={StyleSheet.flatten([styles.dropdownItem, { flexDirection: 'row', alignItems: 'center' }])} onPress={onToggleUserMenu}>
               <UserIcon color={dStyles.iconColor} size={14} style={{ marginRight: 8 }} />
               <Text style={dStyles.itemText}>{t('userProfile')}</Text>
             </AnimatedButton>
           </Link>
           <Link href="/favorites" asChild>
-            <AnimatedButton style={StyleSheet.flatten([styles.dropdownItem, { flexDirection: 'row', alignItems: 'center', minHeight: 44 }])} onPress={onToggleUserMenu}>
+            <AnimatedButton style={StyleSheet.flatten([styles.dropdownItem, { flexDirection: 'row', alignItems: 'center' }])} onPress={onToggleUserMenu}>
               <HeartIcon color={dStyles.iconColor} size={14} style={{ marginRight: 8 }} />
               <Text style={dStyles.itemText}>{t('navFavorites')}</Text>
             </AnimatedButton>
           </Link>
           <Link href="/orders" asChild>
-            <AnimatedButton style={StyleSheet.flatten([styles.dropdownItem, { flexDirection: 'row', alignItems: 'center', minHeight: 44 }])} onPress={onToggleUserMenu}>
+            <AnimatedButton style={StyleSheet.flatten([styles.dropdownItem, { flexDirection: 'row', alignItems: 'center' }])} onPress={onToggleUserMenu}>
               <ClipboardIcon color={dStyles.iconColor} size={14} style={{ marginRight: 8 }} />
               <Text style={dStyles.itemText}>{t('userOrders')}</Text>
             </AnimatedButton>
           </Link>
           {isAdmin && (
             <Link href="/admin" asChild>
-              <AnimatedButton style={StyleSheet.flatten([styles.dropdownItem, { flexDirection: 'row', alignItems: 'center', minHeight: 44 }])} onPress={() => { onToggleUserMenu(); }} data-testid="admin-panel-link">
+              <AnimatedButton style={StyleSheet.flatten([styles.dropdownItem, { flexDirection: 'row', alignItems: 'center' }])} onPress={() => { onToggleUserMenu(); }} data-testid="admin-panel-link">
                 <AdminIcon color={dStyles.iconColor} size={14} style={{ marginRight: 8 }} />
                 <Text style={dStyles.itemText}>{t('adminTitle')}</Text>
               </AnimatedButton>
             </Link>
           )}
-          <AnimatedButton style={[styles.dropdownItem, { flexDirection: 'row', alignItems: 'center', minHeight: 44 }]} onPress={() => { onLogout(); onToggleUserMenu(); }}>
+          <AnimatedButton style={[styles.dropdownItem, { flexDirection: 'row', alignItems: 'center' }]} onPress={() => { onLogout(); onToggleUserMenu(); }}>
             <LogoutIcon color={dStyles.iconColor} size={14} style={{ marginRight: 8 }} />
             <Text style={dStyles.itemText}>{t('userLogout')}</Text>
           </AnimatedButton>
@@ -122,13 +122,13 @@ export default function UserDropdown({
       ) : (
         <>
           <Link href="/login" asChild>
-            <AnimatedButton style={StyleSheet.flatten([styles.dropdownItem, { flexDirection: 'row', alignItems: 'center', minHeight: 44 }])} onPress={onToggleUserMenu}>
+            <AnimatedButton style={StyleSheet.flatten([styles.dropdownItem, { flexDirection: 'row', alignItems: 'center' }])} onPress={onToggleUserMenu}>
               <LoginIcon color={dStyles.iconColor} size={14} style={{ marginRight: 8 }} />
               <Text style={dStyles.itemText}>{t('userLogin')}</Text>
             </AnimatedButton>
           </Link>
           <Link href={{ pathname: '/login', params: { isRegister: 'true' } }} asChild>
-            <AnimatedButton style={StyleSheet.flatten([styles.dropdownItem, { flexDirection: 'row', alignItems: 'center', minHeight: 44 }])} onPress={onToggleUserMenu}>
+            <AnimatedButton style={StyleSheet.flatten([styles.dropdownItem, { flexDirection: 'row', alignItems: 'center' }])} onPress={onToggleUserMenu}>
               <UserIcon color={dStyles.iconColor} size={14} style={{ marginRight: 8 }} />
               <Text style={dStyles.itemText}>{t('reviewsRegisterBtn')}</Text>
             </AnimatedButton>

@@ -1,0 +1,465 @@
+# AI Debug Report - S_22-02-29_Product_Prod2111
+
+## 📊 Environment & Diagnostics
+| Parameter | Value |
+| :--- | :--- |
+| **URL** | [http://localhost:8081/product/prod-2-1-1-1](http://localhost:8081/product/prod-2-1-1-1) |
+| **User Agent** | `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36` |
+| **Viewport Size** | 1920x1073 (PixelRatio: 1) |
+| **Screen Resolution** | 1920x1200 |
+| **Network** | Online: `true`, Type: `4g` |
+| **DOM Size** | 370 elements |
+
+## 🖼️ Screenshot
+![Screenshot](../screenshots/S_22-02-29_Product_Prod2111.jpg)
+
+## 📂 Quick Links
+* [Open Full Screenshot](file:///D:/Magazine/_PigmentShop/.docs/manual-browser-log/screenshots/S_22-02-29_Product_Prod2111.jpg)
+* [Open Raw State JSON](file:///D:/Magazine/_PigmentShop/.docs/manual-browser-log/state/state_S_22-02-29_Product_Prod2111.json)
+
+## 📜 Console Warnings & Errors (Recent 0)
+| Timestamp | Type | Message |
+| :--- | :--- | :--- |
+| | N/A | No warnings or errors logged | |
+
+## 📦 Application State Dump
+```json
+{
+  "url": "http://localhost:8081/product/prod-2-1-1-1",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+  "screen": {
+    "viewportWidth": 1920,
+    "viewportHeight": 1073,
+    "devicePixelRatio": 1,
+    "width": 1920,
+    "height": 1200
+  },
+  "network": {
+    "online": true,
+    "effectiveType": "4g"
+  },
+  "dom": {
+    "elementCount": 370
+  },
+  "history": {
+    "length": 3
+  },
+  "storage": {
+    "localStorage": {
+      "all_products_filters": "{\"__v\":1,\"data\":{\"priceMin\":\"\",\"priceMax\":\"\",\"inStock\":false,\"outOfStock\":false,\"onSale\":false,\"isNew\":false,\"categoryIds\":[]}}",
+      "all_products_sort_key": "{\"__v\":1,\"data\":\"price_asc\"}",
+      "cart_items": "{\"__v\":1,\"data\":[{\"id\":\"prod-2-1-1-1\",\"label\":\"Product 2-1-1-1 RU\",\"price\":132,\"qty\":1,\"image\":\"https://images.unsplash.com/photo-1582201942988-13e60e4556ee?w=600&auto=format&fit=crop\"}]}"
+    },
+    "sessionStorage": {
+      "cart_items": "{\"__v\":1,\"data\":[{\"id\":\"prod-2-1-1-1\",\"label\":\"Product 2-1-1-1 RU\",\"price\":132,\"qty\":1,\"image\":\"https://images.unsplash.com/photo-1582201942988-13e60e4556ee?w=600&auto=format&fit=crop\"}]}"
+    }
+  },
+  "state": {
+    "auth": {
+      "isLoggedIn": true,
+      "user": {
+        "uid": "oMecAiYQcGbzyyhow1WNvnmX1S43",
+        "email": "admin@pigment-shop.com",
+        "displayName": null
+      }
+    },
+    "cart": {
+      "items": [
+        {
+          "id": "prod-2-1-1-1",
+          "label": "Product 2-1-1-1 RU",
+          "price": 132,
+          "qty": 1,
+          "image": "https://images.unsplash.com/photo-1582201942988-13e60e4556ee?w=600&auto=format&fit=crop"
+        }
+      ],
+      "totalCount": 1
+    },
+    "favorites": {
+      "items": [
+        {
+          "isNew": true,
+          "id": "p-cat-essentials-1-1-2",
+          "reviews": [],
+          "brand": "LOVELY",
+          "description": "Плоский универсальный продукт для базовые наборы 1.",
+          "children": [],
+          "label": "Базовые наборы 1 2",
+          "category": "Базовые наборы 1",
+          "price": 205,
+          "subcategory": "",
+          "stock": 54,
+          "discountPercent": 0,
+          "image": "https://images.unsplash.com/photo-1582201942988-13e60e4556ee?w=600&auto=format&fit=crop",
+          "sold": 14,
+          "sku": "BASES-TOPS-112"
+        },
+        {
+          "brand": "CHEYENNE",
+          "id": "p-cat-essentials-2-1-3",
+          "reviews": [],
+          "isNew": true,
+          "description": "Плоский универсальный продукт для финишные решения 1.",
+          "children": [],
+          "label": "Финишные решения 1 3",
+          "price": 250,
+          "category": "Финишные решения 1",
+          "discountPercent": 10,
+          "stock": 61,
+          "subcategory": "",
+          "sold": 17,
+          "image": "https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?w=600&auto=format&fit=crop",
+          "sku": "BASES-TOPS-213"
+        },
+        {
+          "description": "Плоский универсальный продукт для премиум наборы 2.",
+          "children": [],
+          "isNew": true,
+          "brand": "BARBARA",
+          "reviews": [],
+          "id": "p-cat-essentials-3-2-1",
+          "label": "Премиум наборы 2 1",
+          "stock": 47,
+          "subcategory": "",
+          "discountPercent": 0,
+          "category": "Премиум наборы 2",
+          "price": 160,
+          "sku": "BASES-TOPS-321",
+          "sold": 12,
+          "image": "https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=600&auto=format&fit=crop"
+        },
+        {
+          "isNew": false,
+          "id": "prod-1-1-4-1",
+          "brand": "CHEYENNE",
+          "productHolderCategory": {
+            "en": "Group 1-1-4 EN",
+            "uk": "Group 1-1-4 UK",
+            "ru": "Group 1-1-4 RU"
+          },
+          "description": {
+            "uk": "Универсальный продукт для Product 1-1-4-1 UK",
+            "ru": "Универсальный продукт для Product 1-1-4-1 RU",
+            "en": "Универсальный продукт для Product 1-1-4-1 EN"
+          },
+          "holderCategory": {
+            "ru": "Subcategory 1-1 RU",
+            "uk": "Subcategory 1-1 UK",
+            "en": "Subcategory 1-1 EN"
+          },
+          "label": {
+            "en": "Product 1-1-4-1 EN",
+            "uk": "Product 1-1-4-1 UK",
+            "ru": "Product 1-1-4-1 RU"
+          },
+          "active": true,
+          "images": [
+            "https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=600&auto=format&fit=crop"
+          ],
+          "price": 162,
+          "stock": 55,
+          "discountPercent": 11,
+          "image": "https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=600&auto=format&fit=crop",
+          "sold": 9,
+          "sku": "SKU-PROD-1-1-4-1"
+        },
+        {
+          "label": "Product 3-3-3-2 RU",
+          "isNew": false,
+          "brand": "LOVELY",
+          "isCategory": false,
+          "reviews": [],
+          "id": "prod-3-3-3-2",
+          "children": [],
+          "description": "Универсальный продукт для Product 3-3-3-2 RU",
+          "image": "https://images.unsplash.com/photo-1582201942988-13e60e4556ee?w=600&auto=format&fit=crop",
+          "sku": "SKU-PROD-3-3-3-2",
+          "category": "Group 3-3-3 RU",
+          "price": 817,
+          "categoryId": "cat-root-2-sub-2-sub-2",
+          "subcategory": "",
+          "discountPercent": 0
+        },
+        {
+          "sku": "SKU-PROD-3-3-3-3",
+          "image": "https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?w=600&auto=format&fit=crop",
+          "discountPercent": 0,
+          "categoryId": "cat-root-2-sub-2-sub-2",
+          "subcategory": "",
+          "price": 417,
+          "category": "Group 3-3-3 RU",
+          "label": "Product 3-3-3-3 RU",
+          "description": "Универсальный продукт для Product 3-3-3-3 RU",
+          "children": [],
+          "reviews": [],
+          "id": "prod-3-3-3-3",
+          "isCategory": false,
+          "brand": "LOVELY",
+          "isNew": false
+        },
+        {
+          "subcategory": "",
+          "categoryId": "cat-root-2-sub-2-sub-2",
+          "discountPercent": 0,
+          "category": "Group 3-3-3 RU",
+          "price": 812,
+          "sku": "SKU-PROD-3-3-3-4",
+          "image": "https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=600&auto=format&fit=crop",
+          "description": "Универсальный продукт для Product 3-3-3-4 RU",
+          "children": [],
+          "isNew": false,
+          "brand": "CHEYENNE",
+          "isCategory": false,
+          "id": "prod-3-3-3-4",
+          "reviews": [],
+          "label": "Product 3-3-3-4 RU"
+        },
+        {
+          "sku": "SKU-PROD-3-3-4-2",
+          "image": "https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?w=600&auto=format&fit=crop",
+          "discountPercent": 0,
+          "subcategory": "",
+          "categoryId": "cat-root-2-sub-2-sub-3",
+          "price": 289,
+          "category": "Group 3-3-4 RU",
+          "label": "Product 3-3-4-2 RU",
+          "children": [],
+          "description": "Универсальный продукт для Product 3-3-4-2 RU",
+          "brand": "BARBARA",
+          "isCategory": false,
+          "reviews": [],
+          "id": "prod-3-3-4-2",
+          "isNew": true
+        },
+        {
+          "children": [],
+          "description": "Универсальный продукт для Product 3-3-4-3 RU",
+          "isCategory": false,
+          "brand": "CHEYENNE",
+          "reviews": [],
+          "id": "prod-3-3-4-3",
+          "isNew": false,
+          "label": "Product 3-3-4-3 RU",
+          "discountPercent": 0,
+          "subcategory": "",
+          "categoryId": "cat-root-2-sub-2-sub-3",
+          "price": 913,
+          "category": "Group 3-3-4 RU",
+          "sku": "SKU-PROD-3-3-4-3",
+          "image": "https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=600&auto=format&fit=crop"
+        },
+        {
+          "label": "Product 1-4-1-3 RU",
+          "isNew": false,
+          "id": "prod-1-4-1-3",
+          "reviews": [],
+          "isCategory": false,
+          "brand": "BARBARA",
+          "children": [],
+          "description": "Универсальный продукт для Product 1-4-1-3 RU",
+          "image": "https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?w=600&auto=format&fit=crop",
+          "sku": "SKU-PROD-1-4-1-3",
+          "category": "Category 1 RU",
+          "price": 968,
+          "categoryId": "cat-root-0-sub-3-sub-0",
+          "subcategory": "Subcategory 1-4 RU",
+          "discountPercent": 0
+        },
+        {
+          "sku": "SKU-PROD-1-1-2-4",
+          "image": "https://images.unsplash.com/photo-1582201942988-13e60e4556ee?w=600&auto=format&fit=crop",
+          "discountPercent": 0,
+          "categoryId": "cat-root-0-sub-0-sub-1",
+          "subcategory": "Subcategory 1-1 RU",
+          "price": 943,
+          "category": "Category 1 RU",
+          "label": "Product 1-1-2-4 RU",
+          "children": [],
+          "description": "Универсальный продукт для Product 1-1-2-4 RU",
+          "brand": "BARBARA",
+          "isCategory": false,
+          "id": "prod-1-1-2-4",
+          "reviews": [],
+          "isNew": true
+        },
+        {
+          "label": "Product 2-1-1-3 RU",
+          "children": [],
+          "description": "Универсальный продукт для Product 2-1-1-3 RU",
+          "isNew": false,
+          "isCategory": false,
+          "brand": "CHEYENNE",
+          "id": "prod-2-1-1-3",
+          "reviews": [],
+          "sku": "SKU-PROD-2-1-1-3",
+          "image": "https://images.unsplash.com/photo-1582201942988-13e60e4556ee?w=600&auto=format&fit=crop",
+          "categoryId": "cat-root-1-sub-0-sub-0",
+          "subcategory": "Subcategory 2-1 RU",
+          "discountPercent": 0,
+          "category": "Category 2 RU",
+          "price": 941
+        },
+        {
+          "image": "https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=600&auto=format&fit=crop",
+          "sku": "SKU-PROD-3-3-1-2",
+          "price": 154,
+          "category": "Group 3-3-1 RU",
+          "discountPercent": 0,
+          "subcategory": "",
+          "categoryId": "cat-root-2-sub-2-sub-0",
+          "label": "Product 3-3-1-2 RU",
+          "reviews": [],
+          "id": "prod-3-3-1-2",
+          "isCategory": false,
+          "brand": "CHEYENNE",
+          "isNew": false,
+          "description": "Универсальный продукт для Product 3-3-1-2 RU",
+          "children": []
+        },
+        {
+          "sku": "SKU-PROD-3-3-2-1",
+          "image": "https://images.unsplash.com/photo-1582201942988-13e60e4556ee?w=600&auto=format&fit=crop",
+          "categoryId": "cat-root-2-sub-2-sub-1",
+          "subcategory": "",
+          "discountPercent": 0,
+          "category": "Group 3-3-2 RU",
+          "price": 88,
+          "label": "Product 3-3-2-1 RU",
+          "description": "Универсальный продукт для Product 3-3-2-1 RU",
+          "children": [],
+          "isNew": false,
+          "isCategory": false,
+          "brand": "CHEYENNE",
+          "reviews": [],
+          "id": "prod-3-3-2-1"
+        },
+        {
+          "discountPercent": 0,
+          "stock": 64,
+          "price": 598,
+          "images": [
+            "https://images.unsplash.com/photo-1582201942988-13e60e4556ee?w=600&auto=format&fit=crop"
+          ],
+          "sku": "SKU-PROD-2-2-1-1",
+          "sold": 9,
+          "image": "https://images.unsplash.com/photo-1582201942988-13e60e4556ee?w=600&auto=format&fit=crop",
+          "holderCategory": {
+            "ru": "Subcategory 2-2 RU",
+            "uk": "Subcategory 2-2 UK",
+            "en": "Subcategory 2-2 EN"
+          },
+          "description": {
+            "en": "Универсальный продукт для Product 2-2-1-1 EN",
+            "ru": "Универсальный продукт для Product 2-2-1-1 RU",
+            "uk": "Универсальный продукт для Product 2-2-1-1 UK"
+          },
+          "productHolderCategory": {
+            "uk": "Group 2-2-1 UK",
+            "ru": "Group 2-2-1 RU",
+            "en": "Group 2-2-1 EN"
+          },
+          "brand": "CHEYENNE",
+          "id": "prod-2-2-1-1",
+          "isNew": false,
+          "active": true,
+          "label": {
+            "en": "Product 2-2-1-1 EN",
+            "ru": "Product 2-2-1-1 RU",
+            "uk": "Product 2-2-1-1 UK"
+          }
+        },
+        {
+          "sold": 34,
+          "image": "https://images.unsplash.com/photo-1582201942988-13e60e4556ee?w=600&auto=format&fit=crop",
+          "sku": "SKU-PROD-1-1-1-1",
+          "images": [
+            "https://images.unsplash.com/photo-1582201942988-13e60e4556ee?w=600&auto=format&fit=crop"
+          ],
+          "price": 398,
+          "stock": 75,
+          "discountPercent": 0,
+          "label": {
+            "ru": "Product 1-1-1-1 RU",
+            "uk": "Product 1-1-1-1 UK",
+            "en": "Product 1-1-1-1 EN"
+          },
+          "active": true,
+          "isNew": false,
+          "brand": "CHEYENNE",
+          "id": "prod-1-1-1-1",
+          "productHolderCategory": {
+            "en": "Group 1-1-1 EN",
+            "ru": "Group 1-1-1 RU",
+            "uk": "Group 1-1-1 UK"
+          },
+          "description": {
+            "ru": "Универсальный продукт для Product 1-1-1-1 RU",
+            "uk": "Универсальный продукт для Product 1-1-1-1 UK",
+            "en": "Универсальный продукт для Product 1-1-1-1 EN"
+          },
+          "holderCategory": {
+            "ru": "Subcategory 1-1 RU",
+            "uk": "Subcategory 1-1 UK",
+            "en": "Subcategory 1-1 EN"
+          }
+        },
+        {
+          "label": "Product 2-2-2-1 RU",
+          "isNew": false,
+          "id": "prod-2-2-2-1",
+          "reviews": [],
+          "brand": "BARBARA",
+          "isCategory": false,
+          "description": "Универсальный продукт для Product 2-2-2-1 RU",
+          "children": [],
+          "image": "https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=600&auto=format&fit=crop",
+          "sku": "SKU-PROD-2-2-2-1",
+          "category": "Category 2 RU",
+          "price": 388,
+          "subcategory": "Subcategory 2-2 RU",
+          "categoryId": "cat-root-1-sub-1-sub-1",
+          "discountPercent": 0
+        },
+        {
+          "sku": "SKU-PROD-2-1-1-1",
+          "image": "https://images.unsplash.com/photo-1582201942988-13e60e4556ee?w=600&auto=format&fit=crop",
+          "subcategory": "Subcategory 2-1 RU",
+          "categoryId": "cat-root-1-sub-0-sub-0",
+          "discountPercent": 0,
+          "category": "Category 2 RU",
+          "price": 132,
+          "label": "Product 2-1-1-1 RU",
+          "children": [],
+          "description": "Универсальный продукт для Product 2-1-1-1 RU",
+          "isNew": true,
+          "isCategory": false,
+          "brand": "LOVELY",
+          "reviews": [],
+          "id": "prod-2-1-1-1"
+        },
+        {
+          "category": "Category 1 RU",
+          "price": 93,
+          "categoryId": "cat-root-0-sub-1-sub-0",
+          "subcategory": "Subcategory 1-2 RU",
+          "discountPercent": 30,
+          "image": "https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=600&auto=format&fit=crop",
+          "sku": "SKU-PROD-1-2-1-1",
+          "isNew": true,
+          "id": "prod-1-2-1-1",
+          "reviews": [],
+          "isCategory": false,
+          "brand": "BARBARA",
+          "children": [],
+          "description": "Универсальный продукт для Product 1-2-1-1 RU",
+          "label": "Product 1-2-1-1 RU"
+        }
+      ]
+    },
+    "language": {},
+    "theme": {
+      "isDark": false
+    }
+  }
+}
+```

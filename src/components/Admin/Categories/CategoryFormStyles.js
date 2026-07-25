@@ -5,7 +5,7 @@
  * Shares colour tokens with ProductFormStyles.
  */
 import { StyleSheet } from 'react-native';
-import { colors, fonts, layout } from '../../../theme/tokens';
+import { colors, fonts, layout, buttonTokens } from '../../../theme/tokens';
 import { shadow } from '../../../theme/shadows';
 
 export default StyleSheet.create({
@@ -67,7 +67,7 @@ export default StyleSheet.create({
     gap: 12,
   },
 
-  /* Subcategory section divider */
+  /* Subsection divider */
   subSectionDivider: {
     marginTop: 20,
     marginBottom: 16,
@@ -128,9 +128,9 @@ export default StyleSheet.create({
     letterSpacing: 0.3,
   },
   fieldInput: {
-    height: 40,
+    height: buttonTokens.sizes.md.height,
     backgroundColor: colors.secondaryLightBg,
-    borderRadius: layout.radii.sm,
+    borderRadius: buttonTokens.sizes.md.borderRadius,
     paddingHorizontal: 12,
     fontSize: 13,
     color: colors.textLight,
@@ -144,7 +144,7 @@ export default StyleSheet.create({
   fieldTextarea: {
     height: 60,
     backgroundColor: colors.secondaryLightBg,
-    borderRadius: layout.radii.sm,
+    borderRadius: buttonTokens.sizes.md.borderRadius,
     paddingHorizontal: 12,
     paddingVertical: 10,
     fontSize: 13,
@@ -168,9 +168,9 @@ export default StyleSheet.create({
   },
   imagePickerInput: {
     flex: 1,
-    height: 40,
+    height: buttonTokens.sizes.md.height,
     backgroundColor: colors.secondaryLightBg,
-    borderRadius: layout.radii.sm,
+    borderRadius: buttonTokens.sizes.md.borderRadius,
     paddingHorizontal: 12,
     fontSize: 13,
     color: colors.textLight,
@@ -179,10 +179,10 @@ export default StyleSheet.create({
     outlineStyle: 'none',
   },
   uploadBtn: {
-    height: 40,
+    height: buttonTokens.sizes.md.height,
     paddingHorizontal: 14,
     backgroundColor: colors.secondaryLightBg,
-    borderRadius: layout.radii.sm,
+    borderRadius: buttonTokens.sizes.md.borderRadius,
     borderWidth: 1,
     borderColor: colors.navItemHoverDark,
     alignItems: 'center',
@@ -238,12 +238,12 @@ export default StyleSheet.create({
   },
   addSubcategoryBtn: {
     flex: 1,
-    height: 40,
-    borderRadius: layout.radii.sm,
+    height: buttonTokens.sizes.md.height,
+    borderRadius: buttonTokens.sizes.md.borderRadius,
     backgroundColor: colors.infoStrong,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingHorizontal: 16,
+    paddingHorizontal: buttonTokens.sizes.md.paddingHorizontal,
   },
   addSubcategoryBtnText: {
     fontSize: 13,
@@ -252,9 +252,9 @@ export default StyleSheet.create({
   },
   cancelBtn: {
     flex: 1,
-    height: 40,
-    paddingHorizontal: 16,
-    borderRadius: layout.radii.sm,
+    height: buttonTokens.sizes.md.height,
+    paddingHorizontal: buttonTokens.sizes.md.paddingHorizontal,
+    borderRadius: buttonTokens.sizes.md.borderRadius,
     backgroundColor: colors.secondaryLightBg,
     borderWidth: 1,
     borderColor: colors.secondaryLightBorder,
@@ -268,9 +268,9 @@ export default StyleSheet.create({
   },
   saveBtn: {
     flex: 1,
-    height: 40,
-    paddingHorizontal: 16,
-    borderRadius: layout.radii.sm,
+    height: buttonTokens.sizes.md.height,
+    paddingHorizontal: buttonTokens.sizes.md.paddingHorizontal,
+    borderRadius: buttonTokens.sizes.md.borderRadius,
     backgroundColor: colors.textLight,
     alignItems: 'center',
     justifyContent: 'center',
@@ -282,9 +282,9 @@ export default StyleSheet.create({
   },
   deleteBtn: {
     flex: 1,
-    height: 40,
-    paddingHorizontal: 16,
-    borderRadius: layout.radii.sm,
+    height: buttonTokens.sizes.md.height,
+    paddingHorizontal: buttonTokens.sizes.md.paddingHorizontal,
+    borderRadius: buttonTokens.sizes.md.borderRadius,
     backgroundColor: colors.danger,
     alignItems: 'center',
     justifyContent: 'center',

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Animated } from 'react-native';
-import SearchBar from '../../components/SearchBar';
+import { AutocompleteSearch } from '../../components/Search';
 import { useHomeScrollHide } from '../../hooks/useHomeScrollHide';
 import { useTheme } from '../../context/ThemeContext';
 import styles from '../../AppStyles';
@@ -25,7 +25,7 @@ export default function StoreSearchHeader({ isDark: isDarkProp, isHome, contentW
       ]}
     >
       <View style={{ width: '100%', maxWidth: contentWidth, minWidth: 0, overflow: 'visible', paddingHorizontal: 8 }}>
-        <SearchBar isDark={isDark} onActiveChange={setIsSearchActive} />
+        <AutocompleteSearch isDark={isDark} onActiveChange={setIsSearchActive} />
       </View>
     </Animated.View>
   );

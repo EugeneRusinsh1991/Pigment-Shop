@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import Button from './Button';
 import { buttonColors } from '../../theme/buttonCommon';
+import { buttonTokens } from '../../theme/tokens';
 import { useButtonTheme } from './useButtonTheme';
 
 export function IconButton({
@@ -24,8 +25,12 @@ export function IconButton({
 
   const getDimension = () => {
     if (typeof size === 'number') return size;
-    const sizes = { sm: 28, md: 36, lg: 48 };
-    return sizes[size] || 36;
+    const sizes = {
+      sm: buttonTokens.sizes.sm.height,
+      md: buttonTokens.sizes.md.height,
+      lg: buttonTokens.sizes.lg.height,
+    };
+    return sizes[size] || buttonTokens.sizes.md.height;
   };
 
   const dim = getDimension();
