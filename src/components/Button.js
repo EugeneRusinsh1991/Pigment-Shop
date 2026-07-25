@@ -141,9 +141,10 @@ export default function Button({
     </>
   );
 
-  if (!animated) {
+  if (!animated || Platform.OS === 'web') {
     return (
       <TouchableOpacity
+        {...touchableProps}
         style={containerStyle}
         hitSlop={computedHitSlop}
         onPress={handlePress}
@@ -151,7 +152,6 @@ export default function Button({
         onPressOut={onPressOut}
         disabled={disabled || loading}
         accessibilityRole={accessibilityRole}
-        {...touchableProps}
       >
         {content}
       </TouchableOpacity>
@@ -160,6 +160,7 @@ export default function Button({
 
   return (
     <AnimatedPressable
+      {...touchableProps}
       style={[
         containerStyle,
         {
@@ -173,9 +174,8 @@ export default function Button({
       onPress={handlePress}
       onPressIn={handlePressIn}
       onPressOut={handlePressOut}
-      {...touchableProps}
     >
-      {typeof children === 'function' ? children : content}
+      {content}
     </AnimatedPressable>
   );
 }

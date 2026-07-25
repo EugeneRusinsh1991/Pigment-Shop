@@ -53,7 +53,7 @@ export default function AdminPanel({ onBack }) {
     <View style={styles.container}>
       <View style={styles.header}>
         <View style={styles.headerLeft}>
-          <TouchableOpacity style={styles.headerBackBtn} onPress={onBack}>
+          <TouchableOpacity style={styles.headerBackBtn} onPress={onBack} testID="admin-exit-control">
             <BackArrowIcon color={colors.textLight} size={16} />
           </TouchableOpacity>
           {!isMobile && <Text style={styles.headerTitle}>{t('adminTitle')}</Text>}
@@ -61,6 +61,7 @@ export default function AdminPanel({ onBack }) {
         <TouchableOpacity
           style={[styles.logoutBtn, isMobile && { paddingHorizontal: 10 }]}
           onPress={handleLogout}
+          testID="admin-logout-control"
         >
           <LogoutIcon color={colors.textDescLight} size={16} />
           {!isMobile && <Text style={styles.logoutText}>{t('userLogout')}</Text>}

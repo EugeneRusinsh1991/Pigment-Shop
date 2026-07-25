@@ -149,8 +149,8 @@ export class ElementScanner {
       }
 
       function isIgnoredElement(el: Element): boolean {
-        const idStr = `${el.id || ''} ${el.getAttribute('data-testid') || ''}`.toLowerCase();
-        return idStr.includes('debug') || idStr.includes('manual-browser-inspector') || idStr.includes('page-back-button') || idStr.includes('go-back');
+        const idStr = `${el.id || ''} ${el.getAttribute('data-testid') || ''} ${el.getAttribute('aria-label') || ''}`.toLowerCase();
+        return idStr.includes('debug') || idStr.includes('manual-browser-inspector') || idStr.includes('page-back-button') || idStr.includes('go-back') || idStr.includes('admin-exit') || idStr.includes('admin-logout');
       }
 
       const els = Array.from(document.querySelectorAll(sel));

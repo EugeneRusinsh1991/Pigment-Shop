@@ -16,7 +16,7 @@ function useCategoryRowData(row, products) {
   const { lang, t } = useTheme();
   const safeDepth = typeof row._depth === 'number' ? row._depth : 0;
   const { type, childCount, assignedCount } = getCategoryMeta(row, products);
-  const typeColors = CATEGORY_TYPE_COLORS[type];
+  const typeColors = CATEGORY_TYPE_COLORS[type] || CATEGORY_TYPE_COLORS.product_holder;
   const countLabel = type === 'category_holder' ? `${childCount}` : `${assignedCount}`;
   const name = resolveCategoryName(row.name, lang);
   return { safeDepth, type, typeColors, countLabel, name, t };
