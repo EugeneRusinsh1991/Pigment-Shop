@@ -2,22 +2,22 @@
   "summary": {
     "visitedScreens": 0,
     "visitedInteractions": 0,
-    "successfulInteractions": 14,
+    "successfulInteractions": 127,
     "failedInteractions": 0,
-    "warnings": 0,
-    "errors": 1,
+    "warnings": 1,
+    "errors": 0,
     "executionDurationMs": 0
   },
-  "failures": [
+  "failures": [],
+  "warnings": [
     {
-      "screen": "http://localhost:8081/catalog/cat-root-1",
+      "screen": "http://localhost:8081/",
       "interaction": "Click",
-      "elementIdentifier": "link|/catalog/cat-root-1-sub-0",
-      "event": "AfterInteraction",
-      "timestamp": 1784984304688,
-      "errorType": "Health Check Evaluation Failed",
-      "errorMessage": "[Application Bug] page.evaluate: Target page, context or browser has been closed"
+      "elementIdentifier": "btn|Контакты",
+      "event": "Runtime",
+      "timestamp": 1784984735931,
+      "errorType": "Console Warning",
+      "errorMessage": "props.pointerEvents is deprecated. Use style.pointerEvents"
     }
-  ],
-  "warnings": []
+  ]
 }

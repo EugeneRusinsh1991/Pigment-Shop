@@ -115,11 +115,12 @@ export class InteractionProcessor {
       const diagnostics = new InteractionDiagnostics(targetId, currentUrl);
       this.watchdog.startInteraction(currentUrl, targetId);
 
+      const cache = await this.cacheManager.getPageState(page, false).catch(() => null);
+      const metadata = cache?.metadataMap.get(targetId);
+
       const canContinue = await this.processElementAt(page, targetId, currentUrl, depthLimit, currentDepth, sourceStateId, diagnostics, exploreDFS);
       
       this.watchdog.endInteraction();
-      const cache = await this.cacheManager.getPageState(page, false);
-      const metadata = cache.metadataMap.get(targetId);
 
       await this.emitter.emit('InteractionCompleted', {
         context: this.context,

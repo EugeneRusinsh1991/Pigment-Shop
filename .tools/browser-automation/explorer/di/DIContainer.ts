@@ -86,10 +86,10 @@ export function createDefaultContainer(
 
   const tracker = overrides.tracker ?? new NavigationTracker();
   const scanner = overrides.scanner ?? new ElementScanner();
-  const interactor = overrides.interactor ?? new ElementInteractor();
+  const interactor = overrides.interactor ?? new ElementInteractor(config);
   const policyEngine = overrides.policyEngine ?? new InteractionPolicyEngine(config.interactionPolicyConfig);
   const actionTracker = overrides.actionTracker ?? new ActionDepthTracker();
-  const readiness = overrides.readiness ?? new ReadinessManager();
+  const readiness = overrides.readiness ?? new ReadinessManager(config);
   const stateGraph = overrides.stateGraph ?? new ExecutionStateGraph();
   
   const watchdog = overrides.watchdog ?? new ExecutionWatchdog(emitter, context, config);

@@ -15,6 +15,13 @@ export interface AuthenticationConfig {
   submitSelector: string;
 }
 
+export interface ExplorerTimeoutsConfig {
+  clickTimeoutMs: number;
+  scrollTimeoutMs: number;
+  pageReadyTimeoutMs: number;
+  spaBreatherTimeoutMs: number;
+}
+
 export interface ExplorerConfig {
   maxDepth: number;
   maxInteractions: number;
@@ -34,6 +41,7 @@ export interface ExplorerConfig {
   authentication?: AuthenticationConfig;
   watchdogTimeoutMs?: number;
   longInteractionThresholdMs?: number;
+  timeouts?: ExplorerTimeoutsConfig;
 }
 
 export const defaultConfig: ExplorerConfig = {
@@ -52,6 +60,12 @@ export const defaultConfig: ExplorerConfig = {
   executionMode: 'everyday-development',
   watchdogTimeoutMs: 5000,
   longInteractionThresholdMs: 15000,
+  timeouts: {
+    clickTimeoutMs: 3000,
+    scrollTimeoutMs: 2000,
+    pageReadyTimeoutMs: 5000,
+    spaBreatherTimeoutMs: 150,
+  },
 };
 
 export function getProfileConfig(profile: ExplorationProfile): Partial<ExplorerConfig> {
@@ -76,7 +90,7 @@ export function getProfileConfig(profile: ExplorationProfile): Partial<ExplorerC
       };
     case 'deep':
       return {
-        strategy: 'depth-first', // Can be breadth or depth depending on preference, deep implies deep.
+        strategy: 'depth-first',
         maxDepth: 10,
         maxInteractions: 1000,
         maxProductsPerCategory: Infinity,

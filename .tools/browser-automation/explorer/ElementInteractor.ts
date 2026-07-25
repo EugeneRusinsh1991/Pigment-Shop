@@ -2,9 +2,16 @@ import { IWebPage, IWebElement } from './driver/DriverInterfaces';
 import { ReadinessManager } from './ReadinessManager';
 import { InteractionDiagnostics } from './diagnostics/InteractionDiagnostics';
 import { ExecutionWatchdog } from './diagnostics/ExecutionWatchdog';
+import { ExplorerConfig, defaultConfig, ExplorerTimeoutsConfig } from './ExplorerConfig';
 
 export class ElementInteractor {
-  private readiness = new ReadinessManager();
+  private readiness: ReadinessManager;
+  private timeouts: ExplorerTimeoutsConfig;
+
+  constructor(config?: Partial<ExplorerConfig>, readiness?: ReadinessManager) {
+    this.readiness = readiness ?? new ReadinessManager(config);
+    this.timeouts = { ...defaultConfig.timeouts!, ...config?.timeouts };
+  }
 
   private updatePhase(phase: string, diagnostics?: InteractionDiagnostics, watchdog?: ExecutionWatchdog) {
     if (diagnostics) diagnostics.startPhase(phase);
@@ -12,7 +19,7 @@ export class ElementInteractor {
   }
 
   private async performClick(element: IWebElement, diagnostics?: InteractionDiagnostics): Promise<void> {
-    await element.click({ timeout: 3000, force: true }).catch((e) => {
+    await element.click({ timeout: this.timeouts.clickTimeoutMs, force: true }).catch((e) => {
       if (diagnostics) {
         const isTimeout = e.message && e.message.includes('Timeout');
         diagnostics.setResult(isTimeout ? 'TIMEOUT' : 'FAILED');
@@ -56,7 +63,7 @@ export class ElementInteractor {
       if (diagnostics) diagnostics.setResult('SKIPPED');
       return false;
     }
-    await element.scrollIntoViewIfNeeded({ timeout: 2000 }).catch(() => {});
+    await element.scrollIntoViewIfNeeded({ timeout: this.timeouts.scrollTimeoutMs }).catch(() => {});
     return true;
   }
 
