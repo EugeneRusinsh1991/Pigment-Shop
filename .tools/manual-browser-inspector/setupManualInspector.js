@@ -15,7 +15,7 @@ async function setupManualInspector(page) {
   }
 
   try {
-    await page.exposeFunction('__playwright_takeScreenshotAndDumpState', async (timestamp, stateDump) => {
+    await page.exposeFunction('__playwright_takeScreenshotAndDumpState', async (timestamp, stateDump, overlayText) => {
       const baseDir = path.join(process.cwd(), '.docs', 'browserLog');
       const screenshotsDir = path.join(baseDir, 'screenshots');
       const stateDir = path.join(baseDir, 'state');
@@ -36,7 +36,7 @@ async function setupManualInspector(page) {
       const statePath = path.join(stateDir, stateFilename);
       const reportPath = path.join(reportsDir, reportFilename);
 
-      const base64Data = await takeCompressedScreenshot(page, { captureQuality: 70, exportQuality: 0.3, scale: 0.5 });
+      const base64Data = await takeCompressedScreenshot(page, { captureQuality: 70, exportQuality: 0.3, scale: 0.5, overlayText });
       fs.writeFileSync(screenshotPath, base64Data);
 
       const getCircularReplacer = () => {
@@ -93,9 +93,9 @@ ${JSON.stringify(stateDump, null, 2)}
       fs.copyFileSync(screenshotPath, latestScreenshotPath);
       fs.writeFileSync(latestReportPath, reportContent, 'utf8');
 
-      cleanOldFiles(screenshotsDir, 5, '.jpg');
-      cleanOldFiles(stateDir, 5, '.json');
-      cleanOldFiles(reportsDir, 5, '.md');
+      cleanOldFiles(screenshotsDir, 10, '.jpg');
+      cleanOldFiles(stateDir, 10, '.json');
+      cleanOldFiles(reportsDir, 10, '.md');
 
       console.log(`[PlaywrightDebug] Saved debug report to ${reportPath}`);
       return { success: true };

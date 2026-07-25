@@ -5,7 +5,7 @@ import { useAuth } from '@/context/AuthContext';
 import { useCartContext } from '@/context/CartContext';
 import { useFavoritesContext } from '@/context/FavoritesContext';
 import { useTheme } from '@/context/ThemeContext';
-import { getTimestamp, getAppStateDump } from '@/utils/appStateDump';
+import { getTimestamp, getOverlayText, getAppStateDump } from '@/utils/appStateDump';
 
 import InspectorMenu from './components/InspectorMenu';
 
@@ -32,8 +32,9 @@ export default function ManualBrowserInspector() {
   const handleCapture = async () => {
     const stateDump = getAppStateDump(contexts);
     const timestamp = getTimestamp(stateDump);
+    const overlayText = getOverlayText(stateDump);
     if (window.__playwright_takeScreenshotAndDumpState) {
-      await window.__playwright_takeScreenshotAndDumpState(timestamp, stateDump);
+      await window.__playwright_takeScreenshotAndDumpState(timestamp, stateDump, overlayText);
     }
   };
 

@@ -1,4 +1,4 @@
-export function getLocationContext(stateDump) {
+export function getLocationHierarchy(stateDump) {
   const hierarchy = [];
 
   let pathname = '';
@@ -70,7 +70,20 @@ export function getLocationContext(stateDump) {
     } catch (e) {}
   }
 
-  return hierarchy.length > 0 ? hierarchy.join('_') : 'App';
+  return hierarchy.length > 0 ? hierarchy : ['App'];
+}
+
+export function getLocationContext(stateDump) {
+  const hierarchy = getLocationHierarchy(stateDump);
+  return hierarchy.join('_');
+}
+
+export function getOverlayText(stateDump) {
+  const now = new Date();
+  const pad = (num) => String(num).padStart(2, '0');
+  const timeStr = `${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
+  const hierarchy = getLocationHierarchy(stateDump);
+  return `${hierarchy.join(' > ')} | ${timeStr}`;
 }
 
 export function getTimestamp(stateDump) {
