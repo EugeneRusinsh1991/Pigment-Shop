@@ -1,12 +1,6 @@
 # 🧠 Highly Complex Files
 
-*Generated on: 25.07.2026, 23:21:12*
+*Generated on: 25.07.2026, 23:26:27*
 
-### Highly Complex Files (< 200 lines)
-
-- **[usePaginatedCatalog.js](file:///D:/Magazine/_PigmentShop/src/features/catalog/usePaginatedCatalog.js)** (`src/features/catalog/usePaginatedCatalog.js`)
-  - Lines: 188 | CRAP Max: 56 | Complex Funcs: 4 | Density: 35%
-
-- **[SharedFormComponents.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/SharedFormComponents.js)** (`src/components/Admin/SharedFormComponents.js`)
-  - Lines: 100 | CRAP Max: 56 | Complex Funcs: 4 | Density: 31%
+*No highly complex files found.*
 

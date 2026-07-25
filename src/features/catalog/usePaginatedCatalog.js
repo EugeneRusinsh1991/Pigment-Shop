@@ -135,20 +135,22 @@ export default function usePaginatedCatalog(filters, sortKey, flatList, category
     return currentPageProducts;
   }, [clientFallback, currentPageProducts, clientFilteredProducts, currentPage, pageSize]);
 
+  function resolvePageCursor(delta) {
+    if (delta > 0) return cursorStack[cursorStack.length - 1];
+    return cursorStack[currentPage - 3] ?? null;
+  }
+
   const changePage = useCallback(async (delta) => {
     if (loading) return;
     if (clientFallback) { applyClientPageChange(setCurrentPage, delta); return; }
 
-    const isForward = delta > 0;
-    const cursor = isForward
-      ? cursorStack[cursorStack.length - 1]
-      : cursorStack[currentPage - 3] ?? null;
-
+    const cursor = resolvePageCursor(delta);
     setLoading(true);
     try {
       await fetchAndApplyServerPage(cursor, filters, sortKey, pageSize, delta, setCurrentPageProducts, setCurrentPage, setLoadedParams, setCursorStack);
     } catch (error) {
-      console.error(`Error fetching ${isForward ? 'next' : 'prev'} page:`, error);
+      const direction = delta > 0 ? 'next' : 'prev';
+      console.error(`Error fetching ${direction} page:`, error);
     } finally {
       setLoading(false);
     }

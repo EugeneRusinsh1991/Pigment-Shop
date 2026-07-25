@@ -6,6 +6,13 @@ import { colors } from '../theme/tokens';
 /**
  * Global EmptyState component for empty catalog, cart, favorites, orders, and tables.
  */
+function useEmptyStateColors(isDark) {
+  return {
+    textColor: isDark ? colors.textDark : colors.textLight,
+    mutedColor: isDark ? colors.textMutedDark : colors.textMutedLight,
+  };
+}
+
 function renderChildren(children, descriptionStyle, mutedColor) {
   if (!children) return null;
   if (typeof children === 'string') {
@@ -26,10 +33,8 @@ export default function EmptyState({
   descriptionStyle,
 }) {
   const { isDark } = useTheme();
-
+  const { textColor, mutedColor } = useEmptyStateColors(isDark);
   const bodyText = description || message;
-  const textColor = isDark ? colors.textDark : colors.textLight;
-  const mutedColor = isDark ? colors.textMutedDark : colors.textMutedLight;
 
   return (
     <View style={[styles.container, style]}>

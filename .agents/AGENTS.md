@@ -32,7 +32,6 @@ Use `.docs/project-knowledge/project-knowledge.md` as the primary source of HOW 
 ## 5. Planning & Artifacts (CRITICAL OVERRIDE)
 - DISABLE `task.md`, `walkthrough.md`, and any other markdown reports entirely.
 - DO NOT generate documentation, summaries, architecture documents, or changelogs.
-- Do not expose your reasoning or thinking process.
 - ONLY create an `implementation_plan.md` (Planning Mode) if the task meets ONE of these criteria:
   1. It requires creating/modifying more than 4 files.
   2. It requires modifying more than 200 lines of code.
