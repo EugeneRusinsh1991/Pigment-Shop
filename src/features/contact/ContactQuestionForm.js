@@ -5,7 +5,7 @@ import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import { db } from '../../services/firebase';
 import { COLLECTIONS } from '../../services/collections';
 import styles from './ContactPageStyles';
-import Button from '../../components/Button';
+import { Button } from '../../components/Button';
 import BaseCard from '../../components/BaseCard';
 
 function buildSupportMessagePayload(questionText, user) {

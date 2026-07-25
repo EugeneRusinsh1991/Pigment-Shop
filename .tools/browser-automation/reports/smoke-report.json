@@ -2,617 +2,283 @@
   "summary": {
     "visitedScreens": 0,
     "visitedInteractions": 0,
-    "successfulInteractions": 206,
+    "successfulInteractions": 330,
     "failedInteractions": 0,
-    "warnings": 5,
-    "errors": 62,
+    "warnings": 30,
+    "errors": 0,
     "executionDurationMs": 0
   },
-  "failures": [
-    {
-      "screen": "http://localhost:8081/catalog",
-      "interaction": "Click",
-      "elementIdentifier": "testid|breadcrumb-item-0",
-      "event": "Runtime",
-      "timestamp": 1785001332781,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog",
-      "interaction": "Click",
-      "elementIdentifier": "testid|breadcrumb-item-0",
-      "event": "Runtime",
-      "timestamp": 1785001332928,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog",
-      "interaction": "Click",
-      "elementIdentifier": "testid|breadcrumb-item-0",
-      "event": "Runtime",
-      "timestamp": 1785001332944,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog",
-      "interaction": "Click",
-      "elementIdentifier": "testid|breadcrumb-item-0",
-      "event": "Runtime",
-      "timestamp": 1785001333196,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog",
-      "interaction": "Click",
-      "elementIdentifier": "testid|breadcrumb-item-0",
-      "event": "Runtime",
-      "timestamp": 1785001333409,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog",
-      "interaction": "Click",
-      "elementIdentifier": "testid|breadcrumb-item-0",
-      "event": "Runtime",
-      "timestamp": 1785001333616,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog",
-      "interaction": "Click",
-      "elementIdentifier": "testid|breadcrumb-item-0",
-      "event": "Runtime",
-      "timestamp": 1785001333803,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog",
-      "interaction": "Click",
-      "elementIdentifier": "testid|breadcrumb-item-0",
-      "event": "Runtime",
-      "timestamp": 1785001333989,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog",
-      "interaction": "Click",
-      "elementIdentifier": "testid|breadcrumb-item-0",
-      "event": "Runtime",
-      "timestamp": 1785001334190,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog",
-      "interaction": "Click",
-      "elementIdentifier": "testid|breadcrumb-item-0",
-      "event": "Runtime",
-      "timestamp": 1785001334390,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog",
-      "interaction": "Click",
-      "elementIdentifier": "testid|breadcrumb-item-0",
-      "event": "Runtime",
-      "timestamp": 1785001334595,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog",
-      "interaction": "Click",
-      "elementIdentifier": "testid|breadcrumb-item-0",
-      "event": "Runtime",
-      "timestamp": 1785001334785,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-1-sub-0",
-      "interaction": "Click",
-      "elementIdentifier": "testid|breadcrumb-item-0",
-      "event": "Runtime",
-      "timestamp": 1785001335036,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-1-sub-0",
-      "interaction": "Click",
-      "elementIdentifier": "testid|breadcrumb-item-0",
-      "event": "Runtime",
-      "timestamp": 1785001335191,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-1-sub-0",
-      "interaction": "Click",
-      "elementIdentifier": "testid|breadcrumb-item-1",
-      "event": "Runtime",
-      "timestamp": 1785001335301,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-1-sub-0",
-      "interaction": "Click",
-      "elementIdentifier": "testid|breadcrumb-item-1",
-      "event": "Runtime",
-      "timestamp": 1785001335408,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-1-sub-0",
-      "interaction": "Click",
-      "elementIdentifier": "testid|breadcrumb-item-1",
-      "event": "Runtime",
-      "timestamp": 1785001335518,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-1-sub-0",
-      "interaction": "Click",
-      "elementIdentifier": "testid|breadcrumb-item-1",
-      "event": "Runtime",
-      "timestamp": 1785001335592,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-1-sub-0",
-      "interaction": "Click",
-      "elementIdentifier": "testid|breadcrumb-item-1",
-      "event": "Runtime",
-      "timestamp": 1785001335796,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-1-sub-0",
-      "interaction": "Click",
-      "elementIdentifier": "testid|breadcrumb-item-1",
-      "event": "Runtime",
-      "timestamp": 1785001336141,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-1-sub-0",
-      "interaction": "Click",
-      "elementIdentifier": "testid|breadcrumb-item-1",
-      "event": "Runtime",
-      "timestamp": 1785001336336,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-1-sub-0",
-      "interaction": "Click",
-      "elementIdentifier": "testid|breadcrumb-item-1",
-      "event": "Runtime",
-      "timestamp": 1785001336540,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-1-sub-0",
-      "interaction": "Click",
-      "elementIdentifier": "testid|breadcrumb-item-1",
-      "event": "Runtime",
-      "timestamp": 1785001336727,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-1-sub-0",
-      "interaction": "Click",
-      "elementIdentifier": "testid|breadcrumb-item-1",
-      "event": "Runtime",
-      "timestamp": 1785001336914,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-1-sub-0",
-      "interaction": "Click",
-      "elementIdentifier": "testid|breadcrumb-item-1",
-      "event": "Runtime",
-      "timestamp": 1785001337100,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-1-sub-0",
-      "interaction": "Click",
-      "elementIdentifier": "testid|breadcrumb-item-1",
-      "event": "Runtime",
-      "timestamp": 1785001337304,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-1-sub-0",
-      "interaction": "Click",
-      "elementIdentifier": "testid|breadcrumb-item-1",
-      "event": "Runtime",
-      "timestamp": 1785001337505,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-1-sub-0",
-      "interaction": "Click",
-      "elementIdentifier": "link|/catalog/cat-root-1-sub-0-sub-0",
-      "event": "Runtime",
-      "timestamp": 1785001337693,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-1-sub-0",
-      "interaction": "Click",
-      "elementIdentifier": "link|/catalog/cat-root-1-sub-0-sub-0",
-      "event": "Runtime",
-      "timestamp": 1785001337882,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-1-sub-0",
-      "interaction": "Click",
-      "elementIdentifier": "link|/catalog/cat-root-1-sub-0-sub-0",
-      "event": "Runtime",
-      "timestamp": 1785001338071,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-1-sub-0",
-      "interaction": "Click",
-      "elementIdentifier": "link|/catalog/cat-root-1-sub-0-sub-0",
-      "event": "Runtime",
-      "timestamp": 1785001338273,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-1-sub-0",
-      "interaction": "Click",
-      "elementIdentifier": "link|/catalog/cat-root-1-sub-0-sub-0",
-      "event": "Runtime",
-      "timestamp": 1785001338459,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-1-sub-0",
-      "interaction": "Click",
-      "elementIdentifier": "link|/catalog/cat-root-1-sub-0-sub-0",
-      "event": "Runtime",
-      "timestamp": 1785001338749,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-1-sub-0",
-      "interaction": "Click",
-      "elementIdentifier": "link|/catalog/cat-root-1-sub-0-sub-0",
-      "event": "Runtime",
-      "timestamp": 1785001338958,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-1-sub-0",
-      "interaction": "Click",
-      "elementIdentifier": "link|/catalog/cat-root-1-sub-0-sub-0",
-      "event": "Runtime",
-      "timestamp": 1785001339156,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-1-sub-0",
-      "interaction": "Click",
-      "elementIdentifier": "link|/catalog/cat-root-1-sub-0-sub-0",
-      "event": "Runtime",
-      "timestamp": 1785001339490,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-1-sub-0",
-      "interaction": "Click",
-      "elementIdentifier": "link|/catalog/cat-root-1-sub-0-sub-1",
-      "event": "Runtime",
-      "timestamp": 1785001339707,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-1-sub-0",
-      "interaction": "Click",
-      "elementIdentifier": "link|/catalog/cat-root-1-sub-0-sub-1",
-      "event": "Runtime",
-      "timestamp": 1785001339914,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-1-sub-0",
-      "interaction": "Click",
-      "elementIdentifier": "link|/catalog/cat-root-1-sub-0-sub-1",
-      "event": "Runtime",
-      "timestamp": 1785001340114,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-1-sub-0",
-      "interaction": "Click",
-      "elementIdentifier": "link|/catalog/cat-root-1-sub-0-sub-1",
-      "event": "Runtime",
-      "timestamp": 1785001340305,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-1-sub-0",
-      "interaction": "Click",
-      "elementIdentifier": "link|/catalog/cat-root-1-sub-0-sub-1",
-      "event": "Runtime",
-      "timestamp": 1785001340507,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-1-sub-0",
-      "interaction": "Click",
-      "elementIdentifier": "link|/catalog/cat-root-1-sub-0-sub-1",
-      "event": "Runtime",
-      "timestamp": 1785001340714,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-1-sub-0",
-      "interaction": "Click",
-      "elementIdentifier": "link|/catalog/cat-root-1-sub-0-sub-1",
-      "event": "Runtime",
-      "timestamp": 1785001340915,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-1-sub-0",
-      "interaction": "Click",
-      "elementIdentifier": "link|/catalog/cat-root-1-sub-0-sub-1",
-      "event": "Runtime",
-      "timestamp": 1785001341117,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-1-sub-0",
-      "interaction": "Click",
-      "elementIdentifier": "link|/catalog/cat-root-1-sub-0-sub-1",
-      "event": "Runtime",
-      "timestamp": 1785001341321,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-1-sub-0",
-      "interaction": "Click",
-      "elementIdentifier": "link|/catalog/cat-root-1-sub-0-sub-1",
-      "event": "Runtime",
-      "timestamp": 1785001341523,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-1",
-      "interaction": "Click",
-      "elementIdentifier": "link|/catalog/cat-root-1-sub-0-sub-1",
-      "event": "Runtime",
-      "timestamp": 1785001341716,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-1",
-      "interaction": "Click",
-      "elementIdentifier": "link|/catalog/cat-root-1-sub-1",
-      "event": "Runtime",
-      "timestamp": 1785001341915,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-1",
-      "interaction": "Click",
-      "elementIdentifier": "link|/catalog/cat-root-1-sub-1",
-      "event": "Runtime",
-      "timestamp": 1785001342122,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-1",
-      "interaction": "Click",
-      "elementIdentifier": "link|/catalog/cat-root-1-sub-1",
-      "event": "Runtime",
-      "timestamp": 1785001342326,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-1",
-      "interaction": "Click",
-      "elementIdentifier": "link|/catalog/cat-root-1-sub-1",
-      "event": "Runtime",
-      "timestamp": 1785001342527,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-1",
-      "interaction": "Click",
-      "elementIdentifier": "link|/catalog/cat-root-1-sub-1",
-      "event": "Runtime",
-      "timestamp": 1785001342850,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-1",
-      "interaction": "Click",
-      "elementIdentifier": "link|/catalog/cat-root-1-sub-1",
-      "event": "Runtime",
-      "timestamp": 1785001343061,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-1",
-      "interaction": "Click",
-      "elementIdentifier": "link|/catalog/cat-root-1-sub-1",
-      "event": "Runtime",
-      "timestamp": 1785001343265,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-1",
-      "interaction": "Click",
-      "elementIdentifier": "link|/catalog/cat-root-1-sub-1",
-      "event": "Runtime",
-      "timestamp": 1785001343458,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-1",
-      "interaction": "Click",
-      "elementIdentifier": "link|/catalog/cat-root-1-sub-1",
-      "event": "Runtime",
-      "timestamp": 1785001343712,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-1",
-      "interaction": "Click",
-      "elementIdentifier": "link|/catalog/cat-root-1-sub-1",
-      "event": "Runtime",
-      "timestamp": 1785001343926,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/catalog",
-      "interaction": "Click",
-      "elementIdentifier": "link|/catalog/cat-root-1-sub-1",
-      "event": "Runtime",
-      "timestamp": 1785001344134,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/",
-      "interaction": "Click",
-      "elementIdentifier": "link|/catalog/cat-root-1-sub-1",
-      "event": "Runtime",
-      "timestamp": 1785001344344,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/",
-      "interaction": "Click",
-      "elementIdentifier": "link|/products|Все товары",
-      "event": "Runtime",
-      "timestamp": 1785001344647,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/",
-      "interaction": "Click",
-      "elementIdentifier": "link|/products|Все товары",
-      "event": "Runtime",
-      "timestamp": 1785001344854,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon\n  1 | import { StyleSheet } from 'react-native';\n> 2 | import { buttonColors } from '../../theme/buttonCommon';\n    |                               ^\n  3 | import { layout } from '../../theme/tokens';\n  4 |\n  5 | /**"
-    },
-    {
-      "screen": "http://localhost:8081/",
-      "interaction": "Click",
-      "elementIdentifier": "link|/products|Все товары",
-      "event": "Runtime",
-      "timestamp": 1785001345059,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] Unable to resolve module ../../theme/buttonCommon from D:\\Magazine\\_PigmentShop\\src\\components\\ButtonStyles.js: \n\nNone of these files exist:\n  * theme\\buttonCommon(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * theme\\buttonCommon"
-    }
-  ],
+  "failures": [],
   "warnings": [
     {
       "screen": "http://localhost:8081/",
       "interaction": "Click",
       "elementIdentifier": "btn|Контакты",
       "event": "Runtime",
-      "timestamp": 1785001263069,
+      "timestamp": 1785001903567,
       "errorType": "Console Warning",
       "errorMessage": "props.pointerEvents is deprecated. Use style.pointerEvents"
     },
     {
-      "screen": "http://localhost:8081/product/prod-1-2-1-1",
+      "screen": "http://localhost:8081/product/prod-1-2-2-1",
       "interaction": "Click",
       "elementIdentifier": "testid|product-detail-fav-button",
       "event": "Runtime",
-      "timestamp": 1785001537182,
+      "timestamp": 1785002085129,
+      "errorType": "Console Error",
+      "errorMessage": "Failed to load resource: net::ERR_CONNECTION_REFUSED"
+    },
+    {
+      "screen": "http://localhost:8081/product/prod-1-2-2-1",
+      "interaction": "Click",
+      "elementIdentifier": "testid|product-detail-fav-button",
+      "event": "Runtime",
+      "timestamp": 1785002085131,
+      "errorType": "Console Warning",
+      "errorMessage": "[ServiceError] TypeError: Failed to fetch\n    at _notifyOrderCreated (http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:167780:28)\n    at http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:155271:50\n    at executeServiceOperation (http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:155243:28)\n    at http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:155271:20\n    at sendOrderNotification (http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:167651:66)\n    at _processCheckout (http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:167693:11)\n    at async executeServiceOperation (http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:155243:22)\n    at async Object.processCheckout (http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:155271:14)\n    at async handleCheckoutProcess (http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:167529:20)"
+    },
+    {
+      "screen": "http://localhost:8081/product/prod-1-2-2-1",
+      "interaction": "Click",
+      "elementIdentifier": "testid|product-detail-fav-button",
+      "event": "Runtime",
+      "timestamp": 1785002085134,
+      "errorType": "Console Warning",
+      "errorMessage": "[checkoutService] Notification failed: Failed to fetch {orderId: hL7JEMes0qMaAcLLIv3L, totalItems: 12, totalPrice: 5430, errorDetails: Object}"
+    },
+    {
+      "screen": "http://localhost:8081/products",
+      "interaction": "Click",
+      "elementIdentifier": "btn|toggleCustomerRevi...",
+      "event": "Runtime",
+      "timestamp": 1785002145987,
+      "errorType": "Console Warning",
+      "errorMessage": "Disconnected from Metro (1006)\nTo reconnect:\n- Ensure that Metro is running and available on the same network\n- Reload this app (will trigger further help if Metro cannot be connected to)"
+    },
+    {
+      "screen": "http://localhost:8081/product/prod-2-1-2-1",
+      "interaction": "Click",
+      "elementIdentifier": "link|/product/prod-2-1-2-1",
+      "event": "Runtime",
+      "timestamp": 1785002148265,
+      "errorType": "Console Error",
+      "errorMessage": "Failed to load resource: net::ERR_CONNECTION_REFUSED"
+    },
+    {
+      "screen": "http://localhost:8081/product/prod-2-1-2-1",
+      "interaction": "Click",
+      "elementIdentifier": "link|/product/prod-2-1-2-1",
+      "event": "Runtime",
+      "timestamp": 1785002148501,
+      "errorType": "Console Error",
+      "errorMessage": "Failed to load resource: net::ERR_CONNECTION_REFUSED"
+    },
+    {
+      "screen": "http://localhost:8081/",
+      "interaction": "Click",
+      "elementIdentifier": "testid|breadcrumb-home",
+      "event": "Runtime",
+      "timestamp": 1785002150601,
+      "errorType": "Console Error",
+      "errorMessage": "Failed to load resource: net::ERR_CONNECTION_REFUSED"
+    },
+    {
+      "screen": "http://localhost:8081/",
+      "interaction": "Click",
+      "elementIdentifier": "testid|breadcrumb-home",
+      "event": "Runtime",
+      "timestamp": 1785002152887,
+      "errorType": "Console Error",
+      "errorMessage": "Failed to load resource: net::ERR_CONNECTION_REFUSED"
+    },
+    {
+      "screen": "http://localhost:8081/product/prod-2-1-2-1",
+      "interaction": "Click",
+      "elementIdentifier": "testid|breadcrumb-home",
+      "event": "Runtime",
+      "timestamp": 1785002153062,
+      "errorType": "Console Error",
+      "errorMessage": "Failed to load resource: net::ERR_CONNECTION_REFUSED"
+    },
+    {
+      "screen": "http://localhost:8081/product/prod-2-1-2-1",
+      "interaction": "Click",
+      "elementIdentifier": "testid|breadcrumb-home",
+      "event": "Runtime",
+      "timestamp": 1785002153062,
+      "errorType": "Console Error",
+      "errorMessage": "Failed to load resource: net::ERR_CONNECTION_REFUSED"
+    },
+    {
+      "screen": "http://localhost:8081/catalog",
+      "interaction": "Click",
+      "elementIdentifier": "testid|breadcrumb-item-0",
+      "event": "Runtime",
+      "timestamp": 1785002155378,
+      "errorType": "Console Error",
+      "errorMessage": "Failed to load resource: net::ERR_CONNECTION_REFUSED"
+    },
+    {
+      "screen": "http://localhost:8081/catalog/cat-root-1",
+      "interaction": "Click",
+      "elementIdentifier": "testid|breadcrumb-item-1",
+      "event": "Runtime",
+      "timestamp": 1785002158118,
+      "errorType": "Console Error",
+      "errorMessage": "Failed to load resource: net::ERR_CONNECTION_REFUSED"
+    },
+    {
+      "screen": "http://localhost:8081/catalog/cat-root-1",
+      "interaction": "Click",
+      "elementIdentifier": "testid|breadcrumb-item-1",
+      "event": "Runtime",
+      "timestamp": 1785002158375,
+      "errorType": "Console Error",
+      "errorMessage": "Failed to load resource: net::ERR_CONNECTION_REFUSED"
+    },
+    {
+      "screen": "http://localhost:8081/catalog/cat-root-1-sub-0",
+      "interaction": "Click",
+      "elementIdentifier": "testid|breadcrumb-item-2",
+      "event": "Runtime",
+      "timestamp": 1785002160500,
+      "errorType": "Console Error",
+      "errorMessage": "Failed to load resource: net::ERR_CONNECTION_REFUSED"
+    },
+    {
+      "screen": "http://localhost:8081/catalog/cat-root-1-sub-0",
+      "interaction": "Click",
+      "elementIdentifier": "testid|breadcrumb-item-2",
+      "event": "Runtime",
+      "timestamp": 1785002160824,
+      "errorType": "Console Error",
+      "errorMessage": "Failed to load resource: net::ERR_CONNECTION_REFUSED"
+    },
+    {
+      "screen": "http://localhost:8081/catalog/cat-root-1-sub-0-sub-1",
+      "interaction": "Click",
+      "elementIdentifier": "testid|breadcrumb-item-3",
+      "event": "Runtime",
+      "timestamp": 1785002162801,
+      "errorType": "Console Error",
+      "errorMessage": "Failed to load resource: net::ERR_CONNECTION_REFUSED"
+    },
+    {
+      "screen": "http://localhost:8081/catalog/cat-root-1-sub-0-sub-1",
+      "interaction": "Click",
+      "elementIdentifier": "testid|breadcrumb-item-3",
+      "event": "Runtime",
+      "timestamp": 1785002163651,
+      "errorType": "Console Error",
+      "errorMessage": "Failed to load resource: net::ERR_CONNECTION_REFUSED"
+    },
+    {
+      "screen": "http://localhost:8081/catalog",
+      "interaction": "Click",
+      "elementIdentifier": "testid|breadcrumb-item-0",
+      "event": "Runtime",
+      "timestamp": 1785002165133,
+      "errorType": "Console Error",
+      "errorMessage": "Failed to load resource: net::ERR_CONNECTION_REFUSED"
+    },
+    {
+      "screen": "http://localhost:8081/catalog/cat-root-1-sub-0-sub-1",
+      "interaction": "Click",
+      "elementIdentifier": "testid|breadcrumb-item-0",
+      "event": "Runtime",
+      "timestamp": 1785002166602,
+      "errorType": "Console Error",
+      "errorMessage": "Failed to load resource: net::ERR_CONNECTION_REFUSED"
+    },
+    {
+      "screen": "http://localhost:8081/catalog/cat-root-1",
+      "interaction": "Click",
+      "elementIdentifier": "testid|breadcrumb-item-1",
+      "event": "Runtime",
+      "timestamp": 1785002168801,
+      "errorType": "Console Error",
+      "errorMessage": "Failed to load resource: net::ERR_CONNECTION_REFUSED"
+    },
+    {
+      "screen": "http://localhost:8081/catalog/cat-root-1-sub-0",
+      "interaction": "Click",
+      "elementIdentifier": "testid|breadcrumb-item-2",
+      "event": "Runtime",
+      "timestamp": 1785002172922,
+      "errorType": "Console Error",
+      "errorMessage": "Failed to load resource: net::ERR_CONNECTION_REFUSED"
+    },
+    {
+      "screen": "http://localhost:8081/catalog/cat-root-1-sub-0-sub-1",
+      "interaction": "Click",
+      "elementIdentifier": "testid|breadcrumb-item-2",
+      "event": "Runtime",
+      "timestamp": 1785002173195,
+      "errorType": "Console Error",
+      "errorMessage": "Failed to load resource: net::ERR_CONNECTION_REFUSED"
+    },
+    {
+      "screen": "http://localhost:8081/product/prod-2-1-2-1",
+      "interaction": "Click",
+      "elementIdentifier": "btn|›",
+      "event": "Runtime",
+      "timestamp": 1785002175242,
+      "errorType": "Console Error",
+      "errorMessage": "Failed to load resource: net::ERR_CONNECTION_REFUSED"
+    },
+    {
+      "screen": "http://localhost:8081/product/prod-2-1-2-1",
+      "interaction": "Click",
+      "elementIdentifier": "btn|›",
+      "event": "Runtime",
+      "timestamp": 1785002175516,
+      "errorType": "Console Error",
+      "errorMessage": "Failed to load resource: net::ERR_CONNECTION_REFUSED"
+    },
+    {
+      "screen": "http://localhost:8081/",
+      "interaction": "Click",
+      "elementIdentifier": "testid|breadcrumb-home",
+      "event": "Runtime",
+      "timestamp": 1785002292571,
       "errorType": "Console Error",
       "errorMessage": "Failed to load resource: net::ERR_CONNECTION_REFUSED"
     },
     {
       "screen": "http://localhost:8081/product/prod-1-2-1-1",
       "interaction": "Click",
-      "elementIdentifier": "testid|product-detail-fav-button",
+      "elementIdentifier": "testid|breadcrumb-home",
       "event": "Runtime",
-      "timestamp": 1785001537183,
-      "errorType": "Console Warning",
-      "errorMessage": "[ServiceError] TypeError: Failed to fetch\n    at _notifyOrderCreated (http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:167877:28)\n    at http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:155271:50\n    at executeServiceOperation (http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:155243:28)\n    at http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:155271:20\n    at sendOrderNotification (http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:167748:66)\n    at _processCheckout (http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:167790:11)\n    at async executeServiceOperation (http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:155243:22)\n    at async Object.processCheckout (http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:155271:14)\n    at async handleCheckoutProcess (http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:167626:20)"
+      "timestamp": 1785002292742,
+      "errorType": "Console Error",
+      "errorMessage": "Failed to load resource: net::ERR_CONNECTION_REFUSED"
     },
     {
       "screen": "http://localhost:8081/product/prod-1-2-1-1",
       "interaction": "Click",
-      "elementIdentifier": "testid|product-detail-fav-button",
+      "elementIdentifier": "testid|breadcrumb-home",
       "event": "Runtime",
-      "timestamp": 1785001537185,
-      "errorType": "Console Warning",
-      "errorMessage": "[checkoutService] Notification failed: Failed to fetch {orderId: eeA8FNWSfqWkBzCmE1et, totalItems: 4, totalPrice: 1308, errorDetails: Object}"
+      "timestamp": 1785002292743,
+      "errorType": "Console Error",
+      "errorMessage": "Failed to load resource: net::ERR_CONNECTION_REFUSED"
     },
     {
-      "screen": "http://localhost:8081/product/prod-2-1-2-1",
+      "screen": "http://localhost:8081/product/prod-1-2-1-1",
       "interaction": "Click",
-      "elementIdentifier": "card|Card|/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[6]/div[1]",
+      "elementIdentifier": "testid|breadcrumb-home",
       "event": "Runtime",
-      "timestamp": 1785001634257,
-      "errorType": "Console Warning",
-      "errorMessage": "Disconnected from Metro (1006)\nTo reconnect:\n- Ensure that Metro is running and available on the same network\n- Reload this app (will trigger further help if Metro cannot be connected to)"
+      "timestamp": 1785002292839,
+      "errorType": "Console Error",
+      "errorMessage": "Failed to load resource: net::ERR_CONNECTION_REFUSED"
+    },
+    {
+      "screen": "http://localhost:8081/catalog",
+      "interaction": "Click",
+      "elementIdentifier": "testid|breadcrumb-item-0",
+      "event": "Runtime",
+      "timestamp": 1785002295056,
+      "errorType": "Console Error",
+      "errorMessage": "Failed to load resource: net::ERR_CONNECTION_REFUSED"
     }
   ]
 }

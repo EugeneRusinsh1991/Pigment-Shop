@@ -3,7 +3,7 @@ import { View, TextInput, StyleSheet } from 'react-native';
 import { SearchIcon, CrossIcon } from './Icons';
 import { useTheme } from '../context/ThemeContext';
 import { colors, layout } from '../theme/tokens';
-import IconButton from './IconButton';
+import { IconButton } from './Button';
 
 function ClearButton({ onClear, value, iconColor }) {
   if (!onClear || !value || value.length === 0) return null;

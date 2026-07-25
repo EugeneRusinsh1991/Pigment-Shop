@@ -4,9 +4,9 @@ import { MEDIA_CATEGORY } from '../../../media';
 import EmptyState from '../../DataTable/EmptyState';
 import MediaBrowserItem from './MediaBrowserItem';
 import styles from './MediaBrowserStyles';
-import Button from '../../Button';
-import ChipButton from '../../ChipButton';
-import IconButton from '../../IconButton';
+import { Button } from '../../Button';
+import { ChipButton } from '../../Button';
+import { IconButton } from '../../Button';
 import { colors } from '../../../theme/tokens';
 
 const TABS = [

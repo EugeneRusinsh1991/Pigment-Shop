@@ -10,8 +10,8 @@
  */
 import React, { useCallback, useMemo, useState } from 'react';
 import { Text, View } from 'react-native';
-import Button from '../../Button';
-import ChipButton from '../../ChipButton';
+import { Button } from '../../Button';
+import { ChipButton } from '../../Button';
 import styles from './CategoriesStyles';
 import { ChevronRightIcon, ChevronDownIcon } from '@/components/Icons';
 import { DesktopCategoryRow, MobileCategoryCard } from './CategoryRow';

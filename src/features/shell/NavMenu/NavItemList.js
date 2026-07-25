@@ -1,5 +1,5 @@
 import { Text, View } from 'react-native';
-import AnimatedButton from '@/components/AnimatedButton';
+import { AnimatedButton } from '@/components/Button';
 import {
     BagIcon,
     BrowIcon,

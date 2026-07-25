@@ -115,9 +115,9 @@ export function FieldTextarea({ label, labelIcon, value, onChangeText, placehold
 
 import { CrossIcon } from '@/components/Icons';
 
-import Button from '../Button';
-import ChipButton from '../ChipButton';
-import IconButton from '../IconButton';
+import { Button } from '../Button';
+import { ChipButton } from '../Button';
+import { IconButton } from '../Button';
 
 function ModalHeader({ title, onClose, styles }) {
   return (

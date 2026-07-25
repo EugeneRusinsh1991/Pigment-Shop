@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View } from 'react-native';
 import { useTheme } from '../../context/ThemeContext';
 import styles from './CartViewStyles';
-import Button from '../../components/Button';
+import { Button } from '../../components/Button';
 import { Link } from 'expo-router';
 import { FieldInput, FieldTextarea } from '../../components/Admin/SharedFormComponents';
 export default function CartSummary({ totalItems, totalPrice, isWide, isDark, note, onNoteChange, onCheckout,

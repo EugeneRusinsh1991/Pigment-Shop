@@ -10,7 +10,7 @@ import { CarouselLayers } from './HeroCarousel/CarouselLayers';
 import { useCarouselData } from './HeroCarousel/useCarouselData';
 import { localStyles } from './HeroCarousel/carouselStyles';
 
-import AnimatedButton from './AnimatedButton';
+import { AnimatedButton } from './Button';
 
 function CarouselArrows({ show, onPrev, onNext }) {
   if (!show) return null;

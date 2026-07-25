@@ -2,8 +2,8 @@ import { useState, useCallback } from 'react';
 import { Platform, UIManager, LayoutAnimation, Text, View, StyleSheet } from 'react-native';
 import { useRouter } from 'expo-router';
 
-import AnimatedButton from '../../../components/AnimatedButton';
-import IconButton from '../../../components/IconButton';
+import { AnimatedButton } from '../../../components/Button';
+import { IconButton } from '../../../components/Button';
 import { ChevronDownIcon, ChevronRightIcon } from '../../../components/Icons';
 import { useTheme } from '../../../context/ThemeContext';
 import { useLanguage } from '../../../context/LanguageContext';

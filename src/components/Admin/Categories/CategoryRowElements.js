@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
 import { ChevronDownIcon, ChevronRightIcon, CheckIcon, CrossIcon } from '@/components/Icons';
-import IconButton from '@/components/IconButton';
+import { IconButton } from '@/components/Button';
 import styles from './CategoriesStyles';
 
 export const INDENT_PER_LEVEL = 20;

@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { Link } from 'expo-router';
-import IconButton from '@/components/IconButton';
-import AnimatedButton from '@/components/AnimatedButton';
+import { IconButton } from '@/components/Button';
+import { AnimatedButton } from '@/components/Button';
 import { useLanguage } from '../../../context/LanguageContext';
 import styles from './AppHeaderStyles';
 

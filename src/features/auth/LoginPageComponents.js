@@ -4,8 +4,8 @@ import styles from './LoginPageStyles';
 import { LockIcon, EyeIcon, EyeOffIcon, ForwardArrowIcon } from '@/components/Icons';
 import { useTheme } from '../../context/ThemeContext';
 
-import IconButton from '../../components/IconButton';
-import AnimatedButton from '../../components/AnimatedButton';
+import { IconButton } from '../../components/Button';
+import { AnimatedButton } from '../../components/Button';
 import { FieldInput } from '../../components/Admin/SharedFormComponents';
 
 const ic = (isDark, dark, light) => (isDark ? dark : light);

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Platform, Text, Linking } from 'react-native';
 import styles from './ContactPageStyles';
-import Button from '../../components/Button';
+import { Button } from '../../components/Button';
 import ScrollFadeUp from '../../components/ScrollFadeUp';
 import { colors } from '../../theme/tokens';
 

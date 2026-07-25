@@ -4,7 +4,7 @@ import { Link } from 'expo-router';
 import styles from './SearchBarStyles';
 import { useTheme } from '../../context/ThemeContext';
 import { getLocalizedValue } from '../../utils/localization';
-import AnimatedButton from '../AnimatedButton';
+import { AnimatedButton } from '../Button';
 
 const MAX_RESULTS = 20;
 

@@ -1,7 +1,7 @@
 import { Image, Text, View } from 'react-native';
 import { Link } from 'expo-router';
-import IconButton from '@/components/IconButton';
-import AnimatedButton from '@/components/AnimatedButton';
+import { IconButton } from '@/components/Button';
+import { AnimatedButton } from '@/components/Button';
 import styles from './AppHeaderStyles';
 
 const MOBILE_GAP = -6;

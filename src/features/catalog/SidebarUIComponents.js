@@ -1,6 +1,6 @@
 import { Text, View } from 'react-native';
 import { CheckIcon } from '../../components/Icons';
-import AnimatedButton from '../../components/AnimatedButton';
+import { AnimatedButton } from '../../components/Button';
 import { colors } from '../../theme/tokens';
 import styles from './CatalogFilterSidebarStyles';
 import { FieldInput } from '../../components/Admin/SharedFormComponents';

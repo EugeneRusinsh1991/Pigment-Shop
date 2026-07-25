@@ -6,7 +6,7 @@ import { useCatalog } from '../../context/CatalogContext';
 import useGridLayout from '../../hooks/useGridLayout';
 import Footer from '../../components/Footer';
 import ScrollFadeUp from '../../components/ScrollFadeUp';
-import Button from '../../components/Button';
+import { Button } from '../../components/Button';
 import OrderHeader from './OrderHeader';
 import OrderDetailsCard from './OrderDetailsCard';
 

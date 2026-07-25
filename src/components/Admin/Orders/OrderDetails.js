@@ -10,7 +10,7 @@
  */
 import React, { useState } from 'react';
 import { ScrollView, Text, View } from 'react-native';
-import AnimatedButton from '../../AnimatedButton';
+import { AnimatedButton } from '../../Button';
 import { useTheme } from '../../../context/ThemeContext';
 import { useToast } from '../../../context/ToastContext';
 import { BackArrowIcon } from '@/components/Icons';

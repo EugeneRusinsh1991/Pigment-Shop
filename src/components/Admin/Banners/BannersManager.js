@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Modal, Text, View, useWindowDimensions } from 'react-native';
-import AnimatedButton from '../../AnimatedButton';
+import { AnimatedButton } from '../../Button';
 import { useTheme } from '../../../context/ThemeContext';
 import { fromMediaRef } from '../../../media';
 import MediaRenderer from '../../Media/MediaRenderer';

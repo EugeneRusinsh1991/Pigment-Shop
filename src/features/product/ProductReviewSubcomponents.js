@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import styles from './ProductReviewsStyles';
 import { useTheme } from '../../context/ThemeContext';
-import AnimatedButton from '../../components/AnimatedButton';
+import { AnimatedButton } from '../../components/Button';
 import { Link } from 'expo-router';
 import { colors } from '../../theme/tokens';
 import { FieldTextarea } from '../../components/Admin/SharedFormComponents';

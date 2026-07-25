@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { Text, View } from 'react-native';
-import AnimatedButton from '../../AnimatedButton';
+import { AnimatedButton } from '../../Button';
 import styles from './CategoryFormStyles';
 
 const getLanguageFallback = (labelObj, lang) => labelObj[lang] || labelObj.ru || labelObj.en;

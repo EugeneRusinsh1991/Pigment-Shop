@@ -3,7 +3,7 @@
  */
 import { useState } from 'react';
 import { Text, View } from 'react-native';
-import AnimatedButton from '../../AnimatedButton';
+import { AnimatedButton } from '../../Button';
 import styles from './OrdersStyles';
 import OrderStatusDropdownMenu from './OrderStatusDropdownMenu';
 

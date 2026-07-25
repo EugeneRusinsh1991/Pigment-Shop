@@ -1,8 +1,8 @@
 import { Image, Text, View } from 'react-native';
 import { useRouter } from 'expo-router';
 import { BackArrowIcon, CrossIcon } from '../../../components/Icons';
-import IconButton from '../../../components/IconButton';
-import AnimatedButton from '../../../components/AnimatedButton';
+import { IconButton } from '../../../components/Button';
+import { AnimatedButton } from '../../../components/Button';
 import { ACCENT_COLOR } from './constants';
 import styles from './NavMenuStyles';
 

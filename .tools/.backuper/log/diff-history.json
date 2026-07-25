@@ -2684,5 +2684,57 @@
         }
       ]
     }
+  },
+  "src_2026-07-25_20-57_S_20-57-41_Catalog_CatRoot1Sub0.jpg_83files": {
+    "timestamp": "2026-07-25T17:58:01.676Z",
+    "diff": {
+      "added": 21,
+      "removed": 24,
+      "modified": 62,
+      "topFolders": [
+        {
+          "folder": ".docs/automation-browser-log/screenshots",
+          "count": 40
+        },
+        {
+          "folder": "src/components",
+          "count": 11
+        },
+        {
+          "folder": "src/components/Admin/Categories",
+          "count": 6
+        },
+        {
+          "folder": "src/features/catalog",
+          "count": 6
+        },
+        {
+          "folder": "src/components/Admin/Orders",
+          "count": 5
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_20-58_smoke-report.json_6files": {
+    "timestamp": "2026-07-25T17:58:17.057Z",
+    "diff": {
+      "added": 3,
+      "removed": 3,
+      "modified": 3,
+      "topFolders": [
+        {
+          "folder": ".docs/automation-browser-log/screenshots",
+          "count": 6
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        },
+        {
+          "folder": ".tools/browser-automation/reports",
+          "count": 1
+        }
+      ]
+    }
   }
 }

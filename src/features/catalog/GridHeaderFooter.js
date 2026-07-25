@@ -2,7 +2,7 @@ import { Text, View } from 'react-native';
 import sidebarStyles from './CatalogFilterSidebarStyles';
 import { SORT_OPTIONS } from './useCatalogFilters';
 import CatalogPagination from './CatalogPagination';
-import AnimatedButton from '../../components/AnimatedButton';
+import { AnimatedButton } from '../../components/Button';
 
 const getSortItemStyles = (isSelected, isDark) => {
   const itemStyle = [

@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, Platform, KeyboardAvoidingView } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
-import Button from '../../Button';
+import { Button } from '../../Button';
 import { colors } from '../../../theme/tokens';
 
 function getSaveButtonTitle(isSaving, t) {

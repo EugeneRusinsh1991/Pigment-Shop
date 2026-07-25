@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Text, View } from 'react-native';
-import AnimatedButton from '@/components/AnimatedButton';
+import { AnimatedButton } from '@/components/Button';
 import { ThemeIcon } from '@/components/Icons';
 import styles from './NavMenuStyles';
 import { ACCENT_COLOR, LANGUAGES, CURRENCIES } from './constants';

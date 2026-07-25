@@ -1,6 +1,6 @@
 import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
 import { useTheme } from '../../context/ThemeContext';
-import AnimatedButton from '../../components/AnimatedButton';
+import { AnimatedButton } from '../../components/Button';
 import { colors } from '../../theme/tokens';
 
 function PaginationButton({ label, onPress, isDisabled, isDark }) {

@@ -9,7 +9,7 @@
  */
 import { useState } from 'react';
 import { Text, TextInput, View } from 'react-native';
-import AnimatedButton from '../../AnimatedButton';
+import { AnimatedButton } from '../../Button';
 import { useTheme } from '../../../context/ThemeContext';
 import { fromMediaRef } from '../../../media';
 import { triggerFileInput } from '../../../utils/fileInput';

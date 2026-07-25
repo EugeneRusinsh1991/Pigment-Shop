@@ -1,6 +1,6 @@
 import React from 'react';
 import { Animated, Text } from 'react-native';
-import AnimatedButton from '@/components/AnimatedButton';
+import { AnimatedButton } from '@/components/Button';
 import styles from './AppHeaderStyles';
 import { useDropdownAnimation } from '../../../hooks/useDropdownAnimation';
 

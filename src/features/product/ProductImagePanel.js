@@ -4,7 +4,7 @@ import styles from './ProductPageStyles';
 import MediaRenderer from '../../components/Media/MediaRenderer';
 import { useCarouselState, getCarouselOpacity } from '../../hooks/useCarouselState';
 import { HeartIcon } from '@/components/Icons';
-import AnimatedButton from '../../components/AnimatedButton';
+import { AnimatedButton } from '../../components/Button';
 import ProductBadges from './ProductBadges';
 import { colors } from '../../theme/tokens';
 

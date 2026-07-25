@@ -10,7 +10,7 @@ export const STATUS_FILTERS = [
 ];
 
 
-import ChipButton from '../../ChipButton';
+import { ChipButton } from '../../Button';
 
 export function StatusFilterBar({ t, activeFilters, onToggle, count }) {
   const { width } = useWindowDimensions();

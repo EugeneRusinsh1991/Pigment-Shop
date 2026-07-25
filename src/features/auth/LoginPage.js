@@ -6,7 +6,7 @@ import { MailIcon } from '@/components/Icons';
 import { ConfirmPasswordField, ErrorText, ForgotPasswordLink, LoginFooter, LoginHeader, PasswordInputField } from './LoginPageComponents';
 import styles from './LoginPageStyles';
 import Footer from '../../components/Footer';
-import Button from '../../components/Button';
+import { Button } from '../../components/Button';
 import PageTransition from '../../components/PageTransition';
 import { FieldInput } from '../../components/Admin/SharedFormComponents';
 

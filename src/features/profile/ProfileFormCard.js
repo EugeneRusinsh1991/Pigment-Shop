@@ -1,7 +1,7 @@
 import { Text, View } from 'react-native';
 import BaseCard from '../../components/BaseCard';
 import styles from './ProfilePageStyles';
-import Button from '../../components/Button';
+import { Button } from '../../components/Button';
 import { colors } from '../../theme/tokens';
 import { FieldInput } from '../../components/Admin/SharedFormComponents';
 

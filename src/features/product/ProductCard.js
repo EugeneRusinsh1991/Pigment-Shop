@@ -4,7 +4,7 @@ import { useTheme, getThemedValue } from '../../context/ThemeContext';
 import useCardDimensions from '../../hooks/useCardDimensions';
 import { HeartIcon, CartIcon } from '@/components/Icons';
 import styles from './ProductCardStyles';
-import IconButton from '../../components/IconButton';
+import { IconButton } from '../../components/Button';
 import ProductBadges from './ProductBadges';
 import BaseCard from '../../components/BaseCard';
 import { useCartContext } from '../../context/CartContext';

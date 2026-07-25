@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { useTheme } from '../context/ThemeContext';
 import Breadcrumb from './Breadcrumb';
-import AnimatedButton from './AnimatedButton';
+import { AnimatedButton } from './Button';
 import { colors } from '../theme/tokens';
 
 /**

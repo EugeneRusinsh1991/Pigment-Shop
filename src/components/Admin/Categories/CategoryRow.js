@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-import AnimatedButton from '../../AnimatedButton';
+import { AnimatedButton } from '../../Button';
 import { useTheme } from '../../../context/ThemeContext';
 import styles, { CATEGORY_TYPE_COLORS } from './CategoriesStyles';
 import {

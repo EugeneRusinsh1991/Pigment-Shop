@@ -1,7 +1,7 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
 import { useTheme } from '../context/ThemeContext';
 import { Link } from 'expo-router';
-import AnimatedButton from './AnimatedButton';
+import { AnimatedButton } from './Button';
 import { colors } from '../theme/tokens';
 
 export default function Footer() {

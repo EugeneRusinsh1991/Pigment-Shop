@@ -6,7 +6,7 @@ import { useTheme } from '../../context/ThemeContext';
 import { useSlideAnimation } from '../../hooks/useSlideAnimation';
 import SideDrawer from '../../components/SideDrawer';
 import SidebarContent from './SidebarContent';
-import AnimatedButton from '../../components/AnimatedButton';
+import { AnimatedButton } from '../../components/Button';
 import { colors } from '../../theme/tokens';
 
 function MobileFilterDrawer({ showModal, handleClose, scrimOpacity, panelWidth, slideAnim, isDark, t, children }) {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
-import Button from '../../Button';
+import { Button } from '../../Button';
 import styles from './ProductsStyles';
 import { getLocalizedValue } from '../../../utils/localization';
 export { getEffectivePrice } from '../../../utils/pricing';

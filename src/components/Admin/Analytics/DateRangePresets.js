@@ -1,5 +1,5 @@
 import React from 'react';
-import ChipButton from '../../ChipButton';
+import { ChipButton } from '../../Button';
 
 export function calculatePresetDateRange(preset) {
   const end = new Date();

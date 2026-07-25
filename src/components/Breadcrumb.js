@@ -5,7 +5,7 @@ import { useCatalog } from '../context/CatalogContext';
 import { HomeIcon } from '@/components/Icons';
 import { buildBreadcrumbStack } from '../utils/breadcrumbResolver';
 import { colors } from '../theme/tokens';
-import AnimatedButton from './AnimatedButton';
+import { AnimatedButton } from './Button';
 
 function CrumbItem({ crumb, isLast, isDark, testID }) {
   const textStyle = [

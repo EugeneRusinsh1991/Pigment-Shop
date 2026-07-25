@@ -1,5 +1,5 @@
 import { Text, View, useWindowDimensions } from 'react-native';
-import AnimatedButton from './AnimatedButton';
+import { AnimatedButton } from './Button';
 import { useTheme } from '../context/ThemeContext';
 import commonStyles from '../theme/commonStyles';
 import BaseCard from './BaseCard';

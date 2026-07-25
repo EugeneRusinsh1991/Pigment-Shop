@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, useWindowDimensions } from 'react-native';
 import EmptyState from './EmptyState';
 import { colors, layout, shadows } from '../../theme/tokens';
 import { useTheme } from '../../context/ThemeContext';
-import AnimatedButton from '../AnimatedButton';
+import { AnimatedButton } from '../Button';
 
 function SortIndicator({ isActive, direction, style }) {
   return (

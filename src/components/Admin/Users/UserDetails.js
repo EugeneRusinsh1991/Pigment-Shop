@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { Text, View } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
 import { BackArrowIcon } from '@/components/Icons';
-import Button from '../../Button';
+import { Button } from '../../Button';
 import styles from './UsersStyles';
 import { fetchUserNote, saveUserNote } from '../../../services/adminUsersService';
 import UserInfoCard from './UserInfoCard';

@@ -2,7 +2,7 @@ import React from 'react';
 import { Platform, StyleSheet, Text, View, Image } from 'react-native';
 import { useTheme } from '../../context/ThemeContext';
 import { CrossIcon } from '@/components/Icons';
-import IconButton from '../../components/IconButton';
+import { IconButton } from '../../components/Button';
 import { getLocalizedValue } from '../../utils/localization';
 
 export default function CartItem({ item, isDark, onIncrease, onDecrease, onRemove }) {

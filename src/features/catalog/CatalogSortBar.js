@@ -7,7 +7,7 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { SORT_OPTIONS } from './useCatalogFilters';
 import { useTheme } from '../../context/ThemeContext';
-import AnimatedButton from '../../components/AnimatedButton';
+import { AnimatedButton } from '../../components/Button';
 import { colors } from '../../theme/tokens';
 
 function SortChip({ labelText, isActive, onPress, isDark }) {

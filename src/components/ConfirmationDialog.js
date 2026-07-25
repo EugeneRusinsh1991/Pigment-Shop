@@ -2,7 +2,7 @@ import React from 'react';
 import { Modal, StyleSheet, Text, View } from 'react-native';
 import { useTheme } from '../context/ThemeContext';
 import { colors, layout, shadows } from '../theme/tokens';
-import Button from './Button';
+import { Button } from './Button';
 
 export default function ConfirmationDialog({
   visible,

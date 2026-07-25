@@ -6,8 +6,8 @@
  */
 import React from 'react';
 import { View } from 'react-native';
-import Button from '../../Button';
-import ChipButton from '../../ChipButton';
+import { Button } from '../../Button';
+import { ChipButton } from '../../Button';
 import { useTheme } from '../../../context/ThemeContext';
 import { TagIcon, StarIcon } from '@/components/Icons';
 

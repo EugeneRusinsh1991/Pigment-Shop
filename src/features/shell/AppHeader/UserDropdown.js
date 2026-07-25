@@ -7,7 +7,7 @@ import { useTheme } from '@/context/ThemeContext';
 import { useLanguage } from '@/context/LanguageContext';
 import { useProfile } from '@/hooks/useProfile';
 import { useAdminAuth } from '@/services/adminDomain';
-import AnimatedButton from '@/components/AnimatedButton';
+import { AnimatedButton } from '@/components/Button';
 import {
     AdminIcon,
     ClipboardIcon,
