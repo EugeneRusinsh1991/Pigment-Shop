@@ -9,7 +9,7 @@ import styles from '../../components/OrdersPageStyles';
 import Footer from '../../components/Footer';
 import ScrollFadeUp from '../../components/ScrollFadeUp';
 
-import CatalogPagination from '../../components/Catalog/CatalogPagination';
+import CatalogPagination from '../catalog/CatalogPagination';
 import EmptyState from '../../components/DataTable/EmptyState';
 
 const PAGE_SIZE = 10;

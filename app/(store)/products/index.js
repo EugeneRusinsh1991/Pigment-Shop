@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTheme } from '@/context/ThemeContext';
-import CatalogPage from '@/components/CatalogPage';
+import CatalogPage from '@/features/catalog/CatalogPage';
 import PageTransition from '@/components/PageTransition';
 
 export default function ProductsRoute() {

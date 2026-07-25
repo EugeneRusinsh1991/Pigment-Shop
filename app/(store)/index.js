@@ -1,6 +1,6 @@
 import React from 'react';
 import { useCatalogRootData } from '@/hooks/useCatalogViewData';
-import CatalogView from '@/components/CatalogView';
+import CatalogView from '@/features/catalog/CatalogView';
 import PageTransition from '@/components/PageTransition';
 
 export default function HomeRoute() {

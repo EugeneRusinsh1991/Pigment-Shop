@@ -2,7 +2,7 @@ import React from 'react';
 import { useWindowDimensions } from 'react-native';
 import { useLocalSearchParams } from 'expo-router';
 import { useTheme } from '@/context/ThemeContext';
-import CatalogView from '@/components/CatalogView';
+import CatalogView from '@/features/catalog/CatalogView';
 import PageTransition from '@/components/PageTransition';
 
 export default function CatalogCategoryRoute() {

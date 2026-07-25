@@ -1,5 +1,5 @@
 import React from 'react';
-import CartView from '@/components/CartView';
+import CartView from '@/features/cart/CartView';
 import PageTransition from '@/components/PageTransition';
 
 export default function CartRoute() {

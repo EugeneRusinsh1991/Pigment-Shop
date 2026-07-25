@@ -1,8 +1,8 @@
 import React from 'react';
 import { View } from 'react-native';
 import { Link } from 'expo-router';
-import CategoryCard from './CategoryCard';
-import ProductCard from './ProductCard';
+import CategoryCard from '../features/catalog/CategoryCard';
+import ProductCard from '../features/product/ProductCard';
 import NavigationCard from './NavigationCard';
 
 /**

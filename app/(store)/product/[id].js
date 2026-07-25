@@ -2,7 +2,7 @@ import React from 'react';
 import { useLocalSearchParams } from 'expo-router';
 import { useTheme } from '@/context/ThemeContext';
 import { useCatalog } from '@/context/CatalogContext';
-import ProductPage from '@/components/ProductPage';
+import ProductPage from '@/features/product/ProductPage';
 import PageTransition from '@/components/PageTransition';
 
 export default function ProductRoute() {
