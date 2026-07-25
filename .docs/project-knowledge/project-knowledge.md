@@ -3,7 +3,7 @@
 ## 💡 System Architecture Overview
 The application is a multi-platform e-commerce shop built on **Expo / React Native Web** using Expo Router. 
 
-### Key Architectural Systems
+### Key Architectural Systems & Subsystem Knowledge
 
 1. **Routing Shell (`app/`)**:
    - `app/_layout.js` acts as the root component wrapping global Context providers.
@@ -19,3 +19,16 @@ The application is a multi-platform e-commerce shop built on **Expo / React Nati
 
 4. **UI Primitive Hierarchy (`src/components/`)**:
    - Centralized components for buttons, inputs, modals, and product cards.
+
+5. **Browser Automation Subsystem**:
+   - Detailed in [browser-automation.md](file:///d:/Magazine/_PigmentShop/.docs/project-knowledge/browser-automation.md).
+
+6. **Decision & Navigation Engine**:
+   - Detailed in [decision-engine.md](file:///d:/Magazine/_PigmentShop/.docs/project-knowledge/decision-engine.md).
+
+7. **Observability Subsystem**:
+   - Detailed in [observability.md](file:///d:/Magazine/_PigmentShop/.docs/project-knowledge/observability.md).
+
+8. **State Machine Architecture**:
+   - Detailed in [state-machine.md](file:///d:/Magazine/_PigmentShop/.docs/project-knowledge/state-machine.md).
+

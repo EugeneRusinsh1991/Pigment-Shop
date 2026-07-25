@@ -2550,5 +2550,35 @@
         }
       ]
     }
+  },
+  "src_2026-07-25_20-25_smoke-report.json_152files": {
+    "timestamp": "2026-07-25T17:25:12.830Z",
+    "diff": {
+      "added": 52,
+      "removed": 27,
+      "modified": 100,
+      "topFolders": [
+        {
+          "folder": ".docs/automation-browser-log/screenshots",
+          "count": 40
+        },
+        {
+          "folder": ".playwright/user-data/Default",
+          "count": 12
+        },
+        {
+          "folder": ".playwright/user-data",
+          "count": 7
+        },
+        {
+          "folder": ".playwright/user-data/Default/Network",
+          "count": 7
+        },
+        {
+          "folder": ".docs/architecture-audit",
+          "count": 6
+        }
+      ]
+    }
   }
 }

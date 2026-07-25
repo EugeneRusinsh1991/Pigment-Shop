@@ -2,22 +2,22 @@
   "summary": {
     "visitedScreens": 0,
     "visitedInteractions": 0,
-    "successfulInteractions": 0,
-    "failedInteractions": 0,
-    "warnings": 1,
-    "errors": 0,
+    "successfulInteractions": 40,
+    "failedInteractions": 1,
+    "warnings": 0,
+    "errors": 1,
     "executionDurationMs": 0
   },
-  "failures": [],
-  "warnings": [
+  "failures": [
     {
-      "screen": "http://localhost:8081/admin",
-      "interaction": "Initial Load",
-      "elementIdentifier": "None",
-      "event": "Runtime",
-      "timestamp": 1784996518472,
-      "errorType": "Console Warning",
-      "errorMessage": "\"shadow*\" style props are deprecated. Use \"boxShadow\"."
+      "screen": "http://localhost:8081/",
+      "interaction": "Click",
+      "elementIdentifier": "card|Card|/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]",
+      "event": "AfterInteraction",
+      "timestamp": 1785000277055,
+      "errorType": "Health Check Evaluation Failed",
+      "errorMessage": "[Application Bug] page.evaluate: Target page, context or browser has been closed"
     }
-  ]
+  ],
+  "warnings": []
 }

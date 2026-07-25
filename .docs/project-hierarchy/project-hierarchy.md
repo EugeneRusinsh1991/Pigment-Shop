@@ -3,7 +3,7 @@
 ## 🏗️ System Architecture & Stack
 - **Framework**: Expo / React Native Web (Expo Router)
 - **State Management**: React Context (`src/context/`)
-- **Theme & Design System**: Tokenized system (`src/theme/tokens.js`, `AppStyles.js`)
+- **Theme & Design System**: Tokenized design system (`src/theme/tokens.js`, `AppStyles.js`)
 - **Routing Shell**: Expo Router (`app/` directory)
 
 ---
@@ -11,17 +11,28 @@
 ## 📂 Primary Physical Navigation
 
 ### 1. Application Shell & Routing (`app/`)
-- `app/_layout.js`: Global root layout & provider wrappers.
-- `app/(store)/`: Storefront customer pages (Catalog, Cart, ProductDetails, Checkout).
-- `app/admin/`: Administrative dashboard & management interfaces.
+- [app/_layout.js](file:///d:/Magazine/_PigmentShop/app/_layout.js): Root layout & provider wrapper.
+- [app/(store)/](file:///d:/Magazine/_PigmentShop/app/\(store\)/): Storefront routes (Catalog, Cart, Product Details, Checkout).
+- [app/admin/](file:///d:/Magazine/_PigmentShop/app/admin/): Administrative dashboard & management interfaces.
 
 ### 2. UI Components & Visual Primitives (`src/components/`)
-- `src/components/`: Core UI components (Buttons, Inputs, Modals, Cards).
-- `src/components/Admin/`: Admin-specific presentation components.
+- [src/components/](file:///d:/Magazine/_PigmentShop/src/components/): Visual primitives and reusable components.
+- [src/components/Admin/](file:///d:/Magazine/_PigmentShop/src/components/Admin/): Admin management presentation components.
 
 ### 3. Business Domains & Data Layer (`src/`)
-- `src/context/`: Global providers (Theme, Cart, Auth, Language).
-- `src/domain/`: Domain logic and models.
-- `src/services/`: API, Firebase, and Storage integrations.
-- `src/hooks/`: Custom React hooks.
-- `src/theme/`: Design tokens, colors, radii, and typography.
+- [src/context/](file:///d:/Magazine/_PigmentShop/src/context/): Global providers (Theme, Cart, Auth, Language).
+- [src/domain/](file:///d:/Magazine/_PigmentShop/src/domain/): Core domain logic & business rules.
+- [src/features/](file:///d:/Magazine/_PigmentShop/src/features/): Feature-specific modules.
+- [src/services/](file:///d:/Magazine/_PigmentShop/src/services/): API, Storage, and external integrations.
+- [src/hooks/](file:///d:/Magazine/_PigmentShop/src/hooks/): React custom hooks.
+- [src/theme/](file:///d:/Magazine/_PigmentShop/src/theme/): Tokenized color palettes, typography, and styling helpers.
+
+---
+
+## 🛠️ Debug & Automation Tools
+
+- **Browser Automation Specs**: `.docs/browser-automation-data-editing/`
+- **Automation Logs**: `.docs/automation-browser-log/` and `.docs/manual-browser-log/`
+- **Utility Scripts**: `scripts/` (media manifests, database regeneration, crawlers, Playwright debug helpers)
+- **Auditing Framework**: `.docs/ai-audit-framework/`
+
