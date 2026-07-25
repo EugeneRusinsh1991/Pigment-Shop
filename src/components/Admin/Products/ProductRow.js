@@ -8,7 +8,7 @@ import {
 } from './ProductRowComponents';
 import { TabletProductRow, DesktopProductRow } from './ProductRowVariants';
 
-export default function ProductRow({ product, index, onEdit }) {
+export default function ProductRow({ product, index, onEdit, onDelete }) {
   const { lang } = useTheme();
   const { width } = useWindowDimensions();
   const label = resolveLocalizedValue(product.label, lang);
@@ -26,6 +26,7 @@ export default function ProductRow({ product, index, onEdit }) {
         effectivePrice={effectivePrice}
         highlightStyle={highlightStyle}
         onEdit={onEdit}
+        onDelete={onDelete}
       />
     );
   }
@@ -38,6 +39,8 @@ export default function ProductRow({ product, index, onEdit }) {
       effectivePrice={effectivePrice}
       highlightStyle={highlightStyle}
       onEdit={onEdit}
+      onDelete={onDelete}
     />
   );
 }
+

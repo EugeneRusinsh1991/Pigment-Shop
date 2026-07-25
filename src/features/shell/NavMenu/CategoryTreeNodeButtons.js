@@ -1,8 +1,7 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import { useRouter } from 'expo-router';
-import { AnimatedButton } from '../../../components/Button';
-import { IconButton } from '../../../components/Button';
+import Button, { IconButton } from '../../../components/Button';
 import { ChevronDownIcon, ChevronRightIcon } from '../../../components/Icons';
 import { getNavItemIcon } from './NavItemList';
 import styles from './NavMenuStyles';
@@ -19,7 +18,9 @@ export function CategoryLabelButton({ isDark, node, iconColor, onClose, isSelect
   };
 
   return (
-    <AnimatedButton
+    <Button
+      variant="unstyled"
+      isDark={isDark}
       style={StyleSheet.flatten([
         styles.itemRow,
         isDark ? styles.itemRowDark : styles.itemRowLight,
@@ -35,7 +36,7 @@ export function CategoryLabelButton({ isDark, node, iconColor, onClose, isSelect
       <Text style={[styles.itemLabel, isDark ? styles.textDark : styles.textLight]} numberOfLines={1}>
         {node.label}
       </Text>
-    </AnimatedButton>
+    </Button>
   );
 }
 
@@ -44,8 +45,9 @@ export function CategoryExpandButton({ isDark, arrowColor, isExpanded, onPress, 
     <IconButton
       icon={isExpanded ? <ChevronDownIcon color={arrowColor} size={14} /> : <ChevronRightIcon color={arrowColor} size={14} />}
       onPress={onPress}
-      size={36}
+      size="sm"
       variant="transparent"
+      isDark={isDark}
       animated={true}
     />
   );

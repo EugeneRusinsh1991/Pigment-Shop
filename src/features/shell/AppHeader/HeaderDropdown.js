@@ -1,6 +1,6 @@
 import React from 'react';
-import { Animated, Text } from 'react-native';
-import { AnimatedButton } from '@/components/Button';
+import { Animated } from 'react-native';
+import { ChipButton } from '@/components/Button';
 import styles from './AppHeaderStyles';
 import { useDropdownAnimation } from '../../../hooks/useDropdownAnimation';
 
@@ -23,18 +23,16 @@ export default function HeaderDropdown({ isVisible, isDark, items, selectedValue
       ]}
     >
       {items.map((item) => (
-        <AnimatedButton
+        <ChipButton
           key={item.code}
-          style={[
-            styles.dropdownItem,
-            selectedValue === item.code && ic(styles.dropdownItemActiveDark, styles.dropdownItemActiveLight)
-          ]}
+          label={item.label}
+          active={selectedValue === item.code}
+          isDark={isDark}
           onPress={() => onSelect(item.code)}
-        >
-          <Text style={[styles.dropdownText, ic(styles.textDark, styles.textLight)]}>
-            {item.label}
-          </Text>
-        </AnimatedButton>
+          variant="rect"
+          size="sm"
+          style={{ marginVertical: 2, width: '100%' }}
+        />
       ))}
     </Animated.View>
   );

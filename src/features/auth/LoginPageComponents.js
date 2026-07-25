@@ -4,8 +4,7 @@ import styles from './LoginPageStyles';
 import { LockIcon, EyeIcon, EyeOffIcon, ForwardArrowIcon } from '@/components/Icons';
 import { useTheme } from '../../context/ThemeContext';
 
-import { IconButton } from '../../components/Button';
-import { AnimatedButton } from '../../components/Button';
+import { Button, IconButton, AnimatedButton } from '../../components/Button';
 import { FieldInput } from '../../components/Admin/SharedFormComponents';
 
 const ic = (isDark, dark, light) => (isDark ? dark : light);
@@ -60,15 +59,17 @@ export function LoginFooter({ isRegister, isDark, setIsRegister, setError }) {
     <View style={styles.footer}>
       <Text style={[styles.footerText, ic(isDark, styles.subtextDark, styles.subtextLight)]}>
         {isRegister ? t('loginAlreadyHaveAccount') : t('loginDontHaveAccount')}{' '}
-        <Text 
-          style={[styles.footerLink, ic(isDark, styles.textDark, styles.textLight)]}
+        <Button
+          testID="login-toggle-mode-button"
+          variant="ghost"
+          title={isRegister ? t('loginFooterLogIn') : t('loginFooterCreateOne')}
+          size="sm"
+          isDark={isDark}
           onPress={() => {
             setIsRegister(!isRegister);
             setError('');
           }}
-        >
-          {isRegister ? t('loginFooterLogIn') : t('loginFooterCreateOne')}
-        </Text>
+        />
       </Text>
     </View>
   );
@@ -91,9 +92,14 @@ export function ForgotPasswordLink({ isRegister, isDark }) {
   const { t } = useTheme();
   if (isRegister) return null;
   return (
-    <AnimatedButton hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}>
-      <Text style={[styles.forgotText, ic(isDark, styles.subtextDark, styles.subtextLight)]}>{t('loginForgotPassword')}</Text>
-    </AnimatedButton>
+    <Button
+      testID="login-forgot-password-link"
+      variant="ghost"
+      title={t('loginForgotPassword')}
+      size="sm"
+      isDark={isDark}
+      hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
+    />
   );
 }
 

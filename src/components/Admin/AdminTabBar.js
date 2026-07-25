@@ -1,42 +1,39 @@
 import React from 'react';
-import { ScrollView, Text, TouchableOpacity } from 'react-native';
+import { ScrollView } from 'react-native';
 import styles from './AdminPanelStyles';
 import { AnalyticsIcon, ClipboardIcon, BoxIcon, FolderIcon, ImageIcon, UsersIcon } from '@/components/Icons';
 import { useTheme } from '../../context/ThemeContext';
-import { colors } from '../../theme/tokens';
+import { ChipButton } from '../Button';
 
 const ICON_SIZE = 16;
-const ICON_MARGIN = 8;
 
 const TABS = [
-  { id: 'analytics', labelKey: 'adminTabAnalytics', icon: (color) => <AnalyticsIcon color={color} size={ICON_SIZE} style={{ marginRight: ICON_MARGIN }} /> },
-  { id: 'orders', labelKey: 'adminTabOrders', icon: (color) => <ClipboardIcon color={color} size={ICON_SIZE} style={{ marginRight: ICON_MARGIN }} /> },
-  { id: 'products', labelKey: 'adminTabProducts', icon: (color) => <BoxIcon color={color} size={ICON_SIZE} style={{ marginRight: ICON_MARGIN }} /> },
-  { id: 'categories', labelKey: 'adminTabCategories', icon: (color) => <FolderIcon color={color} size={ICON_SIZE} style={{ marginRight: ICON_MARGIN }} /> },
-  { id: 'banners', labelKey: 'adminTabBanners', icon: (color) => <ImageIcon color={color} size={ICON_SIZE} style={{ marginRight: ICON_MARGIN }} /> },
-  { id: 'users', labelKey: 'adminTabUsers', icon: (color) => <UsersIcon color={color} size={ICON_SIZE} style={{ marginRight: ICON_MARGIN }} /> },
+  { id: 'analytics', labelKey: 'adminTabAnalytics', Icon: AnalyticsIcon },
+  { id: 'orders', labelKey: 'adminTabOrders', Icon: ClipboardIcon },
+  { id: 'products', labelKey: 'adminTabProducts', Icon: BoxIcon },
+  { id: 'categories', labelKey: 'adminTabCategories', Icon: FolderIcon },
+  { id: 'banners', labelKey: 'adminTabBanners', Icon: ImageIcon },
+  { id: 'users', labelKey: 'adminTabUsers', Icon: UsersIcon },
 ];
 
 export default function AdminTabBar({ activeTab, onSelect }) {
-  const { t, isDark } = useTheme();
+  const { t } = useTheme();
   return (
-    <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.tabBar} contentContainerStyle={{ paddingRight: 24 }}>
+    <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.tabBar} contentContainerStyle={{ paddingRight: 24, gap: 8, paddingVertical: 8, alignItems: 'center' }}>
       {TABS.map((tab) => {
         const isActive = activeTab === tab.id;
-        const color = isActive ? (isDark ? colors.white : colors.dark) : colors.slateText;
+        const IconComponent = tab.Icon;
         return (
-          <TouchableOpacity
+          <ChipButton
             key={tab.id}
-            style={[styles.tab, isActive && styles.tabActive, { flexDirection: 'row', alignItems: 'center' }]}
+            label={t(tab.labelKey)}
+            leftIcon={<IconComponent size={ICON_SIZE} />}
+            active={isActive}
             onPress={() => onSelect(tab.id)}
-          >
-            {tab.icon(color)}
-            <Text style={[styles.tabText, isActive && styles.tabTextActive]}>
-              {t(tab.labelKey)}
-            </Text>
-          </TouchableOpacity>
+          />
         );
       })}
     </ScrollView>
   );
 }
+

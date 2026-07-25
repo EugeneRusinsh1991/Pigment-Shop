@@ -3223,5 +3223,35 @@
         }
       ]
     }
+  },
+  "src_07-26_00-42_smoke-report.json_24files": {
+    "timestamp": "2026-07-25T21:42:43.390Z",
+    "diff": {
+      "added": 3,
+      "removed": 7,
+      "modified": 21,
+      "topFolders": [
+        {
+          "folder": "src/features/shell/NavMenu",
+          "count": 4
+        },
+        {
+          "folder": ".todos/buttons/tasks",
+          "count": 3
+        },
+        {
+          "folder": ".todos/buttons",
+          "count": 3
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        },
+        {
+          "folder": "src/components/Admin",
+          "count": 2
+        }
+      ]
+    }
   }
 }

@@ -1,5 +1,9 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text } from 'react-native';
+import { AnimatedButton } from '../../Button';
+import { calculateHitSlop } from '../../../theme/buttonCommon';
+import { localStyles } from './DateRangeCalendarStyles';
+
 const isSameDay = (d1, d2) => {
   if (!d1 || !d2) return false;
   return d1.getFullYear() === d2.getFullYear() &&
@@ -14,7 +18,6 @@ const isBetween = (d, start, end) => {
   const e = new Date(end.getFullYear(), end.getMonth(), end.getDate()).getTime();
   return t >= s && t <= e;
 };
-import { localStyles } from './DateRangeCalendarStyles';
 
 function getHighlightedRange(start, end, hover) {
   if (!start) return { s: null, e: null };
@@ -99,15 +102,16 @@ export function CalendarDayCell({
 
   return (
     <View style={cellStyle}>
-      <TouchableOpacity
+      <AnimatedButton
         style={buttonStyle}
         onPress={() => handleDayPress(cellDate)}
         onMouseEnter={() => handleHoverEnter(shouldHover, cellDate, setHoverDate)}
         onMouseLeave={() => handleHoverLeave(shouldHover, setHoverDate)}
-        activeOpacity={0.7}
+        hitSlop={calculateHitSlop(32, 32)}
       >
         <Text style={textStyle}>{cell.dayLabel}</Text>
-      </TouchableOpacity>
+      </AnimatedButton>
     </View>
   );
 }
+

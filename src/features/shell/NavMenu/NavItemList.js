@@ -1,5 +1,5 @@
 import { Text, View } from 'react-native';
-import { AnimatedButton } from '@/components/Button';
+import Button from '@/components/Button';
 import {
     BagIcon,
     BrowIcon,
@@ -32,7 +32,7 @@ const ICON_MATCHERS = [
     icon: LipIcon,
   },
   {
-    test: (id, label) => id.includes('needle') || id.includes('cartridge') || label.includes('игл') || label.includes('картр') || label.includes('голк'),
+    test: (id, label) => id.includes('needle') || id.includes('cartridge') || label.includes('игла') || label.includes('картр') || label.includes('голк'),
     icon: NeedleIcon,
   },
 ];
@@ -69,8 +69,10 @@ function NavItem({ item, isDark, onSelect }) {
   const chevronColor = isDark ? '#475569' : '#94a3b8';
 
   return (
-    <AnimatedButton
+    <Button
       key={item.id}
+      variant="ghost"
+      isDark={isDark}
       style={[styles.itemRow, isDark ? styles.itemRowDark : styles.itemRowLight, { minHeight: 44 }]}
       onPress={() => onSelect(item)}
       activeOpacity={0.7}
@@ -82,7 +84,7 @@ function NavItem({ item, isDark, onSelect }) {
         {item.label}
       </Text>
       <ChevronRightIcon color={chevronColor} size={14} />
-    </AnimatedButton>
+    </Button>
   );
 }
 

@@ -1,6 +1,8 @@
 import { Text, TouchableOpacity, View } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
 import { DataTableCell, DataTableRow } from '../../DataTable/DataTable';
+import { IconButton } from '@/components/Button';
+import { EditIcon, TrashIcon } from '@/components/Icons';
 import {
   DiscountCell,
   getPlaceholderVal,
@@ -50,7 +52,7 @@ function MobileMetaGrid({ product, t }) {
   );
 }
 
-export function MobileProductRow({ product, index, label, effectivePrice, highlightStyle, onEdit }) {
+export function MobileProductRow({ product, index, label, effectivePrice, highlightStyle, onEdit, onDelete }) {
   const { t } = useTheme();
   return (
     <TouchableOpacity
@@ -58,7 +60,7 @@ export function MobileProductRow({ product, index, label, effectivePrice, highli
       onPress={() => onEdit(product)}
       activeOpacity={0.85}
     >
-      {/* Top: name + badge + price */}
+      {/* Top: name + badge + price + action */}
       <View style={styles.cardTopRow}>
         <View style={{ flex: 1 }}>
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, flexWrap: 'wrap' }}>
@@ -67,7 +69,23 @@ export function MobileProductRow({ product, index, label, effectivePrice, highli
           </View>
           {product.sku ? <Text style={styles.productSku}>{product.sku}</Text> : null}
         </View>
-        <Text style={styles.priceText}>${effectivePrice.toLocaleString()}</Text>
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
+          <Text style={styles.priceText}>${effectivePrice.toLocaleString()}</Text>
+          <IconButton
+            icon={<EditIcon size={14} />}
+            onPress={() => onEdit(product)}
+            size="sm"
+            variant="transparent"
+          />
+          {onDelete && (
+            <IconButton
+              icon={<TrashIcon size={14} />}
+              onPress={() => onDelete(product)}
+              size="sm"
+              variant="transparent"
+            />
+          )}
+        </View>
       </View>
 
       <MobileMetaGrid product={product} t={t} />
@@ -75,7 +93,7 @@ export function MobileProductRow({ product, index, label, effectivePrice, highli
   );
 }
 
-export function TabletProductRow({ product, index, label, effectivePrice, highlightStyle, onEdit }) {
+export function TabletProductRow({ product, index, label, effectivePrice, highlightStyle, onEdit, onDelete }) {
   return (
     <TouchableOpacity
       style={[getRowStyle(index, false), highlightStyle]}
@@ -98,12 +116,28 @@ export function TabletProductRow({ product, index, label, effectivePrice, highli
         <View style={styles.desktopStatusCell}>
           <StatusBadge active={product.active} />
         </View>
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
+          <IconButton
+            icon={<EditIcon size={14} />}
+            onPress={() => onEdit(product)}
+            size="sm"
+            variant="transparent"
+          />
+          {onDelete && (
+            <IconButton
+              icon={<TrashIcon size={14} />}
+              onPress={() => onDelete(product)}
+              size="sm"
+              variant="transparent"
+            />
+          )}
+        </View>
       </View>
     </TouchableOpacity>
   );
 }
 
-export function DesktopProductRow({ product, index, label, effectivePrice, highlightStyle, onEdit }) {
+export function DesktopProductRow({ product, index, label, effectivePrice, highlightStyle, onEdit, onDelete }) {
   return (
     <DataTableRow
       index={index}
@@ -142,6 +176,23 @@ export function DesktopProductRow({ product, index, label, effectivePrice, highl
       <DataTableCell style={styles.colPrice}>
         <Text style={styles.priceEmphasis}>${effectivePrice.toLocaleString()}</Text>
       </DataTableCell>
+      <DataTableCell style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
+        <IconButton
+          icon={<EditIcon size={14} />}
+          onPress={() => onEdit(product)}
+          size="sm"
+          variant="transparent"
+        />
+        {onDelete && (
+          <IconButton
+            icon={<TrashIcon size={14} />}
+            onPress={() => onDelete(product)}
+            size="sm"
+            variant="transparent"
+          />
+        )}
+      </DataTableCell>
     </DataTableRow>
   );
 }
+

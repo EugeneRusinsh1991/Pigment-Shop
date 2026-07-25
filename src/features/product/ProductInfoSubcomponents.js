@@ -23,13 +23,21 @@ export function QtySelector({ qty, isDark, onDecrease, onIncrease }) {
 
   return (
     <View style={[styles.qtyRow, isDark ? styles.qtyRowDark : styles.qtyRowLight]}>
-      <AnimatedButton testID="product-qty-minus" onPress={onDecrease} style={styles.qtyBtn}>
-        <Text style={[styles.qtyBtnText, tc]}>−</Text>
-      </AnimatedButton>
+      <IconButton
+        testID="product-qty-minus"
+        icon={<Text style={[styles.qtyBtnText, tc]}>−</Text>}
+        onPress={onDecrease}
+        size="sm"
+        variant="transparent"
+      />
       <Text style={[styles.qtyVal, tc]}>{qty}</Text>
-      <AnimatedButton testID="product-qty-plus" onPress={onIncrease} style={styles.qtyBtn}>
-        <Text style={[styles.qtyBtnText, tc]}>+</Text>
-      </AnimatedButton>
+      <IconButton
+        testID="product-qty-plus"
+        icon={<Text style={[styles.qtyBtnText, tc]}>+</Text>}
+        onPress={onIncrease}
+        size="sm"
+        variant="transparent"
+      />
     </View>
   );
 }

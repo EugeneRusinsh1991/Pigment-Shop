@@ -1,48 +1,9 @@
 import { useState } from 'react';
 import { Text, View } from 'react-native';
-import { AnimatedButton } from '@/components/Button';
+import { AnimatedButton, ChipButton } from '@/components/Button';
 import { ThemeIcon } from '@/components/Icons';
 import styles from './NavMenuStyles';
-import { ACCENT_COLOR, LANGUAGES, CURRENCIES } from './constants';
-
-const BORDER_COLORS = {
-  'selected-dark':  ACCENT_COLOR,
-  'selected-light': ACCENT_COLOR,
-  'normal-dark':    '#242424',
-  'normal-light':   '#e8edf5',
-};
-
-const BG_COLORS = {
-  'selected-dark':  'rgba(227, 27, 35, 0.15)',
-  'selected-light': 'rgba(227, 27, 35, 0.08)',
-  'normal-dark':    'transparent',
-  'normal-light':   'transparent',
-};
-
-const TEXT_COLORS = {
-  'selected-dark':  ACCENT_COLOR,
-  'selected-light': ACCENT_COLOR,
-  'normal-dark':    '#94a3b8',
-  'normal-light':   '#475569',
-};
-
-function getLangButtonStyles(isSelected, isDark) {
-  const key = `${isSelected ? 'selected' : 'normal'}-${isDark ? 'dark' : 'light'}`;
-  return {
-    btn: {
-      width: '100%',
-      paddingVertical: 10,
-      minHeight: 44,
-      alignItems: 'center',
-      justifyContent: 'center',
-      borderRadius: 8,
-      borderWidth: 1,
-      borderColor: BORDER_COLORS[key],
-      backgroundColor: BG_COLORS[key],
-    },
-    text: { fontSize: 12, fontWeight: isSelected ? '700' : '500', color: TEXT_COLORS[key] },
-  };
-}
+import { LANGUAGES, CURRENCIES } from './constants';
 
 function getThemeToggleLabel(isDark) {
   return isDark ? 'Switch to light theme' : 'Switch to dark theme';
@@ -108,34 +69,32 @@ export default function LanguageSelector({ isDark, lang, onSelectLanguage, onTog
         <View style={{ flexDirection: 'row', gap: 10 }}>
           {/* Column 1: Language buttons (RU, UKR, ENG) */}
           <View style={{ flex: 1, flexDirection: 'column', gap: 8 }}>
-            {LANGUAGES.map((item) => {
-              const s = getLangButtonStyles(lang === item.code, isDark);
-              return (
-                <AnimatedButton
-                  key={item.code}
-                  style={s.btn}
-                  onPress={() => onSelectLanguage(item.code)}
-                >
-                  <Text style={s.text}>{item.label}</Text>
-                </AnimatedButton>
-              );
-            })}
+            {LANGUAGES.map((item) => (
+              <ChipButton
+                key={item.code}
+                label={item.label}
+                active={lang === item.code}
+                isDark={isDark}
+                onPress={() => onSelectLanguage(item.code)}
+                variant="rect"
+                style={{ width: '100%' }}
+              />
+            ))}
           </View>
 
           {/* Column 2: Currency buttons (UAH, USD) */}
           <View style={{ flex: 1, flexDirection: 'column', gap: 8 }}>
-            {CURRENCIES.map((item) => {
-              const s = getLangButtonStyles(selectedCurrency === item.code, isDark);
-              return (
-                <AnimatedButton
-                  key={item.code}
-                  style={s.btn}
-                  onPress={() => setSelectedCurrency(item.code)}
-                >
-                  <Text style={s.text}>{item.label}</Text>
-                </AnimatedButton>
-              );
-            })}
+            {CURRENCIES.map((item) => (
+              <ChipButton
+                key={item.code}
+                label={item.label}
+                active={selectedCurrency === item.code}
+                isDark={isDark}
+                onPress={() => setSelectedCurrency(item.code)}
+                variant="rect"
+                style={{ width: '100%' }}
+              />
+            ))}
           </View>
         </View>
       )}

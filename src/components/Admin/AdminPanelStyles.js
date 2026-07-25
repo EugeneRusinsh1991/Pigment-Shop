@@ -58,28 +58,8 @@ export default StyleSheet.create({
     borderBottomColor: colors.borderLightAlt,
     paddingHorizontal: 24,
   },
-  tab: {
-    paddingVertical: 14,
-    paddingHorizontal: 4,
-    marginRight: 28,
-    borderBottomWidth: 2,
-    borderBottomColor: 'transparent',
-  },
-  tabActive: {
-    borderBottomColor: colors.accent,
-  },
-  tabText: {
-    fontSize: 13,
-    fontWeight: '500',
-    color: colors.secondaryDarkText,
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  tabTextActive: {
-    color: colors.dark,
-    fontWeight: '700',
-  },
   content: {
     flex: 1,
   },
 });
+

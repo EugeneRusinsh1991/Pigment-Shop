@@ -25,15 +25,9 @@ export function PresetButton({ mode, preset, label, onPress, style }) {
       label={label}
       active={isActive}
       onPress={() => onPress(preset)}
-      style={[
-        {
-          minWidth: 140,
-          backgroundColor: isActive ? '#E31B23' : '#000000',
-          borderColor: isActive ? '#E31B23' : '#000000',
-        },
-        style,
-      ]}
-      textStyle={{ color: '#FFFFFF', fontWeight: '600' }}
+      variant="pill"
+      style={style}
     />
   );
 }
+

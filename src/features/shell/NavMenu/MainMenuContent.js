@@ -2,8 +2,7 @@ import { useState, useCallback } from 'react';
 import { Platform, UIManager, LayoutAnimation, Text, View, StyleSheet } from 'react-native';
 import { useRouter } from 'expo-router';
 
-import { AnimatedButton } from '../../../components/Button';
-import { IconButton } from '../../../components/Button';
+import Button, { IconButton } from '../../../components/Button';
 import { ChevronDownIcon, ChevronRightIcon } from '../../../components/Icons';
 import { useTheme } from '../../../context/ThemeContext';
 import { useLanguage } from '../../../context/LanguageContext';
@@ -26,7 +25,9 @@ function MenuRowItem({ isDark, item, iconColor, onPress, style, href, onClose })
   };
 
   return (
-    <AnimatedButton
+    <Button
+      variant="ghost"
+      isDark={isDark}
       style={StyleSheet.flatten([styles.itemRow, isDark ? styles.itemRowDark : styles.itemRowLight, { paddingVertical: 12, minHeight: 44 }, style])}
       onPress={handlePress}
       activeOpacity={0.7}
@@ -37,7 +38,7 @@ function MenuRowItem({ isDark, item, iconColor, onPress, style, href, onClose })
       <Text style={[styles.itemLabel, isDark ? styles.textDark : styles.textLight, styles.mainNavLabel, { fontWeight: '700' }]} numberOfLines={1}>
         {item.label}
       </Text>
-    </AnimatedButton>
+    </Button>
   );
 }
 

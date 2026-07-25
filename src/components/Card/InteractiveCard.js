@@ -1,9 +1,9 @@
-import React from 'react';
-import { StyleSheet, TouchableOpacity, Animated, View } from 'react-native';
+import React, { useRef } from 'react';
+import { StyleSheet, TouchableOpacity, Animated, View, Platform } from 'react-native';
 import ScrollFadeUp from '../ScrollFadeUp';
 import CardShadow from './CardShadow';
 import useHoverAnimation from '../../hooks/useHoverAnimation';
-import { colors } from '../../theme/tokens';
+import { colors, motion } from '../../theme/tokens';
 
 const InteractiveCard = React.forwardRef(({
   isDark,
@@ -21,8 +21,30 @@ const InteractiveCard = React.forwardRef(({
   ...rest
 }, ref) => {
   const { hoverAnim, translateY, bind } = useHoverAnimation();
+  const scaleAnim = useRef(new Animated.Value(1)).current;
   const defaultLightBg = lightBgColor || colors.productCardLight;
   const defaultDarkBg = darkBgColor || colors.productCardDark;
+
+  const handlePressIn = (e) => {
+    bind.onPressIn(e);
+    rest.onPressIn?.(e);
+    Animated.timing(scaleAnim, {
+      toValue: motion.press.scale,
+      duration: motion.press.duration,
+      useNativeDriver: Platform.OS !== 'web',
+    }).start();
+  };
+
+  const handlePressOut = (e) => {
+    bind.onPressOut(e);
+    rest.onPressOut?.(e);
+    Animated.spring(scaleAnim, {
+      toValue: 1,
+      friction: motion.press.friction,
+      tension: motion.press.tension,
+      useNativeDriver: Platform.OS !== 'web',
+    }).start();
+  };
 
   const computedOuterStyle = {
     width: cardWidth,
@@ -40,7 +62,7 @@ const InteractiveCard = React.forwardRef(({
     flex: 1,
     width: '100%',
     height: '100%',
-    transform: [{ translateY }],
+    transform: [{ translateY }, { scale: scaleAnim }],
     borderRadius,
     overflow: 'visible',
   };
@@ -54,8 +76,8 @@ const InteractiveCard = React.forwardRef(({
           {...rest}
           onMouseEnter={(e) => { bind.onMouseEnter(e); rest.onMouseEnter?.(e); }}
           onMouseLeave={(e) => { bind.onMouseLeave(e); rest.onMouseLeave?.(e); }}
-          onPressIn={(e) => { bind.onPressIn(e); rest.onPressIn?.(e); }}
-          onPressOut={(e) => { bind.onPressOut(e); rest.onPressOut?.(e); }}
+          onPressIn={handlePressIn}
+          onPressOut={handlePressOut}
         >
           <View style={{
             position: 'absolute',

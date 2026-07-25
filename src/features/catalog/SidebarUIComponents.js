@@ -15,7 +15,13 @@ export function SectionTitle({ label, isDark, isPrice }) {
 
 export function Checkbox({ checked, label, onToggle, isDark, testID }) {
   return (
-    <AnimatedButton testID={testID || `filter-checkbox-${label}`} style={styles.checkRow} onPress={onToggle}>
+    <AnimatedButton
+      testID={testID || `filter-checkbox-${label}`}
+      style={styles.checkRow}
+      onPress={onToggle}
+      accessibilityRole="checkbox"
+      accessibilityState={{ checked: !!checked }}
+    >
       <View style={[styles.checkbox, checked && styles.checkboxActive, { justifyContent: 'center', alignItems: 'center' }]}>
         {checked && <CheckIcon color={colors.white} size={10} />}
       </View>
