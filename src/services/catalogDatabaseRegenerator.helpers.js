@@ -92,6 +92,22 @@ function markRandomProducts(products, count, applyMark) {
   }
 }
 
+function _buildRootCategory(r, isLow, categories, products) {
+  const rootId = `cat-root-${r}`;
+  const rootCat = buildCategory(rootId, null, 1, `Category ${r + 1}`);
+  categories.push(rootCat);
+
+  const subCount = isLow ? 2 : getRandomInt(2, 4);
+  for (let s = 0; s < subCount; s++) {
+    const subId = `${rootId}-sub-${s}`;
+    const subCat = buildCategory(subId, rootId, 2, `Subcategory ${r + 1}-${s + 1}`);
+    rootCat.childCategoryIds.push(subId);
+    categories.push(subCat);
+    const subSubCount = isLow ? 2 : getRandomInt(2, 4);
+    buildSubSubCategories(rootCat, subCat, r, s, subSubCount, products, categories, isLow);
+  }
+}
+
 export function createRandomCatalogDataset(options = {}) {
   const isLow = options.mode === 'low';
   const categories = [];
@@ -99,20 +115,7 @@ export function createRandomCatalogDataset(options = {}) {
 
   const rootCount = isLow ? 2 : getRandomInt(2, 4);
   for (let r = 0; r < rootCount; r++) {
-    const rootId = `cat-root-${r}`;
-    const rootCat = buildCategory(rootId, null, 1, `Category ${r + 1}`);
-    categories.push(rootCat);
-
-    const subCount = isLow ? 2 : getRandomInt(2, 4);
-    for (let s = 0; s < subCount; s++) {
-      const subId = `${rootId}-sub-${s}`;
-      const subCat = buildCategory(subId, rootId, 2, `Subcategory ${r + 1}-${s + 1}`);
-      rootCat.childCategoryIds.push(subId);
-      categories.push(subCat);
-
-      const subSubCount = isLow ? 2 : getRandomInt(2, 4);
-      buildSubSubCategories(rootCat, subCat, r, s, subSubCount, products, categories, isLow);
-    }
+    _buildRootCategory(r, isLow, categories, products);
   }
 
   const newCount = isLow ? 2 : getRandomInt(3, 8);

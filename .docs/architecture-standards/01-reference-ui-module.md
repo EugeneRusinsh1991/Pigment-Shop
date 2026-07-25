@@ -40,7 +40,7 @@ Every standard UI module must follow this canonical directory structure:
 ```
 src/components/[ModuleName]/
 ├── index.js                     # Public API barrel export
-├── [ModuleName].js              # Core presentational component (< 200 lines)
+├── [ModuleName].js              # Core presentational component
 ├── [ModuleName]Styles.js        # Dynamic token-driven style map factory
 ├── use[ModuleName]Theme.js      # Extracted hook: Theme & dark mode resolution
 ├── use[ModuleName]Animation.js  # Extracted hook: Gesture & animation drivers

@@ -1,22 +1,49 @@
 {
   "summary": {
-    "visitedScreens": 0,
-    "visitedInteractions": 0,
-    "successfulInteractions": 40,
-    "failedInteractions": 0,
+    "visitedScreens": 10,
+    "visitedInteractions": 185,
+    "successfulInteractions": 125,
+    "failedInteractions": 1,
     "warnings": 0,
-    "errors": 1,
-    "executionDurationMs": 0
+    "errors": 4,
+    "executionDurationMs": 76410
   },
   "failures": [
     {
-      "screen": "http://localhost:8081/admin",
+      "screen": "http://localhost:8081/product/prod-2-1-1-1",
       "interaction": "Click",
-      "elementIdentifier": "btn|adminCategoriesAdd...",
-      "event": "ScreenEntered",
-      "timestamp": 1785009623339,
+      "elementIdentifier": "btn|toggleCustomerRevi...",
+      "event": "AfterInteraction",
+      "timestamp": 1785010137332,
       "errorType": "Health Check Evaluation Failed",
       "errorMessage": "[Application Bug] page.evaluate: Target page, context or browser has been closed"
+    },
+    {
+      "screen": "http://localhost:8081/product/prod-2-1-1-1",
+      "interaction": "Click",
+      "elementIdentifier": "btn|toggleCustomerRevi...",
+      "event": "Internal Explorer",
+      "timestamp": 1785010137346,
+      "errorType": "Explorer Error",
+      "errorMessage": "[Application Bug] Failed to go back: page.goBack: Target page, context or browser has been closed"
+    },
+    {
+      "screen": "http://localhost:8081/product/prod-2-1-1-1",
+      "interaction": "Click",
+      "elementIdentifier": "btn|toggleCustomerRevi...",
+      "event": "Internal Explorer",
+      "timestamp": 1785010137355,
+      "errorType": "Explorer Error",
+      "errorMessage": "[Application Bug] Failed to go back: page.goBack: Target page, context or browser has been closed"
+    },
+    {
+      "screen": "http://localhost:8081/product/prod-2-1-1-1",
+      "interaction": "Click",
+      "elementIdentifier": "btn|toggleCustomerRevi...",
+      "event": "Internal Explorer",
+      "timestamp": 1785010137361,
+      "errorType": "Explorer Error",
+      "errorMessage": "[Application Bug] Failed to go back: page.goBack: Target page, context or browser has been closed"
     }
   ],
   "warnings": []

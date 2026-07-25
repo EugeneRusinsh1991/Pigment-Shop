@@ -29,40 +29,43 @@ function extractModalLabel() {
 function extractCardLabel() {
   const cardEl = document.querySelector('[data-component], [id$="Card"], [class*="ProductCard"], [class*="product-card"]');
   if (!cardEl) return null;
-  let compName = cardEl.getAttribute('data-component') || '';
-  if (!compName) {
-    const className = cardEl.className || '';
-    if (typeof className === 'string' && className.includes('ProductCard')) compName = 'ProductCard';
-  }
+  const compName = cardEl.getAttribute('data-component') ||
+    (String(cardEl.className).includes('ProductCard') ? 'ProductCard' : '');
   return compName ? toPascalWords(compName) : null;
 }
 
-export function getLocationHierarchy(stateDump) {
-  const hierarchy = [];
-
+function _safeParsePathname(rawUrl) {
   try {
-    const rawUrl = stateDump?.url || (typeof window !== 'undefined' ? window.location.href : '');
-    if (rawUrl) {
-      const { pathname } = new URL(rawUrl);
-      const segments = parsePathSegments(pathname);
-      hierarchy.push(...(segments.length > 0 ? segments : ['Home']));
-    }
-  } catch (e) {
-    hierarchy.push('Home');
+    return new URL(rawUrl).pathname;
+  } catch {
+    return null;
   }
+}
 
-  if (typeof document !== 'undefined') {
-    try {
-      const modal = extractModalLabel();
-      if (modal && !hierarchy.includes(modal)) hierarchy.push(modal);
+function _resolveUrlSegments(stateDump) {
+  const rawUrl = stateDump?.url || (typeof window !== 'undefined' ? window.location.href : '');
+  if (!rawUrl) return ['Home'];
+  const pathname = _safeParsePathname(rawUrl);
+  if (!pathname) return ['Home'];
+  const segments = parsePathSegments(pathname);
+  return segments.length > 0 ? segments : ['Home'];
+}
 
-      if (hierarchy.length < 4) {
-        const card = extractCardLabel();
-        if (card && !hierarchy.includes(card)) hierarchy.push(card);
-      }
-    } catch (e) {}
-  }
+function _pushIfAbsent(hierarchy, label) {
+  if (label && !hierarchy.includes(label)) hierarchy.push(label);
+}
 
+function _enrichFromDom(hierarchy) {
+  if (typeof document === 'undefined') return;
+  try {
+    _pushIfAbsent(hierarchy, extractModalLabel());
+    if (hierarchy.length < 4) _pushIfAbsent(hierarchy, extractCardLabel());
+  } catch {}
+}
+
+export function getLocationHierarchy(stateDump) {
+  const hierarchy = _resolveUrlSegments(stateDump);
+  _enrichFromDom(hierarchy);
   return hierarchy.length > 0 ? hierarchy : ['App'];
 }
 

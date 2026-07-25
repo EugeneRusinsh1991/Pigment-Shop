@@ -23,10 +23,13 @@ async function loadServerPage(filters, sortKey, cursor = null, pageSize = PAGE_S
 }
 
 function isMissingIndexError(error) {
-  if (error instanceof MissingIndexError) return true;
-  if (error?.code === 'MISSING_INDEX' || error?.message === 'MISSING_INDEX') return true;
-  const msg = typeof error === 'string' ? error : (typeof error?.message === 'string' ? error.message : '');
-  return msg.toLowerCase().includes('index') || msg.includes('MISSING_INDEX');
+  const msg = typeof error === 'string' ? error : String(error?.message ?? '');
+  return (
+    error instanceof MissingIndexError ||
+    error?.code === 'MISSING_INDEX' ||
+    error?.message === 'MISSING_INDEX' ||
+    msg.toLowerCase().includes('index')
+  );
 }
 
 function applyClientPageChange(setCurrentPage, delta) {
