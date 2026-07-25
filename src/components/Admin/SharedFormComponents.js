@@ -117,9 +117,7 @@ export function FieldTextarea({ label, labelIcon, value, onChangeText, placehold
 
 import { CrossIcon } from '@/components/Icons';
 
-import { Button } from '../Button';
-import { ChipButton } from '../Button';
-import { IconButton } from '../Button';
+import { Button, IconButton } from '../Button';
 
 function ModalHeader({ title, onClose, styles }) {
   return (
@@ -174,27 +172,4 @@ export function FormModalLayout({ visible, title, onClose, onSave, styles, cardW
   );
 }
 
-const LANGUAGES = [
-  { code: 'uk', label: 'UA' },
-  { code: 'ru', label: 'RU' },
-  { code: 'en', label: 'EN' },
-];
-
-export function LanguageTabs({ activeLang, onChange }) {
-  return (
-    <View style={{ flexDirection: 'row', gap: 8, marginBottom: 16 }}>
-      {LANGUAGES.map((item) => {
-        const isActive = activeLang === item.code;
-        return (
-          <ChipButton
-            key={item.code}
-            label={item.label}
-            active={isActive}
-            variant="rect"
-            onPress={() => onChange(item.code)}
-          />
-        );
-      })}
-    </View>
-  );
-}
+export { LanguageTabs } from './LanguageTabs';

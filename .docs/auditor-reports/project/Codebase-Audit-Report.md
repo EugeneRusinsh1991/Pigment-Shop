@@ -6,7 +6,7 @@
 > - **Large / High-Risk Files:** 42
 > - **Significant Clone Groups:** 3
 > - **Dead Files (Unused):** 3
-> - **Unused Exports:** 85
+> - **Unused Exports:** 86
 > - **Unused Dependencies:** 2
 > - **Unlisted Dependencies:** 2
 > - **Circular Dependencies:** 2

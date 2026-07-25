@@ -1,13 +1,13 @@
 # 🩺 Complexity Health Findings (Critical & High)
 
-*Generated on: 25.07.2026, 22:42:27*
+*Generated on: 25.07.2026, 22:50:15*
 
 ## 🔴 Critical (> 50 lines)
 
-#### 📁 [appStateDump.js](file:///D:/Magazine/_PigmentShop/src/utils/appStateDump.js)
-`src/utils/appStateDump.js`
+#### 📁 [locationContext.js](file:///D:/Magazine/_PigmentShop/src/utils/locationContext.js)
+`src/utils/locationContext.js`
 
-- 🔴 **`getLocationHierarchy`** [L1](file:///D:/Magazine/_PigmentShop/src/utils/appStateDump.js#L1)
+- 🔴 **`getLocationHierarchy`** [L1](file:///D:/Magazine/_PigmentShop/src/utils/locationContext.js#L1)
   - Lines: 74 | Cyclomatic: 30 | Cognitive: 54 | CRAP: 930
 
 #### 📁 [SharedFormComponents.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/SharedFormComponents.js)

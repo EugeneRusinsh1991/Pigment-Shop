@@ -1,8 +1,14 @@
 # 🧠 Highly Complex Files
 
-*Generated on: 25.07.2026, 22:42:27*
+*Generated on: 25.07.2026, 22:50:15*
 
 ### Highly Complex Files (< 200 lines)
+
+- **[locationContext.js](file:///D:/Magazine/_PigmentShop/src/utils/locationContext.js)** (`src/utils/locationContext.js`)
+  - Lines: 96 | CRAP Max: 930 | Complex Funcs: 1 | Density: 40%
+
+- **[SharedFormComponents.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/SharedFormComponents.js)** (`src/components/Admin/SharedFormComponents.js`)
+  - Lines: 176 | CRAP Max: 650 | Complex Funcs: 2 | Density: 34%
 
 - **[usePaginatedCatalog.js](file:///D:/Magazine/_PigmentShop/src/features/catalog/usePaginatedCatalog.js)** (`src/features/catalog/usePaginatedCatalog.js`)
   - Lines: 182 | CRAP Max: 110 | Complex Funcs: 5 | Density: 37%
