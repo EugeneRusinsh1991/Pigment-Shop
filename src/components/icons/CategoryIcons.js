@@ -1,6 +1,8 @@
 import React from 'react';
 import { Text, Platform } from 'react-native';
-const getThemeColor = (color) => color || '#1C1C1C';
+import { colors } from '../../theme/tokens';
+
+const getThemeColor = (color) => color || colors.textLight;
 
 export const SparkleIcon = ({ color, size = 18, style, ...props }) => {
   if (Platform.OS === 'web') {

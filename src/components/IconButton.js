@@ -1,9 +1,9 @@
 import React from 'react';
-import { StyleSheet, TouchableOpacity } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { useTheme } from '../context/ThemeContext';
-import { useButtonProps, buttonColors, getButtonStyle } from '../theme/buttonCommon';
+import { getButtonStyle } from '../theme/buttonCommon';
 import { colors } from '../theme/tokens';
-import AnimatedButton from './AnimatedButton';
+import Button from './Button';
 
 export default function IconButton({
   icon,
@@ -18,13 +18,7 @@ export default function IconButton({
 }) {
   const { isDark: isDarkContext } = useTheme();
   const isDark = isDarkProp ?? isDarkContext;
-  const { touchableProps } = useButtonProps({
-    isDark,
-    activeOpacity,
-    onPress,
-    ...props
-  });
-
+  
   const getDimension = () => {
     if (typeof size === 'number') return size;
     const sizes = { sm: 28, md: 36, lg: 48 };
@@ -33,8 +27,6 @@ export default function IconButton({
 
   const dim = getDimension();
   const radius = dim / 2;
-  const hitSlopBuffer = dim < 44 ? Math.ceil((44 - dim) / 2) : 0;
-  const hitSlop = hitSlopBuffer > 0 ? { top: hitSlopBuffer, bottom: hitSlopBuffer, left: hitSlopBuffer, right: hitSlopBuffer } : undefined;
 
   const resolved = getButtonStyle(styles, variant, isDark, '', 'transparent');
 
@@ -50,16 +42,18 @@ export default function IconButton({
     ? React.cloneElement(icon, { color: icon.props?.color || defaultIconColor })
     : icon;
 
-  const Component = animated ? AnimatedButton : TouchableOpacity;
-
   return (
-    <Component
+    <Button
+      variant="unstyled"
+      animated={animated}
       style={combinedStyle}
-      hitSlop={hitSlop}
-      {...touchableProps}
+      onPress={onPress}
+      activeOpacity={activeOpacity}
+      isDark={isDark}
+      {...props}
     >
       {renderedIcon}
-    </Component>
+    </Button>
   );
 }
 

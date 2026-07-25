@@ -34,12 +34,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   footerDark: {
-    backgroundColor: '#0D0D0D',
-    borderTopColor: '#242424',
+    backgroundColor: colors.backgroundDark,
+    borderTopColor: colors.borderDarkAlt,
   },
   footerLight: {
-    backgroundColor: '#FAF8F6',
-    borderTopColor: '#f1e8e4',
+    backgroundColor: colors.backgroundLight,
+    borderTopColor: colors.borderLightAlt,
   },
   contentRow: {
     flexDirection: 'row',
@@ -53,17 +53,17 @@ const styles = StyleSheet.create({
     fontFamily: '"Cormorant Garamond", "Playfair Display", Georgia, serif',
     fontSize: 14,
     fontWeight: '600',
-    color: '#E31B23',
+    color: colors.accent,
   },
   logoImage: {
     width: 80,
     height: 17,
   },
   textDark: {
-    color: '#FFFFFF',
+    color: colors.textDark,
   },
   textLight: {
-    color: '#1C1C1C',
+    color: colors.textLight,
   },
   separator: {
     fontSize: 10,
@@ -74,9 +74,9 @@ const styles = StyleSheet.create({
     fontSize: 11,
   },
   subtextDark: {
-    color: '#6B7280',
+    color: colors.textMutedLight,
   },
   subtextLight: {
-    color: '#9CA3AF',
+    color: colors.textSubtleLight,
   },
 });

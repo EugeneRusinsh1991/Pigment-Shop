@@ -1,38 +1,83 @@
 # Architecture Audit Profile
 
 ## Focus Areas
-1. **Coupling, Layering & Domain Isolation**:
-   - UI components executing direct API/database calls instead of consuming service/repository abstractions or custom hooks.
-   - Leakage of data models into presentational views and tight coupling between unrelated domain modules.
 
-2. **Modularity, SRP & File Complexity**:
-   - Files exceeding 200 lines or housing multiple distinct responsibilities.
-   - Long functions, deeply nested conditionals, high cyclomatic complexity, and CRAP score hotspots.
+### Coupling, Layering & Domain Isolation
+- UI components executing direct API/database calls instead of consuming service/repository abstractions or custom hooks.
+- Leakage of backend models into presentation layers.
+- Tight coupling between unrelated domain modules.
+- Missing domain boundaries and dependency inversion.
 
-3. **State Management Architecture & Data Flow**:
-   - Prop drilling across >2 component levels instead of context or state stores.
-   - Mixing global domain state (user, cart, auth) with local transient UI state (modals, dropdown toggles).
-   - Side-effect pollution inside render cycles.
+### Modularity, SRP & File Complexity
+- Files exceeding 200 lines or containing multiple responsibilities.
+- Long functions, deep nesting, excessive branching, and cyclomatic complexity hotspots.
+- Violations of Single Responsibility Principle.
+- Duplicate business logic across multiple modules.
 
-4. **Error Handling, Boundaries & Resilience**:
-   - Unhandled async promises, swallowed exceptions, or missing React Error Boundaries.
-   - Inconsistent API error normalization layers across services.
+### State Management Architecture & Data Flow
+- Prop drilling across more than two component levels.
+- Mixing global domain state with transient UI state.
+- Side effects inside render paths.
+- Derived state stored instead of computed.
+- State synchronization issues between stores, contexts, and components.
 
-5. **Dependency Graph, Imports & Structure**:
-   - Circular imports and deep relative path traversals (`../../../../`).
-   - Inconsistent module export styles (mixed default and named exports across identical layers).
+### Error Handling, Boundaries & Resilience
+- Missing React Error Boundaries.
+- Unhandled async operations.
+- Swallowed exceptions.
+- Missing retry/backoff strategies where appropriate.
+- Inconsistent API error normalization.
 
-6. **Data Contracts & Storage Abstractions**:
-   - Direct `localStorage` / `AsyncStorage` access inside UI components instead of unified storage wrappers.
-   - Missing DTO/interface transformers between raw backend payloads and UI state objects.
+### Dependency Graph, Imports & Project Structure
+- Circular dependencies.
+- Deep relative imports (../../../../).
+- Mixed export conventions.
+- Layer violations through improper imports.
+- Unused or orphaned modules.
 
-7. **Security & Credential Isolation**:
-   - Hardcoded secret keys, API credentials, or internal endpoints in client-side code.
+### Data Contracts & Storage Abstractions
+- Direct localStorage/AsyncStorage access from UI.
+- Missing DTOs or mapper layers.
+- Backend payloads consumed directly by presentation.
+- Inconsistent serialization/deserialization logic.
 
-8. **Cross-Architecture & Whole-Project Requirement**:
-   - When auditing architecture for Whole Project, the audit MUST evaluate `app/`, `src/`, routes, contexts, API layers, and storage wrappers as a single interconnected graph.
-   - MUST detect global anti-patterns (e.g. duplicate context subscriptions, mixed routing patterns between `app/` and `src/`, or direct API calls leaking into UI components) across ALL project folders simultaneously.
-   - MUST NOT isolate architecture evaluation into sub-domains (like Storefront vs Admin) when scope is set to Whole Project.
+### Performance Architecture
+- Unnecessary re-renders.
+- Missing memoization where justified.
+- Expensive computations inside render.
+- Oversized Context providers causing widespread updates.
+- Missing lazy loading or code splitting opportunities.
+
+### Security & Credential Isolation
+- Hardcoded secrets or credentials.
+- Client exposure of internal endpoints.
+- Missing abstraction around authentication/session management.
+- Unsafe storage of sensitive data.
+
+### Configuration & Environment Separation
+- Hardcoded URLs, feature flags, or environment-specific values.
+- Missing centralized configuration layer.
+- Environment-dependent logic scattered across modules.
+
+### Testing Architecture
+- Business logic difficult to test due to tight coupling.
+- Missing separation between pure logic and framework code.
+- Modules with extremely low testability.
+
+---
+
+# Cross-Architecture & Whole-Project Requirements
+
+When auditing **Whole Project**, the audit MUST:
+
+- Evaluate app/, src/, routes/, contexts/, services/, API layers, storage wrappers, shared libraries, and infrastructure as one interconnected architecture.
+- Build a project-wide dependency graph before drawing conclusions.
+- Detect architectural anti-patterns spanning multiple folders.
+- Identify duplicated services, duplicated business logic, and parallel implementations.
+- Detect inconsistent architectural patterns (routing, state management, API access, storage, dependency injection, module organization).
+- Report architecture-level issues rather than isolated file-level findings.
+- Prioritize systemic problems by architectural impact.
+- MUST NOT split the audit into independent subsystems unless explicitly requested.
 
 ## Anti-Patterns & Examples
 

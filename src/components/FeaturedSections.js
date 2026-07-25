@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
 import { useTheme } from '../context/ThemeContext';
+import { colors } from '../theme/tokens';
 
 const setElementText = (ref, text) => {
   if (!ref.current) return;
@@ -96,20 +97,20 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     marginRight: 6,
   },
-  compactTimerLabelDark: { color: '#94a3b8' },
-  compactTimerLabelLight: { color: '#64748b' },
+  compactTimerLabelDark: { color: colors.textDescDark },
+  compactTimerLabelLight: { color: colors.textSubtleDark },
   compactTimerValue: {
     fontSize: 14,
     fontWeight: '700',
   },
-  compactTimerValueDark: { color: '#E31B23' },
-  compactTimerValueLight: { color: '#E31B23' },
+  compactTimerValueDark: { color: colors.accent },
+  compactTimerValueLight: { color: colors.accent },
   compactTimerUnit: {
     fontSize: 13,
     fontWeight: '600',
   },
-  compactTimerUnitDark: { color: '#94a3b8' },
-  compactTimerUnitLight: { color: '#64748b' },
+  compactTimerUnitDark: { color: colors.textDescDark },
+  compactTimerUnitLight: { color: colors.textSubtleDark },
 
   // Card Styles
   card: {
@@ -131,19 +132,19 @@ const styles = StyleSheet.create({
     }),
     elevation: 2,
   },
-  cardDark: { backgroundColor: '#1e293b', borderColor: '#334155' },
-  cardLight: { backgroundColor: '#ffffff', borderColor: '#e2e8f0' },
+  cardDark: { backgroundColor: colors.secondaryDarkBg, borderColor: colors.secondaryDarkBorder },
+  cardLight: { backgroundColor: colors.surfaceLight, borderColor: colors.secondaryLightBorder },
   cardHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
   titleWrap: { flexDirection: 'row', alignItems: 'center', flex: 1 },
   title: { fontSize: 18, fontWeight: '800', letterSpacing: 0.3 },
-  titleDark: { color: '#f1f5f9' },
-  titleLight: { color: '#0f172a' },
+  titleDark: { color: colors.slateMid },
+  titleLight: { color: colors.textStrongDark },
   subtitle: { fontSize: 13, marginTop: 4, lineHeight: 18, marginRight: 24 },
-  subtitleDark: { color: '#94a3b8' },
-  subtitleLight: { color: '#64748b' },
+  subtitleDark: { color: colors.textDescDark },
+  subtitleLight: { color: colors.textSubtleDark },
   arrow: { fontSize: 24, fontWeight: '300' },
-  arrowDark: { color: '#38bdf8' },
-  arrowLight: { color: '#7c3aed' },
+  arrowDark: { color: colors.infoMid },
+  arrowLight: { color: colors.purpleMid },
 
   badge: {
     paddingHorizontal: 8,
@@ -151,7 +152,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginRight: 10,
   },
-  badgeText: { color: '#ffffff', fontSize: 10, fontWeight: '800' },
-  accentBlue: { backgroundColor: '#38bdf8' },
-  accentPurple: { backgroundColor: '#7c3aed' },
+  badgeText: { color: colors.white, fontSize: 10, fontWeight: '800' },
+  accentBlue: { backgroundColor: colors.infoMid },
+  accentPurple: { backgroundColor: colors.purpleMid },
 });

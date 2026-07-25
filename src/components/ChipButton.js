@@ -1,10 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { useTheme } from '../context/ThemeContext';
-import { useButtonProps, buttonColors, getButtonStyle } from '../theme/buttonCommon';
+import { getButtonStyle } from '../theme/buttonCommon';
 import { colors } from '../theme/tokens';
-
-import AnimatedButton from './AnimatedButton';
+import Button from './Button';
 
 function resolveIconColor(active, isDark) {
   if (active) {
@@ -34,40 +33,31 @@ export default function ChipButton({
 }) {
   const { isDark: isDarkContext } = useTheme();
   const isDark = isDarkProp ?? isDarkContext;
-  const { touchableProps } = useButtonProps({
-    isDark,
-    activeOpacity,
-    onPress,
-    ...props,
-  });
-
+  
   const stateKey = active ? 'Active' : 'Inactive';
   const resolved = getButtonStyle(styles, variant, isDark, stateKey);
   const shapeStyle = variant === 'rect' ? styles.rect : styles.pill;
   const iconColor = resolveIconColor(active, isDark);
 
-  const Component = animated ? AnimatedButton : TouchableOpacity;
-  const hitSlop = { top: 4, bottom: 4, left: 4, right: 4 };
-
   return (
-    <Component
+    <Button
+      variant="unstyled"
+      animated={animated}
       style={[
         styles.base,
         shapeStyle,
         resolved.container,
         style,
       ]}
-      hitSlop={hitSlop}
-      {...touchableProps}
-    >
-      {renderChipIcon(leftIcon, iconColor)}
-      {label ? (
-        <Text style={[styles.textBase, resolved.text, textStyle]}>
-          {label}
-        </Text>
-      ) : null}
-      {renderChipIcon(rightIcon, iconColor)}
-    </Component>
+      textStyle={[styles.textBase, resolved.text, textStyle]}
+      leftIcon={renderChipIcon(leftIcon, iconColor)}
+      rightIcon={renderChipIcon(rightIcon, iconColor)}
+      title={label}
+      onPress={onPress}
+      activeOpacity={activeOpacity}
+      isDark={isDark}
+      {...props}
+    />
   );
 }
 

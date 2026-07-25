@@ -1,13 +1,23 @@
 {
   "summary": {
-    "visitedScreens": 17,
-    "visitedInteractions": 84,
-    "successfulInteractions": 183,
+    "visitedScreens": 0,
+    "visitedInteractions": 0,
+    "successfulInteractions": 0,
     "failedInteractions": 0,
     "warnings": 0,
-    "errors": 0,
-    "executionDurationMs": 86489
+    "errors": 1,
+    "executionDurationMs": 0
   },
-  "failures": [],
+  "failures": [
+    {
+      "screen": "Authentication",
+      "interaction": "Initial Load",
+      "elementIdentifier": "None",
+      "event": "Internal Explorer",
+      "timestamp": 1784978609165,
+      "errorType": "Explorer Error",
+      "errorMessage": "[Application Bug] Authentication Error: page.waitForSelector: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"login-email-input\"], input[type=\"email\"]') to be visible\u001b[22m\n"
+    }
+  ],
   "warnings": []
 }

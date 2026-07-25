@@ -2,6 +2,7 @@ import { Text, View } from 'react-native';
 import { useCatalog } from '../context/CatalogContext';
 import { useTheme } from '../context/ThemeContext';
 import commonStyles from '../theme/commonStyles';
+import { colors } from '../theme/tokens';
 import styles from './OrdersPageStyles';
 import { getLocalizedValue } from '../utils/localization';
 import { formatDateLong } from '../utils/dateFormatting';
@@ -97,7 +98,7 @@ export function ExpandedItemsList({ show, items, getStyle, order }) {
         />
       ))}
       {order.note ? (
-        <View style={{ marginTop: 12, paddingTop: 12, borderTopWidth: 1, borderTopColor: getStyle('#2D2D2D', '#E2E8F0') }}>
+        <View style={{ marginTop: 12, paddingTop: 12, borderTopWidth: 1, borderTopColor: getStyle(colors.neutralDarkFaint, colors.secondaryLightBorder) }}>
           <Text style={[styles.itemLabel, getStyle(commonStyles.subtextDark, commonStyles.subtextLight), { fontSize: 12, marginBottom: 4 }]}> 
             {getItemLabel({ en: 'Order Note', ru: 'Комментарий к заказу', uk: 'Коментар до замовлення' }, theme.lang)}
           </Text>

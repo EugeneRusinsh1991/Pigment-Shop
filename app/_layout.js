@@ -3,7 +3,6 @@ import React, { useEffect } from 'react';
 import { GATING_PENDING_STATES } from '@/bootstrap/startupContract';
 import { useBootstrapStatus } from '@/bootstrap/useBootstrapStatus';
 import AppProviders from '@/context/AppProviders';
-import DevDebugOverlay from '../debug/DevDebugOverlay';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync().catch(() => { });
@@ -21,7 +20,6 @@ export default function Layout() {
   return (
     <AppProviders>
       {!isStartupPending ? <Slot /> : null}
-      {__DEV__ ? <DevDebugOverlay /> : null}
     </AppProviders>
   );
 }

@@ -1,7 +1,9 @@
-import React from 'react';
-import { Text, Platform } from 'react-native';
+import * as React from 'react';
+import { Platform, Text } from 'react-native';
+import { colors } from '../../theme/tokens';
 import { CurrencyIcon } from './AppIcons';
-const getThemeColor = (color) => color || '#1C1C1C';
+
+const getThemeColor = (color) => color || colors.textLight;
 
 export const AdminIcon = ({ color, size = 16, style, ...props }) => {
   if (Platform.OS === 'web') {

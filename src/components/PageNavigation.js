@@ -80,10 +80,10 @@ const styles = StyleSheet.create({
     minHeight: 36,
   },
   containerDark: {
-    backgroundColor: '#0D0D0D',
+    backgroundColor: colors.backgroundDark,
   },
   containerLight: {
-    backgroundColor: '#FAF8F6',
+    backgroundColor: colors.backgroundLight,
   },
   navRow: {
     flexDirection: 'row',
@@ -110,15 +110,15 @@ const styles = StyleSheet.create({
     minWidth: 0,
   },
   borderDark: {
-    borderBottomColor: '#242424',
+    borderBottomColor: colors.borderDarkAlt,
   },
   borderLight: {
-    borderBottomColor: '#f1e8e4',
+    borderBottomColor: colors.borderLightAlt,
   },
   textDark: {
-    color: '#FFFFFF',
+    color: colors.textDark,
   },
   textLight: {
-    color: '#1C1C1C',
+    color: colors.textLight,
   },
 });

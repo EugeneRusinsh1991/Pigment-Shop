@@ -1,37 +1,118 @@
 # Performance Audit Profile
 
 ## Focus Areas
-1. **Render Optimization & Memoization**:
-   - Inline object/array instantiations and arrow functions inside JSX props bypassing `useMemo` and `useCallback`.
-   - Missing `React.memo` on list item renders and heavy presentational leaves.
-   - Unnecessary top-level state updates triggering cascading sub-tree re-renders.
 
-2. **List Virtualization & Heavy Collections**:
-   - Un-virtualized mapping (`items.map(...)`) over large datasets (>20 items) instead of `FlatList` / `VirtualList`.
-   - Missing `getItemLayout` or unstable `keyExtractor` functions.
+### Rendering Performance
+- Unnecessary component re-renders.
+- Missing React.memo where beneficial.
+- Missing useMemo/useCallback causing unstable references.
+- Inline object, array, and function creation inside render.
+- Expensive computations executed during rendering.
 
-3. **Code Splitting & Bundle Size Control**:
-   - Synchronous top-level imports of heavy routes, admin screens, or modal dialogs instead of dynamic `React.lazy` / `import()`.
-   - Importing monolithic libraries (`import _ from 'lodash'`, `import * as Lucide`) without tree-shaking.
+### State Update Efficiency
+- Top-level state causing excessive subtree re-renders.
+- Overly broad Context updates.
+- Poor selector granularity.
+- Derived state stored instead of computed.
+- Unnecessary synchronization between multiple state sources.
 
-4. **Animations & Main Thread (UI/JS) Protection**:
-   - Animating non-GPU layout properties (`width`, `height`, `top`, `left`, `margin`) instead of `transform` / `opacity`.
-   - React Native animations missing `useNativeDriver: true`.
-   - Heavy synchronous computations (sorting, filtering large lists) blocking the JS event loop.
+### List Rendering & Virtualization
+- Large collections rendered without virtualization.
+- Missing FlatList / VirtualList / virtualization libraries.
+- Missing stable keys.
+- Missing getItemLayout or estimated item sizes.
+- Nested virtualized lists.
+- Expensive list item rendering.
 
-5. **Memory Management & Subscription Cleanup**:
-   - Uncleaned `setInterval`, `setTimeout`, event listeners, or WebSocket subscriptions in `useEffect` cleanup handlers.
-   - Retaining detached DOM nodes or unbounded memory caches.
+### Bundle Size & Code Splitting
+- Heavy synchronous imports.
+- Missing route-level lazy loading.
+- Large modal/dialog bundles loaded eagerly.
+- Poor tree shaking.
+- Monolithic utility imports.
+- Unused dependencies increasing bundle size.
 
-6. **Asset & Image Optimization**:
-   - Un-scaled raw high-resolution images, missing webp/avif formats, or missing lazy-loading flags (`loading="lazy"`).
+### Network Performance
+- Duplicate API requests.
+- Missing request deduplication.
+- Missing caching.
+- Missing pagination or incremental loading.
+- Over-fetching.
+- Under-fetching leading to waterfall requests.
 
-7. **Network Request Efficiency & Caching**:
-   - Duplicate un-debounced API calls during typing/scrolling.
-   - Missing caching strategies (SWR / React Query / stale-while-revalidate) for static entity queries.
+### Images & Assets
+- Oversized images.
+- Missing responsive image variants.
+- Missing lazy loading.
+- Missing modern formats.
+- Missing asset optimization pipeline.
 
-8. **Cross-Performance Audit Requirement**:
-   - Mandatory codebase scan for un-virtualized list mapping, missing `useNativeDriver`, un-memoized callback props in lists, and non-lazy route imports.
+### Memory Management
+- Event listeners not cleaned up.
+- Timers not cleared.
+- WebSocket leaks.
+- Growing caches without eviction.
+- Detached DOM or retained references.
+
+### Animation Performance
+- Layout-triggering animations.
+- Missing GPU acceleration.
+- Missing useNativeDriver where applicable.
+- Long-running animations blocking interaction.
+- Animation timing inconsistencies.
+
+### JavaScript Execution
+- Long synchronous tasks.
+- Expensive sorting/filtering on every render.
+- Missing background processing where appropriate.
+- Blocking serialization/deserialization.
+- Heavy JSON parsing on main thread.
+
+### React Hook Performance
+- Incorrect dependency arrays.
+- Effects firing excessively.
+- Missing memoization of expensive hooks.
+- Infinite render loops.
+- Redundant effects.
+
+### Storage & Persistence
+- Frequent synchronous localStorage/AsyncStorage access.
+- Repeated serialization.
+- Missing batching of storage operations.
+
+### Performance Monitoring
+- Missing profiling instrumentation.
+- Missing performance measurements.
+- No render profiling of expensive components.
+- Missing production performance diagnostics.
+
+---
+
+# Cross-Performance Requirements
+
+When auditing **Whole Project**, the audit MUST:
+
+- Build a project-wide performance profile.
+- Detect rendering bottlenecks across feature boundaries.
+- Detect repeated expensive patterns across the repository.
+- Evaluate bundle composition and loading strategy.
+- Identify architectural causes of unnecessary rendering.
+- Prioritize issues by estimated runtime impact rather than code style.
+
+Mandatory checks include:
+
+- non-virtualized large lists
+- unstable callback props
+- unstable object props
+- missing React.memo opportunities
+- expensive render-time computations
+- missing route lazy loading
+- oversized bundles
+- duplicate network requests
+- missing request caching
+- memory leaks
+- blocking animations
+- long synchronous tasks
 
 ## Anti-Patterns & Examples
 

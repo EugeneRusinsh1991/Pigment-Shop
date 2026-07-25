@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { ForwardArrowIcon } from './icons/ControlIcons';
 import BaseCard from './BaseCard';
+import { colors } from '../theme/tokens';
 
 const NavigationCard = React.forwardRef(({ type, isDark, text, style, ...rest }, ref) => {
   return (
@@ -11,13 +12,13 @@ const NavigationCard = React.forwardRef(({ type, isDark, text, style, ...rest },
       interactive={true}
       useDimensions={true}
       depth={1}
-      lightBgColor="#F3EEEA"
+      lightBgColor={colors.productCardLight}
       style={style}
       {...rest}
     >
       <View style={styles.content}>
         <View style={[styles.circle, isDark ? styles.circleDark : styles.circleLight]}>
-          <ForwardArrowIcon color="#E31B23" size={20} />
+          <ForwardArrowIcon color={colors.accent} size={20} />
         </View>
         <Text style={[styles.text, isDark ? styles.textDark : styles.textLight]}>
           {text}
@@ -44,12 +45,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   circleDark: {
-    backgroundColor: '#2A2A2A',
-    borderColor: '#444444',
+    backgroundColor: colors.borderDark,
+    borderColor: colors.neutralDarkMid,
   },
   circleLight: {
-    backgroundColor: '#FAF8F6',
-    borderColor: '#D0C9C0',
+    backgroundColor: colors.backgroundLight,
+    borderColor: colors.warmNeutralBorder,
   },
   text: {
     fontSize: 15,
@@ -58,9 +59,9 @@ const styles = StyleSheet.create({
     fontFamily: 'System, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
   },
   textDark: {
-    color: '#FFFFFF',
+    color: colors.textDark,
   },
   textLight: {
-    color: '#1C1C1C',
+    color: colors.textLight,
   },
 });

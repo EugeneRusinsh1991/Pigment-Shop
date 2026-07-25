@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { View, Image, StyleSheet } from 'react-native';
+import { colors } from '../../theme/tokens';
 
 let ExpoVideo = null;
 try {
@@ -162,7 +163,7 @@ export default function VideoRenderer({ isWeb, uri, resizeMode, flatStyle, autoP
 
 const styles = StyleSheet.create({
   nativeContainer: {
-    backgroundColor: '#000000',
+    backgroundColor: colors.black,
     alignItems: 'center',
     justify: 'center',
     overflow: 'hidden',
@@ -184,7 +185,7 @@ const styles = StyleSheet.create({
     borderRightWidth: 0,
     borderBottomWidth: 10,
     borderTopWidth: 10,
-    borderLeftColor: '#FFFFFF',
+    borderLeftColor: colors.white,
     borderRightColor: 'transparent',
     borderBottomColor: 'transparent',
     borderTopColor: 'transparent',
