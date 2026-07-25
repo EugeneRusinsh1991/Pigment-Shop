@@ -14,6 +14,7 @@ const DEFAULT_EXCLUDED = [
   '.expo',
   'test-results',
   'playwright-report',
+  '.playwright',
   'blob-report',
   '.auditor-reports',
   '.next',
