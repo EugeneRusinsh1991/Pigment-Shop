@@ -1,0 +1,42 @@
+{
+  "summary": {
+    "visitedScreens": 0,
+    "visitedInteractions": 0,
+    "successfulInteractions": 81,
+    "failedInteractions": 1,
+    "warnings": 1,
+    "errors": 2,
+    "executionDurationMs": 0
+  },
+  "failures": [
+    {
+      "screen": "http://localhost:8081/login",
+      "interaction": "Click",
+      "elementIdentifier": "card|Card|/iframe[1]",
+      "event": "Runtime",
+      "timestamp": 1784981867013,
+      "errorType": "Console Error",
+      "errorMessage": "[Application Bug] Cross-Origin-Opener-Policy policy would block the window.closed call."
+    },
+    {
+      "screen": "http://localhost:8081/login",
+      "interaction": "Click",
+      "elementIdentifier": "card|Card|/iframe[1]",
+      "event": "Runtime",
+      "timestamp": 1784981867014,
+      "errorType": "Console Error",
+      "errorMessage": "[Application Bug] Cross-Origin-Opener-Policy policy would block the window.closed call."
+    }
+  ],
+  "warnings": [
+    {
+      "screen": "http://localhost:8081/",
+      "interaction": "Click",
+      "elementIdentifier": "btn|loginFooterLogIn",
+      "event": "Runtime",
+      "timestamp": 1784981881594,
+      "errorType": "Console Warning",
+      "errorMessage": "\"shadow*\" style props are deprecated. Use \"boxShadow\"."
+    }
+  ]
+}

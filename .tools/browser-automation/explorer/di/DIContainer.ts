@@ -80,7 +80,11 @@ export function createDefaultContainer(
 
   const observability = new ObservabilityManager(emitter);
   observability.addReporter(new ConsoleReporter());
-  observability.addReporter(new JsonReporter());
+  
+  if (config.executionMode === 'deep-diagnostics') {
+    observability.addReporter(new JsonReporter());
+  }
+  
   observability.addReporter(new MarkdownReporter());
 
   return {
