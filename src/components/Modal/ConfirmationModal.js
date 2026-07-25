@@ -5,6 +5,24 @@ import { colors, layout, shadows } from '../../theme/tokens';
 import { Button } from '../Button';
 import Modal from './Modal';
 
+const VARIANT_MAP = { primary: 'primary', success: 'success' };
+
+function resolveModalTexts(t, confirmText, cancelText, title) {
+  return {
+    confirmText: confirmText || t('confirmDeleteYes') || 'Confirm',
+    cancelText: cancelText || t('confirmDeleteCancel') || 'Cancel',
+    title: title || t('confirmDeleteDefaultTitle') || 'Are you sure?',
+  };
+}
+
+function resolveModalTheme(isDark) {
+  return {
+    cardBg: isDark ? colors.surfaceDark : colors.surfaceLight,
+    titleColor: isDark ? colors.textDark : colors.textLight,
+    messageColor: isDark ? colors.textMutedDark : colors.textMutedLight,
+  };
+}
+
 export default function ConfirmationModal({
   visible,
   title,
@@ -21,15 +39,8 @@ export default function ConfirmationModal({
 
   if (!visible) return null;
 
-  const resolvedConfirmText = confirmText || t('confirmDeleteYes') || 'Confirm';
-  const resolvedCancelText = cancelText || t('confirmDeleteCancel') || 'Cancel';
-  const resolvedTitle = title || t('confirmDeleteDefaultTitle') || 'Are you sure?';
-
-  const cardBg = isDark ? colors.surfaceDark : colors.surfaceLight;
-  const titleColor = isDark ? colors.textDark : colors.textLight;
-  const messageColor = isDark ? colors.textMutedDark : colors.textMutedLight;
-
-  const VARIANT_MAP = { primary: 'primary', success: 'success' };
+  const { confirmText: resolvedConfirmText, cancelText: resolvedCancelText, title: resolvedTitle } = resolveModalTexts(t, confirmText, cancelText, title);
+  const { cardBg, titleColor, messageColor } = resolveModalTheme(isDark);
   const confirmVariant = VARIANT_MAP[variant] || 'danger';
 
   return (

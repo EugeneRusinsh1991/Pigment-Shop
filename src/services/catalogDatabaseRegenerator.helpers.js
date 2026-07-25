@@ -61,20 +61,27 @@ function buildProduct(id, topCategoryName, holderCategoryName, productHolderCate
   };
 }
 
+function buildProductsForSubSub(subSubCat, r, s, ss, products, isLow) {
+  const prodCount = isLow ? 1 : getRandomInt(2, 4);
+  for (let p = 0; p < prodCount; p++) {
+    const prodId = `prod-${r + 1}-${s + 1}-${ss + 1}-${p + 1}`;
+    const product = buildProduct(prodId, subSubCat._rootName, subSubCat._subName, subSubCat.name, `Product ${r + 1}-${s + 1}-${ss + 1}-${p + 1}`);
+    products.push(product);
+    subSubCat.productIds.push(prodId);
+  }
+}
+
 function buildSubSubCategories(rootCat, subCat, r, s, ssCount, products, categories, isLow = false) {
   for (let ss = 0; ss < ssCount; ss++) {
     const subSubId = `${subCat.id}-sub-${ss}`;
     const subSubCat = buildCategory(subSubId, subCat.id, 3, `Group ${r + 1}-${s + 1}-${ss + 1}`);
+    subSubCat._rootName = rootCat.name;
+    subSubCat._subName = subCat.name;
     subCat.childCategoryIds.push(subSubId);
     categories.push(subSubCat);
-
-    const prodCount = isLow ? 1 : getRandomInt(2, 4);
-    for (let p = 0; p < prodCount; p++) {
-      const prodId = `prod-${r + 1}-${s + 1}-${ss + 1}-${p + 1}`;
-      const product = buildProduct(prodId, rootCat.name, subCat.name, subSubCat.name, `Product ${r + 1}-${s + 1}-${ss + 1}-${p + 1}`);
-      products.push(product);
-      subSubCat.productIds.push(prodId);
-    }
+    buildProductsForSubSub(subSubCat, r, s, ss, products, isLow);
+    delete subSubCat._rootName;
+    delete subSubCat._subName;
   }
 }
 

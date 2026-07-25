@@ -1,71 +1,104 @@
-# Engineering Standard: UI Module Architecture
+# Engineering Standard: Reference UI Module Architecture
 
 > [!NOTE]
-> This standard defines the core architectural principles, API design rules, and module decomposition guidelines for all UI primitives across PigmentShop (e.g., Button, Modal, Card, Drawer, SearchBar, Checkbox).
+> This standard defines the mandatory architectural specification, module structure, decomposition rules, and design token integration patterns for all UI primitives across PigmentShop (e.g., Button, Modal, Card, Drawer, SearchBar, Input, Row).
 
 ---
 
 ## 1. Core Engineering Principles
 
 ### 1.1 Semantic First
-UI primitives are defined by their **domain responsibility and interaction semantics**, not by their visual appearance.
-- **Button**: Triggers an action or command.
-- **Tab**: Navigates between view panels.
-- **Chip / Tag**: Represents a selectable filter or metadata property.
+UI primitives are defined strictly by their **domain responsibility and interaction semantics**, not by visual appearance alone.
+- **Button**: Action or command trigger.
+- **Card**: Grouped content container.
+- **Row**: Data list or grid display item.
+- **Chip / Tag**: Selectable filter or metadata indicator.
 
-*Rule*: Visual similarity is not a valid reason to merge distinct semantic concepts into a single component, nor to use one component for unrelated semantics.
+*Rule*: Never reuse or merge distinct semantic primitives simply because they share visual properties.
 
-### 1.2 Composition Before Component Proliferation
-Solve UI variations using configuration props before introducing new component primitives.
-- **Prefer**: `<Button variant="text" loading />`
-- **Avoid**: `TextButton`, `LoadingButton`, `IconLoadingButton`
+### 1.2 Composition Before Proliferation
+Solve UI variations through configuration props and composition before introducing new primitives.
+- **Prefer**: `<Card variant="elevated" clickable loading />`
+- **Avoid**: `ElevatedCard`, `ClickableCard`, `LoadingCard`
 
-*Rule*: A new component primitive is justified only when it introduces distinct behavior, state management, or accessibility semantics.
+*Rule*: A new component primitive file is justified ONLY when it introduces distinct accessibility, gesture, or state semantics.
 
-### 1.3 Behaviors vs. Visual Variants
-Clearly separate visual variants from interactive behaviors:
-- **Visual Variants** (`variant="text | outline | solid"`): Control color, borders, and typography.
-- **Behaviors** (`loading`, `animated`, `disabled`): Control state, gestures, and interaction feedback.
-
-*Rule*: Behaviors must be composable props on the base primitive and should never spawn separate component types.
-
-### 1.4 Interactive Primitive Rule
-Do not use `Button` as a generic replacement for every clickable UI element:
-- Carousel indicators navigate slides $\rightarrow$ Use Carousel Indicator primitive.
-- Segmented controls toggle view modes $\rightarrow$ Use Segmented Control primitive.
-- Navigation drawers open sub-pages $\rightarrow$ Use Navigation Drawer primitive.
+### 1.3 The 200-Line & Decomposition Rule
+To prevent monolithic components and control cyclomatic complexity:
+- No component or hook file should exceed **~200 lines of code**.
+- **Rendering Logic**: Kept pure inside `[ModuleName].js`.
+- **Style Definitions**: Isolated in `[ModuleName]Styles.js` via token factories.
+- **Theme Resolution**: Extracted into `use[ModuleName]Theme.js`.
+- **Animation & Gestures**: Extracted into `use[ModuleName]Animation.js`.
 
 ---
 
-## 2. Module Structure & Responsibility-Driven Split
+## 2. Standard Reference Module Architecture
 
-### 2.1 File Allocation Rule
-A file must justify its own existence. Separate components into independent files **only when**:
-1. The component manages non-trivial internal state or custom hooks.
-2. The component requires a dedicated `StyleSheet` exceeding ~100 lines.
-3. The component represents a distinct public primitive with unique props.
+Every standard UI module must follow this canonical directory structure:
 
-*Rule*: Do NOT create separate files for 3-line inline wrapper components.
+```
+src/components/[ModuleName]/
+├── index.js                     # Public API barrel export
+├── [ModuleName].js              # Core presentational component (< 200 lines)
+├── [ModuleName]Styles.js        # Dynamic token-driven style map factory
+├── use[ModuleName]Theme.js      # Extracted hook: Theme & dark mode resolution
+├── use[ModuleName]Animation.js  # Extracted hook: Gesture & animation drivers
+└── [SpecializedSubPrimitive].js # Specialized variant primitive (if distinct semantics require it)
+```
 
-### 2.2 Public API Stability & `index.js`
-Every multi-file UI module must export a single, explicit public API through `index.js`.
-- Internal file layouts, styling helpers, and private sub-components may be refactored freely.
-- The public export interface exposed to application consumers must remain strictly backward-compatible.
+### File Responsibilities:
+
+1. **`index.js` (Public Barrel Export)**:
+   - Exposes the public API interface (`default`, named exports, hooks, tokens).
+   - Shields internal refactoring from breaking application consumers.
+
+2. **`[ModuleName].js` (Core Component)**:
+   - Contains JSX rendering and props validation.
+   - Delegates state/gestures to `use[ModuleName]Animation` and styling to `use[ModuleName]Theme`.
+   - Must remain strictly under ~200 lines.
+
+3. **`[ModuleName]Styles.js` (Style Factory)**:
+   - Uses `StyleSheet.create` and token utilities from `src/theme/tokens.js`.
+   - Generates flat style maps for light/dark themes and visual variants (`sm`, `md`, `lg`).
+
+4. **`use[ModuleName]Theme.js` (Theme Hook)**:
+   - Resolves context dark mode (`ThemeContext`) and variant prop fallbacks.
+   - Returns combined container and text style objects.
+
+5. **`use[ModuleName]Animation.js` (Animation Hook)**:
+   - Manages `Animated.Value` instances (`scaleAnim`, `opacityAnim`).
+   - Drives gesture timing and spring sequences using central `motion` tokens.
 
 ---
 
-## 3. Module Evolution & Flexibility Matrix
+## 3. Design Token & Theme Integration
 
-Different UI modules require different internal file structures based on complexity:
+No UI component may hardcode colors, border radii, heights, font sizes, or animation parameters. All visual properties must reference [`src/theme/tokens.js`](file:///d:/Magazine/_PigmentShop/src/theme/tokens.js):
 
-| Module Scale | Example Modules | Target File Structure | Justification |
+- **Colors**: `colors.accent`, `colors.surfaceDark`, `colors.borderLight`, etc.
+- **Radii**: `layout.radii.xs` (6), `layout.radii.sm` (8), `layout.radii.md` (16), `layout.radii.full` (50).
+- **Motion**: `motion.press.scale` (1.1), `motion.press.duration` (90ms), `motion.press.friction` (4).
+- **Typography**: `fonts.sans`, `fonts.serif`.
+
+---
+
+## 4. Module Lifecycle & Evolution Matrix
+
+| Complexity Level | Examples | Required Architecture | Decomposition Justification |
 | :--- | :--- | :--- | :--- |
-| **Simple Primitive** | `EmptyState`, `FieldError` | Single file (`EmptyState.js`) | Under 150 lines, no internal state, single visual representation. |
-| **Standard UI Module** | `SearchBar`, `Breadcrumb` | `ModuleName.js`, `ModuleNameStyles.js` | Keeps component render logic decoupled from static styling objects. |
-| **Complex Multi-Variant Module** | `Button`, `Modal`, `Card` | `index.js`, `Base.js`, `VariantA.js`, `VariantB.js` | Multiple distinct semantic primitives sharing underlying animations/themes. |
+| **Simple Primitive** | `FieldError`, `Badge` | Single file (`Badge.js`) | Under 100 lines, static styling, no state or gesture handling. |
+| **Standard Primitive** | `Card`, `Drawer` | `ModuleName.js`, `ModuleNameStyles.js` | Decouples render logic from style objects exceeding 80 lines. |
+| **Full Reference Module** | `Button`, `Modal`, `Input` | Full 5-file architecture (`index`, `Component`, `Styles`, `Theme`, `Animation`) | Handles variants, gestures, dark mode, and spring animations cleanly under 200-line limits. |
 
 ---
 
-## 4. Maintenance & Evolutionary Guidance
+## 5. Compliance Checklist for Future Primitives
 
-This standard is a living engineering guide. Future components may extend or adapt internal file boundaries provided they prioritize maintainability, avoid premature abstractions, and preserve stable public APIs.
+When creating or refactoring a UI module (e.g., `Card`, `Row`, `Modal`):
+- [ ] Export contract established in `index.js`.
+- [ ] Render component `[ModuleName].js` is under 200 lines.
+- [ ] Styles encapsulated in `[ModuleName]Styles.js` referencing `tokens.js`.
+- [ ] Theme resolution logic extracted to `use[ModuleName]Theme.js`.
+- [ ] Animation drivers extracted to `use[ModuleName]Animation.js` (if interactive).
+- [ ] Zero hardcoded hex colors, radii, or pixel offsets.

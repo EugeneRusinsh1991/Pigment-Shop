@@ -13,6 +13,45 @@ function getDimensionsForSize(size) {
   return { width: 0, height: token.height };
 }
 
+function buildContainerStyle(variant, size, resolvedContainer, fullWidth, disabled, style) {
+  const sizeStyle = styles[size] || styles.md;
+  if (variant === 'unstyled') return [fullWidth && styles.fullWidth, style];
+  return [
+    styles.base,
+    sizeStyle,
+    resolvedContainer,
+    fullWidth ? styles.fullWidth : null,
+    disabled ? styles.disabled : null,
+    style,
+  ];
+}
+
+function buildTextStyle(variant, size, resolvedText, disabled, textStyle) {
+  const textSizeStyle = styles[`text_${size}`] || styles.text_md;
+  if (variant === 'unstyled') return [textStyle];
+  return [
+    styles.textBase,
+    textSizeStyle,
+    resolvedText,
+    disabled ? styles.textDisabled : null,
+    textStyle,
+  ];
+}
+
+function renderButtonContent(children, loading, title, leftIcon, rightIcon, textCombinedStyle) {
+  if (typeof children === 'function') return children({ pressed: false });
+  if (children) return children;
+  return (
+    <>
+      {leftIcon}
+      {loading
+        ? <ActivityIndicator size="small" color={StyleSheet.flatten(textCombinedStyle).color || colors.white} />
+        : title ? <Text style={textCombinedStyle}>{title}</Text> : null}
+      {rightIcon}
+    </>
+  );
+}
+
 export default function Button({
   title,
   onPress,
@@ -59,39 +98,13 @@ export default function Button({
     animated, disabled, loading, activeOpacity, scaleTo, onPressIn, onPressOut, onPress,
   });
 
-  const sizeStyle = styles[size] || styles.md;
-  const containerStyle = variant === 'unstyled' ? [fullWidth && styles.fullWidth, style] : [
-    styles.base,
-    sizeStyle,
-    resolvedContainer,
-    fullWidth ? styles.fullWidth : null,
-    disabled ? styles.disabled : null,
-    style,
-  ];
-
-  const textSizeStyle = styles[`text_${size}`] || styles.text_md;
-  const textCombinedStyle = variant === 'unstyled' ? [textStyle] : [
-    styles.textBase,
-    textSizeStyle,
-    resolvedText,
-    disabled ? styles.textDisabled : null,
-    textStyle,
-  ];
+  const containerStyle = buildContainerStyle(variant, size, resolvedContainer, fullWidth, disabled, style);
+  const textCombinedStyle = buildTextStyle(variant, size, resolvedText, disabled, textStyle);
 
   const { height, width } = getDimensionsForSize(size);
   const computedHitSlop = hitSlop !== undefined ? hitSlop : calculateHitSlop(width, height);
 
-  const content = typeof children === 'function' ? children({ pressed: false }) : children ? children : (
-    <>
-      {leftIcon}
-      {loading ? (
-        <ActivityIndicator size="small" color={StyleSheet.flatten(textCombinedStyle).color || colors.white} />
-      ) : title ? (
-        <Text style={textCombinedStyle}>{title}</Text>
-      ) : null}
-      {rightIcon}
-    </>
-  );
+  const content = renderButtonContent(children, loading, title, leftIcon, rightIcon, textCombinedStyle);
 
   if (!animated || Platform.OS === 'web') {
     return (

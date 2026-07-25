@@ -26,6 +26,22 @@ function isMissingIndexError(error) {
   return false;
 }
 
+function applyClientPageChange(setCurrentPage, delta) {
+  setCurrentPage((p) => p + delta);
+}
+
+async function fetchAndApplyServerPage(cursor, filters, sortKey, pageSize, pageOffset, setCurrentPageProducts, setCurrentPage, setLoadedParams, setCursorStack) {
+  const { pageData } = await loadServerPage(filters, sortKey, cursor, pageSize);
+  setCurrentPageProducts(pageData.products);
+  setCurrentPage((p) => p + pageOffset);
+  setLoadedParams((prev) => ({ ...prev, page: prev.page + pageOffset }));
+  if (pageOffset > 0 && pageData.lastDoc) {
+    setCursorStack((prev) => [...prev, pageData.lastDoc]);
+  } else if (pageOffset < 0) {
+    setCursorStack((prev) => prev.slice(0, -1));
+  }
+}
+
 
 export default function usePaginatedCatalog(filters, sortKey, flatList, categoryTree, pageSize = PAGE_SIZE) {
   const [currentPageProducts, setCurrentPageProducts] = useState([]);
@@ -113,16 +129,12 @@ export default function usePaginatedCatalog(filters, sortKey, flatList, category
 
   const nextPage = useCallback(async () => {
     if (currentPage >= totalPages || loading) return;
-    if (clientFallback) { setCurrentPage((p) => p + 1); return; }
+    if (clientFallback) { applyClientPageChange(setCurrentPage, 1); return; }
 
     setLoading(true);
     try {
       const cursor = cursorStack[cursorStack.length - 1];
-      const { pageData } = await loadServerPage(filters, sortKey, cursor, pageSize);
-      setCurrentPageProducts(pageData.products);
-      setCurrentPage((p) => p + 1);
-      setLoadedParams((prev) => ({ ...prev, page: prev.page + 1 }));
-      if (pageData.lastDoc) setCursorStack((prev) => [...prev, pageData.lastDoc]);
+      await fetchAndApplyServerPage(cursor, filters, sortKey, pageSize, 1, setCurrentPageProducts, setCurrentPage, setLoadedParams, setCursorStack);
     } catch (error) {
       console.error('Error fetching next page:', error);
     } finally {
@@ -132,17 +144,13 @@ export default function usePaginatedCatalog(filters, sortKey, flatList, category
 
   const prevPage = useCallback(async () => {
     if (currentPage <= 1 || loading) return;
-    if (clientFallback) { setCurrentPage((p) => p - 1); return; }
+    if (clientFallback) { applyClientPageChange(setCurrentPage, -1); return; }
 
     setLoading(true);
     try {
       const prevPageIndex = currentPage - 2;
       const cursor = prevPageIndex > 0 ? cursorStack[prevPageIndex - 1] : null;
-      const { pageData } = await loadServerPage(filters, sortKey, cursor, pageSize);
-      setCurrentPageProducts(pageData.products);
-      setCurrentPage((p) => p - 1);
-      setLoadedParams((prev) => ({ ...prev, page: prev.page - 1 }));
-      setCursorStack((prev) => prev.slice(0, -1));
+      await fetchAndApplyServerPage(cursor, filters, sortKey, pageSize, -1, setCurrentPageProducts, setCurrentPage, setLoadedParams, setCursorStack);
     } catch (error) {
       console.error('Error fetching prev page:', error);
     } finally {

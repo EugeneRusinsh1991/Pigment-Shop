@@ -1,7 +1,7 @@
 # Button Module Architectural Specification
 
 > [!NOTE]
-> This specification defines the concrete module architecture, component model, public API, and evolutionary rules for the `Button` UI primitive, implementing [.docs/architecture-standards/01-reference-ui-module.md](file:///d:/Magazine/_PigmentShop/.docs/architecture-standards/01-reference-ui-module.md).
+> This specification defines the concrete module architecture, component model, public API, design tokens, hook extractions, and evolutionary rules for the `Button` UI primitive, implementing [.docs/architecture-standards/01-reference-ui-module.md](file:///d:/Magazine/_PigmentShop/.docs/architecture-standards/01-reference-ui-module.md).
 
 ---
 
@@ -10,9 +10,9 @@
 The `Button` primitive represents an **action trigger** (executing a command, submitting a form, or opening a modal). 
 
 ### Non-Button Primitives (Out of Scope):
-- **Tabs**: View navigation panels $\rightarrow$ `Tab` module.
-- **Carousel Indicators**: Slide navigation $\rightarrow$ `Carousel` module.
-- **Banner Selectors**: Banner pagination $\rightarrow$ `Banner` module.
+- **Tabs**: View navigation panels $\rightarrow$ `Tab` module (`AdminTabBar`).
+- **Carousel Indicators**: Slide navigation $\rightarrow$ `HeroCarousel` module.
+- **Segmented Controls**: View toggles $\rightarrow$ `SegmentedToggle` primitive.
 
 Visual clickability alone does not make an element a `Button`. Non-action elements must use their respective semantic primitives.
 
@@ -20,67 +20,91 @@ Visual clickability alone does not make an element a `Button`. Non-action elemen
 
 ## 2. Public API Strategy (`index.js`)
 
-All consumers must import button components exclusively from `src/components/Button/index.js`.
+All consumers must import button components exclusively from [`src/components/Button/index.js`](file:///d:/Magazine/_PigmentShop/src/components/Button/index.js).
 
 ### Export Contract:
 ```javascript
-export { default, default as Button } from './Button';
+export { default, default as Button, AnimatedButton } from './Button';
 export { ChipButton } from './ChipButton';
 export { IconButton } from './IconButton';
+export { useButtonTheme } from './useButtonTheme';
+export { buttonTokens } from '../../theme/tokens';
 ```
 
-- **Backward Compatibility**: Refactoring internal file layouts must never alter this export contract or break consumer imports.
+- **Backward Compatibility**: Refactoring internal hook extractions, file layouts, or style maps must never alter this export contract or break consumer imports.
 
 ---
 
-## 3. Component Model
+## 3. Design Tokens & Geometry Standards
 
-The module consists of a base action primitive and two specialized semantic components:
+All button dimensions, radii, font sizes, and press animations derive from centralized design tokens in [`src/theme/tokens.js`](file:///d:/Magazine/_PigmentShop/src/theme/tokens.js):
 
-1. **`Button`** (Base Primitive): Standard action button with icon, text, loading spinner, and press animation support.
-2. **`ChipButton`**: Compact pill/rectangular tag primitive representing toggleable selection states or filters.
-3. **`IconButton`**: Square/circular hit-target primitive for standalone visual actions without text labels.
+| Size Token | Height | Border Radius (Standard) | Border Radius (Pill) | Padding Horizontal | Font Size | Use Case |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| `lg` | **48px** | `16px` (`layout.radii.md`) | `24px` | `24px` | `14px` | Main CTA / Hero / Page Submit / Checkout |
+| `md` | **40px** | `8px` (`layout.radii.sm`) | `20px` | `16px` | `13px` | Form Actions / Modal Controls / Filter Apply |
+| `sm` | **32px** | `6px` (`layout.radii.xs`) | `16px` | `12px` | `12px` | Compact Admin Rows / Inline Table Actions |
 
-*Rule*: New component primitives within the `Button` module are allowed **only** when introducing distinct accessibility, structural, or state management semantics.
+### Motion Tokens (`motion.press`):
+- `scale`: `1.1` (or custom `scaleTo`)
+- `duration`: `90ms`
+- `friction`: `4`, `tension`: `40`
 
 ---
 
-## 4. Visual Variants vs. Behaviors
+## 4. Component Model
 
-### 4.1 Visual Variants (`variant` prop)
-Appearance options belong to the `variant` prop and do **NOT** spawn separate files:
-- `primary`, `secondary`, `outline`, `ghost`, `text`, `unstyled`
+The module consists of a base action primitive, helper hook extractions, and specialized semantic components:
 
-### 4.2 Behaviors (Composable Props)
+1. **`Button`** (Base Primitive): Core action button with icon, text, loading spinner, and spring animation support.
+2. **`AnimatedButton`**: Lightweight unstyled variant wrapper for custom layout touchables.
+3. **`ChipButton`**: Compact pill/rectangular tag primitive representing toggleable selection states or filters.
+4. **`IconButton`**: Hit-target primitive for standalone visual actions without text labels.
+
+---
+
+## 5. Visual Variants vs. Behaviors
+
+### 5.1 Visual Variants (`variant` prop)
+Appearance options belong to the `variant` prop and are dynamically resolved via `useButtonTheme`:
+- `primary`, `accent`, `secondary`, `outline`, `ghost`, `danger`, `dangerSoft`, `success`, `unstyled`
+
+### 5.2 Behaviors (Composable Props)
 Interaction states and gesture feedback compose seamlessly across all visual variants:
-- `loading`: Replaces/complements text with an activity indicator.
-- `animated`: Enables scale/opacity feedback on press.
-- `disabled`: Inhibits interaction events and applies muted theme opacity.
-
-*Rule*: Never create composite components like `LoadingButton` or `OutlinedButton`. Use `<Button variant="outline" loading />`.
+- `loading`: Replaces text with ActivityIndicator.
+- `animated`: Enables spring scale (`scaleAnim`) and opacity feedback (`opacityAnim`) on press.
+- `disabled`: Inhibits touch events and applies muted theme opacity.
+- `fullWidth`: Expands button container to fill available width.
 
 ---
 
-## 5. Target File Structure & Responsibility Matrix
+## 6. Physical File Structure & Decomposition Matrix
 
 ```
 src/components/Button/
-├── index.js          # Public API exports
-├── Button.js         # Core Base Button implementation
-├── ChipButton.js     # Specialized ChipButton component & chipStyles
-└── IconButton.js     # Specialized IconButton component & iconStyles
+├── index.js               # Public API export barrel
+├── Button.js              # Core Base Button primitive & AnimatedButton shim (< 200 lines)
+├── ButtonStyles.js        # Dynamic token-driven style map factory
+├── useButtonAnimation.js  # Extracted hook: Press timing & spring animation drivers
+├── useButtonTheme.js      # Extracted hook: Variant & dark mode style resolution
+├── ChipButton.js          # Specialized ChipButton component & chipStyles
+└── IconButton.js          # Specialized IconButton component & iconStyles
 ```
 
 ### Responsibility Allocation:
-- **`Button.js`**: Owns base action rendering, animation drivers (`scaleAnim`, `opacityAnim`), hitSlop calculation, and `Pressable` handling.
-- **`ChipButton.js`**: Owns tag selection styling (`chipStyles`), pill/rect shape toggling, and chip icon color resolving.
+- **`Button.js`**: Renders container view (`AnimatedPressable` / `TouchableOpacity`), delegates animations to `useButtonAnimation` and themes to `useButtonTheme`.
+- **`ButtonStyles.js`**: Generates flat `StyleSheet` objects from design tokens (`buttonTokens`) and theme colors.
+- **`useButtonAnimation.js`**: Manages `scaleAnim` (spring sequence) and `opacityAnim` (timing fade) values.
+- **`useButtonTheme.js`**: Resolves dark/light mode and variant fallback mappings.
+- **`ChipButton.js`**: Owns tag selection styling (`chipStyles`), pill/rect shape toggling.
 - **`IconButton.js`**: Owns dimension-to-radius calculation (`iconStyles`) and icon color cloning.
 
 ---
 
-## 6. Evolutionary Rules
+## 7. Evolutionary Rules
 
 When new requirements emerge for the `Button` primitive:
 1. **First Choice**: Add a new prop or behavioral flag to `Button.js`.
-2. **Second Choice**: Define a new visual `variant` option.
-3. **Last Resort**: Create a new component file inside `src/components/Button/` **only if** the new primitive possesses distinct semantic behavior and cannot be cleanly expressed via props.
+2. **Second Choice**: Add a new visual variant mapping to `ButtonStyles.js`.
+3. **Refactoring Choice**: Extract internal helper hooks (e.g., `useButtonAnimation.js`) when `Button.js` approaches ~200 lines or gains complex state logic.
+4. **Last Resort**: Create a new primitive file inside `src/components/Button/` **only if** the primitive possesses distinct semantic behavior (e.g., `ChipButton.js`, `IconButton.js`).

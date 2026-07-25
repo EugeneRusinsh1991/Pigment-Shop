@@ -3,12 +3,8 @@ import { Animated, StyleSheet, Text } from 'react-native';
 import { colors, layout, shadows } from '../theme/tokens';
 import { useTheme } from '../context/ThemeContext';
 
-export function ToastView({ toast, fadeAnim }) {
-  const { isDark } = useTheme();
-
-  if (!toast) return null;
-
-  const TOAST_THEMES = {
+function resolveToastTheme(type, isDark) {
+  const themes = {
     error: {
       bg: isDark ? colors.dangerDarkShellBg : colors.dangerBgLight,
       text: isDark ? colors.textDark : colors.dangerDeep,
@@ -25,7 +21,15 @@ export function ToastView({ toast, fadeAnim }) {
       border: isDark ? colors.borderDark : colors.borderLight,
     },
   };
-  const { bg: toastBg, text: textColor, border: borderColor } = TOAST_THEMES[toast.type] || TOAST_THEMES.default;
+  return themes[type] || themes.default;
+}
+
+export function ToastView({ toast, fadeAnim }) {
+  const { isDark } = useTheme();
+
+  if (!toast) return null;
+
+  const { bg: toastBg, text: textColor, border: borderColor } = resolveToastTheme(toast.type, isDark);
 
   return (
     <Animated.View

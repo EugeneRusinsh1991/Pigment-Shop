@@ -1,6 +1,6 @@
 # 📦 Unused Code & Dependencies
 
-*Generated on: 25.07.2026, 22:21:38*
+*Generated on: 25.07.2026, 22:42:27*
 
 ### Dead Files (Unused)
 Files that are not reachable or imported by any other codebase file:
@@ -13,7 +13,7 @@ Files that are not reachable or imported by any other codebase file:
 Exports that are not imported or consumed by any other active file:
 
 - [appBootstrap.js](file:///D:/Magazine/_PigmentShop/src/bootstrap/appBootstrap.js): `stopAppBootstrap` ([L127](file:///D:/Magazine/_PigmentShop/src/bootstrap/appBootstrap.js#L127)), `resetAppBootstrap` ([L138](file:///D:/Magazine/_PigmentShop/src/bootstrap/appBootstrap.js#L138))
-- [index.js](file:///D:/Magazine/_PigmentShop/src/components/Button/index.js): `default` ([L1](file:///D:/Magazine/_PigmentShop/src/components/Button/index.js#L1)), `useButtonTheme` ([L4](file:///D:/Magazine/_PigmentShop/src/components/Button/index.js#L4)), `buttonTokens` ([L5](file:///D:/Magazine/_PigmentShop/src/components/Button/index.js#L5))
+- [index.js](file:///D:/Magazine/_PigmentShop/src/components/Button/index.js): `useButtonTheme` ([L4](file:///D:/Magazine/_PigmentShop/src/components/Button/index.js#L4)), `buttonTokens` ([L5](file:///D:/Magazine/_PigmentShop/src/components/Button/index.js#L5))
 - [useButtonTheme.js](file:///D:/Magazine/_PigmentShop/src/components/Button/useButtonTheme.js): `resolveStyle` ([L3](file:///D:/Magazine/_PigmentShop/src/components/Button/useButtonTheme.js#L3))
 - [index.js](file:///D:/Magazine/_PigmentShop/src/components/Card/index.js): `default` ([L1](file:///D:/Magazine/_PigmentShop/src/components/Card/index.js#L1)), `CardShadow` ([L2](file:///D:/Magazine/_PigmentShop/src/components/Card/index.js#L2)), `InteractiveCard` ([L3](file:///D:/Magazine/_PigmentShop/src/components/Card/index.js#L3)), `NavigationCard` ([L4](file:///D:/Magazine/_PigmentShop/src/components/Card/index.js#L4)), `StaticCard` ([L6](file:///D:/Magazine/_PigmentShop/src/components/Card/index.js#L6))
 - [Drawer.js](file:///D:/Magazine/_PigmentShop/src/components/Drawer/Drawer.js): `Drawer` ([L22](file:///D:/Magazine/_PigmentShop/src/components/Drawer/Drawer.js#L22))

@@ -1,49 +1,22 @@
 {
   "summary": {
-    "visitedScreens": 3,
-    "visitedInteractions": 22,
-    "successfulInteractions": 11,
+    "visitedScreens": 0,
+    "visitedInteractions": 0,
+    "successfulInteractions": 19,
     "failedInteractions": 0,
     "warnings": 0,
-    "errors": 4,
-    "executionDurationMs": 8985
+    "errors": 1,
+    "executionDurationMs": 0
   },
   "failures": [
     {
-      "screen": "http://localhost:8081/catalog/cat-root-0-sub-1",
+      "screen": "http://localhost:8081/products",
       "interaction": "Click",
-      "elementIdentifier": "link|/catalog/cat-root-0-sub-1",
-      "event": "Internal Explorer",
-      "timestamp": 1785008224819,
-      "errorType": "Explorer Error",
-      "errorMessage": "[Application Bug] Failed to go back: page.goBack: Target page, context or browser has been closed\nCall log:\n\u001b[2m  - waiting for navigation until \"load\"\u001b[22m\n"
-    },
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-0-sub-1",
-      "interaction": "Click",
-      "elementIdentifier": "link|/catalog/cat-root-0-sub-1",
-      "event": "Internal Explorer",
-      "timestamp": 1785008224827,
-      "errorType": "Explorer Error",
-      "errorMessage": "[Application Bug] Failed to go back: page.goBack: Target page, context or browser has been closed"
-    },
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-0-sub-1",
-      "interaction": "Click",
-      "elementIdentifier": "link|/catalog/cat-root-0-sub-1",
-      "event": "Internal Explorer",
-      "timestamp": 1785008224833,
-      "errorType": "Explorer Error",
-      "errorMessage": "[Application Bug] Failed to go back: page.goBack: Target page, context or browser has been closed"
-    },
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-0-sub-1",
-      "interaction": "Click",
-      "elementIdentifier": "link|/catalog/cat-root-0-sub-1",
-      "event": "Internal Explorer",
-      "timestamp": 1785008224842,
-      "errorType": "Explorer Error",
-      "errorMessage": "[Application Bug] Failed to go back: page.goBack: Target page, context or browser has been closed"
+      "elementIdentifier": "link|/product/prod-2-1-1-1",
+      "event": "AfterInteraction",
+      "timestamp": 1785008772028,
+      "errorType": "Health Check Evaluation Failed",
+      "errorMessage": "[Application Bug] page.evaluate: Target page, context or browser has been closed"
     }
   ],
   "warnings": []
