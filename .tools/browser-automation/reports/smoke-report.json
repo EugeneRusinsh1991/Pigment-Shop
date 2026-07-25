@@ -1,23 +1,13 @@
 {
   "summary": {
-    "visitedScreens": 0,
-    "visitedInteractions": 0,
-    "successfulInteractions": 43,
+    "visitedScreens": 14,
+    "visitedInteractions": 86,
+    "successfulInteractions": 140,
     "failedInteractions": 0,
     "warnings": 0,
-    "errors": 1,
-    "executionDurationMs": 0
+    "errors": 0,
+    "executionDurationMs": 261575
   },
-  "failures": [
-    {
-      "screen": "http://localhost:8081/catalog/cat-root-1-sub-1",
-      "interaction": "Click",
-      "elementIdentifier": "link|/catalog/cat-root-1-sub-1-sub-0",
-      "event": "AfterInteraction",
-      "timestamp": 1784974915873,
-      "errorType": "Health Check Evaluation Failed",
-      "errorMessage": "[Application Bug] page.evaluate: Target page, context or browser has been closed"
-    }
-  ],
+  "failures": [],
   "warnings": []
 }
