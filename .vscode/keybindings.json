@@ -60,6 +60,11 @@
     "args": "Run Browser Automation Smoke (TSX)"
   },
   {
+    "key": "ctrl+shift+alt+r",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Tools: Automation Admin Explorer"
+  },
+  {
     "key": "ctrl+shift+alt+q",
     "command": "workbench.action.reopenTextEditor"
   }

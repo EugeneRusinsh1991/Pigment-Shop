@@ -60,6 +60,7 @@ Creates a clean, production-ready `.zip` archive of the project codebase (exclud
 Provides autonomous UI exploration, smoke testing, and deep diagnostics using Playwright.
 
 - **Commands**:
+  - `npx tsx .tools/browser-automation/run-full.ts` — Executes full project exploration (runs Admin explorer, waits 5s, then runs standard smoke explorer).
   - `npx tsx .tools/browser-automation/run-smoke.ts` — Executes event-driven smoke test suite (ensures dev server readiness, runs authenticated admin & catalog exploration, generates `smoke-report.json`).
   - `npx tsx .tools/browser-automation/run-admin-nav.ts` — Executes targeted navigation tests across admin dashboard views.
   - `npx tsx .tools/browser-automation/run.ts` — Launches generic UI Explorer engine.
@@ -158,6 +159,20 @@ Copy and paste into your project's `.vscode/tasks.json`:
       "command": "npm run pack",
       "presentation": { "reveal": "always", "panel": "shared" },
       "problemMatcher": []
+    },
+    {
+      "label": "Tools: Automation Smoke Explorer",
+      "type": "shell",
+      "command": "npx tsx .tools/browser-automation/run-smoke.ts",
+      "presentation": { "reveal": "always", "panel": "dedicated", "focus": true },
+      "problemMatcher": []
+    },
+    {
+      "label": "Tools: Automation Admin Explorer",
+      "type": "shell",
+      "command": "npx tsx .tools/browser-automation/run-admin-nav.ts",
+      "presentation": { "reveal": "always", "panel": "dedicated", "focus": true },
+      "problemMatcher": []
     }
   ]
 }
@@ -197,6 +212,16 @@ Open **File > Preferences > Keyboard Shortcuts (JSON)** (`keybindings.json`) and
     "key": "ctrl+alt+shift+p",
     "command": "workbench.action.tasks.runTask",
     "args": "Tools: Pack Codebase ZIP"
+  },
+  {
+    "key": "ctrl+alt+shift+e",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Tools: Automation Smoke Explorer"
+  },
+  {
+    "key": "ctrl+alt+shift+r",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Tools: Automation Admin Explorer"
   }
 ]
 ```

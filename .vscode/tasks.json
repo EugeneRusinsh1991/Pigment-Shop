@@ -184,6 +184,17 @@
                 "panel": "shared"
             },
             "problemMatcher": []
+        },
+        {
+            "label": "Tools: Automation Admin Explorer",
+            "type": "shell",
+            "command": "npx tsx .tools/browser-automation/run-admin-nav.ts",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "focus": true
+            },
+            "problemMatcher": []
         }
     ]
 }
