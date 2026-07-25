@@ -2084,5 +2084,35 @@
         }
       ]
     }
+  },
+  "src_2026-07-25_15-51_5-refactoring-roadmap.md_21files": {
+    "timestamp": "2026-07-25T12:51:15.095Z",
+    "diff": {
+      "added": 18,
+      "removed": 0,
+      "modified": 3,
+      "topFolders": [
+        {
+          "folder": ".docs/ai-audit-framework/tasks",
+          "count": 12
+        },
+        {
+          "folder": ".docs/ai-audit-framework/batches",
+          "count": 3
+        },
+        {
+          "folder": ".docs/ai-audit-framework/stages",
+          "count": 3
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        },
+        {
+          "folder": ".docs/ai-audit-framework",
+          "count": 1
+        }
+      ]
+    }
   }
 }
