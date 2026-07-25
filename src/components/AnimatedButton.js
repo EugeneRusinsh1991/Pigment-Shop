@@ -1,20 +1,43 @@
 import React, { useRef } from 'react';
-import { Animated, Pressable, Platform } from 'react-native';
+import { Animated, Pressable, Platform, StyleSheet } from 'react-native';
 import { DEFAULT_ACTIVE_OPACITY } from '../theme/buttonCommon';
 import { motion } from '../theme/tokens';
-
-const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
 export default function AnimatedButton({
   style,
   onPress,
+  onPressIn,
+  onPressOut,
   children,
   activeOpacity = DEFAULT_ACTIVE_OPACITY,
   scaleTo = motion.press.scale,
   disabled,
+  hitSlop,
+  accessibilityRole = 'button',
   ...props
 }) {
   const scaleAnim = useRef(new Animated.Value(1)).current;
+  const opacityAnim = useRef(new Animated.Value(1)).current;
+
+  const handlePressIn = (e) => {
+    if (!disabled) {
+      Animated.timing(opacityAnim, {
+        toValue: activeOpacity,
+        duration: 50,
+        useNativeDriver: Platform.OS !== 'web',
+      }).start();
+    }
+    if (onPressIn) onPressIn(e);
+  };
+
+  const handlePressOut = (e) => {
+    Animated.timing(opacityAnim, {
+      toValue: 1,
+      duration: 150,
+      useNativeDriver: Platform.OS !== 'web',
+    }).start();
+    if (onPressOut) onPressOut(e);
+  };
 
   const handlePress = (e) => {
     e?.stopPropagation?.();
@@ -38,20 +61,36 @@ export default function AnimatedButton({
   };
 
   return (
-    <AnimatedPressable
-      accessibilityRole="button"
-      disabled={disabled}
-      onPress={handlePress}
-      style={({ pressed }) => [
-        typeof style === 'function' ? style({ pressed }) : style,
+    <Animated.View
+      style={[
+        style,
         {
-          opacity: pressed && !disabled ? activeOpacity : 1,
+          opacity: opacityAnim,
           transform: [{ scale: scaleAnim }],
         },
       ]}
-      {...props}
     >
-      {typeof children === 'function' ? children : children}
-    </AnimatedPressable>
+      <Pressable
+        accessibilityRole={accessibilityRole}
+        disabled={disabled}
+        hitSlop={hitSlop}
+        onPress={handlePress}
+        onPressIn={handlePressIn}
+        onPressOut={handlePressOut}
+        style={styles.innerPressable}
+        {...props}
+      >
+        {typeof children === 'function' ? children : children}
+      </Pressable>
+    </Animated.View>
   );
 }
+
+const styles = StyleSheet.create({
+  innerPressable: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
