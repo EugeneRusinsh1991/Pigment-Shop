@@ -97,7 +97,6 @@ export class UIExplorer {
   private async initializeScreenState(currentUrl: string) {
     if (!this.tracker.isScreenVisited(currentUrl)) {
       this.tracker.markScreenVisited(currentUrl);
-      this.context.visitedScreens.add(currentUrl);
       await this.emitter.emit('ScreenDiscovered', { context: this.context, timestamp: Date.now() });
     }
     await this.emitter.emit('ScreenEntered', { context: this.context, timestamp: Date.now() });

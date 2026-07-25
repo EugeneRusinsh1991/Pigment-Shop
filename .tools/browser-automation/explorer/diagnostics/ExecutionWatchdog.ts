@@ -65,15 +65,22 @@ export class ExecutionWatchdog {
     this.interactionStartTime = 0;
   }
 
-  private startTimer(): void {
-    this.stopTimer();
-    this.timer = setInterval(() => this.checkProgress(), 1000); // Check every second
-  }
-
-  private stopTimer(): void {
+  public stopTimer(): void {
     if (this.timer) {
       clearInterval(this.timer);
       this.timer = null;
+    }
+  }
+
+  public dispose(): void {
+    this.stopTimer();
+  }
+
+  private startTimer(): void {
+    this.stopTimer();
+    this.timer = setInterval(() => this.checkProgress(), 1000); // Check every second
+    if (this.timer && typeof this.timer.unref === 'function') {
+      this.timer.unref();
     }
   }
 

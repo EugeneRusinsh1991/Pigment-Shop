@@ -1,25 +1,21 @@
-import { Page } from 'playwright';
-import * as fs from 'fs';
-import * as path from 'path';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+const fs = require('fs');
+const path = require('path');
 const { takeCompressedScreenshot } = require('../../scripts/playwright.helpers');
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const { cleanOldFiles } = require('../../scripts/cleanOldFiles');
 
-export async function setupManualInspector(page: Page): Promise<void> {
+async function setupManualInspector(page) {
   if (!page) return;
 
   try {
     await page.addInitScript(() => {
-      (window as any).__isPlaywright = true;
+      window.__isPlaywright = true;
     });
   } catch (err) {
     // Init script may already be attached
   }
 
   try {
-    await page.exposeFunction('__playwright_takeScreenshotAndDumpState', async (timestamp: string, stateDump: any) => {
+    await page.exposeFunction('__playwright_takeScreenshotAndDumpState', async (timestamp, stateDump) => {
       const baseDir = path.join(process.cwd(), '.docs', 'browserLog');
       const screenshotsDir = path.join(baseDir, 'screenshots');
       const stateDir = path.join(baseDir, 'state');
@@ -45,7 +41,7 @@ export async function setupManualInspector(page: Page): Promise<void> {
 
       const getCircularReplacer = () => {
         const seen = new WeakSet();
-        return (_key: string, value: any) => {
+        return (_key, value) => {
           if (typeof value === 'object' && value !== null) {
             if (seen.has(value)) return '[Circular]';
             seen.add(value);
@@ -108,3 +104,5 @@ ${JSON.stringify(stateDump, null, 2)}
     // Function may already be exposed on this page instance
   }
 }
+
+module.exports = { setupManualInspector };

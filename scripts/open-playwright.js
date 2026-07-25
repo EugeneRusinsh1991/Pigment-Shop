@@ -1,5 +1,7 @@
+const fs = require('fs');
 const { chromium } = require('playwright');
 const { execSync } = require('child_process');
+const path = require('path');
 const { takeCompressedScreenshot } = require('./playwright.helpers');
 const { cleanOldFiles } = require('./cleanOldFiles');
 
@@ -20,19 +22,30 @@ function killExistingPlaywrightSessions() {
 killExistingPlaywrightSessions();
 
 (async () => {
-  console.log('Launching Playwright Chrome with viewport auto-resize (viewport: null)...');
-  const browser = await chromium.launch({
+  console.log('Launching Playwright Chrome with persistent profile & viewport auto-resize (viewport: null)...');
+  const userDataDir = path.resolve(__dirname, '../.playwright/user-data');
+
+  const context = await chromium.launchPersistentContext(userDataDir, {
     headless: false,
+    viewport: null,
     args: ['--start-maximized']
   });
   
-  const context = await browser.newContext({
-    viewport: null
-  });
-  
-  const page = await context.newPage();
-  const { setupManualInspector } = require('../.tools/manual-browser-inspector/setupManualInspector');
-  await setupManualInspector(page);
+  const page = context.pages().length > 0 ? context.pages()[0] : await context.newPage();
+
+  let setupManualInspector;
+  try {
+    const inspectorPath = path.join(__dirname, '../.tools/manual-browser-inspector/setupManualInspector.js');
+    if (fs.existsSync(inspectorPath)) {
+      setupManualInspector = require(inspectorPath).setupManualInspector;
+    }
+  } catch (err) {
+    // Optional manual inspector component
+  }
+  if (setupManualInspector) {
+    await setupManualInspector(page);
+  }
+
 
   const url = process.argv[2] || 'http://localhost:8081';
   console.log(`Navigating to ${url}...`);
@@ -44,8 +57,9 @@ killExistingPlaywrightSessions();
   }
   
   // Keep the process alive while the browser is open
-  browser.on('disconnected', () => {
+  context.on('close', () => {
     console.log('Browser closed. Exiting.');
     process.exit(0);
   });
 })();
+

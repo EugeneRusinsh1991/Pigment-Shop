@@ -1,25 +1,53 @@
+import { ExplorerContext } from './ExplorerContext';
+
 export class NavigationTracker {
-  private visitedScreens = new Set<string>();
-  private visitedActions = new Set<string>();
+  private localVisitedScreens = new Set<string>();
+  private localVisitedActions = new Set<string>();
+
+  constructor(private context?: ExplorerContext) {}
+
+  setContext(context: ExplorerContext): void {
+    this.context = context;
+  }
 
   markScreenVisited(url: string): void {
-    this.visitedScreens.add(url);
+    if (this.context) {
+      this.context.visitedScreens.add(url);
+    } else {
+      this.localVisitedScreens.add(url);
+    }
   }
 
   isScreenVisited(url: string): boolean {
-    return this.visitedScreens.has(url);
+    if (this.context) {
+      return this.context.visitedScreens.has(url);
+    }
+    return this.localVisitedScreens.has(url);
   }
 
   markActionVisited(screen: string, actionId: string): void {
-    this.visitedActions.add(`${screen}::${actionId}`);
+    const key = `${screen}::${actionId}`;
+    if (this.context) {
+      this.context.visitedElements.add(key);
+    } else {
+      this.localVisitedActions.add(key);
+    }
   }
 
   isActionVisited(screen: string, actionId: string): boolean {
-    return this.visitedActions.has(`${screen}::${actionId}`);
+    const key = `${screen}::${actionId}`;
+    if (this.context) {
+      return this.context.visitedElements.has(key);
+    }
+    return this.localVisitedActions.has(key);
   }
 
   reset(): void {
-    this.visitedScreens.clear();
-    this.visitedActions.clear();
+    if (this.context) {
+      this.context.visitedScreens.clear();
+      this.context.visitedElements.clear();
+    }
+    this.localVisitedScreens.clear();
+    this.localVisitedActions.clear();
   }
 }

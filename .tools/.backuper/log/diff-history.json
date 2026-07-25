@@ -2192,5 +2192,35 @@
         }
       ]
     }
+  },
+  "src_2026-07-25_18-31_smoke-report.json_1546files": {
+    "timestamp": "2026-07-25T15:31:52.097Z",
+    "diff": {
+      "added": 1539,
+      "removed": 3,
+      "modified": 7,
+      "topFolders": [
+        {
+          "folder": ".venv/Lib/site-packages/pip/_vendor/rich",
+          "count": 79
+        },
+        {
+          "folder": ".venv/Lib/site-packages/pip/_vendor/rich/__pycache__",
+          "count": 77
+        },
+        {
+          "folder": "src/components",
+          "count": 45
+        },
+        {
+          "folder": "scripts/smoke-test/failures",
+          "count": 33
+        },
+        {
+          "folder": ".venv/Lib/site-packages/pip/_internal/utils",
+          "count": 26
+        }
+      ]
+    }
   }
 }

@@ -2,6 +2,7 @@ import { IWebPage, IWebElement } from './driver/DriverInterfaces';
 import { ElementMetadata } from './observability/events';
 import { ElementScanner } from './ElementScanner';
 import { ExecutionStateGraph } from './graph/ExecutionStateGraph';
+import { BoundedMap } from './utils/BoundedCollections';
 
 export interface PageStateCache {
   stateId: string;
@@ -17,18 +18,32 @@ export class StateCacheManager {
   private scanner: ElementScanner;
   private stateGraph: ExecutionStateGraph;
   private currentCache: PageStateCache | null = null;
+  private pageCache: BoundedMap<string, PageStateCache>;
 
-  constructor(scanner: ElementScanner, stateGraph: ExecutionStateGraph) {
+  constructor(
+    scanner: ElementScanner,
+    stateGraph: ExecutionStateGraph,
+    maxCacheSize: number = 50
+  ) {
     this.scanner = scanner;
     this.stateGraph = stateGraph;
+    this.pageCache = new BoundedMap<string, PageStateCache>(maxCacheSize);
   }
 
   async getPageState(page: IWebPage, forceRescan: boolean = false): Promise<PageStateCache> {
     const currentHash = await this.scanner.checkDomHash(page);
     const url = page.url();
+    const cacheKey = `${url}::${currentHash}`;
     
-    if (!forceRescan && this.currentCache && this.currentCache.domHash === currentHash && this.currentCache.url === url) {
-      return this.currentCache;
+    if (!forceRescan) {
+      if (this.currentCache && this.currentCache.domHash === currentHash && this.currentCache.url === url) {
+        return this.currentCache;
+      }
+      const cached = this.pageCache.get(cacheKey);
+      if (cached) {
+        this.currentCache = cached;
+        return cached;
+      }
     }
 
     const scanned = await this.scanner.scanPage(page);
@@ -54,7 +69,14 @@ export class StateCacheManager {
       identifierMap,
       metadataMap
     };
+
+    this.pageCache.set(cacheKey, this.currentCache);
     
     return this.currentCache;
+  }
+
+  clearCache(): void {
+    this.currentCache = null;
+    this.pageCache.clear();
   }
 }

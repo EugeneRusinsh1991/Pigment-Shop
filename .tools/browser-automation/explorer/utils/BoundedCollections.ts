@@ -4,6 +4,9 @@ export class BoundedSet<T> {
   constructor(private limit: number) {}
 
   add(value: T): this {
+    if (this.set.has(value)) {
+      this.set.delete(value);
+    }
     this.set.add(value);
     if (this.set.size > this.limit) {
       const first = this.set.keys().next().value;
@@ -52,7 +55,12 @@ export class BoundedMap<K, V> {
   }
 
   get(key: K): V | undefined {
-    return this.map.get(key);
+    const value = this.map.get(key);
+    if (value !== undefined) {
+      this.map.delete(key);
+      this.map.set(key, value);
+    }
+    return value;
   }
 
   has(key: K): boolean {

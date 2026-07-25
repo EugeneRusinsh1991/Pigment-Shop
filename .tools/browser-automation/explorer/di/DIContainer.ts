@@ -84,7 +84,7 @@ export function createDefaultContainer(
     startTime: Date.now()
   };
 
-  const tracker = overrides.tracker ?? new NavigationTracker();
+  const tracker = overrides.tracker ?? new NavigationTracker(context);
   const scanner = overrides.scanner ?? new ElementScanner();
   const interactor = overrides.interactor ?? new ElementInteractor(config);
   const policyEngine = overrides.policyEngine ?? new InteractionPolicyEngine(config.interactionPolicyConfig);

@@ -46,3 +46,6 @@ yarn-error.*
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
+/playwright/user-data/
+/.playwright/
+

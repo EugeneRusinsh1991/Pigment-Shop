@@ -1,4 +1,4 @@
-# AI Debug Report - S_18-27-58_Catalog_CatRoot1Sub1
+# AI Debug Report - S_18-27-57_Catalog_CatRoot1Sub1
 
 ## 📊 Environment & Diagnostics
 | Parameter | Value |
@@ -11,11 +11,11 @@
 | **DOM Size** | 449 elements |
 
 ## 🖼️ Screenshot
-![Screenshot](../screenshots/S_18-27-58_Catalog_CatRoot1Sub1.jpg)
+![Screenshot](../screenshots/S_18-27-57_Catalog_CatRoot1Sub1.jpg)
 
 ## 📂 Quick Links
-* [Open Full Screenshot](file:///D:/Magazine/_PigmentShop/.docs/browserLog/screenshots/S_18-27-58_Catalog_CatRoot1Sub1.jpg)
-* [Open Raw State JSON](file:///D:/Magazine/_PigmentShop/.docs/browserLog/state/state_S_18-27-58_Catalog_CatRoot1Sub1.json)
+* [Open Full Screenshot](file:///D:/Magazine/_PigmentShop/.docs/browserLog/screenshots/S_18-27-57_Catalog_CatRoot1Sub1.jpg)
+* [Open Raw State JSON](file:///D:/Magazine/_PigmentShop/.docs/browserLog/state/state_S_18-27-57_Catalog_CatRoot1Sub1.json)
 
 ## 📜 Console Warnings & Errors (Recent 0)
 | Timestamp | Type | Message |

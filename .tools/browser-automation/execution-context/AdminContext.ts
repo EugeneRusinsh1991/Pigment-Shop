@@ -12,6 +12,10 @@ export class AdminContext extends BaseExecutionContext {
       throw new Error('Authentication is required for AdminContext but is not enabled in config.');
     }
 
+    if (!authConfig.username || !authConfig.password) {
+      throw new Error('Authentication Error: Missing required username or password in authentication config.');
+    }
+
     const loginUrl = new URL(authConfig.loginUrl, config.baseUrl).toString();
     this.logStep(`Opening Login Page: ${loginUrl}`);
     await page.goto(loginUrl, { waitUntil: 'domcontentloaded' });
@@ -43,19 +47,26 @@ export class AdminContext extends BaseExecutionContext {
   private async waitForAuthCompletion(page: Page, authConfig: any): Promise<void> {
     this.logStep('Waiting for authentication to complete...');
 
-    const authSuccessPromise = page.waitForURL((url) => !url.toString().includes(authConfig.loginUrl), { timeout: 10000 })
-      .then(() => ({ type: 'SUCCESS' }));
-
-    const authErrorPromise = page.waitForSelector('[data-testid="login-error-text"]', { state: 'visible', timeout: 10000 })
-      .then(async (locator) => {
-        const errorMsg = await locator.textContent();
-        return { type: 'REJECTED', message: errorMsg?.trim() || 'Unknown backend error' };
-      }).catch(() => null);
-
     try {
+      const authSuccessPromise = page.waitForURL(
+        (url) => !url.toString().includes(authConfig.loginUrl),
+        { timeout: 10000 }
+      ).then(() => ({ type: 'SUCCESS' as const }));
+
+      const authErrorPromise = page.waitForSelector('[data-testid="login-error-text"]', {
+        state: 'visible',
+        timeout: 10000
+      }).then(async (locator) => {
+        const errorMsg = await locator.textContent();
+        return { type: 'REJECTED' as const, message: errorMsg?.trim() || 'Unknown backend error' };
+      });
+
+      authSuccessPromise.catch(() => {});
+      authErrorPromise.catch(() => {});
+
       const result = await Promise.race([
         authSuccessPromise,
-        authErrorPromise.then(res => res ? res : new Promise<any>(() => { }))
+        authErrorPromise
       ]);
 
       if (result && result.type === 'REJECTED') {
@@ -68,7 +79,7 @@ export class AdminContext extends BaseExecutionContext {
   }
 
   private handleAuthException(page: Page, authConfig: any, e: any): never {
-    if (e.message.includes('Authentication Error')) {
+    if (e?.message?.includes('Authentication Error')) {
       throw e;
     }
 
@@ -78,7 +89,7 @@ export class AdminContext extends BaseExecutionContext {
       throw new Error('Authentication Error: Timeout Waiting For Authentication - Still on the login page after 10000ms.');
     }
 
-    this.logError('Network/Auth Exception', e.message);
-    throw new Error(`Authentication Error: Unexpected Authentication Failure - ${e.message}`);
+    this.logError('Network/Auth Exception', e?.message || String(e));
+    throw new Error(`Authentication Error: Unexpected Authentication Failure - ${e?.message || String(e)}`);
   }
 }

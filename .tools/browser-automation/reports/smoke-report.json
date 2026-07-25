@@ -2,20 +2,30 @@
   "summary": {
     "visitedScreens": 0,
     "visitedInteractions": 0,
-    "successfulInteractions": 127,
-    "failedInteractions": 0,
+    "successfulInteractions": 51,
+    "failedInteractions": 1,
     "warnings": 1,
-    "errors": 0,
+    "errors": 1,
     "executionDurationMs": 0
   },
-  "failures": [],
+  "failures": [
+    {
+      "screen": "http://localhost:8081/",
+      "interaction": "Click",
+      "elementIdentifier": "card|Card|/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]",
+      "event": "AfterInteraction",
+      "timestamp": 1784993502149,
+      "errorType": "Health Check Evaluation Failed",
+      "errorMessage": "[Application Bug] page.evaluate: Target page, context or browser has been closed"
+    }
+  ],
   "warnings": [
     {
       "screen": "http://localhost:8081/",
       "interaction": "Click",
       "elementIdentifier": "btn|Контакты",
       "event": "Runtime",
-      "timestamp": 1784984735931,
+      "timestamp": 1784993488367,
       "errorType": "Console Warning",
       "errorMessage": "props.pointerEvents is deprecated. Use style.pointerEvents"
     }

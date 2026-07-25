@@ -30,8 +30,8 @@ export default function ManualBrowserInspector() {
   }, []);
 
   const handleCapture = async () => {
-    const timestamp = getTimestamp();
     const stateDump = getAppStateDump(contexts);
+    const timestamp = getTimestamp(stateDump);
     if (window.__playwright_takeScreenshotAndDumpState) {
       await window.__playwright_takeScreenshotAndDumpState(timestamp, stateDump);
     }
