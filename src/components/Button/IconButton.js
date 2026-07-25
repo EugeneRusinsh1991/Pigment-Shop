@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import Button from './Button';
-import { useTheme } from '../../context/ThemeContext';
-import { getButtonStyle, buttonColors } from '../../theme/buttonCommon';
+import { buttonColors } from '../../theme/buttonCommon';
+import { useButtonTheme } from './useButtonTheme';
 
 export function IconButton({
   icon,
@@ -15,9 +15,13 @@ export function IconButton({
   isDark: isDarkProp,
   ...props
 }) {
-  const { isDark: isDarkContext } = useTheme();
-  const isDark = isDarkProp ?? isDarkContext;
-  
+  const { isDark, container: resolvedContainer } = useButtonTheme({
+    isDarkProp,
+    variant,
+    fallbackVariant: 'transparent',
+    styleMap: iconStyles,
+  });
+
   const getDimension = () => {
     if (typeof size === 'number') return size;
     const sizes = { sm: 28, md: 36, lg: 48 };
@@ -26,12 +30,11 @@ export function IconButton({
 
   const dim = getDimension();
   const radius = dim / 2;
-  const resolved = getButtonStyle(iconStyles, variant, isDark, '', 'transparent');
 
   const combinedStyle = [
     iconStyles.base,
     { width: dim, height: dim, borderRadius: radius },
-    resolved.container,
+    resolvedContainer,
     style,
   ];
 
@@ -44,6 +47,7 @@ export function IconButton({
     <Button
       variant="unstyled"
       animated={animated}
+      size={dim}
       style={combinedStyle}
       onPress={onPress}
       activeOpacity={activeOpacity}

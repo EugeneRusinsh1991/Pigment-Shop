@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import Button from './Button';
-import { useTheme } from '../../context/ThemeContext';
-import { getButtonStyle, buttonColors } from '../../theme/buttonCommon';
+import { buttonColors } from '../../theme/buttonCommon';
+import { useButtonTheme } from './useButtonTheme';
 
 function resolveChipIconColor(active, isDark) {
   if (active) {
@@ -30,11 +30,12 @@ export function ChipButton({
   isDark: isDarkProp,
   ...props
 }) {
-  const { isDark: isDarkContext } = useTheme();
-  const isDark = isDarkProp ?? isDarkContext;
-  
-  const stateKey = active ? 'Active' : 'Inactive';
-  const resolved = getButtonStyle(chipStyles, variant, isDark, stateKey);
+  const { isDark, container: resolvedContainer, text: resolvedText } = useButtonTheme({
+    isDarkProp,
+    variant,
+    state: active ? 'Active' : 'Inactive',
+    styleMap: chipStyles,
+  });
   const shapeStyle = variant === 'rect' ? chipStyles.rect : chipStyles.pill;
   const iconColor = resolveChipIconColor(active, isDark);
 
@@ -45,10 +46,10 @@ export function ChipButton({
       style={[
         chipStyles.base,
         shapeStyle,
-        resolved.container,
+        resolvedContainer,
         style,
       ]}
-      textStyle={[chipStyles.textBase, resolved.text, textStyle]}
+      textStyle={[chipStyles.textBase, resolvedText, textStyle]}
       leftIcon={renderChipIcon(leftIcon, iconColor)}
       rightIcon={renderChipIcon(rightIcon, iconColor)}
       title={label}

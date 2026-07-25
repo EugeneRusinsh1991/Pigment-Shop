@@ -1,37 +1,11 @@
 import React, { useRef } from 'react';
 import { ActivityIndicator, Animated, Platform, Pressable, StyleSheet, Text, TouchableOpacity } from 'react-native';
-import { useTheme } from '../../context/ThemeContext';
-import { useButtonProps, getButtonStyle, DEFAULT_ACTIVE_OPACITY, calculateHitSlop, buttonColors } from '../../theme/buttonCommon';
+import { useButtonProps, DEFAULT_ACTIVE_OPACITY, calculateHitSlop } from '../../theme/buttonCommon';
 import { colors, motion } from '../../theme/tokens';
 import styles from './ButtonStyles';
+import { useButtonTheme } from './useButtonTheme';
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
-
-function getContainerStyle(variant, size, disabled, isDark, style) {
-  if (variant === 'unstyled') return [style];
-  const resolved = getButtonStyle(styles, variant, isDark, '', 'primary');
-  const sizeStyle = styles[size] || styles.md;
-  return [
-    styles.base,
-    sizeStyle,
-    resolved.container,
-    disabled ? styles.disabled : null,
-    style,
-  ];
-}
-
-function getTextStyle(variant, size, disabled, isDark, textStyle) {
-  if (variant === 'unstyled') return [textStyle];
-  const resolved = getButtonStyle(styles, variant, isDark, '', 'primary');
-  const textSizeStyle = styles[`text_${size}`] || styles.text_md;
-  return [
-    styles.textBase,
-    textSizeStyle,
-    resolved.text,
-    disabled ? styles.textDisabled : null,
-    textStyle,
-  ];
-}
 
 function getDimensionsForSize(size) {
   if (size === 'sm') return { width: 0, height: 32 };
@@ -65,8 +39,13 @@ export default function Button({
   const resolvedRole = accessibilityRole !== undefined
     ? accessibilityRole
     : (variant === 'unstyled' ? 'none' : 'button');
-  const { isDark: isDarkContext } = useTheme();
-  const isDark = isDarkProp ?? isDarkContext;
+  const { isDark, container: resolvedContainer, text: resolvedText } = useButtonTheme({
+    isDarkProp,
+    variant,
+    fallbackVariant: 'primary',
+    styleMap: styles,
+  });
+
   const { touchableProps } = useButtonProps({
     isDark,
     disabled,
@@ -79,13 +58,25 @@ export default function Button({
   const scaleAnim = useRef(new Animated.Value(1)).current;
   const opacityAnim = useRef(new Animated.Value(1)).current;
 
-  const containerStyle = getContainerStyle(variant, size, disabled, isDark, style);
-  const textCombinedStyle = getTextStyle(variant, size, disabled, isDark, textStyle);
+  const sizeStyle = styles[size] || styles.md;
+  const containerStyle = variant === 'unstyled' ? [style] : [
+    styles.base,
+    sizeStyle,
+    resolvedContainer,
+    disabled ? styles.disabled : null,
+    style,
+  ];
 
-  const flatStyle = StyleSheet.flatten(containerStyle) || {};
-  const height = flatStyle.height || getDimensionsForSize(size).height;
-  const width = flatStyle.width || 0;
-  
+  const textSizeStyle = styles[`text_${size}`] || styles.text_md;
+  const textCombinedStyle = variant === 'unstyled' ? [textStyle] : [
+    styles.textBase,
+    textSizeStyle,
+    resolvedText,
+    disabled ? styles.textDisabled : null,
+    textStyle,
+  ];
+
+  const { height, width } = getDimensionsForSize(size);
   const computedHitSlop = hitSlop !== undefined ? hitSlop : calculateHitSlop(width, height);
 
   const handlePressIn = (e) => {

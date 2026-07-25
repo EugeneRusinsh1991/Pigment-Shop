@@ -79,31 +79,3 @@ export function calculateHitSlop(width, height) {
   };
 }
 
-function resolveStyle(styleMap, keys) {
-  for (const k of keys) {
-    if (styleMap[k]) return styleMap[k];
-  }
-  return null;
-}
-
-/**
- * Resolves button container and text styles from a style map.
- * Standardizes variant resolution across Button, ChipButton, and IconButton.
- *
- * @param {object} styleMap
- * @param {string} variant
- * @param {boolean|string} isDark
- * @param {string} [state]
- * @param {string} [fallbackVariant='primary']
- * @returns {{ container: object, text: object }}
- */
-export function getButtonStyle(styleMap = {}, variant = 'primary', isDark = false, state = '', fallbackVariant = 'primary') {
-  const themeKey = typeof isDark === 'string' ? isDark : getThemeKey(isDark);
-  const stateKey = state || '';
-  const suffix = `${themeKey}${stateKey}`;
-
-  const container = resolveStyle(styleMap, [`${variant}${suffix}`, `base${suffix}`, `${fallbackVariant}${suffix}`]);
-  const text = resolveStyle(styleMap, [`text_${variant}${suffix}`, `text${suffix}`, `text_${fallbackVariant}${suffix}`]);
-
-  return { container, text };
-}

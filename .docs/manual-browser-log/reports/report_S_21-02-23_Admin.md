@@ -1,21 +1,21 @@
-# AI Debug Report - S_21-02-25_Home
+# AI Debug Report - S_21-02-23_Admin
 
 ## 📊 Environment & Diagnostics
 | Parameter | Value |
 | :--- | :--- |
-| **URL** | [http://localhost:8081/](http://localhost:8081/) |
+| **URL** | [http://localhost:8081/admin](http://localhost:8081/admin) |
 | **User Agent** | `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36` |
 | **Viewport Size** | 1920x1073 (PixelRatio: 1) |
 | **Screen Resolution** | 1920x1200 |
 | **Network** | Online: `true`, Type: `4g` |
-| **DOM Size** | 253 elements |
+| **DOM Size** | 178 elements |
 
 ## 🖼️ Screenshot
-![Screenshot](../screenshots/S_21-02-25_Home.jpg)
+![Screenshot](../screenshots/S_21-02-23_Admin.jpg)
 
 ## 📂 Quick Links
-* [Open Full Screenshot](file:///D:/Magazine/_PigmentShop/.docs/manual-browser-log/screenshots/S_21-02-25_Home.jpg)
-* [Open Raw State JSON](file:///D:/Magazine/_PigmentShop/.docs/manual-browser-log/state/state_S_21-02-25_Home.json)
+* [Open Full Screenshot](file:///D:/Magazine/_PigmentShop/.docs/manual-browser-log/screenshots/S_21-02-23_Admin.jpg)
+* [Open Raw State JSON](file:///D:/Magazine/_PigmentShop/.docs/manual-browser-log/state/state_S_21-02-23_Admin.json)
 
 ## 📜 Console Warnings & Errors (Recent 0)
 | Timestamp | Type | Message |
@@ -25,7 +25,7 @@
 ## 📦 Application State Dump
 ```json
 {
-  "url": "http://localhost:8081/",
+  "url": "http://localhost:8081/admin",
   "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
   "screen": {
     "viewportWidth": 1920,
@@ -39,10 +39,10 @@
     "effectiveType": "4g"
   },
   "dom": {
-    "elementCount": 253
+    "elementCount": 178
   },
   "history": {
-    "length": 8
+    "length": 7
   },
   "storage": {
     "localStorage": {
