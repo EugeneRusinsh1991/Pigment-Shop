@@ -2826,5 +2826,35 @@
         }
       ]
     }
+  },
+  "src_2026-07-25_21-19_smoke-report.json_32files": {
+    "timestamp": "2026-07-25T18:19:45.957Z",
+    "diff": {
+      "added": 27,
+      "removed": 24,
+      "modified": 5,
+      "topFolders": [
+        {
+          "folder": ".docs/automation-browser-log/screenshots",
+          "count": 40
+        },
+        {
+          "folder": ".todos/button-component",
+          "count": 3
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        },
+        {
+          "folder": "src/components/Drawer",
+          "count": 2
+        },
+        {
+          "folder": "src/components",
+          "count": 2
+        }
+      ]
+    }
   }
 }

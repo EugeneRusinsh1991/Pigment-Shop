@@ -1,8 +1,25 @@
 import React from 'react';
-import { Modal, View, Animated, StyleSheet, Pressable, Platform } from 'react-native';
-import { colors, layout, shadows } from '../theme/tokens';
+import { Animated, Modal, Platform, Pressable, StyleSheet, Text, View } from 'react-native';
+import { colors, layout, shadows } from '../../theme/tokens';
 
-export default function SideDrawer({
+export function DrawerHeader({ title, onClose, children, style, titleStyle }) {
+  return (
+    <View style={[styles.header, style]}>
+      {title ? <Text style={[styles.headerTitle, titleStyle]}>{title}</Text> : null}
+      {children}
+    </View>
+  );
+}
+
+export function DrawerFooter({ children, style }) {
+  return (
+    <View style={[styles.footer, style]}>
+      {children}
+    </View>
+  );
+}
+
+export function Drawer({
   visible,
   onClose,
   scrimOpacity,
@@ -41,6 +58,8 @@ export default function SideDrawer({
   );
 }
 
+export default Drawer;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -58,4 +77,22 @@ const styles = StyleSheet.create({
   },
   panelDark: { backgroundColor: colors.navSurfaceDark },
   panelLight: { backgroundColor: colors.white },
+  header: {
+    padding: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.secondaryLightBorder,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  headerTitle: {
+    fontSize: 18,
+    fontWeight: '600',
+  },
+  footer: {
+    padding: 16,
+    borderTopWidth: 1,
+    borderTopColor: colors.secondaryLightBorder,
+    marginTop: 'auto',
+  },
 });

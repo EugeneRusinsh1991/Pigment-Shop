@@ -1,10 +1,10 @@
 import React, { useState, useCallback } from 'react';
 import { useTheme } from '../context/ThemeContext';
-import ConfirmationDialog from '../components/ConfirmationDialog';
+import { ConfirmationModal } from '../components/Modal';
 
 /**
  * Shared hook for cross-platform delete confirmations.
- * Uses custom themed ConfirmationDialog.
+ * Uses custom themed ConfirmationModal.
  */
 export function useDeleteConfirmation() {
   const { t } = useTheme();
@@ -42,7 +42,7 @@ export function useDeleteConfirmation() {
   }, []);
 
   const confirmationDialog = (
-    <ConfirmationDialog
+    <ConfirmationModal
       visible={dialogState.visible}
       title={dialogState.title}
       message={dialogState.message}

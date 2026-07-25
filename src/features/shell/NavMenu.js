@@ -12,7 +12,7 @@ import MainMenuContent from './NavMenu/MainMenuContent';
 import CatalogMenuContent from './NavMenu/CatalogMenuContent';
 
 import { useSlideAnimation } from '../../hooks/useSlideAnimation';
-import SideDrawer from '../../components/SideDrawer';
+import Drawer from '../../components/Drawer';
 
 
 function NavPanelContent({
@@ -120,7 +120,7 @@ export default function NavMenu(props) {
   const selectedCategoryId = useActiveCategoryId();
 
   return (
-    <SideDrawer
+    <Drawer
       visible={showModal}
       onClose={handleClose}
       scrimOpacity={scrimOpacity}
@@ -140,6 +140,6 @@ export default function NavMenu(props) {
         onToggleTheme={onToggleTheme}
         selectedCategoryId={selectedCategoryId}
       />
-    </SideDrawer>
+    </Drawer>
   );
 }
