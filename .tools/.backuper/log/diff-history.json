@@ -1652,5 +1652,23 @@
         }
       ]
     }
+  },
+  "src_2026-07-25_13-07_backup-history.log_2files": {
+    "timestamp": "2026-07-25T10:07:09.498Z",
+    "diff": {
+      "added": 0,
+      "removed": 5,
+      "modified": 2,
+      "topFolders": [
+        {
+          "folder": ".docs/ai-audit-framework/tasks",
+          "count": 5
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        }
+      ]
+    }
   }
 }
