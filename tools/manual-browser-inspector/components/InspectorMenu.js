@@ -1,13 +1,13 @@
 /**
- * DebugMenu UI Overlay Component
+ * InspectorMenu UI Overlay Component for Manual Browser Inspection
  */
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 
-export default function DebugMenu({ actions, onClose }) {
+export default function InspectorMenu({ actions, onClose }) {
   return (
     <View style={styles.menu}>
-      <Text style={styles.menuTitle}>Playwright Debug Tools</Text>
+      <Text style={styles.menuTitle}>Manual Browser Inspector</Text>
       <View style={styles.divider} />
       {actions.map((action) => (
         <TouchableOpacity

@@ -22,6 +22,16 @@ export const buttonColors = {
   secondaryDarkBorder: colors.secondaryDarkBorder,
   secondaryDarkText: colors.secondaryDarkText,
 
+  // Base tokens used by wrappers
+  surfaceLight: colors.surfaceLight,
+  surfaceDark: colors.surfaceDark,
+  borderLight: colors.borderLight,
+  borderDark: colors.borderDark,
+  textLight: colors.textLight,
+  textDark: colors.textDark,
+  textMutedLight: colors.textMutedLight,
+  textMutedDark: colors.textMutedDark,
+
   // Outlines / borders
   outlineLightBorder: colors.outlineLightBorder,
   outlineDarkBorder: colors.outlineDarkBorder,

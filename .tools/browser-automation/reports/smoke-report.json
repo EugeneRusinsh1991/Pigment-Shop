@@ -1,23 +1,41 @@
 {
   "summary": {
-    "visitedScreens": 0,
-    "visitedInteractions": 0,
-    "successfulInteractions": 0,
+    "visitedScreens": 17,
+    "visitedInteractions": 85,
+    "successfulInteractions": 184,
     "failedInteractions": 0,
-    "warnings": 0,
-    "errors": 1,
-    "executionDurationMs": 0
+    "warnings": 3,
+    "errors": 0,
+    "executionDurationMs": 85928
   },
-  "failures": [
+  "failures": [],
+  "warnings": [
     {
-      "screen": "Authentication",
-      "interaction": "Initial Load",
-      "elementIdentifier": "None",
-      "event": "Internal Explorer",
-      "timestamp": 1784978609165,
-      "errorType": "Explorer Error",
-      "errorMessage": "[Application Bug] Authentication Error: page.waitForSelector: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"login-email-input\"], input[type=\"email\"]') to be visible\u001b[22m\n"
+      "screen": "http://localhost:8081/",
+      "interaction": "Click",
+      "elementIdentifier": "card|Card|/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]",
+      "event": "Runtime",
+      "timestamp": 1784979677157,
+      "errorType": "Console Error",
+      "errorMessage": "Failed to load resource: net::ERR_CONNECTION_REFUSED"
+    },
+    {
+      "screen": "http://localhost:8081/",
+      "interaction": "Click",
+      "elementIdentifier": "card|Card|/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]",
+      "event": "Runtime",
+      "timestamp": 1784979677160,
+      "errorType": "Console Warning",
+      "errorMessage": "[ServiceError] TypeError: Failed to fetch\n    at _notifyOrderCreated (http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:167097:28)\n    at http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:155271:50\n    at executeServiceOperation (http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:155243:28)\n    at http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:155271:20\n    at sendOrderNotification (http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:166968:66)\n    at _processCheckout (http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:167010:11)\n    at async executeServiceOperation (http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:155243:22)\n    at async Object.processCheckout (http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:155271:14)\n    at async handleCheckoutProcess (http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:166846:20)"
+    },
+    {
+      "screen": "http://localhost:8081/",
+      "interaction": "Click",
+      "elementIdentifier": "card|Card|/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]",
+      "event": "Runtime",
+      "timestamp": 1784979677162,
+      "errorType": "Console Warning",
+      "errorMessage": "[checkoutService] Notification failed: Failed to fetch {orderId: DSvCRE9DUXILSXVDnJAd, totalItems: 11, totalPrice: 5365, errorDetails: Object}"
     }
-  ],
-  "warnings": []
+  ]
 }

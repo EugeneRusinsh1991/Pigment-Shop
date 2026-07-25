@@ -1,5 +1,5 @@
 /**
- * DOM Scanning & Interactive Element Utilities for Playwright Debug Overlay
+ * DOM Scanning & Interactive Element Utilities for Manual Browser Inspection
  */
 
 export const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -47,7 +47,7 @@ function isHeaderOrDrawer(el) {
 }
 
 function shouldExcludeElement(el, excludeHeaderAndDrawer, excludeAdmin) {
-  if (el.closest('#dev-debug-overlay')) return true;
+  if (el.closest('#manual-browser-inspector') || el.closest('#dev-debug-overlay')) return true;
   if (excludeHeaderAndDrawer && isHeaderOrDrawer(el)) return true;
   if (excludeAdmin && isAdminElement(el)) return true;
   return !isElementVisible(el);

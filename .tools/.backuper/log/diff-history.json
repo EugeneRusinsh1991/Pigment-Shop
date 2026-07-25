@@ -1890,5 +1890,35 @@
         }
       ]
     }
+  },
+  "src_2026-07-25_14-42_smoke-report.json_21files": {
+    "timestamp": "2026-07-25T11:42:27.624Z",
+    "diff": {
+      "added": 11,
+      "removed": 23,
+      "modified": 10,
+      "topFolders": [
+        {
+          "folder": "debug/automations",
+          "count": 8
+        },
+        {
+          "folder": "reports",
+          "count": 6
+        },
+        {
+          "folder": "src/components",
+          "count": 4
+        },
+        {
+          "folder": ".docs/ai-audit-framework/batches",
+          "count": 4
+        },
+        {
+          "folder": ".docs/ai-audit-framework/stages",
+          "count": 4
+        }
+      ]
+    }
   }
 }

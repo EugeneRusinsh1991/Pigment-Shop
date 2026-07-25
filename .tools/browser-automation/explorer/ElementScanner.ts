@@ -150,7 +150,7 @@ export class ElementScanner {
 
       function isIgnoredElement(el: Element): boolean {
         const idStr = `${el.id || ''} ${el.getAttribute('data-testid') || ''}`.toLowerCase();
-        return idStr.includes('debug') || idStr.includes('page-back-button') || idStr.includes('go-back');
+        return idStr.includes('debug') || idStr.includes('manual-browser-inspector') || idStr.includes('page-back-button') || idStr.includes('go-back');
       }
 
       const els = Array.from(document.querySelectorAll(sel));

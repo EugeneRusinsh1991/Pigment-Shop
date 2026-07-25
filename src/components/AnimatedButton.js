@@ -1,6 +1,1 @@
-import React from 'react';
-import Button from './Button';
-
-export default function AnimatedButton(props) {
-  return <Button variant="unstyled" {...props} />;
-}
+export { AnimatedButton as default } from './Button';

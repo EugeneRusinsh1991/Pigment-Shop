@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { ActivityIndicator, Animated, Platform, Pressable, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { useTheme } from '../context/ThemeContext';
-import { useButtonProps, getButtonStyle, DEFAULT_ACTIVE_OPACITY, calculateHitSlop } from '../theme/buttonCommon';
+import { useButtonProps, getButtonStyle, DEFAULT_ACTIVE_OPACITY, calculateHitSlop, buttonColors } from '../theme/buttonCommon';
 import { colors, motion } from '../theme/tokens';
 import styles from './ButtonStyles';
 
@@ -179,3 +179,157 @@ export default function Button({
     </AnimatedPressable>
   );
 }
+
+// ==========================================
+// Centralized Wrapper Primitives
+// ==========================================
+
+export function AnimatedButton(props) {
+  return <Button variant="unstyled" {...props} />;
+}
+
+// --- ChipButton ---
+
+function resolveChipIconColor(active, isDark) {
+  if (active) {
+    return isDark ? buttonColors.surfaceDark : buttonColors.surfaceLight;
+  }
+  return isDark ? buttonColors.textMutedDark : buttonColors.textMutedLight;
+}
+
+function renderChipIcon(icon, defaultColor) {
+  if (!icon) return null;
+  return React.cloneElement(icon, { color: icon.props?.color || defaultColor });
+}
+
+export function ChipButton({
+  label,
+  onPress,
+  active = false,
+  animated = true,
+  variant = 'pill',
+  leftIcon,
+  rightIcon,
+  style,
+  textStyle,
+  activeOpacity,
+  isDark: isDarkProp,
+  ...props
+}) {
+  const { isDark: isDarkContext } = useTheme();
+  const isDark = isDarkProp ?? isDarkContext;
+  
+  const stateKey = active ? 'Active' : 'Inactive';
+  const resolved = getButtonStyle(chipStyles, variant, isDark, stateKey);
+  const shapeStyle = variant === 'rect' ? chipStyles.rect : chipStyles.pill;
+  const iconColor = resolveChipIconColor(active, isDark);
+
+  return (
+    <Button
+      variant="unstyled"
+      animated={animated}
+      style={[
+        chipStyles.base,
+        shapeStyle,
+        resolved.container,
+        style,
+      ]}
+      textStyle={[chipStyles.textBase, resolved.text, textStyle]}
+      leftIcon={renderChipIcon(leftIcon, iconColor)}
+      rightIcon={renderChipIcon(rightIcon, iconColor)}
+      title={label}
+      onPress={onPress}
+      activeOpacity={activeOpacity}
+      isDark={isDark}
+      {...props}
+    />
+  );
+}
+
+const chipStyles = StyleSheet.create({
+  base: {
+    height: 36,
+    paddingHorizontal: 14,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 6,
+    borderWidth: 1.5,
+  },
+  pill: { borderRadius: 20 },
+  rect: { borderRadius: 6, borderWidth: 1, paddingVertical: 6, paddingHorizontal: 16 },
+  textBase: { fontSize: 13, fontWeight: '500' },
+  baseLightInactive: { backgroundColor: buttonColors.surfaceLight, borderColor: buttonColors.borderLight },
+  textLightInactive: { color: buttonColors.textMutedLight },
+  baseLightActive: { backgroundColor: buttonColors.textLight, borderColor: buttonColors.textLight },
+  textLightActive: { color: buttonColors.surfaceLight, fontWeight: '600' },
+  baseDarkInactive: { backgroundColor: buttonColors.surfaceDark, borderColor: buttonColors.borderDark },
+  textDarkInactive: { color: buttonColors.textMutedDark },
+  baseDarkActive: { backgroundColor: buttonColors.surfaceLight, borderColor: buttonColors.surfaceLight },
+  textDarkActive: { color: buttonColors.surfaceDark, fontWeight: '600' },
+});
+
+// --- IconButton ---
+
+export function IconButton({
+  icon,
+  onPress,
+  size = 'md',
+  variant = 'transparent',
+  animated = true,
+  style,
+  activeOpacity,
+  isDark: isDarkProp,
+  ...props
+}) {
+  const { isDark: isDarkContext } = useTheme();
+  const isDark = isDarkProp ?? isDarkContext;
+  
+  const getDimension = () => {
+    if (typeof size === 'number') return size;
+    const sizes = { sm: 28, md: 36, lg: 48 };
+    return sizes[size] || 36;
+  };
+
+  const dim = getDimension();
+  const radius = dim / 2;
+  const resolved = getButtonStyle(iconStyles, variant, isDark, '', 'transparent');
+
+  const combinedStyle = [
+    iconStyles.base,
+    { width: dim, height: dim, borderRadius: radius },
+    resolved.container,
+    style,
+  ];
+
+  const defaultIconColor = isDark ? buttonColors.textDark : buttonColors.textLight;
+  const renderedIcon = React.isValidElement(icon)
+    ? React.cloneElement(icon, { color: icon.props?.color || defaultIconColor })
+    : icon;
+
+  return (
+    <Button
+      variant="unstyled"
+      animated={animated}
+      style={combinedStyle}
+      onPress={onPress}
+      activeOpacity={activeOpacity}
+      isDark={isDark}
+      {...props}
+    >
+      {renderedIcon}
+    </Button>
+  );
+}
+
+const iconStyles = StyleSheet.create({
+  base: { alignItems: 'center', justifyContent: 'center' },
+  solidLight:       { backgroundColor: buttonColors.textLight },
+  solidDark:        { backgroundColor: buttonColors.textDark },
+  glassLight:       { backgroundColor: buttonColors.glassLightBg },
+  glassDark:        { backgroundColor: buttonColors.glassDarkBg },
+  outlineLight:     { backgroundColor: buttonColors.surfaceLight, borderWidth: 1, borderColor: buttonColors.borderLight },
+  outlineDark:      { backgroundColor: buttonColors.surfaceDark,  borderWidth: 1, borderColor: buttonColors.borderDark },
+  transparentLight: { backgroundColor: 'transparent' },
+  transparentDark:  { backgroundColor: 'transparent' },
+});

@@ -1,18 +1,13 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, Platform } from 'react-native';
 
-import { useAuth } from '../src/context/AuthContext';
-import { useCartContext } from '../src/context/CartContext';
-import { useFavoritesContext } from '../src/context/FavoritesContext';
-import { useTheme } from '../src/context/ThemeContext';
-import { getTimestamp, getAppStateDump } from '../src/utils/appStateDump';
+import { useAuth } from '@/context/AuthContext';
+import { useCartContext } from '@/context/CartContext';
+import { useFavoritesContext } from '@/context/FavoritesContext';
+import { useTheme } from '@/context/ThemeContext';
+import { getTimestamp, getAppStateDump } from '@/utils/appStateDump';
 
-import { useRouter } from 'expo-router';
-
-import DebugMenu from './components/DebugMenu';
-import { runCatalogCrawler } from './automations/catalogCrawler';
-import { runProductPageTest } from './automations/productPageTest';
-import { runAllProductsTest } from './automations/allProductsTest';
+import InspectorMenu from './components/InspectorMenu';
 
 function useSafeContexts() {
   let cart, auth, favorites, theme;
@@ -23,12 +18,10 @@ function useSafeContexts() {
   return { cart, auth, favorites, theme };
 }
 
-export default function DevDebugOverlay() {
+export default function ManualBrowserInspector() {
   const [isOpen, setIsOpen] = useState(false);
   const [isPlaywright, setIsPlaywright] = useState(false);
   const contexts = useSafeContexts();
-  const activeTaskRef = useRef(null);
-  const router = useRouter();
 
   useEffect(() => {
     if (Platform.OS === 'web' && (window.__isPlaywright || window.__playwright_takeScreenshotAndDumpState)) {
@@ -44,24 +37,13 @@ export default function DevDebugOverlay() {
     }
   };
 
-  const handleCatalogCrawler = () => runCatalogCrawler(activeTaskRef, router);
-  const handleProductPageTest = () => runProductPageTest(activeTaskRef, router);
-  const handleAllProductsTest = () => runAllProductsTest(activeTaskRef, router);
-
   useEffect(() => {
     if (!isPlaywright) return;
 
-    const hotkeyHandlers = {
-      Digit1: handleCapture,
-      Digit3: handleCatalogCrawler,
-      Digit4: handleProductPageTest,
-      Digit5: handleAllProductsTest,
-    };
-
     const handleKeyDown = (e) => {
-      if (e.altKey && hotkeyHandlers[e.code]) {
+      if (e.altKey && e.code === 'Digit1') {
         e.preventDefault();
-        hotkeyHandlers[e.code]();
+        handleCapture();
       }
     };
 
@@ -73,14 +55,11 @@ export default function DevDebugOverlay() {
 
   const actions = [
     { id: 'alt1', label: 'Capture Screenshot & State', hotkeyLabel: 'Alt+1', handler: handleCapture },
-    { id: 'alt3', label: 'Crawl Main Catalog & Breadcrumbs', hotkeyLabel: 'Alt+3', handler: handleCatalogCrawler },
-    { id: 'alt4', label: 'Test Product Page Actions', hotkeyLabel: 'Alt+4', handler: handleProductPageTest },
-    { id: 'alt5', label: 'Test All Products Page', hotkeyLabel: 'Alt+5', handler: handleAllProductsTest },
   ];
 
   return (
-    <View id="dev-debug-overlay" style={styles.container}>
-      {isOpen && <DebugMenu actions={actions} onClose={() => setIsOpen(false)} />}
+    <View id="manual-browser-inspector" style={styles.container}>
+      {isOpen && <InspectorMenu actions={actions} onClose={() => setIsOpen(false)} />}
       <TouchableOpacity style={styles.gearButton} onPress={() => setIsOpen(!isOpen)} activeOpacity={0.8}>
         <Text style={styles.gearText}>⚙️</Text>
       </TouchableOpacity>
