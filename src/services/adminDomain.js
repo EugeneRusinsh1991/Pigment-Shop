@@ -11,7 +11,7 @@ import { catalogStore } from '../data/catalogState';
 import { AdminCatalogState } from './adminCatalogState';
 import * as adminCatalogService from './adminCatalogService';
 
-export const adminCatalogState = new AdminCatalogState(catalogStore);
+const adminCatalogState = new AdminCatalogState(catalogStore);
 
 function hasAdminRole(user) {
   return user.role === 'admin' || user.isAdmin === true;
@@ -29,7 +29,7 @@ function hasAdminEmail(user) {
  * Evaluates whether a user account possesses administrative privileges.
  * Checks custom claims, role attributes, and designated admin credentials.
  */
-export function checkIsAdmin(user) {
+function checkIsAdmin(user) {
   if (!user) return false;
   return hasAdminRole(user) || hasAdminClaim(user) || hasAdminEmail(user);
 }

@@ -1,6 +1,6 @@
 import { formatDateNumeric } from '../utils/dateFormatting';
 
-export function getOrderDate(order) {
+function getOrderDate(order) {
   if (!order || !order.createdAt) return null;
   return order.createdAt.toDate ? order.createdAt.toDate() : new Date(order.createdAt);
 }

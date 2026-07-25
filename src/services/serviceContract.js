@@ -21,7 +21,7 @@
  * @param {string} defaultErrorMessage - The error message to use if none is provided.
  * @returns {Promise<{success: boolean, data?: any, error?: string, code?: string, originalError?: any}>}
  */
-export async function executeServiceOperation(operationFn, defaultErrorMessage = 'An unexpected error occurred') {
+async function executeServiceOperation(operationFn, defaultErrorMessage = 'An unexpected error occurred') {
   try {
     const result = await operationFn();
     return { success: true, data: result };

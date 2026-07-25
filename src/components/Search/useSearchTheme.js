@@ -1,6 +1,6 @@
 import { useTheme } from '../../context/ThemeContext';
 
-export function resolveStyle(styleMap, keys) {
+function resolveStyle(styleMap, keys) {
   if (!styleMap) return null;
   for (const k of keys) {
     if (styleMap[k]) return styleMap[k];

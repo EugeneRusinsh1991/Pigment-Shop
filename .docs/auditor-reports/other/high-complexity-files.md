@@ -1,6 +1,6 @@
 # 🧠 Highly Complex Files
 
-*Generated on: 25.07.2026, 23:26:27*
+*Generated on: 25.07.2026, 23:40:38*
 
 ### Highly Complex Files (< 200 lines)
 
@@ -26,7 +26,7 @@
   - Lines: 196 | CRAP Max: 90 | Complex Funcs: 2 | Density: 27%
 
 - **[core.js](file:///D:/Magazine/_PigmentShop/.tools/.backuper/backup/core.js)** (`.tools/.backuper/backup/core.js`)
-  - Lines: 191 | CRAP Max: 72 | Complex Funcs: 2 | Density: 24%
+  - Lines: 198 | CRAP Max: 72 | Complex Funcs: 2 | Density: 24%
 
 - **[domHelpers.js](file:///D:/Magazine/_PigmentShop/.tools/manual-browser-inspector/utils/domHelpers.js)** (`.tools/manual-browser-inspector/utils/domHelpers.js`)
   - Lines: 80 | CRAP Max: 56 | Complex Funcs: 4 | Density: 53%

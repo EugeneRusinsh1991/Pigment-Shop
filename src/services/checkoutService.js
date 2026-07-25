@@ -3,7 +3,7 @@ import { createOrder } from './repositories/ordersRepository';
 import { notifyOrderCreated } from './telegramService';
 import { withServiceContract } from './serviceContract';
 
-export const ORDER_STATUS = {
+const ORDER_STATUS = {
   NEW: 'Новый заказ',
   PROCESSING: 'В обработке',
   COMPLETED: 'Выполнен',
@@ -20,7 +20,7 @@ function getCleanItems(items) {
   });
 }
 
-export function isCustomerInfoComplete(customerInfo) {
+function isCustomerInfoComplete(customerInfo) {
   if (!customerInfo) return false;
   const required = ['email', 'firstName', 'lastName', 'phone', 'city'];
   return required.every((key) => {
@@ -57,7 +57,7 @@ function buildOrderData({ user, items, totalItems, totalPrice, note, customerInf
   };
 }
 
-export async function sendOrderNotification({ orderId, totalItems, totalPrice }) {
+async function sendOrderNotification({ orderId, totalItems, totalPrice }) {
   const result = await notifyOrderCreated({
     orderId,
     totalItems,

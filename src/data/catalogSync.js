@@ -19,7 +19,7 @@ import {
   createCatalogSyncHandshake,
 } from './catalogSyncHelpers';
 
-export class CatalogSyncService {
+class CatalogSyncService {
   constructor() {
     this._unsubscribeCategories = null;
     this._unsubscribeBanners = null;
@@ -168,6 +168,6 @@ export const catalogSyncService = new CatalogSyncService();
  * Start the Firestore catalog sync.
  * Backwards-compatible facade for catalogSyncService.start().
  */
-export function initCatalogSync(options) {
+function initCatalogSync(options) {
   catalogSyncService.start(options);
 }

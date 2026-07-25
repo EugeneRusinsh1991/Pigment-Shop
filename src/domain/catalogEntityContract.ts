@@ -34,7 +34,7 @@
  */
 export type SupportedLocale = 'uk' | 'ru' | 'en';
 
-export const SUPPORTED_LOCALES: readonly SupportedLocale[] = ['uk', 'ru', 'en'] as const;
+const SUPPORTED_LOCALES: readonly SupportedLocale[] = ['uk', 'ru', 'en'] as const;
 
 export type LocalizedString = Record<SupportedLocale, string>;
 
@@ -70,7 +70,7 @@ export function getLocale(value: LocalizedString, lang: SupportedLocale): string
 
 export type SortDirection = 'asc' | 'desc';
 
-export const DEFAULT_SORT_DIRECTION: SortDirection = 'asc';
+const DEFAULT_SORT_DIRECTION: SortDirection = 'asc';
 
 export interface SortState {
   field: string;

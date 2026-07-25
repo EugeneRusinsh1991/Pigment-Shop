@@ -11,7 +11,7 @@ const COLS_MAP = {
   tablet: { depth0: 3, depthRest: 3 },
   mobile: { depth0: 2, depthRest: 2 },
 };
-export function getCatalogLayout(isWide, depth, windowWidth) {
+function getCatalogLayout(isWide, depth, windowWidth) {
   const device = windowWidth >= 1024
     ? 'desktop'
     : (windowWidth >= 768 ? 'tablet' : 'mobile');

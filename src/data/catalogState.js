@@ -29,7 +29,7 @@
 
 import { normalizeProductEntity, normalizeCategoryEntity } from '../domain/catalogEntityContract';
 
-export class CatalogStore {
+class CatalogStore {
   constructor(initialData = {}) {
     this._listeners = new Set();
     this._products = (initialData.products || []).map(normalizeProductEntity);

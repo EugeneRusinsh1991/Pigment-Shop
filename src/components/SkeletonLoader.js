@@ -6,7 +6,7 @@ import { colors, layout } from '../theme/tokens';
 /**
  * Global SkeletonLoader component for loading placeholders.
  */
-export function SkeletonItem({ width = '100%', height = 20, borderRadius = layout.radii.sm, style }) {
+function SkeletonItem({ width = '100%', height = 20, borderRadius = layout.radii.sm, style }) {
   const { isDark } = useTheme();
   const opacity = useRef(new Animated.Value(0.4)).current;
 

@@ -12,7 +12,7 @@ export const VISITOR_PASSWORD = 'visitor123456';
  * @param {object|null} user
  * @returns {boolean}
  */
-export function isVisitorUser(user) {
+function isVisitorUser(user) {
   if (!user) return false;
   return Boolean(
     user.isAnonymous ||

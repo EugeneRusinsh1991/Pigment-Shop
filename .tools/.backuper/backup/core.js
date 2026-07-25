@@ -65,9 +65,8 @@ function getAutoStepLabel(projectRoot) {
 
     const latestBackupDir = backups.length > 0 ? path.join(parentDir, backups[0].name) : null;
 
-    let newestFile = null;
-    let newestMtime = 0;
     let changedCount = 0;
+    const folderMap = new Map();
 
     function isFileChanged(bakPath, stat) {
       if (!latestBackupDir || !fs.existsSync(bakPath)) return true;
@@ -79,10 +78,9 @@ function getAutoStepLabel(projectRoot) {
       const bakPath = latestBackupDir ? path.join(latestBackupDir, relPath) : null;
       if (isFileChanged(bakPath, stat)) {
         changedCount++;
-        if (stat.mtimeMs > newestMtime) {
-          newestMtime = stat.mtimeMs;
-          newestFile = path.basename(srcPath);
-        }
+        const folder = path.dirname(relPath).replace(/\\/g, '/');
+        const cleanFolder = folder === '.' ? 'root' : folder;
+        folderMap.set(cleanFolder, (folderMap.get(cleanFolder) || 0) + 1);
       }
     }
 
@@ -102,12 +100,21 @@ function getAutoStepLabel(projectRoot) {
       scan(item);
     });
 
-    if (!newestFile || changedCount === 0) {
+    if (changedCount === 0) {
       return 'unchanged';
     }
 
-    const safeName = newestFile.replace(/[^a-zA-Z0-9._-]/g, '_');
-    return `${safeName}_${changedCount}files`;
+    let topFolder = 'root';
+    let maxCount = 0;
+    folderMap.forEach((count, f) => {
+      if (count > maxCount) {
+        maxCount = count;
+        topFolder = f;
+      }
+    });
+
+    const safeFolder = topFolder.replace(/[^a-zA-Z0-9]/g, '_').replace(/^_+|_+$/g, '');
+    return `mod_${safeFolder}_${changedCount}files`;
   } catch (err) {
     return 'auto';
   }

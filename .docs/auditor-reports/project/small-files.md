@@ -1,6 +1,6 @@
 # 📄 Small & Pass-Through Files Findings
 
-*Generated on: 25.07.2026, 23:26:27*
+*Generated on: 25.07.2026, 23:40:37*
 
 ### Candidate Files for Refactoring/Elimination
 
@@ -49,11 +49,11 @@
   > 💡 This component is very small; consider declaring it inline within its parent component.
 
 - **[useButtonTheme.js](file:///D:/Magazine/_PigmentShop/src/components/Button/useButtonTheme.js)** (`src/components/Button/useButtonTheme.js`)
-  - Lines: 21 | Size: 772 B | Type: **Tiny Component**
+  - Lines: 21 | Size: 765 B | Type: **Tiny Component**
   > 💡 This component is very small; consider declaring it inline within its parent component.
 
 - **[useSearchTheme.js](file:///D:/Magazine/_PigmentShop/src/components/Search/useSearchTheme.js)** (`src/components/Search/useSearchTheme.js`)
-  - Lines: 24 | Size: 1024 B | Type: **Tiny Component**
+  - Lines: 24 | Size: 1017 B | Type: **Tiny Component**
   > 💡 This component is very small; consider declaring it inline within its parent component.
 
 - **[catalogSyncHelpers.js](file:///D:/Magazine/_PigmentShop/src/data/catalogSyncHelpers.js)** (`src/data/catalogSyncHelpers.js`)

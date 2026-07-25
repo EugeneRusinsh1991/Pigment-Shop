@@ -164,24 +164,3 @@ export function getOrderStatuses(orders) {
   return getAggregations(orders).orderStatuses;
 }
 
-function isSameProduct(sLabel, name) {
-  if (sLabel === name) return true;
-  if (name && typeof name === 'object' && sLabel === name.ru) return true;
-  return false;
-}
-
-export function getLowestSellingProducts(orders, products, limit = 5) {
-  if (!products || !Array.isArray(products)) return [];
-  const agg = getAggregations(orders);
-  const sales = agg.allSales;
-
-  const allProductSales = products.map((p) => {
-    const sold = sales.find((s) => isSameProduct(s.label, p.name));
-    return {
-      label: p.name,
-      value: sold ? sold.value : 0,
-    };
-  });
-
-  return allProductSales.sort((a, b) => a.value - b.value).slice(0, limit);
-}

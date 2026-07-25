@@ -18,7 +18,7 @@
  *
  * @type {Array<{key: string, localeKey: string, color: string, bg: string, rowBg: string}>}
  */
-export const ORDER_STATUSES = [
+const ORDER_STATUSES = [
   { key: 'pending',    localeKey: 'orderStatusPending',    color: '#3B82F6', bg: '#DBEAFE', rowBg: '#EFF6FF' },
   { key: 'processing', localeKey: 'orderStatusProcessing', color: '#D97706', bg: '#FEF3C7', rowBg: '#FFFBEB' },
   { key: 'completed',  localeKey: 'orderStatusCompleted',  color: '#10B981', bg: '#D1FAE5', rowBg: '#ECFDF5' },
@@ -26,7 +26,7 @@ export const ORDER_STATUSES = [
 ];
 
 /** Quick lookup: canonical key → status definition. */
-export const ORDER_STATUS_BY_KEY = Object.fromEntries(
+const ORDER_STATUS_BY_KEY = Object.fromEntries(
   ORDER_STATUSES.map((s) => [s.key, s])
 );
 
@@ -76,7 +76,7 @@ export const STATUS_RAW_TO_CANONICAL = {
  * Substring keywords used to classify a raw status string when it is not
  * found in STATUS_RAW_TO_KEY.
  */
-export const STATUS_KEYWORDS = {
+const STATUS_KEYWORDS = {
   completed:  ['complet', 'выполн'],
   cancelled:  ['cancel',  'отмен'],
   processing: ['process', 'обработ'],
