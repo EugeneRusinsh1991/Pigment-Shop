@@ -22,14 +22,16 @@ async function loadServerPage(filters, sortKey, cursor = null, pageSize = PAGE_S
   return { pageData: pageRes.data, count: countRes ? countRes.data : null };
 }
 
+function _toErrorMessage(error) {
+  return typeof error === 'string' ? error : String(error?.message ?? '');
+}
+
+const MISSING_INDEX_SENTINEL = 'MISSING_INDEX';
+
 function isMissingIndexError(error) {
-  const msg = typeof error === 'string' ? error : String(error?.message ?? '');
-  return (
-    error instanceof MissingIndexError ||
-    error?.code === 'MISSING_INDEX' ||
-    error?.message === 'MISSING_INDEX' ||
-    msg.toLowerCase().includes('index')
-  );
+  if (error instanceof MissingIndexError) return true;
+  if (error?.code === MISSING_INDEX_SENTINEL || error?.message === MISSING_INDEX_SENTINEL) return true;
+  return _toErrorMessage(error).toLowerCase().includes('index');
 }
 
 function applyClientPageChange(setCurrentPage, delta) {
@@ -133,36 +135,34 @@ export default function usePaginatedCatalog(filters, sortKey, flatList, category
     return currentPageProducts;
   }, [clientFallback, currentPageProducts, clientFilteredProducts, currentPage, pageSize]);
 
-  const nextPage = useCallback(async () => {
-    if (currentPage >= totalPages || loading) return;
-    if (clientFallback) { applyClientPageChange(setCurrentPage, 1); return; }
+  const changePage = useCallback(async (delta) => {
+    if (loading) return;
+    if (clientFallback) { applyClientPageChange(setCurrentPage, delta); return; }
+
+    const isForward = delta > 0;
+    const cursor = isForward
+      ? cursorStack[cursorStack.length - 1]
+      : cursorStack[currentPage - 3] ?? null;
 
     setLoading(true);
     try {
-      const cursor = cursorStack[cursorStack.length - 1];
-      await fetchAndApplyServerPage(cursor, filters, sortKey, pageSize, 1, setCurrentPageProducts, setCurrentPage, setLoadedParams, setCursorStack);
+      await fetchAndApplyServerPage(cursor, filters, sortKey, pageSize, delta, setCurrentPageProducts, setCurrentPage, setLoadedParams, setCursorStack);
     } catch (error) {
-      console.error('Error fetching next page:', error);
+      console.error(`Error fetching ${isForward ? 'next' : 'prev'} page:`, error);
     } finally {
       setLoading(false);
     }
-  }, [currentPage, totalPages, loading, clientFallback, cursorStack, filters, sortKey, pageSize]);
+  }, [loading, clientFallback, cursorStack, currentPage, filters, sortKey, pageSize]);
 
-  const prevPage = useCallback(async () => {
-    if (currentPage <= 1 || loading) return;
-    if (clientFallback) { applyClientPageChange(setCurrentPage, -1); return; }
+  const nextPage = useCallback(() => {
+    if (currentPage >= totalPages) return;
+    changePage(1);
+  }, [currentPage, totalPages, changePage]);
 
-    setLoading(true);
-    try {
-      const prevPageIndex = currentPage - 2;
-      const cursor = prevPageIndex > 0 ? cursorStack[prevPageIndex - 1] : null;
-      await fetchAndApplyServerPage(cursor, filters, sortKey, pageSize, -1, setCurrentPageProducts, setCurrentPage, setLoadedParams, setCursorStack);
-    } catch (error) {
-      console.error('Error fetching prev page:', error);
-    } finally {
-      setLoading(false);
-    }
-  }, [currentPage, loading, clientFallback, cursorStack, filters, sortKey, pageSize]);
+  const prevPage = useCallback(() => {
+    if (currentPage <= 1) return;
+    changePage(-1);
+  }, [currentPage, changePage]);
 
   const triggerKey = useMemo(() => {
     if (clientFallback) {

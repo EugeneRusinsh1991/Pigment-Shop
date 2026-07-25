@@ -6,6 +6,14 @@ import { colors } from '../theme/tokens';
 /**
  * Global EmptyState component for empty catalog, cart, favorites, orders, and tables.
  */
+function renderChildren(children, descriptionStyle, mutedColor) {
+  if (!children) return null;
+  if (typeof children === 'string') {
+    return <Text style={[styles.description, { color: mutedColor }, descriptionStyle]}>{children}</Text>;
+  }
+  return children;
+}
+
 export default function EmptyState({
   title,
   description,
@@ -23,14 +31,6 @@ export default function EmptyState({
   const textColor = isDark ? colors.textDark : colors.textLight;
   const mutedColor = isDark ? colors.textMutedDark : colors.textMutedLight;
 
-  const renderChildren = () => {
-    if (!children) return null;
-    if (typeof children === 'string') {
-      return <Text style={[styles.description, { color: mutedColor }, descriptionStyle]}>{children}</Text>;
-    }
-    return children;
-  };
-
   return (
     <View style={[styles.container, style]}>
       {icon && <View style={styles.iconWrapper}>{icon}</View>}
@@ -44,7 +44,7 @@ export default function EmptyState({
           {bodyText}
         </Text>
       )}
-      {renderChildren()}
+      {renderChildren(children, descriptionStyle, mutedColor)}
       {action && <View style={styles.actionWrapper}>{action}</View>}
     </View>
   );

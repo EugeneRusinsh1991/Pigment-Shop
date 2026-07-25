@@ -42,8 +42,13 @@ function _safeParsePathname(rawUrl) {
   }
 }
 
+function _getRawUrl(stateDump) {
+  if (stateDump?.url) return stateDump.url;
+  return typeof window !== 'undefined' ? window.location.href : '';
+}
+
 function _resolveUrlSegments(stateDump) {
-  const rawUrl = stateDump?.url || (typeof window !== 'undefined' ? window.location.href : '');
+  const rawUrl = _getRawUrl(stateDump);
   if (!rawUrl) return ['Home'];
   const pathname = _safeParsePathname(rawUrl);
   if (!pathname) return ['Home'];
@@ -74,18 +79,18 @@ export function getLocationContext(stateDump) {
   return hierarchy.join('_');
 }
 
-export function getOverlayText(stateDump) {
+function _formatTime(sep) {
   const now = new Date();
-  const pad = (num) => String(num).padStart(2, '0');
-  const timeStr = `${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
+  const pad = (n) => String(n).padStart(2, '0');
+  return `${pad(now.getHours())}${sep}${pad(now.getMinutes())}${sep}${pad(now.getSeconds())}`;
+}
+
+export function getOverlayText(stateDump) {
   const hierarchy = getLocationHierarchy(stateDump);
-  return `${hierarchy.join(' > ')} | ${timeStr}`;
+  return `${hierarchy.join(' > ')} | ${_formatTime(':')}`;
 }
 
 export function getTimestamp(stateDump) {
-  const now = new Date();
-  const pad = (num) => String(num).padStart(2, '0');
-  const timeStr = `${pad(now.getHours())}-${pad(now.getMinutes())}-${pad(now.getSeconds())}`;
   const context = getLocationContext(stateDump);
-  return `S_${timeStr}_${context}`;
+  return `S_${_formatTime('-')}_${context}`;
 }

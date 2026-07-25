@@ -1,6 +1,6 @@
 # 📦 Unused Code & Dependencies
 
-*Generated on: 25.07.2026, 23:05:49*
+*Generated on: 25.07.2026, 23:21:12*
 
 ### Dead Files (Unused)
 Files that are not reachable or imported by any other codebase file:
@@ -49,7 +49,7 @@ Exports that are not imported or consumed by any other active file:
 - [appStateDump.js](file:///D:/Magazine/_PigmentShop/src/utils/appStateDump.js): `getLocationHierarchy` ([L1](file:///D:/Magazine/_PigmentShop/src/utils/appStateDump.js#L1))
 - [dateFormatting.js](file:///D:/Magazine/_PigmentShop/src/utils/dateFormatting.js): `LANG_TO_LOCALE` ([L13](file:///D:/Magazine/_PigmentShop/src/utils/dateFormatting.js#L13)), `toDate` ([L31](file:///D:/Magazine/_PigmentShop/src/utils/dateFormatting.js#L31))
 - [localization.js](file:///D:/Magazine/_PigmentShop/src/utils/localization.js): `LANGUAGE_FALLBACK` ([L8](file:///D:/Magazine/_PigmentShop/src/utils/localization.js#L8))
-- [locationContext.js](file:///D:/Magazine/_PigmentShop/src/utils/locationContext.js): `getLocationHierarchy` ([L66](file:///D:/Magazine/_PigmentShop/src/utils/locationContext.js#L66))
+- [locationContext.js](file:///D:/Magazine/_PigmentShop/src/utils/locationContext.js): `getLocationHierarchy` ([L71](file:///D:/Magazine/_PigmentShop/src/utils/locationContext.js#L71))
 - [orderStatus.js](file:///D:/Magazine/_PigmentShop/src/utils/orderStatus.js): `ORDER_STATUSES` ([L21](file:///D:/Magazine/_PigmentShop/src/utils/orderStatus.js#L21)), `ORDER_STATUS_BY_KEY` ([L29](file:///D:/Magazine/_PigmentShop/src/utils/orderStatus.js#L29)), `STATUS_RAW_TO_KEY` ([L41](file:///D:/Magazine/_PigmentShop/src/utils/orderStatus.js#L41)), `STATUS_RAW_TO_CANONICAL` ([L63](file:///D:/Magazine/_PigmentShop/src/utils/orderStatus.js#L63)), `STATUS_KEYWORDS` ([L79](file:///D:/Magazine/_PigmentShop/src/utils/orderStatus.js#L79))
 - [sorting.js](file:///D:/Magazine/_PigmentShop/src/utils/sorting.js): `coerceToNumber` ([L16](file:///D:/Magazine/_PigmentShop/src/utils/sorting.js#L16)), `sortByField` ([L79](file:///D:/Magazine/_PigmentShop/src/utils/sorting.js#L79))
 
