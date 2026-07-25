@@ -1688,5 +1688,27 @@
         }
       ]
     }
+  },
+  "src_2026-07-25_13-12_task-004-centralize-cards.md_6files": {
+    "timestamp": "2026-07-25T10:12:11.691Z",
+    "diff": {
+      "added": 3,
+      "removed": 1,
+      "modified": 3,
+      "topFolders": [
+        {
+          "folder": ".docs/ai-audit-framework/tasks",
+          "count": 4
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        },
+        {
+          "folder": ".tools/browser-automation/reports",
+          "count": 1
+        }
+      ]
+    }
   }
 }
