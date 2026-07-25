@@ -1,18 +1,18 @@
 # Engineering Standard: Reference UI Module Architecture
 
 > [!NOTE]
-> This standard defines the mandatory architectural specification, module structure, decomposition rules, and design token integration patterns for all UI primitives across PigmentShop (e.g., Button, Modal, Card, Drawer, SearchBar, Input, Row).
+> This engineering standard defines the overarching architectural specification, canonical directory layout, module decomposition rules, API contract standards, and design token integration patterns for all UI primitives across PigmentShop (e.g., [`Button`](file:///d:/Magazine/_PigmentShop/.docs/architecture-standards/02-button-module-spec.md), [`Toggle`](file:///d:/Magazine/_PigmentShop/.docs/architecture-standards/03-toggle-module-spec.md), [`Flag`](file:///d:/Magazine/_PigmentShop/.docs/architecture-standards/04-flag-module-spec.md)).
 
 ---
 
 ## 1. Core Engineering Principles
 
-### 1.1 Semantic First
-UI primitives are defined strictly by their **domain responsibility and interaction semantics**, not by visual appearance alone.
-- **Button**: Action or command trigger.
-- **Card**: Grouped content container.
-- **Row**: Data list or grid display item.
-- **Chip / Tag**: Selectable filter or metadata indicator.
+### 1.1 Semantic Purpose
+UI primitives are defined strictly by their **domain responsibility and interaction semantics**, not by visual appearance alone. Every specification MUST contain an explicit semantic definition clarifying its state behavior and execution model.
+
+- **Button** ([`02-button-module-spec.md`](file:///d:/Magazine/_PigmentShop/.docs/architecture-standards/02-button-module-spec.md)): Single-action trigger (executing commands, submitting forms, opening modals). Does not persist toggle state.
+- **Toggle** ([`03-toggle-module-spec.md`](file:///d:/Magazine/_PigmentShop/.docs/architecture-standards/03-toggle-module-spec.md)): Multi-option view or mode selection switcher (tabs, sort orders, date ranges). Persists active selected option.
+- **Flag** ([`04-flag-module-spec.md`](file:///d:/Magazine/_PigmentShop/.docs/architecture-standards/04-flag-module-spec.md)): Binary state switcher or boolean attribute input (status badges, checkboxes, feature toggles). Persists standalone boolean state.
 
 *Rule*: Never reuse or merge distinct semantic primitives simply because they share visual properties.
 
@@ -23,9 +23,8 @@ Solve UI variations through configuration props and composition before introduci
 
 *Rule*: A new component primitive file is justified ONLY when it introduces distinct accessibility, gesture, or state semantics.
 
-### 1.3 The 200-Line & Decomposition Rule
+### 1.3 Decomposition Rule
 To prevent monolithic components and control cyclomatic complexity:
-- No component or hook file should exceed **~200 lines of code**.
 - **Rendering Logic**: Kept pure inside `[ModuleName].js`.
 - **Style Definitions**: Isolated in `[ModuleName]Styles.js` via token factories.
 - **Theme Resolution**: Extracted into `use[ModuleName]Theme.js`.
@@ -56,7 +55,6 @@ src/components/[ModuleName]/
 2. **`[ModuleName].js` (Core Component)**:
    - Contains JSX rendering and props validation.
    - Delegates state/gestures to `use[ModuleName]Animation` and styling to `use[ModuleName]Theme`.
-   - Must remain strictly under ~200 lines.
 
 3. **`[ModuleName]Styles.js` (Style Factory)**:
    - Uses `StyleSheet.create` and token utilities from `src/theme/tokens.js`.
@@ -87,17 +85,18 @@ No UI component may hardcode colors, border radii, heights, font sizes, or anima
 
 | Complexity Level | Examples | Required Architecture | Decomposition Justification |
 | :--- | :--- | :--- | :--- |
-| **Simple Primitive** | `FieldError`, `Badge` | Single file (`Badge.js`) | Under 100 lines, static styling, no state or gesture handling. |
-| **Standard Primitive** | `Card`, `Drawer` | `ModuleName.js`, `ModuleNameStyles.js` | Decouples render logic from style objects exceeding 80 lines. |
-| **Full Reference Module** | `Button`, `Modal`, `Input` | Full 5-file architecture (`index`, `Component`, `Styles`, `Theme`, `Animation`) | Handles variants, gestures, dark mode, and spring animations cleanly under 200-line limits. |
+| **Simple Primitive** | `FieldError`, `Badge` | Single file (`Badge.js`) | Static styling, no state or gesture handling. |
+| **Standard Primitive** | [`Toggle`](file:///d:/Magazine/_PigmentShop/.docs/architecture-standards/03-toggle-module-spec.md), [`Flag`](file:///d:/Magazine/_PigmentShop/.docs/architecture-standards/04-flag-module-spec.md) | `ModuleName.js`, `ModuleNameStyles.js`, `useModuleNameTheme.js` | Decouples render logic from style factories and theme hooks. |
+| **Full Reference Module** | [`Button`](file:///d:/Magazine/_PigmentShop/.docs/architecture-standards/02-button-module-spec.md) | Full 5-file architecture (`index`, `Component`, `Styles`, `Theme`, `Animation`) | Handles variants, gestures, dark mode, and spring animations cleanly. |
 
 ---
 
 ## 5. Compliance Checklist for Future Primitives
 
 When creating or refactoring a UI module (e.g., `Card`, `Row`, `Modal`):
+- [ ] Explicit semantic definition and state model established in Section 1.1.
 - [ ] Export contract established in `index.js`.
-- [ ] Render component `[ModuleName].js` is under 200 lines.
+- [ ] Render component `[ModuleName].js` focuses on presentation.
 - [ ] Styles encapsulated in `[ModuleName]Styles.js` referencing `tokens.js`.
 - [ ] Theme resolution logic extracted to `use[ModuleName]Theme.js`.
 - [ ] Animation drivers extracted to `use[ModuleName]Animation.js` (if interactive).

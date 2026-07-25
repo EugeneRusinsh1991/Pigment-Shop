@@ -1,13 +1,13 @@
-# Button Module Architectural Specification
+# Engineering Standard: Button Primitive Specification
 
 > [!NOTE]
-> This specification defines the concrete module architecture, component model, public API, design tokens, hook extractions, and evolutionary rules for the `Button` UI primitive, implementing [.docs/architecture-standards/01-reference-ui-module.md](file:///d:/Magazine/_PigmentShop/.docs/architecture-standards/01-reference-ui-module.md).
+> This engineering standard defines the concrete module architecture, component model, public API, design tokens, hook extractions, and evolutionary rules for the **`Button`** UI primitive across PigmentShop, implementing [.docs/architecture-standards/01-reference-ui-module.md](file:///d:/Magazine/_PigmentShop/.docs/architecture-standards/01-reference-ui-module.md).
 
 ---
 
 ## 1. Purpose & Semantic Scope
 
-The `Button` primitive represents an **action trigger** (executing a command, submitting a form, or opening a modal). 
+The `Button` primitive represents a **single-action trigger** (executing a command, submitting a form, or opening a modal). It performs a discrete operation and does not store or visually display a persistent toggle state (ON/OFF or active option selection). 
 
 ### Non-Button Primitives (Out of Scope):
 - **Tabs**: View navigation panels $\rightarrow$ `Tab` module (`AdminTabBar`).
@@ -80,10 +80,12 @@ Interaction states and gesture feedback compose seamlessly across all visual var
 
 ## 6. Physical File Structure & Decomposition Matrix
 
+Following [.docs/architecture-standards/01-reference-ui-module.md](file:///d:/Magazine/_PigmentShop/.docs/architecture-standards/01-reference-ui-module.md):
+
 ```
 src/components/Button/
 ├── index.js               # Public API export barrel
-├── Button.js              # Core Base Button primitive & AnimatedButton shim (< 200 lines)
+├── Button.js              # Core Base Button primitive & AnimatedButton shim
 ├── ButtonStyles.js        # Dynamic token-driven style map factory
 ├── useButtonAnimation.js  # Extracted hook: Press timing & spring animation drivers
 ├── useButtonTheme.js      # Extracted hook: Variant & dark mode style resolution
@@ -106,5 +108,5 @@ src/components/Button/
 When new requirements emerge for the `Button` primitive:
 1. **First Choice**: Add a new prop or behavioral flag to `Button.js`.
 2. **Second Choice**: Add a new visual variant mapping to `ButtonStyles.js`.
-3. **Refactoring Choice**: Extract internal helper hooks (e.g., `useButtonAnimation.js`) when `Button.js` approaches ~200 lines or gains complex state logic.
+3. **Refactoring Choice**: Extract internal helper hooks (e.g., `useButtonAnimation.js`) when `Button.js` gains complex state logic or additional animation responsibilities.
 4. **Last Resort**: Create a new primitive file inside `src/components/Button/` **only if** the primitive possesses distinct semantic behavior (e.g., `ChipButton.js`, `IconButton.js`).
