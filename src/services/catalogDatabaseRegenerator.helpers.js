@@ -1,35 +1,4 @@
-const PRODUCT_IMAGES = [
-  'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?w=600&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=600&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1582201942988-13e60e4556ee?w=600&auto=format&fit=crop',
-];
-
-const LOCALE_NAMES = {
-  ru: {
-    essentials: 'Базы и топы',
-    lashes: 'Клеи и ресницы',
-    pigments: 'Пигменты для бровей',
-    essentialsSub: 'Базовые наборы',
-    lashesSub: 'Клеевые наборы',
-    pigmentsSub: 'Палитры',
-  },
-  uk: {
-    essentials: 'Бази та топи',
-    lashes: 'Клеї та вії',
-    pigments: 'Пігменти для брів',
-    essentialsSub: 'Базові набори',
-    lashesSub: 'Клейові набори',
-    pigmentsSub: 'Палітри',
-  },
-  en: {
-    essentials: 'Bases & Tops',
-    lashes: 'Glues & Lashes',
-    pigments: 'Brow Pigments',
-    essentialsSub: 'Base Kits',
-    lashesSub: 'Glue Kits',
-    pigmentsSub: 'Palettes',
-  },
-};
+import { PRODUCT_IMAGES } from './catalogSeedData.js';
 
 export function toSlug(value) {
   return String(value)
@@ -38,191 +7,173 @@ export function toSlug(value) {
     .replace(/(^-|-$)/g, '');
 }
 
-export function buildLocalizedText(base, suffix) {
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function generateLocalizedName(baseName) {
   return {
-    ru: `${base.ru} ${suffix}`,
-    uk: `${base.uk} ${suffix}`,
-    en: `${base.en} ${suffix}`,
+    ru: `${baseName} RU`,
+    uk: `${baseName} UK`,
+    en: `${baseName} EN`,
   };
 }
 
-export function buildProductTemplate({ topCategory, holderCategory, productHolderCategory, productIndex, productId, productOrdinal }) {
-  const baseName = {
-    ru: `${productHolderCategory.name.ru} ${productIndex}`,
-    uk: `${productHolderCategory.name.uk} ${productIndex}`,
-    en: `${productHolderCategory.name.en} ${productIndex}`,
+function buildCategory(id, parentId, depth, baseName) {
+  const cat = {
+    id,
+    parentId,
+    type: depth === 3 ? 'product_holder' : 'category_holder',
+    name: generateLocalizedName(baseName),
+    description: generateLocalizedName(`Описание для ${baseName}`),
+    image: PRODUCT_IMAGES[Math.floor(Math.random() * PRODUCT_IMAGES.length)],
+    depth,
+    index: parseInt(id.split('-').pop(), 10) || 0,
   };
 
-  const newProductOrdinals = new Set([2, 12, 22, 32, 42, 52, 62, 72]);
-  const onSaleProductOrdinals = new Set([6, 12, 26, 36, 46, 56, 66, 76]);
-  const isNew = newProductOrdinals.has(productOrdinal);
-  const isOnSale = onSaleProductOrdinals.has(productOrdinal);
-  const discountPercent = isOnSale ? 10 : 0;
+  if (depth < 3) {
+    cat.childCategoryIds = [];
+  }
+  if (depth === 1 || depth === 3) {
+    cat.productIds = [];
+  }
 
+  return cat;
+}
+
+function buildProduct(id, topCategoryName, holderCategoryName, productHolderCategoryName, baseName) {
   return {
-    id: productId,
-    label: {
-      ru: baseName.ru,
-      uk: baseName.uk,
-      en: baseName.en,
-    },
-    brand: ['CHEYENNE', 'BARBARA', 'LOVELY'][productIndex % 3],
-    price: 100 + productIndex * 45 + (topCategory.index + 1) * 15,
-    sku: `${toSlug(topCategory.name.en).toUpperCase()}-${holderCategory.index + 1}${productHolderCategory.index + 1}${productIndex}`,
-    discountPercent,
-    isNew,
-    description: {
-      ru: `Плоский универсальный продукт для ${productHolderCategory.name.ru.toLowerCase()}.`,
-      uk: `Плоский універсальний продукт для ${productHolderCategory.name.uk.toLowerCase()}.`,
-      en: `A versatile staple for ${productHolderCategory.name.en.toLowerCase()}.`,
-    },
-    image: PRODUCT_IMAGES[productIndex % PRODUCT_IMAGES.length],
-    category: topCategory.name,
-    holderCategory: holderCategory.name,
-    productHolderCategory: productHolderCategory.name,
-    stock: 40 + topCategory.index * 10 + productIndex * 7,
-    sold: 8 + productIndex * 3 + productHolderCategory.index,
+    id,
+    label: generateLocalizedName(baseName),
+    brand: ['CHEYENNE', 'BARBARA', 'LOVELY'][getRandomInt(0, 2)],
+    price: getRandomInt(50, 1000),
+    sku: `SKU-${id.toUpperCase()}`,
+    discountPercent: 0,
+    isNew: false,
+    description: generateLocalizedName(`Универсальный продукт для ${baseName}`),
+    image: PRODUCT_IMAGES[Math.floor(Math.random() * PRODUCT_IMAGES.length)],
+    category: topCategoryName,
+    holderCategory: holderCategoryName,
+    productHolderCategory: productHolderCategoryName,
+    stock: getRandomInt(0, 100),
+    sold: getRandomInt(0, 50),
     active: true,
   };
 }
 
-export function createDefaultCatalogDataset() {
-  const topLevelConfigs = [
-    {
-      id: 'cat-essentials',
-      name: LOCALE_NAMES.en.essentials,
-      names: {
-        ru: LOCALE_NAMES.ru.essentials,
-        uk: LOCALE_NAMES.uk.essentials,
-        en: LOCALE_NAMES.en.essentials,
-      },
-      description: {
-        ru: 'Базовые товары для подготовки и завершения работы.',
-        uk: 'Базові товари для підготовки та завершення роботи.',
-        en: 'Core items for prep and finishing work.',
-      },
-      subcategories: [
-        { id: 'cat-essentials-base', name: { ru: 'Базовые наборы', uk: 'Базові набори', en: 'Base kits' } },
-        { id: 'cat-essentials-finish', name: { ru: 'Финишные решения', uk: 'Фінішні рішення', en: 'Finish solutions' } },
-        { id: 'cat-essentials-essentials', name: { ru: 'Премиум наборы', uk: 'Преміум набори', en: 'Premium kits' } },
-      ],
-    },
-    {
-      id: 'cat-lashes',
-      name: LOCALE_NAMES.en.lashes,
-      names: {
-        ru: LOCALE_NAMES.ru.lashes,
-        uk: LOCALE_NAMES.uk.lashes,
-        en: LOCALE_NAMES.en.lashes,
-      },
-      description: {
-        ru: 'Клеи, ресницы и сопутствующие аксессуары.',
-        uk: 'Клеї, вії та супутні аксесуари.',
-        en: 'Glues, lashes, and supporting accessories.',
-      },
-      subcategories: [
-        { id: 'cat-lashes-glue', name: { ru: 'Клеевые наборы', uk: 'Клейові набори', en: 'Glue kits' } },
-        { id: 'cat-lashes-lashes', name: { ru: 'Ресничные наборы', uk: 'Вієві набори', en: 'Lash kits' } },
-        { id: 'cat-lashes-kit', name: { ru: 'Профессиональные комплекты', uk: 'Професійні комплекти', en: 'Professional kits' } },
-      ],
-    },
-    {
-      id: 'cat-pigments',
-      name: LOCALE_NAMES.en.pigments,
-      names: {
-        ru: LOCALE_NAMES.ru.pigments,
-        uk: LOCALE_NAMES.uk.pigments,
-        en: LOCALE_NAMES.en.pigments,
-      },
-      description: {
-        ru: 'Пигменты для плотного и точного результата.',
-        uk: 'Пігменти для щільного та точного результату.',
-        en: 'Pigments for dense and precise results.',
-      },
-      subcategories: [
-        { id: 'cat-pigments-palette', name: { ru: 'Палитры', uk: 'Палітри', en: 'Palettes' } },
-        { id: 'cat-pigments-blend', name: { ru: 'Смеси', uk: 'Суміші', en: 'Blends' } },
-        { id: 'cat-pigments-pro', name: { ru: 'Профессиональные серии', uk: 'Професійні серії', en: 'Professional series' } },
-      ],
-    },
-  ];
+function buildSubSubCategories(rootCat, subCat, r, s, ssCount, products, categories, isLow = false) {
+  for (let ss = 0; ss < ssCount; ss++) {
+    const subSubId = `${subCat.id}-sub-${ss}`;
+    const subSubCat = buildCategory(subSubId, subCat.id, 3, `Group ${r + 1}-${s + 1}-${ss + 1}`);
+    subCat.childCategoryIds.push(subSubId);
+    categories.push(subSubCat);
 
+    const prodCount = isLow ? 1 : getRandomInt(2, 4);
+    for (let p = 0; p < prodCount; p++) {
+      const prodId = `prod-${r + 1}-${s + 1}-${ss + 1}-${p + 1}`;
+      const product = buildProduct(prodId, rootCat.name, subCat.name, subSubCat.name, `Product ${r + 1}-${s + 1}-${ss + 1}-${p + 1}`);
+      products.push(product);
+      subSubCat.productIds.push(prodId);
+    }
+  }
+}
+
+export function createRandomCatalogDataset(options = {}) {
+  const isLow = options.mode === 'low';
   const categories = [];
   const products = [];
 
-  topLevelConfigs.forEach((config, categoryIndex) => {
-    const category = {
-      id: config.id,
-      parentId: null,
-      type: 'category_holder',
-      name: config.names,
-      description: config.description,
-      image: PRODUCT_IMAGES[categoryIndex % PRODUCT_IMAGES.length],
-      depth: 1,
-      productIds: [],
-    };
+  const rootCount = isLow ? 2 : getRandomInt(2, 4);
+  for (let r = 0; r < rootCount; r++) {
+    const rootId = `cat-root-${r}`;
+    const rootCat = buildCategory(rootId, null, 1, `Category ${r + 1}`);
+    categories.push(rootCat);
 
-    config.subcategories.forEach((holderConfig, holderIndex) => {
-      const holder = {
-        id: `${config.id}-holder-${holderIndex + 1}`,
-        parentId: category.id,
-        type: 'category_holder',
-        name: holderConfig.name,
-        description: {
-          ru: `Холдер категории ${holderConfig.name.ru.toLowerCase()}.`,
-          uk: `Холдер категорії ${holderConfig.name.uk.toLowerCase()}.`,
-          en: `Holder category for ${holderConfig.name.en.toLowerCase()}.`,
-        },
-        image: PRODUCT_IMAGES[(categoryIndex + holderIndex) % PRODUCT_IMAGES.length],
-        depth: 2,
-        childCategoryIds: [],
-      };
+    const subCount = isLow ? 2 : getRandomInt(2, 4);
+    for (let s = 0; s < subCount; s++) {
+      const subId = `${rootId}-sub-${s}`;
+      const subCat = buildCategory(subId, rootId, 2, `Subcategory ${r + 1}-${s + 1}`);
+      rootCat.childCategoryIds.push(subId);
+      categories.push(subCat);
 
-      for (let productHolderIndex = 0; productHolderIndex < 3; productHolderIndex += 1) {
-        const productHolder = {
-          id: `${holder.id}-ph-${productHolderIndex + 1}`,
-          parentId: holder.id,
-          type: 'product_holder',
-          name: {
-            ru: `${holderConfig.name.ru} ${productHolderIndex + 1}`,
-            uk: `${holderConfig.name.uk} ${productHolderIndex + 1}`,
-            en: `${holderConfig.name.en} ${productHolderIndex + 1}`,
-          },
-          description: {
-            ru: `Подкатегория для продуктов ${holderConfig.name.ru.toLowerCase()}.`,
-            uk: `Підкатегорія для продуктів ${holderConfig.name.uk.toLowerCase()}.`,
-            en: `Product-holder for ${holderConfig.name.en.toLowerCase()}.`,
-          },
-          image: PRODUCT_IMAGES[(categoryIndex + holderIndex + productHolderIndex) % PRODUCT_IMAGES.length],
-          depth: 3,
-          productIds: [],
-          index: productHolderIndex,
-        };
+      const subSubCount = isLow ? 2 : getRandomInt(2, 4);
+      buildSubSubCategories(rootCat, subCat, r, s, subSubCount, products, categories, isLow);
+    }
+  }
 
-        for (let productIndex = 1; productIndex <= 3; productIndex += 1) {
-          const productId = `p-${toSlug(config.id)}-${holderIndex + 1}-${productHolderIndex + 1}-${productIndex}`;
-          const productOrdinal = categoryIndex * 27 + holderIndex * 9 + productHolderIndex * 3 + productIndex;
-          const product = buildProductTemplate({
-            topCategory: { index: categoryIndex, name: config.names },
-            holderCategory: { name: holder.name, index: holderIndex },
-            productHolderCategory: { name: productHolder.name, index: productHolderIndex },
-            productIndex,
-            productId,
-            productOrdinal,
-          });
-          products.push(product);
-          productHolder.productIds.push(product.id);
-        }
+  // Randomly select products to be marked as new
+  const newCount = Math.min(isLow ? 2 : getRandomInt(3, 8), products.length);
+  const shuffledForNew = [...products].sort(() => 0.5 - Math.random());
+  for (let i = 0; i < newCount; i++) {
+    shuffledForNew[i].isNew = true;
+  }
 
-        holder.childCategoryIds.push(productHolder.id);
-        categories.push(productHolder);
-      }
-
-      categories.push(holder);
-    });
-
-    categories.unshift(category);
-  });
+  // Randomly select products to be marked as discounted (independent)
+  const discountCount = Math.min(isLow ? 2 : getRandomInt(3, 8), products.length);
+  const shuffledForDiscount = [...products].sort(() => 0.5 - Math.random());
+  for (let i = 0; i < discountCount; i++) {
+    shuffledForDiscount[i].discountPercent = getRandomInt(5, 50);
+  }
 
   return { categories, products };
+}
+
+function buildRandomOrder(user, products, index, isLow = false) {
+  const orderProducts = [];
+  const productCount = isLow ? getRandomInt(1, 2) : getRandomInt(2, 3);
+  
+  const shuffledProducts = [...products].sort(() => 0.5 - Math.random());
+  const selectedProducts = shuffledProducts.slice(0, Math.min(productCount, products.length));
+  
+  let totalPrice = 0;
+  let totalItems = 0;
+  
+  selectedProducts.forEach(prod => {
+    const qty = isLow ? getRandomInt(1, 2) : (getRandomInt(1, 5) === 5 ? getRandomInt(5, 20) : getRandomInt(1, 4));
+    orderProducts.push({
+      id: prod.id,
+      label: prod.label,
+      price: prod.price,
+      qty,
+      image: prod.image,
+    });
+    totalPrice += prod.price * qty;
+    totalItems += qty;
+  });
+
+  const randomMsAgo = getRandomInt(0, 14 * 24 * 60 * 60 * 1000);
+  const createdAt = new Date(Date.now() - randomMsAgo);
+
+  return {
+    id: `order-${user.uid}-${Date.now()}-${index}`,
+    userId: user.uid,
+    status: ['Новый заказ', 'В обработке', 'Выполнен', 'Отменен'][getRandomInt(0, 3)],
+    createdAt,
+    items: orderProducts,
+    totalPrice,
+    totalItems,
+    customerInfo: {
+      email: user.email || `user${user.uid}@example.com`,
+      firstName: user.firstName || 'Test',
+      lastName: user.lastName || 'User',
+      phone: user.phone || '+380990000000',
+      city: user.city || 'Kyiv',
+    }
+  };
+}
+
+export function generateOrdersDataset(users, products, options = {}) {
+  const isLow = options.mode === 'low';
+  const orders = [];
+  
+  if (!products || products.length === 0) return orders;
+
+  users.forEach((user) => {
+    const orderCount = isLow ? getRandomInt(1, 2) : getRandomInt(10, 20);
+    for (let i = 0; i < orderCount; i++) {
+      orders.push(buildRandomOrder(user, products, i, isLow));
+    }
+  });
+
+  return orders;
 }

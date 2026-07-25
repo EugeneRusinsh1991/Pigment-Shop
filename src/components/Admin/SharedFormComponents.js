@@ -1,79 +1,115 @@
 import React from 'react';
 import { Modal, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { colors } from '../../theme/tokens';
 import { useTheme } from '../../context/ThemeContext';
 
-export function FieldInput({ label, value, onChangeText, placeholder, error, keyboardType, styles }) {
+import FieldError from '../FieldError';
+
+export function FieldInput({ label, value, onChangeText, placeholder, error, keyboardType, styles, style, ...props }) {
+  const [isFocused, setIsFocused] = React.useState(false);
+  const containerStyle = styles?.fieldGroup || style;
   return (
-    <View style={styles.fieldGroup}>
-      <Text style={styles.fieldLabel}>{label}</Text>
+    <View style={containerStyle}>
+      {label ? <Text style={styles?.fieldLabel}>{label}</Text> : null}
       <TextInput
-        style={[styles.fieldInput, error && styles.fieldInputError]}
+        style={[
+          styles?.fieldInput,
+          isFocused && { borderColor: colors.accentBlue, borderWidth: 1.5 },
+          error && styles?.fieldInputError,
+        ]}
         value={String(value ?? '')}
         onChangeText={onChangeText}
         placeholder={placeholder}
-        placeholderTextColor="#CBD5E1"
+        placeholderTextColor={colors.slateText}
         keyboardType={keyboardType}
         autoCapitalize="none"
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
+        {...props}
       />
-      {!!error && <Text style={styles.errorText}>{error}</Text>}
+      <FieldError error={error} />
     </View>
   );
 }
 
-export function FieldTextarea({ label, value, onChangeText, placeholder, numberOfLines = 2, styles }) {
+export function FieldTextarea({ label, value, onChangeText, placeholder, numberOfLines = 2, styles, style, ...props }) {
+  const [isFocused, setIsFocused] = React.useState(false);
+  const containerStyle = styles?.fieldGroup || style;
   return (
-    <View style={styles.fieldGroup}>
-      <Text style={styles.fieldLabel}>{label}</Text>
+    <View style={containerStyle}>
+      {label ? <Text style={styles?.fieldLabel}>{label}</Text> : null}
       <TextInput
-        style={styles.fieldTextarea}
+        style={[
+          styles?.fieldTextarea,
+          isFocused && { borderColor: colors.accentBlue, borderWidth: 1.5 },
+        ]}
         value={String(value ?? '')}
         onChangeText={onChangeText}
         placeholder={placeholder}
-        placeholderTextColor="#CBD5E1"
+        placeholderTextColor={colors.slateText}
         multiline
         numberOfLines={numberOfLines}
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
+        {...props}
       />
     </View>
   );
 }
 
-import { CrossIcon } from '../Icons';
+import { CrossIcon } from '@/components/Icons';
+
+import Button from '../Button';
+import ChipButton from '../ChipButton';
+import IconButton from '../IconButton';
 
 function ModalHeader({ title, onClose, styles }) {
   return (
     <View style={styles.modalHeader}>
-      <Text style={styles.modalTitle}>{title}</Text>
-      <TouchableOpacity onPress={onClose} style={{ padding: 4 }}>
-        <CrossIcon color="#94A3B8" size={14} />
-      </TouchableOpacity>
+      {title ? <Text style={styles.modalTitle}>{title}</Text> : <View />}
+      <IconButton
+        icon={<CrossIcon color={colors.slateText} size={14} />}
+        onPress={onClose}
+        variant="transparent"
+        size="sm"
+      />
     </View>
   );
 }
 
-function ModalFooter({ onCancel, onSave, styles }) {
+function ModalFooter({ onCancel, onSave, styles, footerLeft }) {
   const { t } = useTheme();
   return (
     <View style={styles.modalFooter}>
-      <TouchableOpacity style={styles.cancelBtn} onPress={onCancel}>
-        <Text style={styles.cancelBtnText}>{t('btnCancelLabel')}</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.saveBtn} onPress={onSave}>
-        <Text style={styles.saveBtnText}>{t('btnSaveLabel')}</Text>
-      </TouchableOpacity>
+      {footerLeft ?? <View />}
+      <View style={styles.modalFooterRight ?? { flexDirection: 'row', gap: 12, alignItems: 'center' }}>
+        <Button
+          title={t('btnCancelLabel')}
+          onPress={onCancel}
+          variant="secondary"
+          size="md"
+        />
+        <Button
+          title={t('btnSaveLabel')}
+          onPress={onSave}
+          variant="success"
+          size="md"
+        />
+      </View>
     </View>
   );
 }
 
-export function FormModalLayout({ visible, title, onClose, onSave, styles, cardWidth, children }) {
+export function FormModalLayout({ visible, title, onClose, onSave, styles, cardWidth, children, footerLeft, footer }) {
   return (
     <Modal visible={visible} transparent animationType="fade" onRequestClose={onClose}>
       <View style={styles.modalOverlay}>
         <View style={[styles.modalCard, cardWidth ? { width: cardWidth } : null]}>
           <ModalHeader title={title} onClose={onClose} styles={styles} />
-          <ScrollView style={styles.modalBody}>
+          <ScrollView style={styles.modalBody} keyboardShouldPersistTaps="handled">
             {children}
           </ScrollView>
-          <ModalFooter onCancel={onClose} onSave={onSave} styles={styles} />
+          {footer ?? <ModalFooter onCancel={onClose} onSave={onSave} styles={styles} footerLeft={footerLeft} />}
         </View>
       </View>
     </Modal>
@@ -92,24 +128,13 @@ export function LanguageTabs({ activeLang, onChange }) {
       {LANGUAGES.map((item) => {
         const isActive = activeLang === item.code;
         return (
-          <TouchableOpacity
+          <ChipButton
             key={item.code}
-            style={[
-              {
-                paddingVertical: 6,
-                paddingHorizontal: 16,
-                borderRadius: 6,
-                backgroundColor: isActive ? '#1C1C1C' : '#F1F5F9',
-                borderWidth: 1,
-                borderColor: isActive ? '#1C1C1C' : '#E2E8F0',
-              }
-            ]}
+            label={item.label}
+            active={isActive}
+            variant="rect"
             onPress={() => onChange(item.code)}
-          >
-            <Text style={{ fontSize: 13, fontWeight: '600', color: isActive ? '#FFFFFF' : '#475569' }}>
-              {item.label}
-            </Text>
-          </TouchableOpacity>
+          />
         );
       })}
     </View>

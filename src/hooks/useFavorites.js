@@ -1,7 +1,6 @@
-import { useState, useEffect } from 'react';
-import { db } from '../firebase';
-import { doc, onSnapshot, setDoc } from 'firebase/firestore';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import { useAuth } from '../context/AuthContext';
+import { subscribeFavorites, addFavorite, removeFavorite } from '../services/repositories/favoritesRepository';
 
 export default function useFavorites() {
   const [favorites, setFavorites] = useState([]);
@@ -12,41 +11,33 @@ export default function useFavorites() {
       setFavorites([]);
       return;
     }
-
-    const docRef = doc(db, 'users', user.uid);
-    const unsubscribe = onSnapshot(docRef, (docSnap) => {
-      if (docSnap.exists() && docSnap.data().favorites) {
-        setFavorites(docSnap.data().favorites);
-      } else {
-        setFavorites([]);
-      }
-    }, (error) => {
-      console.warn("Favorites snapshot listener failed:", error);
-    });
-
-    return () => unsubscribe();
+    return subscribeFavorites(user.uid, setFavorites);
   }, [user]);
 
-  const toggleFavorite = (product) => {
+  const toggleFavorite = useCallback((product) => {
     setFavorites((prev) => {
-      const isFav = prev.some((p) => p.id === product.id);
-      let newFavorites;
-      if (isFav) {
-        newFavorites = prev.filter((p) => p.id !== product.id);
-      } else {
-        newFavorites = [...prev, product];
-      }
-      
+      const existing = prev.find((p) => p.id === product.id);
+      const isFav = !!existing;
+      const next = isFav
+        ? prev.filter((p) => p.id !== product.id)
+        : [...prev, product];
+
       if (user) {
-        const docRef = doc(db, 'users', user.uid);
-        setDoc(docRef, { favorites: newFavorites }, { merge: true }).catch(console.error);
+        if (isFav) {
+          removeFavorite(user.uid, existing || product).catch(console.error);
+        } else {
+          addFavorite(user.uid, product).catch(console.error);
+        }
       }
-      
-      return newFavorites;
+
+      return next;
     });
-  };
+  }, [user]);
 
-  const isFavorite = (productId) => favorites.some((p) => p.id === productId);
+  const isFavorite = useCallback((productId) => favorites.some((p) => p.id === productId), [favorites]);
 
-  return { favorites, toggleFavorite, isFavorite };
+  return useMemo(
+    () => ({ favorites, toggleFavorite, isFavorite }),
+    [favorites, toggleFavorite, isFavorite]
+  );
 }

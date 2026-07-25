@@ -1,62 +1,36 @@
-import { Image, Text, TouchableOpacity, View } from 'react-native';
-import { useTheme } from '../context/ThemeContext';
+import React, { useEffect, useRef, useMemo, useCallback } from 'react';
+import { Image, Text, View, StyleSheet, Platform } from 'react-native';
+import { useTheme, getThemedValue } from '../context/ThemeContext';
 import useCardDimensions from '../hooks/useCardDimensions';
-import { HeartIcon } from './Icons';
+import { HeartIcon, CartIcon } from '@/components/Icons';
 import styles from './ProductCardStyles';
+import IconButton from './IconButton';
+import ProductBadges from './ProductBadges';
+import BaseCard from './BaseCard';
+import { useCartContext } from '../context/CartContext';
+import { colors } from '../theme/tokens';
 
-const PRODUCT_PLACEHOLDER = 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=600&auto=format&fit=crop';
-
-const getCardWidth = (overrideWidth, hookWidth) => overrideWidth || hookWidth;
-const getImageUri = (image) => image || PRODUCT_PLACEHOLDER;
-const getBrand = (brand, fallback) => brand || fallback;
-
-const getTitle = (label, lang) => {
-  if (label && typeof label === 'object') {
-    return label[lang] || '';
-  }
-  return label || '';
-};
+import { PRODUCT_PLACEHOLDER } from '../constants';
+import { getLocalizedValue } from '../utils/localization';
+import { getEffectivePrice } from '../utils/pricing';
 
 const getThemedStyles = (isDark, imgHeight) => {
-  const ic = (dark, light) => isDark ? dark : light;
+  const ic = (dark, light) => getThemedValue(isDark, dark, light);
   return {
     prodCard: [styles.prodCard, ic(styles.prodCardDark, styles.prodCardLight)],
     imageContainer: [styles.imageContainer, ic(styles.imageContainerDark, styles.imageContainerLight), { height: imgHeight }],
     prodTitle: [styles.prodTitle, ic(styles.prodTitleDark, styles.prodTitleLight)],
     prodInfo: [styles.prodInfo, ic(styles.prodInfoDark, styles.prodInfoLight)],
-    heartColor: isDark ? '#FFFFFF' : '#1C1C1C',
-    favStyle: isDark ? styles.favBtnDark : styles.favBtnLight
+    heartColor: isDark ? colors.white : colors.dark,
   };
 };
 
-const getHasBadges = (isNew, discountPercent) => {
-  return isNew || discountPercent > 0;
-};
 
-function ProductBadges({ isNew, discountPercent }) {
-  const { t } = useTheme();
-  if (!getHasBadges(isNew, discountPercent)) return null;
-  return (
-    <View style={styles.badgeContainer}>
-      {isNew ? (
-        <View style={styles.newBadge}>
-          <Text style={styles.badgeText}>{t('badgeNew')}</Text>
-        </View>
-      ) : null}
-      {discountPercent > 0 ? (
-        <View style={styles.discountBadge}>
-          <Text style={styles.discountBadgeText}>-{discountPercent}%</Text>
-        </View>
-      ) : null}
-    </View>
-  );
-}
-
-function ProductPrice({ price, discountPercent, isDark }) {
+const ProductPrice = React.memo(function ProductPrice({ price, discountPercent, isDark }) {
   const pStyle = [styles.priceText, isDark ? styles.priceTextDark : styles.priceTextLight];
 
   if (discountPercent > 0) {
-    const finalPrice = Math.round(price * (1 - discountPercent / 100));
+    const finalPrice = getEffectivePrice(price, discountPercent);
     return (
       <View style={styles.priceRow}>
         <Text style={pStyle}>${finalPrice.toLocaleString()}</Text>
@@ -66,54 +40,74 @@ function ProductPrice({ price, discountPercent, isDark }) {
   }
 
   return <Text style={pStyle}>${price.toLocaleString()}</Text>;
-}
+});
 
-export default function ProductCard({ item, onPress, isDark, depth = 1, isFavorite, onToggleFavorite, overrideWidth }) {
+const ProductCardInner = React.forwardRef(({ item, isDark, depth = 1, isFavorite, onToggleFavorite, overrideWidth, ...rest }, ref) => {
   const { t, lang } = useTheme();
-  const { cardWidth: hookWidth, cardHeight, imgContainerHeight, cardMargin } = useCardDimensions(depth, true);
-  
-  const cardWidth = getCardWidth(overrideWidth, hookWidth);
-  const imageUri = getImageUri(item.image);
-  const themed = getThemedStyles(isDark, imgContainerHeight);
-  const heartColor = isFavorite ? '#E87A8E' : themed.heartColor;
-  const brand = getBrand(item.brand, t('brandFallback'));
-  const title = getTitle(item.label, lang);
+  const { addItem } = useCartContext();
+  const { imgContainerHeight } = useCardDimensions(depth);
 
-  const handleFavPress = (e) => {
-    try {
-      if (e && typeof e.stopPropagation === 'function') e.stopPropagation();
-    } catch (err) {
-      // Defensive: ignore if event isn't provided or stopPropagation isn't available
-    }
-    if (onToggleFavorite) onToggleFavorite(item);
-  };
+  const themed = useMemo(() => getThemedStyles(isDark, imgContainerHeight), [isDark, imgContainerHeight]);
+  const heartColor = isFavorite ? colors.accentPinkLight : themed.heartColor;
+
+  const handleFavPress = useCallback((e) => {
+    e?.preventDefault?.();
+    e?.stopPropagation?.();
+    onToggleFavorite?.(item);
+  }, [onToggleFavorite, item]);
+
+  const handleCartPress = useCallback((e) => {
+    e?.preventDefault?.();
+    e?.stopPropagation?.();
+    const effectivePrice = getEffectivePrice(item.price, item.discountPercent);
+    addItem(item, effectivePrice, 1);
+  }, [addItem, item]);
 
   return (
-    <TouchableOpacity
-      style={[
-        themed.prodCard, 
-        { width: cardWidth, minWidth: cardWidth, height: cardHeight, flex: 0, flexGrow: 0, margin: cardMargin }
-      ]}
-      onPress={onPress}
-      activeOpacity={0.85}
+    <BaseCard
+      ref={ref}
+      isDark={isDark}
+      interactive={true}
+      useDimensions={true}
+      depth={depth}
+      overrideWidth={overrideWidth}
+      lightBgColor={colors.productCardLight}
+      {...rest}
     >
       <View style={themed.imageContainer}>
-        <Image source={{ uri: imageUri }} style={styles.prodImage} resizeMode="cover" />
+        <Image source={{ uri: item.image || PRODUCT_PLACEHOLDER }} style={styles.prodImage} resizeMode="cover" />
         <ProductBadges isNew={item.isNew} discountPercent={item.discountPercent} />
-        <TouchableOpacity
-          style={[styles.favBtn, themed.favStyle]}
-          onPress={handleFavPress}
-        >
-          <HeartIcon filled={isFavorite} color={heartColor} size={14} />
-        </TouchableOpacity>
+        <View style={styles.topOverlayWrapper}>
+          <IconButton
+            testID="product-fav-button"
+            icon={<HeartIcon filled={isFavorite} color={heartColor} size={14} />}
+            onPress={handleFavPress}
+            size={28}
+            variant="glass"
+            animated={true}
+          />
+        </View>
+        <View style={styles.bottomOverlayWrapper}>
+          <IconButton
+            testID="product-cart-button"
+            icon={<CartIcon color={colors.white} size={14} />}
+            onPress={handleCartPress}
+            size={28}
+            variant="solid"
+            animated={true}
+            style={styles.cartBtnSolidStyle}
+          />
+        </View>
       </View>
       <View style={themed.prodInfo}>
-        <Text style={styles.brandText}>{brand}</Text>
-        <Text style={themed.prodTitle} numberOfLines={2}>
-          {title}
-        </Text>
+        <Text style={styles.brandText}>{item.brand || t('brandFallback')}</Text>
+        <Text style={themed.prodTitle} numberOfLines={2}>{getLocalizedValue(item.label, lang)}</Text>
         <ProductPrice price={item.price} discountPercent={item.discountPercent} isDark={isDark} />
       </View>
-    </TouchableOpacity>
+    </BaseCard>
   );
-}
+});
+
+const ProductCard = React.memo(ProductCardInner);
+
+export default ProductCard;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, Platform } from 'react-native';
+import { CurrencyIcon } from './AppIcons';
 const getThemeColor = (color) => color || '#1C1C1C';
 
 export const AdminIcon = ({ color, size = 16, style, ...props }) => {
@@ -104,27 +105,6 @@ export const LoginIcon = ({ color, size = 16, style, ...props }) => {
   return <Text style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🚪</Text>;
 };
 
-export const ShieldIcon = ({ color, size = 32, style, ...props }) => {
-  if (Platform.OS === 'web') {
-    return (
-      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-      </svg>
-    );
-  }
-  return <Text style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🛡️</Text>;
-};
-
-export const KeyIcon = ({ color, size = 18, style, ...props }) => {
-  if (Platform.OS === 'web') {
-    return (
-      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
-        <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4" />
-      </svg>
-    );
-  }
-  return <Text style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🔑</Text>;
-};
 
 export const LockIcon = ({ color, size = 18, style, ...props }) => {
   if (Platform.OS === 'web') {
@@ -153,15 +133,7 @@ export const UsersIcon = ({ color, size = 16, style, ...props }) => {
 };
 
 export const DollarIcon = ({ color, size = 16, style, ...props }) => {
-  if (Platform.OS === 'web') {
-    return (
-      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
-        <line x1="12" y1="1" x2="12" y2="23" />
-        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-      </svg>
-    );
-  }
-  return <Text style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>$</Text>;
+  return <CurrencyIcon color={color} size={size} style={style} {...props} />;
 };
 
 export const TrendIcon = ({ color, size = 16, style, ...props }) => {

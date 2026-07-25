@@ -1,70 +1,42 @@
-import { FlatList, StyleSheet, useWindowDimensions, View } from 'react-native';
+import React, { useState, useEffect, useCallback } from 'react';
+import { FlatList, ScrollView, StyleSheet, View } from 'react-native';
 import styles from '../AppStyles';
 import { useFavoritesContext } from '../context/FavoritesContext';
-import { useNavigation } from '../context/NavigationContext';
+import { useRouter } from 'expo-router';
 import { useTheme } from '../context/ThemeContext';
+
 import CatalogHeader from './CatalogHeader';
-import DiscountsSection from './DiscountsSection';
-import NewArrivalsFooter from './NewArrivalsFooter';
 import PageNavigation from './PageNavigation';
 import PlaceholderCard from './PlaceholderCard';
-import SharedLayoutWrapper from './SharedLayoutWrapper';
+import CatalogListFooter from './CatalogListFooter';
+import { useCatalogViewData } from '../hooks/useCatalogViewData';
 
-const COLS_MAP = {
-  desktop: { depth0: 4, depthRest: 4 },
-  tablet: { depth0: 4, depthRest: 4 },
-  mobile: { depth0: 2, depthRest: 2 },
-};
+function useCatalogTransition(showPromotionalSections, showHeroBanner) {
+  const [isTransitionReady, setIsTransitionReady] = useState(false);
 
-const CARD_WIDTH_MAP = {
-  depth0: { desktop: 250, tablet: 250, mobile: 165 },
-  depthRest: { desktop: 250, tablet: 250, mobile: 165 },
-};
+  useEffect(() => {
+    if (!showPromotionalSections && !showHeroBanner) {
+      setIsTransitionReady(true);
+      return;
+    }
+    setIsTransitionReady(false);
+    const timer = setTimeout(() => {
+      setIsTransitionReady(true);
+    }, 150);
+    return () => clearTimeout(timer);
+  }, [showPromotionalSections, showHeroBanner]);
 
-/**
- * Computes the layout dimensions and columns configuration for CatalogView.
- */
-function getCatalogLayout(isWide, depth, windowWidth) {
-  const device = windowWidth >= 1024 
-    ? 'desktop' 
-    : (windowWidth >= 768 ? 'tablet' : 'mobile');
-
-  const depthKey = depth === 0 ? 'depth0' : 'depthRest';
-
-  const cols = COLS_MAP[device][depthKey];
-  const cardWidth = CARD_WIDTH_MAP[depthKey][device];
-  const cardMargin = device === 'mobile' ? 4 : 8;
-  const gridWidth = cols * (cardWidth + cardMargin * 2);
-
-  return { cols, gridWidth };
-}
-
-/**
- * CatalogFooter Helper Component
- * Renders the new arrivals and discounts sections for depth 0.
- */
-function CatalogFooter({ depth, isDark, isWide, t, onCardPress, favs }) {
-  if (depth !== 0) {
-    return null;
-  }
-
-  return (
-    <View>
-      <NewArrivalsFooter isDark={isDark} isWide={isWide} t={t} onCardPress={onCardPress} favs={favs} />
-      <DiscountsSection isDark={isDark} isWide={isWide} t={t} onCardPress={onCardPress} favs={favs} />
-    </View>
-  );
+  return isTransitionReady;
 }
 
 /**
  * Helper to render catalog list items.
  */
-function renderCatalogItem({ item, onCardPress, isDark, depth, favs }) {
+function renderCatalogItem({ item, isDark, depth, favs }) {
   const isLeaf = !item.isCategory;
   return (
     <PlaceholderCard
       item={item}
-      onPress={() => onCardPress(item)}
       isDark={isDark}
       isLeaf={isLeaf}
       depth={depth}
@@ -81,39 +53,64 @@ function renderCatalogItem({ item, onCardPress, isDark, depth, favs }) {
 export default function CatalogView({
   isDark,
   isWide,
-  depth,
-  currentLevel,
-  items,
-  crumbs,
+  depth: overrideDepth,
+  currentLevel: overrideCurrentLevel,
+  items: overrideItems,
+  crumbs: overrideCrumbs,
   showCategoryGrid = true,
   showSectionTitle = true,
-  showPromotionalSections = true,
-  showHeroBanner = true,
+  showPromotionalSections = false,
+  showHeroBanner = false,
   showNavigation = false,
 }) {
-  const { width: windowWidth } = useWindowDimensions();
   const { t } = useTheme();
   const favs = useFavoritesContext();
-  const { handleCrumbPress, handleCardPress, handleBackPress, handleCatalogPress } = useNavigation();
-  const onCardPress = handleCardPress;
-  const onCatalogPress = handleCatalogPress;
-  const { cols, gridWidth } = getCatalogLayout(isWide, depth, windowWidth);
+  const router = useRouter();
+
+  const {
+    depth,
+    currentLevel,
+    items,
+    crumbs,
+    cols,
+    gridWidth,
+  } = useCatalogViewData({
+    overrideDepth,
+    overrideCurrentLevel,
+    overrideItems,
+    overrideCrumbs,
+    isWide,
+  });
+
+  const handleBackPress = () => {
+    if (router.canGoBack()) {
+      router.back();
+    } else {
+      router.push('/');
+    }
+  };
+  const handleCatalogPress = () => router.push('/catalog');
+  const isTransitionReady = useCatalogTransition(showPromotionalSections, showHeroBanner);
+
+  const renderItem = useCallback(
+    ({ item }) => renderCatalogItem({ item, isDark, depth, favs }),
+    [isDark, depth, favs]
+  );
 
   return (
-    <SharedLayoutWrapper isDark={isDark}>
-      <View style={[layoutStyles.catalogContainer, isDark ? styles.containerDark : styles.containerLight]}>
-        {showNavigation && (
-          <View style={{ alignSelf: 'center', width: gridWidth, maxWidth: '100%' }}>
-            <PageNavigation
-              isDark={isDark}
-              crumbs={crumbs}
-              onCrumbPress={handleCrumbPress}
-              onBack={handleBackPress}
-              showBack={true}
-              showBreadcrumbs={true}
-            />
-          </View>
-        )}
+    <View style={[layoutStyles.catalogContainer, isDark ? styles.containerDark : styles.containerLight]}>
+      {showNavigation && (
+        <View style={{ alignSelf: 'center', width: gridWidth, maxWidth: '100%' }}>
+          <PageNavigation
+            isDark={isDark}
+            crumbs={crumbs}
+            onBack={handleBackPress}
+            showBack={true}
+            showBreadcrumbs={true}
+          />
+        </View>
+      )}
+      {showCategoryGrid ? (
         <FlatList
           ListHeaderComponent={
             <CatalogHeader
@@ -123,60 +120,79 @@ export default function CatalogView({
               currentLevel={currentLevel}
               crumbs={crumbs}
               t={t}
-              onCrumbPress={handleCrumbPress}
-              onCardPress={onCardPress}
-              onCatalogPress={onCatalogPress}
+              onCatalogPress={handleCatalogPress}
               showSectionTitle={showSectionTitle}
               showHeroBanner={showHeroBanner}
+              isTransitionReady={isTransitionReady}
             />
           }
-          data={showCategoryGrid ? items : []}
+          data={items}
           keyExtractor={(item) => item.id}
           numColumns={cols}
           key={`grid-${cols}`}
-          renderItem={({ item }) => renderCatalogItem({ item, onCardPress, isDark, depth, favs })}
+          renderItem={renderItem}
           contentContainerStyle={[styles.list, { alignSelf: 'center', width: gridWidth, paddingBottom: 0, flexGrow: 1 }]}
           showsVerticalScrollIndicator={false}
+          ListFooterComponentStyle={{ flex: 1, justifyContent: 'flex-end' }}
           ListFooterComponent={
-            <View style={[styles.footerWrapper, { width: '100%' }]}>
-            {showPromotionalSections && (
-              <CatalogFooter
-                depth={depth}
-                isDark={isDark}
-                isWide={isWide}
-                t={t}
-                onCardPress={onCardPress}
-                favs={favs}
-              />
-            )}
+            <CatalogListFooter
+              showPromotionalSections={showPromotionalSections}
+              isTransitionReady={isTransitionReady}
+              depth={depth}
+              isDark={isDark}
+              isWide={isWide}
+              t={t}
+              favs={favs}
+            />
+          }
+          style={layoutStyles.listContainer}
+          initialNumToRender={8}
+          maxToRenderPerBatch={8}
+          windowSize={5}
+          removeClippedSubviews={false}
+        />
+      ) : (
+        <ScrollView
+          contentContainerStyle={[styles.list, { alignSelf: 'center', width: gridWidth, paddingBottom: 0, flexGrow: 1 }]}
+          showsVerticalScrollIndicator={false}
+          style={layoutStyles.listContainer}
+        >
+          <CatalogHeader
+            isDark={isDark}
+            isWide={isWide}
+            depth={depth}
+            currentLevel={currentLevel}
+            crumbs={crumbs}
+            t={t}
+            onCatalogPress={handleCatalogPress}
+            showSectionTitle={showSectionTitle}
+            showHeroBanner={showHeroBanner}
+            isTransitionReady={isTransitionReady}
+          />
+          <View style={{ flex: 1, justifyContent: 'flex-end' }}>
+            <CatalogListFooter
+              showPromotionalSections={showPromotionalSections}
+              isTransitionReady={isTransitionReady}
+              depth={depth}
+              isDark={isDark}
+              isWide={isWide}
+              t={t}
+              favs={favs}
+            />
           </View>
-        }
-        style={layoutStyles.listContainer}
-      />
-      </View>
-    </SharedLayoutWrapper>
+        </ScrollView>
+      )}
+    </View>
   );
 }
 
 const layoutStyles = StyleSheet.create({
   catalogContainer: {
     flex: 1,
-  },
-  searchWrapper: {
-    alignSelf: 'center',
-    width: '100%',
-    maxWidth: 1064,
-    marginTop: 8,
-    marginBottom: 4,
-    paddingHorizontal: 8,
-    zIndex: 1,
-    elevation: 1,
-    position: 'relative',
-  },
-  footerWrapper: {
-    width: '100%',
+    minHeight: 0,
   },
   listContainer: {
     flex: 1,
+    minHeight: 0,
   },
 });

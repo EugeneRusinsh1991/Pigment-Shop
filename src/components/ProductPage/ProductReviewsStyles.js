@@ -1,33 +1,38 @@
 import { StyleSheet } from 'react-native';
+import { colors, fonts } from '../../theme/tokens';
 
 export default StyleSheet.create({
-  textDark: { color: '#FFFFFF' },
-  textLight: { color: '#1C1C1C' },
-  descDark: { color: '#94a3b8' },
-  descLight: { color: '#475569' },
+  textDark: { color: colors.white },
+  textLight: { color: colors.dark },
+  descDark: { color: colors.secondaryDarkText },
+  descLight: { color: colors.secondaryLightText },
 
   reviewsSection: {
-    marginTop: 32,
+    marginTop: 24,
     paddingHorizontal: 16,
-    borderTopWidth: 1,
-    paddingTop: 32,
+    paddingTop: 12,
+    width: '100%',
   },
-  reviewsDark: { borderTopColor: '#334155' },
-  reviewsLight: { borderTopColor: '#e2e8f0' },
+  reviewsSectionDesktop: {
+    width: '50%',
+    maxWidth: 600,
+    alignSelf: 'center',
+  },
   sectionTitle: {
-    fontFamily: '"Cormorant Garamond", "Playfair Display", Georgia, serif',
-    fontSize: 24,
+    fontFamily: fonts.serif,
+    fontSize: 18,
+    lineHeight: 22,
     fontWeight: '600',
-    marginBottom: 8,
+    marginBottom: 6,
   },
   ratingSummary: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 8,
-    marginBottom: 24,
+    marginBottom: 16,
   },
   starDisplay: {
-    color: '#FBBF24',
+    color: colors.warningMid,
     fontSize: 18,
   },
   ratingValueText: {
@@ -36,39 +41,39 @@ export default StyleSheet.create({
   reviewForm: {
     borderRadius: 16,
     padding: 16,
-    marginBottom: 24,
+    marginBottom: 16,
     borderWidth: 1,
   },
   formDark: {
-    backgroundColor: '#161616',
-    borderColor: '#334155',
+    backgroundColor: colors.navSurfaceDark,
+    borderColor: colors.secondaryDarkBorder,
   },
   formLight: {
-    backgroundColor: '#FFFFFF',
-    borderColor: '#e2e8f0',
+    backgroundColor: colors.white,
+    borderColor: colors.secondaryLightBorder,
   },
   formTitle: {
     fontSize: 16,
     fontWeight: 'bold',
-    marginBottom: 12,
+    marginBottom: 8,
   },
   input: {
     borderRadius: 8,
     borderWidth: 1,
     height: 40,
     paddingHorizontal: 12,
-    marginBottom: 12,
+    marginBottom: 8,
     fontSize: 14,
   },
   inputDark: {
-    backgroundColor: '#1E1E1E',
-    borderColor: '#334155',
-    color: '#FFFFFF',
+    backgroundColor: colors.productCardDark,
+    borderColor: colors.secondaryDarkBorder,
+    color: colors.white,
   },
   inputLight: {
-    backgroundColor: '#FAF8F6',
-    borderColor: '#e2e8f0',
-    color: '#000000',
+    backgroundColor: colors.backgroundLight,
+    borderColor: colors.secondaryLightBorder,
+    color: colors.black,
   },
   textArea: {
     height: 80,
@@ -78,33 +83,33 @@ export default StyleSheet.create({
   ratingSelector: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 16,
+    marginBottom: 12,
   },
   ratingLabel: {
     fontSize: 14,
     marginRight: 8,
   },
   activeStar: {
-    color: '#FBBF24',
+    color: colors.warningMid,
     fontSize: 24,
   },
   inactiveStar: {
-    color: '#94a3b8',
+    color: colors.secondaryDarkText,
     fontSize: 24,
   },
   submitBtn: {
-    backgroundColor: '#E31B23',
-    borderRadius: 8,
-    height: 40,
+    backgroundColor: colors.accent,
+    borderRadius: 50,
+    height: 44,
     justifyContent: 'center',
     alignItems: 'center',
   },
   submitBtnText: {
-    color: '#FFFFFF',
+    color: colors.white,
     fontWeight: 'bold',
   },
   reviewsList: {
-    gap: 16,
+    gap: 12,
   },
   reviewCard: {
     borderRadius: 12,
@@ -112,33 +117,33 @@ export default StyleSheet.create({
     borderWidth: 1,
   },
   reviewCardDark: {
-    backgroundColor: '#121212',
-    borderColor: '#242424',
+    backgroundColor: colors.surfaceNeutralDark,
+    borderColor: colors.borderDarkAlt,
   },
   reviewCardLight: {
-    backgroundColor: '#FFFFFF',
-    borderColor: '#f3e1db',
+    backgroundColor: colors.white,
+    borderColor: colors.warmNeutralFaint,
   },
   reviewHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 8,
+    marginBottom: 6,
   },
   author: {
     fontWeight: 'bold',
     fontSize: 14,
   },
   reviewStars: {
-    color: '#FBBF24',
+    color: colors.warningMid,
     fontSize: 14,
   },
   comment: {
     fontSize: 13,
     lineHeight: 18,
-    marginBottom: 8,
+    marginBottom: 4,
   },
   dateText: {
     fontSize: 11,
-    color: '#94a3b8',
+    color: colors.secondaryDarkText,
   },
 });

@@ -5,7 +5,14 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./src/assets/icon.png",
+    "splash": {
+      "image": "./src/assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#FAF8F6"
+    },
     "userInterfaceStyle": "light",
+    "scheme": "pigment-shop",
+    "plugins": ["expo-router", "expo-status-bar"],
     "extra": {
       "scanSubdirectories": true
     },
@@ -16,7 +23,6 @@
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
         "foregroundImage": "./src/assets/android-icon-foreground.png",
-        "backgroundImage": "./src/assets/android-icon-background.png",
         "monochromeImage": "./src/assets/android-icon-monochrome.png"
       }
     },

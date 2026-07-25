@@ -1,98 +1,166 @@
-import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, TextInput } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, useWindowDimensions } from 'react-native';
 import styles from './AnalyticsStyles';
 import { useTheme } from '../../../context/ThemeContext';
-
-function calculatePresetDateRange(preset) {
-  const end = new Date();
-  end.setHours(23, 59, 59, 999);
-  
-  let start = new Date();
-  start.setHours(0, 0, 0, 0);
-
-  if (preset === '7days') {
-    start.setDate(end.getDate() - 6);
-  } else if (preset === '30days') {
-    start.setDate(end.getDate() - 29);
-  } else if (preset === 'month') {
-    start.setDate(1);
-  }
-  return { start, end };
-}
-
-function PresetButton({ mode, preset, label, onPress }) {
-  const isActive = mode === preset;
-  return (
-    <TouchableOpacity 
-      style={[styles.presetBtn, isActive && styles.presetBtnActive]} 
-      onPress={() => onPress(preset)}
-    >
-      <Text style={[styles.presetText, isActive && styles.presetTextActive]}>
-        {label}
-      </Text>
-    </TouchableOpacity>
-  );
-}
+import { formatDateCompact as formatCompactDate } from '../../../utils/dateFormatting';
+import { calculatePresetDateRange, PresetButton } from './DateRangePresets';
+import { DateRangeCalendar } from './DateRangeCalendar';
 
 export default function DateRangePicker({ startDate, endDate, onChange }) {
   const { t } = useTheme();
-  const [mode, setMode] = useState('7days'); // '7days', '30days', 'month', 'custom'
+  const { width } = useWindowDimensions();
+  const isMobile = width < 768;
+
+  const [mode, setMode] = useState('7days'); // '7days', '30days', 'custom'
   
-  const [customStart, setCustomStart] = useState(startDate ? startDate.toISOString().split('T')[0] : '');
-  const [customEnd, setCustomEnd] = useState(endDate ? endDate.toISOString().split('T')[0] : '');
+  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+  const [tempStartDate, setTempStartDate] = useState(null);
+  const [tempEndDate, setTempEndDate] = useState(null);
+  const [hoverDate, setHoverDate] = useState(null);
+  const [currentMonth, setCurrentMonth] = useState(new Date());
+
+  useEffect(() => {
+    if (startDate) {
+      setTempStartDate(startDate);
+      setCurrentMonth(new Date(startDate.getFullYear(), startDate.getMonth(), 1));
+    }
+    if (endDate) {
+      setTempEndDate(endDate);
+    }
+  }, [startDate, endDate]);
 
   const handlePresetSelect = (preset) => {
-    setMode(preset);
     if (preset !== 'custom') {
+      setMode(preset);
+      setIsCalendarOpen(false);
       const { start, end } = calculatePresetDateRange(preset);
       onChange(start, end);
-    }
-  };
-
-  const applyCustom = () => {
-    if (customStart && customEnd) {
-      const s = new Date(customStart);
-      s.setHours(0, 0, 0, 0);
-      const e = new Date(customEnd);
-      e.setHours(23, 59, 59, 999);
-      if (!isNaN(s) && !isNaN(e)) {
-        onChange(s, e);
+    } else {
+      if (mode === 'custom') {
+        setIsCalendarOpen(!isCalendarOpen);
+      } else {
+        setMode('custom');
+        setIsCalendarOpen(true);
       }
     }
   };
 
+  const handleDayPress = (date) => {
+    if (!tempStartDate || (tempStartDate && tempEndDate)) {
+      setTempStartDate(date);
+      setTempEndDate(null);
+      setHoverDate(null);
+    } else {
+      let start = tempStartDate;
+      let end = date;
+      if (end < start) {
+        const temp = start;
+        start = end;
+        end = temp;
+      }
+      
+      const s = new Date(start);
+      s.setHours(0, 0, 0, 0);
+      const e = new Date(end);
+      e.setHours(23, 59, 59, 999);
+      
+      setTempStartDate(s);
+      setTempEndDate(e);
+      setHoverDate(null);
+      onChange(s, e);
+      setIsCalendarOpen(false);
+    }
+  };
+
+  const navigateMonth = (direction) => {
+    const next = new Date(currentMonth.getFullYear(), currentMonth.getMonth() + direction, 1);
+    setCurrentMonth(next);
+  };
+
+  const getCustomButtonLabel = () => {
+    if (mode === 'custom' && startDate && endDate) {
+      return `${formatCompactDate(startDate)} – ${formatCompactDate(endDate)}`;
+    }
+    return t('adminAnalyticsDateCustom') || 'Custom';
+  };
+
+  if (isMobile) {
+    return (
+      <View style={styles.mobileDatePickerContainer}>
+        <View style={styles.mobilePresetsRow}>
+          <PresetButton
+            mode={mode}
+            preset="7days"
+            label={t('adminAnalyticsDateLast7')}
+            onPress={handlePresetSelect}
+            style={{ flex: 1, minWidth: 0 }}
+          />
+          <PresetButton
+            mode={mode}
+            preset="30days"
+            label={t('adminAnalyticsDateLast30')}
+            onPress={handlePresetSelect}
+            style={{ flex: 1, minWidth: 0 }}
+          />
+        </View>
+
+        <View style={{ position: 'relative', zIndex: 3000, width: '100%' }}>
+          <PresetButton
+            mode={mode}
+            preset="custom"
+            label={getCustomButtonLabel()}
+            onPress={handlePresetSelect}
+            style={{ width: '100%', minWidth: 0 }}
+          />
+
+          {isCalendarOpen && (
+            <DateRangeCalendar
+              month={currentMonth.getMonth()}
+              year={currentMonth.getFullYear()}
+              currentMonth={currentMonth}
+              navigateMonth={navigateMonth}
+              tempStartDate={tempStartDate}
+              tempEndDate={tempEndDate}
+              hoverDate={hoverDate}
+              setHoverDate={setHoverDate}
+              handleDayPress={handleDayPress}
+            />
+          )}
+        </View>
+      </View>
+    );
+  }
+
   return (
     <View style={styles.datePickerContainer}>
-      <Text style={styles.datePickerLabel}>{t('adminAnalyticsDateRange')}</Text>
       <View style={styles.datePickerPresets}>
         <PresetButton mode={mode} preset="7days" label={t('adminAnalyticsDateLast7')} onPress={handlePresetSelect} />
         <PresetButton mode={mode} preset="30days" label={t('adminAnalyticsDateLast30')} onPress={handlePresetSelect} />
-        <PresetButton mode={mode} preset="month" label={t('adminAnalyticsDateThisMonth')} onPress={handlePresetSelect} />
-        <PresetButton mode={mode} preset="custom" label={t('adminAnalyticsDateCustom')} onPress={handlePresetSelect} />
-      </View>
+        
+        {/* Custom button with absolute popup */}
+        <View style={{ position: 'relative', zIndex: 3000 }}>
+          <PresetButton
+            mode={mode}
+            preset="custom"
+            label={getCustomButtonLabel()}
+            onPress={handlePresetSelect}
+          />
 
-      {mode === 'custom' && (
-        <View style={styles.customDateRow}>
-          <TextInput
-            style={styles.customDateInput}
-            placeholder="YYYY-MM-DD"
-            placeholderTextColor="#94a3b8"
-            value={customStart}
-            onChangeText={setCustomStart}
-          />
-          <Text style={styles.customDateDash}>-</Text>
-          <TextInput
-            style={styles.customDateInput}
-            placeholder="YYYY-MM-DD"
-            placeholderTextColor="#94a3b8"
-            value={customEnd}
-            onChangeText={setCustomEnd}
-          />
-          <TouchableOpacity style={styles.applyBtn} onPress={applyCustom}>
-            <Text style={styles.applyBtnText}>{t('adminAnalyticsApply')}</Text>
-          </TouchableOpacity>
+          {isCalendarOpen && (
+            <DateRangeCalendar
+              month={currentMonth.getMonth()}
+              year={currentMonth.getFullYear()}
+              currentMonth={currentMonth}
+              navigateMonth={navigateMonth}
+              tempStartDate={tempStartDate}
+              tempEndDate={tempEndDate}
+              hoverDate={hoverDate}
+              setHoverDate={setHoverDate}
+              handleDayPress={handleDayPress}
+            />
+          )}
         </View>
-      )}
+      </View>
     </View>
   );
 }

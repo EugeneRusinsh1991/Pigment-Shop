@@ -3,14 +3,14 @@
  *
  * Renders a single selectable media asset tile inside the MediaBrowser.
  */
-import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
-import { resolveMediaUrl, MediaRenderer } from '../../../media';
+import { resolveMediaUrl } from '../../../media';
+import MediaRenderer from '../../Media/MediaRenderer';
 import styles from './MediaBrowserStyles';
 
 export default function MediaBrowserItem({ item, selected, onSelect }) {
   const uri = resolveMediaUrl(item.path);
-  
+
   return (
     <TouchableOpacity
       style={[styles.itemBtn, selected && styles.itemBtnSelected]}

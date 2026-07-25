@@ -1,4 +1,6 @@
 import { StyleSheet } from 'react-native';
+import { colors, fonts } from '../../theme/tokens';
+import { shadow } from '../../theme/shadows';
 
 export default StyleSheet.create({
   container: {
@@ -6,14 +8,14 @@ export default StyleSheet.create({
     width: '100%',
   },
   pageContent: {
-    paddingHorizontal: 16,
+    paddingHorizontal: 12,
   },
   scrollContent: {
     flexGrow: 1,
-    justifyContent: 'space-between',
+    paddingBottom: 24,
   },
   inputGroup: {
-    marginBottom: 12,
+    marginBottom: 8,
   },
   label: {
     fontSize: 13,
@@ -27,12 +29,12 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   inputContainerDark: {
-    borderColor: '#333',
-    backgroundColor: '#1E1E1E',
+    borderColor: colors.outlineDarkBorder,
+    backgroundColor: colors.productCardDark,
   },
   inputContainerLight: {
-    borderColor: '#E5E7EB',
-    backgroundColor: '#F9FAFB',
+    borderColor: colors.inputBorderLight,
+    backgroundColor: colors.inputBgLight,
   },
   input: {
     fontSize: 15,
@@ -43,14 +45,15 @@ export default StyleSheet.create({
     marginTop: 10,
     textAlign: 'left',
   },
-  containerDark: { backgroundColor: '#0D0D0D' },
-  containerLight: { backgroundColor: '#FAF8F6' },
-  
+  containerDark: { backgroundColor: colors.backgroundDark },
+  containerLight: { backgroundColor: colors.backgroundLight },
+
   cartTitle: {
-    fontFamily: '"Cormorant Garamond", "Playfair Display", Georgia, serif',
-    fontSize: 32,
+    fontFamily: fonts.serif,
+    fontSize: 24,
+    lineHeight: 28,
     fontWeight: '600',
-    marginBottom: 24,
+    marginBottom: 12,
   },
 
   containerRow: {
@@ -76,13 +79,13 @@ export default StyleSheet.create({
 
   emptyState: {
     alignItems: 'center',
-    paddingTop: 64,
-    paddingBottom: 24,
+    paddingTop: 32,
+    paddingBottom: 16,
   },
   emptyIcon: { fontSize: 48, marginBottom: 12 },
   emptyText: { fontSize: 16, fontWeight: '500' },
-  emptyTextDark: { color: '#64748b' },
-  emptyTextLight: { color: '#94a3b8' },
+  emptyTextDark: { color: colors.slateText },
+  emptyTextLight: { color: colors.secondaryDarkText },
 
   // Summary Panel
   summaryPanel: {
@@ -90,12 +93,12 @@ export default StyleSheet.create({
     padding: 24,
     borderWidth: 1,
   },
-  summaryPanelDark: { backgroundColor: '#121212', borderColor: '#242424' },
-  summaryPanelLight: { backgroundColor: '#ffffff', borderColor: '#e2e8f0' },
-  
+  summaryPanelDark: { backgroundColor: colors.surfaceNeutralDark, borderColor: colors.borderDarkAlt },
+  summaryPanelLight: { backgroundColor: colors.white, borderColor: colors.secondaryLightBorder },
+
   summaryPanelMobile: {
-    marginHorizontal: 16,
-    marginVertical: 12,
+    marginHorizontal: 0,
+    marginVertical: 8,
   },
   summaryPanelWide: {
     marginTop: 6,
@@ -108,67 +111,67 @@ export default StyleSheet.create({
     marginVertical: 8,
   },
   summaryLabel: {
-    fontFamily: 'System, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+    fontFamily: fonts.sans,
     fontSize: 14,
   },
-  summaryLabelDark: { color: '#94a3b8' },
-  summaryLabelLight: { color: '#64748b' },
-  
+  summaryLabelDark: { color: colors.secondaryDarkText },
+  summaryLabelLight: { color: colors.slateText },
+
   summaryValue: {
-    fontFamily: 'System, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+    fontFamily: fonts.sans,
     fontSize: 14,
     fontWeight: '600',
   },
-  summaryValueDark: { color: '#ffffff' },
-  summaryValueLight: { color: '#0f172a' },
+  summaryValueDark: { color: colors.white },
+  summaryValueLight: { color: colors.navTextDark },
 
   summaryDivider: {
     height: 1,
-    backgroundColor: '#334155',
+    backgroundColor: colors.secondaryDarkBorder,
     marginVertical: 12,
     opacity: 0.2,
   },
 
   totalLabel: {
-    fontFamily: 'System, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+    fontFamily: fonts.sans,
     fontSize: 15,
   },
-  totalLabelDark: { color: '#94a3b8' },
-  totalLabelLight: { color: '#64748b' },
+  totalLabelDark: { color: colors.secondaryDarkText },
+  totalLabelLight: { color: colors.slateText },
 
   totalPrice: {
-    fontFamily: '"Cormorant Garamond", "Playfair Display", Georgia, serif',
+    fontFamily: fonts.serif,
     fontSize: 24,
     fontWeight: '600',
   },
-  totalPriceDark: { color: '#ffffff' },
-  totalPriceLight: { color: '#1C1C1C' },
+  totalPriceDark: { color: colors.white },
+  totalPriceLight: { color: colors.dark },
 
   checkoutBtn: {
     borderRadius: 50,
     height: 48,
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 20,
+    marginTop: 12,
   },
   checkoutBtnDark: {
-    backgroundColor: '#F3ECE7',
+    backgroundColor: colors.warmNeutralMid,
   },
   checkoutBtnLight: {
-    backgroundColor: '#1C1C1C',
+    backgroundColor: colors.dark,
   },
   checkoutBtnText: {
     fontWeight: 'bold',
     fontSize: 14,
   },
-  checkoutBtnTextDark: { color: '#1C1C1C' },
-  checkoutBtnTextLight: { color: '#ffffff' },
+  checkoutBtnTextDark: { color: colors.dark },
+  checkoutBtnTextLight: { color: colors.white },
 
-  textDark: { color: '#ffffff' },
-  textLight: { color: '#1c1c1c' },
+  textDark: { color: colors.white },
+  textLight: { color: colors.dark },
 
   noteInput: {
-    fontFamily: 'System, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+    fontFamily: fonts.sans,
     fontSize: 14,
     borderRadius: 12,
     borderWidth: 1,
@@ -179,17 +182,17 @@ export default StyleSheet.create({
     textAlignVertical: 'top',
   },
   noteInputDark: {
-    backgroundColor: '#1C1C1C',
-    borderColor: '#334155',
-    color: '#ffffff',
+    backgroundColor: colors.dark,
+    borderColor: colors.secondaryDarkBorder,
+    color: colors.white,
   },
   noteInputLight: {
-    backgroundColor: '#F8FAFC',
-    borderColor: '#E2E8F0',
-    color: '#0f172a',
+    backgroundColor: colors.slateLight,
+    borderColor: colors.secondaryLightBorder,
+    color: colors.navTextDark,
   },
   noteLabel: {
-    fontFamily: 'System, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+    fontFamily: fonts.sans,
     fontSize: 14,
     fontWeight: '500',
     marginBottom: 4,
@@ -198,22 +201,22 @@ export default StyleSheet.create({
   // Footer branding
   footerBranding: {
     alignItems: 'center',
-    marginTop: 48,
-    paddingVertical: 24,
+    marginTop: 32,
+    paddingVertical: 16,
   },
   footerBrandName: {
-    fontFamily: '"Cormorant Garamond", "Playfair Display", Georgia, serif',
+    fontFamily: fonts.serif,
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 4,
   },
-  footerBrandNameDark: { color: '#ffffff' },
-  footerBrandNameLight: { color: '#1c1c1c' },
+  footerBrandNameDark: { color: colors.white },
+  footerBrandNameLight: { color: colors.dark },
   footerBrandSub: {
-    fontFamily: 'System, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+    fontFamily: fonts.sans,
     fontSize: 10,
     letterSpacing: 0.5,
   },
-  footerBrandSubDark: { color: '#64748b' },
-  footerBrandSubLight: { color: '#94a3b8' },
+  footerBrandSubDark: { color: colors.slateText },
+  footerBrandSubLight: { color: colors.secondaryDarkText },
 });

@@ -1,4 +1,6 @@
 import { StyleSheet } from 'react-native';
+import { colors } from '../../../theme/tokens';
+import { shadow } from '../../../theme/shadows';
 
 export default StyleSheet.create({
   overlay: {
@@ -8,16 +10,13 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   card: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.white,
     borderRadius: 16,
     width: 600,
     maxWidth: '95%',
     maxHeight: '80%',
     overflow: 'hidden',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.12,
-    shadowRadius: 16,
+    ...shadow.media(),
     elevation: 8,
   },
   header: {
@@ -26,31 +25,31 @@ export default StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 14,
     borderBottomWidth: 1,
-    borderBottomColor: '#F1F5F9',
+    borderBottomColor: colors.slateMid,
     gap: 8,
   },
   title: {
     flex: 1,
     fontSize: 15,
     fontWeight: '700',
-    color: '#1C1C1C',
+    color: colors.dark,
   },
   refreshBtn: {
     paddingVertical: 6,
     paddingHorizontal: 12,
     borderRadius: 7,
-    backgroundColor: '#F1F5F9',
+    backgroundColor: colors.slateMid,
     borderWidth: 1,
-    borderColor: '#E2E8F0',
+    borderColor: colors.secondaryLightBorder,
   },
   refreshBtnText: {
     fontSize: 12,
     fontWeight: '600',
-    color: '#475569',
+    color: colors.secondaryLightText,
   },
   closeBtn: {
     fontSize: 18,
-    color: '#94A3B8',
+    color: colors.secondaryDarkText,
     padding: 4,
   },
   outdatedBanner: {
@@ -59,24 +58,24 @@ export default StyleSheet.create({
     marginBottom: 4,
     padding: 12,
     borderRadius: 10,
-    backgroundColor: '#FEF9C3',
+    backgroundColor: colors.warningBgLight,
     borderWidth: 1,
-    borderColor: '#FDE047',
+    borderColor: colors.warningLight,
   },
   outdatedBannerTitle: {
     fontSize: 13,
     fontWeight: '700',
-    color: '#713F12',
+    color: colors.warningDeeper,
     marginBottom: 2,
   },
   outdatedBannerText: {
     fontSize: 12,
-    color: '#854D0E',
+    color: colors.warningDarkAlt,
     lineHeight: 18,
   },
   outdatedBannerCode: {
     fontWeight: '700',
-    color: '#713F12',
+    color: colors.warningDeeper,
   },
   tabs: {
     flexDirection: 'row',
@@ -84,37 +83,32 @@ export default StyleSheet.create({
     paddingVertical: 10,
     gap: 8,
     borderBottomWidth: 1,
-    borderBottomColor: '#F1F5F9',
+    borderBottomColor: colors.slateMid,
   },
   tab: {
     paddingVertical: 6,
     paddingHorizontal: 16,
     borderRadius: 8,
-    backgroundColor: '#F1F5F9',
+    backgroundColor: colors.slateMid,
     borderWidth: 1,
-    borderColor: '#E2E8F0',
+    borderColor: colors.secondaryLightBorder,
   },
   tabActive: {
-    backgroundColor: '#1C1C1C',
-    borderColor: '#1C1C1C',
+    backgroundColor: colors.dark,
+    borderColor: colors.dark,
   },
   tabText: {
     fontSize: 12,
     fontWeight: '600',
-    color: '#475569',
+    color: colors.secondaryLightText,
   },
   tabTextActive: {
-    color: '#FFFFFF',
+    color: colors.white,
   },
   body: {
     padding: 16,
   },
-  emptyText: {
-    textAlign: 'center',
-    color: '#94A3B8',
-    fontSize: 13,
-    paddingVertical: 32,
-  },
+
   grid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -126,19 +120,19 @@ export default StyleSheet.create({
     borderWidth: 2,
     borderColor: 'transparent',
     overflow: 'hidden',
-    backgroundColor: '#F8FAFC',
+    backgroundColor: colors.slateLight,
   },
   itemBtnSelected: {
-    borderColor: '#1C1C1C',
+    borderColor: colors.dark,
   },
   itemThumb: {
     width: '100%',
     height: 70,
-    backgroundColor: '#E2E8F0',
+    backgroundColor: colors.secondaryLightBorder,
   },
   itemName: {
     fontSize: 10,
-    color: '#475569',
+    color: colors.secondaryLightText,
     paddingHorizontal: 6,
     paddingVertical: 4,
     numberOfLines: 1,
@@ -146,7 +140,7 @@ export default StyleSheet.create({
   videoPlaceholder: {
     width: '100%',
     height: 70,
-    backgroundColor: '#E2E8F0',
+    backgroundColor: colors.secondaryLightBorder,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -159,33 +153,33 @@ export default StyleSheet.create({
     gap: 10,
     padding: 16,
     borderTopWidth: 1,
-    borderTopColor: '#F1F5F9',
+    borderTopColor: colors.slateMid,
   },
   cancelBtn: {
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 8,
-    backgroundColor: '#F1F5F9',
+    backgroundColor: colors.slateMid,
     borderWidth: 1,
-    borderColor: '#E2E8F0',
+    borderColor: colors.secondaryLightBorder,
   },
   cancelBtnText: {
     fontSize: 13,
     fontWeight: '600',
-    color: '#475569',
+    color: colors.secondaryLightText,
   },
   selectBtn: {
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 8,
-    backgroundColor: '#1C1C1C',
+    backgroundColor: colors.dark,
   },
   selectBtnText: {
     fontSize: 13,
     fontWeight: '600',
-    color: '#FFFFFF',
+    color: colors.white,
   },
   selectBtnDisabled: {
-    backgroundColor: '#CBD5E1',
+    backgroundColor: colors.slateStrong,
   },
 });

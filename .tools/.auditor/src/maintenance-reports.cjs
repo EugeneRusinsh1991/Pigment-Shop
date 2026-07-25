@@ -1,0 +1,40 @@
+/**
+ * auditor/src/maintenance-reports.cjs
+ * Handles maintenance-related reports: duplication, unused code and dependency issues.
+ */
+"use strict";
+
+const {
+  cleanPath,
+  buildCloneSections,
+  formatDeadFiles,
+  formatUnusedExports,
+  formatDependencyIssues,
+  MIN_CLONE_LINES,
+} = require("./formatter.cjs");
+
+function generateDuplicationReport(cleaned, dateStr, rootPath, backLink = "") {
+  const groups = cleaned.dupes.clone_groups || [];
+  const header = `# 👥 Significant Code Duplication (≥ ${MIN_CLONE_LINES} lines)\n\n*Generated on: ${dateStr}*\n\n`;
+  if (groups.length === 0) return header + `*No significant code duplication found.*\n\n${backLink}`;
+  return header + buildCloneSections(groups, rootPath) + `\n\n${backLink}`;
+}
+
+function generateUnusedReport(cleaned, dateStr, rootPath, backLink = "") {
+  const { unused_files, unused_exports, unused_dependencies, unlisted_dependencies, circular_dependencies } = cleaned.check;
+  let md = `# 📦 Unused Code & Dependencies\n\n*Generated on: ${dateStr}*\n\n`;
+  md += `### Dead Files (Unused)\nFiles that are not reachable or imported by any other codebase file:\n\n`;
+  md += formatDeadFiles(unused_files, rootPath);
+  md += `### Unused Exports\nExports that are not imported or consumed by any other active file:\n\n`;
+  md += formatUnusedExports(unused_exports, rootPath);
+  if (unused_dependencies.length > 0 || unlisted_dependencies.length > 0 || circular_dependencies.length > 0) {
+    md += `### Dependency Issues\n\n`;
+    md += formatDependencyIssues(unused_dependencies, unlisted_dependencies, circular_dependencies, rootPath);
+  }
+  return md + backLink;
+}
+
+module.exports = {
+  generateDuplicationReport,
+  generateUnusedReport,
+};

@@ -4,6 +4,8 @@
  * Styles for the product create/edit form modal and its fields.
  */
 import { StyleSheet } from 'react-native';
+import { colors, fonts, layout } from '../../../theme/tokens';
+import { shadow } from '../../../theme/shadows';
 
 export default StyleSheet.create({
   /* Modal overlay */
@@ -14,14 +16,12 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   modalCard: {
-    width: 520,
+    width: '95%',
+    maxWidth: 520,
     maxHeight: '90%',
-    backgroundColor: '#FFFFFF',
-    borderRadius: 16,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 16 },
-    shadowOpacity: 0.15,
-    shadowRadius: 40,
+    backgroundColor: colors.surfaceLight,
+    borderRadius: layout.radii.md,
+    ...shadow.modal(),
     elevation: 10,
   },
   modalHeader: {
@@ -32,17 +32,17 @@ export default StyleSheet.create({
     paddingTop: 24,
     paddingBottom: 16,
     borderBottomWidth: 1,
-    borderBottomColor: '#F1E8E4',
+    borderBottomColor: colors.borderLightAlt,
   },
   modalTitle: {
-    fontFamily: '"Cormorant Garamond", "Playfair Display", Georgia, serif',
+    fontFamily: fonts.serif,
     fontSize: 20,
     fontWeight: '600',
-    color: '#1C1C1C',
+    color: colors.textLight,
   },
   modalCloseBtn: {
     fontSize: 20,
-    color: '#94a3b8',
+    color: colors.textDescDark,
     padding: 4,
   },
   modalBody: {
@@ -57,61 +57,63 @@ export default StyleSheet.create({
     paddingBottom: 24,
     paddingTop: 12,
     borderTopWidth: 1,
-    borderTopColor: '#F1E8E4',
+    borderTopColor: colors.borderLightAlt,
   },
 
   /* Form fields */
   fieldRow: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
     gap: 16,
     marginBottom: 14,
   },
   fieldGroup: {
     flex: 1,
+    minWidth: 140,
   },
   fieldLabel: {
     fontSize: 12,
     fontWeight: '600',
-    color: '#475569',
+    color: colors.textDescLight,
     marginBottom: 5,
     letterSpacing: 0.3,
   },
   fieldInput: {
     height: 40,
-    backgroundColor: '#F5F7FA',
-    borderRadius: 8,
+    backgroundColor: colors.secondaryLightBg,
+    borderRadius: layout.radii.sm,
     paddingHorizontal: 12,
     fontSize: 13,
-    color: '#1C1C1C',
+    color: colors.textLight,
     borderWidth: 1,
-    borderColor: '#E8EDF5',
+    borderColor: colors.navItemHoverDark,
     outlineStyle: 'none',
   },
   fieldInputError: {
-    borderColor: '#E31B23',
+    borderColor: colors.accent,
   },
   fieldTextarea: {
     height: 72,
-    backgroundColor: '#F5F7FA',
-    borderRadius: 8,
+    backgroundColor: colors.secondaryLightBg,
+    borderRadius: layout.radii.sm,
     paddingHorizontal: 12,
     paddingVertical: 10,
     fontSize: 13,
-    color: '#1C1C1C',
+    color: colors.textLight,
     borderWidth: 1,
-    borderColor: '#E8EDF5',
+    borderColor: colors.navItemHoverDark,
     textAlignVertical: 'top',
     outlineStyle: 'none',
   },
   fieldSelect: {
     height: 40,
-    backgroundColor: '#F5F7FA',
-    borderRadius: 8,
+    backgroundColor: colors.secondaryLightBg,
+    borderRadius: layout.radii.sm,
     paddingHorizontal: 12,
     fontSize: 13,
-    color: '#1C1C1C',
+    color: colors.textLight,
     borderWidth: 1,
-    borderColor: '#E8EDF5',
+    borderColor: colors.navItemHoverDark,
     outlineStyle: 'none',
   },
   checkRow: {
@@ -125,25 +127,25 @@ export default StyleSheet.create({
     height: 20,
     borderRadius: 5,
     borderWidth: 2,
-    borderColor: '#CBD5E1',
+    borderColor: colors.slateStrong,
     alignItems: 'center',
     justifyContent: 'center',
   },
   checkBoxActive: {
-    backgroundColor: '#1C1C1C',
-    borderColor: '#1C1C1C',
+    backgroundColor: colors.textLight,
+    borderColor: colors.textLight,
   },
   checkMark: {
-    color: '#FFFFFF',
+    color: colors.textDark,
     fontSize: 12,
     fontWeight: '700',
   },
   checkLabel: {
     fontSize: 13,
-    color: '#475569',
+    color: colors.textDescLight,
   },
   errorText: {
-    color: '#E31B23',
+    color: colors.accent,
     fontSize: 11,
     marginTop: 2,
   },
@@ -152,23 +154,23 @@ export default StyleSheet.create({
   cancelBtn: {
     paddingVertical: 10,
     paddingHorizontal: 20,
-    borderRadius: 8,
-    backgroundColor: '#F5F7FA',
+    borderRadius: layout.radii.sm,
+    backgroundColor: colors.secondaryLightBg,
   },
   cancelBtnText: {
     fontSize: 13,
     fontWeight: '600',
-    color: '#475569',
+    color: colors.textDescLight,
   },
   saveBtn: {
     paddingVertical: 10,
     paddingHorizontal: 24,
-    borderRadius: 8,
-    backgroundColor: '#1C1C1C',
+    borderRadius: layout.radii.sm,
+    backgroundColor: colors.textLight,
   },
   saveBtnText: {
     fontSize: 13,
     fontWeight: '700',
-    color: '#FFFFFF',
+    color: colors.textDark,
   },
 });

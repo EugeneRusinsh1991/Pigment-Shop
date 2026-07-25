@@ -1,0 +1,1500 @@
+{
+  "src_2026-07-25_00-07_README.md_6files": {
+    "timestamp": "2026-07-24T21:07:47.885Z",
+    "diff": {
+      "added": 2,
+      "removed": 0,
+      "modified": 4,
+      "topFolders": [
+        {
+          "folder": ".tools/.backuper/backup",
+          "count": 1
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 1
+        },
+        {
+          "folder": ".tools/.backuper/restore",
+          "count": 1
+        },
+        {
+          "folder": ".tools/.backuper",
+          "count": 1
+        },
+        {
+          "folder": ".tools/.backuper/utils",
+          "count": 1
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_00-08_backup-history.log_7files": {
+    "timestamp": "2026-07-24T21:08:09.762Z",
+    "diff": {
+      "added": 3,
+      "removed": 0,
+      "modified": 4,
+      "topFolders": [
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        },
+        {
+          "folder": ".tools/.backuper/backup",
+          "count": 1
+        },
+        {
+          "folder": ".tools/.backuper/restore",
+          "count": 1
+        },
+        {
+          "folder": ".tools/.backuper",
+          "count": 1
+        },
+        {
+          "folder": ".tools/.backuper/utils",
+          "count": 1
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_00-11_run-audit.cjs_14files": {
+    "timestamp": "2026-07-24T21:12:02.203Z",
+    "diff": {
+      "added": 6,
+      "removed": 0,
+      "modified": 8,
+      "topFolders": [
+        {
+          "folder": ".fallow",
+          "count": 3
+        },
+        {
+          "folder": ".backuper",
+          "count": 2
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        },
+        {
+          "folder": ".auditor",
+          "count": 1
+        },
+        {
+          "folder": ".tools/.cleaner",
+          "count": 1
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_00-14_keybindings.json_4files": {
+    "timestamp": "2026-07-24T21:14:12.577Z",
+    "diff": {
+      "added": 0,
+      "removed": 0,
+      "modified": 4,
+      "topFolders": [
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        },
+        {
+          "folder": ".vscode",
+          "count": 2
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_00-16_keybindings.json_4files": {
+    "timestamp": "2026-07-24T21:16:11.353Z",
+    "diff": {
+      "added": 0,
+      "removed": 0,
+      "modified": 4,
+      "topFolders": [
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        },
+        {
+          "folder": ".vscode",
+          "count": 2
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_00-52_smoke-report.json_56files": {
+    "timestamp": "2026-07-24T21:52:44.162Z",
+    "diff": {
+      "added": 22,
+      "removed": 3,
+      "modified": 34,
+      "topFolders": [
+        {
+          "folder": ".docs/auditor-reports/other",
+          "count": 7
+        },
+        {
+          "folder": ".docs/auditor-reports/project",
+          "count": 7
+        },
+        {
+          "folder": "scripts/smoke-test/failures",
+          "count": 6
+        },
+        {
+          "folder": ".tools/.auditor/src",
+          "count": 4
+        },
+        {
+          "folder": ".fallow",
+          "count": 3
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_00-52_backup-history.log_2files": {
+    "timestamp": "2026-07-24T21:52:52.427Z",
+    "diff": {
+      "added": 0,
+      "removed": 0,
+      "modified": 2,
+      "topFolders": [
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_00-59_smoke-report.json_12files": {
+    "timestamp": "2026-07-24T21:59:31.379Z",
+    "diff": {
+      "added": 1,
+      "removed": 2,
+      "modified": 11,
+      "topFolders": [
+        {
+          "folder": "src/services/repositories",
+          "count": 5
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        },
+        {
+          "folder": "reports",
+          "count": 2
+        },
+        {
+          "folder": "browser-automation/explorer/observability/reporters",
+          "count": 1
+        },
+        {
+          "folder": "browser-automation",
+          "count": 1
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_01-06_smoke-report.json_7files": {
+    "timestamp": "2026-07-24T22:06:08.763Z",
+    "diff": {
+      "added": 2,
+      "removed": 0,
+      "modified": 5,
+      "topFolders": [
+        {
+          "folder": "browser-automation/reports",
+          "count": 3
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        },
+        {
+          "folder": "reports",
+          "count": 2
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_01-17_execution-modes.md_5files": {
+    "timestamp": "2026-07-24T22:17:33.173Z",
+    "diff": {
+      "added": 1,
+      "removed": 12,
+      "modified": 4,
+      "topFolders": [
+        {
+          "folder": "(root)",
+          "count": 9
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        },
+        {
+          "folder": "browser-automation",
+          "count": 2
+        },
+        {
+          "folder": "reports",
+          "count": 2
+        },
+        {
+          "folder": "browser-automation/explorer",
+          "count": 1
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_01-21_Smoke_Test_Report.md_37files": {
+    "timestamp": "2026-07-24T22:21:48.495Z",
+    "diff": {
+      "added": 1,
+      "removed": 0,
+      "modified": 36,
+      "topFolders": [
+        {
+          "folder": "scripts/smoke-test/failures",
+          "count": 33
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        },
+        {
+          "folder": "scripts/smoke-test",
+          "count": 1
+        },
+        {
+          "folder": "(root)",
+          "count": 1
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_01-43_Stage_2_Batch_2_Audit.md_8files": {
+    "timestamp": "2026-07-24T22:43:39.306Z",
+    "diff": {
+      "added": 6,
+      "removed": 0,
+      "modified": 2,
+      "topFolders": [
+        {
+          "folder": "(root)",
+          "count": 3
+        },
+        {
+          "folder": "browser-automation",
+          "count": 3
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_01-43_backup-history.log_2files": {
+    "timestamp": "2026-07-24T22:43:53.629Z",
+    "diff": {
+      "added": 0,
+      "removed": 0,
+      "modified": 2,
+      "topFolders": [
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_08-16_smoke-report.json_1024files": {
+    "timestamp": "2026-07-25T05:17:06.828Z",
+    "diff": {
+      "added": 1023,
+      "removed": 0,
+      "modified": 1,
+      "topFolders": [
+        {
+          "folder": ".venv/Lib/site-packages/pip/_vendor/rich",
+          "count": 79
+        },
+        {
+          "folder": ".venv/Lib/site-packages/pip/_vendor/rich/__pycache__",
+          "count": 77
+        },
+        {
+          "folder": "src/components",
+          "count": 41
+        },
+        {
+          "folder": "scripts/smoke-test/failures",
+          "count": 33
+        },
+        {
+          "folder": ".venv/Lib/site-packages/pip/_vendor/packaging",
+          "count": 22
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_08-20_SmokePlugin.ts_6files": {
+    "timestamp": "2026-07-25T05:20:16.085Z",
+    "diff": {
+      "added": 1,
+      "removed": 1,
+      "modified": 5,
+      "topFolders": [
+        {
+          "folder": "browser-automation/plugins/smoke",
+          "count": 4
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        },
+        {
+          "folder": "browser-automation/reports",
+          "count": 1
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_08-21_Stage_5_Refactoring_Roadmap.md_3files": {
+    "timestamp": "2026-07-25T05:22:00.317Z",
+    "diff": {
+      "added": 0,
+      "removed": 0,
+      "modified": 3,
+      "topFolders": [
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        },
+        {
+          "folder": "browser-automation",
+          "count": 1
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_08-25_smoke-report.json_7files": {
+    "timestamp": "2026-07-25T05:25:19.609Z",
+    "diff": {
+      "added": 4,
+      "removed": 0,
+      "modified": 3,
+      "topFolders": [
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        },
+        {
+          "folder": "browser-automation/explorer/driver",
+          "count": 2
+        },
+        {
+          "folder": ".agents/skills/ai-audit-framework",
+          "count": 1
+        },
+        {
+          "folder": "browser-automation/reports",
+          "count": 1
+        },
+        {
+          "folder": "browser-automation",
+          "count": 1
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_08-33_stage-5-refactoring-roadmap.md_14files": {
+    "timestamp": "2026-07-25T05:33:16.759Z",
+    "diff": {
+      "added": 6,
+      "removed": 0,
+      "modified": 8,
+      "topFolders": [
+        {
+          "folder": ".docs/ai-audit-framework",
+          "count": 6
+        },
+        {
+          "folder": "browser-automation/explorer",
+          "count": 3
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        },
+        {
+          "folder": ".agents/skills/ai-audit-framework",
+          "count": 1
+        },
+        {
+          "folder": "browser-automation/reports",
+          "count": 1
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_08-34_smoke-report.json_3files": {
+    "timestamp": "2026-07-25T05:34:10.728Z",
+    "diff": {
+      "added": 0,
+      "removed": 0,
+      "modified": 3,
+      "topFolders": [
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        },
+        {
+          "folder": "browser-automation/reports",
+          "count": 1
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_08-37_smoke-report.json_16files": {
+    "timestamp": "2026-07-25T05:37:35.190Z",
+    "diff": {
+      "added": 6,
+      "removed": 0,
+      "modified": 10,
+      "topFolders": [
+        {
+          "folder": ".agents/skills/ai-audit-framework/references",
+          "count": 5
+        },
+        {
+          "folder": "browser-automation/explorer",
+          "count": 3
+        },
+        {
+          "folder": ".agents/skills/ai-audit-framework",
+          "count": 2
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        },
+        {
+          "folder": "browser-automation/explorer/driver",
+          "count": 2
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_08-39_SKILL.md_6files": {
+    "timestamp": "2026-07-25T05:39:36.012Z",
+    "diff": {
+      "added": 0,
+      "removed": 0,
+      "modified": 6,
+      "topFolders": [
+        {
+          "folder": ".agents/skills/ai-audit-framework",
+          "count": 2
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        },
+        {
+          "folder": "browser-automation",
+          "count": 2
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_08-43_stage-1-project-inventory.md_9files": {
+    "timestamp": "2026-07-25T05:43:39.450Z",
+    "diff": {
+      "added": 2,
+      "removed": 0,
+      "modified": 7,
+      "topFolders": [
+        {
+          "folder": ".agents/skills/ai-audit-framework",
+          "count": 2
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        },
+        {
+          "folder": "reports",
+          "count": 2
+        },
+        {
+          "folder": ".agents/skills/ai-audit-framework/references",
+          "count": 1
+        },
+        {
+          "folder": "browser-automation/reports",
+          "count": 1
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_08-53_DOMHealthEvaluator.ts_16files": {
+    "timestamp": "2026-07-25T05:53:14.702Z",
+    "diff": {
+      "added": 1,
+      "removed": 1,
+      "modified": 15,
+      "topFolders": [
+        {
+          "folder": ".agents/skills/ai-audit-framework/references",
+          "count": 3
+        },
+        {
+          "folder": "browser-automation/plugins/smoke",
+          "count": 3
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        },
+        {
+          "folder": "browser-automation/explorer/driver",
+          "count": 2
+        },
+        {
+          "folder": ".agents/skills/ai-audit-framework",
+          "count": 1
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_08-54_backup-history.log_2files": {
+    "timestamp": "2026-07-25T05:55:00.591Z",
+    "diff": {
+      "added": 0,
+      "removed": 7,
+      "modified": 2,
+      "topFolders": [
+        {
+          "folder": "browser-automation",
+          "count": 7
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_08-56_README.md_3files": {
+    "timestamp": "2026-07-25T05:56:15.183Z",
+    "diff": {
+      "added": 0,
+      "removed": 0,
+      "modified": 3,
+      "topFolders": [
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        },
+        {
+          "folder": ".agents/skills/ai-audit-framework",
+          "count": 1
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_09-09_smoke-report.json_87files": {
+    "timestamp": "2026-07-25T06:09:19.235Z",
+    "diff": {
+      "added": 78,
+      "removed": 74,
+      "modified": 9,
+      "topFolders": [
+        {
+          "folder": ".tools/browser-automation/explorer",
+          "count": 13
+        },
+        {
+          "folder": "browser-automation/explorer",
+          "count": 13
+        },
+        {
+          "folder": ".tools/browser-automation/plugins/smoke",
+          "count": 9
+        },
+        {
+          "folder": "browser-automation/plugins/smoke",
+          "count": 9
+        },
+        {
+          "folder": ".tools/browser-automation",
+          "count": 8
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_09-16_README.md_11files": {
+    "timestamp": "2026-07-25T06:16:09.465Z",
+    "diff": {
+      "added": 2,
+      "removed": 1,
+      "modified": 9,
+      "topFolders": [
+        {
+          "folder": ".agents/skills/ai-audit-framework",
+          "count": 2
+        },
+        {
+          "folder": ".agents/skills/ai-audit-framework/references",
+          "count": 2
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        },
+        {
+          "folder": "reports",
+          "count": 2
+        },
+        {
+          "folder": ".tools/browser-automation/reports",
+          "count": 1
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_09-17_README.md_4files": {
+    "timestamp": "2026-07-25T06:17:12.740Z",
+    "diff": {
+      "added": 0,
+      "removed": 0,
+      "modified": 4,
+      "topFolders": [
+        {
+          "folder": ".agents/skills/ai-audit-framework",
+          "count": 2
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_09-27_before project hierarchy": {
+    "timestamp": "2026-07-25T06:27:41.039Z",
+    "diff": {
+      "added": 2,
+      "removed": 20,
+      "modified": 9,
+      "topFolders": [
+        {
+          "folder": ".docs/ai-audit-framework",
+          "count": 8
+        },
+        {
+          "folder": ".docs/auditor-reports/other",
+          "count": 7
+        },
+        {
+          "folder": ".docs/auditor-reports/project",
+          "count": 7
+        },
+        {
+          "folder": ".agents/skills/ai-audit-framework/references",
+          "count": 5
+        },
+        {
+          "folder": ".agents/skills/ai-audit-framework",
+          "count": 2
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_09-27_before project knowledge": {
+    "timestamp": "2026-07-25T06:27:52.165Z",
+    "diff": {
+      "added": 0,
+      "removed": 0,
+      "modified": 2,
+      "topFolders": [
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_09-45_SKILL.md_23files": {
+    "timestamp": "2026-07-25T06:45:15.975Z",
+    "diff": {
+      "added": 15,
+      "removed": 0,
+      "modified": 8,
+      "topFolders": [
+        {
+          "folder": ".docs/ai-audit-framework/batches",
+          "count": 6
+        },
+        {
+          "folder": ".docs/ai-audit-framework/tasks",
+          "count": 6
+        },
+        {
+          "folder": ".docs/ai-audit-framework",
+          "count": 4
+        },
+        {
+          "folder": ".agents/skills/ai-audit-framework/references",
+          "count": 3
+        },
+        {
+          "folder": ".agents/skills/ai-audit-framework",
+          "count": 2
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_09-47_adminDomain.js_4files": {
+    "timestamp": "2026-07-25T06:47:27.240Z",
+    "diff": {
+      "added": 0,
+      "removed": 7,
+      "modified": 4,
+      "topFolders": [
+        {
+          "folder": ".promts/AI Audit Framework",
+          "count": 7
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        },
+        {
+          "folder": "src/features/shell",
+          "count": 1
+        },
+        {
+          "folder": "src/services",
+          "count": 1
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_09-48_ProductCard.js_5files": {
+    "timestamp": "2026-07-25T06:48:43.182Z",
+    "diff": {
+      "added": 0,
+      "removed": 1,
+      "modified": 5,
+      "topFolders": [
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        },
+        {
+          "folder": "src/components",
+          "count": 2
+        },
+        {
+          "folder": "src/bootstrap",
+          "count": 1
+        },
+        {
+          "folder": ".tools/browser-automation/reports",
+          "count": 1
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_09-50_smoke-report.json_9files": {
+    "timestamp": "2026-07-25T06:50:56.436Z",
+    "diff": {
+      "added": 3,
+      "removed": 0,
+      "modified": 6,
+      "topFolders": [
+        {
+          "folder": "src/services",
+          "count": 3
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        },
+        {
+          "folder": "reports",
+          "count": 2
+        },
+        {
+          "folder": ".tools/browser-automation/reports",
+          "count": 1
+        },
+        {
+          "folder": "scripts",
+          "count": 1
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_09-53_appBootstrap.js_4files": {
+    "timestamp": "2026-07-25T06:53:24.714Z",
+    "diff": {
+      "added": 0,
+      "removed": 1,
+      "modified": 4,
+      "topFolders": [
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        },
+        {
+          "folder": "scripts",
+          "count": 1
+        },
+        {
+          "folder": "src/bootstrap",
+          "count": 1
+        },
+        {
+          "folder": ".tools/browser-automation/reports",
+          "count": 1
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_09-59_README.md_20files": {
+    "timestamp": "2026-07-25T06:59:09.109Z",
+    "diff": {
+      "added": 10,
+      "removed": 10,
+      "modified": 10,
+      "topFolders": [
+        {
+          "folder": ".docs/ai-audit-framework/batches",
+          "count": 12
+        },
+        {
+          "folder": ".docs/ai-audit-framework",
+          "count": 5
+        },
+        {
+          "folder": ".agents/skills/ai-audit-framework/references",
+          "count": 4
+        },
+        {
+          "folder": ".docs/ai-audit-framework/stages",
+          "count": 4
+        },
+        {
+          "folder": ".agents/skills/ai-audit-framework",
+          "count": 2
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_10-05_SKILL.md_4files": {
+    "timestamp": "2026-07-25T07:05:47.856Z",
+    "diff": {
+      "added": 1,
+      "removed": 18,
+      "modified": 3,
+      "topFolders": [
+        {
+          "folder": ".docs/ai-audit-framework/batches",
+          "count": 6
+        },
+        {
+          "folder": ".docs/ai-audit-framework/tasks",
+          "count": 6
+        },
+        {
+          "folder": ".docs/ai-audit-framework/stages",
+          "count": 4
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        },
+        {
+          "folder": ".agents/skills/project-hierarchy",
+          "count": 1
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_10-26_README.md_16files": {
+    "timestamp": "2026-07-25T07:26:21.836Z",
+    "diff": {
+      "added": 7,
+      "removed": 0,
+      "modified": 9,
+      "topFolders": [
+        {
+          "folder": ".agents/skills/ai-audit-framework/profiles",
+          "count": 7
+        },
+        {
+          "folder": ".agents/skills/ai-audit-framework",
+          "count": 2
+        },
+        {
+          "folder": ".agents/skills/ai-audit-framework/references",
+          "count": 2
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        },
+        {
+          "folder": "src/components",
+          "count": 2
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_10-36_SearchBarStyles.js_20files": {
+    "timestamp": "2026-07-25T07:36:03.934Z",
+    "diff": {
+      "added": 12,
+      "removed": 0,
+      "modified": 8,
+      "topFolders": [
+        {
+          "folder": ".docs/ai-audit-framework/batches",
+          "count": 4
+        },
+        {
+          "folder": ".docs/ai-audit-framework/stages",
+          "count": 4
+        },
+        {
+          "folder": ".docs/ai-audit-framework/tasks",
+          "count": 3
+        },
+        {
+          "folder": "src/components",
+          "count": 3
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_10-44_stage-1-project-inventory.md_7files": {
+    "timestamp": "2026-07-25T07:44:33.842Z",
+    "diff": {
+      "added": 0,
+      "removed": 0,
+      "modified": 7,
+      "topFolders": [
+        {
+          "folder": ".agents/skills/ai-audit-framework/profiles",
+          "count": 3
+        },
+        {
+          "folder": ".agents/skills/ai-audit-framework/references",
+          "count": 2
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_10-50_audit-config.md_17files": {
+    "timestamp": "2026-07-25T07:50:07.249Z",
+    "diff": {
+      "added": 7,
+      "removed": 0,
+      "modified": 10,
+      "topFolders": [
+        {
+          "folder": ".docs/ai-audit-framework/batches",
+          "count": 4
+        },
+        {
+          "folder": ".docs/ai-audit-framework/stages",
+          "count": 4
+        },
+        {
+          "folder": ".agents/skills/ai-audit-framework/profiles",
+          "count": 3
+        },
+        {
+          "folder": ".docs/ai-audit-framework/tasks",
+          "count": 3
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_10-51_ProductCard.js_5files": {
+    "timestamp": "2026-07-25T07:51:45.482Z",
+    "diff": {
+      "added": 0,
+      "removed": 0,
+      "modified": 5,
+      "topFolders": [
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        },
+        {
+          "folder": "src/components",
+          "count": 1
+        },
+        {
+          "folder": "src/context",
+          "count": 1
+        },
+        {
+          "folder": "src/features/shell",
+          "count": 1
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_10-54_SearchToolbar.js_10files": {
+    "timestamp": "2026-07-25T07:55:00.256Z",
+    "diff": {
+      "added": 0,
+      "removed": 0,
+      "modified": 10,
+      "topFolders": [
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        },
+        {
+          "folder": "src/components",
+          "count": 2
+        },
+        {
+          "folder": "app/(store)",
+          "count": 1
+        },
+        {
+          "folder": "app/admin",
+          "count": 1
+        },
+        {
+          "folder": "app",
+          "count": 1
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_11-04_SideDrawer.js_23files": {
+    "timestamp": "2026-07-25T08:04:23.675Z",
+    "diff": {
+      "added": 9,
+      "removed": 14,
+      "modified": 14,
+      "topFolders": [
+        {
+          "folder": ".docs/ai-audit-framework/batches",
+          "count": 12
+        },
+        {
+          "folder": ".docs/ai-audit-framework/tasks",
+          "count": 11
+        },
+        {
+          "folder": "src/components",
+          "count": 5
+        },
+        {
+          "folder": ".docs/ai-audit-framework/stages",
+          "count": 4
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_11-07_UserDetails.js_10files": {
+    "timestamp": "2026-07-25T08:07:14.940Z",
+    "diff": {
+      "added": 0,
+      "removed": 0,
+      "modified": 10,
+      "topFolders": [
+        {
+          "folder": "src/components",
+          "count": 3
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        },
+        {
+          "folder": "src/components/Admin",
+          "count": 1
+        },
+        {
+          "folder": "src/components/Admin/Orders",
+          "count": 1
+        },
+        {
+          "folder": "src/components/Admin/Products",
+          "count": 1
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_11-14_NavMenu.js_20files": {
+    "timestamp": "2026-07-25T08:14:06.890Z",
+    "diff": {
+      "added": 0,
+      "removed": 0,
+      "modified": 20,
+      "topFolders": [
+        {
+          "folder": "src/features/shell",
+          "count": 4
+        },
+        {
+          "folder": "app/(store)",
+          "count": 3
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        },
+        {
+          "folder": "src/components",
+          "count": 2
+        },
+        {
+          "folder": "src/features/shell/AppHeader",
+          "count": 2
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_11-35_audit-config.md_22files": {
+    "timestamp": "2026-07-25T08:35:18.528Z",
+    "diff": {
+      "added": 7,
+      "removed": 9,
+      "modified": 15,
+      "topFolders": [
+        {
+          "folder": ".docs/ai-audit-framework/batches",
+          "count": 8
+        },
+        {
+          "folder": ".docs/ai-audit-framework/tasks",
+          "count": 8
+        },
+        {
+          "folder": ".docs/ai-audit-framework/stages",
+          "count": 4
+        },
+        {
+          "folder": ".agents/skills/ai-audit-framework/references",
+          "count": 3
+        },
+        {
+          "folder": ".agents/skills/ai-audit-framework/profiles",
+          "count": 2
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_11-37_ProductFormFields.js_10files": {
+    "timestamp": "2026-07-25T08:37:31.770Z",
+    "diff": {
+      "added": 0,
+      "removed": 0,
+      "modified": 10,
+      "topFolders": [
+        {
+          "folder": "src/components",
+          "count": 3
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        },
+        {
+          "folder": "src/components/Admin",
+          "count": 1
+        },
+        {
+          "folder": "src/components/Admin/Categories",
+          "count": 1
+        },
+        {
+          "folder": "src/components/Admin/Products",
+          "count": 1
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_11-40_audit-config.md_9files": {
+    "timestamp": "2026-07-25T08:40:26.181Z",
+    "diff": {
+      "added": 0,
+      "removed": 10,
+      "modified": 10,
+      "topFolders": [
+        {
+          "folder": ".docs/ai-audit-framework/stages",
+          "count": 4
+        },
+        {
+          "folder": ".docs/ai-audit-framework/batches",
+          "count": 4
+        },
+        {
+          "folder": ".docs/ai-audit-framework/tasks",
+          "count": 3
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        },
+        {
+          "folder": ".agents/skills/ai-audit-framework/references",
+          "count": 1
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_11-54_task-004-centralize-cards.md_18files": {
+    "timestamp": "2026-07-25T08:54:03.703Z",
+    "diff": {
+      "added": 13,
+      "removed": 0,
+      "modified": 5,
+      "topFolders": [
+        {
+          "folder": ".docs/ai-audit-framework/batches",
+          "count": 4
+        },
+        {
+          "folder": ".docs/ai-audit-framework/tasks",
+          "count": 4
+        },
+        {
+          "folder": ".docs/ai-audit-framework/stages",
+          "count": 3
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        },
+        {
+          "folder": "reports",
+          "count": 2
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_12-00_smoke-report.json_23files": {
+    "timestamp": "2026-07-25T09:00:46.347Z",
+    "diff": {
+      "added": 9,
+      "removed": 0,
+      "modified": 14,
+      "topFolders": [
+        {
+          "folder": ".docs/ai-audit-framework/tasks",
+          "count": 5
+        },
+        {
+          "folder": "src/components",
+          "count": 5
+        },
+        {
+          "folder": "reports",
+          "count": 4
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        },
+        {
+          "folder": "src/components/ProductPage",
+          "count": 2
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_12-07_smoke-report.json_20files": {
+    "timestamp": "2026-07-25T09:07:45.955Z",
+    "diff": {
+      "added": 6,
+      "removed": 0,
+      "modified": 14,
+      "topFolders": [
+        {
+          "folder": ".docs/ai-audit-framework/tasks",
+          "count": 5
+        },
+        {
+          "folder": "src/features/shell/AppHeader",
+          "count": 4
+        },
+        {
+          "folder": "src/components",
+          "count": 3
+        },
+        {
+          "folder": "src/features/shell/NavMenu",
+          "count": 3
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_12-09_ProductImagePanel.js_7files": {
+    "timestamp": "2026-07-25T09:09:23.737Z",
+    "diff": {
+      "added": 0,
+      "removed": 0,
+      "modified": 7,
+      "topFolders": [
+        {
+          "folder": "src/components/ProductPage",
+          "count": 5
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_12-17_smoke-report.json_41files": {
+    "timestamp": "2026-07-25T09:17:24.114Z",
+    "diff": {
+      "added": 12,
+      "removed": 0,
+      "modified": 29,
+      "topFolders": [
+        {
+          "folder": "reports",
+          "count": 8
+        },
+        {
+          "folder": "src/components",
+          "count": 6
+        },
+        {
+          "folder": "src/components/Catalog",
+          "count": 6
+        },
+        {
+          "folder": ".docs/ai-audit-framework/tasks",
+          "count": 5
+        },
+        {
+          "folder": "src/components/Admin/Users",
+          "count": 3
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_12-20_smoke-report.json_10files": {
+    "timestamp": "2026-07-25T09:20:05.846Z",
+    "diff": {
+      "added": 2,
+      "removed": 8,
+      "modified": 8,
+      "topFolders": [
+        {
+          "folder": ".docs/ai-audit-framework/tasks",
+          "count": 8
+        },
+        {
+          "folder": "src/components/Admin/Products",
+          "count": 3
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        },
+        {
+          "folder": "reports",
+          "count": 2
+        },
+        {
+          "folder": "src/components/Admin/Media",
+          "count": 2
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_12-27_AdminContext.ts_11files": {
+    "timestamp": "2026-07-25T09:27:45.098Z",
+    "diff": {
+      "added": 2,
+      "removed": 2,
+      "modified": 9,
+      "topFolders": [
+        {
+          "folder": "src/components/Admin/Products",
+          "count": 3
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        },
+        {
+          "folder": "reports",
+          "count": 2
+        },
+        {
+          "folder": "src/components/Admin/Media",
+          "count": 2
+        },
+        {
+          "folder": ".docs/ai-audit-framework/tasks",
+          "count": 2
+        }
+      ]
+    }
+  },
+  "src_2026-07-25_12-29_smoke-report.json_4files": {
+    "timestamp": "2026-07-25T09:29:14.234Z",
+    "diff": {
+      "added": 0,
+      "removed": 0,
+      "modified": 4,
+      "topFolders": [
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        },
+        {
+          "folder": ".tools/browser-automation/execution-context",
+          "count": 1
+        },
+        {
+          "folder": ".tools/browser-automation/reports",
+          "count": 1
+        }
+      ]
+    }
+  }
+}

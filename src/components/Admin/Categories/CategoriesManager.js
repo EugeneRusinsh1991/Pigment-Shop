@@ -4,116 +4,32 @@
  * Categories tab: toolbar + add button + collapsible category tree + form modal.
  *
  * All mutations flow through adminDomain (persistCategories).
- * Local staging changes use the pure transform helpers from adminCategoriesService.
+ * Local staging changes use the pure transform helpers from adminCategoriesTransforms.
  * The catalogState subscription is kept to pick up external changes (e.g. from
  * catalogSync when Firestore updates) only while there are no unsaved local edits.
  */
-import React, { useCallback, useEffect, useState, useMemo } from 'react';
-import { Alert, Text, TouchableOpacity, View } from 'react-native';
+import React, { useState } from 'react';
+import { Text, TouchableOpacity, View } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
-import { getCategories, subscribe } from '../../../data/catalogState';
-import { useAdminDomain } from '../../../services/adminDomain';
-import {
-  addCategory,
-  getCategoryTree,
-  removeCategory,
-  updateCategory,
-} from '../../../services/adminCategoriesService';
+import { useCatalog } from '../../../context/CatalogContext';
 import CategoryFormModal from './CategoryFormModal';
 import CategoryTree from './CategoryTree';
 import styles from './CategoriesStyles';
-
-function useCategoriesState() {
-  const { persistCategories } = useAdminDomain();
-  const [allCategories, setAllCategories] = useState(getCategories());
-  const [isDirty, setIsDirty] = useState(false);
-
-  // Pick up external state changes (Firestore sync, auth-driven reloads) only
-  // when there are no unsaved local edits, so admin changes are not overwritten.
-  useEffect(() => {
-    const unsub = subscribe(() => {
-      if (!isDirty) {
-        setAllCategories(getCategories());
-      }
-    });
-    return unsub;
-  }, [isDirty]);
-
-  const tree = useMemo(() => getCategoryTree(allCategories), [allCategories]);
-
-  const handleAdd = useCallback((data) => {
-    const next = addCategory(data, allCategories);
-    if (next) { setAllCategories(next); setIsDirty(true); }
-  }, [allCategories]);
-
-  const handleUpdate = useCallback((id, data) => {
-    const next = updateCategory(id, data, allCategories);
-    if (next) { setAllCategories(next); setIsDirty(true); }
-  }, [allCategories]);
-
-  const handleDelete = useCallback((id) => {
-    const next = removeCategory(id, allCategories);
-    setAllCategories(next);
-    setIsDirty(true);
-  }, [allCategories]);
-
-  const { t } = useTheme();
-  const handleSaveToFirebase = useCallback(async () => {
-    try {
-      await persistCategories(allCategories);
-      setIsDirty(false);
-      if (typeof window !== 'undefined' && window.alert) {
-        window.alert(t('adminCategoriesSaveSuccess'));
-      } else {
-        Alert.alert(t('adminCategoriesSuccessTitle'), t('adminCategoriesSaveSuccess'));
-      }
-    } catch (err) {
-      console.error('Failed to save to Firebase:', err);
-      if (typeof window !== 'undefined' && window.alert) {
-        window.alert(t('adminCategoriesSaveError') + ': ' + err.message);
-      } else {
-        Alert.alert(t('cartErrorTitle'), t('adminCategoriesSaveError') + ': ' + err.message);
-      }
-    }
-  }, [allCategories, t]);
-
-  return { tree, allCategories, handleAdd, handleUpdate, handleDelete, handleSaveToFirebase, isDirty };
-}
-
-import { FolderIcon, CheckIcon } from '../../Icons';
-
-function Toolbar({ onAdd }) {
-  const { t } = useTheme();
-  return (
-    <View style={styles.toolbar}>
-      <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-        <FolderIcon color="#1C1C1C" size={16} style={{ marginRight: 6 }} />
-        <Text style={styles.toolbarTitle}>{t('adminCategoriesTitle')}</Text>
-      </View>
-      <TouchableOpacity style={styles.addBtn} onPress={onAdd} activeOpacity={0.85}>
-        <Text style={styles.addBtnText}>{t('adminCategoriesAddBtn')}</Text>
-      </TouchableOpacity>
-    </View>
-  );
-}
+import { useCategoriesWorkflow } from './useCategoriesWorkflow';
+import { useFormModal } from '../../../hooks/useFormModal';
+import AdminSaveFooter from '../shared/AdminSaveFooter';
 
 export default function CategoriesManager() {
-  const { tree, allCategories, handleAdd, handleUpdate, handleDelete, handleSaveToFirebase, isDirty } = useCategoriesState();
+  const { tree, allCategories, handleAdd, handleUpdate, handleDelete, handleSaveToFirebase: handleBatchSave, isSaving, isDirty } = useCategoriesWorkflow();
+  const { flatList: products } = useCatalog();
   const { t } = useTheme();
-  const [modalVisible, setModalVisible] = useState(false);
-  const [editingCategory, setEditingCategory] = useState(null);
+  const { isVisible: modalVisible, editingItem: editingCategory, openForCreate: openAdd, openForEdit: openEdit, close: closeModal } = useFormModal();
   const [presetParentId, setPresetParentId] = useState(null);
 
-  const openAdd = () => { setEditingCategory(null); setPresetParentId(null); setModalVisible(true); };
-
-  const openAddChild = (parentCategory) => {
-    setEditingCategory(null);
-    setPresetParentId(parentCategory.id);
-    setModalVisible(true);
-  };
-
-  const openEdit = (cat) => { setEditingCategory(cat); setPresetParentId(null); setModalVisible(true); };
-  const closeModal = () => { setModalVisible(false); setPresetParentId(null); };
+  const handleOpenAdd = () => { setPresetParentId(null); openAdd(); };
+  const handleOpenAddChild = (parentCategory) => { setPresetParentId(parentCategory.id); openAdd(); };
+  const handleOpenEdit = (cat) => { setPresetParentId(null); openEdit(cat); };
+  const handleCloseModal = () => { setPresetParentId(null); closeModal(); };
 
   const handleSave = (formData) => {
     if (editingCategory) {
@@ -126,26 +42,27 @@ export default function CategoriesManager() {
 
   return (
     <View style={styles.container}>
-      <Toolbar onAdd={openAdd} />
       <CategoryTree
         tree={tree}
-        onEdit={openEdit}
-        onAddChild={openAddChild}
-        onDelete={handleDelete}
+        onEdit={handleOpenEdit}
+        onAdd={handleOpenAdd}
+        products={products}
       />
-      {isDirty && (
-        <TouchableOpacity style={[styles.saveBtn, { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 6 }]} onPress={handleSaveToFirebase} activeOpacity={0.85}>
-          <CheckIcon color="#FFFFFF" size={14} />
-          <Text style={styles.saveBtnText}>{t('adminCategoriesSaveBtn')}</Text>
-        </TouchableOpacity>
-      )}
+      <AdminSaveFooter 
+        isDirty={isDirty} 
+        isSaving={isSaving} 
+        onSave={handleBatchSave} 
+      />
       <CategoryFormModal
         visible={modalVisible}
         category={editingCategory}
         categories={allCategories}
         presetParentId={presetParentId}
         onSave={handleSave}
-        onClose={closeModal}
+        onClose={handleCloseModal}
+        onDelete={handleDelete}
+        onAddChild={handleOpenAddChild}
+        products={products}
       />
     </View>
   );

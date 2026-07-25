@@ -1,11 +1,14 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native';
+import { Platform, StyleSheet, Text, View, Image } from 'react-native';
 import { useTheme } from '../context/ThemeContext';
-import { CrossIcon } from './Icons';
+import { CrossIcon } from '@/components/Icons';
+import IconButton from './IconButton';
+import { getLocalizedValue } from '../utils/localization';
 
 export default function CartItem({ item, isDark, onIncrease, onDecrease, onRemove }) {
   const { lang } = useTheme();
-  const subtotal = `$${(parseFloat(item.price.slice(1)) * item.qty).toFixed(2)}`;
+  const priceNum = parseFloat(String(item.price).replace(/[^0-9.]/g, '')) || 0;
+  const subtotal = `$${(priceNum * item.qty).toFixed(2)}`;
   const ic = (dark, light) => (isDark ? dark : light);
 
   return (
@@ -23,11 +26,15 @@ export default function CartItem({ item, isDark, onIncrease, onDecrease, onRemov
       <View style={styles.details}>
         <View style={styles.headerRow}>
           <Text style={[styles.label, ic(styles.labelDark, styles.labelLight)]} numberOfLines={2}>
-            {(item.label && typeof item.label === 'object' ? item.label[lang] : null) || item.label}
+            {getLocalizedValue(item.label, lang, item.label)}
           </Text>
-          <TouchableOpacity style={styles.removeBtn} onPress={onRemove} activeOpacity={0.7}>
-            <CrossIcon color={isDark ? '#64748b' : '#94a3b8'} size={14} />
-          </TouchableOpacity>
+          <IconButton
+            icon={<CrossIcon color={isDark ? '#64748b' : '#94a3b8'} size={14} />}
+            onPress={onRemove}
+            size={24}
+            variant="transparent"
+            style={{ marginTop: -4, marginRight: -4 }}
+          />
         </View>
 
         <View style={styles.priceRow}>
@@ -38,23 +45,21 @@ export default function CartItem({ item, isDark, onIncrease, onDecrease, onRemov
 
         <View style={styles.footerRow}>
           <View style={styles.qtyRow}>
-            <TouchableOpacity
-              style={[styles.qtyBtn, ic(styles.qtyBtnDark, styles.qtyBtnLight)]}
+            <IconButton
+              icon={<Text style={[styles.qtyBtnTxt, ic(styles.qtyBtnTxtDark, styles.qtyBtnTxtLight)]}>−</Text>}
               onPress={onDecrease}
-              activeOpacity={0.7}
-            >
-              <Text style={[styles.qtyBtnTxt, ic(styles.qtyBtnTxtDark, styles.qtyBtnTxtLight)]}>−</Text>
-            </TouchableOpacity>
+              size={28}
+              variant="outline"
+            />
 
             <Text style={[styles.qty, ic(styles.qtyDark, styles.qtyLight)]}>{item.qty}</Text>
 
-            <TouchableOpacity
-              style={[styles.qtyBtn, ic(styles.qtyBtnDark, styles.qtyBtnLight)]}
+            <IconButton
+              icon={<Text style={[styles.qtyBtnTxt, ic(styles.qtyBtnTxtDark, styles.qtyBtnTxtLight)]}>+</Text>}
               onPress={onIncrease}
-              activeOpacity={0.7}
-            >
-              <Text style={[styles.qtyBtnTxt, ic(styles.qtyBtnTxtDark, styles.qtyBtnTxtLight)]}>+</Text>
-            </TouchableOpacity>
+              size={28}
+              variant="outline"
+            />
           </View>
 
           <Text style={[styles.subtotal, ic(styles.subtotalDark, styles.subtotalLight)]}>
@@ -69,23 +74,30 @@ export default function CartItem({ item, isDark, onIncrease, onDecrease, onRemov
 const styles = StyleSheet.create({
   card: {
     flexDirection: 'row',
-    marginHorizontal: 16,
+    marginHorizontal: 0,
     marginVertical: 6,
     borderRadius: 16,
     padding: 12,
     borderWidth: 1,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.08,
-    shadowRadius: 8,
+    ...Platform.select({
+      web: {
+        boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.08)',
+      },
+      default: {
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.08,
+        shadowRadius: 8,
+      },
+    }),
     elevation: 2,
   },
   cardDark: { backgroundColor: '#121212', borderColor: '#242424' },
   cardLight: { backgroundColor: '#ffffff', borderColor: '#e2e8f0' },
 
   imageWrap: {
-    width: 80,
-    height: 80,
+    width: 96,
+    height: 96,
     borderRadius: 12,
     overflow: 'hidden',
   },

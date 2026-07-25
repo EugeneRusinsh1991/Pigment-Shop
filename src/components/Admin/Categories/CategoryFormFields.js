@@ -12,7 +12,7 @@ import { Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
 import { fromMediaRef } from '../../../media';
 import { triggerFileInput } from '../../../utils/fileInput';
-import { ImageIcon, UploadIcon } from '../../Icons';
+import { ImageIcon, UploadIcon } from '@/components/Icons';
 import MediaBrowser from '../Media/MediaBrowser';
 import { FieldInput as SharedFieldInput, FieldTextarea as SharedFieldTextarea } from '../SharedFormComponents';
 import { CATEGORY_TYPE_COLORS } from './CategoriesStyles';
@@ -60,6 +60,24 @@ function TypeToggleButton({ typeKey, label, activeValue, disabled, onPress }) {
         {label}
       </Text>
     </TouchableOpacity>
+  );
+}
+
+/* ─── CategoryTypeDisplay ────────────────────────────────────── */
+
+export function CategoryTypeDisplay({ value }) {
+  const typeKey = value || 'category_holder';
+  const typeColors = CATEGORY_TYPE_COLORS[typeKey] || CATEGORY_TYPE_COLORS.category_holder;
+
+  return (
+    <View style={styles.categoryTypeRow}>
+      <Text style={styles.categoryTypeLabel}>Category Type</Text>
+      <View style={[styles.categoryTypeBadge, { backgroundColor: typeColors.softBg, borderColor: typeColors.accent }]}>
+        <Text style={[styles.categoryTypeBadgeText, { color: typeColors.text }]}>
+          {typeColors.label}
+        </Text>
+      </View>
+    </View>
   );
 }
 
@@ -126,16 +144,17 @@ export function ImagePickerField({ value, onChange }) {
 
 /* ─── NameField ───────────────────────────────────────────── */
 
-export function NameField({ form, onChange, errors, activeLang }) {
+export function NameField({ form, onChange, errors, activeLang = 'uk' }) {
   const { t } = useTheme();
-  const langLabel = activeLang === 'uk' ? 'UA' : activeLang.toUpperCase();
+  const safeLang = activeLang || 'uk';
+  const langLabel = safeLang === 'uk' ? 'UA' : safeLang.toUpperCase();
   const placeholders = { uk: 'Назва українською', ru: 'Название на русском', en: 'Name in English' };
   return (
     <FieldInput
       label={`${t('adminCategoriesFormNameSection')} (${langLabel}) *`}
-      value={form.name?.[activeLang]}
-      onChangeText={(v) => onChange('name', { ...form.name, [activeLang]: v })}
-      placeholder={placeholders[activeLang]}
+      value={form.name?.[safeLang]}
+      onChangeText={(v) => onChange('name', { ...form.name, [safeLang]: v })}
+      placeholder={placeholders[safeLang]}
       error={errors?.name}
     />
   );
@@ -143,16 +162,17 @@ export function NameField({ form, onChange, errors, activeLang }) {
 
 /* ─── DescriptionField ────────────────────────────────────── */
 
-export function DescriptionField({ form, onChange, activeLang }) {
+export function DescriptionField({ form, onChange, activeLang = 'uk' }) {
   const { t } = useTheme();
-  const langLabel = activeLang === 'uk' ? 'UA' : activeLang.toUpperCase();
+  const safeLang = activeLang || 'uk';
+  const langLabel = safeLang === 'uk' ? 'UA' : safeLang.toUpperCase();
   const placeholders = { uk: 'Опис українською...', ru: 'Описание на русском...', en: 'Description in English...' };
   return (
     <FieldTextarea
       label={`${t('adminCategoriesFormDescSection')} (${langLabel})`}
-      value={form.description?.[activeLang]}
-      onChangeText={(v) => onChange('description', { ...form.description, [activeLang]: v })}
-      placeholder={placeholders[activeLang]}
+      value={form.description?.[safeLang]}
+      onChangeText={(v) => onChange('description', { ...form.description, [safeLang]: v })}
+      placeholder={placeholders[safeLang]}
     />
   );
 }

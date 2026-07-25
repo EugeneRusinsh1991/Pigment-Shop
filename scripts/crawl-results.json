@@ -1,0 +1,1141 @@
+{
+  "pages": {
+    "Home": {
+      "name": "Home",
+      "path": "/",
+      "url": "http://localhost:8081/",
+      "title": "pigment-shop",
+      "elements": [
+        {
+          "type": "link",
+          "text": "",
+          "href": "/",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Главная",
+          "href": "/",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Каталог",
+          "href": "/catalog",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Все товары",
+          "href": "/products",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Контакты",
+          "href": "/contact",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "",
+          "href": "/cart",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Перейти в каталог",
+          "href": "/catalog",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "НОВИНКА LOVELY Product 1-1-1-1 RU $821",
+          "href": "/product/prod-1-1-1-1",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "НОВИНКА CHEYENNE Product 1-1-1-2 RU $955",
+          "href": "/product/prod-1-1-1-2",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "НОВИНКА LOVELY Product 1-2-2-4 RU $310",
+          "href": "/product/prod-1-2-2-4",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "НОВИНКА LOVELY Product 2-1-2-1 RU $777",
+          "href": "/product/prod-2-1-2-1",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Все новинки",
+          "href": "/products?isNew=true",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "-19% BARBARA Product 1-1-4-3 RU $156 $193",
+          "href": "/product/prod-1-1-4-3",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "-41% LOVELY Product 1-2-2-1 RU $218 $370",
+          "href": "/product/prod-1-2-2-1",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "-31% BARBARA Product 1-2-2-2 RU $319 $463",
+          "href": "/product/prod-1-2-2-2",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "-24% CHEYENNE Product 1-3-1-2 RU $485 $638",
+          "href": "/product/prod-1-3-1-2",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Все скидки",
+          "href": "/products?onSale=true",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "",
+          "href": "/",
+          "id": ""
+        },
+        {
+          "type": "input",
+          "placeholder": "Поиск товаров…",
+          "name": "",
+          "id": ""
+        }
+      ]
+    },
+    "Catalog": {
+      "name": "Catalog",
+      "path": "/catalog",
+      "url": "http://localhost:8081/catalog",
+      "title": "pigment-shop",
+      "elements": [
+        {
+          "type": "link",
+          "text": "",
+          "href": "/",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Главная",
+          "href": "/",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Каталог",
+          "href": "/catalog",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Все товары",
+          "href": "/products",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Контакты",
+          "href": "/contact",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "",
+          "href": "/cart",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "",
+          "href": "/",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Category 1 RU Описание для Category 1 RU",
+          "href": "/catalog/cat-root-0",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Category 2 RU Описание для Category 2 RU",
+          "href": "/catalog/cat-root-1",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "",
+          "href": "/",
+          "id": ""
+        }
+      ]
+    },
+    "Products": {
+      "name": "Products",
+      "path": "/products",
+      "url": "http://localhost:8081/products",
+      "title": "pigment-shop",
+      "elements": [
+        {
+          "type": "link",
+          "text": "",
+          "href": "/",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Главная",
+          "href": "/",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Каталог",
+          "href": "/catalog",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Все товары",
+          "href": "/products",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Контакты",
+          "href": "/contact",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "",
+          "href": "/cart",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "CHEYENNE Product 2-1-2-3 RU $73",
+          "href": "/product/prod-2-1-2-3",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "BARBARA Product 2-3-4-4 RU $73",
+          "href": "/product/prod-2-3-4-4",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "CHEYENNE Product 2-3-2-3 RU $75",
+          "href": "/product/prod-2-3-2-3",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "LOVELY Product 1-3-2-2 RU $79",
+          "href": "/product/prod-1-3-2-2",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "BARBARA Product 1-1-2-3 RU $113",
+          "href": "/product/prod-1-1-2-3",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "CHEYENNE Product 2-2-2-2 RU $157",
+          "href": "/product/prod-2-2-2-2",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "-19% BARBARA Product 1-1-4-3 RU $156 $193",
+          "href": "/product/prod-1-1-4-3",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "CHEYENNE Product 1-2-1-1 RU $197",
+          "href": "/product/prod-1-2-1-1",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "LOVELY Product 2-1-3-2 RU $197",
+          "href": "/product/prod-2-1-3-2",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "CHEYENNE Product 2-3-2-1 RU $198",
+          "href": "/product/prod-2-3-2-1",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "LOVELY Product 1-1-3-1 RU $217",
+          "href": "/product/prod-1-1-3-1",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "LOVELY Product 2-3-3-1 RU $228",
+          "href": "/product/prod-2-3-3-1",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "LOVELY Product 1-2-1-2 RU $236",
+          "href": "/product/prod-1-2-1-2",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "LOVELY Product 2-3-4-1 RU $253",
+          "href": "/product/prod-2-3-4-1",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "LOVELY Product 1-1-4-1 RU $263",
+          "href": "/product/prod-1-1-4-1",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "",
+          "href": "/",
+          "id": ""
+        },
+        {
+          "type": "input",
+          "placeholder": "0",
+          "name": "",
+          "id": ""
+        },
+        {
+          "type": "input",
+          "placeholder": "5000",
+          "name": "",
+          "id": ""
+        }
+      ]
+    },
+    "Contact": {
+      "name": "Contact",
+      "path": "/contact",
+      "url": "http://localhost:8081/contact",
+      "title": "pigment-shop",
+      "elements": [
+        {
+          "type": "link",
+          "text": "",
+          "href": "/",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Главная",
+          "href": "/",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Каталог",
+          "href": "/catalog",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Все товары",
+          "href": "/products",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Контакты",
+          "href": "/contact",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "",
+          "href": "/cart",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "",
+          "href": "/",
+          "id": ""
+        },
+        {
+          "type": "input",
+          "placeholder": "Напишите ваш вопрос здесь...",
+          "name": "",
+          "id": ""
+        }
+      ]
+    },
+    "Favorites": {
+      "name": "Favorites",
+      "path": "/favorites",
+      "url": "http://localhost:8081/favorites",
+      "title": "pigment-shop",
+      "elements": [
+        {
+          "type": "link",
+          "text": "",
+          "href": "/",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Главная",
+          "href": "/",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Каталог",
+          "href": "/catalog",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Все товары",
+          "href": "/products",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Контакты",
+          "href": "/contact",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "",
+          "href": "/cart",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "",
+          "href": "/",
+          "id": ""
+        }
+      ]
+    },
+    "Login": {
+      "name": "Login",
+      "path": "/login",
+      "url": "http://localhost:8081/login",
+      "title": "pigment-shop",
+      "elements": [
+        {
+          "type": "link",
+          "text": "",
+          "href": "/",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Главная",
+          "href": "/",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Каталог",
+          "href": "/catalog",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Все товары",
+          "href": "/products",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Контакты",
+          "href": "/contact",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "",
+          "href": "/cart",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "",
+          "href": "/",
+          "id": ""
+        },
+        {
+          "type": "input",
+          "placeholder": "email@example.com",
+          "name": "",
+          "id": ""
+        },
+        {
+          "type": "input",
+          "placeholder": "......",
+          "name": "",
+          "id": ""
+        }
+      ]
+    },
+    "Profile": {
+      "name": "Profile",
+      "path": "/profile",
+      "url": "http://localhost:8081/profile",
+      "title": "pigment-shop",
+      "elements": [
+        {
+          "type": "link",
+          "text": "",
+          "href": "/",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Главная",
+          "href": "/",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Каталог",
+          "href": "/catalog",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Все товары",
+          "href": "/products",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Контакты",
+          "href": "/contact",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "",
+          "href": "/cart",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "",
+          "href": "/",
+          "id": ""
+        },
+        {
+          "type": "input",
+          "placeholder": "Имя",
+          "name": "",
+          "id": ""
+        },
+        {
+          "type": "input",
+          "placeholder": "Фамилия",
+          "name": "",
+          "id": ""
+        },
+        {
+          "type": "input",
+          "placeholder": "+1 234 567 8900",
+          "name": "",
+          "id": ""
+        },
+        {
+          "type": "input",
+          "placeholder": "Город",
+          "name": "",
+          "id": ""
+        }
+      ]
+    },
+    "Orders": {
+      "name": "Orders",
+      "path": "/orders",
+      "url": "http://localhost:8081/orders",
+      "title": "pigment-shop",
+      "elements": [
+        {
+          "type": "link",
+          "text": "",
+          "href": "/",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Главная",
+          "href": "/",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Каталог",
+          "href": "/catalog",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Все товары",
+          "href": "/products",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Контакты",
+          "href": "/contact",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "",
+          "href": "/cart",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "",
+          "href": "/",
+          "id": ""
+        }
+      ]
+    },
+    "Cart": {
+      "name": "Cart",
+      "path": "/cart",
+      "url": "http://localhost:8081/cart",
+      "title": "pigment-shop",
+      "elements": [
+        {
+          "type": "link",
+          "text": "",
+          "href": "/",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Главная",
+          "href": "/",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Каталог",
+          "href": "/catalog",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Все товары",
+          "href": "/products",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Контакты",
+          "href": "/contact",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "",
+          "href": "/cart",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "",
+          "href": "/",
+          "id": ""
+        }
+      ]
+    },
+    "Category Detail (Dynamic)": {
+      "name": "Category Detail (Dynamic)",
+      "path": "/catalog/cat-root-0",
+      "url": "http://localhost:8081/catalog/cat-root-0",
+      "title": "pigment-shop",
+      "elements": [
+        {
+          "type": "link",
+          "text": "",
+          "href": "/",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Главная",
+          "href": "/",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Каталог",
+          "href": "/catalog",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Все товары",
+          "href": "/products",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Контакты",
+          "href": "/contact",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "",
+          "href": "/cart",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "",
+          "href": "/",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Subcategory 1-1 RU Описание для Subcategory 1-1 RU",
+          "href": "/catalog/cat-root-0-sub-0",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Subcategory 1-2 RU Описание для Subcategory 1-2 RU",
+          "href": "/catalog/cat-root-0-sub-1",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Subcategory 1-3 RU Описание для Subcategory 1-3 RU",
+          "href": "/catalog/cat-root-0-sub-2",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "",
+          "href": "/",
+          "id": ""
+        }
+      ]
+    },
+    "Product Detail (Dynamic)": {
+      "name": "Product Detail (Dynamic)",
+      "path": "/product/prod-1-1-1-1",
+      "url": "http://localhost:8081/product/prod-1-1-1-1",
+      "title": "pigment-shop",
+      "elements": [
+        {
+          "type": "link",
+          "text": "",
+          "href": "/",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Главная",
+          "href": "/",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Каталог",
+          "href": "/catalog",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Все товары",
+          "href": "/products",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Контакты",
+          "href": "/contact",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "",
+          "href": "/cart",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "",
+          "href": "/",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Каталог",
+          "href": "/catalog",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "Зарегистрироваться",
+          "href": "/login?isRegister=true",
+          "id": ""
+        },
+        {
+          "type": "link",
+          "text": "",
+          "href": "/",
+          "id": ""
+        }
+      ]
+    }
+  },
+  "errors": [],
+  "logs": [
+    {
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "type": "log",
+      "text": "Running application \"main\" with appParams:\n {rootTag: #root, hydrate: undefined} \nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."
+    },
+    {
+      "type": "warning",
+      "text": "\"shadow*\" style props are deprecated. Use \"boxShadow\"."
+    },
+    {
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "type": "log",
+      "text": "Running application \"main\" with appParams:\n {rootTag: #root, hydrate: undefined} \nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."
+    },
+    {
+      "type": "warning",
+      "text": "\"shadow*\" style props are deprecated. Use \"boxShadow\"."
+    },
+    {
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "type": "log",
+      "text": "Running application \"main\" with appParams:\n {rootTag: #root, hydrate: undefined} \nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."
+    },
+    {
+      "type": "warning",
+      "text": "\"shadow*\" style props are deprecated. Use \"boxShadow\"."
+    },
+    {
+      "type": "warning",
+      "text": "props.pointerEvents is deprecated. Use style.pointerEvents"
+    },
+    {
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "type": "log",
+      "text": "Running application \"main\" with appParams:\n {rootTag: #root, hydrate: undefined} \nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."
+    },
+    {
+      "type": "warning",
+      "text": "\"shadow*\" style props are deprecated. Use \"boxShadow\"."
+    },
+    {
+      "type": "warning",
+      "text": "props.pointerEvents is deprecated. Use style.pointerEvents"
+    },
+    {
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "type": "log",
+      "text": "Running application \"main\" with appParams:\n {rootTag: #root, hydrate: undefined} \nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."
+    },
+    {
+      "type": "warning",
+      "text": "\"shadow*\" style props are deprecated. Use \"boxShadow\"."
+    },
+    {
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "type": "log",
+      "text": "Running application \"main\" with appParams:\n {rootTag: #root, hydrate: undefined} \nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."
+    },
+    {
+      "type": "warning",
+      "text": "\"shadow*\" style props are deprecated. Use \"boxShadow\"."
+    },
+    {
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "type": "log",
+      "text": "Running application \"main\" with appParams:\n {rootTag: #root, hydrate: undefined} \nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."
+    },
+    {
+      "type": "warning",
+      "text": "\"shadow*\" style props are deprecated. Use \"boxShadow\"."
+    },
+    {
+      "type": "warning",
+      "text": "props.pointerEvents is deprecated. Use style.pointerEvents"
+    },
+    {
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "type": "log",
+      "text": "Running application \"main\" with appParams:\n {rootTag: #root, hydrate: undefined} \nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."
+    },
+    {
+      "type": "warning",
+      "text": "\"shadow*\" style props are deprecated. Use \"boxShadow\"."
+    },
+    {
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "type": "log",
+      "text": "Running application \"main\" with appParams:\n {rootTag: #root, hydrate: undefined} \nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."
+    },
+    {
+      "type": "warning",
+      "text": "\"shadow*\" style props are deprecated. Use \"boxShadow\"."
+    },
+    {
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "type": "log",
+      "text": "Running application \"main\" with appParams:\n {rootTag: #root, hydrate: undefined} \nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."
+    },
+    {
+      "type": "warning",
+      "text": "\"shadow*\" style props are deprecated. Use \"boxShadow\"."
+    },
+    {
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "type": "log",
+      "text": "Running application \"main\" with appParams:\n {rootTag: #root, hydrate: undefined} \nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."
+    },
+    {
+      "type": "warning",
+      "text": "\"shadow*\" style props are deprecated. Use \"boxShadow\"."
+    }
+  ],
+  "discoveredLinks": [
+    {
+      "type": "link",
+      "text": "НОВИНКА LOVELY Product 1-1-1-1 RU $821",
+      "href": "/product/prod-1-1-1-1",
+      "id": ""
+    },
+    {
+      "type": "link",
+      "text": "НОВИНКА CHEYENNE Product 1-1-1-2 RU $955",
+      "href": "/product/prod-1-1-1-2",
+      "id": ""
+    },
+    {
+      "type": "link",
+      "text": "НОВИНКА LOVELY Product 1-2-2-4 RU $310",
+      "href": "/product/prod-1-2-2-4",
+      "id": ""
+    },
+    {
+      "type": "link",
+      "text": "НОВИНКА LOVELY Product 2-1-2-1 RU $777",
+      "href": "/product/prod-2-1-2-1",
+      "id": ""
+    },
+    {
+      "type": "link",
+      "text": "-19% BARBARA Product 1-1-4-3 RU $156 $193",
+      "href": "/product/prod-1-1-4-3",
+      "id": ""
+    },
+    {
+      "type": "link",
+      "text": "-41% LOVELY Product 1-2-2-1 RU $218 $370",
+      "href": "/product/prod-1-2-2-1",
+      "id": ""
+    },
+    {
+      "type": "link",
+      "text": "-31% BARBARA Product 1-2-2-2 RU $319 $463",
+      "href": "/product/prod-1-2-2-2",
+      "id": ""
+    },
+    {
+      "type": "link",
+      "text": "-24% CHEYENNE Product 1-3-1-2 RU $485 $638",
+      "href": "/product/prod-1-3-1-2",
+      "id": ""
+    },
+    {
+      "type": "link",
+      "text": "Category 1 RU Описание для Category 1 RU",
+      "href": "/catalog/cat-root-0",
+      "id": ""
+    },
+    {
+      "type": "link",
+      "text": "Category 2 RU Описание для Category 2 RU",
+      "href": "/catalog/cat-root-1",
+      "id": ""
+    },
+    {
+      "type": "link",
+      "text": "CHEYENNE Product 2-1-2-3 RU $73",
+      "href": "/product/prod-2-1-2-3",
+      "id": ""
+    },
+    {
+      "type": "link",
+      "text": "BARBARA Product 2-3-4-4 RU $73",
+      "href": "/product/prod-2-3-4-4",
+      "id": ""
+    },
+    {
+      "type": "link",
+      "text": "CHEYENNE Product 2-3-2-3 RU $75",
+      "href": "/product/prod-2-3-2-3",
+      "id": ""
+    },
+    {
+      "type": "link",
+      "text": "LOVELY Product 1-3-2-2 RU $79",
+      "href": "/product/prod-1-3-2-2",
+      "id": ""
+    },
+    {
+      "type": "link",
+      "text": "BARBARA Product 1-1-2-3 RU $113",
+      "href": "/product/prod-1-1-2-3",
+      "id": ""
+    },
+    {
+      "type": "link",
+      "text": "CHEYENNE Product 2-2-2-2 RU $157",
+      "href": "/product/prod-2-2-2-2",
+      "id": ""
+    },
+    {
+      "type": "link",
+      "text": "CHEYENNE Product 1-2-1-1 RU $197",
+      "href": "/product/prod-1-2-1-1",
+      "id": ""
+    },
+    {
+      "type": "link",
+      "text": "LOVELY Product 2-1-3-2 RU $197",
+      "href": "/product/prod-2-1-3-2",
+      "id": ""
+    },
+    {
+      "type": "link",
+      "text": "CHEYENNE Product 2-3-2-1 RU $198",
+      "href": "/product/prod-2-3-2-1",
+      "id": ""
+    },
+    {
+      "type": "link",
+      "text": "LOVELY Product 1-1-3-1 RU $217",
+      "href": "/product/prod-1-1-3-1",
+      "id": ""
+    },
+    {
+      "type": "link",
+      "text": "LOVELY Product 2-3-3-1 RU $228",
+      "href": "/product/prod-2-3-3-1",
+      "id": ""
+    },
+    {
+      "type": "link",
+      "text": "LOVELY Product 1-2-1-2 RU $236",
+      "href": "/product/prod-1-2-1-2",
+      "id": ""
+    },
+    {
+      "type": "link",
+      "text": "LOVELY Product 2-3-4-1 RU $253",
+      "href": "/product/prod-2-3-4-1",
+      "id": ""
+    },
+    {
+      "type": "link",
+      "text": "LOVELY Product 1-1-4-1 RU $263",
+      "href": "/product/prod-1-1-4-1",
+      "id": ""
+    },
+    {
+      "type": "link",
+      "text": "Subcategory 1-1 RU Описание для Subcategory 1-1 RU",
+      "href": "/catalog/cat-root-0-sub-0",
+      "id": ""
+    },
+    {
+      "type": "link",
+      "text": "Subcategory 1-2 RU Описание для Subcategory 1-2 RU",
+      "href": "/catalog/cat-root-0-sub-1",
+      "id": ""
+    },
+    {
+      "type": "link",
+      "text": "Subcategory 1-3 RU Описание для Subcategory 1-3 RU",
+      "href": "/catalog/cat-root-0-sub-2",
+      "id": ""
+    }
+  ]
+}

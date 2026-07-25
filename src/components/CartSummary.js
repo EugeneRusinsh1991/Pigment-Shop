@@ -1,13 +1,23 @@
-import { Text, TextInput, TouchableOpacity, View } from 'react-native';
+import React from 'react';
+import { Text, TextInput, View } from 'react-native';
 import { useTheme } from '../context/ThemeContext';
 import styles from './CartView/CartViewStyles';
-
+import Button from './Button';
+import { Link } from 'expo-router';
 export default function CartSummary({ totalItems, totalPrice, isWide, isDark, note, onNoteChange, onCheckout,
   email, firstName, lastName, phone, city,
   onEmailChange, onFirstNameChange, onLastNameChange, onPhoneChange, onCityChange,
 }) {
   const { t } = useTheme();
   const ic = (dark, light) => (isDark ? dark : light);
+
+  const inputFields = [
+    { labelKey: 'profileEmail', value: email, onChange: onEmailChange, keyboardType: 'email-address', autoCapitalize: 'none' },
+    { labelKey: 'profileFirstName', value: firstName, onChange: onFirstNameChange },
+    { labelKey: 'profileLastName', value: lastName, onChange: onLastNameChange },
+    { labelKey: 'profilePhone', value: phone, onChange: onPhoneChange, keyboardType: 'phone-pad' },
+    { labelKey: 'profileCity', value: city, onChange: onCityChange },
+  ];
 
   return (
     <View
@@ -28,83 +38,24 @@ export default function CartSummary({ totalItems, totalPrice, isWide, isDark, no
 
       <View style={styles.summaryDivider} />
 
-      <View style={styles.inputGroup}>
-        <Text style={[styles.label, ic(styles.summaryLabelDark, styles.summaryLabelLight)]}>
-          {`${t('profileEmail')} *`}
-        </Text>
-        <View style={[styles.inputContainer, ic(styles.inputContainerDark, styles.inputContainerLight)]}>
-          <TextInput
-            style={[styles.input, ic(styles.textDark, styles.textLight)]}
-            placeholder={t('profileEmail')}
-            placeholderTextColor={isDark ? '#64748b' : '#94a3b8'}
-            value={email}
-            onChangeText={onEmailChange}
-            keyboardType="email-address"
-            autoCapitalize="none"
-          />
+      {inputFields.map((field) => (
+        <View style={styles.inputGroup} key={field.labelKey}>
+          <Text style={[styles.label, ic(styles.summaryLabelDark, styles.summaryLabelLight)]}>
+            {`${t(field.labelKey)} *`}
+          </Text>
+          <View style={[styles.inputContainer, ic(styles.inputContainerDark, styles.inputContainerLight)]}>
+            <TextInput
+              style={[styles.input, ic(styles.textDark, styles.textLight)]}
+              placeholder={t(field.labelKey)}
+              placeholderTextColor={isDark ? '#64748b' : '#94a3b8'}
+              value={field.value}
+              onChangeText={field.onChange}
+              keyboardType={field.keyboardType}
+              autoCapitalize={field.autoCapitalize || 'sentences'}
+            />
+          </View>
         </View>
-      </View>
-
-      <View style={styles.inputGroup}>
-        <Text style={[styles.label, ic(styles.summaryLabelDark, styles.summaryLabelLight)]}>
-          {`${t('profileFirstName')} *`}
-        </Text>
-        <View style={[styles.inputContainer, ic(styles.inputContainerDark, styles.inputContainerLight)]}>
-          <TextInput
-            style={[styles.input, ic(styles.textDark, styles.textLight)]}
-            placeholder={t('profileFirstName')}
-            placeholderTextColor={isDark ? '#64748b' : '#94a3b8'}
-            value={firstName}
-            onChangeText={onFirstNameChange}
-          />
-        </View>
-      </View>
-
-      <View style={styles.inputGroup}>
-        <Text style={[styles.label, ic(styles.summaryLabelDark, styles.summaryLabelLight)]}>
-          {`${t('profileLastName')} *`}
-        </Text>
-        <View style={[styles.inputContainer, ic(styles.inputContainerDark, styles.inputContainerLight)]}>
-          <TextInput
-            style={[styles.input, ic(styles.textDark, styles.textLight)]}
-            placeholder={t('profileLastName')}
-            placeholderTextColor={isDark ? '#64748b' : '#94a3b8'}
-            value={lastName}
-            onChangeText={onLastNameChange}
-          />
-        </View>
-      </View>
-
-      <View style={styles.inputGroup}>
-        <Text style={[styles.label, ic(styles.summaryLabelDark, styles.summaryLabelLight)]}>
-          {`${t('profilePhone')} *`}
-        </Text>
-        <View style={[styles.inputContainer, ic(styles.inputContainerDark, styles.inputContainerLight)]}>
-          <TextInput
-            style={[styles.input, ic(styles.textDark, styles.textLight)]}
-            placeholder={t('profilePhone')}
-            placeholderTextColor={isDark ? '#64748b' : '#94a3b8'}
-            value={phone}
-            onChangeText={onPhoneChange}
-            keyboardType="phone-pad"
-          />
-        </View>
-      </View>
-
-      <View style={styles.inputGroup}>
-        <Text style={[styles.label, ic(styles.summaryLabelDark, styles.summaryLabelLight)]}>
-          {`${t('profileCity')} *`}
-        </Text>
-        <View style={[styles.inputContainer, ic(styles.inputContainerDark, styles.inputContainerLight)]}>
-          <TextInput
-            style={[styles.input, ic(styles.textDark, styles.textLight)]}
-            placeholder={t('profileCity')}
-            placeholderTextColor={isDark ? '#64748b' : '#94a3b8'}
-            value={city}
-            onChangeText={onCityChange}
-          />
-        </View>
-      </View>
+      ))}
 
       <Text style={[styles.requiredNote, ic(styles.summaryLabelDark, styles.summaryLabelLight)]}>
         {`${t('profileRequiredNote')}`}
@@ -136,14 +87,17 @@ export default function CartSummary({ totalItems, totalPrice, isWide, isDark, no
         </Text>
       </View>
 
-      <TouchableOpacity 
-        style={[styles.checkoutBtn, ic(styles.checkoutBtnDark, styles.checkoutBtnLight)]}
-        onPress={onCheckout}
-      >
-        <Text style={[styles.checkoutBtnText, ic(styles.checkoutBtnTextDark, styles.checkoutBtnTextLight)]}>
-          {t('cartCheckoutBtn')}
-        </Text>
-      </TouchableOpacity>
+      <Link href="/order-confirmation" asChild onPress={(e) => {
+        e.preventDefault();
+        onCheckout();
+      }}>
+        <Button
+          title={t('cartCheckoutBtn')}
+          variant="primary"
+          size="lg"
+          style={{ marginTop: 12 }}
+        />
+      </Link>
     </View>
   );
 }

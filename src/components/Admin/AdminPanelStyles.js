@@ -2,21 +2,22 @@
  * AdminPanelStyles.js
  */
 import { StyleSheet } from 'react-native';
+import { colors, fonts } from '../../theme/tokens';
 
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5F1EE',
+    backgroundColor: colors.warmNeutralLight,
   },
   header: {
-    height: 60,
+    height: 56,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 24,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.surfaceLight,
     borderBottomWidth: 1,
-    borderBottomColor: '#F1E8E4',
+    borderBottomColor: colors.borderLightAlt,
   },
   headerLeft: {
     flexDirection: 'row',
@@ -28,13 +29,13 @@ export default StyleSheet.create({
   },
   headerBackText: {
     fontSize: 20,
-    color: '#1C1C1C',
+    color: colors.dark,
   },
   headerTitle: {
-    fontFamily: '"Cormorant Garamond", "Playfair Display", Georgia, serif',
+    fontFamily: fonts.serif,
     fontSize: 20,
     fontWeight: '600',
-    color: '#1C1C1C',
+    color: colors.dark,
   },
   logoutBtn: {
     flexDirection: 'row',
@@ -42,19 +43,19 @@ export default StyleSheet.create({
     gap: 6,
     paddingVertical: 8,
     paddingHorizontal: 14,
-    backgroundColor: '#F5F7FA',
+    backgroundColor: colors.secondaryLightBg,
     borderRadius: 8,
   },
   logoutText: {
     fontSize: 13,
     fontWeight: '600',
-    color: '#475569',
+    color: colors.secondaryLightText,
   },
   tabBar: {
     flexDirection: 'row',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.surfaceLight,
     borderBottomWidth: 1,
-    borderBottomColor: '#F1E8E4',
+    borderBottomColor: colors.borderLightAlt,
     paddingHorizontal: 24,
   },
   tab: {
@@ -65,17 +66,17 @@ export default StyleSheet.create({
     borderBottomColor: 'transparent',
   },
   tabActive: {
-    borderBottomColor: '#E31B23',
+    borderBottomColor: colors.accent,
   },
   tabText: {
     fontSize: 13,
     fontWeight: '500',
-    color: '#94a3b8',
+    color: colors.secondaryDarkText,
     flexDirection: 'row',
     alignItems: 'center',
   },
   tabTextActive: {
-    color: '#1C1C1C',
+    color: colors.dark,
     fontWeight: '700',
   },
   content: {

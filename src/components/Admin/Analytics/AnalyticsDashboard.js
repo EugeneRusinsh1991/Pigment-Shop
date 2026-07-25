@@ -1,15 +1,16 @@
 import React, { useMemo, useState, useEffect } from 'react';
 import { Text, View, ActivityIndicator } from 'react-native';
-import { db } from '../../../firebase';
-import { collection, query, where, getDocs, Timestamp } from 'firebase/firestore';
-import { getSummaryStats, getTopProducts, getLowestSellingProducts, getRevenueChartData, getOrderStatuses } from '../../../data/adminAnalytics';
+import { db } from '../../../services/firebase';
+import { collection, getDocs } from 'firebase/firestore';
+import { getSummaryStats, getTopProducts, getRevenueChartData, getOrderStatuses } from '../../../data/adminAnalytics';
 import OrderStatusChart from './OrderStatusChart';
 import RevenueChart from './RevenueChart';
 import TopProductsChart from './TopProductsChart';
 import DateRangePicker from './DateRangePicker';
 import styles from './AnalyticsStyles';
 import { useTheme } from '../../../context/ThemeContext';
-import { DollarIcon, ClipboardIcon, TrendIcon, BoxIcon } from '../../Icons';
+import { COLLECTIONS } from '../../../services/collections';
+import { DollarIcon, ClipboardIcon, TrendIcon, BoxIcon } from '@/components/Icons';
 
 function StatCard({ label, value, icon }) {
   return (
@@ -49,28 +50,28 @@ function RevenuePanel({ revenueData }) {
   );
 }
 
-function BottomChartsRow({ topProducts, lowestProducts, orderStatuses }) {
+function BottomChartsRow({ topProducts, orderStatuses }) {
   const { t } = useTheme();
   return (
-    <>
-      <View style={styles.chartsRow}>
-        <View style={[styles.chartPanel, styles.chartHalf]}>
-          <Text style={styles.chartTitle}>{t('adminAnalyticsTopProducts')}</Text>
-          <TopProductsChart productsData={topProducts} />
-        </View>
-        <View style={[styles.chartPanel, styles.chartHalf]}>
-          <Text style={styles.chartTitle}>{t('adminAnalyticsOrderStatuses')}</Text>
-          <OrderStatusChart statusData={orderStatuses} />
-        </View>
+    <View style={styles.chartsRow}>
+      <View style={[styles.chartPanel, styles.chartHalf]}>
+        <Text style={styles.chartTitle}>{t('adminAnalyticsTopProducts')}</Text>
+        <TopProductsChart productsData={topProducts} />
       </View>
-      <View style={styles.chartsRow}>
-        <View style={[styles.chartPanel, styles.chartHalf]}>
-          <Text style={styles.chartTitle}>{t('adminAnalyticsLowestProducts')}</Text>
-          <TopProductsChart productsData={lowestProducts} />
-        </View>
+      <View style={[styles.chartPanel, styles.chartHalf]}>
+        <Text style={styles.chartTitle}>{t('adminAnalyticsOrderStatuses')}</Text>
+        <OrderStatusChart statusData={orderStatuses} />
       </View>
-    </>
+    </View>
   );
+}
+
+function getOrderTime(order) {
+  if (!order || !order.createdAt) return null;
+  if (order.createdAt.toMillis) return order.createdAt.toMillis();
+  if (order.createdAt.toDate) return order.createdAt.toDate().getTime();
+  const d = new Date(order.createdAt);
+  return isNaN(d.getTime()) ? null : d.getTime();
 }
 
 export default function AnalyticsDashboard() {
@@ -89,14 +90,18 @@ export default function AnalyticsDashboard() {
     async function fetchOrders() {
       setLoading(true);
       try {
-        const q = query(
-          collection(db, 'orders'),
-          where('createdAt', '>=', Timestamp.fromDate(dateRange.start)),
-          where('createdAt', '<=', Timestamp.fromDate(dateRange.end))
-        );
-        const snap = await getDocs(q);
+        const snap = await getDocs(collection(db, COLLECTIONS.ORDERS));
         const fetched = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-        setOrders(fetched);
+        
+        const startMs = dateRange.start.getTime();
+        const endMs = dateRange.end.getTime();
+        
+        const filtered = fetched.filter(order => {
+          const time = getOrderTime(order);
+          return time !== null && time >= startMs && time <= endMs;
+        });
+        
+        setOrders(filtered);
       } catch (err) {
         console.error('Error fetching orders for analytics:', err);
       } finally {
@@ -108,7 +113,6 @@ export default function AnalyticsDashboard() {
 
   const stats = useMemo(() => getSummaryStats(orders), [orders]);
   const topProducts = useMemo(() => getTopProducts(orders, 5), [orders]);
-  const lowestProducts = useMemo(() => getLowestSellingProducts(orders, 5), [orders]);
   const revenueData = useMemo(() => getRevenueChartData(orders, dateRange.start, dateRange.end), [orders, dateRange]);
   const orderStatuses = useMemo(() => getOrderStatuses(orders), [orders]);
 
@@ -125,7 +129,7 @@ export default function AnalyticsDashboard() {
         <>
           <StatsRow stats={stats} />
           <RevenuePanel revenueData={revenueData} />
-          <BottomChartsRow topProducts={topProducts} lowestProducts={lowestProducts} orderStatuses={orderStatuses} />
+          <BottomChartsRow topProducts={topProducts} orderStatuses={orderStatuses} />
         </>
       )}
     </View>

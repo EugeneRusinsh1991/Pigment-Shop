@@ -1,0 +1,195 @@
+/**
+ * run-audit.cjs
+ *
+ * Core codebase auditor that runs static analysis via fallow,
+ * filters raw results to keep only high/critical severity items, duplicates,
+ * and unused code/dependencies, and generates clean human-readable reports.
+ */
+
+"use strict";
+
+const fs = require("fs");
+const path = require("path");
+const {
+  runStaticAnalysis,
+  readRawData,
+  filterData,
+  saveCleanedJSON,
+  printSummary
+} = require("./src/analyzer.cjs");
+const { generateReports } = require("./src/reporter.cjs");
+
+const ROOT = path.resolve(__dirname, "../..");
+const REPORTS_DIR = path.resolve(ROOT, ".docs/auditor-reports");
+const RAW_JSON = path.resolve(REPORTS_DIR, "fallow-raw.json");
+
+// Resolve project name dynamically
+function getProjectName(rootPath) {
+  let projectName = "Codebase";
+  try {
+    const pkgPath = path.resolve(rootPath, "package.json");
+    if (fs.existsSync(pkgPath)) {
+      const pkg = JSON.parse(fs.readFileSync(pkgPath, "utf-8"));
+      if (pkg.name) {
+        projectName = pkg.name
+          .split(/[-_]/)
+          .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+          .join(" ");
+      }
+    } else {
+      projectName = getFallbackName(rootPath);
+    }
+  } catch (e) {
+    projectName = getFallbackName(rootPath);
+  }
+  return projectName;
+}
+
+function getFallbackName(rootPath) {
+  const folderName = path.basename(rootPath);
+  return folderName
+    .replace(/^_+/, "")
+    .split(/[-_]/)
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
+
+function writeReportFile(reportPath, content) {
+  try {
+    const dir = path.dirname(reportPath);
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(reportPath, content, "utf-8");
+    console.log(`Report generated successfully: ${reportPath}`);
+  } catch (err) {
+    console.error(`Error: Failed to write report file (${reportPath}):`, err.message);
+    process.exit(1);
+  }
+}
+
+function cleanupAuditArtifacts(rawJsonPath) {
+  try {
+    if (fs.existsSync(rawJsonPath)) {
+      fs.unlinkSync(rawJsonPath);
+    }
+  } catch (err) {
+    console.warn(`Warning: Unable to fully clean audit artifacts: ${err.message}`);
+  }
+}
+
+function writeAllReports(reports, subDir) {
+  const base = subDir ? path.resolve(REPORTS_DIR, subDir) : REPORTS_DIR;
+  const reportFiles = [
+    [path.resolve(base, "Codebase-Audit-Report.md"), reports.main],
+    [path.resolve(base, "complexity-health-findings.md"), reports.complexity],
+    [path.resolve(base, "large-files.md"), reports.largeFiles],
+    [path.resolve(base, "high-complexity-files.md"), reports.highComplexity],
+    [path.resolve(base, "code-duplication.md"), reports.duplication],
+    [path.resolve(base, "unused-code-dependencies.md"), reports.unused],
+    [path.resolve(base, "small-files.md"), reports.smallFiles],
+  ];
+
+  reportFiles.forEach(([reportPath, content]) => {
+    if (content) writeReportFile(reportPath, content);
+  });
+}
+
+function isProjectPath(p) {
+  if (!p) return false;
+  const n = p.replace(/\\/g, "/");
+  return (
+    n.startsWith("src/") ||
+    n.startsWith("app/") ||
+    n.startsWith("media/") ||
+    n === "package.json" ||
+    n === "app.json" ||
+    n === "app.config.js" ||
+    n === "metro.config.js" ||
+    n === "tsconfig.json"
+  );
+}
+
+function isOtherPath(p) {
+  if (!p) return false;
+  return !isProjectPath(p);
+}
+
+function splitFindingsArray(arr) {
+  const project = [], other = [];
+  (arr || []).forEach(item => {
+    const p = item.path || item.file || "";
+    if (isOtherPath(p)) other.push(item);
+    else project.push(item);
+  });
+  return { project, other };
+}
+
+function splitData(cleaned) {
+  const h = cleaned.health || {};
+  const c = cleaned.check || {};
+  const d = cleaned.dupes || {};
+  
+  const findings = splitFindingsArray(h.findings);
+  const file_scores = splitFindingsArray(h.file_scores);
+  const targets = splitFindingsArray(h.targets);
+  const small_files = splitFindingsArray(h.small_files);
+  
+  const clone_groups_proj = [], clone_groups_other = [];
+  (d.clone_groups || []).forEach(g => {
+    const p = g.instances?.[0]?.file || "";
+    if (isOtherPath(p)) clone_groups_other.push(g);
+    else clone_groups_proj.push(g);
+  });
+  
+  const unused_files = splitFindingsArray(c.unused_files);
+  const unused_exports = splitFindingsArray(c.unused_exports);
+  
+  const circ_proj = [], circ_other = [];
+  (c.circular_dependencies || []).forEach(circ => {
+    const p = Array.isArray(circ) ? (circ[0] || "") : "";
+    if (isOtherPath(p)) circ_other.push(circ);
+    else circ_proj.push(circ);
+  });
+
+  return {
+    project: {
+      health: { findings: findings.project, file_scores: file_scores.project, targets: targets.project, small_files: small_files.project },
+      dupes: { clone_groups: clone_groups_proj },
+      check: { unused_files: unused_files.project, unused_exports: unused_exports.project, unused_dependencies: c.unused_dependencies || [], unlisted_dependencies: c.unlisted_dependencies || [], circular_dependencies: circ_proj }
+    },
+    other: {
+      health: { findings: findings.other, file_scores: file_scores.other, targets: targets.other, small_files: small_files.other },
+      dupes: { clone_groups: clone_groups_other },
+      check: { unused_files: unused_files.other, unused_exports: unused_exports.other, unused_dependencies: [], unlisted_dependencies: [], circular_dependencies: circ_other }
+    }
+  };
+}
+
+function main() {
+  const projectName = getProjectName(ROOT);
+
+  console.log("=========================================");
+  console.log(`  ${projectName} Codebase Auditor       `);
+  console.log("=========================================");
+
+  if (!fs.existsSync(REPORTS_DIR)) {
+    fs.mkdirSync(REPORTS_DIR, { recursive: true });
+  }
+
+  runStaticAnalysis(ROOT, RAW_JSON);
+  const rawData = readRawData(RAW_JSON);
+  const cleanedJSON = filterData(rawData, ROOT);
+  saveCleanedJSON(cleanedJSON, RAW_JSON);
+
+  const { project, other } = splitData(cleanedJSON);
+
+  const projReports = generateReports(project, ROOT, projectName + " (Project)", "project");
+  writeAllReports(projReports, "project");
+
+  const otherReports = generateReports(other, ROOT, projectName + " (Other/Tools)", "other");
+  writeAllReports(otherReports, "other");
+
+  printSummary(cleanedJSON);
+  cleanupAuditArtifacts(RAW_JSON);
+}
+
+main();

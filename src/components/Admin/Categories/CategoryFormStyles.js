@@ -5,6 +5,8 @@
  * Shares colour tokens with ProductFormStyles.
  */
 import { StyleSheet } from 'react-native';
+import { colors, fonts, layout } from '../../../theme/tokens';
+import { shadow } from '../../../theme/shadows';
 
 export default StyleSheet.create({
   /* Modal overlay */
@@ -15,14 +17,12 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   modalCard: {
-    width: 560,
+    width: '95%',
+    maxWidth: 560,
     maxHeight: '90%',
-    backgroundColor: '#FFFFFF',
-    borderRadius: 16,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 16 },
-    shadowOpacity: 0.15,
-    shadowRadius: 40,
+    backgroundColor: colors.surfaceLight,
+    borderRadius: layout.radii.md,
+    ...shadow.modal(),
     elevation: 10,
   },
   modalHeader: {
@@ -33,17 +33,17 @@ export default StyleSheet.create({
     paddingTop: 24,
     paddingBottom: 16,
     borderBottomWidth: 1,
-    borderBottomColor: '#F1E8E4',
+    borderBottomColor: colors.borderLightAlt,
   },
   modalTitle: {
-    fontFamily: '"Cormorant Garamond", "Playfair Display", Georgia, serif',
+    fontFamily: fonts.serif,
     fontSize: 20,
     fontWeight: '600',
-    color: '#1C1C1C',
+    color: colors.textLight,
   },
   modalCloseBtn: {
     fontSize: 20,
-    color: '#94a3b8',
+    color: colors.textDescDark,
     padding: 4,
   },
   modalBody: {
@@ -52,20 +52,55 @@ export default StyleSheet.create({
   },
   modalFooter: {
     flexDirection: 'row',
-    justifyContent: 'flex-end',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     gap: 12,
     paddingHorizontal: 24,
     paddingBottom: 24,
     paddingTop: 12,
     borderTopWidth: 1,
-    borderTopColor: '#F1E8E4',
+    borderTopColor: colors.borderLightAlt,
+  },
+  modalFooterRight: {
+    flexDirection: 'row',
+    gap: 12,
+  },
+
+  /* Subcategory section divider */
+  subSectionDivider: {
+    marginTop: 20,
+    marginBottom: 16,
+    borderTopWidth: 1,
+    borderTopColor: colors.secondaryLightBorder,
+    paddingTop: 16,
+  },
+  subSectionTitle: {
+    fontSize: 13,
+    fontWeight: '700',
+    color: colors.textLight,
+    marginBottom: 12,
+  },
+
+  /* Delete confirmation */
+  deleteConfirmBox: {
+    backgroundColor: colors.dangerBgAlt,
+    borderRadius: layout.radii.sm,
+    borderWidth: 1,
+    borderColor: colors.dangerLight,
+    padding: 12,
+    marginTop: 8,
+  },
+  deleteConfirmText: {
+    fontSize: 13,
+    color: colors.dangerDeep,
+    lineHeight: 20,
   },
 
   /* Section heading */
   sectionLabel: {
     fontSize: 11,
     fontWeight: '700',
-    color: '#94a3b8',
+    color: colors.textDescDark,
     letterSpacing: 0.8,
     textTransform: 'uppercase',
     marginBottom: 10,
@@ -75,49 +110,51 @@ export default StyleSheet.create({
   /* Form fields */
   fieldRow: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
     gap: 16,
     marginBottom: 14,
   },
   fieldGroup: {
     flex: 1,
+    minWidth: 140,
     marginBottom: 14,
   },
   fieldLabel: {
     fontSize: 12,
     fontWeight: '600',
-    color: '#475569',
+    color: colors.textDescLight,
     marginBottom: 5,
     letterSpacing: 0.3,
   },
   fieldInput: {
     height: 40,
-    backgroundColor: '#F5F7FA',
-    borderRadius: 8,
+    backgroundColor: colors.secondaryLightBg,
+    borderRadius: layout.radii.sm,
     paddingHorizontal: 12,
     fontSize: 13,
-    color: '#1C1C1C',
+    color: colors.textLight,
     borderWidth: 1,
-    borderColor: '#E8EDF5',
+    borderColor: colors.navItemHoverDark,
     outlineStyle: 'none',
   },
   fieldInputError: {
-    borderColor: '#E31B23',
+    borderColor: colors.accent,
   },
   fieldTextarea: {
     height: 60,
-    backgroundColor: '#F5F7FA',
-    borderRadius: 8,
+    backgroundColor: colors.secondaryLightBg,
+    borderRadius: layout.radii.sm,
     paddingHorizontal: 12,
     paddingVertical: 10,
     fontSize: 13,
-    color: '#1C1C1C',
+    color: colors.textLight,
     borderWidth: 1,
-    borderColor: '#E8EDF5',
+    borderColor: colors.navItemHoverDark,
     textAlignVertical: 'top',
     outlineStyle: 'none',
   },
   errorText: {
-    color: '#E31B23',
+    color: colors.accent,
     fontSize: 11,
     marginTop: 2,
   },
@@ -131,52 +168,136 @@ export default StyleSheet.create({
   imagePickerInput: {
     flex: 1,
     height: 40,
-    backgroundColor: '#F5F7FA',
-    borderRadius: 8,
+    backgroundColor: colors.secondaryLightBg,
+    borderRadius: layout.radii.sm,
     paddingHorizontal: 12,
     fontSize: 13,
-    color: '#1C1C1C',
+    color: colors.textLight,
     borderWidth: 1,
-    borderColor: '#E8EDF5',
+    borderColor: colors.navItemHoverDark,
     outlineStyle: 'none',
   },
   uploadBtn: {
     height: 40,
     paddingHorizontal: 14,
-    backgroundColor: '#F5F7FA',
-    borderRadius: 8,
+    backgroundColor: colors.secondaryLightBg,
+    borderRadius: layout.radii.sm,
     borderWidth: 1,
-    borderColor: '#E8EDF5',
+    borderColor: colors.navItemHoverDark,
     alignItems: 'center',
     justifyContent: 'center',
   },
   uploadBtnText: {
     fontSize: 13,
-    color: '#475569',
+    color: colors.textDescLight,
     fontWeight: '600',
   },
 
-  /* Buttons */
-  cancelBtn: {
+  /* Category Type non-editable row */
+  categoryTypeRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: colors.slateLight,
+    borderRadius: layout.radii.sm,
+    paddingHorizontal: 14,
     paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 8,
-    backgroundColor: '#F5F7FA',
+    marginBottom: 16,
+    borderWidth: 1,
+    borderColor: colors.secondaryLightBorder,
+  },
+  categoryTypeLabel: {
+    fontSize: 13,
+    fontWeight: '600',
+    color: colors.textDescLight,
+  },
+  categoryTypeBadge: {
+    paddingVertical: 4,
+    paddingHorizontal: 10,
+    borderRadius: layout.radii.xs,
+    borderWidth: 1,
+  },
+  categoryTypeBadgeText: {
+    fontSize: 12,
+    fontWeight: '600',
+  },
+
+  /* Buttons & Footer Grid */
+  modalFooterGrid: {
+    paddingHorizontal: 24,
+    paddingBottom: 24,
+    paddingTop: 16,
+    borderTopWidth: 1,
+    borderTopColor: colors.borderLightAlt,
+    gap: 12,
+  },
+  modalFooterRow: {
+    flexDirection: 'row',
+    gap: 12,
+  },
+  addSubcategoryBtn: {
+    flex: 1,
+    height: 40,
+    borderRadius: layout.radii.sm,
+    backgroundColor: colors.infoStrong,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 16,
+  },
+  addSubcategoryBtnText: {
+    fontSize: 13,
+    fontWeight: '600',
+    color: colors.textDark,
+  },
+  cancelBtn: {
+    flex: 1,
+    height: 40,
+    paddingHorizontal: 16,
+    borderRadius: layout.radii.sm,
+    backgroundColor: colors.secondaryLightBg,
+    borderWidth: 1,
+    borderColor: colors.secondaryLightBorder,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   cancelBtnText: {
     fontSize: 13,
     fontWeight: '600',
-    color: '#475569',
+    color: colors.textDescLight,
   },
   saveBtn: {
-    paddingVertical: 10,
-    paddingHorizontal: 24,
-    borderRadius: 8,
-    backgroundColor: '#1C1C1C',
+    flex: 1,
+    height: 40,
+    paddingHorizontal: 16,
+    borderRadius: layout.radii.sm,
+    backgroundColor: colors.textLight,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   saveBtnText: {
     fontSize: 13,
     fontWeight: '700',
-    color: '#FFFFFF',
+    color: colors.textDark,
+  },
+  deleteBtn: {
+    flex: 1,
+    height: 40,
+    paddingHorizontal: 16,
+    borderRadius: layout.radii.sm,
+    backgroundColor: colors.danger,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  deleteBtnActive: {
+    backgroundColor: colors.danger,
+    borderColor: colors.danger,
+  },
+  deleteBtnText: {
+    fontSize: 13,
+    fontWeight: '600',
+    color: colors.textDark,
+  },
+  deleteBtnTextActive: {
+    color: colors.textDark,
   },
 });

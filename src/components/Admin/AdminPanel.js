@@ -3,11 +3,11 @@
  *
  * Main admin panel layout with header + tab bar.
  */
-import { useState } from 'react';
-import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
+import { useState, useEffect } from 'react';
+import { ScrollView, Text, TouchableOpacity, View, useWindowDimensions } from 'react-native';
 import { useTheme } from '../../context/ThemeContext';
-import { useAdminDomain } from '../../services/adminDomain';
-import { BackArrowIcon, LogoutIcon } from '../Icons';
+import { useAdminAuth, useAdminDrafts } from '../../services/adminDomain';
+import { BackArrowIcon, LogoutIcon } from '@/components/Icons';
 import styles from './AdminPanelStyles';
 import AdminTabBar from './AdminTabBar';
 import AnalyticsDashboard from './Analytics/AnalyticsDashboard';
@@ -16,6 +16,8 @@ import CategoriesManager from './Categories/CategoriesManager';
 import OrdersManager from './Orders/OrdersManager';
 import ProductsManager from './Products/ProductsManager';
 import UsersManager from './Users/UsersManager';
+import PageTransition from '../PageTransition';
+import { colors, layout } from '../../theme/tokens';
 
 const TAB_COMPONENTS = {
   analytics: AnalyticsDashboard,
@@ -34,7 +36,14 @@ function renderActiveTab(activeTab) {
 export default function AdminPanel({ onBack }) {
   const [activeTab, setActiveTab] = useState('analytics');
   const { t } = useTheme();
-  const { logoutAdmin } = useAdminDomain();
+  const { logoutAdmin } = useAdminAuth();
+  const { loadDrafts } = useAdminDrafts();
+  const { width } = useWindowDimensions();
+  const isMobile = width < layout.breakpoints.mobile;
+
+  useEffect(() => {
+    loadDrafts();
+  }, [loadDrafts]);
 
   const handleLogout = async () => {
     await logoutAdmin();
@@ -45,20 +54,25 @@ export default function AdminPanel({ onBack }) {
       <View style={styles.header}>
         <View style={styles.headerLeft}>
           <TouchableOpacity style={styles.headerBackBtn} onPress={onBack}>
-            <BackArrowIcon color="#1C1C1C" size={16} />
+            <BackArrowIcon color={colors.textLight} size={16} />
           </TouchableOpacity>
-          <Text style={styles.headerTitle}>{t('adminTitle')}</Text>
+          {!isMobile && <Text style={styles.headerTitle}>{t('adminTitle')}</Text>}
         </View>
-        <TouchableOpacity style={styles.logoutBtn} onPress={handleLogout}>
-          <LogoutIcon color="#475569" size={14} />
-          <Text style={styles.logoutText}>{t('userLogout')}</Text>
+        <TouchableOpacity
+          style={[styles.logoutBtn, isMobile && { paddingHorizontal: 10 }]}
+          onPress={handleLogout}
+        >
+          <LogoutIcon color={colors.textDescLight} size={16} />
+          {!isMobile && <Text style={styles.logoutText}>{t('userLogout')}</Text>}
         </TouchableOpacity>
       </View>
       <View>
         <AdminTabBar activeTab={activeTab} onSelect={setActiveTab} />
       </View>
       <ScrollView style={styles.content} contentContainerStyle={{ paddingBottom: 40 }}>
-        {renderActiveTab(activeTab)}
+        <PageTransition key={activeTab} trigger={activeTab}>
+          {renderActiveTab(activeTab)}
+        </PageTransition>
       </ScrollView>
     </View>
   );

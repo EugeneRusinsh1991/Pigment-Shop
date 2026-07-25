@@ -23,21 +23,21 @@
 
 import {
   STARTUP_STATES,
+  STARTUP_TRANSITIONS,
   GRACEFUL_FALLBACK_SEMANTICS,
   CRITICAL_FAILURE_SEMANTICS,
 } from './startupContract';
-import { initCatalogSync } from '../data/catalogSync';
-import { bootstrapVisitorSession } from '../services/visitorBootstrap';
+import { executeStartupSteps, stopStartupSteps } from './bootstrapOrchestrator';
 
 // ─── Internal State ────────────────────────────────────────────────────────────
 
 /** @type {'idle' | 'starting' | 'ready' | 'failed'} */
 let _status = STARTUP_STATES.IDLE;
 let _error = null;
-let _hasStarted = false;
 
 /** @type {Array<(status: string, error: Error|null) => void>} */
 const _listeners = [];
+
 
 // ─── Subscription API ─────────────────────────────────────────────────────────
 
@@ -68,51 +68,22 @@ export function getBootstrapStatus() {
   return { status: _status, error: _error };
 }
 
-// ─── Internal Helpers ─────────────────────────────────────────────────────────
+// ─── State Machine Transition Engine ───────────────────────────────────────────
 
-function _notify() {
-  _listeners.forEach((fn) => fn(_status, _error));
-}
-
-function _setStatus(status, error = null) {
-  _status = status;
-  _error = error;
-  _notify();
-}
-
-// ─── Startup Steps ────────────────────────────────────────────────────────────
-
-/**
- * Step 1 (required): Initialize catalog sync.
- * Starts auth-aware Firestore listeners for categories and banners.
- * Failure here is critical and transitions the lifecycle to 'failed'.
- * Post-init listener errors are forwarded to console but do not stop the app.
- */
-function _runCatalogSync() {
-  initCatalogSync({
-    onListenerError: (source, err) => {
-      console.warn(`[appBootstrap] Catalog sync listener error (${source}):`, err);
-    },
-  });
-}
-
-/**
- * Step 2 (optional): Bootstrap visitor session.
- * Only runs when no real user is authenticated.
- * Failure is non-fatal — the app continues in an unauthenticated state.
- *
- * @param {{ isAuthenticated: boolean, user: object|null }} authState
- */
-async function _runVisitorSession({ isAuthenticated, user }) {
-  if (isAuthenticated || user) return;
-
-  const { success, error } = await bootstrapVisitorSession();
-  if (!success) {
-    console[GRACEFUL_FALLBACK_SEMANTICS.loggingLevel](
-      `[appBootstrap] ${GRACEFUL_FALLBACK_SEMANTICS.description} (visitor-session):`,
-      error
-    );
+function _transition(event, payload = null) {
+  const nextState = STARTUP_TRANSITIONS[_status]?.[event];
+  if (!nextState) {
+    console.warn(`[appBootstrap] Invalid transition event "${event}" in state "${_status}"`);
+    return;
   }
+
+  _status = nextState;
+  if (event === 'FAILURE') {
+    _error = payload;
+  }
+
+  // Notify all active status subscribers
+  _listeners.forEach((fn) => fn(_status, _error));
 }
 
 // ─── Public Orchestrator ──────────────────────────────────────────────────────
@@ -121,28 +92,52 @@ async function _runVisitorSession({ isAuthenticated, user }) {
  * Start the application startup sequence.
  * Safe to call multiple times — only the first call has any effect.
  *
- * Startup order:
- *   1. catalog-sync  (required) — starts Firestore listeners.
- *   2. visitor-session (optional) — runs when no real user is present.
+ * Startup transitions:
+ *   idle     -> starting (via 'START' event)
+ *   starting -> ready    (via 'SUCCESS' event)
+ *   starting -> failed   (via 'FAILURE' event)
  *
  * @param {{ isAuthenticated: boolean, user: object|null }} authState
  * @returns {Promise<void>}
  */
 export async function startAppBootstrap({ isAuthenticated, user }) {
-  if (_hasStarted) return;
-  _hasStarted = true;
+  if (_status !== STARTUP_STATES.IDLE) return;
 
-  _setStatus(STARTUP_STATES.STARTING);
+  _transition('START');
 
   try {
-    _runCatalogSync();
-    await _runVisitorSession({ isAuthenticated, user });
-    _setStatus(STARTUP_STATES.READY);
+    await executeStartupSteps({ 
+      isAuthenticated, 
+      user,
+    });
+
+    _transition('SUCCESS');
   } catch (err) {
     console[CRITICAL_FAILURE_SEMANTICS.loggingLevel](
       `[appBootstrap] ${CRITICAL_FAILURE_SEMANTICS.description}:`,
       err
     );
-    _setStatus(STARTUP_STATES.FAILED, err);
+    _transition('FAILURE', err);
   }
+}
+
+/**
+ * Stop the application startup sequence, tear down active sync listeners, and reset status.
+ */
+export function stopAppBootstrap() {
+  _status = STARTUP_STATES.IDLE;
+  _error = null;
+  stopStartupSteps();
+  _listeners.forEach((fn) => fn(_status, _error));
+}
+
+/**
+ * Resets the bootstrap state and clears all listener subscriptions.
+ * Useful for development Fast Refresh / HMR reloads and test teardowns.
+ */
+export function resetAppBootstrap() {
+  _status = STARTUP_STATES.IDLE;
+  _error = null;
+  stopStartupSteps();
+  _listeners.length = 0;
 }

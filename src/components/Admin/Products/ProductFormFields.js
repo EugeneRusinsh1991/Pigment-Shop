@@ -1,6 +1,6 @@
+import { CheckIcon } from '@/components/Icons';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
-import { CheckIcon } from '../../Icons';
 import styles from './ProductFormStyles';
 
 import { FieldInput as SharedFieldInput, FieldTextarea as SharedFieldTextarea } from '../SharedFormComponents';
@@ -22,28 +22,30 @@ function FieldCheckbox({ label, value, onChange }) {
 }
 
 
-export const NameField = ({ form, onChange, errors, activeLang }) => {
+export const NameField = ({ form, onChange, errors, activeLang = 'uk' }) => {
   const { t } = useTheme();
-  const labelKey = `label_${activeLang}`;
+  const safeLang = activeLang || 'uk';
+  const langLabel = safeLang === 'uk' ? 'UA' : safeLang.toUpperCase();
   return (
     <FieldInput
-      label={`${t('adminProductsFormName')} (${activeLang === 'uk' ? 'UA' : activeLang.toUpperCase()}) *`}
-      value={form[labelKey]}
-      onChangeText={(v) => onChange(labelKey, v)}
+      label={`${t('adminProductsFormName')} (${langLabel}) *`}
+      value={form.label?.[safeLang] ?? ''}
+      onChangeText={(v) => onChange('label', { ...form.label, [safeLang]: v })}
       placeholder={t('adminProductsFormNamePlaceholder')}
       error={errors.label}
     />
   );
 };
 
-export const DescriptionField = ({ form, onChange, activeLang }) => {
+export const DescriptionField = ({ form, onChange, activeLang = 'uk' }) => {
   const { t } = useTheme();
-  const descKey = `description_${activeLang}`;
+  const safeLang = activeLang || 'uk';
+  const langLabel = safeLang === 'uk' ? 'UA' : safeLang.toUpperCase();
   return (
     <FieldTextarea
-      label={`${t('adminProductsFormDesc')} (${activeLang === 'uk' ? 'UA' : activeLang.toUpperCase()})`}
-      value={form[descKey]}
-      onChangeText={(v) => onChange(descKey, v)}
+      label={`${t('adminProductsFormDesc')} (${langLabel})`}
+      value={form.description?.[safeLang] ?? ''}
+      onChangeText={(v) => onChange('description', { ...form.description, [safeLang]: v })}
       placeholder={t('adminProductsFormDescPlaceholder')}
     />
   );

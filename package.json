@@ -1,15 +1,21 @@
 {
   "name": "pigment-shop",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "expo-router/entry",
   "dependencies": {
     "@expo/metro-runtime": "~57.0.3",
     "expo": "~57.0.4",
-    "expo-status-bar": "~57.0.0",
+    "expo-constants": "~57.0.6",
+    "expo-linking": "~57.0.3",
+    "expo-router": "~57.0.7",
+    "expo-status-bar": "~57.0.1",
     "firebase": "^12.16.0",
+    "html2canvas": "^1.4.1",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-native": "0.86.0",
+    "react-native-safe-area-context": "~5.7.0",
+    "react-native-screens": "4.25.2",
     "react-native-web": "^0.21.2"
   },
   "scripts": {
@@ -18,18 +24,26 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "backup": "node backuper/backup.js",
-    "restore": "node backuper/restore.js",
-    "audit": "node auditor/run-audit.cjs",
+    "backup": "node .tools/.backuper/backup.js",
+    "restore": "node .tools/.backuper/restore.js",
+    "audit": "node .tools/.auditor/run-audit.cjs",
+    "clean": "node .tools/.cleaner/run-clean.cjs",
+    "health": "node .tools/.health/run-health.cjs",
+    "pack": "node .tools/.packer/run-pack.cjs",
     "generate-media": "node scripts/generateMediaManifest.js",
-    "regenerate-database": "node scripts/regenerateDatabase.js"
+    "regenerate-database": "node scripts/regenerateDatabase.js",
+    "regenerate-database-low": "node scripts/regenerateDatabase.js --low",
+    "type-check": "tsc --noEmit"
   },
   "mediaConfig": {
     "scanSubdirectories": true
   },
   "private": true,
   "devDependencies": {
+    "@playwright/test": "^1.61.1",
+    "@types/node": "^26.1.1",
     "@types/react": "~19.2.4",
+    "playwright": "^1.61.1",
     "typescript": "~6.0.3"
   }
 }

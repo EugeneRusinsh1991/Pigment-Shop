@@ -10,10 +10,12 @@
     "**/node_modules": true,
     "**/dist": true,
     "**/auditor/reports": true,
-    "**/backuper": true
+    "**/backuper": true,
+    "**/.docs/.browserLog": true
   },
   "watcher.exclude": {
     "**/node_modules/**": true,
-    "**/dist/**": true
+    "**/dist/**": true,
+    "**/.docs/.browserLog/**": true
   }
 }

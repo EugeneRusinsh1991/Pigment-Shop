@@ -7,32 +7,32 @@
  *   Wait for Firebase auth to resolve, then delegate to the central startup
  *   orchestrator (startAppBootstrap) exactly once per session.
  *
- * This component does NOT coordinate startup logic directly.
- * All startup sequencing is owned by the orchestrator (appBootstrap.js).
- * UI readiness is determined by the startup contract, not by this component.
+ * This is a headless trigger component — it does not render any loading UI.
+ * UI gating is owned exclusively by AppGate in App.js, which subscribes to
+ * the startup contract status via useBootstrapStatus.
  *
- * Rendering:
- *   Children are rendered unconditionally — this component does not gate
- *   the UI. The app shell gate (AppGate in App.js) reads startup status
- *   from useBootstrapStatus() and manages the loading/ready transition.
+ * Decoupled from direct authentication details via resolveBootstrapDecision.
  */
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef, useMemo } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { startAppBootstrap } from './appBootstrap';
+import { resolveBootstrapDecision } from './authBootstrapCoordinator';
 
 export default function BootstrapGate({ children }) {
-  const { loading, user, isAuthenticated } = useAuth();
+  const auth = useAuth();
+  const decision = useMemo(() => resolveBootstrapDecision(auth), [auth]);
   const hasBootstrapped = useRef(false);
 
   useEffect(() => {
-    // Do not proceed until Firebase auth has fully resolved.
-    if (loading) return;
-    // Delegate to the orchestrator exactly once per session.
+    if (!decision.shouldStart) return;
     if (hasBootstrapped.current) return;
 
     hasBootstrapped.current = true;
-    startAppBootstrap({ isAuthenticated, user });
-  }, [loading, isAuthenticated, user]);
+    startAppBootstrap({
+      isAuthenticated: decision.isAuthenticated,
+      user: decision.user,
+    });
+  }, [decision]);
 
   return children;
 }

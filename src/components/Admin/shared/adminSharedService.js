@@ -1,5 +1,8 @@
 import { collection, getDocs } from 'firebase/firestore';
-import { db } from '../../../firebase';
+import { db } from '../../../services/firebase';
+import { COLLECTIONS } from '../../../services/collections';
+
+
 
 /**
  * Fetches both users and orders collections from Firestore and returns them as mapped arrays.
@@ -7,8 +10,8 @@ import { db } from '../../../firebase';
  */
 export async function fetchUsersAndOrders() {
   const [usersSnap, ordersSnap] = await Promise.all([
-    getDocs(collection(db, 'users')),
-    getDocs(collection(db, 'orders'))
+    getDocs(collection(db, COLLECTIONS.USERS)),
+    getDocs(collection(db, COLLECTIONS.ORDERS))
   ]);
 
   const users = usersSnap.docs.map((docSnap) => ({

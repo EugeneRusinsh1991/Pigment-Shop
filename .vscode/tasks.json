@@ -2,22 +2,118 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "Run Backup",
+            "type": "shell",
+            "command": "npm run backup",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "close": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Tools: Backup",
+            "type": "shell",
+            "command": "npm run backup",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "close": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Tools: Restore Menu",
+            "type": "shell",
+            "command": "npm run restore",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "focus": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Run Restore",
+            "type": "shell",
+            "command": "npm run restore",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "focus": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Restore Menu",
+            "type": "shell",
+            "command": "npm run restore",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "focus": true
+            },
+            "problemMatcher": []
+        },
+        {
             "label": "Run Audit",
             "type": "shell",
             "command": "npm run audit",
-            "group": "build",
             "presentation": {
                 "reveal": "always",
                 "panel": "shared"
-            }
+            },
+            "problemMatcher": []
         },
         {
-            "label": "Run AGY",
+            "label": "Tools: Audit Codebase",
             "type": "shell",
-            "command": "C:\\Users\\Eugene\\AppData\\Local\\agy\\bin\\agy.exe",
+            "command": "npm run audit",
             "presentation": {
                 "reveal": "always",
                 "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Tools: Clean Cache & Artifacts",
+            "type": "shell",
+            "command": "npm run clean",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Tools: Health Check",
+            "type": "shell",
+            "command": "npm run health",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Tools: Pack Codebase ZIP",
+            "type": "shell",
+            "command": "npm run pack",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Open Playwright Browser",
+            "type": "shell",
+            "command": "node scripts/open-playwright.js http://localhost:8081",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "clear": true
             },
             "problemMatcher": []
         },
@@ -26,27 +122,67 @@
             "type": "shell",
             "command": "npm run dev",
             "group": "build",
+            "isBackground": true,
             "presentation": {
                 "reveal": "always",
                 "panel": "shared"
             },
-            "problemMatcher": []
-        },
-        {
-            "label": "Run Backup",
-            "type": "shell",
-            "command": "npm run backup",
-            "presentation": {
-                "reveal": "always",
-                "panel": "shared"
-            },
-            "problemMatcher": []
+            "problemMatcher": {
+                "pattern": {
+                    "regexp": "^.*$"
+                },
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": ".*",
+                    "endsPattern": ".*"
+                }
+            }
         },
         {
             "label": "Generate Media",
             "type": "shell",
             "command": "npm run generate-media",
             "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "Run Browser Automation Smoke (TSX)",
+            "type": "shell",
+            "command": "npx tsx .tools/browser-automation/run-smoke.ts",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Run Browser Automation Smoke",
+            "type": "shell",
+            "command": "node scripts/smoke-test/smoke-test.js",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Run Smoke Test",
+            "type": "shell",
+            "command": "node scripts/smoke-test/smoke-test.js",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Tools: Regenerate Database Low",
+            "type": "shell",
+            "command": "npm run regenerate-database-low",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
             "problemMatcher": []
         }
     ]

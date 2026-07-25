@@ -16,8 +16,8 @@
  *   category   string?    – pre-selects a tab ('images' | 'gifs' | 'videos')
  */
 import React, { useState } from 'react';
-import { Modal, View } from 'react-native';
 import { listAllMedia, MEDIA_CATEGORY, isManifestGenerated } from '../../../media';
+import { FormModalLayout } from '../SharedFormComponents';
 import {
   OutdatedBanner,
   BrowserHeader,
@@ -58,26 +58,34 @@ export default function MediaBrowser({ visible, onSelect, onClose, category }) {
     setSelectedItem(null);
   }
 
+  const modalStyles = {
+    modalOverlay: styles.overlay,
+    modalCard: styles.card,
+  };
+
   return (
-    <Modal visible={visible} transparent animationType="fade" onRequestClose={handleClose}>
-      <View style={styles.overlay}>
-        <View style={styles.card}>
-          <BrowserHeader onRefresh={handleRefresh} onClose={handleClose} />
-          {!manifestReady && <OutdatedBanner />}
-          <BrowserTabs activeTab={activeTab} onTabChange={handleTabChange} />
-          <BrowserBody
-            currentItems={currentItems}
-            manifestReady={manifestReady}
-            selectedItem={selectedItem}
-            onSelectItem={setSelectedItem}
-          />
-          <BrowserFooter
-            selectedItem={selectedItem}
-            onClose={handleClose}
-            onConfirm={handleConfirm}
-          />
-        </View>
-      </View>
-    </Modal>
+    <FormModalLayout
+      visible={visible}
+      onClose={handleClose}
+      styles={modalStyles}
+      cardWidth={600}
+      footer={
+        <BrowserFooter
+          selectedItem={selectedItem}
+          onClose={handleClose}
+          onConfirm={handleConfirm}
+        />
+      }
+    >
+      <BrowserHeader onRefresh={handleRefresh} onClose={handleClose} />
+      {!manifestReady && <OutdatedBanner />}
+      <BrowserTabs activeTab={activeTab} onTabChange={handleTabChange} />
+      <BrowserBody
+        currentItems={currentItems}
+        manifestReady={manifestReady}
+        selectedItem={selectedItem}
+        onSelectItem={setSelectedItem}
+      />
+    </FormModalLayout>
   );
 }

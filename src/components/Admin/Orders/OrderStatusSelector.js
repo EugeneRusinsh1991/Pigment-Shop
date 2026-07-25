@@ -1,19 +1,34 @@
+/**
+ * OrderStatusSelector.js — with status badge colors on trigger + dropdown
+ */
 import { useState } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
 import styles from './OrdersStyles';
 import OrderStatusDropdownMenu from './OrderStatusDropdownMenu';
 
 const STATUSES = [
-  { value: 'New', localeKey: 'orderStatusPending' },
-  { value: 'Processing', localeKey: 'orderStatusProcessing' },
-  { value: 'Completed', localeKey: 'orderStatusCompleted' },
-  { value: 'Cancelled', localeKey: 'orderStatusCancelled' },
+  { value: 'New',        localeKey: 'orderStatusPending',    color: '#3B82F6', bg: '#DBEAFE' },
+  { value: 'Processing', localeKey: 'orderStatusProcessing', color: '#D97706', bg: '#FEF3C7' },
+  { value: 'Completed',  localeKey: 'orderStatusCompleted',  color: '#10B981', bg: '#D1FAE5' },
+  { value: 'Cancelled',  localeKey: 'orderStatusCancelled',  color: '#EF4444', bg: '#FEE2E2' },
 ];
+
+// Also handle legacy Russian status values
+const LEGACY_MAP = {
+  'Новый заказ': 'New',
+  'В обработке': 'Processing',
+  'Выполнен':    'Completed',
+  'Отменён':     'Cancelled',
+};
+
+function resolveStatus(currentStatus) {
+  const canonical = LEGACY_MAP[currentStatus] || currentStatus;
+  return STATUSES.find((s) => s.value === canonical) || STATUSES[0];
+}
 
 export default function OrderStatusSelector({ currentStatus, updating, onStatusChange, t }) {
   const [isOpen, setIsOpen] = useState(false);
-
-  const currentStatusObj = STATUSES.find((s) => s.value === currentStatus) || STATUSES[0];
+  const statusObj = resolveStatus(currentStatus);
 
   const handleSelect = (statusValue) => {
     onStatusChange(statusValue);
@@ -25,21 +40,17 @@ export default function OrderStatusSelector({ currentStatus, updating, onStatusC
       <TouchableOpacity
         style={[
           styles.statusDropdown,
-          {
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            marginTop: 0,
-          },
+          { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginTop: 0,
+            backgroundColor: statusObj.bg, borderColor: statusObj.color, borderWidth: 1.5 },
         ]}
         onPress={() => setIsOpen(!isOpen)}
         disabled={updating}
         activeOpacity={0.7}
       >
-        <Text style={[styles.statusOptionText, { fontWeight: '500' }]}>
-          {t(currentStatusObj.localeKey) || currentStatus}
+        <Text style={[styles.statusOptionText, { fontWeight: '700', color: statusObj.color }]}>
+          {t(statusObj.localeKey) || currentStatus}
         </Text>
-        <Text style={{ fontSize: 10, color: '#64748B' }}>{isOpen ? '▲' : '▼'}</Text>
+        <Text style={{ fontSize: 10, color: statusObj.color }}>{isOpen ? '▲' : '▼'}</Text>
       </TouchableOpacity>
 
       {isOpen && (

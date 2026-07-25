@@ -161,5 +161,28 @@ export const StarIcon = ({ color, size = 16, style, ...props }) => {
   return <Text style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>★</Text>;
 };
 
+export const GridIcon = ({ color, size = 18, style, ...props }) => {
+  if (Platform.OS === 'web') {
+    return (
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
+        <rect x="3" y="3" width="7" height="7" rx="1" />
+        <rect x="14" y="3" width="7" height="7" rx="1" />
+        <rect x="14" y="14" width="7" height="7" rx="1" />
+        <rect x="3" y="14" width="7" height="7" rx="1" />
+      </svg>
+    );
+  }
+  return <Text style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🗂️</Text>;
+};
 
-
+export const CurrencyIcon = ({ color, size = 18, style, ...props }) => {
+  if (Platform.OS === 'web') {
+    return (
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
+        <line x1="12" y1="1" x2="12" y2="23" />
+        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+      </svg>
+    );
+  }
+  return <Text style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>$</Text>;
+};

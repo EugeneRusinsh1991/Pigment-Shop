@@ -1,135 +1,95 @@
+import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
-import { getProducts } from '../../../data/catalogState';
-import { MAX_DEPTH } from '../../../services/adminCategoriesService';
-import { CheckIcon, ChevronDownIcon, ChevronRightIcon, CrossIcon, EditIcon, TrashIcon } from '../../Icons';
-import styles from './CategoriesStyles';
+import styles, { CATEGORY_TYPE_COLORS } from './CategoriesStyles';
+import {
+  DepthBars,
+  ImageBadge,
+  INDENT_PER_LEVEL,
+  ToggleButton,
+  getCategoryMeta,
+  resolveCategoryName,
+} from './CategoryRowElements';
 
-const INDENT_PER_LEVEL = 20;
+function useCategoryRowData(row, products) {
+  const { lang, t } = useTheme();
+  const safeDepth = typeof row._depth === 'number' ? row._depth : 0;
+  const { type, childCount, assignedCount } = getCategoryMeta(row, products);
+  const typeColors = CATEGORY_TYPE_COLORS[type];
+  const countLabel = type === 'category_holder' ? `${childCount}` : `${assignedCount}`;
+  const name = resolveCategoryName(row.name, lang);
+  return { safeDepth, type, typeColors, countLabel, name, t };
+}
 
-const getImageBadgeStyle = (has) => [
-  styles.imageBadge,
-  has ? styles.imageBadgeSet : styles.imageBadgeNone
-];
+export function DesktopCategoryRow({ row, hasChildren, isCollapsed, onToggle, onEdit, isAlt, products }) {
+  const { safeDepth, type, typeColors, countLabel, name } = useCategoryRowData(row, products);
 
-const getImageBadgeTextStyle = (has) => [
-  styles.imageBadgeText,
-  has ? styles.imageBadgeSetText : styles.imageBadgeNoneText,
-  { marginLeft: 4 }
-];
-
-function ImageBadge({ image }) {
-  const { t } = useTheme();
-  const has = !!image;
   return (
-    <View style={getImageBadgeStyle(has)}>
-      <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-        {has ? <CheckIcon color="#16A34A" size={12} /> : <CrossIcon color="#DC2626" size={12} />}
-        <Text style={getImageBadgeTextStyle(has)}>
-          {has ? t('adminCategoriesImageSet') : t('adminCategoriesImageNone')}
-        </Text>
+    <TouchableOpacity
+      style={[
+        styles.treeRow,
+        isAlt && styles.treeRowAlt,
+        type === 'category_holder' ? styles.treeRowCategoryHolder : styles.treeRowProductHolder,
+      ]}
+      onPress={() => onEdit(row)}
+      activeOpacity={0.85}
+    >
+      <DepthBars depth={safeDepth} leftOffset={16} />
+
+      {/* Name column */}
+      <View style={[styles.colName, { paddingLeft: safeDepth * INDENT_PER_LEVEL + (safeDepth > 0 ? 10 : 0) }]}>
+        <View style={styles.nameCell}>
+          <ToggleButton hasChildren={hasChildren} isCollapsed={isCollapsed} onToggle={onToggle} rowId={row.id} />
+          <View style={{ flex: 1 }}>
+            <Text style={[styles.categoryName, safeDepth > 0 && { fontSize: 12 }]}>{name}</Text>
+            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 2 }}>
+              <View style={[styles.typeBadge, { backgroundColor: typeColors.softBg }]}>
+                <Text style={[styles.typeBadgeText, { color: typeColors.text }]}>{typeColors.label}</Text>
+              </View>
+              <Text style={styles.categoryId}>{countLabel}</Text>
+            </View>
+          </View>
+        </View>
       </View>
-    </View>
-  );
-}
 
-function resolveCategoryName(name, lang) {
-  if (!name) return '—';
-  const lVal = name[lang];
-  if (lVal) return lVal;
-  const ruVal = name.ru;
-  if (ruVal) return ruVal;
-  return '—';
-}
-
-function ToggleButton({ hasChildren, isCollapsed, onToggle, rowId }) {
-  if (!hasChildren) return <View style={styles.togglePlaceholder} />;
-  return (
-    <TouchableOpacity style={[styles.toggleBtn, { justifyContent: 'center', alignItems: 'center' }]} onPress={() => onToggle(rowId)} activeOpacity={0.7}>
-      {isCollapsed ? <ChevronRightIcon color="#475569" size={12} /> : <ChevronDownIcon color="#475569" size={12} />}
+      {/* Image column */}
+      <View style={styles.colImage}>
+        <ImageBadge image={row.image} />
+      </View>
     </TouchableOpacity>
   );
 }
 
-function NameCell({ row, indent, hasChildren, isCollapsed, onToggle }) {
-  const { lang } = useTheme();
-  const assignedProducts = getProducts().filter((product) => (row.productIds || []).includes(product.id));
-  const childCategories = (row.children || []).length;
-  const productSummary = assignedProducts
-    .slice(0, 3)
-    .map((product) => {
-      const label = product?.label;
-      if (typeof label === 'object') return label[lang] || label.ru || label.en || product.id;
-      return label || product.id;
-    })
-    .join(', ');
-  const categoryType = getCategoryType(row, hasChildren);
-  const countLabel = categoryType === 'category_holder'
-    ? `${childCategories} categories`
-    : `${assignedProducts.length} products`;
+export function MobileCategoryCard({ row, hasChildren, isCollapsed, onToggle, onEdit, products }) {
+  const { safeDepth, type, typeColors, countLabel, name } = useCategoryRowData(row, products);
 
   return (
-    <View style={[styles.colName, { paddingLeft: indent }]}> 
-      <View style={styles.nameCell}>
+    <TouchableOpacity
+      style={[
+        styles.mobileTreeCard,
+        type === 'category_holder' ? styles.mobileTreeCardCategoryHolder : styles.mobileTreeCardProductHolder,
+      ]}
+      onPress={() => onEdit(row)}
+      activeOpacity={0.85}
+    >
+      <DepthBars depth={safeDepth} leftOffset={16} />
+
+      {/* Single row: toggle + name + image badge */}
+      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, paddingLeft: safeDepth * INDENT_PER_LEVEL + (safeDepth > 0 ? 10 : 0) }}>
         <ToggleButton hasChildren={hasChildren} isCollapsed={isCollapsed} onToggle={onToggle} rowId={row.id} />
-        <View style={{ flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', gap: 8, flex: 1 }}>
-          <Text style={styles.categoryName}>{resolveCategoryName(row.name, lang)}</Text>
-          <Text style={styles.categoryId}>{countLabel}</Text>
-          {categoryType !== 'category_holder' && productSummary ? (
-            <Text style={[styles.categoryId, { color: '#64748B' }]} numberOfLines={1}>
-              {productSummary}
-            </Text>
-          ) : null}
+
+        <View style={{ flex: 1 }}>
+          <Text style={[styles.categoryName, safeDepth > 0 && { fontSize: 12 }]} numberOfLines={1}>{name}</Text>
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 2 }}>
+            <View style={[styles.typeBadge, { backgroundColor: typeColors.softBg }]}>
+              <Text style={[styles.typeBadgeText, { color: typeColors.text }]}>{typeColors.label}</Text>
+            </View>
+            <Text style={styles.categoryId}>{countLabel}</Text>
+            <ImageBadge image={row.image} />
+          </View>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 
-function ActionsCell({ row, canAddChild, onAddChild, onEdit, onDelete }) {
-  const { t } = useTheme();
-  return (
-    <View style={styles.colActions}>
-      {canAddChild && (
-        <TouchableOpacity style={styles.addChildBtn} onPress={() => onAddChild(row)} activeOpacity={0.75}>
-          <Text style={styles.addChildBtnText}>{t('adminCategoriesAddSubBtn')}</Text>
-        </TouchableOpacity>
-      )}
-      <TouchableOpacity style={styles.actionBtn} onPress={() => onEdit(row)} activeOpacity={0.75}>
-        <EditIcon color="#475569" size={14} />
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.actionBtn} onPress={() => onDelete(row.id)} activeOpacity={0.75}>
-        <TrashIcon color="#EF4444" size={14} />
-      </TouchableOpacity>
-    </View>
-  );
-}
-
-const getCategoryType = (row, hasChildren) => {
-  if (row.type === 'category_holder' || (!row.type && hasChildren)) return 'category_holder';
-  return 'product_holder';
-};
-
-const getIsCategoryHolder = (row, hasChildren) => getCategoryType(row, hasChildren) === 'category_holder';
-
-const getCanAddChild = (row, isHolder) => {
-  const depth = row.depth || 1;
-  return depth < MAX_DEPTH && isHolder;
-};
-
-export default function CategoryRow({ row, hasChildren, isCollapsed, onToggle, onEdit, onAddChild, onDelete, isAlt }) {
-  const indent = row._depth * INDENT_PER_LEVEL;
-  const categoryType = getCategoryType(row, hasChildren);
-  const isCategoryHolder = categoryType === 'category_holder';
-  const canAddChild = getCanAddChild(row, isCategoryHolder);
-
-  return (
-    <View style={[styles.treeRow, isAlt && styles.treeRowAlt, categoryType === 'category_holder' ? styles.treeRowCategoryHolder : styles.treeRowProductHolder]}>
-      <NameCell row={row} indent={indent} hasChildren={hasChildren} isCollapsed={isCollapsed} onToggle={onToggle} />
-      <View style={styles.colImage}>
-        <ImageBadge image={row.image} />
-      </View>
-      <ActionsCell row={row} canAddChild={canAddChild} onAddChild={onAddChild} onEdit={onEdit} onDelete={onDelete} />
-    </View>
-  );
-}

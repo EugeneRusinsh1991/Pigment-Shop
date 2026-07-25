@@ -7,4 +7,3 @@
 export { MEDIA_CATEGORY } from './mediaTypes';
 export { listAllMedia, isManifestGenerated } from './mediaService';
 export { resolveMediaUrl, fromMediaRef } from './mediaAdapter';
-export { default as MediaRenderer } from './MediaRenderer';

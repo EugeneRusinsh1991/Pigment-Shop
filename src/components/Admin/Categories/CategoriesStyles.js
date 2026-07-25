@@ -4,19 +4,21 @@
  * Styles for the categories manager container and tree table.
  */
 import { StyleSheet } from 'react-native';
+import { colors, layout } from '../../../theme/tokens';
+import { shadow } from '../../../theme/shadows';
 
 export const CATEGORY_TYPE_COLORS = {
   category_holder: {
     label: 'Category Holder',
-    accent: '#8B5CF6',
-    softBg: '#F5F3FF',
-    text: '#6D28D9',
+    accent: colors.purpleLight,
+    softBg: colors.purpleBgLight,
+    text: colors.purpleDeep,
   },
   product_holder: {
     label: 'Product Holder',
-    accent: '#10B981',
-    softBg: '#ECFDF5',
-    text: '#047857',
+    accent: colors.successMid,
+    softBg: colors.successBgSoft,
+    text: colors.successStrong,
   },
 };
 
@@ -29,30 +31,24 @@ export default StyleSheet.create({
   toolbar: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    flexWrap: 'wrap',
+    gap: 8,
     marginBottom: 16,
-    gap: 12,
-  },
-  toolbarTitle: {
-    flex: 1,
-    fontSize: 14,
-    fontWeight: '600',
-    color: '#475569',
   },
   addBtn: {
-    flexDirection: 'row',
+    height: 36,
+    paddingHorizontal: 14,
+    borderRadius: 20,
+    borderWidth: 1.5,
+    borderColor: colors.textLight,
+    backgroundColor: colors.textLight,
     alignItems: 'center',
-    gap: 6,
-    backgroundColor: '#1C1C1C',
-    borderRadius: 10,
-    paddingVertical: 11,
-    paddingHorizontal: 18,
-    height: 44,
+    justifyContent: 'center',
   },
   addBtnText: {
-    color: '#FFFFFF',
+    color: colors.textDark,
     fontSize: 13,
-    fontWeight: '700',
+    fontWeight: '600',
   },
 
   /* Expand/collapse all controls */
@@ -63,73 +59,66 @@ export default StyleSheet.create({
     alignSelf: 'flex-start',
   },
   treeControlBtn: {
-    paddingVertical: 5,
-    paddingHorizontal: 12,
-    borderRadius: 7,
-    backgroundColor: '#F5F7FA',
-    borderWidth: 1,
-    borderColor: '#E8EDF5',
+    height: 36,
+    paddingHorizontal: 14,
+    borderRadius: 20,
+    borderWidth: 1.5,
+    borderColor: colors.secondaryLightBorder,
+    backgroundColor: colors.surfaceLight,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   treeControlBtnText: {
-    fontSize: 12,
-    fontWeight: '600',
-    color: '#475569',
+    fontSize: 13,
+    fontWeight: '500',
+    color: colors.textDescLight,
   },
 
   /* Table card */
   tableCard: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.surfaceLight,
     borderRadius: 14,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.05,
-    shadowRadius: 8,
+    ...shadow.card(),
     elevation: 2,
     overflow: 'hidden',
   },
-  tableHeader: {
-    flexDirection: 'row',
-    paddingHorizontal: 16,
-    paddingVertical: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: '#F1E8E4',
-    backgroundColor: '#FAFAFA',
-  },
-  thText: {
-    fontSize: 11,
-    fontWeight: '700',
-    color: '#94a3b8',
-    letterSpacing: 0.8,
-    textTransform: 'uppercase',
-  },
+
 
   /* Tree row */
   treeRow: {
+    position: 'relative',
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 16,
-    paddingVertical: 11,
+    paddingVertical: 10,
     borderBottomWidth: 1,
-    borderBottomColor: '#E2E8F0',
+    borderBottomColor: colors.secondaryLightBorder,
     borderLeftWidth: 3,
     borderLeftColor: 'transparent',
+    overflow: 'hidden',
   },
   treeRowAlt: {
-    backgroundColor: '#FEFEFE',
+    backgroundColor: colors.surfaceElevatedLight,
   },
   treeRowCategoryHolder: {
-    backgroundColor: '#F8F7FF',
-    borderLeftColor: '#8B5CF6',
+    backgroundColor: colors.purpleBgAlt,
+    borderLeftColor: colors.purpleLight,
   },
   treeRowProductHolder: {
-    backgroundColor: '#F3FCF7',
-    borderLeftColor: '#10B981',
+    backgroundColor: colors.successBgGreen,
+    borderLeftColor: colors.successMid,
+  },
+  treeRowDepth1: {
+    backgroundColor: colors.infoBgAlt,
+  },
+  treeRowDepth2: {
+    backgroundColor: colors.neutralLightMax,
   },
 
   /* Cell widths */
-  colName: { flex: 2.5 },
-  colImage: { flex: 1 },
-  colActions: { flex: 1, flexDirection: 'row', gap: 6, justifyContent: 'flex-end', alignItems: 'center' },
+  colName: { flex: 2 },
+  colImage: { flex: 0.8 },
+  colActions: { flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center', paddingLeft: 8 },
 
   /* Name cell */
   nameCell: {
@@ -145,7 +134,7 @@ export default StyleSheet.create({
   },
   toggleIcon: {
     fontSize: 10,
-    color: '#94a3b8',
+    color: colors.textDescDark,
     fontWeight: '700',
   },
   togglePlaceholder: {
@@ -154,11 +143,11 @@ export default StyleSheet.create({
   categoryName: {
     fontSize: 13,
     fontWeight: '600',
-    color: '#1C1C1C',
+    color: colors.textLight,
   },
   categoryId: {
     fontSize: 11,
-    color: '#94a3b8',
+    color: colors.textDescDark,
     marginTop: 1,
   },
   typeBadge: {
@@ -166,7 +155,7 @@ export default StyleSheet.create({
     marginTop: 3,
     paddingHorizontal: 7,
     paddingVertical: 2,
-    borderRadius: 999,
+    borderRadius: layout.radii.full,
   },
   typeBadgeText: {
     fontSize: 10,
@@ -177,7 +166,7 @@ export default StyleSheet.create({
 
   cellText: {
     fontSize: 13,
-    color: '#475569',
+    color: colors.textDescLight,
   },
 
   imageBadge: {
@@ -186,38 +175,47 @@ export default StyleSheet.create({
     paddingVertical: 2,
     alignSelf: 'flex-start',
   },
-  imageBadgeSet: { backgroundColor: '#DCFCE7' },
-  imageBadgeNone: { backgroundColor: '#F1F5F9' },
+  imageBadgeSet: { backgroundColor: colors.successBgAlt },
+  imageBadgeNone: { backgroundColor: colors.slateMid },
   imageBadgeText: {
     fontSize: 11,
     fontWeight: '600',
   },
-  imageBadgeSetText: { color: '#16A34A' },
-  imageBadgeNoneText: { color: '#64748B' },
+  imageBadgeSetText: { color: colors.success },
+  imageBadgeNoneText: { color: colors.slateText },
 
   /* Action buttons */
   actionBtn: {
-    width: 28,
-    height: 28,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 6,
-    backgroundColor: '#F5F7FA',
-  },
-  addChildBtn: {
-    minWidth: 120,
     height: 32,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 8,
-    backgroundColor: '#EFF6FF',
+    borderRadius: layout.radii.sm,
+    borderWidth: 1,
+    borderColor: colors.slateText,
+    backgroundColor: colors.surfaceLight,
+    paddingHorizontal: 12,
+  },
+  actionBtnText: {
+    fontSize: 12,
+    fontWeight: '700',
+    color: colors.slateText,
+  },
+  addChildBtn: {
+    height: 32,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: layout.radii.sm,
+    borderWidth: 1,
+    borderColor: colors.infoStrong,
+    backgroundColor: colors.surfaceLight,
     paddingHorizontal: 12,
   },
   addChildBtnText: {
     fontSize: 12,
     fontWeight: '700',
-    color: '#1D4ED8',
+    color: colors.infoStrong,
   },
+
   actionIcon: {
     fontSize: 13,
   },
@@ -225,22 +223,36 @@ export default StyleSheet.create({
   /* Save Button */
   saveBtn: {
     marginTop: 20,
-    backgroundColor: '#16A34A',
-    borderRadius: 10,
+    backgroundColor: colors.success,
+    borderRadius: layout.radii.sm,
     paddingVertical: 14,
     alignItems: 'center',
   },
   saveBtnText: {
-    color: '#FFFFFF',
+    color: colors.textDark,
     fontSize: 14,
     fontWeight: '700',
   },
 
-  /* Empty */
-  emptyText: {
-    textAlign: 'center',
-    padding: 40,
-    color: '#94a3b8',
-    fontSize: 14,
+
+
+  /* Mobile card layout */
+  mobileTreeCard: {
+    position: 'relative',
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.secondaryLightBorder,
+    borderLeftWidth: 4,
+    borderLeftColor: 'transparent',
+    overflow: 'hidden',
+  },
+  mobileTreeCardCategoryHolder: {
+    backgroundColor: colors.purpleBgAlt,
+    borderLeftColor: colors.purpleLight,
+  },
+  mobileTreeCardProductHolder: {
+    backgroundColor: colors.successBgGreen,
+    borderLeftColor: colors.successMid,
   },
 });

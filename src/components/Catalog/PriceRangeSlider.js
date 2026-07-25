@@ -6,41 +6,12 @@
  * which ensures complete compatibility across Web and Mobile targets.
  */
 import React, { useState, useRef } from 'react';
-import { View, PanResponder, StyleSheet } from 'react-native';
+import { Platform, View, PanResponder, StyleSheet } from 'react-native';
 
-export default function PriceRangeSlider({
-  minValue,
-  maxValue,
-  minLimit = 0,
-  maxLimit = 5000,
-  onChange,
-  isDark,
-}) {
-  const [trackWidth, setTrackWidth] = useState(0);
-  const trackWidthRef = useRef(0);
-  const minRef = useRef(minValue);
-  const maxRef = useRef(maxValue);
-
-  trackWidthRef.current = trackWidth;
-  minRef.current = minValue;
-  maxRef.current = maxValue;
-
-  const startVal = useRef(0);
-
-  const getPercent = (value) => {
-    if (maxLimit === minLimit) return 0;
-    return (value - minLimit) / (maxLimit - minLimit);
-  };
-
-  const getValue = (percent) => {
-    return Math.round(minLimit + percent * (maxLimit - minLimit));
-  };
-
-  const minPercent = getPercent(minValue);
-  const maxPercent = getPercent(maxValue);
-
-  const handleMinPan = useRef(
-    PanResponder.create({
+function useSliderPanResponders(minLimit, maxLimit, trackWidthRef, minRef, maxRef, startVal, onChange) {
+  const minPanRef = useRef(null);
+  if (!minPanRef.current) {
+    minPanRef.current = PanResponder.create({
       onStartShouldSetPanResponder: () => true,
       onMoveShouldSetPanResponder: () => true,
       onPanResponderGrant: () => {
@@ -54,11 +25,12 @@ export default function PriceRangeSlider({
         nextVal = Math.max(minLimit, Math.min(nextVal, maxRef.current - 100));
         onChange(nextVal, maxRef.current);
       },
-    })
-  ).current;
+    });
+  }
 
-  const handleMaxPan = useRef(
-    PanResponder.create({
+  const maxPanRef = useRef(null);
+  if (!maxPanRef.current) {
+    maxPanRef.current = PanResponder.create({
       onStartShouldSetPanResponder: () => true,
       onMoveShouldSetPanResponder: () => true,
       onPanResponderGrant: () => {
@@ -72,8 +44,84 @@ export default function PriceRangeSlider({
         nextVal = Math.max(minRef.current + 100, Math.min(nextVal, maxLimit));
         onChange(minRef.current, nextVal);
       },
-    })
-  ).current;
+    });
+  }
+
+  return { handleMinPan: minPanRef.current, handleMaxPan: maxPanRef.current };
+}
+
+function SliderTrackContent({ trackWidth, minPercent, maxPercent, activeColor, isDark, handleMinPan, handleMaxPan }) {
+  if (trackWidth <= 0) return null;
+  const bg = isDark ? '#1C1C1C' : '#FFFFFF';
+
+  return (
+    <>
+      <View
+        style={[
+          styles.activeRange,
+          {
+            left: `${minPercent * 100}%`,
+            width: `${(maxPercent - minPercent) * 100}%`,
+            backgroundColor: activeColor,
+          },
+        ]}
+      />
+      <View
+        {...handleMinPan.panHandlers}
+        style={[
+          styles.handle,
+          {
+            left: trackWidth * minPercent - 10,
+            borderColor: activeColor,
+            backgroundColor: bg,
+          },
+        ]}
+      />
+      <View
+        {...handleMaxPan.panHandlers}
+        style={[
+          styles.handle,
+          {
+            left: trackWidth * maxPercent - 10,
+            borderColor: activeColor,
+            backgroundColor: bg,
+          },
+        ]}
+      />
+    </>
+  );
+}
+
+export default function PriceRangeSlider({
+  minValue,
+  maxValue,
+  minLimit = 0,
+  maxLimit = 5000,
+  onChange,
+  isDark,
+}) {
+  const [trackWidth, setTrackWidth] = useState(0);
+  const trackWidthRef = useRef(0);
+  const minRef = useRef(minValue);
+  const maxRef = useRef(maxValue);
+  const startVal = useRef(0);
+
+  trackWidthRef.current = trackWidth;
+  minRef.current = minValue;
+  maxRef.current = maxValue;
+
+  const minPercent = maxLimit === minLimit ? 0 : (minValue - minLimit) / (maxLimit - minLimit);
+  const maxPercent = maxLimit === minLimit ? 0 : (maxValue - minLimit) / (maxLimit - minLimit);
+
+  const { handleMinPan, handleMaxPan } = useSliderPanResponders(
+    minLimit,
+    maxLimit,
+    trackWidthRef,
+    minRef,
+    maxRef,
+    startVal,
+    onChange
+  );
 
   const activeColor = '#E31B23';
   const inactiveColor = isDark ? '#242424' : '#e5d8d3';
@@ -84,44 +132,15 @@ export default function PriceRangeSlider({
         style={[styles.track, { backgroundColor: inactiveColor }]}
         onLayout={(e) => setTrackWidth(e.nativeEvent.layout.width)}
       >
-        {trackWidth > 0 && (
-          <View
-            style={[
-              styles.activeRange,
-              {
-                left: `${minPercent * 100}%`,
-                width: `${(maxPercent - minPercent) * 100}%`,
-                backgroundColor: activeColor,
-              },
-            ]}
-          />
-        )}
-        {trackWidth > 0 && (
-          <>
-            <View
-              {...handleMinPan.panHandlers}
-              style={[
-                styles.handle,
-                {
-                  left: trackWidth * minPercent - 10,
-                  borderColor: activeColor,
-                  backgroundColor: isDark ? '#1C1C1C' : '#FFFFFF',
-                },
-              ]}
-            />
-            <View
-              {...handleMaxPan.panHandlers}
-              style={[
-                styles.handle,
-                {
-                  left: trackWidth * maxPercent - 10,
-                  borderColor: activeColor,
-                  backgroundColor: isDark ? '#1C1C1C' : '#FFFFFF',
-                },
-              ]}
-            />
-          </>
-        )}
+        <SliderTrackContent
+          trackWidth={trackWidth}
+          minPercent={minPercent}
+          maxPercent={maxPercent}
+          activeColor={activeColor}
+          isDark={isDark}
+          handleMinPan={handleMinPan}
+          handleMaxPan={handleMaxPan}
+        />
       </View>
     </View>
   );
@@ -134,32 +153,29 @@ const styles = StyleSheet.create({
     marginVertical: 8,
     paddingHorizontal: 10,
     width: '100%',
-    maxWidth: '100%',
-    alignSelf: 'flex-start',
   },
   track: {
     height: 4,
     borderRadius: 2,
     position: 'relative',
+    justifyContent: 'center',
   },
   activeRange: {
-    position: 'absolute',
-    height: '100%',
+    height: 4,
     borderRadius: 2,
+    position: 'absolute',
   },
   handle: {
-    position: 'absolute',
-    top: -8,
     width: 20,
     height: 20,
     borderRadius: 10,
     borderWidth: 2,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.2,
-    shadowRadius: 1.5,
-    elevation: 2,
-    // @ts-ignore
-    cursor: 'pointer',
+    position: 'absolute',
+    top: -8,
+    ...Platform.select({
+      web: {
+        cursor: 'pointer',
+      },
+    }),
   },
 });

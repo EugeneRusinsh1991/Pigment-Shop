@@ -1,0 +1,109 @@
+import { Text, TextInput, View } from 'react-native';
+import BaseCard from '../../components/BaseCard';
+import styles from './ProfilePageStyles';
+import Button from '../../components/Button';
+import { colors } from '../../theme/tokens';
+
+const getPlaceholderColor = (isDark) => (isDark ? colors.textMutedDark : colors.slateText);
+
+function EmailField({ label, email, selectTheme }) {
+  return (
+    <View style={styles.inputGroup}>
+      <Text style={[styles.label, selectTheme(styles.subtextDark, styles.subtextLight)]}>
+        {label}
+      </Text>
+      <View style={[styles.inputContainer, selectTheme(styles.inputContainerDark, styles.inputContainerLight), styles.inputDisabled]}>
+        <Text style={[styles.value, selectTheme(styles.subtextDark, styles.subtextLight)]}>
+          {email || 'user@example.com'}
+        </Text>
+      </View>
+    </View>
+  );
+}
+
+function ProfileTextField({ label, placeholder, value, onChangeText, isDark, selectTheme, keyboardType }) {
+  return (
+    <View style={styles.inputGroup}>
+      <Text style={[styles.label, selectTheme(styles.textDark, styles.textLight)]}>
+        {label}
+      </Text>
+      <View style={[styles.inputContainer, selectTheme(styles.inputContainerDark, styles.inputContainerLight)]}>
+        <TextInput
+          style={[styles.input, selectTheme(styles.textDark, styles.textLight)]}
+          placeholder={placeholder}
+          placeholderTextColor={getPlaceholderColor(isDark)}
+          value={value}
+          onChangeText={onChangeText}
+          keyboardType={keyboardType}
+        />
+      </View>
+    </View>
+  );
+}
+
+function SaveButton({ saving, loading, onSave, label }) {
+  return (
+    <Button
+      title={label}
+      onPress={onSave}
+      loading={saving}
+      disabled={saving || loading}
+      variant="primary"
+      size="md"
+      style={{ marginTop: 6 }}
+    />
+  );
+}
+
+function buildFieldConfig(t, values, setters) {
+  const { firstName, lastName, phone, city } = values;
+  const { setFirstName, setLastName, setPhone, setCity } = setters;
+  return [
+    { key: 'firstName', labelKey: 'profileFirstName', fallback: 'First Name',  value: firstName,  onChange: setFirstName },
+    { key: 'lastName',  labelKey: 'profileLastName',  fallback: 'Last Name',   value: lastName,   onChange: setLastName  },
+    { key: 'phone',     labelKey: 'profilePhone',      fallback: 'Phone',       value: phone,      onChange: setPhone, placeholder: '+1 234 567 8900', keyboardType: 'phone-pad' },
+    { key: 'city',      labelKey: 'profileCity',       fallback: 'City',        value: city,       onChange: setCity  },
+  ].map((f) => ({
+    ...f,
+    label: `${t(f.labelKey) || f.fallback} *`,
+    placeholder: f.placeholder || t(f.labelKey) || f.fallback,
+  }));
+}
+
+export default function ProfileFormCard({
+  email, firstName, lastName, phone, city,
+  setFirstName, setLastName, setPhone, setCity,
+  saving, loading, onSave,
+  isDark, selectTheme, t,
+}) {
+  const fieldProps = { isDark, selectTheme };
+  const fields = buildFieldConfig(t, { firstName, lastName, phone, city }, { setFirstName, setLastName, setPhone, setCity });
+
+  return (
+    <BaseCard
+      isDark={isDark}
+      padding={24}
+      style={styles.cardSpecific}
+    >
+      <EmailField label={t('profileEmail')} email={email} selectTheme={selectTheme} />
+
+      {fields.map((f) => (
+        <ProfileTextField
+          key={f.key}
+          {...fieldProps}
+          label={f.label}
+          placeholder={f.placeholder}
+          value={f.value}
+          onChangeText={f.onChange}
+          keyboardType={f.keyboardType}
+        />
+      ))}
+
+      <SaveButton saving={saving} loading={loading} onSave={onSave} selectTheme={selectTheme} label={t('profileSaveBtn')} />
+
+      <Text style={[styles.requiredNote, isDark ? styles.subtextDark : styles.subtextLight]}>
+        {t('profileRequiredNote')}
+      </Text>
+    </BaseCard>
+  );
+}

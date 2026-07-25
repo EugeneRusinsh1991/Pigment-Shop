@@ -1,8 +1,8 @@
 import { useWindowDimensions } from 'react-native';
 
 const WIDTH_MAP = {
-  depth0: { desktop: 250, tablet: 340, mobile: 165 },
-  depthRest: { desktop: 250, tablet: 160, mobile: 165 },
+  depth0: { desktop: 250, tablet: 220, mobile: 165 },
+  depthRest: { desktop: 250, tablet: 220, mobile: 165 },
 };
 
 const STANDARD_HEIGHTS = { desktop: 340, tablet: 280, mobile: 240 };
@@ -14,7 +14,7 @@ function getDevice(windowWidth) {
   return 'mobile';
 }
 
-function getCardHeight(isProduct, depth, device) {
+function getCardHeight(depth, device) {
   return STANDARD_HEIGHTS[device];
 }
 
@@ -26,14 +26,14 @@ function getCardHeight(isProduct, depth, device) {
  * @param {boolean} isProduct - Whether the card is a product card
  * @returns {{ cardWidth: number, cardHeight: number, imgContainerHeight: number, cardMargin: number }}
  */
-export default function useCardDimensions(depth, isProduct = false) {
+export default function useCardDimensions(depth) {
   const { width: windowWidth } = useWindowDimensions();
   const device = getDevice(windowWidth);
   const depthKey = depth === 0 ? 'depth0' : 'depthRest';
 
   return {
     cardWidth: WIDTH_MAP[depthKey][device],
-    cardHeight: getCardHeight(isProduct, depth, device),
+    cardHeight: getCardHeight(depth, device),
     imgContainerHeight: IMG_HEIGHTS[device],
     cardMargin: device === 'mobile' ? 4 : 8,
   };

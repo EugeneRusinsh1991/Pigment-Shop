@@ -1,10 +1,3 @@
-function resolveLocalizedValue(val, lang) {
-  if (!val) return '';
-  if (typeof val !== 'object') return val;
-  const match = [lang, 'ru', 'en', 'uk'].find((l) => val[l]);
-  return match ? val[match] : '';
-}
-
 const LOCALES = ['ru', 'uk', 'en'];
 
 function localizedFromScalar(scalar) {

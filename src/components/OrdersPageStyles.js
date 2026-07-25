@@ -1,8 +1,38 @@
 import { StyleSheet } from 'react-native';
+import { colors, fonts } from '../theme/tokens';
 
 export default StyleSheet.create({
-  cardSpecific: {
+  container: {
+    flex: 1,
+    width: '100%',
+  },
+  containerDark: { backgroundColor: colors.backgroundDark },
+  containerLight: { backgroundColor: colors.backgroundLight },
+  scrollContent: {
+    flexGrow: 1,
+    paddingBottom: 24,
+  },
+  pageContent: {
+    paddingHorizontal: 8,
+    paddingVertical: 16,
+  },
+  title: {
+    fontFamily: fonts.serif,
+    fontSize: 24,
+    lineHeight: 28,
+    fontWeight: '500',
     marginBottom: 16,
+    textAlign: 'center',
+  },
+  emptyText: {
+    fontSize: 14,
+    marginTop: 12,
+    textAlign: 'center',
+  },
+  emptyTextDark: { color: colors.textMutedDark },
+  emptyTextLight: { color: colors.textMutedLight },
+  cardSpecific: {
+    marginBottom: 12,
   },
   orderHeader: {
     flexDirection: 'row',
@@ -18,17 +48,37 @@ export default StyleSheet.create({
     fontSize: 14,
     fontWeight: '600',
   },
-  statusNewDark: { color: '#60A5FA' },
-  statusNewLight: { color: '#2563EB' },
-  statusProcessingDark: { color: '#FBBF24' },
-  statusProcessingLight: { color: '#D97706' },
-  statusCompletedDark: { color: '#34D399' },
-  statusCompletedLight: { color: '#15803D' },
-  statusCancelledDark: { color: '#F87171' },
-  statusCancelledLight: { color: '#DC2626' },
+  statusBadge: {
+    width: 110,
+    paddingVertical: 4,
+    paddingHorizontal: 8,
+    borderRadius: 16,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  statusBadgeText: {
+    fontSize: 12,
+    fontWeight: '600',
+    textAlign: 'center',
+  },
+  statusNewBg: { backgroundColor: colors.infoBgMid },
+  statusNewText: { color: colors.infoStrong },
+  statusProcessingBg: { backgroundColor: colors.warningBgMid },
+  statusProcessingText: { color: colors.warningDark },
+  statusCompletedBg: { backgroundColor: colors.successBgMid },
+  statusCompletedText: { color: colors.successMid },
+  statusCancelledBg: { backgroundColor: colors.dangerBgLight },
+  statusCancelledText: { color: colors.danger },
+  statusNewDark: { color: colors.infoLight },
+  statusNewLight: { color: colors.infoDeep },
+  statusProcessingDark: { color: colors.warningMid },
+  statusProcessingLight: { color: colors.warningDark },
+  statusCompletedDark: { color: colors.successLight },
+  statusCompletedLight: { color: colors.successDeep },
+  statusCancelledDark: { color: colors.dangerLight },
+  statusCancelledLight: { color: colors.dangerMid },
   orderDate: {
     fontSize: 14,
-    marginBottom: 16,
   },
   orderTotal: {
     fontSize: 16,
@@ -43,32 +93,32 @@ export default StyleSheet.create({
     fontSize: 14,
     fontWeight: '500',
   },
-  toggleTextDark: { color: '#60A5FA' },
-  toggleTextLight: { color: '#2563EB' },
+  toggleTextDark: { color: colors.infoLight },
+  toggleTextLight: { color: colors.infoDeep },
   itemsList: {
-    marginTop: 16,
+    marginTop: 12,
     borderRadius: 8,
     padding: 12,
   },
   itemsListDark: {
-    backgroundColor: '#1E1E1E',
+    backgroundColor: colors.productCardDark,
   },
   itemsListLight: {
-    backgroundColor: '#F8FAFC',
+    backgroundColor: colors.slateLight,
   },
   itemRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingVertical: 8,
+    paddingVertical: 6,
   },
   itemBorderDark: {
     borderTopWidth: 1,
-    borderTopColor: '#2D2D2D',
+    borderTopColor: colors.neutralDarkFaint,
   },
   itemBorderLight: {
     borderTopWidth: 1,
-    borderTopColor: '#E2E8F0',
+    borderTopColor: colors.secondaryLightBorder,
   },
   itemInfo: {
     flex: 1,
@@ -87,31 +137,31 @@ export default StyleSheet.create({
     fontWeight: '600',
   },
   adminCardNew: {
-    backgroundColor: '#EFF6FF',
-    borderColor: '#DBEAFE',
+    backgroundColor: colors.infoBgLight,
+    borderColor: colors.infoBgMid,
   },
   adminCardProcessing: {
-    backgroundColor: '#FFFBEB',
-    borderColor: '#FEF3C7',
+    backgroundColor: colors.warningBgStrong,
+    borderColor: colors.warningBgMid,
   },
   adminCardCompleted: {
-    backgroundColor: '#ECFDF5',
-    borderColor: '#D1FAE5',
+    backgroundColor: colors.successBgAlt,
+    borderColor: colors.successBgMid,
   },
   adminCardCancelled: {
-    backgroundColor: '#FEF2F2',
-    borderColor: '#FEE2E2',
+    backgroundColor: colors.dangerSoftLightBg,
+    borderColor: colors.dangerBgLight,
   },
   adminCardSpecific: {
-    paddingVertical: 10,
+    paddingVertical: 8,
     paddingHorizontal: 16,
-    marginBottom: 8,
+    marginBottom: 6,
     borderRadius: 12,
   },
   adminOrderHeader: {
     marginBottom: 4,
   },
   adminOrderDate: {
-    marginBottom: 6,
+    marginBottom: 4,
   },
 });

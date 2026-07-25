@@ -3,7 +3,7 @@
  *
  * Owns authentication state (isAuthenticated, user, loading).
  * This context is a PURE reactive state container:
- *   - It subscribes to Firebase auth state changes.
+ *   - It subscribes to authService changes.
  *   - It exposes auth actions (login, register, signInWithGoogle, logout).
  *   - It does NOT perform any visitor sign-in or account-creation side effects.
  *
@@ -11,21 +11,11 @@
  * bootstrap coordinator (src/bootstrap/appBootstrap.js), which is triggered
  * by BootstrapGate after auth resolves.
  */
-import {
-    createUserWithEmailAndPassword,
-    GoogleAuthProvider,
-    onAuthStateChanged,
-    signInWithEmailAndPassword,
-    signInWithPopup,
-    signOut,
-} from 'firebase/auth';
-import { createContext, useContext, useEffect, useState } from 'react';
-import { auth } from '../firebase';
+import { createContext, useContext, useEffect, useState, useCallback, useMemo } from 'react';
+import { authService } from '../services/authService';
+import { shouldTreatAsAuthenticated, resolveUserSession } from '../services/authPolicy';
 
 const AuthContext = createContext(null);
-
-/** Email used by the anonymous visitor account — used only to mask it from the UI. */
-const VISITOR_EMAIL = 'visitor@pigment-shop.com';
 
 export function AuthProvider({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -33,90 +23,60 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
-      if (firebaseUser) {
-        const isVisitor = firebaseUser.email === VISITOR_EMAIL;
-        // Visitor account is a technical session — do not expose it as a real user.
-        setUser(isVisitor ? null : firebaseUser);
-        setIsAuthenticated(!isVisitor);
-      } else {
-        setUser(null);
-        setIsAuthenticated(false);
-      }
+    const unsubscribe = authService.subscribeToAuthChanges((firebaseUser) => {
+      setUser(resolveUserSession(firebaseUser));
+      setIsAuthenticated(shouldTreatAsAuthenticated(firebaseUser));
       setLoading(false);
     });
     return unsubscribe;
   }, []);
 
-  const login = async (email, password) => {
-    const DEBUG_ADMIN_CREDENTIAL = '111111';
-    const ADMIN_EMAIL = 'admin@pigment-shop.com';
-    const ADMIN_PASSWORD = 'admin123456';
+  const login = useCallback(async (email, password) => {
+    const result = await authService.login(email, password);
+    // Suppress console.error here to avoid React Native LogBox popups for expected failures
+    return result;
+  }, []);
 
-    if (email === DEBUG_ADMIN_CREDENTIAL && password === DEBUG_ADMIN_CREDENTIAL) {
-      try {
-        await signInWithEmailAndPassword(auth, ADMIN_EMAIL, ADMIN_PASSWORD);
-        return true;
-      } catch (err) {
-        console.error('Firebase Auth Error:', err);
-        throw err;
+  const register = useCallback(async (email, password) => {
+    const result = await authService.register(email, password);
+    return result;
+  }, []);
+
+  const signInWithGoogle = useCallback(async () => {
+    const result = await authService.signInWithGoogle();
+    if (!result.success) {
+      const err = result.error;
+      if (err?.code !== 'auth/cancelled-popup-request' && err?.code !== 'auth/popup-closed-by-user') {
+        console.warn('Firebase Google Auth Error:', err);
       }
     }
+    return result;
+  }, []);
 
-    try {
-      await signInWithEmailAndPassword(auth, email, password);
-      return true;
-    } catch (err) {
-      console.error('Firebase Auth Error:', err);
-      throw err;
-    }
-  };
-
-  const register = async (email, password) => {
-    try {
-      await createUserWithEmailAndPassword(auth, email, password);
-      return true;
-    } catch (err) {
-      console.error('Firebase Auth Error:', err);
-      throw err;
-    }
-  };
-
-  const signInWithGoogle = async () => {
-    try {
-      const provider = new GoogleAuthProvider();
-      await signInWithPopup(auth, provider);
-      return true;
-    } catch (err) {
-      console.error('Firebase Google Auth Error:', err);
-      throw err;
-    }
-  };
-
-  const logout = async () => {
+  const logout = useCallback(async () => {
     if (!user && isAuthenticated) {
       setIsAuthenticated(false);
-      return;
+      return { success: true };
     }
-    try {
-      await signOut(auth);
-    } catch (err) {
-      console.error(err);
+    const result = await authService.logout();
+    if (!result.success) {
+      console.warn('Logout failed:', result.error);
     }
-  };
+    return result;
+  }, [user, isAuthenticated]);
+
+  const value = useMemo(() => ({
+    isAuthenticated,
+    user,
+    loading,
+    login,
+    logout,
+    register,
+    signInWithGoogle,
+  }), [isAuthenticated, user, loading, login, logout, register, signInWithGoogle]);
 
   return (
-    <AuthContext.Provider
-      value={{
-        isAuthenticated,
-        user,
-        loading,
-        login,
-        logout,
-        register,
-        signInWithGoogle,
-      }}
-    >
+    <AuthContext.Provider value={value}>
       {children}
     </AuthContext.Provider>
   );

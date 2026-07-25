@@ -1,44 +1,35 @@
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { collection, doc, getDocs, writeBatch } from 'firebase/firestore';
-import { createDefaultCatalogDataset } from './catalogDatabaseRegenerator.helpers';
+import { createRandomCatalogDataset, generateOrdersDataset } from './catalogDatabaseRegenerator.helpers.js';
+import { fetchExistingCatalogData, replaceCatalogData, signInAsAdmin } from './repositories/catalogRepository.js';
+import { withServiceContract } from './serviceContract.js';
 
-export async function regenerateCatalogDatabase() {
-  const dataset = createDefaultCatalogDataset();
-  const [{ auth, db }, { setProducts, setCategories }] = await Promise.all([
-    import('../firebase.js'),
-    import('../data/catalogState.js'),
-  ]);
+async function _regenerateCatalogDatabase(options = {}) {
+  if (options.authenticate) {
+    console.log(`Step 1: Signing in as admin... [mode: ${options.mode || 'standard'}]`);
+    await signInAsAdmin();
+    console.log('  Sign-in successful.');
+  }
 
-  await signInWithEmailAndPassword(auth, 'admin@pigment-shop.com', 'admin123456');
+  console.log('Step 2: Fetching existing data...');
+  const existingData = await fetchExistingCatalogData();
+  
+  console.log(`  Found ${existingData.counts.products} products, ${existingData.counts.categories} categories, ${existingData.counts.orders} orders, ${existingData.users.length} users.`);
 
-  const productsCol = collection(db, 'products');
-  const categoriesCol = collection(db, 'categories');
+  console.log('Step 3: Deleting existing data (products, categories, orders)...');
+  if (existingData.counts.products > 0 || existingData.counts.categories > 0 || existingData.counts.orders > 0) {
+    // replaceCatalogData handles delete operations internally
+  } else {
+    console.log('  Nothing to delete.');
+  }
 
-  const [existingProducts, existingCategories] = await Promise.all([
-    getDocs(productsCol),
-    getDocs(categoriesCol),
-  ]);
+  console.log('Step 4: Generating and writing new dataset...');
+  const dataset = createRandomCatalogDataset(options);
+  const ordersDataset = generateOrdersDataset(existingData.users, dataset.products, options);
 
-  const batch = writeBatch(db);
+  await replaceCatalogData(existingData, dataset, ordersDataset);
+  
+  console.log(`  Wrote ${dataset.categories.length} categories, ${dataset.products.length} products, and ${ordersDataset.length} orders.`);
 
-  existingProducts.docs.forEach((docSnap) => {
-    batch.delete(doc(productsCol, docSnap.id));
-  });
-  existingCategories.docs.forEach((docSnap) => {
-    batch.delete(doc(categoriesCol, docSnap.id));
-  });
-
-  dataset.products.forEach((product) => {
-    batch.set(doc(productsCol, product.id), product);
-  });
-  dataset.categories.forEach((category) => {
-    batch.set(doc(categoriesCol, category.id), category);
-  });
-
-  await batch.commit();
-
-  setProducts(dataset.products);
-  setCategories(dataset.categories);
-
-  return dataset;
+  return { ...dataset, orders: ordersDataset };
 }
+
+export const regenerateCatalogDatabase = withServiceContract(_regenerateCatalogDatabase, 'Failed to regenerate catalog database');

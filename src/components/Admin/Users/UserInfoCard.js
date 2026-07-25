@@ -21,7 +21,7 @@ export default function UserInfoCard({ user, t }) {
       <InfoRow label={t('profileEmail')}     value={user.email}     />
       <InfoRow label={t('profilePhone')}     value={user.phone}     />
       <InfoRow label={t('profileCity')}      value={user.city}      />
-      {user.promoCode && (
+      {!!user.promoCode && (
         <InfoRow label={t('profilePromo')} value={user.promoCode} />
       )}
     </View>

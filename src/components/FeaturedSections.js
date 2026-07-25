@@ -1,38 +1,53 @@
-import { useEffect, useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { useEffect, useState, useRef } from 'react';
+import { Platform, StyleSheet, Text, View } from 'react-native';
 import { useTheme } from '../context/ThemeContext';
+
+const setElementText = (ref, text) => {
+  if (!ref.current) return;
+  if (Platform.OS === 'web') {
+    ref.current.textContent = text;
+  } else if (typeof ref.current.setNativeProps === 'function') {
+    ref.current.setNativeProps({ text });
+  }
+};
 
 // ─── Countdown Timer Component ──────────────────────────────────────────────
 
 export function CountdownTimer({ isDark }) {
   const { t } = useTheme();
-  // 7 days in seconds = 7 * 24 * 60 * 60 = 604,800
-  const [secondsLeft, setSecondsLeft] = useState(604800);
+  const daysRef = useRef(null);
+  const hoursRef = useRef(null);
+  const minutesRef = useRef(null);
+  const secondsRef = useRef(null);
 
   useEffect(() => {
+    let secondsLeft = 604800;
+
+    const updateDisplay = () => {
+      const days = Math.floor(secondsLeft / (24 * 3600));
+      const hours = Math.floor((secondsLeft % (24 * 3600)) / 3600);
+      const minutes = Math.floor((secondsLeft % 3600) / 60);
+      const seconds = secondsLeft % 60;
+
+      const pad = (num) => String(num).padStart(2, '0');
+
+      setElementText(daysRef, pad(days));
+      setElementText(hoursRef, pad(hours));
+      setElementText(minutesRef, pad(minutes));
+      setElementText(secondsRef, pad(seconds));
+    };
+
+    // Initial update
+    updateDisplay();
+
     const interval = setInterval(() => {
-      setSecondsLeft((prev) => (prev > 0 ? prev - 1 : 604800));
+      secondsLeft = secondsLeft > 0 ? secondsLeft - 1 : 604800;
+      updateDisplay();
     }, 1000);
+
     return () => clearInterval(interval);
   }, []);
 
-  const formatTime = () => {
-    const days = Math.floor(secondsLeft / (24 * 3600));
-    const hours = Math.floor((secondsLeft % (24 * 3600)) / 3600);
-    const minutes = Math.floor((secondsLeft % 3600) / 60);
-    const seconds = secondsLeft % 60;
-
-    const pad = (num) => String(num).padStart(2, '0');
-
-    return {
-      days: pad(days),
-      hours: pad(hours),
-      minutes: pad(minutes),
-      seconds: pad(seconds),
-    };
-  };
-
-  const timeData = formatTime();
   const ic = (dark, light) => (isDark ? dark : light);
 
   return (
@@ -40,26 +55,26 @@ export function CountdownTimer({ isDark }) {
       <Text style={[styles.compactTimerLabel, ic(styles.compactTimerLabelDark, styles.compactTimerLabelLight)]}>
         {t('offerEndsIn')}:
       </Text>
-      <Text style={[styles.compactTimerValue, ic(styles.compactTimerValueDark, styles.compactTimerValueLight)]}>
-        {timeData.days}
+      <Text ref={daysRef} style={[styles.compactTimerValue, ic(styles.compactTimerValueDark, styles.compactTimerValueLight)]}>
+        07
       </Text>
       <Text style={[styles.compactTimerUnit, ic(styles.compactTimerUnitDark, styles.compactTimerUnitLight)]}>
         {' D '}
       </Text>
-      <Text style={[styles.compactTimerValue, ic(styles.compactTimerValueDark, styles.compactTimerValueLight)]}>
-        {timeData.hours}
+      <Text ref={hoursRef} style={[styles.compactTimerValue, ic(styles.compactTimerValueDark, styles.compactTimerValueLight)]}>
+        00
       </Text>
       <Text style={[styles.compactTimerUnit, ic(styles.compactTimerUnitDark, styles.compactTimerUnitLight)]}>
         {' H '}
       </Text>
-      <Text style={[styles.compactTimerValue, ic(styles.compactTimerValueDark, styles.compactTimerValueLight)]}>
-        {timeData.minutes}
+      <Text ref={minutesRef} style={[styles.compactTimerValue, ic(styles.compactTimerValueDark, styles.compactTimerValueLight)]}>
+        00
       </Text>
       <Text style={[styles.compactTimerUnit, ic(styles.compactTimerUnitDark, styles.compactTimerUnitLight)]}>
         {' M '}
       </Text>
-      <Text style={[styles.compactTimerValue, ic(styles.compactTimerValueDark, styles.compactTimerValueLight)]}>
-        {timeData.seconds}
+      <Text ref={secondsRef} style={[styles.compactTimerValue, ic(styles.compactTimerValueDark, styles.compactTimerValueLight)]}>
+        00
       </Text>
       <Text style={[styles.compactTimerUnit, ic(styles.compactTimerUnitDark, styles.compactTimerUnitLight)]}>
         {' S'}
@@ -103,10 +118,17 @@ const styles = StyleSheet.create({
     padding: 18,
     borderRadius: 16,
     borderWidth: 1,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.06,
-    shadowRadius: 8,
+    ...Platform.select({
+      web: {
+        boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.06)',
+      },
+      default: {
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.06,
+        shadowRadius: 8,
+      },
+    }),
     elevation: 2,
   },
   cardDark: { backgroundColor: '#1e293b', borderColor: '#334155' },

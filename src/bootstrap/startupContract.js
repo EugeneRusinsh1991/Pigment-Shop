@@ -49,6 +49,25 @@ export const STARTUP_STATES = Object.freeze({
   FAILED: 'failed',
 });
 
+/**
+ * State transition mapping.
+ * Enforces valid state changes:
+ *   idle     -> starting (on START event)
+ *   starting -> ready    (on SUCCESS event)
+ *   starting -> failed   (on FAILURE event)
+ */
+export const STARTUP_TRANSITIONS = Object.freeze({
+  [STARTUP_STATES.IDLE]: Object.freeze({
+    START: STARTUP_STATES.STARTING,
+  }),
+  [STARTUP_STATES.STARTING]: Object.freeze({
+    SUCCESS: STARTUP_STATES.READY,
+    FAILURE: STARTUP_STATES.FAILED,
+  }),
+  [STARTUP_STATES.READY]: Object.freeze({}),
+  [STARTUP_STATES.FAILED]: Object.freeze({}),
+});
+
 // ─── Startup Step Descriptors ─────────────────────────────────────────────────
 
 /**
@@ -61,25 +80,38 @@ export const STARTUP_STATES = Object.freeze({
  *   - condition: Human-readable description of when this step runs.
  *
  * Dependency order:
- *   1. CATALOG_SYNC   — runs first; auth-aware, no async resolution required.
- *   2. VISITOR_SESSION — runs only when no real user is authenticated; optional.
+ *   1. VISITOR_SESSION — runs first to establish context (if unauthenticated); optional.
+ *   2. CATALOG_SYNC    — runs second to attach listener with valid credentials; required.
  *
- * @type {Readonly<{ id: string, required: boolean, condition: string }[]>}
+ * @type {Readonly<{ id: string, required: boolean, dependencies: string[], failureSemantics: { action: string, loggingLevel: string, description: string }, condition: string }[]>}
  */
 export const STARTUP_STEPS = Object.freeze([
   Object.freeze({
-    id: 'catalog-sync',
-    required: true,
-    condition: 'Always. Starts Firestore listeners for catalog data.',
-  }),
-  Object.freeze({
     id: 'visitor-session',
     required: false,
+    dependencies: [],
+    failureSemantics: Object.freeze({
+      action: 'graceful-fallback',
+      loggingLevel: 'warn',
+      description: 'An optional step failed. The app continues in a degraded but usable state.',
+    }),
     condition:
       'Only when no authenticated user is present. ' +
       'Establishes a shared visitor session as a fallback.',
   }),
+  Object.freeze({
+    id: 'catalog-sync',
+    required: true,
+    dependencies: ['visitor-session'],
+    failureSemantics: Object.freeze({
+      action: 'critical-failure',
+      loggingLevel: 'error',
+      description: 'A required startup step failed. The app enters a defined failed state.',
+    }),
+    condition: 'Always. Starts Firestore listeners for catalog data.',
+  }),
 ]);
+
 
 // ─── Success Semantics ────────────────────────────────────────────────────────
 
@@ -92,7 +124,7 @@ export const STARTUP_STEPS = Object.freeze([
  *   - Status transitions to STARTUP_STATES.READY.
  *   - The app shell is allowed to render.
  */
-export const SUCCESS_SEMANTICS = Object.freeze({
+const SUCCESS_SEMANTICS = Object.freeze({
   description:
     'All required steps passed. Optional steps may have failed gracefully.',
   resultState: STARTUP_STATES.READY,
@@ -112,7 +144,7 @@ export const SUCCESS_SEMANTICS = Object.freeze({
  *   - The startup sequence continues and ultimately resolves as READY.
  *   - No user-visible error is required, but the UI may reflect limited functionality.
  */
-export const GRACEFUL_FALLBACK_SEMANTICS = Object.freeze({
+const GRACEFUL_FALLBACK_SEMANTICS = Object.freeze({
   description:
     'An optional step failed. The app continues in a degraded but usable state.',
   resultState: STARTUP_STATES.READY,
@@ -160,7 +192,7 @@ export const GATING_PENDING_STATES = Object.freeze([
 /**
  * States in which the gate should render the app shell:
  */
-export const GATING_PASS_STATES = Object.freeze([
+const GATING_PASS_STATES = Object.freeze([
   STARTUP_STATES.READY,
   STARTUP_STATES.FAILED,
 ]);

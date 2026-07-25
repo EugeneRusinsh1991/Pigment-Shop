@@ -1,0 +1,118 @@
+import { useEffect, useState } from 'react';
+import { ScrollView, Text, View } from 'react-native';
+import { useTheme } from '../../context/ThemeContext';
+import { useProfile } from '../../hooks/useProfile';
+import useGridLayout from '../../hooks/useGridLayout';
+import ProfileFormCard from './ProfileFormCard';
+import styles from './ProfilePageStyles';
+import Footer from '../../components/Footer';
+import ScrollFadeUp from '../../components/ScrollFadeUp';
+
+function getVal(str) {
+  return typeof str === 'string' ? str : '';
+}
+
+function mapProfileToForm(profile) {
+  if (!profile) return { firstName: '', lastName: '', phone: '', city: '' };
+  return {
+    firstName: getVal(profile.firstName),
+    lastName: getVal(profile.lastName),
+    phone: getVal(profile.phone),
+    city: getVal(profile.city),
+  };
+}
+
+function useProfileForm(auth, t) {
+  const { profile, loading, saving, saveProfile } = useProfile(auth?.user);
+  const [form, setForm] = useState(() => mapProfileToForm(profile));
+  const [saveMessage, setSaveMessage] = useState('');
+
+  useEffect(() => {
+    if (!loading) {
+      setForm(mapProfileToForm(profile));
+    }
+  }, [profile, loading]);
+
+  const updateField = (field, value) => {
+    setForm((prev) => ({ ...prev, [field]: value }));
+  };
+
+  const handleSave = async () => {
+    try {
+      await saveProfile(form);
+      setSaveMessage(t('profileSaveSuccess'));
+    } catch {
+      setSaveMessage('');
+    }
+  };
+
+  return { form, loading, saving, saveMessage, updateField, handleSave };
+}
+
+function ProfileSaveAlert({ saveMessage, isDark }) {
+  if (!saveMessage) return null;
+  return (
+    <ScrollFadeUp style={[styles.saveMessage, isDark ? styles.saveMessageDark : styles.saveMessageLight]}>
+      <Text style={[styles.saveMessageText, isDark ? styles.saveMessageTextDark : styles.saveMessageTextLight]}>
+        {saveMessage}
+      </Text>
+    </ScrollFadeUp>
+  );
+}
+
+export default function ProfilePage({ isDark, auth }) {
+  const { t } = useTheme();
+  const selectTheme = (dark, light) => (isDark ? dark : light);
+  const { isWide, gridWidth } = useGridLayout();
+  const { form, loading, saving, saveMessage, updateField, handleSave } = useProfileForm(auth, t);
+
+  return (
+    <ScrollView
+      style={[styles.container, isDark ? styles.containerDark : styles.containerLight]}
+      contentContainerStyle={[styles.scrollContent, { paddingBottom: 0 }]}
+      showsVerticalScrollIndicator={false}
+    >
+      <View style={{ flex: 1 }}>
+        <View
+          style={[
+            styles.pageContent,
+            {
+              alignSelf: 'center',
+              width: '100%',
+              maxWidth: isWide ? 580 : gridWidth,
+            },
+          ]}
+        >
+          <ScrollFadeUp>
+            <Text style={[styles.title, { color: isDark ? '#FFFFFF' : '#1C1C1C' }]}>
+              {t('profileTitle')}
+            </Text>
+          </ScrollFadeUp>
+
+          <ScrollFadeUp>
+            <ProfileFormCard
+              email={auth?.user?.email}
+              firstName={form.firstName}
+              lastName={form.lastName}
+              phone={form.phone}
+              city={form.city}
+              setFirstName={(v) => updateField('firstName', v)}
+              setLastName={(v) => updateField('lastName', v)}
+              setPhone={(v) => updateField('phone', v)}
+              setCity={(v) => updateField('city', v)}
+              saving={saving}
+              loading={loading}
+              onSave={handleSave}
+              isDark={isDark}
+              selectTheme={selectTheme}
+              t={t}
+            />
+          </ScrollFadeUp>
+
+          <ProfileSaveAlert saveMessage={saveMessage} isDark={isDark} />
+        </View>
+      </View>
+      <Footer />
+    </ScrollView>
+  );
+}

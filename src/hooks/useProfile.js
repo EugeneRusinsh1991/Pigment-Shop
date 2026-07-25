@@ -1,6 +1,7 @@
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
-import { db } from '../firebase';
+import { db } from '../services/firebase';
+import { COLLECTIONS } from '../services/collections';
 
 function parseDisplayName(displayName) {
   if (!displayName) return { firstName: '', lastName: '' };
@@ -30,7 +31,7 @@ export function useProfile(user) {
     const loadProfile = async () => {
       setLoading(true);
       try {
-        const docRef = doc(db, 'users', user.uid);
+        const docRef = doc(db, COLLECTIONS.USERS, user.uid);
         const docSnap = await getDoc(docRef);
         const saved = docSnap.exists() && docSnap.data().profile;
         const normalizedProfile = saved ? { ...EMPTY_PROFILE, ...saved } : buildGoogleFallbackProfile(user);
@@ -49,7 +50,7 @@ export function useProfile(user) {
     if (!user) return;
     setSaving(true);
     try {
-      const docRef = doc(db, 'users', user.uid);
+      const docRef = doc(db, COLLECTIONS.USERS, user.uid);
       const nextProfile = { ...profile, ...newProfile };
       await setDoc(docRef, { profile: nextProfile }, { merge: true });
       setProfile(nextProfile);

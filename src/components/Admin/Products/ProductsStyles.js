@@ -2,6 +2,8 @@
  * ProductsStyles.js
  */
 import { StyleSheet } from 'react-native';
+import { colors, layout } from '../../../theme/tokens';
+import { shadow } from '../../../theme/shadows';
 
 export default StyleSheet.create({
   container: {
@@ -10,72 +12,87 @@ export default StyleSheet.create({
 
   /* Toolbar */
   toolbar: {
+    marginBottom: 12,
+  },
+
+  filterBar: {
     flexDirection: 'row',
     alignItems: 'center',
+    flexWrap: 'wrap',
+    gap: 8,
     marginBottom: 16,
-    gap: 12,
   },
-  searchInputWrap: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#FFFFFF',
-    borderRadius: 10,
+  controlBtn: {
+    height: 36,
     paddingHorizontal: 14,
-    height: 44,
-    borderWidth: 1,
-    borderColor: '#F1E8E4',
+    borderRadius: 20,
+    borderWidth: 1.5,
+    borderColor: colors.secondaryLightBorder,
+    backgroundColor: colors.surfaceLight,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  searchIcon: {
-    fontSize: 14,
-    marginRight: 8,
-    color: '#94a3b8',
+  controlBtnActive: {
+    backgroundColor: colors.textLight,
+    borderColor: colors.textLight,
   },
-  searchInput: {
-    flex: 1,
-    fontSize: 14,
-    color: '#1C1C1C',
-    outlineStyle: 'none',
+  controlBtnAction: {
+    backgroundColor: colors.textLight,
+    borderColor: colors.textLight,
+  },
+  controlBtnText: {
+    fontSize: 13,
+    fontWeight: '500',
+    color: colors.textDescLight,
+  },
+  controlBtnTextActive: {
+    color: colors.textDark,
+    fontWeight: '600',
   },
   addBtn: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 6,
-    backgroundColor: '#1C1C1C',
-    borderRadius: 10,
+    backgroundColor: colors.textLight,
+    borderRadius: layout.radii.sm,
     paddingVertical: 11,
     paddingHorizontal: 18,
     height: 44,
   },
   addBtnText: {
-    color: '#FFFFFF',
+    color: colors.textDark,
     fontSize: 13,
     fontWeight: '700',
+  },
+  /* Mobile toolbar (stacked) */
+  mobileToolbar: {
+    flexDirection: 'column',
+    gap: 10,
+    marginBottom: 16,
+  },
+  mobileAddBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 6,
+    backgroundColor: colors.textLight,
+    borderRadius: layout.radii.sm,
+    paddingVertical: 12,
+    height: 44,
   },
 
   /* Table */
   tableCard: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.surfaceLight,
     borderRadius: 14,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.05,
-    shadowRadius: 8,
+    ...shadow.card(),
     elevation: 2,
     overflow: 'hidden',
-  },
-  tableHeader: {
-    flexDirection: 'row',
-    paddingHorizontal: 16,
-    paddingVertical: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: '#F1E8E4',
-    backgroundColor: '#FAFAFA',
   },
   thText: {
     fontSize: 11,
     fontWeight: '700',
-    color: '#94a3b8',
+    color: colors.textDescDark,
     letterSpacing: 0.8,
     textTransform: 'uppercase',
   },
@@ -84,24 +101,24 @@ export default StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 16,
     borderBottomWidth: 1,
-    borderBottomColor: '#E2E8F0',
+    borderBottomColor: colors.secondaryLightBorder,
     gap: 12,
   },
   tableRowDesktop: {
     flexDirection: 'column',
     paddingHorizontal: 16,
-    paddingVertical: 12,
+    paddingVertical: 6,
     borderBottomWidth: 1,
-    borderBottomColor: '#E2E8F0',
-    gap: 8,
+    borderBottomColor: colors.secondaryLightBorder,
+    gap: 4,
   },
   tableRowAlt: {
-    backgroundColor: '#FEFEFE',
+    backgroundColor: colors.surfaceElevatedLight,
   },
   rowNum: {
     width: 24,
     fontSize: 12,
-    color: '#94a3b8',
+    color: colors.textDescDark,
     marginRight: 8,
   },
   desktopTopRow: {
@@ -123,7 +140,7 @@ export default StyleSheet.create({
   },
   desktopCell: {
     fontSize: 13,
-    color: '#1C1C1C',
+    color: colors.textLight,
     minWidth: 80,
   },
   desktopProductCell: {
@@ -133,28 +150,62 @@ export default StyleSheet.create({
   cardTopRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'flex-start',
+    gap: 8,
+  },
+  cardMetaGrid: {
+    flexDirection: 'row',
     flexWrap: 'wrap',
     gap: 12,
-    alignItems: 'center',
+    marginTop: 8,
   },
-  cardMiddleRow: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 10,
-    alignItems: 'center',
+  cardMetaBlock: {
+    flexDirection: 'column',
+    gap: 2,
+    minWidth: 70,
   },
-  cardBottomRow: {
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
+  cardMetaLabel: {
+    fontSize: 10,
+    color: colors.secondaryDarkText,
+    fontWeight: '600',
+    textTransform: 'uppercase',
+    letterSpacing: 0.4,
+  },
+  cardMetaValue: {
+    fontSize: 13,
+    color: colors.textLight,
+    fontWeight: '500',
+  },
+  cardEditBtn: {
+    marginTop: 10,
+    height: 40,
+    borderRadius: layout.radii.sm,
+    borderWidth: 1,
+    borderColor: colors.outlineLightBorder,
+    backgroundColor: colors.surfaceLight,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  cardEditBtnText: {
+    fontSize: 13,
+    fontWeight: '600',
+    color: colors.textStrongLight,
   },
   priceText: {
-    fontSize: 13,
+    fontSize: 14,
     fontWeight: '700',
-    color: '#1C1C1C',
+    color: colors.textLight,
+  },
+  priceEmphasis: {
+    fontSize: 14,
+    fontWeight: '700',
+    color: colors.textLight,
+    minWidth: 60,
+    textAlign: 'right',
   },
   metaText: {
     fontSize: 13,
-    color: '#64748B',
+    color: colors.slateText,
     minWidth: 80,
   },
   actionBtn: {
@@ -163,8 +214,8 @@ export default StyleSheet.create({
     paddingHorizontal: 14,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 8,
-    backgroundColor: '#F5F7FA',
+    borderRadius: layout.radii.sm,
+    backgroundColor: colors.secondaryLightBg,
   },
   rowActions: {
     flexDirection: 'row',
@@ -173,44 +224,45 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   editBtn: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.surfaceLight,
     borderWidth: 1,
-    borderColor: '#D1D5DB',
+    borderColor: colors.outlineLightBorder,
   },
   deleteBtn: {
-    backgroundColor: '#FEF2F2',
+    backgroundColor: colors.dangerSoftLightBg,
     borderWidth: 1,
-    borderColor: '#FECACA',
+    borderColor: colors.dangerSoftLightBorder,
   },
   actionBtnText: {
     fontSize: 13,
     fontWeight: '600',
-    color: '#111827',
+    color: colors.textStrongLight,
   },
 
   /* Cell widths */
-  colProduct: { flex: 2.5 },
+  colProduct: { flex: 1.5 },
   colCategory: { flex: 1.5 },
   colBrand: { flex: 1 },
   colPrice: { flex: 0.8 },
   colDiscount: { flex: 0.8 },
   colStock: { flex: 0.7 },
   colStatus: { flex: 0.8 },
-  colActions: { flex: 0.7, flexDirection: 'row', gap: 8, justifyContent: 'flex-end' },
+  colNew: { flex: 0.6 },
+  colActions: { flex: 0.6, flexDirection: 'row', gap: 8, justifyContent: 'flex-end' },
 
   /* Product name & sku */
   productName: {
-    fontSize: 13,
-    fontWeight: '600',
-    color: '#1C1C1C',
+    fontSize: 14,
+    fontWeight: '700',
+    color: colors.textLight,
   },
   productSku: {
     fontSize: 11,
-    color: '#94a3b8',
+    color: colors.textDescDark,
     marginTop: 1,
   },
   badgeNew: {
-    backgroundColor: '#DBEAFE',
+    backgroundColor: colors.infoBgMid,
     borderRadius: 4,
     paddingHorizontal: 5,
     paddingVertical: 1,
@@ -219,7 +271,7 @@ export default StyleSheet.create({
   },
   badgeNewText: {
     fontSize: 9,
-    color: '#2563EB',
+    color: colors.infoDeep,
     fontWeight: '700',
   },
   badgesRow: {
@@ -230,118 +282,66 @@ export default StyleSheet.create({
   /* Cells */
   cellText: {
     fontSize: 13,
-    color: '#1C1C1C',
+    color: colors.textLight,
   },
   discountText: {
     fontSize: 13,
-    color: '#E31B23',
+    color: colors.accent,
     fontWeight: '600',
   },
   discountNone: {
     fontSize: 13,
-    color: '#94a3b8',
+    color: colors.textDescDark,
   },
   statusBadge: {
-    borderRadius: 6,
+    borderRadius: layout.radii.xs,
     paddingHorizontal: 8,
     paddingVertical: 3,
     alignSelf: 'flex-start',
   },
-  statusActive: { backgroundColor: '#DCFCE7' },
-  statusInactive: { backgroundColor: '#F1F5F9' },
+  statusActive: { backgroundColor: colors.successBgAlt },
+  statusInactive: { backgroundColor: colors.slateMid },
   statusText: {
     fontSize: 11,
     fontWeight: '600',
   },
-  statusActiveText: { color: '#16A34A' },
-  statusInactiveText: { color: '#64748B' },
+  statusActiveText: { color: colors.success },
+  statusInactiveText: { color: colors.slateText },
 
   /* Action buttons */
   actionIcon: {
     fontSize: 14,
   },
 
-  /* Empty state */
-  emptyText: {
-    textAlign: 'center',
-    padding: 40,
-    color: '#94a3b8',
-    fontSize: 14,
-  },
 
-  /* Save Button (mirrors categories) */
+
+  /* Save Button */
   saveBtn: {
     marginTop: 20,
-    backgroundColor: '#16A34A',
-    borderRadius: 10,
+    backgroundColor: colors.success,
+    borderRadius: layout.radii.sm,
     paddingVertical: 14,
     alignItems: 'center',
   },
   saveBtnText: {
-    color: '#FFFFFF',
+    color: colors.textDark,
     fontSize: 14,
     fontWeight: '700',
   },
 
-  /* Filter bar */
-  filterBar: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    flexWrap: 'wrap',
-    gap: 10,
-    marginBottom: 16,
-  },
-  filterToggles: {
-    flexDirection: 'row',
-    gap: 8,
-    flexWrap: 'wrap',
-  },
-  filterToggle: {
-    height: 36,
-    paddingHorizontal: 14,
-    borderRadius: 8,
-    borderWidth: 1,
-    borderColor: '#E2E8F0',
-    backgroundColor: '#FFFFFF',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  filterToggleActive: {
-    backgroundColor: '#1C1C1C',
-    borderColor: '#1C1C1C',
-  },
-  filterToggleText: {
-    fontSize: 13,
-    fontWeight: '500',
-    color: '#475569',
-  },
-  filterToggleTextActive: {
-    color: '#FFFFFF',
-    fontWeight: '600',
-  },
   sortPickerNative: {
     height: 36,
     paddingHorizontal: 12,
-    borderRadius: 8,
+    borderRadius: layout.radii.sm,
     borderWidth: 1,
-    borderColor: '#F1E8E4',
-    backgroundColor: '#FFFFFF',
+    borderColor: colors.borderLightAlt,
+    backgroundColor: colors.surfaceLight,
     alignItems: 'center',
     justifyContent: 'center',
   },
   sortPickerNativeText: {
     fontSize: 13,
-    color: '#475569',
+    color: colors.textDescLight,
   },
-  colHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    cursor: 'pointer', // Web enhancement
-  },
-  sortArrow: {
-    fontSize: 10,
-    color: '#E31B23',
-    marginLeft: 4,
-  },
-});
 
+});

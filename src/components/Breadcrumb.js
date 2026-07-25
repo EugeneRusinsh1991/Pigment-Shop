@@ -1,21 +1,57 @@
-import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Link, useSegments, useLocalSearchParams } from 'expo-router';
 import { useTheme } from '../context/ThemeContext';
+import { useCatalog } from '../context/CatalogContext';
+import { HomeIcon } from '@/components/Icons';
+import { buildBreadcrumbStack } from '../utils/breadcrumbResolver';
+import { colors } from '../theme/tokens';
+import AnimatedButton from './AnimatedButton';
 
-import { HomeIcon } from './Icons';
-import { ACCENT_COLOR } from './NavMenu/constants';
+function CrumbItem({ crumb, isLast, isDark, testID }) {
+  const textStyle = [
+    styles.crumb,
+    isLast
+      ? isDark
+        ? styles.crumbCurrentDark
+        : styles.crumbCurrentLight
+      : isDark
+        ? styles.crumbActiveDark
+        : styles.crumbActiveLight,
+  ];
+
+  if (isLast) {
+    return (
+      <Text style={textStyle} numberOfLines={1}>
+        {crumb.label}
+      </Text>
+    );
+  }
+
+  return (
+    <Link href={crumb.href || '/catalog'} asChild testID={testID}>
+      <AnimatedButton hitSlop={{ top: 12, bottom: 12, left: 6, right: 6 }}>
+        <Text style={textStyle} numberOfLines={1}>
+          {crumb.label}
+        </Text>
+      </AnimatedButton>
+    </Link>
+  );
+}
 
 /**
  * Breadcrumb
+ * Dynamically derives breadcrumbs from Expo Router state.
  *
  * Props:
- *   stack   Array<{ label: string }>  – navigation history (root to current)
- *   onPress (index: number) => void   – called when a crumb is tapped
  *   isDark  boolean
  */
-export default function Breadcrumb({ stack, onPress, isDark }) {
-  const { t } = useTheme();
-  // Preparatory variable for future text-based Home label localization
-  const homeText = t('navHome') || 'Home'; 
+export default function Breadcrumb({ isDark }) {
+  const { t, lang } = useTheme();
+  const segments = useSegments();
+  const params = useLocalSearchParams();
+  const { flatList, categoryLookup } = useCatalog() || {};
+
+  const stack = buildBreadcrumbStack({ segments, params, flatList, categoryLookup, t, lang });
 
   return (
     <ScrollView
@@ -25,10 +61,11 @@ export default function Breadcrumb({ stack, onPress, isDark }) {
       contentContainerStyle={styles.container}
     >
       {/* "Home" crumb */}
-      <TouchableOpacity onPress={() => onPress(-1)} activeOpacity={0.7} style={{ paddingVertical: 2 }}>
-        <HomeIcon color={ACCENT_COLOR} size={14} />
-      </TouchableOpacity>
-
+      <Link href="/" asChild testID="breadcrumb-home">
+        <AnimatedButton style={{ paddingVertical: 4, paddingHorizontal: 6 }} hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}>
+          <HomeIcon color={colors.accent} size={14} />
+        </AnimatedButton>
+      </Link>
 
       {stack.map((crumb, index) => (
         <View key={`crumb-${index}`} style={styles.crumbRow}>
@@ -37,24 +74,8 @@ export default function Breadcrumb({ stack, onPress, isDark }) {
             /
           </Text>
 
-          {/* Crumb button — last crumb is the current page (not tappable but styled differently) */}
-          {index < stack.length - 1 ? (
-            <TouchableOpacity onPress={() => onPress(index)} activeOpacity={0.7}>
-              <Text
-                style={[styles.crumb, isDark ? styles.crumbActiveDark : styles.crumbActiveLight]}
-                numberOfLines={1}
-              >
-                {crumb.label}
-              </Text>
-            </TouchableOpacity>
-          ) : (
-            <Text
-              style={[styles.crumb, isDark ? styles.crumbCurrentDark : styles.crumbCurrentLight]}
-              numberOfLines={1}
-            >
-              {crumb.label}
-            </Text>
-          )}
+          {/* Crumb button */}
+          <CrumbItem crumb={crumb} isLast={index === stack.length - 1} isDark={isDark} testID={`breadcrumb-item-${index}`} />
         </View>
       ))}
     </ScrollView>
@@ -70,7 +91,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 0,
-    paddingVertical: 8,
+    paddingVertical: 4,
     flexWrap: 'nowrap',
     minWidth: 0,
   },
@@ -83,10 +104,10 @@ const styles = StyleSheet.create({
     marginHorizontal: 6,
   },
   separatorDark: {
-    color: ACCENT_COLOR,
+    color: colors.accent,
   },
   separatorLight: {
-    color: ACCENT_COLOR,
+    color: colors.accent,
   },
   crumb: {
     fontSize: 13,
@@ -94,15 +115,16 @@ const styles = StyleSheet.create({
     maxWidth: 120,
   },
   crumbActiveDark: {
-    color: ACCENT_COLOR,
+    color: colors.accent,
   },
   crumbActiveLight: {
-    color: ACCENT_COLOR,
+    color: colors.accent,
   },
   crumbCurrentDark: {
-    color: '#94a3b8',
+    color: colors.textDescDark,
   },
   crumbCurrentLight: {
-    color: '#64748b',
+    color: colors.textSubtleDark,
   },
 });
+

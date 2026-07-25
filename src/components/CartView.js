@@ -1,53 +1,54 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useWindowDimensions } from 'react-native';
 import { useAuth } from '../context/AuthContext';
 import { useCartContext } from '../context/CartContext';
 import { useCatalog } from '../context/CatalogContext';
 import { useTheme } from '../context/ThemeContext';
+import { useLanguage } from '../context/LanguageContext';
+import { useCartViewForm } from '../hooks/useCartViewForm';
 import { useProfile } from '../hooks/useProfile';
 import { calculateTotals, handleCheckoutProcess } from './CartView/cartCheckoutLogic';
 import CartViewContent from './CartView/CartViewContent';
-import SharedLayoutWrapper from './SharedLayoutWrapper';
+import { useRouter, Redirect } from 'expo-router';
+import { layout } from '../theme/tokens';
 
-export default function CartView({ isDark }) {
-  const [note, setNote] = React.useState('');
-  const [email, setEmail] = React.useState('');
-  const [firstName, setFirstName] = React.useState('');
-  const [lastName, setLastName] = React.useState('');
-  const [phone, setPhone] = React.useState('');
-  const [city, setCity] = React.useState('');
-  const { t } = useTheme();
-  const { items, increaseQty, decreaseQty, removeItem, clearCart } = useCartContext();
+export default function CartView({ isDark: isDarkProp }) {
+  const { isDark: isDarkContext } = useTheme();
+  const { t } = useLanguage();
+  const isDark = isDarkProp ?? isDarkContext;
+  const router = useRouter();
+  const [completedOrderParams, setCompletedOrderParams] = useState(null);
+  const { items, updateQuantity, removeFromCart, clearCart } = useCartContext();
+  const increaseQty = (id) => updateQuantity(id, 1);
+  const decreaseQty = (id) => updateQuantity(id, -1);
+  const removeItem = (id) => removeFromCart(id);
   const { user } = useAuth();
   const { profile } = useProfile(user);
   const { width: windowWidth } = useWindowDimensions();
-  const isWide = windowWidth >= 768;
-  const ic = (dark, light) => (isDark ? dark : light);
   const { flatList } = useCatalog();
+  const { note, setNote, customerInfo, ...formHandlers } = useCartViewForm({ user, profile });
+  const { email, firstName, lastName, phone, city, setEmail, setFirstName, setLastName, setPhone, setCity } = formHandlers;
 
+  const isWide = windowWidth >= layout.breakpoints.tablet;
   const { totalPrice, totalItems } = calculateTotals(items);
 
-  React.useEffect(() => {
-    if (user) {
-      setEmail(user.email || '');
-      setFirstName(profile.firstName || '');
-      setLastName(profile.lastName || '');
-      setPhone(profile.phone || '');
-      setCity(profile.city || '');
-    } else {
-      setEmail('');
-      setFirstName('');
-      setLastName('');
-      setPhone('');
-      setCity('');
-    }
-  }, [user, profile]);
-
-  const customerInfo = { email, firstName, lastName, phone, city };
-
   const handleCheckout = () => {
-    handleCheckoutProcess({ user, items, totalItems, totalPrice, note, customerInfo, clearCart, t });
+    handleCheckoutProcess({ user, items, totalItems, totalPrice, note, customerInfo, clearCart, t, 
+      openScreen: (screen, params) => {
+        if (screen === 'orderConfirmation') {
+          setCompletedOrderParams({
+            orderId: params.orderId,
+            items: JSON.stringify(params.items),
+            totalPrice: params.totalPrice
+          });
+        }
+      }
+    });
   };
+
+  if (completedOrderParams) {
+    return <Redirect href={{ pathname: '/order-confirmation', params: completedOrderParams }} />;
+  }
 
   const content = (
     <CartViewContent
@@ -77,6 +78,6 @@ export default function CartView({ isDark }) {
     />
   );
 
-  return <SharedLayoutWrapper isDark={isDark}>{content}</SharedLayoutWrapper>;
+  return content;
 }
 

@@ -5,48 +5,70 @@
  * order. The root App component renders this once, keeping the app shell free
  * of any provider nesting or orchestration logic.
  *
- * Dependency order (outermost → innermost):
- *   ThemeProvider        – theme + language (no dependencies)
- *     CatalogProvider      – product/category data (consumes ThemeContext for lang)
- *       AuthProvider       – auth state (no dependencies on other providers)
- *         BootstrapGate    – triggers app bootstrap coordinator after auth resolves
- *           CartProvider     – cart state (no dependencies)
- *             FavoritesProvider  – favorites state (no dependencies)
- *               UIMenuProvider   – lang/user menu visibility
- *                 NavigationProvider  – consumes CatalogContext + UIMenuContext
- *
- * This module is composition-only. Startup side effects are owned by
- * BootstrapGate (src/bootstrap/BootstrapGate.js) and the app bootstrap
- * coordinator (src/bootstrap/appBootstrap.js).
+ * Grouped into logical domain-specific wrappers with explicit boundaries.
  */
 import React from 'react';
 import { CatalogProvider } from './CatalogContext';
 import { ThemeProvider } from './ThemeContext';
+import { LanguageProvider } from './LanguageContext';
 import { AuthProvider } from './AuthContext';
 import { CartProvider } from './CartContext';
 import { FavoritesProvider } from './FavoritesContext';
-import { UIMenuProvider } from './UIMenuContext';
-import { NavigationProvider } from './NavigationContext';
 import BootstrapGate from '../bootstrap/BootstrapGate';
 
-export default function AppProviders({ children }) {
+/**
+ * 1. Core infrastructure domain (independent of session/auth)
+ */
+export function CoreInfrastructureProviders({ children }) {
   return (
     <ThemeProvider>
-      <CatalogProvider>
-        <AuthProvider>
-          <BootstrapGate>
-            <CartProvider>
-              <FavoritesProvider>
-                <UIMenuProvider>
-                  <NavigationProvider>
-                    {children}
-                  </NavigationProvider>
-                </UIMenuProvider>
-              </FavoritesProvider>
-            </CartProvider>
-          </BootstrapGate>
-        </AuthProvider>
-      </CatalogProvider>
+      <LanguageProvider>
+        {children}
+      </LanguageProvider>
     </ThemeProvider>
+  );
+}
+
+/**
+ * 2. Session/Authentication and Data Catalog domain
+ */
+export function SessionAndCatalogProviders({ children }) {
+  return (
+    <CatalogProvider>
+      <AuthProvider>
+        <BootstrapGate>
+          {children}
+        </BootstrapGate>
+      </AuthProvider>
+    </CatalogProvider>
+  );
+}
+
+/**
+ * 3. User features/Storefront context domain
+ */
+export function UserFeatureProviders({ children }) {
+  return (
+    <CartProvider>
+      <FavoritesProvider>
+        {children}
+      </FavoritesProvider>
+    </CartProvider>
+  );
+}
+
+
+/**
+ * Composes all provider boundaries in dependency order.
+ */
+export default function AppProviders({ children }) {
+  return (
+    <CoreInfrastructureProviders>
+      <SessionAndCatalogProviders>
+        <UserFeatureProviders>
+          {children}
+        </UserFeatureProviders>
+      </SessionAndCatalogProviders>
+    </CoreInfrastructureProviders>
   );
 }

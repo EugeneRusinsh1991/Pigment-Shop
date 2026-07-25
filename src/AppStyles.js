@@ -1,15 +1,47 @@
 import { Platform, StyleSheet } from 'react-native';
+import { colors, fonts, layout } from './theme/tokens';
 
-const rootStyles = Platform.OS === 'web' ? { minHeight: '100vh' } : {};
+const rootStyles = Platform.OS === 'web'
+  ? { minHeight: '100vh', overflowX: 'hidden', cursor: 'default' }
+  : {};
+
+const webBoxBorder = Platform.OS === 'web' ? { boxSizing: 'border-box' } : {};
 
 export default StyleSheet.create({
-  container: { flex: 1, ...rootStyles },
-  containerDark: { backgroundColor: '#0D0D0D' },
-  containerLight: { backgroundColor: '#FAF8F6' },
+  container: {
+    flex: 1,
+    width: '100%',
+    flexDirection: 'column',
+    alignItems: 'stretch',
+    overflow: 'hidden',
+    ...rootStyles,
+  },
+  containerDark: { backgroundColor: colors.backgroundDark },
+  containerLight: { backgroundColor: colors.backgroundLight },
+
   
-  mainContent: { flex: 1, minHeight: 0 },
-  mainContentBody: { flex: 1, minHeight: 0 },
-  footerContainer: { paddingTop: 16, paddingBottom: 12, flexShrink: 0 },
+  mainContent: {
+    flex: 1,
+    minHeight: 0,
+    width: '100%',
+    alignSelf: 'stretch',
+    overflow: 'hidden',
+  },
+  mainContentBody: {
+    flexGrow: 1,
+    flexShrink: 1,
+    minHeight: 0,
+    width: '100%',
+    alignSelf: 'stretch',
+    overflow: 'hidden',
+  },
+  footerContainer: {
+    paddingTop: 16,
+    paddingBottom: 12,
+    flexShrink: 0,
+    width: '100%',
+    alignSelf: 'stretch',
+  },
 
   breadcrumbBar: {
     borderBottomWidth: 1,
@@ -17,29 +49,29 @@ export default StyleSheet.create({
     paddingVertical: 8,
   },
   breadcrumbBarDark: {
-    backgroundColor: '#0D0D0D',
-    borderBottomColor: '#242424',
+    backgroundColor: colors.backgroundDark,
+    borderBottomColor: colors.borderDarkAlt,
   },
   breadcrumbBarLight: {
-    backgroundColor: '#FAF8F6',
-    borderBottomColor: '#f1e8e4',
+    backgroundColor: colors.backgroundLight,
+    borderBottomColor: colors.borderLightAlt,
   },
 
   // Hero Section Styles
   heroContainer: {
     paddingHorizontal: 8,
-    paddingTop: 16,
-    paddingBottom: 24,
-    gap: 24,
+    paddingTop: 4,
+    paddingBottom: 12,
+    gap: 12,
     alignItems: 'center',
   },
   heroRight: {
     width: '100%',
-    borderRadius: 24,
+    borderRadius: layout.radii.xl,
     overflow: 'hidden',
   },
   heroRightMobile: {
-    height: 180,
+    height: 220,
   },
   heroRightWide: {
     height: 360,
@@ -49,21 +81,21 @@ export default StyleSheet.create({
     height: '100%',
   },
   heroBadge: {
-    fontFamily: 'System, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+    fontFamily: fonts.sans,
     fontSize: 10,
     fontWeight: 'bold',
-    color: '#E31B23',
+    color: colors.accent,
     letterSpacing: 1.5,
     textAlign: 'center',
   },
   heroBtn: {
-    backgroundColor: '#E31B23',
-    borderRadius: 50,
+    backgroundColor: colors.accent,
+    borderRadius: layout.radii.full,
     paddingHorizontal: 32,
     paddingVertical: 14,
   },
   heroBtnText: {
-    color: '#FFFFFF',
+    color: colors.white,
     fontWeight: 'bold',
     fontSize: 14,
   },
@@ -74,55 +106,56 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 8,
-    marginTop: 24,
-    marginBottom: 16,
+    marginTop: 12,
+    marginBottom: 6,
   },
   sectionTitle: {
-    fontFamily: '"Cormorant Garamond", "Playfair Display", Georgia, serif',
-    fontSize: 28,
+    fontFamily: fonts.serif,
+    fontSize: 22,
+    lineHeight: 26,
     fontWeight: '600',
   },
   allSectionsLink: {
-    fontFamily: 'System, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+    fontFamily: fonts.sans,
     fontSize: 12,
     fontWeight: '600',
-    color: '#E31B23',
+    color: colors.accent,
   },
 
   list: {
-    paddingBottom: 48,
+    paddingBottom: 32,
     paddingHorizontal: 0,
   },
 
   footerProductsSection: {
-    marginTop: 32,
+    marginTop: 8,
   },
   footerTitlePadding: {
-    marginBottom: 24,
+    marginBottom: 12,
     paddingHorizontal: 8,
   },
 
-  textDark: { color: '#FFFFFF' },
-  textLight: { color: '#1C1C1C' },
-  descDark: { color: '#94a3b8' },
-  descLight: { color: '#475569' },
+  textDark: { color: colors.textDark },
+  textLight: { color: colors.textLight },
+  descDark: { color: colors.textDescDark },
+  descLight: { color: colors.textDescLight },
   stickySearchContainer: {
-    position: 'sticky',
+    ...(Platform.OS === 'web' ? { position: 'sticky' } : { position: 'relative' }),
     top: 0,
     zIndex: 500,
     width: '100%',
-    paddingVertical: 8,
-    paddingHorizontal: 8,
-    alignSelf: 'center',
+    paddingVertical: 4,
+    alignItems: 'center',
+    overflow: 'visible',
   },
   stickySearchContainerDark: {
-    backgroundColor: '#0D0D0D',
-    borderBottomWidth: 1,
-    borderBottomColor: '#242424',
+    backgroundColor: colors.backgroundDark,
+    borderBottomWidth: 0,
+    borderBottomColor: colors.borderDarkAlt,
   },
   stickySearchContainerLight: {
-    backgroundColor: '#FAF8F6',
-    borderBottomWidth: 1,
-    borderBottomColor: '#f1e8e4',
+    backgroundColor: colors.backgroundLight,
+    borderBottomWidth: 0,
+    borderBottomColor: colors.borderLightAlt,
   },
 });

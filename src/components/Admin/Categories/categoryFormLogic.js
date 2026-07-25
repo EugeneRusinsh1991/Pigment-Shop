@@ -4,14 +4,13 @@
  * Pure logic helpers for CategoryFormModal:
  * form initialization, locale extraction, validation, save execution.
  */
-import { getProducts } from '../../../data/catalogState';
-import { getDepthForParent, MAX_DEPTH } from '../../../services/adminCategoriesService';
+import { getDepthForParent, MAX_DEPTH } from '../../../services/adminCategoriesTransforms';
 
 
 function getLocaleValue(fieldObj, lang) {
   if (!fieldObj) return '';
-  const val = fieldObj[lang];
-  return val != null ? val : '';
+  const localizedValue = fieldObj[lang];
+  return localizedValue != null ? localizedValue : '';
 }
 
 const extractLocales = (fieldObj) => ({
@@ -95,8 +94,7 @@ const validateProductHolderChange = (category, categories) => {
   return null;
 };
 
-const validateCategoryHolderChange = (category) => {
-  const products = getProducts();
+const validateCategoryHolderChange = (category, products) => {
   const hasProducts = hasAssignedProducts(category, products);
   if (hasProducts) {
     return 'Cannot change to Category Holder: category has assigned products.';
@@ -104,13 +102,13 @@ const validateCategoryHolderChange = (category) => {
   return null;
 };
 
-function validateTypeChange(formType, category, categories) {
+function validateTypeChange(formType, category, categories, products) {
   if (!category) return null;
   if (formType === 'product_holder') {
     return validateProductHolderChange(category, categories);
   }
   if (formType === 'category_holder') {
-    return validateCategoryHolderChange(category);
+    return validateCategoryHolderChange(category, products);
   }
   return null;
 }
@@ -126,7 +124,7 @@ const isNameEmpty = (name) => {
   return !hasAnyText;
 };
 
-function validateForm(form, categories, t, category) {
+export function validateForm(form, categories, t, category, products) {
   const errors = {};
 
   if (isNameEmpty(form.name)) {
@@ -138,7 +136,7 @@ function validateForm(form, categories, t, category) {
     errors.parentId = depthError;
   }
 
-  const typeError = validateTypeChange(form.type, category, categories);
+  const typeError = validateTypeChange(form.type, category, categories, products);
   if (typeError) {
     errors.type = typeError;
   }
@@ -146,32 +144,29 @@ function validateForm(form, categories, t, category) {
   return errors;
 }
 
-export function updateField(field, value, setForm, errors, setErrors) {
-  setForm((prev) => ({ ...prev, [field]: value }));
-  if (!errors[field]) return;
-  setErrors((prev) => ({ ...prev, [field]: undefined }));
-}
 
-export function executeSave(form, categories, onSave, setErrors, t, category) {
-  const errs = validateForm(form, categories, t, category);
-  if (Object.keys(errs).length > 0) {
-    setErrors(errs);
-    return;
-  }
 
-  onSave({
-    parentId: form.parentId || null,
-    name: { ...form.name },
-    description: { ...form.description },
-    image: form.image.trim(),
-    type: form.type,
-    productIds: (form.productIds || []).filter(Boolean),
-  });
-}
-
-export function computeTypeConstraints(category, categories) {
-  const products = getProducts();
+export function computeTypeConstraints(category, categories, products) {
   const hasChildren = category ? categories.some((c) => c.parentId === category.id) : false;
   const hasProducts = hasAssignedProducts(category, products);
   return { isTypeDisabled: hasChildren || hasProducts };
+}
+
+function checkCanAddChild(category, onAddChild) {
+  if (!category || !onAddChild) return false;
+  if (category.type !== 'category_holder') return false;
+  const depth = category.depth || 1;
+  return depth < MAX_DEPTH;
+}
+
+export function computeModalFlags(category, onAddChild, onDelete, t) {
+  const title = category ? null : t('adminCategoriesNewTitle');
+  const canAddChild = checkCanAddChild(category, onAddChild);
+  const canDelete = Boolean(category && onDelete);
+  return {
+    title,
+    canAddChild,
+    canDelete,
+    hasFirstRow: canAddChild || canDelete,
+  };
 }

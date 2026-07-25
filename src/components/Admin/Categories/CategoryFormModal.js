@@ -2,140 +2,114 @@
  * CategoryFormModal.js
  *
  * Modal for creating or editing a category.
- * Delegates form logic to categoryFormLogic.js.
  */
-import React, { useMemo, useState } from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import React, { useState, useEffect } from 'react';
 import { useTheme } from '../../../context/ThemeContext';
-import { getProducts } from '../../../data/catalogState';
-import { FormModalLayout, LanguageTabs } from '../SharedFormComponents';
-import { CategoryTypeSelect, DescriptionField, ImagePickerField, NameField } from './CategoryFormFields';
+import { FormModalLayout } from '../SharedFormComponents';
 import {
-    buildInitialForm,
-    computeTypeConstraints,
-    executeSave,
-    updateField,
+  buildInitialForm,
+  computeModalFlags,
+  computeTypeConstraints,
+  validateForm,
 } from './categoryFormLogic';
 import styles from './CategoryFormStyles';
+import { useCategoryProducts } from './CategoryProductSection';
+import { CategoryFormFooter } from './CategoryFormFooter';
+import { CategoryFormContent } from './CategoryFormContent';
+import { useForm } from '../../../hooks/useForm';
 
-export default function CategoryFormModal({ visible, category, categories, presetParentId, onSave, onClose }) {
+export default function CategoryFormModal({
+  visible,
+  category,
+  categories,
+  presetParentId,
+  onSave,
+  onClose,
+  onDelete,
+  onAddChild,
+  products,
+}) {
   const { t, lang } = useTheme();
-  const [form, setForm] = useState(() => buildInitialForm(category, presetParentId, categories));
-  const [errors, setErrors] = useState({});
   const [activeLang, setActiveLang] = useState(lang);
 
-  React.useEffect(() => {
+  const { form, errors, handleChange, validate, resetForm } = useForm(
+    buildInitialForm(category, presetParentId, categories),
+    (f) => validateForm(f, categories, t, category, products)
+  );
+
+  useEffect(() => {
     if (visible) {
-      setForm(buildInitialForm(category, presetParentId, categories));
-      setErrors({});
+      resetForm(buildInitialForm(category, presetParentId, categories));
       setActiveLang(lang);
     }
-  }, [visible, category, presetParentId, lang, categories]);
+  }, [visible, category, presetParentId, categories, lang, resetForm]);
 
-  const handleChange = (field, value) => updateField(field, value, setForm, errors, setErrors);
-  const handleSave = () => executeSave(form, categories, onSave, setErrors, t, category);
-
-  const { isTypeDisabled } = computeTypeConstraints(category, categories);
-  const allProducts = getProducts();
-  const selectedProductIds = form.productIds || [];
-  const blockedProductIds = useMemo(() => {
-    return new Set(
-      categories
-        .filter((cat) => cat.type === 'product_holder' && cat.id !== category?.id)
-        .flatMap((cat) => cat.productIds || [])
-        .filter(Boolean),
-    );
-  }, [categories, category?.id]);
-
-  const assignedProducts = allProducts.filter((product) => selectedProductIds.includes(product.id));
-  const unassignedProducts = allProducts.filter(
-    (product) => !blockedProductIds.has(product.id) && !selectedProductIds.includes(product.id),
-  );
-  const canAssignProducts = form.type === 'product_holder';
-
-  const toggleProduct = (productId) => {
-    const next = selectedProductIds.includes(productId)
-      ? selectedProductIds.filter((id) => id !== productId)
-      : [...selectedProductIds, productId];
-    handleChange('productIds', next);
-  };
-
-  const productLabel = (product) => {
-    const label = product?.label;
-    if (typeof label === 'object') {
-      return label[lang] || label.ru || label.en || product.id;
+  const handleSave = () => {
+    if (validate()) {
+      onSave({
+        parentId: form.parentId || null,
+        name: { ...form.name },
+        description: { ...form.description },
+        image: form.image.trim(),
+        type: form.type,
+        productIds: (form.productIds || []).filter(Boolean),
+      });
     }
-    return label || product.id;
   };
 
-  const renderProductOption = (product, selected) => (
-    <TouchableOpacity
-      key={product.id}
-      onPress={() => toggleProduct(product.id)}
-      style={{
-        flexDirection: 'row',
-        alignItems: 'center',
-        gap: 8,
-        borderWidth: 1,
-        borderColor: selected ? '#16A34A' : '#E2E8F0',
-        borderRadius: 8,
-        paddingVertical: 8,
-        paddingHorizontal: 10,
-        backgroundColor: selected ? '#ECFDF5' : '#F8FAFC',
-      }}
-      activeOpacity={0.8}
-    >
-      <View style={{ width: 16, height: 16, borderRadius: 999, borderWidth: 1, borderColor: selected ? '#16A34A' : '#CBD5E1', backgroundColor: selected ? '#16A34A' : '#FFFFFF', alignItems: 'center', justifyContent: 'center' }}>
-        {selected ? <Text style={{ color: '#FFFFFF', fontSize: 10, fontWeight: '700' }}>✓</Text> : null}
-      </View>
-      <Text style={{ fontSize: 13, color: '#1F2937' }}>{productLabel(product)}</Text>
-    </TouchableOpacity>
+  const { isTypeDisabled } = computeTypeConstraints(category, categories, products);
+  const { assignedProducts, unassignedProducts, toggleProduct } = useCategoryProducts(
+    categories,
+    category?.id,
+    form.productIds,
+    products,
+    handleChange
+  );
+
+  const { title, canAddChild, canDelete, hasFirstRow } = computeModalFlags(
+    category,
+    onAddChild,
+    onDelete,
+    t
   );
 
   return (
     <FormModalLayout
       visible={visible}
-      title={category ? t('adminCategoriesEditTitle') : t('adminCategoriesNewTitle')}
+      title={title}
       onClose={onClose}
       onSave={handleSave}
       styles={styles}
-      cardWidth={560}
+      footer={
+        <CategoryFormFooter
+          canAddChild={canAddChild}
+          canDelete={canDelete}
+          hasFirstRow={hasFirstRow}
+          onAddChild={onAddChild}
+          onDelete={onDelete}
+          onClose={onClose}
+          onSave={handleSave}
+          category={category}
+          t={t}
+        />
+      }
     >
-      <CategoryTypeSelect
-        value={form.type}
-        onChange={(v) => handleChange('type', v)}
-        disabled={isTypeDisabled}
+      <CategoryFormContent
+        form={form}
+        errors={errors}
+        activeLang={activeLang}
+        setActiveLang={setActiveLang}
+        handleChange={handleChange}
+        isTypeDisabled={isTypeDisabled}
+        assignedProducts={assignedProducts}
+        unassignedProducts={unassignedProducts}
+        toggleProduct={toggleProduct}
+        category={category}
+        lang={lang}
+        t={t}
       />
-      {!!errors.type && <Text style={[styles.errorText, { marginBottom: 12 }]}>{errors.type}</Text>}
-
-      <LanguageTabs activeLang={activeLang} onChange={setActiveLang} />
-
-      <NameField form={form} onChange={handleChange} errors={errors} activeLang={activeLang} />
-      <DescriptionField form={form} onChange={handleChange} activeLang={activeLang} />
-      <ImagePickerField value={form.image} onChange={(v) => handleChange('image', v)} />
-      {canAssignProducts && (
-        <View style={{ marginTop: 8 }}>
-          <Text style={styles.sectionLabel}>{t('adminCategoriesFormAssignedProducts')}</Text>
-          <Text style={{ fontSize: 12, color: '#64748B', marginBottom: 8 }}>
-            {t('adminCategoriesFormAssignedProductsHint')}
-          </Text>
-          <View style={{ gap: 6 }}>
-            {assignedProducts.length === 0 ? (
-              <Text style={{ fontSize: 12, color: '#64748B' }}>{t('adminCategoriesFormNoAssignedProducts')}</Text>
-            ) : assignedProducts.map((product) => renderProductOption(product, true))}
-          </View>
-
-          <Text style={[styles.sectionLabel, { marginTop: 16 }]}>{t('adminCategoriesFormUnassignedProducts')}</Text>
-          <Text style={{ fontSize: 12, color: '#64748B', marginBottom: 8 }}>
-            {t('adminCategoriesFormUnassignedProductsHint')}
-          </Text>
-          <View style={{ gap: 6 }}>
-            {unassignedProducts.length === 0 ? (
-              <Text style={{ fontSize: 12, color: '#64748B' }}>{t('adminCategoriesFormNoUnassignedProducts')}</Text>
-            ) : unassignedProducts.map((product) => renderProductOption(product, false))}
-          </View>
-        </View>
-      )}
     </FormModalLayout>
   );
 }
+
+

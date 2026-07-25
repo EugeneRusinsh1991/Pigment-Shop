@@ -1,46 +1,23 @@
 /**
  * ThemeContext.js
  *
- * Owns app-wide theme (light/dark) and language selection.
- * Previously inlined as `useThemeAndLang` inside App.js.
+ * Owns app-wide theme (light/dark).
+ * Integrates with LanguageContext to provide backward-compatible language exports.
  */
-import React, { createContext, useContext, useState } from 'react';
-import { TRANSLATIONS } from '../data/translations';
+import React, { createContext, useContext, useState, useCallback, useMemo } from 'react';
 
 const ThemeContext = createContext(null);
 
-const getTranslation = (key, lang) => {
-  const dicts = [TRANSLATIONS[lang], TRANSLATIONS.en, TRANSLATIONS.ru];
-  const match = dicts.find((dict) => dict && dict[key] !== undefined);
-  return match ? match[key] : key;
-};
-
 export function ThemeProvider({ children }) {
   const [theme, setTheme] = useState('light');
-  const [lang, setLang] = useState('ru');
 
   const isDark = theme === 'dark';
-  const t = React.useMemo(() => {
-    const tFunc = (key) => getTranslation(key, lang);
+  const toggleTheme = useCallback(() => setTheme((p) => (p === 'dark' ? 'light' : 'dark')), []);
 
-    const allKeys = new Set([
-      ...Object.keys(TRANSLATIONS.ru || {}),
-      ...Object.keys(TRANSLATIONS.en || {}),
-      ...Object.keys(TRANSLATIONS[lang] || {}),
-    ]);
-
-    allKeys.forEach((key) => {
-      tFunc[key] = getTranslation(key, lang);
-    });
-
-    return tFunc;
-  }, [lang]);
-
-  const toggleTheme = () => setTheme((p) => (p === 'dark' ? 'light' : 'dark'));
-  const selectLanguage = (code) => setLang(code);
+  const value = useMemo(() => ({ theme, isDark, toggleTheme }), [theme, isDark, toggleTheme]);
 
   return (
-    <ThemeContext.Provider value={{ theme, isDark, lang, t, toggleTheme, selectLanguage }}>
+    <ThemeContext.Provider value={value}>
       {children}
     </ThemeContext.Provider>
   );
@@ -49,5 +26,12 @@ export function ThemeProvider({ children }) {
 export function useTheme() {
   const ctx = useContext(ThemeContext);
   if (!ctx) throw new Error('useTheme must be used within ThemeProvider');
-  return ctx;
+
+  return useMemo(() => ({
+    ...ctx,
+    t: (key) => key,
+    ic: (dark, light) => (ctx.isDark ? dark : light),
+  }), [ctx]);
 }
+
+export const getThemedValue = (isDark, dark, light) => isDark ? dark : light;

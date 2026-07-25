@@ -1,15 +1,23 @@
-import { Text, TouchableOpacity, View } from 'react-native';
+import { Text, View } from 'react-native';
 import styles from '../AppStyles';
+import { Link } from 'expo-router';
 import HeroCarousel from './HeroCarousel';
+import AnimatedButton from './AnimatedButton';
+import ScrollFadeUp from './ScrollFadeUp';
 
-function HeroBanner({ isDark, isWide, t, onCatalogPress }) {
+function HeroBanner({ isDark, isWide, t, isTransitionReady }) {
   return (
     <View style={styles.heroContainer}>
-      <Text style={styles.heroBadge}>{t.heroBadge}</Text>
-      <HeroCarousel isDark={isDark} isWide={isWide} />
-      <TouchableOpacity style={styles.heroBtn} onPress={onCatalogPress}>
-        <Text style={styles.heroBtnText}>{t.heroBtn}</Text>
-      </TouchableOpacity>
+      {isTransitionReady ? (
+        <HeroCarousel isDark={isDark} isWide={isWide} />
+      ) : (
+        <View style={[styles.heroRight, isWide ? styles.heroRightWide : styles.heroRightMobile, { backgroundColor: isDark ? '#1F2937' : '#E5E7EB' }]} />
+      )}
+      <Link href="/catalog" asChild>
+        <AnimatedButton style={styles.heroBtn}>
+          <Text style={styles.heroBtnText}>{t.heroBtn}</Text>
+        </AnimatedButton>
+      </Link>
     </View>
   );
 }
@@ -19,16 +27,16 @@ function SectionTitleRow({ isDark, depth, currentLevel, t, showSectionTitle }) {
   const tc = isDark ? styles.textDark : styles.textLight;
   const sectionLabel = depth === 0 ? t.categories : currentLevel.label;
   return (
-    <View style={styles.sectionTitleRow}>
+    <ScrollFadeUp style={styles.sectionTitleRow}>
       <Text style={[styles.sectionTitle, tc]}>{sectionLabel}</Text>
-    </View>
+    </ScrollFadeUp>
   );
 }
 
-export default function CatalogHeader({ isDark, isWide, depth, currentLevel, crumbs, t, onCrumbPress, onCardPress, onCatalogPress, showSectionTitle = true, showHeroBanner = true }) {
+export default function CatalogHeader({ isDark, isWide, depth, currentLevel, crumbs, t, onCrumbPress, showSectionTitle = true, showHeroBanner = true, isTransitionReady = true }) {
   return (
     <>
-      {depth === 0 && showHeroBanner && <HeroBanner isDark={isDark} isWide={isWide} t={t} onCatalogPress={onCatalogPress} />}
+      {depth === 0 && showHeroBanner && <HeroBanner isDark={isDark} isWide={isWide} t={t} isTransitionReady={isTransitionReady} />}
       <SectionTitleRow isDark={isDark} depth={depth} currentLevel={currentLevel} t={t} showSectionTitle={showSectionTitle} />
     </>
   );

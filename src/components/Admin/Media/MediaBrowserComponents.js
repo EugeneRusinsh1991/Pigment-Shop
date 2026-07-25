@@ -1,13 +1,13 @@
-import React from 'react';
+import { AlertIcon, CrossIcon, RefreshIcon } from '@/components/Icons';
 import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { MEDIA_CATEGORY } from '../../../media';
+import EmptyState from '../../DataTable/EmptyState';
 import MediaBrowserItem from './MediaBrowserItem';
 import styles from './MediaBrowserStyles';
-import { AlertIcon, RefreshIcon, CrossIcon } from '../../Icons';
 
 const TABS = [
   { key: MEDIA_CATEGORY.IMAGES, label: 'Images' },
-  { key: MEDIA_CATEGORY.GIFS,   label: 'GIFs' },
+  { key: MEDIA_CATEGORY.GIFS, label: 'GIFs' },
   { key: MEDIA_CATEGORY.VIDEOS, label: 'Videos' },
 ];
 
@@ -64,11 +64,11 @@ export function BrowserBody({ currentItems, manifestReady, selectedItem, onSelec
   if (currentItems.length === 0) {
     return (
       <ScrollView style={styles.body}>
-        <Text style={styles.emptyText}>
+        <EmptyState>
           {manifestReady
             ? 'No assets in this category.'
             : 'Run npm run generate-media to index your files.'}
-        </Text>
+        </EmptyState>
       </ScrollView>
     );
   }

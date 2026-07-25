@@ -1,10 +1,14 @@
 import { StyleSheet } from 'react-native';
+import { colors, fonts, layout } from '../../theme/tokens';
+import { shadow } from '../../theme/shadows';
 
 export default StyleSheet.create({
   wrapper: {
     zIndex: 500,
     position: 'relative',
     borderBottomWidth: 0,
+    width: '100%',
+    minWidth: 0,
   },
   wrapperActive: {
     zIndex: 10000,
@@ -17,43 +21,43 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginHorizontal: 0,
-    marginVertical: 8,
+    marginVertical: 4,
     paddingHorizontal: 12,
-    borderRadius: 10,
+    borderRadius: layout.radii.md,
     height: 40,
+    width: '100%',
+    overflow: 'hidden',
   },
-  inputRowDark: { backgroundColor: '#1e293b' },
-  inputRowLight: { backgroundColor: '#ffffff', borderWidth: 1, borderColor: '#e2e8f0' },
+  inputRowDark: { backgroundColor: colors.inputBgDark },
+  inputRowLight: { backgroundColor: colors.white, borderWidth: 1, borderColor: colors.secondaryLightBorder },
 
   searchIcon: { fontSize: 15, marginRight: 8 },
 
   input: { flex: 1, fontSize: 14, paddingVertical: 0 },
-  inputDark: { color: '#f1f5f9' },
-  inputLight: { color: '#0f172a' },
+  inputDark: { color: colors.slateMid },
+  inputLight: { color: colors.navTextDark },
 
   clearBtn: { padding: 4 },
   clearIcon: { fontSize: 13, fontWeight: '600' },
-  clearIconDark: { color: '#64748b' },
-  clearIconLight: { color: '#94a3b8' },
+  clearIconDark: { color: colors.slateText },
+  clearIconLight: { color: colors.secondaryDarkText },
 
   dropdown: {
     position: 'absolute',
-    top: 56,
+    top: 42,
     left: 0,
     right: 0,
-    borderRadius: 12,
+    borderRadius: layout.radii.md,
     borderWidth: 1,
     maxHeight: 280,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 6 },
-    shadowOpacity: 0.18,
-    shadowRadius: 12,
+    ...shadow.search(),
     elevation: 12,
     overflow: 'hidden',
     zIndex: 600,
+    maxWidth: '100%',
   },
-  dropdownDark: { backgroundColor: '#1e293b', borderColor: '#334155' },
-  dropdownLight: { backgroundColor: '#ffffff', borderColor: '#e2e8f0' },
+  dropdownDark: { backgroundColor: colors.inputBgDark, borderColor: colors.secondaryDarkBorder },
+  dropdownLight: { backgroundColor: colors.white, borderColor: colors.secondaryLightBorder },
 
   resultScroll: { flexGrow: 0 },
 
@@ -63,16 +67,16 @@ export default StyleSheet.create({
     paddingHorizontal: 14,
     paddingVertical: 11,
   },
-  resultRowDark: { backgroundColor: '#1e293b' },
-  resultRowLight: { backgroundColor: '#ffffff' },
+  resultRowDark: { backgroundColor: colors.inputBgDark },
+  resultRowLight: { backgroundColor: colors.white },
 
   resultIcon: { fontSize: 18, width: 26, textAlign: 'center' },
   resultLabel: { flex: 1, fontSize: 13, fontWeight: '500', marginLeft: 10 },
-  resultLabelDark: { color: '#f1f5f9' },
-  resultLabelLight: { color: '#0f172a' },
+  resultLabelDark: { color: colors.slateMid },
+  resultLabelLight: { color: colors.navTextDark },
   resultChevron: { fontSize: 18, fontWeight: '300' },
-  mutedDark: { color: '#475569' },
-  mutedLight: { color: '#94a3b8' },
+  mutedDark: { color: colors.secondaryLightText },
+  mutedLight: { color: colors.secondaryDarkText },
 
   moreHint: {
     textAlign: 'center',
@@ -80,6 +84,6 @@ export default StyleSheet.create({
     paddingVertical: 8,
     fontStyle: 'italic',
   },
-  moreHintDark: { color: '#475569' },
-  moreHintLight: { color: '#94a3b8' },
+  moreHintDark: { color: colors.secondaryLightText },
+  moreHintLight: { color: colors.secondaryDarkText },
 });

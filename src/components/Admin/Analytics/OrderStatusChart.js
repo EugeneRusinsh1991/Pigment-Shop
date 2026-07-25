@@ -1,16 +1,24 @@
 /**
  * OrderStatusChart.js
  *
- * Pie/donut chart for order status distribution using inline SVG.
+ * Donut chart for order status distribution using inline SVG.
+ * statusData: array of { labelKey, value, color } — raw counts, always 4 items.
  */
 import { Platform, Text, View } from 'react-native';
+import { useTheme } from '../../../context/ThemeContext';
 import styles from './AnalyticsStyles';
 
 const isWeb = Platform.OS === 'web';
 
-function SvgDonut({ data, size = 120, strokeWidth = 16 }) {
+function SvgDonut({ data, size = 120, strokeWidth = 20 }) {
+  const radius = (size - strokeWidth) / 2;
+  const cx = size / 2;
+  const cy = size / 2;
+  const circumference = 2 * Math.PI * radius;
+
+  const total = data.reduce((sum, d) => sum + d.value, 0) || 1;
+
   if (!isWeb) {
-    const totalValue = data.reduce((sum, item) => sum + item.value, 0) || 1;
     return (
       <View style={{ width: size, alignItems: 'center' }}>
         <View
@@ -24,26 +32,23 @@ function SvgDonut({ data, size = 120, strokeWidth = 16 }) {
           }}
         >
           {data.map((item, idx) => (
-            <View key={idx} style={{ flex: item.value / totalValue, backgroundColor: item.color }} />
+            <View key={idx} style={{ flex: item.value / total, backgroundColor: item.color }} />
           ))}
         </View>
       </View>
     );
   }
 
-  const radius = (size - strokeWidth) / 2;
-  const cx = size / 2;
-  const cy = size / 2;
-  const circumference = 2 * Math.PI * radius;
   let currentOffset = 0;
 
   return (
     <svg width={size} height={size} style={{ transform: 'rotate(-90deg)' }}>
       {data.map((item, idx) => {
-        const percent = item.value / 100;
-        const strokeDasharray = `${circumference * percent} ${circumference}`;
+        const percent = item.value / total;
+        const dashLen = circumference * percent;
+        const strokeDasharray = `${dashLen} ${circumference}`;
         const strokeDashoffset = -currentOffset;
-        currentOffset += circumference * percent;
+        currentOffset += dashLen;
 
         return (
           <circle
@@ -63,20 +68,41 @@ function SvgDonut({ data, size = 120, strokeWidth = 16 }) {
   );
 }
 
-export default function OrderStatusChart({ statusData }) {
-  const total = statusData.reduce((acc, curr) => acc + curr.value, 0);
-  const data = total > 0 
-    ? statusData.map((d) => ({ ...d, value: (d.value / total) * 100 }))
-    : [{ label: 'Empty', value: 100, color: '#e2e8f0' }];
+const STATUS_CONFIG = {
+  pending: { labelKey: 'orderStatusPending', color: '#3B82F6' },
+  processing: { labelKey: 'orderStatusProcessing', color: '#D97706' },
+  completed: { labelKey: 'orderStatusCompleted', color: '#10B981' },
+  cancelled: { labelKey: 'orderStatusCancelled', color: '#EF4444' },
+};
+
+export default function OrderStatusChart({ statusData = [] }) {
+  const { t } = useTheme();
+
+  const formattedData = statusData.map((item) => {
+    const config = STATUS_CONFIG[item.id || item.status] || {
+      labelKey: item.labelKey || 'orderStatusPending',
+      color: item.color || '#3B82F6',
+    };
+    return {
+      ...item,
+      labelKey: config.labelKey,
+      color: config.color,
+    };
+  });
+
+  const hasData = formattedData.some((d) => d.value > 0);
+  const displayData = hasData
+    ? formattedData
+    : [{ labelKey: null, value: 1, color: '#E2E8F0' }];
 
   return (
     <View style={styles.donutContainer}>
-      <SvgDonut data={data} />
+      <SvgDonut data={displayData} />
       <View style={{ marginTop: 20 }}>
-        {statusData.map((s) => (
-          <View key={s.label} style={styles.legendItem}>
+        {formattedData.map((s, idx) => (
+          <View key={s.id || s.labelKey || idx} style={styles.legendItem}>
             <View style={[styles.legendDot, { backgroundColor: s.color }]} />
-            <Text style={styles.legendText}>{s.label}:</Text>
+            <Text style={styles.legendText}>{t(s.labelKey)}:</Text>
             <Text style={styles.legendValue}>{s.value}</Text>
           </View>
         ))}

@@ -1,7 +1,8 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { useTheme } from '../context/ThemeContext';
 import Breadcrumb from './Breadcrumb';
-import { ACCENT_COLOR } from './NavMenu/constants';
+import AnimatedButton from './AnimatedButton';
+import { colors } from '../theme/tokens';
 
 /**
  * BackButton helper component.
@@ -10,26 +11,26 @@ function BackButton({ show, onPress, isDark }) {
   const { t } = useTheme();
   if (!show) return null;
   return (
-    <TouchableOpacity 
+    <AnimatedButton 
+      testID="page-back-button"
       style={styles.backButton} 
-      onPress={onPress} 
-      activeOpacity={0.7}
+      onPress={onPress}
     >
       <Text style={[styles.backText, isDark ? styles.textDark : styles.textLight]}>
         ‹ {t('btnBackLabel')}
       </Text>
-    </TouchableOpacity>
+    </AnimatedButton>
   );
 }
 
 /**
  * BreadcrumbSection helper component.
  */
-function BreadcrumbSection({ show, crumbs, onPress, isDark }) {
+function BreadcrumbSection({ show, isDark }) {
   if (!show) return null;
   return (
     <View style={[styles.breadcrumbWrapper, isDark ? styles.borderDark : styles.borderLight]}>
-      <Breadcrumb stack={crumbs} onPress={onPress} isDark={isDark} />
+      <Breadcrumb isDark={isDark} />
     </View>
   );
 }
@@ -40,13 +41,14 @@ function BreadcrumbSection({ show, crumbs, onPress, isDark }) {
  */
 export default function PageNavigation({
   isDark,
-  crumbs = [],
-  onCrumbPress,
+  crumbs = [], // Kept for backwards compatibility if needed elsewhere
   onBack,
   showBack = false,
   showBreadcrumbs = false,
+  nativeHeadersEnabled = false,
 }) {
-  const hasContent = showBack || (showBreadcrumbs && crumbs.length > 0);
+  const shouldShowBack = showBack && !nativeHeadersEnabled;
+  const hasContent = shouldShowBack || showBreadcrumbs;
   if (!hasContent) {
     return null;
   }
@@ -60,8 +62,8 @@ export default function PageNavigation({
   return (
     <View style={containerStyle}>
       <View style={styles.navRow}>
-        <BackButton show={showBack} onPress={onBack} isDark={isDark} />
-        <BreadcrumbSection show={showBreadcrumbs} crumbs={crumbs} onPress={onCrumbPress} isDark={isDark} />
+        <BackButton show={shouldShowBack} onPress={onBack} isDark={isDark} />
+        <BreadcrumbSection show={showBreadcrumbs} isDark={isDark} />
       </View>
     </View>
   );
@@ -71,11 +73,11 @@ const styles = StyleSheet.create({
   container: {
     alignSelf: 'center',
     width: '100%',
-    maxWidth: 1064,
+    maxWidth: 1330,
     paddingHorizontal: 8,
-    paddingVertical: 8,
-    borderBottomWidth: 1,
-    minHeight: 52,
+    paddingVertical: 4,
+    borderBottomWidth: 0,
+    minHeight: 36,
   },
   containerDark: {
     backgroundColor: '#0D0D0D',
@@ -91,18 +93,20 @@ const styles = StyleSheet.create({
   },
   backButton: {
     paddingVertical: 4,
+    minHeight: 44,
+    justifyContent: 'center',
     flexShrink: 0,
     marginRight: 16,
   },
   backText: {
     fontSize: 14,
     fontWeight: '500',
-    color: ACCENT_COLOR,
+    color: colors.accent,
   },
   breadcrumbWrapper: {
-    paddingVertical: 4,
+    paddingVertical: 2,
     flex: 1,
-    minHeight: 32,
+    minHeight: 24,
     minWidth: 0,
   },
   borderDark: {

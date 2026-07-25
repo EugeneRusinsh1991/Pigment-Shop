@@ -1,15 +1,21 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
+import { useTheme } from '../context/ThemeContext';
+import { Link } from 'expo-router';
+import AnimatedButton from './AnimatedButton';
+import { colors } from '../theme/tokens';
 
-export default function Footer({ isDark }) {
+export default function Footer() {
+  const { isDark } = useTheme();
   const ic = (dark, light) => (isDark ? dark : light);
   
   return (
     <View style={[styles.footer, ic(styles.footerDark, styles.footerLight)]}>
       <View style={styles.contentRow}>
-          <Image source={require('../assets/logo.png')} style={styles.logoImage} resizeMode="contain" />
-        <View style={[styles.betaBadge, ic(styles.betaBadgeDark, styles.betaBadgeLight)]}>
-          <Text style={[styles.betaText, ic(styles.betaTextDark, styles.betaTextLight)]}>Beta</Text>
-        </View>
+        <Link href="/" asChild>
+          <AnimatedButton hitSlop={{ top: 12, bottom: 12, left: 12, right: 12 }}>
+            <Image source={require('../assets/logo.png')} style={styles.logoImage} resizeMode="contain" />
+          </AnimatedButton>
+        </Link>
         <Text style={[styles.separator, ic(styles.subtextDark, styles.subtextLight)]}>•</Text>
         <Text style={[styles.authorText, ic(styles.subtextDark, styles.subtextLight)]}>Made by Noren Vox ©</Text>
       </View>
@@ -19,10 +25,10 @@ export default function Footer({ isDark }) {
 
 const styles = StyleSheet.create({
   footer: {
-    paddingTop: 10,
-    paddingBottom: 6,
+    paddingTop: 5,
+    paddingBottom: 3,
     paddingHorizontal: 16,
-    borderTopWidth: 1,
+    borderTopWidth: 0,
     width: '100%',
     alignItems: 'center',
     justifyContent: 'center',
@@ -50,34 +56,8 @@ const styles = StyleSheet.create({
     color: '#E31B23',
   },
   logoImage: {
-    width: 160,
-    height: 34,
-  },
-  betaBadge: {
-    paddingHorizontal: 10,
-    paddingVertical: 4,
-    borderRadius: 10,
-    borderWidth: 1.5,
-    marginLeft: -8,
-  },
-  betaBadgeDark: {
-    backgroundColor: '#1F1315',
-    borderColor: '#451A20',
-  },
-  betaBadgeLight: {
-    backgroundColor: '#FEF2F2',
-    borderColor: '#FEE2E2',
-  },
-  betaText: {
-    fontFamily: 'System, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-    fontSize: 13,
-    fontWeight: '700',
-  },
-  betaTextDark: {
-    color: '#E31B23',
-  },
-  betaTextLight: {
-    color: '#E31B23',
+    width: 80,
+    height: 17,
   },
   textDark: {
     color: '#FFFFFF',

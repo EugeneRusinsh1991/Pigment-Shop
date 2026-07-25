@@ -5,7 +5,8 @@
  * Validates required fields and calls onSave(formData).
  */
 import React, { useState } from 'react';
-import { Modal, ScrollView, Text, TouchableOpacity, View } from 'react-native';
+import { View } from 'react-native';
+import { useTheme } from '../../../context/ThemeContext';
 import {
   BrandSkuRow,
   CategoryStockRow,
@@ -16,37 +17,47 @@ import {
   PriceDiscountRow,
 } from './ProductFormFields';
 import styles from './ProductFormStyles';
-import { useTheme } from '../../../context/ThemeContext';
 
+import { useDeleteConfirmation } from '../../../hooks/useDeleteConfirmation';
+import { useForm } from '../../../hooks/useForm';
+import { colors } from '../../../theme/tokens';
+import Button from '../../Button';
 import { FormModalLayout, LanguageTabs } from '../SharedFormComponents';
-import { buildInitialForm, validateForm, parseFormToProduct } from './productFormLogic';
+import { buildInitialForm, parseFormToProduct, validateForm } from './productFormLogic';
 
-export default function ProductFormModal({ visible, product, onSave, onClose }) {
+export default function ProductFormModal({ visible, product, onSave, onClose, onDelete }) {
   const { t, lang } = useTheme();
-  const [form, setForm] = useState(() => buildInitialForm(product, lang));
-  const [errors, setErrors] = useState({});
   const [activeLang, setActiveLang] = useState(lang);
+
+  const { form, errors, handleChange, validate, resetForm } = useForm(
+    buildInitialForm(product, lang),
+    (f) => validateForm(f, t)
+  );
+
+  const { confirmDelete } = useDeleteConfirmation();
 
   React.useEffect(() => {
     if (visible) {
-      setForm(buildInitialForm(product, lang));
-      setErrors({});
+      resetForm(buildInitialForm(product, lang));
       setActiveLang(lang);
     }
-  }, [visible, product, lang]);
-
-  const handleChange = (field, value) => {
-    setForm((prev) => ({ ...prev, [field]: value }));
-    if (errors[field]) setErrors((prev) => ({ ...prev, [field]: undefined }));
-  };
+  }, [visible, product, lang, resetForm]);
 
   const handleSave = () => {
-    const validationErrors = validateForm(form, t);
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-      return;
+    if (validate()) {
+      onSave(parseFormToProduct(form, product, lang));
     }
-    onSave(parseFormToProduct(form, product, lang));
+  };
+
+  const handleDelete = () => {
+    if (!product || !onDelete) return;
+
+    confirmDelete({
+      onConfirm: () => {
+        onDelete(product.id);
+        onClose();
+      }
+    });
   };
 
   return (
@@ -66,6 +77,17 @@ export default function ProductFormModal({ visible, product, onSave, onClose }) 
       <CategoryStockRow form={form} onChange={handleChange} />
       <ImageFields form={form} onChange={handleChange} errors={errors} />
       <FlagsSection form={form} onChange={handleChange} />
+      {product && onDelete && (
+        <View style={{ marginTop: 20, borderTopWidth: 1, borderTopColor: colors.secondaryLightBorder, paddingTop: 20 }}>
+          <Button
+            title={t('adminProductsActionDelete')}
+            onPress={handleDelete}
+            variant="dangerSoft"
+            size="md"
+            textStyle={{ color: colors.dangerStrong }}
+          />
+        </View>
+      )}
     </FormModalLayout>
   );
 }

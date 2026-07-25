@@ -1,9 +1,15 @@
 import { useState, useCallback } from 'react';
 
 /**
- * useSort
+ * useSort — canonical sort state hook (reference implementation).
  *
- * Custom hook to manage sorting state and trigger sort direction toggle.
+ * Implements the project-standard sort hook interface defined in
+ * src/domain/catalogEntityContract.ts (SortState convention).
+ *
+ * Exposed interface: { sortField, sortDirection, handleSort, setSortField, setSortDirection }
+ * - handleSort(field): toggles direction on the active field; resets to 'asc' on a new field.
+ *
+ * All sort hooks in the project MUST match this interface.
  *
  * @param {string} initialField - The initial field to sort by
  * @param {string} initialDirection - The initial sorting direction ('asc' or 'desc')

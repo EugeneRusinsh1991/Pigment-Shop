@@ -3,40 +3,21 @@ import { useCatalog } from '../context/CatalogContext';
 import { useTheme } from '../context/ThemeContext';
 import commonStyles from '../theme/commonStyles';
 import styles from './OrdersPageStyles';
+import { getLocalizedValue } from '../utils/localization';
+import { formatDateLong } from '../utils/dateFormatting';
+import { resolveStatusKey, resolveStatusDef, createStatusBadgeStyleMap } from '../utils/orderStatus';
 
-export const JUST_NOW_TRANSLATIONS = {
+const JUST_NOW_TRANSLATIONS = {
   uk: 'Щойно',
   en: 'Just now',
   ru: 'Только что',
 };
 
-export const LOCALE_TRANSLATIONS = {
-  uk: 'uk-UA',
-  en: 'en-US',
-  ru: 'ru-RU',
-};
-
-export const STATUS_MAP = {
-  'Новый заказ': 'orderStatusPending',
-  'В обработке': 'orderStatusProcessing',
-  'Pending': 'orderStatusPending',
-  'Processing': 'orderStatusProcessing',
-  'New': 'orderStatusPending',
-  'Выполнен': 'orderStatusCompleted',
-  'Completed': 'orderStatusCompleted',
-  'Отменен': 'orderStatusCancelled',
-  'Отменён': 'orderStatusCancelled',
-  'Cancelled': 'orderStatusCancelled',
-};
-
-export function getItemLabel(labelObj, lang) {
-  if (labelObj && typeof labelObj === 'object' && labelObj[lang]) {
-    return labelObj[lang];
-  }
-  return labelObj;
+function getItemLabel(labelObj, lang) {
+  return getLocalizedValue(labelObj, lang, labelObj);
 }
 
-export function OrderItemRow({ item, idx, getStyle }) {
+function OrderItemRow({ item, idx, getStyle }) {
   const { t, lang } = useTheme();
   const { flatList } = useCatalog();
   const matched = flatList.find((p) => p.id === item.id);
@@ -66,13 +47,7 @@ export function getFormattedDate(order, lang) {
   if (!order.createdAt) {
     return JUST_NOW_TRANSLATIONS[lang] || JUST_NOW_TRANSLATIONS.ru;
   }
-  try {
-    const date = order.createdAt.toDate();
-    const locale = LOCALE_TRANSLATIONS[lang] || LOCALE_TRANSLATIONS.ru;
-    return new Intl.DateTimeFormat(locale, { day: 'numeric', month: 'long', year: 'numeric' }).format(date);
-  } catch (e) {
-    return '—';
-  }
+  return formatDateLong(order.createdAt, lang);
 }
 
 export function getOrderNumber(order) {
@@ -80,34 +55,24 @@ export function getOrderNumber(order) {
 }
 
 export function getOrderStatus(order, t) {
-  const status = order.status || 'Новый заказ';
-  const translationKey = STATUS_MAP[status];
-  return translationKey ? t(translationKey) : status;
-}
-
-const STATUS_KEYWORDS = {
-  completed: ['complet', 'выполн'],
-  cancelled: ['cancel', 'отмен'],
-  processing: ['process', 'обработ'],
-};
-
-export function getOrderStatusKey(order) {
-  const normalized = String(order.status || 'Новый заказ').toLowerCase();
-  const found = Object.entries(STATUS_KEYWORDS).find(([, keywords]) =>
-    keywords.some((kw) => normalized.includes(kw))
-  );
-  return found ? found[0] : 'new';
+  const def = resolveStatusDef(order.status);
+  return t(def.localeKey) || order.status;
 }
 
 const STATUS_STYLE_MAP = {
-  completed: (getStyle) => getStyle(styles.statusCompletedDark, styles.statusCompletedLight),
-  cancelled: (getStyle) => getStyle(styles.statusCancelledDark, styles.statusCancelledLight),
+  pending:    (getStyle) => getStyle(styles.statusNewDark, styles.statusNewLight),
   processing: (getStyle) => getStyle(styles.statusProcessingDark, styles.statusProcessingLight),
-  new: (getStyle) => getStyle(styles.statusNewDark, styles.statusNewLight),
+  completed:  (getStyle) => getStyle(styles.statusCompletedDark, styles.statusCompletedLight),
+  cancelled:  (getStyle) => getStyle(styles.statusCancelledDark, styles.statusCancelledLight),
 };
 
 export function getOrderStatusStyle(order, getStyle) {
-  return STATUS_STYLE_MAP[getOrderStatusKey(order)](getStyle);
+  return STATUS_STYLE_MAP[resolveStatusKey(order.status)](getStyle);
+}
+
+export function getOrderStatusBadgeStyle(order) {
+  const badgeMap = createStatusBadgeStyleMap(styles);
+  return badgeMap[resolveStatusKey(order.status)];
 }
 
 export function getOrderTotalPrice(order) {
@@ -146,12 +111,12 @@ export function ExpandedItemsList({ show, items, getStyle, order }) {
 }
 
 const ADMIN_BG_STYLE_MAP = {
-  completed: styles.adminCardCompleted,
-  cancelled: styles.adminCardCancelled,
+  pending:    styles.adminCardNew,
   processing: styles.adminCardProcessing,
-  new: styles.adminCardNew,
+  completed:  styles.adminCardCompleted,
+  cancelled:  styles.adminCardCancelled,
 };
 
 export function getAdminBgStyle(order) {
-  return ADMIN_BG_STYLE_MAP[getOrderStatusKey(order)];
+  return ADMIN_BG_STYLE_MAP[resolveStatusKey(order.status)];
 }

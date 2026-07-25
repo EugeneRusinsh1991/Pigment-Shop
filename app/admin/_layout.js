@@ -1,0 +1,13 @@
+import React from 'react';
+import { Slot, Redirect } from 'expo-router';
+import { useAdminAuth } from '@/services/adminDomain';
+
+export default function AdminLayout() {
+  const { isAdmin } = useAdminAuth();
+
+  if (!isAdmin) {
+    return <Redirect href="/login" />;
+  }
+
+  return <Slot />;
+}

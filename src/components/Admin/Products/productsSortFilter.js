@@ -5,16 +5,10 @@
  * No React/UI dependencies.
  */
 
-const LANG_PRIORITY = ['ru', 'en', 'uk'];
+import { getEffectivePrice } from '../../../utils/pricing';
+import { compareValues } from '../../../utils/sorting';
+import { getLocalizedValue } from '../../../utils/localization';
 
-function resolveLabel(val) {
-  if (!val) return '';
-  if (typeof val !== 'object') return String(val);
-  for (const l of LANG_PRIORITY) {
-    if (val[l]) return val[l];
-  }
-  return '';
-}
 
 /** Filter: keep only products matching active quick-filters. */
 export function applyFilters(products, { onlyDiscount, onlyNew }) {
@@ -24,43 +18,20 @@ export function applyFilters(products, { onlyDiscount, onlyNew }) {
   return result;
 }
 
-function getEffectivePrice(p) {
-  return p.discountPercent ? Math.round(p.price * (1 - p.discountPercent / 100)) : p.price;
-}
 
 function getSortValue(p, sortField) {
   if (sortField === 'label') {
-    return resolveLabel(p.label);
+    return getLocalizedValue(p.label, 'ru', '');
   }
   if (sortField === 'category') {
-    return resolveLabel(p.category);
+    return getLocalizedValue(p.category, 'ru', '');
   }
   if (sortField === 'price') {
-    return getEffectivePrice(p);
+    return getEffectivePrice(p.price, p.discountPercent);
   }
   return p[sortField];
 }
 
-function coerceToNumber(val) {
-  if (typeof val === 'boolean') return val ? 1 : 0;
-  return Number(val) || 0;
-}
-
-function compareStrings(strA, strB, sortDirection) {
-  const normB = strB || '';
-  return sortDirection === 'asc'
-    ? strA.toLowerCase().localeCompare(normB.toLowerCase())
-    : normB.toLowerCase().localeCompare(strA.toLowerCase());
-}
-
-function compareValues(valA, valB, sortDirection) {
-  if (typeof valA === 'string') {
-    return compareStrings(valA, valB, sortDirection);
-  }
-  const numA = coerceToNumber(valA);
-  const numB = coerceToNumber(valB);
-  return sortDirection === 'asc' ? numA - numB : numB - numA;
-}
 
 
 /** Sort a products array by the given sort field and direction (mutates a copy). */

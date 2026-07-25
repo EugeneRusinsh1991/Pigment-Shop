@@ -9,17 +9,15 @@ import { extractLocalizedField, extractProductScalars } from './productFormExtra
 export function buildInitialForm(product, lang) {
   if (!product) return { ...EMPTY_FORM };
 
-  const label = extractLocalizedField(product.label);
-  const desc = extractLocalizedField(product.description);
-
   return {
-    label_uk: label.uk, label_ru: label.ru, label_en: label.en,
-    description_uk: desc.uk, description_ru: desc.ru, description_en: desc.en,
+    label: extractLocalizedField(product.label),
+    description: extractLocalizedField(product.description),
     ...extractProductScalars(product, lang),
   };
 }
-const isLabelEmpty = ({ label_uk, label_ru, label_en }) => 
-  ![label_uk, label_ru, label_en].some(label => label?.trim());
+
+const isLabelEmpty = ({ label }) =>
+  !['uk', 'ru', 'en'].some((l) => label?.[l]?.trim());
 
 const isPriceInvalid = (priceStr) => {
   const price = parseFloat(priceStr);

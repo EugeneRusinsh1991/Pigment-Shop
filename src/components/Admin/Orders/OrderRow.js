@@ -1,89 +1,124 @@
 /**
  * OrderRow.js
  */
+import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
+import { DataTableRow, DataTableCell } from '../../DataTable/DataTable';
 import styles from './OrdersStyles';
-
-const STATUS_STYLE_MAP = {
-  'Новый заказ': { bg: styles.statusNewBg, text: styles.statusNewText, localeKey: 'orderStatusPending' },
-  'В обработке': { bg: styles.statusProcessingBg, text: styles.statusProcessingText, localeKey: 'orderStatusProcessing' },
-  'Выполнен': { bg: styles.statusCompletedBg, text: styles.statusCompletedText, localeKey: 'orderStatusCompleted' },
-  'Отменён': { bg: styles.statusCancelledBg, text: styles.statusCancelledText, localeKey: 'orderStatusCancelled' },
-  'New': { bg: styles.statusNewBg, text: styles.statusNewText, localeKey: 'orderStatusPending' },
-  'Processing': { bg: styles.statusProcessingBg, text: styles.statusProcessingText, localeKey: 'orderStatusProcessing' },
-  'Completed': { bg: styles.statusCompletedBg, text: styles.statusCompletedText, localeKey: 'orderStatusCompleted' },
-  'Cancelled': { bg: styles.statusCancelledBg, text: styles.statusCancelledText, localeKey: 'orderStatusCancelled' },
-};
+import { formatDateShortWithTime } from '../../../utils/dateFormatting';
+import { resolveStatusDef, createStatusBadgeStyleMap } from '../../../utils/orderStatus';
 
 function formatRowDate(createdAt, lang) {
-  if (!createdAt) return '—';
-  try {
-    const date = createdAt.toDate ? createdAt.toDate() : new Date(createdAt);
-    const locale = lang === 'ru' ? 'ru-RU' : 'en-US';
-    const dateStr = new Intl.DateTimeFormat(locale, { day: 'numeric', month: 'short', year: 'numeric' }).format(date);
-    const timeStr = new Intl.DateTimeFormat(locale, { hour: '2-digit', minute: '2-digit' }).format(date);
-    return `${dateStr} ${timeStr}`;
-  } catch (e) {
-    return '—';
-  }
+  return formatDateShortWithTime(createdAt, lang);
 }
 
-function getOrderNumber(orderId) {
-  return orderId.slice(-5).toUpperCase();
+function getOrderSummary(order, t, lang) {
+  const def = resolveStatusDef(order.status);
+  const badgeStyles = createStatusBadgeStyleMap(styles)[def.key];
+  const contact = order.customerPhone || order.customerEmail || '';
+
+  return {
+    formattedDate: formatRowDate(order.createdAt, lang),
+    orderNum: order.id.slice(-5).toUpperCase(),
+    statusDef: { ...badgeStyles, localeKey: def.localeKey, rowBg: { backgroundColor: def.rowBg } },
+    rowBg: { backgroundColor: def.rowBg },
+    statusDisplay: t(def.localeKey) || order.status,
+    contact,
+    formattedTotal: (order.totalPrice || 0).toLocaleString(),
+  };
 }
 
-function getCustomerContact(order) {
-  return order.customerPhone || order.customerEmail || '';
+function StatusBadge({ statusDef, statusDisplay }) {
+  return (
+    <View style={[styles.statusBadge, statusDef.bg]}>
+      <Text style={[styles.statusText, statusDef.text]}>{statusDisplay}</Text>
+    </View>
+  );
 }
 
-function getStatusDef(status) {
-  return STATUS_STYLE_MAP[status] || STATUS_STYLE_MAP['New'];
-}
-
-export default function OrderRow({ order, isMobile, onPress }) {
+export function MobileOrderRow({ order, onPress }) {
   const { t, lang } = useTheme();
-
-  const formattedDate = formatRowDate(order.createdAt, lang);
-  const orderNum = getOrderNumber(order.id);
-  const statusDef = getStatusDef(order.status);
-  const statusDisplay = t(statusDef.localeKey) || order.status;
-  const contact = getCustomerContact(order);
-  const formattedTotal = (order.totalPrice || 0).toLocaleString();
+  const summary = getOrderSummary(order, t, lang);
 
   return (
-    <TouchableOpacity style={[styles.row, isMobile && styles.rowMobile]} onPress={onPress}>
+    <TouchableOpacity style={[styles.row, styles.rowMobile, summary.rowBg]} onPress={onPress}>
+      {/* Row 1: order number + date */}
       <View style={styles.rowTop}>
-        <Text style={styles.tdText}>#{orderNum}</Text>
-        <Text style={styles.tdText}>{formattedDate}</Text>
-        <Text style={[styles.tdText, styles.customerName]} numberOfLines={1}>{order.customerName}</Text>
+        <Text style={[styles.tdText, { fontWeight: '700' }]}>#{summary.orderNum}</Text>
+        <Text style={[styles.tdText, styles.rowDate]}>{summary.formattedDate}</Text>
       </View>
+
+      {/* Row 2: customer name */}
+      <Text style={[styles.tdText, styles.customerName]} numberOfLines={1}>{order.customerName}</Text>
+
+      {/* Row 3: contact | status | total */}
       <View style={styles.rowMiddle}>
         <View style={styles.metaBlock}>
           <Text style={styles.metaLabel}>{t('adminOrdersCustomer')}</Text>
-          <Text style={styles.metaValue}>{contact || '—'}</Text>
+          <Text style={styles.metaValue} numberOfLines={1}>{summary.contact || '—'}</Text>
         </View>
         <View style={styles.metaBlock}>
           <Text style={styles.metaLabel}>{t('adminOrdersStatus')}</Text>
-          <View style={[styles.statusBadge, statusDef.bg]}>
-            <Text style={[styles.statusText, statusDef.text]}>{statusDisplay}</Text>
-          </View>
+          <StatusBadge statusDef={summary.statusDef} statusDisplay={summary.statusDisplay} />
         </View>
         <View style={styles.metaBlock}>
           <Text style={styles.metaLabel}>{t('adminOrdersTotal')}</Text>
-          <Text style={styles.metaValue}>${formattedTotal}</Text>
+          <Text style={styles.metaValue}>${summary.formattedTotal}</Text>
         </View>
       </View>
+
+      {/* Row 4: notes */}
       <View style={styles.rowBottom}>
         <View style={styles.noteBlock}>
-          <Text style={styles.metaLabel}>Cust Note</Text>
-          <Text style={styles.metaValue}>{order.note || '—'}</Text>
+          <Text style={styles.metaLabel}>{t('adminOrdersCustNote')}</Text>
+          <Text style={styles.metaValue} numberOfLines={1}>{order.note || '—'}</Text>
         </View>
         <View style={styles.noteBlock}>
-          <Text style={styles.metaLabel}>Admin Note</Text>
-          <Text style={styles.metaValue}>{order.adminNote || '—'}</Text>
+          <Text style={styles.metaLabel}>{t('adminOrdersAdminNote')}</Text>
+          <Text style={styles.metaValue} numberOfLines={1}>{order.adminNote || '—'}</Text>
         </View>
       </View>
     </TouchableOpacity>
   );
 }
+
+export function DesktopOrderRow({ order, onPress }) {
+  const { t, lang } = useTheme();
+  const summary = getOrderSummary(order, t, lang);
+
+  return (
+    <DataTableRow style={[styles.row, summary.rowBg, { flexDirection: 'column', alignItems: 'stretch' }]} onPress={onPress}>
+      <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+        <DataTableCell style={[styles.colId, { flexDirection: 'row' }]}>
+          <Text style={[styles.tdText, { fontWeight: '700' }]}>#{summary.orderNum}</Text>
+        </DataTableCell>
+        <DataTableCell style={[styles.colCustomer, { flexDirection: 'row' }]}>
+          <Text style={[styles.tdText, styles.customerName]} numberOfLines={1}>
+            {order.customerName} {summary.contact ? `(${summary.contact})` : ''}
+          </Text>
+        </DataTableCell>
+        <DataTableCell style={[styles.colDate, { flexDirection: 'row' }]}>
+          <Text style={styles.tdText}>{summary.formattedDate}</Text>
+        </DataTableCell>
+        <DataTableCell style={[styles.colStatus, { flexDirection: 'row', justifyContent: 'center' }]}>
+          <StatusBadge statusDef={summary.statusDef} statusDisplay={summary.statusDisplay} />
+        </DataTableCell>
+        <DataTableCell style={[styles.colTotal, { flexDirection: 'row', justifyContent: 'flex-end' }]}>
+          <Text style={[styles.tdText, { fontWeight: '700', textAlign: 'right' }]}>${summary.formattedTotal}</Text>
+        </DataTableCell>
+      </View>
+      <View style={{ flexDirection: 'row', gap: 24, marginTop: 4 }}>
+        <View style={{ flexDirection: 'row', flex: 1, gap: 4 }}>
+          <Text style={[styles.metaLabel, { marginBottom: 0 }]}>{t('adminOrdersCustNote')}: </Text>
+          <Text style={[styles.metaValue, { fontWeight: 'normal', fontSize: 13 }]} numberOfLines={1}>{order.note || '—'}</Text>
+        </View>
+        <View style={{ flexDirection: 'row', flex: 1, gap: 4 }}>
+          <Text style={[styles.metaLabel, { marginBottom: 0 }]}>{t('adminOrdersAdminNote')}: </Text>
+          <Text style={[styles.metaValue, { fontWeight: 'normal', fontSize: 13 }]} numberOfLines={1}>{order.adminNote || '—'}</Text>
+        </View>
+      </View>
+    </DataTableRow>
+  );
+}
+

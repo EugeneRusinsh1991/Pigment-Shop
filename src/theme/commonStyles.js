@@ -1,47 +1,57 @@
-import { Dimensions, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
+import { colors, fonts, layout } from './tokens';
 
-const { width } = Dimensions.get('window');
-const isMobile = width < 768;
+function getContentStyle(isMobile) {
+  return {
+    paddingHorizontal: isMobile ? 8 : 24,
+    paddingVertical: isMobile ? 8 : 16,
+    maxWidth: 1330,
+    alignSelf: 'center',
+    width: '100%',
+  };
+}
 
 export default StyleSheet.create({
   container: {
     flex: 1,
     width: '100%',
   },
-  containerDark: { backgroundColor: '#0D0D0D' },
-  containerLight: { backgroundColor: '#FAF8F6' },
+  containerDark: { backgroundColor: colors.backgroundDark },
+  containerLight: { backgroundColor: colors.backgroundLight },
   content: {
-    padding: isMobile ? 8 : 24,
-    maxWidth: 800,
+    paddingHorizontal: 8,
+    paddingVertical: 8,
+    maxWidth: 1330,
     alignSelf: 'center',
     width: '100%',
   },
   scrollContent: {
     flexGrow: 1,
-    justifyContent: 'space-between',
+    paddingBottom: 16,
   },
   title: {
-    fontFamily: '"Cormorant Garamond", "Playfair Display", Georgia, serif',
-    fontSize: 32,
+    fontFamily: fonts.serif,
+    fontSize: 24,
+    lineHeight: 28,
     fontWeight: '500',
-    marginBottom: 32,
+    marginBottom: 12,
     textAlign: 'center',
   },
   card: {
-    borderRadius: 16,
+    borderRadius: layout.radii.md,
     padding: 24,
     borderWidth: 1,
   },
   cardDark: {
-    backgroundColor: '#1C1C1C',
-    borderColor: '#2A2A2A',
+    backgroundColor: colors.surfaceDark,
+    borderColor: colors.borderDark,
   },
   cardLight: {
-    backgroundColor: '#FFFFFF',
-    borderColor: '#EFEFEF',
+    backgroundColor: colors.surfaceLight,
+    borderColor: colors.borderLight,
   },
-  textDark: { color: '#FFFFFF' },
-  textLight: { color: '#1C1C1C' },
-  subtextDark: { color: '#A0A0A0' },
-  subtextLight: { color: '#6B7280' },
+  textDark: { color: colors.textDark },
+  textLight: { color: colors.textLight },
+  subtextDark: { color: colors.textMutedDark },
+  subtextLight: { color: colors.textMutedLight },
 });

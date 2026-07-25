@@ -29,33 +29,62 @@
  * account does not yet exist in the Firebase project.
  */
 
-import { auth } from '../firebase';
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
-
-const VISITOR_EMAIL = 'visitor@pigment-shop.com';
-const VISITOR_PASSWORD = 'visitor123456';
+import { loginAnonymously, loginWithEmail } from './repositories/authRepository';
+import { VISITOR_EMAIL, VISITOR_PASSWORD } from './authPolicy';
+import { withServiceContract } from './serviceContract';
 
 /**
- * Attempt to sign in as the shared visitor account.
- * If the account does not exist, attempt to create it first.
- *
- * This is an optional startup step — the caller must handle both outcomes
- * and must NOT treat failure as a critical error.
+ * Generates an isolated session token for guest users as fallback.
+ */
+export function getOrCreateGuestSessionId() {
+  if (typeof window !== 'undefined' && window.localStorage) {
+    let sid = window.localStorage.getItem('guest_session_id');
+    if (!sid) {
+      sid = 'visitor_' + Math.random().toString(36).substring(2, 11) + '_' + Date.now();
+      window.localStorage.setItem('guest_session_id', sid);
+    }
+    return sid;
+  }
+  return 'visitor_' + Math.random().toString(36).substring(2, 11) + '_' + Date.now();
+}
+
+/**
+ * Attempt to establish an isolated guest/anonymous session.
+ * Uses Firebase Anonymous Authentication, falling back to guest account if anonymous auth is disabled.
  *
  * @returns {Promise<{ success: true } | { success: false, error: Error }>}
  */
-export async function bootstrapVisitorSession() {
+async function _bootstrapVisitorSession() {
   try {
-    await signInWithEmailAndPassword(auth, VISITOR_EMAIL, VISITOR_PASSWORD);
-    return { success: true };
-  } catch (signInErr) {
-    // Account may not exist yet — attempt one-time creation.
+    await loginAnonymously();
+    return { guest: false };
+  } catch (anonErr) {
     try {
-      await createUserWithEmailAndPassword(auth, VISITOR_EMAIL, VISITOR_PASSWORD);
-      return { success: true };
-    } catch (createErr) {
-      console.warn('[visitorBootstrap] Visitor session could not be established:', createErr);
-      return { success: false, error: createErr };
+      await loginWithEmail(VISITOR_EMAIL, VISITOR_PASSWORD);
+      return { guest: false };
+    } catch (fallbackErr) {
+      const sessionId = getOrCreateGuestSessionId();
+      return { guest: true, sessionId };
     }
   }
 }
+
+export const bootstrapVisitorSession = withServiceContract(_bootstrapVisitorSession, 'Failed to bootstrap visitor session');
+
+/**
+ * Lifecycle service for visitor session bootstrap.
+ */
+export const visitorBootstrapService = {
+  async start({ isAuthenticated, user }) {
+    if (!isAuthenticated && !user) {
+      const result = await bootstrapVisitorSession();
+      if (!result.success) {
+        throw new Error(result.error);
+      }
+    }
+  },
+  stop() {
+    // No-op for visitor bootstrap
+  },
+};
+

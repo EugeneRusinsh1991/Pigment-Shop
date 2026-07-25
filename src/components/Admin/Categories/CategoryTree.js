@@ -9,20 +9,26 @@
  * - Enforces MAX_DEPTH: hides + button on depth-5 rows.
  */
 import React, { useCallback, useMemo, useState } from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { Text, View } from 'react-native';
+import Button from '../../Button';
+import ChipButton from '../../ChipButton';
 import styles from './CategoriesStyles';
-import { ChevronRightIcon, ChevronDownIcon } from '../../Icons';
-import CategoryRow from './CategoryRow';
+import { ChevronRightIcon, ChevronDownIcon } from '@/components/Icons';
+import { DesktopCategoryRow, MobileCategoryCard } from './CategoryRow';
 import { useTheme } from '../../../context/ThemeContext';
+import DataTable from '../../DataTable/DataTable';
 
 /* ─── flatten tree respecting collapsed state ─────────────────── */
 
 function flattenVisible(nodes, collapsed, depth = 0) {
   const rows = [];
+  if (!Array.isArray(nodes)) return rows;
   nodes.forEach((node) => {
+    if (!node) return;
     rows.push({ ...node, _depth: depth });
     const isCollapsed = collapsed.has(node.id);
-    if (!isCollapsed && node.children?.length > 0) {
+    const hasChildren = Array.isArray(node.children) && node.children.length > 0;
+    if (!isCollapsed && hasChildren) {
       flattenVisible(node.children, collapsed, depth + 1).forEach((r) => rows.push(r));
     }
   });
@@ -30,18 +36,20 @@ function flattenVisible(nodes, collapsed, depth = 0) {
 }
 
 function collectAllIds(nodes, acc = new Set()) {
-  nodes.forEach((n) => { acc.add(n.id); if (n.children?.length) collectAllIds(n.children, acc); });
+  if (!Array.isArray(nodes)) return acc;
+  nodes.forEach((n) => { if (n && n.id) acc.add(n.id); if (n?.children?.length) collectAllIds(n.children, acc); });
   return acc;
 }
 
 function collectParentIds(nodes, acc = new Set()) {
-  nodes.forEach((n) => { if (n.children?.length) { acc.add(n.id); collectParentIds(n.children, acc); } });
+  if (!Array.isArray(nodes)) return acc;
+  nodes.forEach((n) => { if (n?.children?.length) { if (n.id) acc.add(n.id); collectParentIds(n.children, acc); } });
   return acc;
 }
 
 /* ─── main component ──────────────────────────────────────────── */
 
-export default function CategoryTree({ tree, onEdit, onAddChild, onDelete }) {
+export default function CategoryTree({ tree, onEdit, onAdd, products }) {
   const { t } = useTheme();
   const parentIds = useMemo(() => collectParentIds(tree), [tree]);
   const [collapsed, setCollapsed] = useState(new Set());
@@ -57,47 +65,63 @@ export default function CategoryTree({ tree, onEdit, onAddChild, onDelete }) {
   const expandAll = useCallback(() => setCollapsed(new Set()), []);
   const collapseAll = useCallback(() => setCollapsed(new Set(collectAllIds(tree))), [tree]);
 
-  const rows = useMemo(() => flattenVisible(tree, collapsed), [tree, collapsed]);
-
-  if (rows.length === 0 && tree.length === 0) {
-    return <Text style={styles.emptyText}>{t('adminCategoriesEmpty')}</Text>;
-  }
+  const rows = useMemo(() => flattenVisible(tree || [], collapsed), [tree, collapsed]);
 
   return (
     <View>
-      {/* Expand / Collapse All */}
-      <View style={styles.treeControls}>
-        <TouchableOpacity style={[styles.treeControlBtn, { flexDirection: 'row', alignItems: 'center' }]} onPress={expandAll} activeOpacity={0.8}>
-          <ChevronDownIcon color="#2563EB" size={12} style={{ marginRight: 6 }} />
-          <Text style={styles.treeControlBtnText}>{t('adminCategoriesExpandAll')}</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={[styles.treeControlBtn, { flexDirection: 'row', alignItems: 'center' }]} onPress={collapseAll} activeOpacity={0.8}>
-          <ChevronRightIcon color="#2563EB" size={12} style={{ marginRight: 6 }} />
-          <Text style={styles.treeControlBtnText}>{t('adminCategoriesCollapseAll')}</Text>
-        </TouchableOpacity>
+      {/* Single horizontal toolbar controls */}
+      <View style={styles.toolbar}>
+        <Button
+          title={t('adminCategoriesAddBtn')}
+          onPress={onAdd}
+          variant="primary"
+          size="md"
+        />
+        <ChipButton
+          label={t('adminCategoriesExpandAll')}
+          onPress={expandAll}
+          leftIcon={<ChevronDownIcon size={14} />}
+        />
+        <ChipButton
+          label={t('adminCategoriesCollapseAll')}
+          onPress={collapseAll}
+          leftIcon={<ChevronRightIcon size={14} />}
+        />
       </View>
 
-      {/* Tree table */}
-      <View style={styles.tableCard}>
-        <View style={styles.tableHeader}>
-          <View style={styles.colName}><Text style={styles.thText}>{t('adminCategoriesColName')}</Text></View>
-          <View style={styles.colImage}><Text style={styles.thText}>{t('adminCategoriesColImage')}</Text></View>
-          <View style={styles.colActions} />
-        </View>
-        {rows.map((row, idx) => (
-          <CategoryRow
+      <DataTable
+        data={rows}
+        columns={[
+          { key: 'name', label: t('adminCategoriesColName'), style: styles.colName, sortable: false },
+          { key: 'image', label: t('adminCategoriesColImage'), style: styles.colImage, sortable: false },
+        ]}
+        emptyText={t('adminCategoriesEmpty')}
+        renderRow={(row, idx) => (
+          <DesktopCategoryRow
             key={row.id}
             row={row}
             hasChildren={parentIds.has(row.id)}
             isCollapsed={collapsed.has(row.id)}
             onToggle={toggle}
             onEdit={onEdit}
-            onAddChild={onAddChild}
-            onDelete={onDelete}
             isAlt={idx % 2 === 1}
+            products={products}
           />
-        ))}
-      </View>
+        )}
+        renderMobileRow={(row) => (
+          <MobileCategoryCard
+            key={row.id}
+            row={row}
+            hasChildren={parentIds.has(row.id)}
+            isCollapsed={collapsed.has(row.id)}
+            onToggle={toggle}
+            onEdit={onEdit}
+            products={products}
+          />
+        )}
+        keyExtractor={(row) => row.id}
+      />
     </View>
   );
 }
+

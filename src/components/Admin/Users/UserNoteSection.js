@@ -1,8 +1,8 @@
-import { Text, TouchableOpacity, TextInput, ActivityIndicator, View } from 'react-native';
+import { Text, TextInput, ActivityIndicator, View } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
 import styles from './UsersStyles';
 
-export default function UserNoteSection({ note, setNote, loadingNote, savingNote, onSave }) {
+export default function UserNoteSection({ note, setNote, loadingNote }) {
   const { t } = useTheme();
   return (
     <View style={styles.noteCard}>
@@ -19,19 +19,8 @@ export default function UserNoteSection({ note, setNote, loadingNote, savingNote
             onChangeText={setNote}
             multiline
             numberOfLines={4}
-            editable={!savingNote}
+            editable={true}
           />
-          <View style={styles.noteActions}>
-            <TouchableOpacity
-              style={[styles.noteSaveBtn, savingNote && styles.noteSaveBtnDisabled]}
-              onPress={onSave}
-              disabled={savingNote}
-            >
-              <Text style={styles.noteSaveBtnText}>
-                {savingNote ? (t('saving') || 'Saving...') : t('btnSaveLabel')}
-              </Text>
-            </TouchableOpacity>
-          </View>
         </>
       )}
     </View>

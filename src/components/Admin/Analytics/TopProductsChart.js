@@ -7,6 +7,7 @@ import React, { useMemo } from 'react';
 import { Text, View } from 'react-native';
 import styles from './AnalyticsStyles';
 import { useTheme } from '../../../context/ThemeContext';
+import { getLocalizedValue } from '../../../utils/localization';
 
 function truncateLabel(label, maxLen = 28) {
   if (!label) return 'Unknown Product';
@@ -14,13 +15,6 @@ function truncateLabel(label, maxLen = 28) {
   return label.slice(0, maxLen - 1) + '…';
 }
 
-function resolveLocalizedValue(val, lang) {
-  if (!val) return 'Unknown Product';
-  if (typeof val === 'object') {
-    return val[lang] || val.en || val.ru || 'Unknown Product';
-  }
-  return val;
-}
 
 export default function TopProductsChart({ productsData = [] }) {
   const { lang, t } = useTheme();
@@ -28,7 +22,7 @@ export default function TopProductsChart({ productsData = [] }) {
   const products = useMemo(() => {
     return productsData.map((p) => ({
       ...p,
-      label: resolveLocalizedValue(p.label, lang),
+      label: getLocalizedValue(p.label, lang, 'Unknown Product'),
     }));
   }, [productsData, lang]);
 
@@ -36,8 +30,10 @@ export default function TopProductsChart({ productsData = [] }) {
 
   if (products.length === 0) {
     return (
-      <View style={{ paddingVertical: 10 }}>
-        <Text style={{ color: '#94a3b8', fontSize: 13 }}>No data</Text>
+      <View style={{ paddingVertical: 20, alignItems: 'center', justifyContent: 'center' }}>
+        <Text style={{ color: '#94a3b8', fontSize: 14, fontWeight: '500' }}>
+          No selling products in this period.
+        </Text>
       </View>
     );
   }
@@ -50,7 +46,17 @@ export default function TopProductsChart({ productsData = [] }) {
             {truncateLabel(p.label)}
           </Text>
           <View style={styles.barTrack}>
-            <View style={[styles.barFill, { width: `${(p.value / maxValue) * 100}%` }]} />
+            <View style={{ flexDirection: 'row', width: `${(p.value / maxValue) * 100}%`, height: '100%', borderRadius: 4, overflow: 'hidden' }}>
+              {p.completed > 0 && (
+                <View style={{ flex: p.completed, backgroundColor: '#10B981' }} />
+              )}
+              {p.processing > 0 && (
+                <View style={{ flex: p.processing, backgroundColor: '#F59E0B' }} />
+              )}
+              {p.pending > 0 && (
+                <View style={{ flex: p.pending, backgroundColor: '#3B82F6' }} />
+              )}
+            </View>
           </View>
           <Text style={styles.barValue}>{p.value}</Text>
         </View>

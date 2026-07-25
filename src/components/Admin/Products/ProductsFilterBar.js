@@ -1,50 +1,46 @@
 /**
  * ProductsFilterBar.js
  *
- * Quick-filter toggles for the admin Products tab.
- * Renders beneath the SearchToolbar.
+ * Controls bar for the admin Products tab.
+ * Renders Discount, New Arrivals, and Add Product controls in a single row.
  */
 import React from 'react';
-import { TouchableOpacity, Text, View } from 'react-native';
-import styles from './ProductsStyles';
+import { View } from 'react-native';
+import Button from '../../Button';
+import ChipButton from '../../ChipButton';
 import { useTheme } from '../../../context/ThemeContext';
-import { TagIcon, StarIcon } from '../../Icons';
+import { TagIcon, StarIcon } from '@/components/Icons';
 
-/** A pill toggle button. */
-function Toggle({ icon, label, active, onPress }) {
-  const color = active ? '#FFFFFF' : '#475569';
-  return (
-    <TouchableOpacity
-      style={[styles.filterToggle, active && styles.filterToggleActive, { flexDirection: 'row', alignItems: 'center', gap: 4 }]}
-      onPress={onPress}
-      activeOpacity={0.75}
-    >
-      {icon && React.cloneElement(icon, { color })}
-      <Text style={[styles.filterToggleText, active && styles.filterToggleTextActive]}>
-        {label}
-      </Text>
-    </TouchableOpacity>
-  );
-}
-
-export default function ProductsFilterBar({ onlyDiscount, onlyNew, onToggleDiscount, onToggleNew }) {
+export default function ProductsFilterBar({
+  onlyDiscount,
+  onlyNew,
+  onToggleDiscount,
+  onToggleNew,
+  onAdd,
+}) {
   const { t } = useTheme();
   return (
-    <View style={styles.filterBar}>
-      <View style={styles.filterToggles}>
-        <Toggle
-          icon={<TagIcon size={14} />}
-          label={t('adminProductsFilterDiscount')}
-          active={onlyDiscount}
-          onPress={onToggleDiscount}
-        />
-        <Toggle
-          icon={<StarIcon size={14} />}
-          label={t('adminProductsFilterNew')}
-          active={onlyNew}
-          onPress={onToggleNew}
-        />
-      </View>
+    <View style={{ flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', gap: 8, marginBottom: 16 }}>
+      <ChipButton
+        variant="pill"
+        leftIcon={<TagIcon size={14} />}
+        label={t('adminProductsFilterDiscount')}
+        active={onlyDiscount}
+        onPress={onToggleDiscount}
+      />
+      <ChipButton
+        variant="pill"
+        leftIcon={<StarIcon size={14} />}
+        label={t('adminProductsFilterNew')}
+        active={onlyNew}
+        onPress={onToggleNew}
+      />
+      <Button
+        title={t('adminProductsAddBtn')}
+        onPress={onAdd}
+        variant="primary"
+        size="md"
+      />
     </View>
   );
 }

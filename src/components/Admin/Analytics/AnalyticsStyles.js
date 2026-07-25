@@ -2,6 +2,8 @@
  * AnalyticsStyles.js
  */
 import { StyleSheet } from 'react-native';
+import { colors } from '../../../theme/tokens';
+import { shadow } from '../../../theme/shadows';
 
 export default StyleSheet.create({
   container: {
@@ -19,13 +21,10 @@ export default StyleSheet.create({
   statCard: {
     flex: 1,
     minWidth: 160,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.white,
     borderRadius: 14,
     padding: 18,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.05,
-    shadowRadius: 8,
+    ...shadow.card(),
     elevation: 2,
   },
   statHeader: {
@@ -36,7 +35,7 @@ export default StyleSheet.create({
   },
   statLabel: {
     fontSize: 12,
-    color: '#94a3b8',
+    color: colors.secondaryDarkText,
     fontWeight: '500',
   },
   statIcon: {
@@ -45,33 +44,32 @@ export default StyleSheet.create({
   statValue: {
     fontSize: 24,
     fontWeight: '700',
-    color: '#1C1C1C',
+    color: colors.dark,
   },
 
   /* Chart Panels */
   chartPanel: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.white,
     borderRadius: 14,
     padding: 20,
     marginBottom: 16,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.05,
-    shadowRadius: 8,
+    ...shadow.card(),
     elevation: 2,
   },
   chartTitle: {
     fontSize: 15,
     fontWeight: '700',
-    color: '#1C1C1C',
+    color: colors.dark,
     marginBottom: 16,
   },
   chartsRow: {
     flexDirection: 'row',
     gap: 16,
+    flexWrap: 'wrap',
   },
   chartHalf: {
     flex: 1,
+    minWidth: 280,
   },
 
   /* Bar Chart */
@@ -82,7 +80,7 @@ export default StyleSheet.create({
   },
   barLabel: {
     fontSize: 11,
-    color: '#475569',
+    color: colors.secondaryLightText,
     width: 140,
     marginRight: 10,
     flexShrink: 1,
@@ -90,18 +88,18 @@ export default StyleSheet.create({
   barTrack: {
     flex: 1,
     height: 20,
-    backgroundColor: '#F5F7FA',
+    backgroundColor: colors.secondaryLightBg,
     borderRadius: 4,
     overflow: 'hidden',
   },
   barFill: {
     height: '100%',
-    backgroundColor: '#E31B23',
+    backgroundColor: colors.accent,
     borderRadius: 4,
   },
   barValue: {
     fontSize: 11,
-    color: '#475569',
+    color: colors.secondaryLightText,
     marginLeft: 8,
     width: 24,
     textAlign: 'right',
@@ -125,107 +123,110 @@ export default StyleSheet.create({
   },
   legendText: {
     fontSize: 12,
-    color: '#475569',
+    color: colors.secondaryLightText,
   },
   legendValue: {
     fontSize: 12,
     fontWeight: '700',
-    color: '#1C1C1C',
+    color: colors.dark,
     marginLeft: 4,
   },
 
   /* SVG area (for revenue line chart) */
   svgWrapper: {
-    height: 160,
+    height: 190,
     width: '100%',
   },
   xLabels: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingHorizontal: 4,
-    marginTop: 4,
+    display: 'none',
   },
   xLabel: {
     fontSize: 9,
-    color: '#94a3b8',
+    color: colors.secondaryDarkText,
   },
 
   /* DateRangePicker */
   datePickerContainer: {
-    backgroundColor: '#FFFFFF',
-    borderRadius: 14,
-    padding: 16,
     marginBottom: 20,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.05,
-    shadowRadius: 8,
-    elevation: 2,
-  },
-  datePickerLabel: {
-    fontSize: 14,
-    fontWeight: '600',
-    color: '#1C1C1C',
-    marginBottom: 12,
+    position: 'relative',
+    zIndex: 2000,
   },
   datePickerPresets: {
     flexDirection: 'row',
-    flexWrap: 'wrap',
+    alignItems: 'center',
     gap: 8,
-    marginBottom: 12,
   },
   presetBtn: {
-    paddingVertical: 8,
+    minWidth: 140,
+    paddingVertical: 10,
     paddingHorizontal: 16,
-    borderRadius: 8,
-    backgroundColor: '#F1F5F9',
-    borderWidth: 1,
-    borderColor: '#E2E8F0',
+    borderRadius: 20,
+    backgroundColor: colors.black,
+    borderWidth: 1.5,
+    borderColor: colors.black,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   presetBtnActive: {
-    backgroundColor: '#E31B23',
-    borderColor: '#E31B23',
+    backgroundColor: colors.accent,
+    borderColor: colors.accent,
   },
   presetText: {
     fontSize: 13,
-    color: '#475569',
-    fontWeight: '500',
+    color: colors.white,
+    fontWeight: '600',
+    textAlign: 'center',
   },
   presetTextActive: {
-    color: '#FFFFFF',
+    color: colors.white,
   },
   customDateRow: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
     alignItems: 'center',
     gap: 8,
     marginTop: 8,
   },
   customDateInput: {
     flex: 1,
+    minWidth: 120,
     height: 40,
     borderWidth: 1,
-    borderColor: '#E2E8F0',
+    borderColor: colors.secondaryLightBorder,
     borderRadius: 8,
     paddingHorizontal: 12,
     fontSize: 14,
-    color: '#1C1C1C',
-    backgroundColor: '#F8FAFC',
+    color: colors.dark,
+    backgroundColor: colors.slateLight,
   },
   customDateDash: {
     fontSize: 16,
-    color: '#94A3B8',
+    color: colors.secondaryDarkText,
   },
   applyBtn: {
     height: 40,
-    backgroundColor: '#10B981',
+    backgroundColor: colors.successMid,
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 16,
     borderRadius: 8,
   },
   applyBtnText: {
-    color: '#FFFFFF',
+    color: colors.white,
     fontWeight: '600',
     fontSize: 14,
+  },
+
+  /* Mobile DateRangePicker */
+  mobileDatePickerContainer: {
+    marginBottom: 20,
+    position: 'relative',
+    zIndex: 2000,
+    gap: 8,
+  },
+  mobilePresetsRow: {
+    flexDirection: 'row',
+    gap: 8,
+    width: '100%',
   },
 });
