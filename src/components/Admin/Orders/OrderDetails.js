@@ -9,7 +9,8 @@
  * 5. Admin notes
  */
 import React, { useState } from 'react';
-import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
+import { ScrollView, Text, View } from 'react-native';
+import AnimatedButton from '../../AnimatedButton';
 import { useTheme } from '../../../context/ThemeContext';
 import { BackArrowIcon } from '@/components/Icons';
 import AdminNoteSection from './AdminNoteSection';
@@ -72,10 +73,10 @@ export default function OrderDetails({ order, onBack, onStatusUpdated }) {
   return (
     <ScrollView contentContainerStyle={{ paddingBottom: 40 }}>
       {/* Back button */}
-      <TouchableOpacity style={styles.backBtn} onPress={onBack}>
+      <AnimatedButton style={styles.backBtn} onPress={onBack}>
         <BackArrowIcon color={colors.textDescLight} size={16} />
         <Text style={styles.backBtnText}>{t('adminOrdersBackBtn')}</Text>
-      </TouchableOpacity>
+      </AnimatedButton>
 
       {/* Title row — only order number, no date/total captions */}
       <View style={styles.headerRow}>

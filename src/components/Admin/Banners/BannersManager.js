@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Modal, Text, TouchableOpacity, View, useWindowDimensions } from 'react-native';
+import { Modal, Text, View, useWindowDimensions } from 'react-native';
+import AnimatedButton from '../../AnimatedButton';
 import { useTheme } from '../../../context/ThemeContext';
 import { fromMediaRef } from '../../../media';
 import MediaRenderer from '../../Media/MediaRenderer';
@@ -42,7 +43,7 @@ export default function BannersManager() {
 
   const renderBannerItem = (banner, index, isDesktopLayout) => (
     <View key={index} style={isDesktopLayout ? styles.bannerCardDesktop : styles.bannerRow}>
-      <TouchableOpacity
+      <AnimatedButton
         style={isDesktopLayout ? styles.previewContainerDesktop : styles.previewContainer}
         onPress={() => openBrowser(index)}
         activeOpacity={0.85}
@@ -54,18 +55,18 @@ export default function BannersManager() {
             <Text style={styles.noImageText}>{t('adminBannersNoImage')}</Text>
           </View>
         )}
-      </TouchableOpacity>
+      </AnimatedButton>
 
       <View style={styles.actionsCol}>
-        <TouchableOpacity
+        <AnimatedButton
           style={styles.uploadBtn}
           onPress={() => triggerFileInput(`banner-image-file-input-${index}`, (uri) => handleUpdateBanner(index, uri))}
           activeOpacity={0.8}
         >
           <Text style={styles.uploadBtnText}>{t('adminBannersUploadBtn')}</Text>
-        </TouchableOpacity>
+        </AnimatedButton>
 
-        <TouchableOpacity
+        <AnimatedButton
           style={styles.deleteBtn}
           onPress={() => {
             confirmDelete({
@@ -77,7 +78,7 @@ export default function BannersManager() {
           activeOpacity={0.8}
         >
           <Text style={styles.deleteBtnText}>{t('adminBannersDeleteBtn')}</Text>
-        </TouchableOpacity>
+        </AnimatedButton>
       </View>
     </View>
   );
@@ -89,13 +90,13 @@ export default function BannersManager() {
           {bannersList.map((banner, index) => renderBannerItem(banner, index, true))}
 
           {bannersList.length < 3 && (
-            <TouchableOpacity
+            <AnimatedButton
               style={styles.addCardDesktop}
               onPress={handleAddBanner}
               activeOpacity={0.8}
             >
               <Text style={styles.addCardBtnText}>{t('adminBannersAddBtn')}</Text>
-            </TouchableOpacity>
+            </AnimatedButton>
           )}
         </View>
       ) : (
@@ -103,9 +104,9 @@ export default function BannersManager() {
           {bannersList.map((banner, index) => renderBannerItem(banner, index, false))}
 
           {bannersList.length < 3 && (
-            <TouchableOpacity style={styles.addBtn} onPress={handleAddBanner} activeOpacity={0.8}>
+            <AnimatedButton style={styles.addBtn} onPress={handleAddBanner} activeOpacity={0.8}>
               <Text style={styles.addBtnText}>{t('adminBannersAddBtn')}</Text>
-            </TouchableOpacity>
+            </AnimatedButton>
           )}
         </View>
       )}

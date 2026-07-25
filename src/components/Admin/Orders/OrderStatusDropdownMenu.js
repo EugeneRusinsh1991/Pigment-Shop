@@ -1,4 +1,5 @@
-import { Text, TouchableOpacity, View } from 'react-native';
+import { Text, View } from 'react-native';
+import AnimatedButton from '../../AnimatedButton';
 import { colors } from '../../../theme/tokens';
 import { shadow } from '../../../theme/shadows';
 import styles from './OrdersStyles';
@@ -23,7 +24,7 @@ export default function OrderStatusDropdownMenu({ statuses, currentStatus, updat
       {statuses.map((status, index) => {
         const isSelected = canonical === status.value;
         return (
-          <TouchableOpacity
+          <AnimatedButton
             key={status.value}
             style={[
               styles.statusOption,
@@ -44,7 +45,7 @@ export default function OrderStatusDropdownMenu({ statuses, currentStatus, updat
               </Text>
               {isSelected && <Text style={{ color: status.color, fontSize: 12 }}>✓</Text>}
             </View>
-          </TouchableOpacity>
+          </AnimatedButton>
         );
       })}
     </View>

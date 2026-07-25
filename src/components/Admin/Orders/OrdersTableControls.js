@@ -1,4 +1,4 @@
-import { ScrollView, Text, TouchableOpacity, View, useWindowDimensions } from 'react-native';
+import { ScrollView, Text, View, useWindowDimensions } from 'react-native';
 import styles from './OrdersStyles';
 
 // Canonical statuses with their locale keys

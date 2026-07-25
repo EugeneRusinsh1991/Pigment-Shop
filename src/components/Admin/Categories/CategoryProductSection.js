@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { Text, View } from 'react-native';
+import AnimatedButton from '../../AnimatedButton';
 import styles from './CategoryFormStyles';
 
 const getLanguageFallback = (labelObj, lang) => labelObj[lang] || labelObj.ru || labelObj.en;
@@ -34,7 +35,7 @@ const getProductCheckStyle = (selected) => ({
 });
 
 const renderProductOption = (product, selected, toggleProduct, lang) => (
-  <TouchableOpacity
+  <AnimatedButton
     key={product.id}
     onPress={() => toggleProduct(product.id)}
     style={getProductOptionStyle(selected)}
@@ -44,7 +45,7 @@ const renderProductOption = (product, selected, toggleProduct, lang) => (
       {selected ? <Text style={{ color: '#FFFFFF', fontSize: 10, fontWeight: '700' }}>✓</Text> : null}
     </View>
     <Text style={{ fontSize: 13, color: '#1F2937' }}>{getProductLabel(product, lang)}</Text>
-  </TouchableOpacity>
+  </AnimatedButton>
 );
 
 const renderProductGroup = ({ titleKey, hintKey, emptyKey, products, selected, toggleProduct, lang, t }) => (

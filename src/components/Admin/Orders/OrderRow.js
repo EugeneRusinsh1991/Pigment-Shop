@@ -2,7 +2,8 @@
  * OrderRow.js
  */
 import React from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { Text, View } from 'react-native';
+import AnimatedButton from '../../AnimatedButton';
 import { useTheme } from '../../../context/ThemeContext';
 import { DataTableRow, DataTableCell } from '../../DataTable/DataTable';
 import styles from './OrdersStyles';
@@ -42,7 +43,7 @@ export function MobileOrderRow({ order, onPress }) {
   const summary = getOrderSummary(order, t, lang);
 
   return (
-    <TouchableOpacity style={[styles.row, styles.rowMobile, summary.rowBg]} onPress={onPress}>
+    <AnimatedButton style={[styles.row, styles.rowMobile, summary.rowBg]} onPress={onPress}>
       {/* Row 1: order number + date */}
       <View style={styles.rowTop}>
         <Text style={[styles.tdText, { fontWeight: '700' }]}>#{summary.orderNum}</Text>
@@ -79,7 +80,7 @@ export function MobileOrderRow({ order, onPress }) {
           <Text style={styles.metaValue} numberOfLines={1}>{order.adminNote || '—'}</Text>
         </View>
       </View>
-    </TouchableOpacity>
+    </AnimatedButton>
   );
 }
 

@@ -2,7 +2,8 @@
  * OrderStatusSelector.js — with status badge colors on trigger + dropdown
  */
 import { useState } from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { Text, View } from 'react-native';
+import AnimatedButton from '../../AnimatedButton';
 import styles from './OrdersStyles';
 import OrderStatusDropdownMenu from './OrderStatusDropdownMenu';
 
@@ -37,7 +38,7 @@ export default function OrderStatusSelector({ currentStatus, updating, onStatusC
 
   return (
     <View style={{ zIndex: 100, position: 'relative', marginBottom: 10 }}>
-      <TouchableOpacity
+      <AnimatedButton
         style={[
           styles.statusDropdown,
           { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginTop: 0,
@@ -51,7 +52,7 @@ export default function OrderStatusSelector({ currentStatus, updating, onStatusC
           {t(statusObj.localeKey) || currentStatus}
         </Text>
         <Text style={{ fontSize: 10, color: statusObj.color }}>{isOpen ? '▲' : '▼'}</Text>
-      </TouchableOpacity>
+      </AnimatedButton>
 
       {isOpen && (
         <OrderStatusDropdownMenu

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { Text, View } from 'react-native';
+import AnimatedButton from '../../AnimatedButton';
 import { useTheme } from '../../../context/ThemeContext';
 import styles, { CATEGORY_TYPE_COLORS } from './CategoriesStyles';
 import {
@@ -25,7 +26,7 @@ export function DesktopCategoryRow({ row, hasChildren, isCollapsed, onToggle, on
   const { safeDepth, type, typeColors, countLabel, name } = useCategoryRowData(row, products);
 
   return (
-    <TouchableOpacity
+    <AnimatedButton
       style={[
         styles.treeRow,
         isAlt && styles.treeRowAlt,
@@ -56,7 +57,7 @@ export function DesktopCategoryRow({ row, hasChildren, isCollapsed, onToggle, on
       <View style={styles.colImage}>
         <ImageBadge image={row.image} />
       </View>
-    </TouchableOpacity>
+    </AnimatedButton>
   );
 }
 
@@ -64,7 +65,7 @@ export function MobileCategoryCard({ row, hasChildren, isCollapsed, onToggle, on
   const { safeDepth, type, typeColors, countLabel, name } = useCategoryRowData(row, products);
 
   return (
-    <TouchableOpacity
+    <AnimatedButton
       style={[
         styles.mobileTreeCard,
         type === 'category_holder' ? styles.mobileTreeCardCategoryHolder : styles.mobileTreeCardProductHolder,
@@ -89,7 +90,7 @@ export function MobileCategoryCard({ row, hasChildren, isCollapsed, onToggle, on
           </View>
         </View>
       </View>
-    </TouchableOpacity>
+    </AnimatedButton>
   );
 }
 

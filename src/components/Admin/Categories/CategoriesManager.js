@@ -9,7 +9,7 @@
  * catalogSync when Firestore updates) only while there are no unsaved local edits.
  */
 import React, { useState } from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { View } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
 import { useCatalog } from '../../../context/CatalogContext';
 import CategoryFormModal from './CategoryFormModal';

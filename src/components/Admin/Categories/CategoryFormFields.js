@@ -8,7 +8,8 @@
  * - DescriptionField    (localized description textarea)
  */
 import { useState } from 'react';
-import { Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Text, TextInput, View } from 'react-native';
+import AnimatedButton from '../../AnimatedButton';
 import { useTheme } from '../../../context/ThemeContext';
 import { fromMediaRef } from '../../../media';
 import { triggerFileInput } from '../../../utils/fileInput';
@@ -42,7 +43,7 @@ function TypeToggleButton({ typeKey, label, activeValue, disabled, onPress }) {
     : { color: '#475569' };
 
   return (
-    <TouchableOpacity
+    <AnimatedButton
       style={{
         flex: 1,
         paddingVertical: 10,
@@ -59,7 +60,7 @@ function TypeToggleButton({ typeKey, label, activeValue, disabled, onPress }) {
       <Text style={{ fontSize: 13, fontWeight: '600', ...textStyle }}>
         {label}
       </Text>
-    </TouchableOpacity>
+    </AnimatedButton>
   );
 }
 
@@ -123,14 +124,14 @@ export function ImagePickerField({ value, onChange }) {
           placeholderTextColor="#CBD5E1"
           autoCapitalize="none"
         />
-        <TouchableOpacity style={[styles.uploadBtn, { flexDirection: 'row', alignItems: 'center', gap: 4 }]} onPress={() => triggerFileInput('cat-image-file-input', onChange)} activeOpacity={0.8}>
+        <AnimatedButton style={[styles.uploadBtn, { flexDirection: 'row', alignItems: 'center', gap: 4 }]} onPress={() => triggerFileInput('cat-image-file-input', onChange)} activeOpacity={0.8}>
           <UploadIcon color="#FFFFFF" size={12} />
           <Text style={styles.uploadBtnText}>{t('adminCategoriesFormUploadBtn')}</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={[styles.uploadBtn, { flexDirection: 'row', alignItems: 'center', gap: 4 }]} onPress={() => setBrowserOpen(true)} activeOpacity={0.8}>
+        </AnimatedButton>
+        <AnimatedButton style={[styles.uploadBtn, { flexDirection: 'row', alignItems: 'center', gap: 4 }]} onPress={() => setBrowserOpen(true)} activeOpacity={0.8}>
           <ImageIcon color="#FFFFFF" size={12} />
           <Text style={styles.uploadBtnText}>Browse</Text>
-        </TouchableOpacity>
+        </AnimatedButton>
       </View>
       <MediaBrowser
         visible={browserOpen}
