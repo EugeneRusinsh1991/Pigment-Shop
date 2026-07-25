@@ -1,8 +1,8 @@
 import React from 'react';
-import { useTheme } from '../../src/context/ThemeContext';
-import { useAuth } from '../../src/context/AuthContext';
-import ProfilePage from '../../src/features/profile/ProfilePage';
-import PageTransition from '../../src/components/PageTransition';
+import { useTheme } from '@/context/ThemeContext';
+import { useAuth } from '@/context/AuthContext';
+import ProfilePage from '@/features/profile/ProfilePage';
+import PageTransition from '@/components/PageTransition';
 
 export default function ProfileRoute() {
   const { isDark } = useTheme();

@@ -1,9 +1,9 @@
 import React from 'react';
 import { useLocalSearchParams } from 'expo-router';
-import { useTheme } from '../../../src/context/ThemeContext';
-import { useCatalog } from '../../../src/context/CatalogContext';
-import ProductPage from '../../../src/components/ProductPage';
-import PageTransition from '../../../src/components/PageTransition';
+import { useTheme } from '@/context/ThemeContext';
+import { useCatalog } from '@/context/CatalogContext';
+import ProductPage from '@/components/ProductPage';
+import PageTransition from '@/components/PageTransition';
 
 export default function ProductRoute() {
   const { isDark } = useTheme();

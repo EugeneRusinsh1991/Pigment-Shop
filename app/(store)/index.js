@@ -1,7 +1,7 @@
 import React from 'react';
-import { useCatalogRootData } from '../../src/hooks/useCatalogViewData';
-import CatalogView from '../../src/components/CatalogView';
-import PageTransition from '../../src/components/PageTransition';
+import { useCatalogRootData } from '@/hooks/useCatalogViewData';
+import CatalogView from '@/components/CatalogView';
+import PageTransition from '@/components/PageTransition';
 
 export default function HomeRoute() {
   const { isDark, isWide, depth, currentLevel, items, crumbs } = useCatalogRootData();

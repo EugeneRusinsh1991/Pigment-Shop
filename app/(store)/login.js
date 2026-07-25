@@ -1,6 +1,6 @@
 import React from 'react';
-import LoginPage from '../../src/features/auth/LoginPage';
-import PageTransition from '../../src/components/PageTransition';
+import LoginPage from '@/features/auth/LoginPage';
+import PageTransition from '@/components/PageTransition';
 
 export default function LoginRoute() {
   return (

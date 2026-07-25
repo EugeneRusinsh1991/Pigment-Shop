@@ -1,7 +1,7 @@
 import React from 'react';
-import { useTheme } from '../../src/context/ThemeContext';
-import OrdersPage from '../../src/features/orders/OrdersPage';
-import PageTransition from '../../src/components/PageTransition';
+import { useTheme } from '@/context/ThemeContext';
+import OrdersPage from '@/features/orders/OrdersPage';
+import PageTransition from '@/components/PageTransition';
 
 export default function OrdersRoute() {
   const { isDark } = useTheme();
