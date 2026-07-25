@@ -58,24 +58,10 @@ export class UIExplorer {
     this.recoveryManager = container.recoveryManager;
     this.interactionProcessor = container.interactionProcessor;
     this.observability = container.observability;
-
-    // Wire up callbacks
-    this.navHandler.setUpdateContextScreenCallback((url) => this.updateContextScreen(url));
-    this.interactionProcessor.setNavigationCallback(
-      (p, cu, cd, dl, ssId, ti) => this.navHandler.handleNavigationAndRecurse(
-        p, cu, cd, dl, ssId, ti,
-        (p2, d2, l2) => this.exploreDFS(p2, d2, l2)
-      )
-    );
   }
 
   private updateContextScreen(url: string) {
-    if (this.context.currentScreen !== url) {
-      if (this.context.currentScreen) {
-        this.context.navigationHistory.push(this.context.currentScreen);
-      }
-      this.context.currentScreen = url;
-    }
+    this.navHandler.updateContextScreen(url);
   }
 
   private async explorePassAtLimit(page: IWebPage, limit: number) {
@@ -131,7 +117,10 @@ export class UIExplorer {
     const targetIdentifiers = await this.resolveTargetIdentifiers(page, stateCache);
 
     await this.emitter.emit('ElementDiscovered', { context: this.context, timestamp: Date.now(), elementsCount: targetIdentifiers.length });
-    await this.interactionProcessor.interactWithTargetIdentifiers(page, targetIdentifiers, currentUrl, depthLimit, currentDepth, stateCache.stateId);
+    await this.interactionProcessor.interactWithTargetIdentifiers(
+      page, targetIdentifiers, currentUrl, depthLimit, currentDepth, stateCache.stateId,
+      (p, d, l) => this.exploreDFS(p, d, l)
+    );
   }
 
   private async resolveTargetIdentifiers(page: IWebPage, stateCache: PageStateCache): Promise<string[]> {

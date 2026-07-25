@@ -38,9 +38,38 @@ export interface DIContainer {
   observability: ObservabilityManager;
 }
 
+export interface DIFactoryOverrides {
+  tracker?: NavigationTracker;
+  scanner?: ElementScanner;
+  interactor?: ElementInteractor;
+  policyEngine?: InteractionPolicyEngine;
+  actionTracker?: ActionDepthTracker;
+  readiness?: ReadinessManager;
+  stateGraph?: ExecutionStateGraph;
+  watchdog?: ExecutionWatchdog;
+  cacheManager?: StateCacheManager;
+  navHandler?: NavigationHandler;
+  recoveryManager?: StateRecoveryManager;
+  interactionProcessor?: InteractionProcessor;
+  observability?: ObservabilityManager;
+  createInteractionProcessor?: (
+    emitter: ExplorerEventEmitter,
+    context: ExplorerContext,
+    tracker: NavigationTracker,
+    actionTracker: ActionDepthTracker,
+    interactor: ElementInteractor,
+    watchdog: ExecutionWatchdog,
+    recoveryManager: StateRecoveryManager,
+    cacheManager: StateCacheManager,
+    maxInteractions: number,
+    navHandler: NavigationHandler
+  ) => InteractionProcessor;
+}
+
 export function createDefaultContainer(
   emitter: ExplorerEventEmitter, 
-  partialConfig: Partial<ExplorerConfig> = {}
+  partialConfig: Partial<ExplorerConfig> = {},
+  overrides: DIFactoryOverrides = {}
 ): DIContainer {
   const config = { ...defaultConfig, ...partialConfig };
   
@@ -55,37 +84,44 @@ export function createDefaultContainer(
     startTime: Date.now()
   };
 
-  const tracker = new NavigationTracker();
-  const scanner = new ElementScanner();
-  const interactor = new ElementInteractor();
-  const policyEngine = new InteractionPolicyEngine(config.interactionPolicyConfig);
-  const actionTracker = new ActionDepthTracker();
-  const readiness = new ReadinessManager();
-  const stateGraph = new ExecutionStateGraph();
+  const tracker = overrides.tracker ?? new NavigationTracker();
+  const scanner = overrides.scanner ?? new ElementScanner();
+  const interactor = overrides.interactor ?? new ElementInteractor();
+  const policyEngine = overrides.policyEngine ?? new InteractionPolicyEngine(config.interactionPolicyConfig);
+  const actionTracker = overrides.actionTracker ?? new ActionDepthTracker();
+  const readiness = overrides.readiness ?? new ReadinessManager();
+  const stateGraph = overrides.stateGraph ?? new ExecutionStateGraph();
   
-  const watchdog = new ExecutionWatchdog(emitter, context, config);
-  const cacheManager = new StateCacheManager(scanner, stateGraph);
+  const watchdog = overrides.watchdog ?? new ExecutionWatchdog(emitter, context, config);
+  const cacheManager = overrides.cacheManager ?? new StateCacheManager(scanner, stateGraph);
   
-  const navHandler = new NavigationHandler(
+  const navHandler = overrides.navHandler ?? new NavigationHandler(
     emitter, context, readiness, stateGraph, cacheManager
   );
   
-  const recoveryManager = new StateRecoveryManager(
+  const recoveryManager = overrides.recoveryManager ?? new StateRecoveryManager(
     emitter, context, stateGraph, watchdog, interactor, cacheManager
   );
   
-  const interactionProcessor = new InteractionProcessor(
-    emitter, context, tracker, actionTracker, interactor, watchdog, recoveryManager, cacheManager, config.maxInteractions
+  const interactionProcessor = overrides.interactionProcessor ?? (
+    overrides.createInteractionProcessor
+      ? overrides.createInteractionProcessor(emitter, context, tracker, actionTracker, interactor, watchdog, recoveryManager, cacheManager, config.maxInteractions, navHandler)
+      : new InteractionProcessor(
+          emitter, context, tracker, actionTracker, interactor, watchdog, recoveryManager, cacheManager, config.maxInteractions, navHandler
+        )
   );
 
-  const observability = new ObservabilityManager(emitter);
-  observability.addReporter(new ConsoleReporter());
-  
-  if (config.executionMode === 'deep-diagnostics') {
-    observability.addReporter(new JsonReporter());
-  }
-  
-  observability.addReporter(new MarkdownReporter());
+  const observability = overrides.observability ?? (() => {
+    const obs = new ObservabilityManager(emitter);
+    obs.addReporter(new ConsoleReporter());
+    
+    if (config.executionMode === 'deep-diagnostics') {
+      obs.addReporter(new JsonReporter());
+    }
+    
+    obs.addReporter(new MarkdownReporter());
+    return obs;
+  })();
 
   return {
     config, emitter, context, tracker, scanner, interactor, policyEngine, 

@@ -6,8 +6,6 @@ import { ExecutionStateGraph } from './graph/ExecutionStateGraph';
 import { StateCacheManager } from './StateCacheManager';
 
 export class NavigationHandler {
-  private updateContextScreen?: (url: string) => void;
-
   constructor(
     private emitter: ExplorerEventEmitter,
     private context: ExplorerContext,
@@ -16,8 +14,13 @@ export class NavigationHandler {
     private cacheManager: StateCacheManager
   ) {}
 
-  setUpdateContextScreenCallback(cb: (url: string) => void) {
-    this.updateContextScreen = cb;
+  updateContextScreen(url: string) {
+    if (this.context.currentScreen !== url) {
+      if (this.context.currentScreen) {
+        this.context.navigationHistory.push(this.context.currentScreen);
+      }
+      this.context.currentScreen = url;
+    }
   }
 
   async handleNavigationAndRecurse(
@@ -48,7 +51,7 @@ export class NavigationHandler {
 
     if (!isMutation) {
       await this.emitter.emit('NavigationStarted', { context: this.context, timestamp: Date.now(), targetUrl: newUrl });
-      this.updateContextScreen?.(newUrl);
+      this.updateContextScreen(newUrl);
       await this.emitter.emit('NavigationCompleted', { context: this.context, timestamp: Date.now(), newUrl });
     }
     
@@ -60,7 +63,7 @@ export class NavigationHandler {
       try {
         await page.goBack();
         await this.readiness.waitForPageReady(page);
-        this.updateContextScreen?.(page.url());
+        this.updateContextScreen(page.url());
         await this.emitter.emit('BackNavigation', { context: this.context, timestamp: Date.now(), targetUrl: page.url(), success: true });
       } catch (e: any) {
         await this.emitter.emit('BackNavigation', { context: this.context, timestamp: Date.now(), targetUrl: currentUrl, success: false });

@@ -1,4 +1,4 @@
-import { Page, Locator } from 'playwright';
+import { IWebPage, IWebElement } from './driver/DriverInterfaces';
 import { ExplorerEventEmitter } from './events/ExplorerEventEmitter';
 import { ExplorerContext } from './ExplorerContext';
 import { ExecutionStateGraph } from './graph/ExecutionStateGraph';
@@ -18,7 +18,7 @@ export class StateRecoveryManager {
   ) {}
 
   async attemptRecovery(
-    page: Page,
+    page: IWebPage,
     sourceStateId: string,
     currentStateId: string,
     diagnostics: InteractionDiagnostics
@@ -46,11 +46,11 @@ export class StateRecoveryManager {
   }
 
   async resolveTargetElement(
-    page: Page,
+    page: IWebPage,
     targetIdentifier: string,
     sourceStateId: string,
     diagnostics: InteractionDiagnostics
-  ): Promise<Locator | undefined> {
+  ): Promise<IWebElement | undefined> {
     diagnostics.startPhase('DISCOVER (RE-SCAN)');
     this.watchdog.updatePhase('DISCOVER (RE-SCAN)');
 

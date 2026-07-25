@@ -85,6 +85,14 @@ export class PlaywrightPage implements IWebPage {
   on(event: string, listener: Function): void {
     this.page.on(event, listener as any);
   }
+
+  async waitForLoadState(state?: any, options?: { timeout?: number }): Promise<void> {
+    await this.page.waitForLoadState(state, options);
+  }
+
+  async waitForFunction<R, Arg>(pageFunction: any, arg?: any, options?: any): Promise<R> {
+    return await this.page.waitForFunction(pageFunction, arg, options) as any;
+  }
 }
 
 export class PlaywrightContext implements IWebBrowserContext {

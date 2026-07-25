@@ -1,5 +1,4 @@
-import { Locator } from 'playwright';
-import { IWebPage } from './driver/DriverInterfaces';
+import { IWebPage, IWebElement } from './driver/DriverInterfaces';
 import { StateCacheManager } from './StateCacheManager';
 import { ExplorerEventEmitter } from './events/ExplorerEventEmitter';
 import { ExplorerContext } from './ExplorerContext';
@@ -9,10 +8,9 @@ import { ElementInteractor } from './ElementInteractor';
 import { ExecutionWatchdog } from './diagnostics/ExecutionWatchdog';
 import { StateRecoveryManager } from './StateRecoveryManager';
 import { InteractionDiagnostics } from './diagnostics/InteractionDiagnostics';
+import { NavigationHandler } from './NavigationHandler';
 
 export class InteractionProcessor {
-  private handleNavigationAndRecurse?: (page: IWebPage, currentUrl: string, currentDepth: number, depthLimit: number, sourceStateId: string, triggerIdentifier: string) => Promise<boolean>;
-
   constructor(
     private emitter: ExplorerEventEmitter,
     private context: ExplorerContext,
@@ -22,12 +20,9 @@ export class InteractionProcessor {
     private watchdog: ExecutionWatchdog,
     private recoveryManager: StateRecoveryManager,
     private cacheManager: StateCacheManager,
-    private maxInteractions: number
+    private maxInteractions: number,
+    private navHandler: NavigationHandler
   ) {}
-
-  setNavigationCallback(cb: (page: IWebPage, currentUrl: string, currentDepth: number, depthLimit: number, sourceStateId: string, triggerIdentifier: string) => Promise<boolean>) {
-    this.handleNavigationAndRecurse = cb;
-  }
 
   private isInvalidIdentifier(identifier: string): boolean {
     return identifier === 'detached-element' || identifier === 'unknown' || identifier === 'unknown-element';
@@ -54,7 +49,7 @@ export class InteractionProcessor {
     return false;
   }
 
-  private async resolveTargetElement(page: IWebPage, targetIdentifier: string, sourceStateId: string, diagnostics: InteractionDiagnostics): Promise<Locator | undefined> {
+  private async resolveTargetElement(page: IWebPage, targetIdentifier: string, sourceStateId: string, diagnostics: InteractionDiagnostics): Promise<IWebElement | undefined> {
     return this.recoveryManager.resolveTargetElement(page, targetIdentifier, sourceStateId, diagnostics);
   }
 
@@ -69,7 +64,16 @@ export class InteractionProcessor {
     return success;
   }
 
-  private async processElementAt(page: IWebPage, targetIdentifier: string, currentUrl: string, depthLimit: number, currentDepth: number, sourceStateId: string, diagnostics: InteractionDiagnostics): Promise<boolean> {
+  private async processElementAt(
+    page: IWebPage,
+    targetIdentifier: string,
+    currentUrl: string,
+    depthLimit: number,
+    currentDepth: number,
+    sourceStateId: string,
+    diagnostics: InteractionDiagnostics,
+    exploreDFS: (page: IWebPage, depth: number, limit: number) => Promise<void>
+  ): Promise<boolean> {
     if (this.shouldSkipElement(targetIdentifier, currentUrl, depthLimit, currentDepth, diagnostics)) {
       return true;
     }
@@ -91,9 +95,9 @@ export class InteractionProcessor {
 
     diagnostics.startPhase('NAVIGATION / MUTATION CHECK');
     this.watchdog.updatePhase('NAVIGATION / MUTATION CHECK');
-    return this.handleNavigationAndRecurse?.(
-      page, currentUrl, currentDepth, depthLimit, sourceStateId, targetIdentifier
-    ) ?? Promise.resolve(false);
+    return this.navHandler.handleNavigationAndRecurse(
+      page, currentUrl, currentDepth, depthLimit, sourceStateId, targetIdentifier, exploreDFS
+    );
   }
 
   async interactWithTargetIdentifiers(
@@ -102,7 +106,8 @@ export class InteractionProcessor {
     currentUrl: string,
     depthLimit: number,
     currentDepth: number,
-    sourceStateId: string
+    sourceStateId: string,
+    exploreDFS: (page: IWebPage, depth: number, limit: number) => Promise<void>
   ): Promise<void> {
     for (const targetId of targetIdentifiers) {
       if (this.context.interactionCount >= this.maxInteractions) break;
@@ -110,7 +115,7 @@ export class InteractionProcessor {
       const diagnostics = new InteractionDiagnostics(targetId, currentUrl);
       this.watchdog.startInteraction(currentUrl, targetId);
 
-      const canContinue = await this.processElementAt(page, targetId, currentUrl, depthLimit, currentDepth, sourceStateId, diagnostics);
+      const canContinue = await this.processElementAt(page, targetId, currentUrl, depthLimit, currentDepth, sourceStateId, diagnostics, exploreDFS);
       
       this.watchdog.endInteraction();
       const cache = await this.cacheManager.getPageState(page, false);

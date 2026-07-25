@@ -1,10 +1,10 @@
-import { Page } from 'playwright';
+import { IWebPage } from './driver/DriverInterfaces';
 
 export class ReadinessManager {
   /**
    * Fast readiness check for React Native Web without waiting for persistent WebSocket/HMR network connections.
    */
-  async waitForPageReady(page: Page, timeoutMs = 5000): Promise<boolean> {
+  async waitForPageReady(page: IWebPage, timeoutMs = 5000): Promise<boolean> {
     try {
       await page.waitForLoadState('domcontentloaded', { timeout: timeoutMs }).catch(() => {});
       

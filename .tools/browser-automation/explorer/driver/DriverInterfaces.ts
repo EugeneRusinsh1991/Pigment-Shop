@@ -26,6 +26,9 @@ export interface IWebPage {
   evaluate<R, Arg>(pageFunction: (arg: Arg) => R, arg?: Arg): Promise<R>;
   evaluate<R>(pageFunction: () => R): Promise<R>;
   on(event: string, listener: Function): void;
+  waitForLoadState?(state?: string, options?: { timeout?: number }): Promise<void>;
+  waitForFunction?<R, Arg>(pageFunction: (arg: Arg) => R, arg?: Arg, options?: { timeout?: number }): Promise<R>;
+  waitForFunction?<R>(pageFunction: () => R, options?: { timeout?: number }): Promise<R>;
 }
 
 /**
