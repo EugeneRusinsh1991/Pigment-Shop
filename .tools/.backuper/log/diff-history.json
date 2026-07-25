@@ -2222,5 +2222,35 @@
         }
       ]
     }
+  },
+  "src_2026-07-25_18-36_SmokeReportPrinter.ts_5files": {
+    "timestamp": "2026-07-25T15:36:54.319Z",
+    "diff": {
+      "added": 0,
+      "removed": 13,
+      "modified": 5,
+      "topFolders": [
+        {
+          "folder": ".docs/ai-audit-framework/batches",
+          "count": 4
+        },
+        {
+          "folder": ".docs/ai-audit-framework/stages",
+          "count": 4
+        },
+        {
+          "folder": ".docs/ai-audit-framework/tasks",
+          "count": 3
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        },
+        {
+          "folder": ".tools/browser-automation/explorer/observability/reporters",
+          "count": 1
+        }
+      ]
+    }
   }
 }

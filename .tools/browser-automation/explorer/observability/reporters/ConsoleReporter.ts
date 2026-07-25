@@ -10,16 +10,20 @@ const C = {
   r: (s: string) => `\x1b[31m${s}\x1b[0m`
 };
 
+export function formatReportUrl(url: string): string {
+  try {
+    const parsed = new URL(url);
+    return parsed.pathname === '/' ? '/' : parsed.pathname;
+  } catch {
+    return url;
+  }
+}
+
 export class ConsoleReporter implements Reporter {
   private lastPageUrl = '';
 
   private formatUrl(url: string): string {
-    try {
-      const parsed = new URL(url);
-      return parsed.pathname === '/' ? '/' : parsed.pathname;
-    } catch {
-      return url;
-    }
+    return formatReportUrl(url);
   }
 
   private formatElement(el: any): string {

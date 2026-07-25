@@ -1,15 +1,11 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { SmokeReport } from './SmokeReport';
+import { formatReportUrl } from '../../explorer/observability/reporters/ConsoleReporter';
 
 export class SmokeReportPrinter {
   public static formatUrl(url: string): string {
-    try {
-      const parsed = new URL(url);
-      return parsed.pathname || '/';
-    } catch {
-      return url;
-    }
+    return formatReportUrl(url);
   }
 
   public static formatElement(id: string): string {
