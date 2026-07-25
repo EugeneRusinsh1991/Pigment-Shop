@@ -1,11 +1,13 @@
 import { Page } from 'playwright';
 import { ExecutionContext } from './ExecutionContext';
 import { ExplorerConfig } from '../explorer/ExplorerConfig';
+import { setupManualInspector } from '../../manual-browser-inspector/setupManualInspector';
 
 export abstract class BaseExecutionContext implements ExecutionContext {
   protected abstract contextName: string;
 
   public async prepare(page: Page, config: ExplorerConfig): Promise<Page> {
+    await setupManualInspector(page);
     console.log(`\n==============================================`);
     console.log(`🚀 Preparing Execution Context: ${this.contextName}`);
     console.log(`==============================================\n`);

@@ -2010,5 +2010,35 @@
         }
       ]
     }
+  },
+  "src_2026-07-25_15-34_smoke-report.json_18files": {
+    "timestamp": "2026-07-25T12:34:20.928Z",
+    "diff": {
+      "added": 8,
+      "removed": 6,
+      "modified": 10,
+      "topFolders": [
+        {
+          "folder": ".docs/browserLog/reports",
+          "count": 5
+        },
+        {
+          "folder": ".docs/browserLog/screenshots",
+          "count": 5
+        },
+        {
+          "folder": ".docs/browserLog/state",
+          "count": 5
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        },
+        {
+          "folder": ".tools/browser-automation",
+          "count": 2
+        }
+      ]
+    }
   }
 }

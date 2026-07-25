@@ -19,6 +19,8 @@ import { resolveExecutionContext } from './execution-context';
 import { createDefaultContainer } from './explorer/di/DIContainer';
 import { PlaywrightPage } from './explorer/driver/PlaywrightAdapter';
 
+import { setupManualInspector } from '../manual-browser-inspector/setupManualInspector';
+
 /**
  * Runs the Universal UI Explorer.
  * Preserves backward compatibility.
@@ -48,6 +50,8 @@ export async function runUIExplorer(
     });
     activePage = await context.newPage();
   }
+
+  await setupManualInspector(activePage);
 
   // Execute Preparation Context
   try {

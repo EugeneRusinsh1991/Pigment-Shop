@@ -58,10 +58,13 @@ export default function Button({
   scaleTo = motion.press.scale,
   isDark: isDarkProp,
   hitSlop,
-  accessibilityRole = 'button',
+  accessibilityRole,
   children,
   ...props
 }) {
+  const resolvedRole = accessibilityRole !== undefined
+    ? accessibilityRole
+    : (variant === 'unstyled' ? 'none' : 'button');
   const { isDark: isDarkContext } = useTheme();
   const isDark = isDarkProp ?? isDarkContext;
   const { touchableProps } = useButtonProps({
@@ -151,7 +154,7 @@ export default function Button({
         onPressIn={onPressIn}
         onPressOut={onPressOut}
         disabled={disabled || loading}
-        accessibilityRole={accessibilityRole}
+        accessibilityRole={resolvedRole}
       >
         {content}
       </TouchableOpacity>
@@ -168,7 +171,7 @@ export default function Button({
           transform: [{ scale: scaleAnim }],
         },
       ]}
-      accessibilityRole={accessibilityRole}
+      accessibilityRole={resolvedRole}
       disabled={disabled || loading}
       hitSlop={computedHitSlop}
       onPress={handlePress}
@@ -185,7 +188,7 @@ export default function Button({
 // ==========================================
 
 export function AnimatedButton(props) {
-  return <Button variant="unstyled" {...props} />;
+  return <Button variant="unstyled" accessibilityRole="none" {...props} />;
 }
 
 // --- ChipButton ---

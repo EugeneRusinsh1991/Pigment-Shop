@@ -1,31 +1,5 @@
-# AI Debug Report - 2026-07-25_15-33-52
-
-## 📊 Environment & Diagnostics
-| Parameter | Value |
-| :--- | :--- |
-| **URL** | [http://localhost:8081/](http://localhost:8081/) |
-| **User Agent** | `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36` |
-| **Viewport Size** | 1280x800 (PixelRatio: 1) |
-| **Screen Resolution** | 1280x800 |
-| **Network** | Online: `true`, Type: `4g` |
-| **DOM Size** | 259 elements |
-
-## 🖼️ Screenshot
-![Screenshot](../screenshots/screenshot_2026-07-25_15-33-52.jpg)
-
-## 📂 Quick Links
-* [Open Full Screenshot](file:///D:/Magazine/_PigmentShop/.docs/browserLog/screenshots/screenshot_2026-07-25_15-33-52.jpg)
-* [Open Raw State JSON](file:///D:/Magazine/_PigmentShop/.docs/browserLog/state/state_2026-07-25_15-33-52.json)
-
-## 📜 Console Warnings & Errors (Recent 0)
-| Timestamp | Type | Message |
-| :--- | :--- | :--- |
-| | N/A | No warnings or errors logged | |
-
-## 📦 Application State Dump
-```json
 {
-  "url": "http://localhost:8081/",
+  "url": "http://localhost:8081/catalog/cat-root-1",
   "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
   "screen": {
     "viewportWidth": 1280,
@@ -39,7 +13,7 @@
     "effectiveType": "4g"
   },
   "dom": {
-    "elementCount": 259
+    "elementCount": 377
   },
   "history": {
     "length": 5
@@ -425,4 +399,3 @@
     }
   }
 }
-```
