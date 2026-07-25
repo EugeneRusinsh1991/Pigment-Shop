@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors, fonts } from '../../theme/tokens';
+import { colors, fonts, buttonTokens } from '../../theme/tokens';
 import { shadow } from '../../theme/shadows';
 
 const styles = StyleSheet.create({
@@ -57,9 +57,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingHorizontal: 12,
-    paddingVertical: 10,
-    borderRadius: 8,
+    height: buttonTokens.sizes.lg.height,
+    paddingHorizontal: buttonTokens.sizes.lg.paddingHorizontal,
+    borderRadius: buttonTokens.sizes.lg.borderRadius,
     borderWidth: 1,
     marginBottom: 16,
   },
@@ -128,8 +128,8 @@ const styles = StyleSheet.create({
     outlineStyle: 'none',
   },
   loginBtn: {
-    height: 48,
-    borderRadius: 8,
+    height: buttonTokens.sizes.lg.height,
+    borderRadius: buttonTokens.sizes.lg.borderRadius,
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 8,

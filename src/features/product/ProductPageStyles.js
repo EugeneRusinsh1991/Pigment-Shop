@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors, fonts } from '../../theme/tokens';
+import { colors, fonts, buttonTokens } from '../../theme/tokens';
 
 export default StyleSheet.create({
   root: {
@@ -97,9 +97,9 @@ export default StyleSheet.create({
   qtyRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    borderRadius: 50,
+    borderRadius: buttonTokens.sizes.lg.borderRadiusPill,
     borderWidth: 1,
-    height: 48,
+    height: buttonTokens.sizes.lg.height,
     paddingHorizontal: 8,
   },
   qtyRowDark: {
@@ -127,8 +127,8 @@ export default StyleSheet.create({
   },
   cartBtn: {
     backgroundColor: colors.dark,
-    borderRadius: 50,
-    height: 48,
+    borderRadius: buttonTokens.sizes.lg.borderRadiusPill,
+    height: buttonTokens.sizes.lg.height,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -155,9 +155,9 @@ export default StyleSheet.create({
     fontSize: 14,
   },
   favBtn: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
+    width: buttonTokens.sizes.lg.height,
+    height: buttonTokens.sizes.lg.height,
+    borderRadius: buttonTokens.sizes.lg.borderRadiusPill,
     borderWidth: 1,
     alignItems: 'center',
     justifyContent: 'center',

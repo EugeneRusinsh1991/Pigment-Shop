@@ -23,6 +23,14 @@ export default function EmptyState({
   const textColor = isDark ? colors.textDark : colors.textLight;
   const mutedColor = isDark ? colors.textMutedDark : colors.textMutedLight;
 
+  const renderChildren = () => {
+    if (!children) return null;
+    if (typeof children === 'string') {
+      return <Text style={[styles.description, { color: mutedColor }, descriptionStyle]}>{children}</Text>;
+    }
+    return children;
+  };
+
   return (
     <View style={[styles.container, style]}>
       {icon && <View style={styles.iconWrapper}>{icon}</View>}
@@ -36,15 +44,7 @@ export default function EmptyState({
           {bodyText}
         </Text>
       )}
-      {children && (
-        typeof children === 'string' ? (
-          <Text style={[styles.description, { color: mutedColor }, descriptionStyle]}>
-            {children}
-          </Text>
-        ) : (
-          children
-        )
-      )}
+      {renderChildren()}
       {action && <View style={styles.actionWrapper}>{action}</View>}
     </View>
   );

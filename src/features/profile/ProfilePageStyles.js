@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors, fonts } from '../../theme/tokens';
+import { colors, fonts, buttonTokens } from '../../theme/tokens';
 
 const styles = StyleSheet.create({
   container: {
@@ -62,8 +62,8 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   saveBtn: {
-    height: 40,
-    borderRadius: 8,
+    height: buttonTokens.sizes.md.height,
+    borderRadius: buttonTokens.sizes.md.borderRadius,
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 6,

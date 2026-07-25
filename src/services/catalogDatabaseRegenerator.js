@@ -18,11 +18,6 @@ async function _regenerateCatalogDatabase(options = {}) {
   console.log(`  Found ${existingData.counts.products} products, ${existingData.counts.categories} categories, ${existingData.counts.orders} orders, ${existingData.users.length} users.`);
 
   console.log('Step 3: Deleting existing data (products, categories, orders)...');
-  if (existingData.counts.products > 0 || existingData.counts.categories > 0 || existingData.counts.orders > 0) {
-    // replaceCatalogData handles delete operations internally
-  } else {
-    console.log('  Nothing to delete.');
-  }
 
   console.log('Step 4: Generating and writing new dataset...');
   const dataset = createRandomCatalogDataset(options);

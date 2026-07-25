@@ -55,6 +55,10 @@ export function useCrudWorkflow({
     }
   }, [fetchData]);
 
+  const notify = useCallback((msg, type) => {
+    if (showToast) showToast(msg, type);
+  }, [showToast]);
+
   const handleSave = useCallback(async () => {
     if (!saveFn) return;
     
@@ -62,21 +66,15 @@ export function useCrudWorkflow({
     try {
       const res = await saveFn();
       if (!res.success) throw new Error(res.error);
-      const title = resolveAlertTitle(successMessageTitle, 'adminCategoriesSuccessTitle', false, t);
-      if (showToast) {
-        showToast(title, 'success');
-      }
+      notify(resolveAlertTitle(successMessageTitle, 'adminCategoriesSuccessTitle', false, t), 'success');
     } catch (err) {
       console.error('[useCrudWorkflow] Save error:', err);
       const title = resolveAlertTitle(errorMessageTitle, 'adminCategoriesErrorTitle', true, t);
-      const msg = err.message ? `${title}: ${err.message}` : title;
-      if (showToast) {
-        showToast(msg, 'error');
-      }
+      notify(err.message ? `${title}: ${err.message}` : title, 'error');
     } finally {
       setIsSaving(false);
     }
-  }, [saveFn, successMessageTitle, errorMessageTitle, t, showToast]);
+  }, [saveFn, successMessageTitle, errorMessageTitle, t, notify]);
 
   const data = draftData !== undefined ? draftData : internalData;
   const isDirty = externalIsDirty !== undefined ? externalIsDirty : false;

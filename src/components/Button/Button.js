@@ -1,9 +1,10 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { ActivityIndicator, Animated, Platform, Pressable, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { useButtonProps, DEFAULT_ACTIVE_OPACITY, calculateHitSlop } from '../../theme/buttonCommon';
 import { colors, buttonTokens, motion } from '../../theme/tokens';
 import styles from './ButtonStyles';
 import { useButtonTheme } from './useButtonTheme';
+import { useButtonAnimation } from './useButtonAnimation';
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
@@ -54,8 +55,9 @@ export default function Button({
     ...props
   });
 
-  const scaleAnim = useRef(new Animated.Value(1)).current;
-  const opacityAnim = useRef(new Animated.Value(1)).current;
+  const { scaleAnim, opacityAnim, handlePressIn, handlePressOut, handlePress } = useButtonAnimation({
+    animated, disabled, loading, activeOpacity, scaleTo, onPressIn, onPressOut, onPress,
+  });
 
   const sizeStyle = styles[size] || styles.md;
   const containerStyle = variant === 'unstyled' ? [fullWidth && styles.fullWidth, style] : [
@@ -78,50 +80,6 @@ export default function Button({
 
   const { height, width } = getDimensionsForSize(size);
   const computedHitSlop = hitSlop !== undefined ? hitSlop : calculateHitSlop(width, height);
-
-  const handlePressIn = (e) => {
-    if (!disabled && !loading) {
-      Animated.timing(opacityAnim, {
-        toValue: activeOpacity,
-        duration: 50,
-        useNativeDriver: Platform.OS !== 'web',
-      }).start();
-    }
-    if (onPressIn) onPressIn(e);
-  };
-
-  const handlePressOut = (e) => {
-    Animated.timing(opacityAnim, {
-      toValue: 1,
-      duration: 150,
-      useNativeDriver: Platform.OS !== 'web',
-    }).start();
-    if (onPressOut) onPressOut(e);
-  };
-
-  const handlePress = (e) => {
-    if (disabled || loading) return;
-    e?.stopPropagation?.();
-
-    if (animated) {
-      scaleAnim.setValue(1);
-      Animated.sequence([
-        Animated.timing(scaleAnim, {
-          toValue: scaleTo,
-          duration: motion.press.duration,
-          useNativeDriver: Platform.OS !== 'web',
-        }),
-        Animated.spring(scaleAnim, {
-          toValue: 1,
-          friction: motion.press.friction,
-          tension: motion.press.tension,
-          useNativeDriver: Platform.OS !== 'web',
-        }),
-      ]).start();
-    }
-
-    if (onPress) onPress(e);
-  };
 
   const content = typeof children === 'function' ? children({ pressed: false }) : children ? children : (
     <>

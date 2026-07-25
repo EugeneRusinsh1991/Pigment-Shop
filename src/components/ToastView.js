@@ -8,19 +8,24 @@ export function ToastView({ toast, fadeAnim }) {
 
   if (!toast) return null;
 
-  let toastBg = isDark ? colors.surfaceDark : colors.surfaceLight;
-  let textColor = isDark ? colors.textDark : colors.textLight;
-  let borderColor = isDark ? colors.borderDark : colors.borderLight;
-
-  if (toast.type === 'error') {
-    toastBg = isDark ? colors.dangerDarkShellBg : colors.dangerBgLight;
-    textColor = isDark ? colors.textDark : colors.dangerDeep;
-    borderColor = colors.dangerMid;
-  } else if (toast.type === 'success') {
-    toastBg = isDark ? colors.navSurfaceDark : colors.successBgLight;
-    textColor = isDark ? colors.successLight : colors.successDeep;
-    borderColor = colors.successMid;
-  }
+  const TOAST_THEMES = {
+    error: {
+      bg: isDark ? colors.dangerDarkShellBg : colors.dangerBgLight,
+      text: isDark ? colors.textDark : colors.dangerDeep,
+      border: colors.dangerMid,
+    },
+    success: {
+      bg: isDark ? colors.navSurfaceDark : colors.successBgLight,
+      text: isDark ? colors.successLight : colors.successDeep,
+      border: colors.successMid,
+    },
+    default: {
+      bg: isDark ? colors.surfaceDark : colors.surfaceLight,
+      text: isDark ? colors.textDark : colors.textLight,
+      border: isDark ? colors.borderDark : colors.borderLight,
+    },
+  };
+  const { bg: toastBg, text: textColor, border: borderColor } = TOAST_THEMES[toast.type] || TOAST_THEMES.default;
 
   return (
     <Animated.View

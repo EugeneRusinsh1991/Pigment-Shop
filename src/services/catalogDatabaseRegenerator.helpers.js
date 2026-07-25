@@ -118,6 +118,11 @@ export function createRandomCatalogDataset(options = {}) {
   return { categories, products };
 }
 
+function getRandomQty(isLow) {
+  if (isLow) return getRandomInt(1, 2);
+  return getRandomInt(1, 5) === 5 ? getRandomInt(5, 20) : getRandomInt(1, 4);
+}
+
 function buildRandomOrder(user, products, index, isLow = false) {
   const orderProducts = [];
   const productCount = isLow ? getRandomInt(1, 2) : getRandomInt(2, 3);
@@ -129,7 +134,7 @@ function buildRandomOrder(user, products, index, isLow = false) {
   let totalItems = 0;
   
   selectedProducts.forEach(prod => {
-    const qty = isLow ? getRandomInt(1, 2) : (getRandomInt(1, 5) === 5 ? getRandomInt(5, 20) : getRandomInt(1, 4));
+    const qty = getRandomQty(isLow);
     orderProducts.push({
       id: prod.id,
       label: prod.label,

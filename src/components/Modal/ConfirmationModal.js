@@ -29,9 +29,8 @@ export default function ConfirmationModal({
   const titleColor = isDark ? colors.textDark : colors.textLight;
   const messageColor = isDark ? colors.textMutedDark : colors.textMutedLight;
 
-  let confirmVariant = 'danger';
-  if (variant === 'primary') confirmVariant = 'primary';
-  if (variant === 'success') confirmVariant = 'success';
+  const VARIANT_MAP = { primary: 'primary', success: 'success' };
+  const confirmVariant = VARIANT_MAP[variant] || 'danger';
 
   return (
     <Modal

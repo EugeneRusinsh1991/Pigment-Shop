@@ -1,6 +1,6 @@
 import { Text, View } from 'react-native';
 import { CheckIcon } from '../../components/Icons';
-import { AnimatedButton } from '../../components/Button';
+import Button, { AnimatedButton } from '../../components/Button';
 import { colors } from '../../theme/tokens';
 import styles from './CatalogFilterSidebarStyles';
 import { FieldInput } from '../../components/Admin/SharedFormComponents';
@@ -64,20 +64,25 @@ export function PriceInputs({ priceMin, priceMax, onMinChange, onMaxChange, isDa
 
 export function ResetButton({ onReset, label }) {
   return (
-    <AnimatedButton testID="filter-reset-button" style={styles.resetBtn} onPress={onReset}>
-      <Text style={styles.resetText}>
-        {label}
-      </Text>
-    </AnimatedButton>
+    <Button
+      testID="filter-reset-button"
+      title={label}
+      onPress={onReset}
+      variant="primary"
+      size="md"
+      style={{ marginTop: 12, width: '100%' }}
+    />
   );
 }
 
 export function ApplyButton({ onApply, label }) {
   return (
-    <AnimatedButton style={styles.applyBtn} onPress={onApply}>
-      <Text style={styles.applyBtnText}>
-        {label}
-      </Text>
-    </AnimatedButton>
+    <Button
+      title={label}
+      onPress={onApply}
+      variant="accent"
+      size="md"
+      style={{ marginTop: 16, width: '100%' }}
+    />
   );
 }

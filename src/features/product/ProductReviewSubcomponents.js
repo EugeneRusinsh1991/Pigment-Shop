@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import styles from './ProductReviewsStyles';
 import { useTheme } from '../../context/ThemeContext';
-import { AnimatedButton } from '../../components/Button';
+import Button, { AnimatedButton } from '../../components/Button';
 import { Link } from 'expo-router';
 import { colors } from '../../theme/tokens';
 import { FieldTextarea } from '../../components/Admin/SharedFormComponents';
@@ -173,15 +173,14 @@ export function ReviewForm({
         value={config.value}
         onChangeText={config.onChangeText}
       />
-      <AnimatedButton
-        scaleTo={1.03}
-        style={styles.submitBtn}
+      <Button
+        title={config.submitLabel}
+        variant="accent"
+        size="lg"
+        fullWidth
+        style={{ marginTop: 12 }}
         onPress={config.onSubmit}
-      >
-        <Text style={styles.submitBtnText}>
-          {config.submitLabel}
-        </Text>
-      </AnimatedButton>
+      />
     </View>
   );
 }

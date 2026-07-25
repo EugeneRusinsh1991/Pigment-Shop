@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors, fonts } from '../../theme/tokens';
+import { colors, fonts, buttonTokens } from '../../theme/tokens';
 import { shadow } from '../../theme/shadows';
 
 const styles = StyleSheet.create({
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
   priceInput: {
     fontFamily: fonts.sans,
     width: 90,
-    borderRadius: 8,
+    borderRadius: buttonTokens.sizes.sm.borderRadius,
     borderWidth: 1,
     paddingHorizontal: 8,
     paddingVertical: 6,
@@ -86,8 +86,8 @@ const styles = StyleSheet.create({
 
   resetBtn: {
     backgroundColor: colors.dark,
-    height: 44,
-    borderRadius: 10,
+    height: buttonTokens.sizes.md.height,
+    borderRadius: buttonTokens.sizes.md.borderRadius,
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 12,
@@ -106,9 +106,9 @@ const styles = StyleSheet.create({
   mobileToggleBtn: {
     marginTop: 12,
     marginBottom: 4,
-    height: 44,
+    height: buttonTokens.sizes.md.height,
     paddingHorizontal: 16,
-    borderRadius: 10,
+    borderRadius: buttonTokens.sizes.md.borderRadius,
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 1,
@@ -130,8 +130,8 @@ const styles = StyleSheet.create({
   },
   mobileButton: {
     flex: 1,
-    height: 44,
-    borderRadius: 10,
+    height: buttonTokens.sizes.md.height,
+    borderRadius: buttonTokens.sizes.md.borderRadius,
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 1,
@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
     top: 54,
     right: 16,
     width: '46%',
-    borderRadius: 10,
+    borderRadius: buttonTokens.sizes.md.borderRadius,
     borderWidth: 1,
     paddingVertical: 4,
     ...shadow.chip(),
@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
     borderColor: colors.secondaryLightBorder,
   },
   sortDropdownItem: {
-    height: 44,
+    height: buttonTokens.sizes.md.height,
     justifyContent: 'center',
     paddingHorizontal: 12,
   },
@@ -223,8 +223,8 @@ const styles = StyleSheet.create({
   },
   applyBtn: {
     backgroundColor: colors.accent,
-    height: 44,
-    borderRadius: 10,
+    height: buttonTokens.sizes.md.height,
+    borderRadius: buttonTokens.sizes.md.borderRadius,
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 16,

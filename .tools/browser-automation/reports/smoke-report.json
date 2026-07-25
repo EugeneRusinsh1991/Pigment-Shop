@@ -1,159 +1,50 @@
 {
   "summary": {
-    "visitedScreens": 0,
-    "visitedInteractions": 0,
-    "successfulInteractions": 120,
+    "visitedScreens": 3,
+    "visitedInteractions": 22,
+    "successfulInteractions": 11,
     "failedInteractions": 0,
-    "warnings": 1,
-    "errors": 15,
-    "executionDurationMs": 0
+    "warnings": 0,
+    "errors": 4,
+    "executionDurationMs": 8985
   },
   "failures": [
     {
-      "screen": "http://localhost:8081/product/prod-1-2-1-1",
+      "screen": "http://localhost:8081/catalog/cat-root-0-sub-1",
       "interaction": "Click",
-      "elementIdentifier": "testid|breadcrumb-item-2",
-      "event": "Runtime",
-      "timestamp": 1785007122996,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] SyntaxError: D:\\Magazine\\_PigmentShop\\src\\components\\Admin\\Categories\\CategoryFormStyles.js: Unexpected token, expected \",\" (201:11)\n\n  199 |     flexDirection: 'row',\n  200 |     alignItems: 'center',\n> 201 |     justify.content: 'space-between',\n      |            ^\n  202 |     backgroundColor: colors.slateLight,\n  203 |     borderRadius: layout.radii.sm,\n  204 |     paddingHorizontal: 14,"
+      "elementIdentifier": "link|/catalog/cat-root-0-sub-1",
+      "event": "Internal Explorer",
+      "timestamp": 1785008224819,
+      "errorType": "Explorer Error",
+      "errorMessage": "[Application Bug] Failed to go back: page.goBack: Target page, context or browser has been closed\nCall log:\n\u001b[2m  - waiting for navigation until \"load\"\u001b[22m\n"
     },
     {
-      "screen": "http://localhost:8081/product/prod-1-2-1-1",
+      "screen": "http://localhost:8081/catalog/cat-root-0-sub-1",
       "interaction": "Click",
-      "elementIdentifier": "testid|breadcrumb-item-2",
-      "event": "Runtime",
-      "timestamp": 1785007123202,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] SyntaxError: D:\\Magazine\\_PigmentShop\\src\\components\\Admin\\Categories\\CategoryFormStyles.js: Unexpected token, expected \",\" (201:11)\n\n  199 |     flexDirection: 'row',\n  200 |     alignItems: 'center',\n> 201 |     justify.content: 'space-between',\n      |            ^\n  202 |     backgroundColor: colors.slateLight,\n  203 |     borderRadius: layout.radii.sm,\n  204 |     paddingHorizontal: 14,"
+      "elementIdentifier": "link|/catalog/cat-root-0-sub-1",
+      "event": "Internal Explorer",
+      "timestamp": 1785008224827,
+      "errorType": "Explorer Error",
+      "errorMessage": "[Application Bug] Failed to go back: page.goBack: Target page, context or browser has been closed"
     },
     {
-      "screen": "http://localhost:8081/product/prod-1-2-1-1",
+      "screen": "http://localhost:8081/catalog/cat-root-0-sub-1",
       "interaction": "Click",
-      "elementIdentifier": "testid|breadcrumb-item-2",
-      "event": "Runtime",
-      "timestamp": 1785007123541,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] SyntaxError: D:\\Magazine\\_PigmentShop\\src\\components\\Admin\\Categories\\CategoryFormStyles.js: Unexpected token, expected \",\" (201:11)\n\n  199 |     flexDirection: 'row',\n  200 |     alignItems: 'center',\n> 201 |     justify.content: 'space-between',\n      |            ^\n  202 |     backgroundColor: colors.slateLight,\n  203 |     borderRadius: layout.radii.sm,\n  204 |     paddingHorizontal: 14,"
+      "elementIdentifier": "link|/catalog/cat-root-0-sub-1",
+      "event": "Internal Explorer",
+      "timestamp": 1785008224833,
+      "errorType": "Explorer Error",
+      "errorMessage": "[Application Bug] Failed to go back: page.goBack: Target page, context or browser has been closed"
     },
     {
-      "screen": "http://localhost:8081/product/prod-1-2-1-1",
+      "screen": "http://localhost:8081/catalog/cat-root-0-sub-1",
       "interaction": "Click",
-      "elementIdentifier": "testid|breadcrumb-item-3",
-      "event": "Runtime",
-      "timestamp": 1785007123732,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] SyntaxError: D:\\Magazine\\_PigmentShop\\src\\components\\Admin\\Categories\\CategoryFormStyles.js: Unexpected token, expected \",\" (201:11)\n\n  199 |     flexDirection: 'row',\n  200 |     alignItems: 'center',\n> 201 |     justify.content: 'space-between',\n      |            ^\n  202 |     backgroundColor: colors.slateLight,\n  203 |     borderRadius: layout.radii.sm,\n  204 |     paddingHorizontal: 14,"
-    },
-    {
-      "screen": "http://localhost:8081/product/prod-1-2-1-1",
-      "interaction": "Click",
-      "elementIdentifier": "testid|breadcrumb-item-3",
-      "event": "Runtime",
-      "timestamp": 1785007123938,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] SyntaxError: D:\\Magazine\\_PigmentShop\\src\\components\\Admin\\Categories\\CategoryFormStyles.js: Unexpected token, expected \",\" (201:11)\n\n  199 |     flexDirection: 'row',\n  200 |     alignItems: 'center',\n> 201 |     justify.content: 'space-between',\n      |            ^\n  202 |     backgroundColor: colors.slateLight,\n  203 |     borderRadius: layout.radii.sm,\n  204 |     paddingHorizontal: 14,"
-    },
-    {
-      "screen": "http://localhost:8081/product/prod-1-2-1-1",
-      "interaction": "Click",
-      "elementIdentifier": "btn|‹",
-      "event": "Runtime",
-      "timestamp": 1785007124125,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] SyntaxError: D:\\Magazine\\_PigmentShop\\src\\components\\Admin\\Categories\\CategoryFormStyles.js: Unexpected token, expected \",\" (201:11)\n\n  199 |     flexDirection: 'row',\n  200 |     alignItems: 'center',\n> 201 |     justify.content: 'space-between',\n      |            ^\n  202 |     backgroundColor: colors.slateLight,\n  203 |     borderRadius: layout.radii.sm,\n  204 |     paddingHorizontal: 14,"
-    },
-    {
-      "screen": "http://localhost:8081/product/prod-1-2-1-1",
-      "interaction": "Click",
-      "elementIdentifier": "btn|‹",
-      "event": "Runtime",
-      "timestamp": 1785007124348,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] SyntaxError: D:\\Magazine\\_PigmentShop\\src\\components\\Admin\\Categories\\CategoryFormStyles.js: Unexpected token, expected \",\" (201:11)\n\n  199 |     flexDirection: 'row',\n  200 |     alignItems: 'center',\n> 201 |     justify.content: 'space-between',\n      |            ^\n  202 |     backgroundColor: colors.slateLight,\n  203 |     borderRadius: layout.radii.sm,\n  204 |     paddingHorizontal: 14,"
-    },
-    {
-      "screen": "http://localhost:8081/product/prod-1-2-1-1",
-      "interaction": "Click",
-      "elementIdentifier": "btn|›",
-      "event": "Runtime",
-      "timestamp": 1785007124551,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] SyntaxError: D:\\Magazine\\_PigmentShop\\src\\components\\Admin\\Categories\\CategoryFormStyles.js: Unexpected token, expected \",\" (201:11)\n\n  199 |     flexDirection: 'row',\n  200 |     alignItems: 'center',\n> 201 |     justify.content: 'space-between',\n      |            ^\n  202 |     backgroundColor: colors.slateLight,\n  203 |     borderRadius: layout.radii.sm,\n  204 |     paddingHorizontal: 14,"
-    },
-    {
-      "screen": "http://localhost:8081/product/prod-1-2-1-1",
-      "interaction": "Click",
-      "elementIdentifier": "btn|›",
-      "event": "Runtime",
-      "timestamp": 1785007124751,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] SyntaxError: D:\\Magazine\\_PigmentShop\\src\\components\\Admin\\Categories\\CategoryFormStyles.js: Unexpected token, expected \",\" (201:11)\n\n  199 |     flexDirection: 'row',\n  200 |     alignItems: 'center',\n> 201 |     justify.content: 'space-between',\n      |            ^\n  202 |     backgroundColor: colors.slateLight,\n  203 |     borderRadius: layout.radii.sm,\n  204 |     paddingHorizontal: 14,"
-    },
-    {
-      "screen": "http://localhost:8081/product/prod-1-2-1-1",
-      "interaction": "Click",
-      "elementIdentifier": "card|Card|/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[7]/div[1]",
-      "event": "Runtime",
-      "timestamp": 1785007124941,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] SyntaxError: D:\\Magazine\\_PigmentShop\\src\\components\\Admin\\Categories\\CategoryFormStyles.js: Unexpected token, expected \",\" (201:11)\n\n  199 |     flexDirection: 'row',\n  200 |     alignItems: 'center',\n> 201 |     justify.content: 'space-between',\n      |            ^\n  202 |     backgroundColor: colors.slateLight,\n  203 |     borderRadius: layout.radii.sm,\n  204 |     paddingHorizontal: 14,"
-    },
-    {
-      "screen": "http://localhost:8081/product/prod-1-2-1-1",
-      "interaction": "Click",
-      "elementIdentifier": "card|Card|/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[7]/div[1]",
-      "event": "Runtime",
-      "timestamp": 1785007125138,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] SyntaxError: D:\\Magazine\\_PigmentShop\\src\\components\\Admin\\Categories\\CategoryFormStyles.js: Unexpected token, expected \",\" (201:11)\n\n  199 |     flexDirection: 'row',\n  200 |     alignItems: 'center',\n> 201 |     justify.content: 'space-between',\n      |            ^\n  202 |     backgroundColor: colors.slateLight,\n  203 |     borderRadius: layout.radii.sm,\n  204 |     paddingHorizontal: 14,"
-    },
-    {
-      "screen": "http://localhost:8081/product/prod-1-2-1-1",
-      "interaction": "Click",
-      "elementIdentifier": "card|Card|/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[7]/div[1]",
-      "event": "Runtime",
-      "timestamp": 1785007125324,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] SyntaxError: D:\\Magazine\\_PigmentShop\\src\\components\\Admin\\Categories\\CategoryFormStyles.js: Unexpected token, expected \",\" (201:11)\n\n  199 |     flexDirection: 'row',\n  200 |     alignItems: 'center',\n> 201 |     justify.content: 'space-between',\n      |            ^\n  202 |     backgroundColor: colors.slateLight,\n  203 |     borderRadius: layout.radii.sm,\n  204 |     paddingHorizontal: 14,"
-    },
-    {
-      "screen": "http://localhost:8081/product/prod-1-2-1-1",
-      "interaction": "Click",
-      "elementIdentifier": "card|Card|/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[7]/div[2]",
-      "event": "Runtime",
-      "timestamp": 1785007125571,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] SyntaxError: D:\\Magazine\\_PigmentShop\\src\\components\\Admin\\Categories\\CategoryFormStyles.js: Unexpected token, expected \",\" (201:11)\n\n  199 |     flexDirection: 'row',\n  200 |     alignItems: 'center',\n> 201 |     justify.content: 'space-between',\n      |            ^\n  202 |     backgroundColor: colors.slateLight,\n  203 |     borderRadius: layout.radii.sm,\n  204 |     paddingHorizontal: 14,"
-    },
-    {
-      "screen": "http://localhost:8081/product/prod-1-2-1-1",
-      "interaction": "Click",
-      "elementIdentifier": "card|Card|/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[7]/div[2]",
-      "event": "Runtime",
-      "timestamp": 1785007125845,
-      "errorType": "JS Exception",
-      "errorMessage": "[Application Bug] SyntaxError: D:\\Magazine\\_PigmentShop\\src\\components\\Admin\\Categories\\CategoryFormStyles.js: Unexpected token, expected \",\" (201:11)\n\n  199 |     flexDirection: 'row',\n  200 |     alignItems: 'center',\n> 201 |     justify.content: 'space-between',\n      |            ^\n  202 |     backgroundColor: colors.slateLight,\n  203 |     borderRadius: layout.radii.sm,\n  204 |     paddingHorizontal: 14,"
-    },
-    {
-      "screen": "http://localhost:8081/product/prod-1-2-1-1",
-      "interaction": "Click",
-      "elementIdentifier": "testid|product-detail-fav-button",
-      "event": "AfterInteraction",
-      "timestamp": 1785007128239,
-      "errorType": "Health Check Evaluation Failed",
-      "errorMessage": "[Application Bug] page.evaluate: Target page, context or browser has been closed"
+      "elementIdentifier": "link|/catalog/cat-root-0-sub-1",
+      "event": "Internal Explorer",
+      "timestamp": 1785008224842,
+      "errorType": "Explorer Error",
+      "errorMessage": "[Application Bug] Failed to go back: page.goBack: Target page, context or browser has been closed"
     }
   ],
-  "warnings": [
-    {
-      "screen": "http://localhost:8081/",
-      "interaction": "Click",
-      "elementIdentifier": "btn|Контакты",
-      "event": "Runtime",
-      "timestamp": 1785007076333,
-      "errorType": "Console Warning",
-      "errorMessage": "props.pointerEvents is deprecated. Use style.pointerEvents"
-    }
-  ]
+  "warnings": []
 }

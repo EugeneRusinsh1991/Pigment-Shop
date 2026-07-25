@@ -19,6 +19,8 @@ import UsersManager from './Users/UsersManager';
 import PageTransition from '../PageTransition';
 import { colors, layout } from '../../theme/tokens';
 
+import { Button, IconButton } from '../Button';
+
 const TAB_COMPONENTS = {
   analytics: AnalyticsDashboard,
   orders: OrdersManager,
@@ -53,19 +55,33 @@ export default function AdminPanel({ onBack }) {
     <View style={styles.container}>
       <View style={styles.header}>
         <View style={styles.headerLeft}>
-          <TouchableOpacity style={styles.headerBackBtn} onPress={onBack} testID="admin-exit-control">
-            <BackArrowIcon color={colors.textLight} size={16} />
-          </TouchableOpacity>
+          <IconButton
+            icon={<BackArrowIcon color={colors.textLight} size={16} />}
+            onPress={onBack}
+            variant="transparent"
+            size="sm"
+            testID="admin-exit-control"
+          />
           {!isMobile && <Text style={styles.headerTitle}>{t('adminTitle')}</Text>}
         </View>
-        <TouchableOpacity
-          style={[styles.logoutBtn, isMobile && { paddingHorizontal: 10 }]}
-          onPress={handleLogout}
-          testID="admin-logout-control"
-        >
-          <LogoutIcon color={colors.textDescLight} size={16} />
-          {!isMobile && <Text style={styles.logoutText}>{t('userLogout')}</Text>}
-        </TouchableOpacity>
+        {isMobile ? (
+          <IconButton
+            icon={<LogoutIcon color={colors.textDescLight} size={16} />}
+            onPress={handleLogout}
+            variant="secondary"
+            size="sm"
+            testID="admin-logout-control"
+          />
+        ) : (
+          <Button
+            title={t('userLogout')}
+            leftIcon={<LogoutIcon color={colors.secondaryLightText} size={14} style={{ marginRight: 6 }} />}
+            onPress={handleLogout}
+            variant="secondary"
+            size="sm"
+            testID="admin-logout-control"
+          />
+        )}
       </View>
       <View>
         <AdminTabBar activeTab={activeTab} onSelect={setActiveTab} />

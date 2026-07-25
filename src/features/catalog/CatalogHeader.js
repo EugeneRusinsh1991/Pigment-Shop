@@ -2,7 +2,7 @@ import { Text, View } from 'react-native';
 import styles from '../../AppStyles';
 import { Link } from 'expo-router';
 import HeroCarousel from '../../components/HeroCarousel';
-import { AnimatedButton } from '../../components/Button';
+import Button from '../../components/Button';
 import ScrollFadeUp from '../../components/ScrollFadeUp';
 
 function HeroBanner({ isDark, isWide, t, isTransitionReady }) {
@@ -14,9 +14,11 @@ function HeroBanner({ isDark, isWide, t, isTransitionReady }) {
         <View style={[styles.heroRight, isWide ? styles.heroRightWide : styles.heroRightMobile, { backgroundColor: isDark ? '#1F2937' : '#E5E7EB' }]} />
       )}
       <Link href="/catalog" asChild>
-        <AnimatedButton style={styles.heroBtn}>
-          <Text style={styles.heroBtnText}>{t.heroBtn}</Text>
-        </AnimatedButton>
+        <Button
+          title={t.heroBtn}
+          variant="accent"
+          size="lg"
+        />
       </Link>
     </View>
   );

@@ -18,6 +18,14 @@ async function loadServerPage(filters, sortKey, cursor = null, pageSize = PAGE_S
   return { pageData: pageRes.data, count: countRes ? countRes.data : null };
 }
 
+function isMissingIndexError(error) {
+  if (error instanceof MissingIndexError) return true;
+  if (error?.code === 'MISSING_INDEX' || error?.message === 'MISSING_INDEX') return true;
+  if (typeof error === 'string') return error.includes('index') || error.includes('MISSING_INDEX');
+  if (typeof error?.message === 'string') return error.message.toLowerCase().includes('index');
+  return false;
+}
+
 
 export default function usePaginatedCatalog(filters, sortKey, flatList, categoryTree, pageSize = PAGE_SIZE) {
   const [currentPageProducts, setCurrentPageProducts] = useState([]);
@@ -58,14 +66,7 @@ export default function usePaginatedCatalog(filters, sortKey, flatList, category
 
     function handleLoadError(error) {
       if (!isMounted) return;
-      const isMissingIndex =
-        error instanceof MissingIndexError ||
-        error?.code === 'MISSING_INDEX' ||
-        error?.message === 'MISSING_INDEX' ||
-        (typeof error === 'string' && (error.includes('index') || error.includes('MISSING_INDEX'))) ||
-        (typeof error?.message === 'string' && error.message.toLowerCase().includes('index'));
-
-      if (isMissingIndex) {
+      if (isMissingIndexError(error)) {
         setClientFallback(true);
         setCurrentPage(1);
       } else {

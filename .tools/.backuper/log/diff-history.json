@@ -2916,5 +2916,35 @@
         }
       ]
     }
+  },
+  "src_2026-07-25_22-37_smoke-report.json_1634files": {
+    "timestamp": "2026-07-25T19:37:21.030Z",
+    "diff": {
+      "added": 1624,
+      "removed": 25,
+      "modified": 10,
+      "topFolders": [
+        {
+          "folder": ".venv/Lib/site-packages/pip/_vendor/rich",
+          "count": 79
+        },
+        {
+          "folder": ".venv/Lib/site-packages/pip/_vendor/rich/__pycache__",
+          "count": 77
+        },
+        {
+          "folder": ".docs/automation-browser-log/screenshots",
+          "count": 40
+        },
+        {
+          "folder": ".playwright/user-data/GrShaderCache",
+          "count": 33
+        },
+        {
+          "folder": "scripts/smoke-test/failures",
+          "count": 33
+        }
+      ]
+    }
   }
 }
