@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
-import { buttonColors } from '../theme/buttonCommon';
-import { layout } from '../theme/tokens';
+import { buttonColors } from '../../theme/buttonCommon';
+import { layout } from '../../theme/tokens';
 
 /**
  * Generates button styles dynamically from design tokens.

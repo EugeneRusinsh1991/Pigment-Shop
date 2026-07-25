@@ -3,7 +3,7 @@ import { ActivityIndicator, Animated, Platform, Pressable, StyleSheet, Text, Tou
 import { useTheme } from '../../context/ThemeContext';
 import { useButtonProps, getButtonStyle, DEFAULT_ACTIVE_OPACITY, calculateHitSlop, buttonColors } from '../../theme/buttonCommon';
 import { colors, motion } from '../../theme/tokens';
-import styles from '../ButtonStyles';
+import styles from './ButtonStyles';
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
