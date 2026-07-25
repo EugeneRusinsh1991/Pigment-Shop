@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { GATING_PENDING_STATES } from '@/bootstrap/startupContract';
 import { useBootstrapStatus } from '@/bootstrap/useBootstrapStatus';
 import AppProviders from '@/context/AppProviders';
-import ManualBrowserInspector from '../tools/manual-browser-inspector/ManualBrowserInspector';
+import ManualBrowserInspector from '../.tools/manual-browser-inspector/ManualBrowserInspector';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync().catch(() => { });

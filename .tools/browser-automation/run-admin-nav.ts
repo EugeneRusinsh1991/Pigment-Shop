@@ -56,21 +56,82 @@ async function ensureDevServer(urlStr: string = 'http://localhost:8081', maxWait
   console.warn(`⚠️ Timeout waiting for dev server at ${urlStr}. Proceeding with automation...`);
 }
 
+import { runSmokeAutomation } from './smoke-automation';
+
+class AdminNavContext {
+  private adminContext = resolveExecutionContext('admin');
+  
+  async prepare(page: Page, config: any): Promise<Page> {
+    // 1. Reuse the existing administrator authentication flow without modification
+    let activePage = await this.adminContext.prepare(page, config);
+    
+    activePage.on('pageerror', err => {
+      console.log('--- BROWSER PAGE ERROR ---', err.message);
+    });
+    activePage.on('console', msg => {
+      if (msg.type() === 'error') console.log('--- BROWSER CONSOLE ERROR ---', msg.text());
+    });
+    
+    // Give Firebase Auth time to flush the session to IndexedDB before we navigate
+    console.log('Waiting for session persistence...');
+    await activePage.waitForTimeout(2000);
+    
+    // 2. Navigate directly to the Admin Panel by changing the current application URL to the `/admin` route
+    // Use client-side routing to avoid hard-reloads which can disrupt IndexedDB persistence in Playwright incognito contexts
+    console.log('Navigating to /admin via client-side routing (Playwright trusted click)...');
+    const adminUrl = new URL('/admin', config.baseUrl).toString();
+    await activePage.evaluate((url) => {
+      const a = document.createElement('a');
+      a.href = url;
+      a.id = 'experimental-admin-nav-link';
+      a.style.position = 'absolute';
+      a.style.top = '0';
+      a.style.left = '0';
+      a.style.width = '10px';
+      a.style.height = '10px';
+      a.style.zIndex = '99999';
+      document.body.appendChild(a);
+    }, adminUrl);
+    
+    await activePage.locator('#experimental-admin-nav-link').click();
+    
+    console.log('✓ Triggered client-side routing to Admin Panel. Waiting for hydration...');
+    await activePage.waitForTimeout(3000);
+    
+    const content = await activePage.content();
+    console.log('--- ADMIN PANEL HTML AFTER 10s ---');
+    console.log(content.substring(0, 1000));
+    if (content.length > 2000) {
+      console.log('...');
+      console.log(content.substring(content.length - 1000));
+    }
+    
+    return activePage;
+  }
+}
+
 (async () => {
   console.log('--- Starting Admin Panel Navigation Validation ---');
   await ensureDevServer('http://localhost:8081', 45);
 
-  let browser: Browser | null = null;
-  
   try {
-    browser = await chromium.launch({ headless: false });
-    const context = await browser.newContext({
-      viewport: { width: 1280, height: 800 }
-    });
-    let activePage = await context.newPage();
-
     const config: any = {
       baseUrl: 'http://localhost:8081',
+      diagnosticMode: true,
+      maxInteractions: 100, // Small limit for experimental validation
+      maxDepth: 3,
+      maxCategories: 1,
+      maxProductsPerCategory: 1,
+      // Provide custom context that delegates to admin auth, then navigates to /admin
+      context: new AdminNavContext(),
+      interactionPolicyConfig: {
+        policies: {
+          listGroup: { sample: 1, strategy: 'first-n' },
+          gridGroup: { sample: 1, strategy: 'first-n' },
+          carouselGroup: { sample: 1, strategy: 'first-n' },
+          buttonGroup: { sample: 15 }
+        }
+      },
       authentication: {
         enabled: true,
         provider: 'admin',
@@ -83,39 +144,15 @@ async function ensureDevServer(urlStr: string = 'http://localhost:8081', maxWait
       }
     };
 
-    console.log('Authenticating as admin...');
-    const executionContext = resolveExecutionContext('admin');
-    activePage = await executionContext.prepare(activePage, config);
-    console.log('✓ Authentication successful.');
-
     console.log('Executing experimental Admin Panel navigation flow...');
     
-    // Ensure we are on home page to use search
-    if (!activePage.url().endsWith('/')) {
-        await activePage.goto(config.baseUrl, { waitUntil: 'domcontentloaded' });
-    }
+    // 3. Begin the existing automatic exploration only after the Admin Panel has successfully loaded
+    const report = await runSmokeAutomation({}, config);
     
-    // Type in search box
-    console.log('Entering "Admin Panel" into search field...');
-    const searchInput = activePage.locator('input').first();
-    await searchInput.waitFor({ state: 'visible', timeout: 5000 });
-    await searchInput.fill('Admin Panel');
-    await activePage.waitForTimeout(1000); // Wait for search results
-    
-    // Click on Admin Panel in results
-    console.log('Opening "Admin Panel" from search results...');
-    const resultLink = activePage.locator('text="Admin Panel"').last();
-    await resultLink.click({ timeout: 5000 });
-    
-    await activePage.waitForTimeout(2000);
-    
-    console.log('✓ Successfully entered Admin Panel.');
     console.log('--- Admin Panel Navigation Validation Completed ---');
+    console.log(`Visited Screens: ${report.summary.visitedScreens}`);
+    console.log(`Interactions: ${report.summary.visitedInteractions}`);
   } catch (error: any) {
     console.error(`Validation Failed: ${error.message}`);
-  } finally {
-    if (browser) {
-      await browser.close();
-    }
   }
 })();

@@ -1,0 +1,46 @@
+{
+  "url": "http://localhost:8081/",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+  "screen": {
+    "viewportWidth": 1920,
+    "viewportHeight": 1073,
+    "devicePixelRatio": 1,
+    "width": 1920,
+    "height": 1200
+  },
+  "network": {
+    "online": true,
+    "effectiveType": "4g"
+  },
+  "dom": {
+    "elementCount": 259
+  },
+  "history": {
+    "length": 2
+  },
+  "storage": {
+    "localStorage": {
+      "cart_items": "{\"__v\":1,\"data\":[]}"
+    },
+    "sessionStorage": {
+      "cart_items": "{\"__v\":1,\"data\":[]}"
+    }
+  },
+  "state": {
+    "auth": {
+      "isLoggedIn": false,
+      "user": null
+    },
+    "cart": {
+      "items": [],
+      "totalCount": 0
+    },
+    "favorites": {
+      "items": []
+    },
+    "language": {},
+    "theme": {
+      "isDark": false
+    }
+  }
+}

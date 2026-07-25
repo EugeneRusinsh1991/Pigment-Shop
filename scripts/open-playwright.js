@@ -37,7 +37,7 @@ killExistingPlaywrightSessions();
     const fs = require('fs');
     const path = require('path');
 
-    const baseDir = path.join(__dirname, '..', '.browserLog');
+    const baseDir = path.join(__dirname, '..', '.docs', 'browserLog');
     const screenshotsDir = path.join(baseDir, 'screenshots');
     const stateDir = path.join(baseDir, 'state');
     const reportsDir = path.join(baseDir, 'reports');

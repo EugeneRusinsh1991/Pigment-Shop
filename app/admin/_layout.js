@@ -4,6 +4,7 @@ import { useAdminAuth } from '@/services/adminDomain';
 
 export default function AdminLayout() {
   const { isAdmin } = useAdminAuth();
+  console.log('AdminLayout evaluating useAdminAuth. isAdmin:', isAdmin);
 
   if (!isAdmin) {
     return <Redirect href="/login" />;
