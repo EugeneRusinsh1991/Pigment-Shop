@@ -7,7 +7,7 @@ import useGridLayout from '../../hooks/useGridLayout';
 import styles from './FavoritesPageStyles';
 import Footer from '../../components/Footer';
 import { HeartIcon } from '@/components/Icons';
-import PlaceholderCard, { PlaceholderGrid } from '../../components/PlaceholderCard';
+import { PlaceholderCard, PlaceholderGrid } from '../../components/Card';
 import ScrollFadeUp from '../../components/ScrollFadeUp';
 
 

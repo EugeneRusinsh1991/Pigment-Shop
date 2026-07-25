@@ -1,5 +1,5 @@
 import { Text, View } from 'react-native';
-import BaseCard from '../../components/BaseCard';
+import { BaseCard } from '../../components/Card';
 import styles from './ProfilePageStyles';
 import { Button } from '../../components/Button';
 import { colors } from '../../theme/tokens';

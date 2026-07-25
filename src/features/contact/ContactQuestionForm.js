@@ -6,7 +6,7 @@ import { db } from '../../services/firebase';
 import { COLLECTIONS } from '../../services/collections';
 import styles from './ContactPageStyles';
 import { Button } from '../../components/Button';
-import BaseCard from '../../components/BaseCard';
+import { BaseCard } from '../../components/Card';
 
 function buildSupportMessagePayload(questionText, user) {
   const userId = user?.uid || 'guest';

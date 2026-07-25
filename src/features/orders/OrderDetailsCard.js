@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import BaseCard from '../../components/BaseCard';
+import { BaseCard } from '../../components/Card';
 import { colors, layout } from '../../theme/tokens';
 import { OrderMetaRow, OrderItemRow } from './OrderRows';
 import { formatDateLong } from '../../utils/dateFormatting';

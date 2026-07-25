@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { Text, View, useWindowDimensions } from 'react-native';
-import { PlaceholderGrid } from './PlaceholderCard';
+import { PlaceholderGrid } from './Card';
 import { useCatalog } from '../context/CatalogContext';
 import { getDeviceTier } from '../utils/layout';
 import { useRouter } from 'expo-router';

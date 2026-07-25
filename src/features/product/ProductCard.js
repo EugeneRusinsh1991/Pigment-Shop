@@ -6,7 +6,7 @@ import { HeartIcon, CartIcon } from '@/components/Icons';
 import styles from './ProductCardStyles';
 import { IconButton } from '../../components/Button';
 import ProductBadges from './ProductBadges';
-import BaseCard from '../../components/BaseCard';
+import { BaseCard } from '../../components/Card';
 import { useCartContext } from '../../context/CartContext';
 import { colors } from '../../theme/tokens';
 

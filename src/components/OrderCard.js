@@ -2,7 +2,7 @@ import { Text, View, useWindowDimensions } from 'react-native';
 import { AnimatedButton } from './Button';
 import { useTheme } from '../context/ThemeContext';
 import commonStyles from '../theme/commonStyles';
-import BaseCard from './BaseCard';
+import { BaseCard } from './Card';
 import { colors, layout } from '../theme/tokens';
 import {
     ExpandedItemsList,

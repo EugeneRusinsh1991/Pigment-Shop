@@ -7,7 +7,7 @@ import { useTheme } from '../../context/ThemeContext';
 
 import CatalogHeader from './CatalogHeader';
 import PageNavigation from '../../components/PageNavigation';
-import PlaceholderCard from '../../components/PlaceholderCard';
+import { PlaceholderCard } from '../../components/Card';
 import CatalogListFooter from './CatalogListFooter';
 import { useCatalogViewData } from '../../hooks/useCatalogViewData';
 
