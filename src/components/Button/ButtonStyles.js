@@ -33,6 +33,8 @@ function createButtonStyles() {
     dangerDark:       { container: { backgroundColor: danger,             borderColor: danger              }, text: { color: white  } },
     dangerSoftDark:   { container: { backgroundColor: dangerSoftDarkBg,   borderColor: dangerSoftDarkBorder }, text: { color: white  } },
     successDark:      { container: { backgroundColor: success,            borderColor: success             }, text: { color: white  } },
+    ghostLight:       { container: { backgroundColor: 'transparent',      borderColor: 'transparent'       }, text: { color: dark   } },
+    ghostDark:        { container: { backgroundColor: 'transparent',      borderColor: 'transparent'       }, text: { color: white  } },
   };
 
   // Build flat style map for StyleSheet.create

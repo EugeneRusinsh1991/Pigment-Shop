@@ -1,7 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { Link } from 'expo-router';
 import { IconButton } from '@/components/Button';
-import { AnimatedButton } from '@/components/Button';
 import { BagIcon, CurrencyIcon, GlobeIcon, ThemeIcon, UserIcon } from '@/components/Icons';
 import styles from './AppHeaderStyles';
 import LangDropdown from './LangDropdown';
@@ -75,14 +74,21 @@ export default function AppHeaderControls({
       )}
 
       <Link href="/cart" asChild>
-        <AnimatedButton style={StyleSheet.flatten([styles.cartBtn, { minWidth: 44, minHeight: 44, justifyContent: 'center', alignItems: 'center' }])}>
-          <BagIcon color={theme.iconColor} size={18} />
-          {cartCount > 0 && (
-            <View style={[styles.badge, theme.badgeStyle]}>
-              <Text style={[styles.badgeText, theme.badgeTextStyle]}>{cartCount}</Text>
+        <IconButton
+          icon={(
+            <View style={{ position: 'relative', alignItems: 'center', justifyContent: 'center' }}>
+              <BagIcon color={theme.iconColor} size={18} />
+              {cartCount > 0 && (
+                <View style={[styles.badge, theme.badgeStyle]}>
+                  <Text style={[styles.badgeText, theme.badgeTextStyle]}>{cartCount}</Text>
+                </View>
+              )}
             </View>
           )}
-        </AnimatedButton>
+          size={44}
+          variant="transparent"
+          isDark={isDark}
+        />
       </Link>
 
       <View style={styles.langContainer}>

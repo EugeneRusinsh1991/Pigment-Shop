@@ -1,7 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { Link } from 'expo-router';
-import { IconButton } from '@/components/Button';
-import { AnimatedButton } from '@/components/Button';
+import Button, { IconButton } from '@/components/Button';
 import { useLanguage } from '../../../context/LanguageContext';
 import styles from './AppHeaderStyles';
 
@@ -28,24 +27,40 @@ export default function AppHeaderNavLinks({
         variant="transparent"
       />
       <Link href="/" asChild>
-        <AnimatedButton style={styles.navLink}>
-          <Text style={[styles.navLinkText, theme.subtextColor]}>{t('navHome')}</Text>
-        </AnimatedButton>
+        <Button
+          variant="ghost"
+          size="sm"
+          title={t('navHome')}
+          style={styles.navLink}
+          textStyle={[styles.navLinkText, theme.subtextColor]}
+        />
       </Link>
       <Link href="/catalog" asChild>
-        <AnimatedButton style={styles.navLink}>
-          <Text style={[styles.navLinkText, theme.textColor]}>{t('navCatalog')}</Text>
-        </AnimatedButton>
+        <Button
+          variant="ghost"
+          size="sm"
+          title={t('navCatalog')}
+          style={styles.navLink}
+          textStyle={[styles.navLinkText, theme.textColor]}
+        />
       </Link>
       <Link href="/products" asChild>
-        <AnimatedButton style={styles.navLink}>
-          <Text style={[styles.navLinkText, theme.textColor]}>{t('navAllProducts')}</Text>
-        </AnimatedButton>
+        <Button
+          variant="ghost"
+          size="sm"
+          title={t('navAllProducts')}
+          style={styles.navLink}
+          textStyle={[styles.navLinkText, theme.textColor]}
+        />
       </Link>
       <Link href="/contact" asChild>
-        <AnimatedButton style={styles.navLink}>
-          <Text style={[styles.navLinkText, theme.textColor]}>{t('navContactUs')}</Text>
-        </AnimatedButton>
+        <Button
+          variant="ghost"
+          size="sm"
+          title={t('navContactUs')}
+          style={styles.navLink}
+          textStyle={[styles.navLinkText, theme.textColor]}
+        />
       </Link>
     </View>
   );

@@ -56,9 +56,7 @@ export default StyleSheet.create({
     gap: 24,
     flexShrink: 0,
   },
-  navLink: {
-    paddingVertical: 8,
-  },
+  navLink: {},
   navLinkText: {
     fontFamily: fonts.sans,
     fontSize: 12,

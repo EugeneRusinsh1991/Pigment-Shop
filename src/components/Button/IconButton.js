@@ -44,7 +44,7 @@ export function IconButton({
   ];
 
   const defaultIconColor = isDark ? buttonColors.textDark : buttonColors.textLight;
-  const renderedIcon = React.isValidElement(icon)
+  const renderedIcon = React.isValidElement(icon) && icon.type !== React.Fragment
     ? React.cloneElement(icon, { color: icon.props?.color || defaultIconColor })
     : icon;
 

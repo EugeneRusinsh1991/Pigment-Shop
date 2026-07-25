@@ -1,8 +1,8 @@
 import { Image, Text, View } from 'react-native';
 import { useRouter } from 'expo-router';
 import { BackArrowIcon, CrossIcon } from '../../../components/Icons';
-import { IconButton } from '../../../components/Button';
-import { AnimatedButton } from '../../../components/Button';
+import Button, { IconButton } from '../../../components/Button';
+import { calculateHitSlop } from '../../../theme/buttonCommon';
 import { ACCENT_COLOR } from './constants';
 import styles from './NavMenuStyles';
 
@@ -28,13 +28,18 @@ export default function NavMenuHeader({ isDark, onBackClick, onClose, view, titl
           {title}
         </Text>
       ) : (
-        <AnimatedButton onPress={handleLogoPress}>
+        <Button
+          variant="unstyled"
+          hitSlop={calculateHitSlop(140, 32)}
+          accessibilityRole="link"
+          onPress={handleLogoPress}
+        >
           <Image
             source={require('../../../assets/logo.png')}
             style={styles.logoImage}
             resizeMode="contain"
           />
-        </AnimatedButton>
+        </Button>
       )}
 
       <IconButton

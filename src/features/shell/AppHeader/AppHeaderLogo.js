@@ -1,7 +1,7 @@
 import { Image, Text, View } from 'react-native';
 import { Link } from 'expo-router';
-import { IconButton } from '@/components/Button';
-import { AnimatedButton } from '@/components/Button';
+import Button, { IconButton } from '@/components/Button';
+import { calculateHitSlop } from '@/theme/buttonCommon';
 import styles from './AppHeaderStyles';
 
 const MOBILE_GAP = -6;
@@ -40,11 +40,15 @@ export default function AppHeaderLogo({ isDark, appName, isMobile, onMenuPress, 
         />
       )}
       <Link href="/" asChild>
-        <AnimatedButton activeOpacity={0.8}>
+        <Button
+          variant="unstyled"
+          hitSlop={calculateHitSlop(140, 32)}
+          accessibilityRole="link"
+        >
           <View style={[styles.logoWrapper, computedStyles.logoContainer]}>
             <Image source={require('../../../assets/logo.png')} style={styles.logoImage} resizeMode="contain" />
           </View>
-        </AnimatedButton>
+        </Button>
       </Link>
     </View>
   );

@@ -7,7 +7,7 @@ import { useTheme } from '@/context/ThemeContext';
 import { useLanguage } from '@/context/LanguageContext';
 import { useProfile } from '@/hooks/useProfile';
 import { useAdminAuth } from '@/services/adminDomain';
-import { AnimatedButton } from '@/components/Button';
+import Button from '@/components/Button';
 import {
     AdminIcon,
     ClipboardIcon,
@@ -89,49 +89,92 @@ export default function UserDropdown({
             </Text>
           </View>
           <Link href="/profile" asChild>
-            <AnimatedButton style={StyleSheet.flatten([styles.dropdownItem, { flexDirection: 'row', alignItems: 'center' }])} onPress={onToggleUserMenu}>
-              <UserIcon color={dStyles.iconColor} size={14} style={{ marginRight: 8 }} />
-              <Text style={dStyles.itemText}>{t('userProfile')}</Text>
-            </AnimatedButton>
+            <Button
+              variant="ghost"
+              size="sm"
+              fullWidth
+              leftIcon={<UserIcon color={dStyles.iconColor} size={14} />}
+              title={t('userProfile')}
+              style={StyleSheet.flatten([styles.dropdownItem, { justifyContent: 'flex-start' }])}
+              textStyle={dStyles.itemText}
+              onPress={onToggleUserMenu}
+            />
           </Link>
           <Link href="/favorites" asChild>
-            <AnimatedButton style={StyleSheet.flatten([styles.dropdownItem, { flexDirection: 'row', alignItems: 'center' }])} onPress={onToggleUserMenu}>
-              <HeartIcon color={dStyles.iconColor} size={14} style={{ marginRight: 8 }} />
-              <Text style={dStyles.itemText}>{t('navFavorites')}</Text>
-            </AnimatedButton>
+            <Button
+              variant="ghost"
+              size="sm"
+              fullWidth
+              leftIcon={<HeartIcon color={dStyles.iconColor} size={14} />}
+              title={t('navFavorites')}
+              style={StyleSheet.flatten([styles.dropdownItem, { justifyContent: 'flex-start' }])}
+              textStyle={dStyles.itemText}
+              onPress={onToggleUserMenu}
+            />
           </Link>
           <Link href="/orders" asChild>
-            <AnimatedButton style={StyleSheet.flatten([styles.dropdownItem, { flexDirection: 'row', alignItems: 'center' }])} onPress={onToggleUserMenu}>
-              <ClipboardIcon color={dStyles.iconColor} size={14} style={{ marginRight: 8 }} />
-              <Text style={dStyles.itemText}>{t('userOrders')}</Text>
-            </AnimatedButton>
+            <Button
+              variant="ghost"
+              size="sm"
+              fullWidth
+              leftIcon={<ClipboardIcon color={dStyles.iconColor} size={14} />}
+              title={t('userOrders')}
+              style={StyleSheet.flatten([styles.dropdownItem, { justifyContent: 'flex-start' }])}
+              textStyle={dStyles.itemText}
+              onPress={onToggleUserMenu}
+            />
           </Link>
           {isAdmin && (
             <Link href="/admin" asChild>
-              <AnimatedButton style={StyleSheet.flatten([styles.dropdownItem, { flexDirection: 'row', alignItems: 'center' }])} onPress={() => { onToggleUserMenu(); }} data-testid="admin-panel-link">
-                <AdminIcon color={dStyles.iconColor} size={14} style={{ marginRight: 8 }} />
-                <Text style={dStyles.itemText}>{t('adminTitle')}</Text>
-              </AnimatedButton>
+              <Button
+                variant="ghost"
+                size="sm"
+                fullWidth
+                leftIcon={<AdminIcon color={dStyles.iconColor} size={14} />}
+                title={t('adminTitle')}
+                style={StyleSheet.flatten([styles.dropdownItem, { justifyContent: 'flex-start' }])}
+                textStyle={dStyles.itemText}
+                onPress={onToggleUserMenu}
+                data-testid="admin-panel-link"
+              />
             </Link>
           )}
-          <AnimatedButton style={[styles.dropdownItem, { flexDirection: 'row', alignItems: 'center' }]} onPress={() => { onLogout(); onToggleUserMenu(); }}>
-            <LogoutIcon color={dStyles.iconColor} size={14} style={{ marginRight: 8 }} />
-            <Text style={dStyles.itemText}>{t('userLogout')}</Text>
-          </AnimatedButton>
+          <Button
+            variant="ghost"
+            size="sm"
+            fullWidth
+            leftIcon={<LogoutIcon color={dStyles.iconColor} size={14} />}
+            title={t('userLogout')}
+            style={StyleSheet.flatten([styles.dropdownItem, { justifyContent: 'flex-start' }])}
+            textStyle={dStyles.itemText}
+            onPress={() => { onLogout(); onToggleUserMenu(); }}
+          />
         </>
       ) : (
         <>
           <Link href="/login" asChild>
-            <AnimatedButton style={StyleSheet.flatten([styles.dropdownItem, { flexDirection: 'row', alignItems: 'center' }])} onPress={onToggleUserMenu}>
-              <LoginIcon color={dStyles.iconColor} size={14} style={{ marginRight: 8 }} />
-              <Text style={dStyles.itemText}>{t('userLogin')}</Text>
-            </AnimatedButton>
+            <Button
+              variant="ghost"
+              size="sm"
+              fullWidth
+              leftIcon={<LoginIcon color={dStyles.iconColor} size={14} />}
+              title={t('userLogin')}
+              style={StyleSheet.flatten([styles.dropdownItem, { justifyContent: 'flex-start' }])}
+              textStyle={dStyles.itemText}
+              onPress={onToggleUserMenu}
+            />
           </Link>
           <Link href={{ pathname: '/login', params: { isRegister: 'true' } }} asChild>
-            <AnimatedButton style={StyleSheet.flatten([styles.dropdownItem, { flexDirection: 'row', alignItems: 'center' }])} onPress={onToggleUserMenu}>
-              <UserIcon color={dStyles.iconColor} size={14} style={{ marginRight: 8 }} />
-              <Text style={dStyles.itemText}>{t('reviewsRegisterBtn')}</Text>
-            </AnimatedButton>
+            <Button
+              variant="ghost"
+              size="sm"
+              fullWidth
+              leftIcon={<UserIcon color={dStyles.iconColor} size={14} />}
+              title={t('reviewsRegisterBtn')}
+              style={StyleSheet.flatten([styles.dropdownItem, { justifyContent: 'flex-start' }])}
+              textStyle={dStyles.itemText}
+              onPress={onToggleUserMenu}
+            />
           </Link>
         </>
       )}
