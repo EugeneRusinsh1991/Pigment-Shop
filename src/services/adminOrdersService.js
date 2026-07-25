@@ -57,11 +57,15 @@ async function _loadAdminOrders() {
 }
 
 async function _updateOrderStatus(orderId, newStatus) {
-  await updateStatusRepo(orderId, newStatus);
+  const res = await updateStatusRepo(orderId, newStatus);
+  if (!res.success) throw new Error(res.error || 'Failed to update order status');
+  return res.data;
 }
 
 async function _updateAdminNote(orderId, adminNote) {
-  await updateNoteRepo(orderId, adminNote);
+  const res = await updateNoteRepo(orderId, adminNote);
+  if (!res.success) throw new Error(res.error || 'Failed to update admin note');
+  return res.data;
 }
 
 export const loadAdminOrders = withServiceContract(_loadAdminOrders, 'Failed to load orders');

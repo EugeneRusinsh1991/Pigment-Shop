@@ -3,10 +3,11 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { db, auth } from '../firebase/index.js';
 import { COLLECTIONS } from '../collections.js';
 import { addWhereConstraints, buildQueryConstraints, SORT_KEYS } from './catalogQueryBuilder.js';
+import { withServiceContract } from '../serviceContract.js';
 
 export { SORT_KEYS };
 
-export async function signInAsAdmin() {
+async function _signInAsAdmin() {
   await signInWithEmailAndPassword(auth, 'admin@pigment-shop.com', 'admin123456');
 }
 
@@ -27,7 +28,7 @@ function handleFirestoreQueryError(error, contextMessage) {
   throw error;
 }
 
-export async function fetchProductPage(filters, sortKey, afterDoc = null, pageSize = 15) {
+async function _fetchProductPage(filters, sortKey, afterDoc = null, pageSize = 15) {
   const productsRef = collection(db, COLLECTIONS.PRODUCTS);
   const constraints = buildQueryConstraints(filters, sortKey);
   
@@ -54,7 +55,7 @@ export async function fetchProductPage(filters, sortKey, afterDoc = null, pageSi
   }
 }
 
-export async function fetchProductCount(filters) {
+async function _fetchProductCount(filters) {
   const productsRef = collection(db, COLLECTIONS.PRODUCTS);
   const constraints = [];
   addWhereConstraints(constraints, filters);
@@ -69,7 +70,7 @@ export async function fetchProductCount(filters) {
   }
 }
 
-export async function saveCatalogDrafts(draftProducts, draftCategories, oldProducts, oldCategories) {
+async function _saveCatalogDrafts(draftProducts, draftCategories, oldProducts, oldCategories) {
   const operations = [];
 
   const categoriesCol = collection(db, COLLECTIONS.CATEGORIES);
@@ -109,11 +110,11 @@ export async function saveCatalogDrafts(draftProducts, draftCategories, oldProdu
   }
 }
 
-export async function saveBanners(banners) {
+async function _saveBanners(banners) {
   await setDoc(doc(db, COLLECTIONS.SETTINGS, 'banners'), { items: banners });
 }
 
-export async function fetchExistingCatalogData() {
+async function _fetchExistingCatalogData() {
   const productsCol = collection(db, COLLECTIONS.PRODUCTS);
   const categoriesCol = collection(db, COLLECTIONS.CATEGORIES);
   const ordersCol = collection(db, COLLECTIONS.ORDERS);
@@ -141,7 +142,7 @@ export async function fetchExistingCatalogData() {
   };
 }
 
-export async function replaceCatalogData(deleteDocIds, dataset, ordersDataset) {
+async function _replaceCatalogData(deleteDocIds, dataset, ordersDataset) {
   const MAX_BATCH_SIZE = 499;
   const productsCol = collection(db, COLLECTIONS.PRODUCTS);
   const categoriesCol = collection(db, COLLECTIONS.CATEGORIES);
@@ -177,3 +178,12 @@ export async function replaceCatalogData(deleteDocIds, dataset, ordersDataset) {
     await batch.commit();
   }
 }
+
+export const signInAsAdmin = withServiceContract(_signInAsAdmin, 'Admin sign-in failed');
+export const fetchProductPage = withServiceContract(_fetchProductPage, 'Product page fetch failed');
+export const fetchProductCount = withServiceContract(_fetchProductCount, 'Product count fetch failed');
+export const saveCatalogDrafts = withServiceContract(_saveCatalogDrafts, 'Save catalog drafts failed');
+export const saveBanners = withServiceContract(_saveBanners, 'Save banners failed');
+export const fetchExistingCatalogData = withServiceContract(_fetchExistingCatalogData, 'Fetch existing catalog data failed');
+export const replaceCatalogData = withServiceContract(_replaceCatalogData, 'Replace catalog data failed');
+

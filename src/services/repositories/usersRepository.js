@@ -1,13 +1,9 @@
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { db } from '../firebase/index.js';
 import { COLLECTIONS } from '../collections.js';
+import { withServiceContract } from '../serviceContract.js';
 
-/**
- * Fetches the admin note for a user.
- * @param {string} uid - The user's ID.
- * @returns {Promise<string>} The user's note.
- */
-export async function fetchUserNote(uid) {
+async function _fetchUserNote(uid) {
   const docRef = doc(db, COLLECTIONS.ADMIN_NOTES, uid);
   const docSnap = await getDoc(docRef);
   if (docSnap.exists()) {
@@ -16,14 +12,12 @@ export async function fetchUserNote(uid) {
   return '';
 }
 
-/**
- * Saves an admin note for a user.
- * @param {string} uid - The user's ID.
- * @param {string} noteText - The text of the note.
- * @returns {Promise<void>}
- */
-export async function saveUserNote(uid, noteText) {
+async function _saveUserNote(uid, noteText) {
   const docRef = doc(db, COLLECTIONS.ADMIN_NOTES, uid);
   const trimmed = (noteText || '').trim();
   await setDoc(docRef, { note: trimmed }, { merge: true });
 }
+
+export const fetchUserNote = withServiceContract(_fetchUserNote, 'Failed to fetch user note');
+export const saveUserNote = withServiceContract(_saveUserNote, 'Failed to save user note');
+

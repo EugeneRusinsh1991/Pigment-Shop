@@ -85,10 +85,13 @@ async function _processCheckout({ user, items, totalItems, totalPrice, note, cus
 
   const orderData = buildOrderData({ user, items, totalItems, totalPrice, note, customerInfo });
   const result = await createOrder(orderData);
+  if (!result.success) {
+    throw new Error(result.error || 'Failed to create order');
+  }
 
-  await sendOrderNotification({ orderId: result.id, totalItems, totalPrice });
+  await sendOrderNotification({ orderId: result.data.id, totalItems, totalPrice });
 
-  return result.id;
+  return result.data.id;
 }
 
 export const processCheckout = withServiceContract(_processCheckout, 'Order creation failed');

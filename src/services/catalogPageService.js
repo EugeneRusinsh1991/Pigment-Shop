@@ -1,12 +1,8 @@
-import { fetchProductPage as _fetchProductPage, fetchProductCount as _fetchProductCount, MissingIndexError, SORT_KEYS } from './repositories/catalogRepository';
-import { withServiceContract } from './serviceContract';
+import { fetchProductPage, fetchProductCount, MissingIndexError, SORT_KEYS } from './repositories/catalogRepository';
 
 export const PAGE_SIZE = 15;
 
-export const fetchProductPage = withServiceContract(_fetchProductPage, 'Failed to fetch product page');
-export const fetchProductCount = withServiceContract(_fetchProductCount, 'Failed to fetch product count');
-
-export { SORT_KEYS, MissingIndexError };
+export { fetchProductPage, fetchProductCount, SORT_KEYS, MissingIndexError };
 
 export function canUseServerPagination(filters, sortKey = SORT_KEYS.PRICE_ASC) {
   if (countInequalityFilters(filters) > 1) return false;

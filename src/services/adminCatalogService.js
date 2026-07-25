@@ -11,18 +11,21 @@ import { withServiceContract } from './serviceContract';
 import { saveCatalogDrafts, saveBanners } from './repositories/catalogRepository';
 
 async function _saveDrafts(draftProducts, draftCategories, oldProducts, oldCategories) {
-  await saveCatalogDrafts(draftProducts, draftCategories, oldProducts, oldCategories);
+  const res = await saveCatalogDrafts(draftProducts, draftCategories, oldProducts, oldCategories);
+  if (!res.success) throw new Error(res.error || 'Failed to save catalog drafts');
   return { products: draftProducts, categories: draftCategories };
 }
 
 async function _updateBanners(banners) {
-  await saveBanners(banners);
+  const res = await saveBanners(banners);
+  if (!res.success) throw new Error(res.error || 'Failed to update banners');
   return { banners };
 }
 
 async function _resetBannersToSeed() {
   const seed = [...SEED_BANNERS];
-  await saveBanners(seed);
+  const res = await saveBanners(seed);
+  if (!res.success) throw new Error(res.error || 'Failed to reset banners');
   return { banners: seed };
 }
 

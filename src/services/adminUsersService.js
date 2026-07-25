@@ -77,11 +77,15 @@ async function _loadUsers() {
 }
 
 async function _fetchUserNote(uid) {
-  return await fetchNoteRepo(uid);
+  const res = await fetchNoteRepo(uid);
+  if (!res.success) throw new Error(res.error || 'Failed to fetch user note');
+  return res.data;
 }
 
 async function _saveUserNote(uid, noteText) {
-  await saveNoteRepo(uid, noteText);
+  const res = await saveNoteRepo(uid, noteText);
+  if (!res.success) throw new Error(res.error || 'Failed to save user note');
+  return res.data;
 }
 
 export const loadUsers = withServiceContract(_loadUsers, 'Failed to load users');
