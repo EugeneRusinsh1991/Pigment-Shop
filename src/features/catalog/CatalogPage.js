@@ -17,17 +17,17 @@ import usePaginatedCatalog from './usePaginatedCatalog';
 import ProductGrid from './ProductGrid';
 import { GridHeader, GridFooter } from './GridHeaderFooter';
 import Footer from '../../components/Footer';
-import { getContentGridWidth, CARD_MARGIN, SIDEBAR_WIDTH, MAIN_PADDING } from '../../utils/layout';
+import { getContentGridWidth, CARD_MARGIN, SIDEBAR_WIDTH, MAIN_PADDING, getGridCols } from '../../utils/layout';
 import PageTransition from '../../components/PageTransition';
 import { colors, layout } from '../../theme/tokens';
 
 /**
  * Full-width desktop (>=1024px): 4 columns.
+ * Tablet (>=768px): 2 columns.
  * Narrow (mobile): 2 columns.
  */
 function computeCols(windowWidth) {
-  if (windowWidth >= layout.breakpoints.desktop) return 4;
-  return 2;
+  return getGridCols(windowWidth, true);
 }
 
 function computeCardWidth(flatListWidth, cols) {

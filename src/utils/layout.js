@@ -11,6 +11,12 @@ const COLS_MAP = {
   mobile: { depth0: 2, depthRest: 2 },
 };
 
+const FILTERED_COLS_MAP = {
+  desktop: 4,
+  tablet: 2,
+  mobile: 2,
+};
+
 export const SIDEBAR_WIDTH = 240;
 export const CARD_MARGIN = 8;
 export const MAIN_PADDING = 32;
@@ -38,17 +44,32 @@ export function getDeviceTier(windowWidth) {
 }
 
 /**
+ * Returns column count for standard or filtered grid.
+ * @param {number} windowWidth
+ * @param {boolean} [hasFilterSidebar=false]
+ * @returns {number}
+ */
+export function getGridCols(windowWidth, hasFilterSidebar = false) {
+  const device = getDeviceTier(windowWidth);
+  if (hasFilterSidebar) {
+    return FILTERED_COLS_MAP[device];
+  }
+  return COLS_MAP[device].depth0;
+}
+
+/**
  * Returns the total grid width (px) for the catalog card grid at the given depth.
  * This is the canonical content-area width used for layout alignment across
  * AppShell (header + search) and CatalogView.
  *
  * @param {number} windowWidth - current window width from useWindowDimensions()
  * @param {number} [depth=0]   - catalog depth (0 = root, >0 = subcategory)
+ * @param {boolean} [hasFilterSidebar=false] - whether active filter sidebar is shown
  */
-export function getContentGridWidth(windowWidth, depth = 0) {
+export function getContentGridWidth(windowWidth, depth = 0, hasFilterSidebar = false) {
   const device = getDeviceTier(windowWidth);
   const depthKey = depth === 0 ? 'depth0' : 'depthRest';
-  const cols = COLS_MAP[device][depthKey];
+  const cols = hasFilterSidebar ? FILTERED_COLS_MAP[device] : COLS_MAP[device][depthKey];
   const cardWidth = CARD_WIDTH_MAP[depthKey][device];
   const margin = CARD_MARGIN_MAP[device];
   return cols * (cardWidth + margin * 2);

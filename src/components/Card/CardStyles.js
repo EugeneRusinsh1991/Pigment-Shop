@@ -1,6 +1,20 @@
 import { StyleSheet, Platform } from 'react-native';
 import { colors, layout, shadows } from '../../theme/tokens';
 
+export const cardDimensionsContract = {
+  standardHeights: {
+    desktop: 340,
+    tablet: 280,
+    mobile: 240,
+  },
+  imageHeights: {
+    desktop: 230,
+    tablet: 180,
+    mobile: 135,
+  },
+  aspectRatio: 0.75,
+};
+
 export const styleMap = {
   containerLight: {
     backgroundColor: colors.surfaceLight,

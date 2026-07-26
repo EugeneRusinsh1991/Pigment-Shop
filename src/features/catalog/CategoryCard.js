@@ -2,6 +2,7 @@ import React from 'react';
 import { Image, Platform, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { useTheme } from '../../context/ThemeContext';
 import { useCatalog } from '../../context/CatalogContext';
+import useCardDimensions from '../../hooks/useCardDimensions';
 import styles from './categoryCardStyles';
 import Card from '../../components/Card';
 import { colors, layout } from '../../theme/tokens';
@@ -70,13 +71,13 @@ function getCategoryCardStyles(isDark, isMobile) {
     overlay: native.overlay,
   };
 }
-
-const CategoryCardInner = React.forwardRef(({ item, isDark, depth, style, ...rest }, ref) => {
+const CategoryCardInner = React.forwardRef(({ item, isDark, depth = 1, style, ...rest }, ref) => {
   const { lang } = useTheme();
   const { width: windowWidth } = useWindowDimensions();
   const isMobile = windowWidth < 768;
   const { desc, label } = useCategoryContent(item, lang);
   const computedStyles = getCategoryCardStyles(isDark, isMobile);
+  const { cardHeight } = useCardDimensions(depth);
 
   return (
     <Card
@@ -84,7 +85,7 @@ const CategoryCardInner = React.forwardRef(({ item, isDark, depth, style, ...res
       variant="compact"
       isDark={isDark}
       interactive={true}
-      style={[styles.catCard, style]}
+      style={[styles.catCard, { height: cardHeight }, style]}
       {...rest}
     >
       <View style={{ ...StyleSheet.absoluteFillObject, borderRadius: layout.radii.lg, overflow: 'hidden' }}>

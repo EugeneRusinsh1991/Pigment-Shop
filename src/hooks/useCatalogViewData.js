@@ -3,7 +3,7 @@ import { useWindowDimensions } from 'react-native';
 import { useLocalSearchParams } from 'expo-router';
 import { useCatalog } from '../context/CatalogContext';
 import { useTheme } from '../context/ThemeContext';
-import { getContentGridWidth } from '../utils/layout';
+import { getContentGridWidth, getDeviceTier, getGridCols } from '../utils/layout';
 import { findCategoryPath } from '../utils/categoryTreeUtils';
 
 const COLS_MAP = {
@@ -11,13 +11,10 @@ const COLS_MAP = {
   tablet: { depth0: 3, depthRest: 3 },
   mobile: { depth0: 2, depthRest: 2 },
 };
-function getCatalogLayout(isWide, depth, windowWidth) {
-  const device = windowWidth >= 1024
-    ? 'desktop'
-    : (windowWidth >= 768 ? 'tablet' : 'mobile');
-  const depthKey = depth === 0 ? 'depth0' : 'depthRest';
-  const cols = COLS_MAP[device][depthKey];
-  const gridWidth = getContentGridWidth(windowWidth, depth);
+
+function getCatalogLayout(isWide, depth, windowWidth, hasFilterSidebar = false) {
+  const cols = getGridCols(windowWidth, hasFilterSidebar);
+  const gridWidth = getContentGridWidth(windowWidth, depth, hasFilterSidebar);
   return { cols, gridWidth };
 }
 
@@ -27,6 +24,7 @@ export function useCatalogViewData({
   overrideItems,
   overrideCrumbs,
   isWide,
+  hasFilterSidebar = false,
 }) {
   const { width: windowWidth } = useWindowDimensions();
   const { t } = useTheme();
@@ -65,7 +63,7 @@ export function useCatalogViewData({
   const items = overrideItems !== undefined ? overrideItems : computedItems;
   const crumbs = overrideCrumbs !== undefined ? overrideCrumbs : computedCrumbs;
 
-  const { cols, gridWidth } = getCatalogLayout(isWide, depth, windowWidth);
+  const { cols, gridWidth } = getCatalogLayout(isWide, depth, windowWidth, hasFilterSidebar);
 
   return {
     depth,

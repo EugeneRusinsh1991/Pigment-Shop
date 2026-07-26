@@ -45,7 +45,7 @@ const ProductPrice = React.memo(function ProductPrice({ price, discountPercent, 
 const ProductCardInner = React.forwardRef(({ item, isDark, depth = 1, isFavorite, onToggleFavorite, overrideWidth, ...rest }, ref) => {
   const { t, lang } = useTheme();
   const { addItem } = useCartContext();
-  const { imgContainerHeight } = useCardDimensions(depth);
+  const { cardHeight, imgContainerHeight } = useCardDimensions(depth);
 
   const themed = useMemo(() => getThemedStyles(isDark, imgContainerHeight), [isDark, imgContainerHeight]);
   const heartColor = isFavorite ? colors.accentPinkLight : themed.heartColor;
@@ -69,7 +69,7 @@ const ProductCardInner = React.forwardRef(({ item, isDark, depth = 1, isFavorite
       variant="grid"
       isDark={isDark}
       interactive={true}
-      style={overrideWidth ? { width: overrideWidth } : null}
+      style={[{ height: cardHeight }, overrideWidth ? { width: overrideWidth } : null]}
       {...rest}
     >
       <View style={themed.imageContainer}>

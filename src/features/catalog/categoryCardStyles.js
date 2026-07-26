@@ -4,7 +4,6 @@ import { colors, fonts } from '../../theme/tokens';
 export default StyleSheet.create({
   catCard: {
     flex: 1,
-    height: 380,
     borderRadius: 20,
     margin: 8,
     overflow: 'hidden',
