@@ -1,5 +1,5 @@
 import { Text, View } from 'react-native';
-import { BaseCard } from '../../components/Card';
+import Card from '../../components/Card';
 import styles from './ProfilePageStyles';
 import { Button } from '../../components/Button';
 import { FieldInput } from '../../components/Admin/SharedFormComponents';
@@ -78,9 +78,8 @@ export default function ProfileFormCard({
   const fields = buildFieldConfig(t, { firstName, lastName, phone, city }, { setFirstName, setLastName, setPhone, setCity });
 
   return (
-    <BaseCard
+    <Card
       isDark={isDark}
-      padding={24}
       style={styles.cardSpecific}
     >
       <EmailField label={t('profileEmail')} email={email} selectTheme={selectTheme} />
@@ -102,6 +101,6 @@ export default function ProfileFormCard({
       <Text style={[styles.requiredNote, isDark ? styles.subtextDark : styles.subtextLight]}>
         {t('profileRequiredNote')}
       </Text>
-    </BaseCard>
+    </Card>
   );
 }

@@ -1,5 +1,6 @@
 import { Text, View } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
+import Card from '../../Card';
 import styles from './UsersStyles';
 
 
@@ -14,8 +15,9 @@ function InfoRow({ label, value }) {
 }
 
 export default function UserInfoCard({ user, t }) {
+  const { isDark } = useTheme();
   return (
-    <View style={styles.clientInfoCard}>
+    <Card variant="compact" isDark={isDark} style={styles.clientInfoCard}>
       <InfoRow label={t('profileFirstName')} value={user.firstName} />
       <InfoRow label={t('profileLastName')}  value={user.lastName}  />
       <InfoRow label={t('profileEmail')}     value={user.email}     />
@@ -24,6 +26,6 @@ export default function UserInfoCard({ user, t }) {
       {!!user.promoCode && (
         <InfoRow label={t('profilePromo')} value={user.promoCode} />
       )}
-    </View>
+    </Card>
   );
 }

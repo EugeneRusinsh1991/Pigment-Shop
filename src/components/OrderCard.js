@@ -2,7 +2,7 @@ import { Text, View, useWindowDimensions } from 'react-native';
 import { AnimatedButton } from './Button';
 import { useTheme } from '../context/ThemeContext';
 import commonStyles from '../theme/commonStyles';
-import { BaseCard } from './Card';
+import Card from './Card';
 import { colors, layout } from '../theme/tokens';
 import { Flag } from './Flag';
 import {
@@ -96,11 +96,10 @@ export default function OrderCard({ order, isDark, isExpanded, onToggle, getStyl
   const isMobile = windowWidth < 768;
 
   return (
-    <BaseCard
+    <Card
+      variant="list"
       isDark={isDark}
       interactive={false}
-      borderRadius={isAdminView ? layout.radii.md : layout.radii.lg}
-      padding={isAdminView ? undefined : 24}
       style={[
         styles.cardSpecific,
         isAdminView && [styles.adminCardSpecific, getAdminBgStyle(order)],
@@ -133,7 +132,7 @@ export default function OrderCard({ order, isDark, isExpanded, onToggle, getStyl
         getStyle={getStyle}
         order={order}
       />
-    </BaseCard>
+    </Card>
   );
 }
 

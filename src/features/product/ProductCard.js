@@ -6,7 +6,7 @@ import { HeartIcon, CartIcon } from '@/components/Icons';
 import styles from './ProductCardStyles';
 import { IconButton } from '../../components/Button';
 import ProductBadges from './ProductBadges';
-import BaseCard from '../../components/Card/BaseCard';
+import Card from '../../components/Card';
 import { useCartContext } from '../../context/CartContext';
 import { colors } from '../../theme/tokens';
 
@@ -64,14 +64,12 @@ const ProductCardInner = React.forwardRef(({ item, isDark, depth = 1, isFavorite
   }, [addItem, item]);
 
   return (
-    <BaseCard
+    <Card
       ref={ref}
+      variant="grid"
       isDark={isDark}
       interactive={true}
-      useDimensions={true}
-      depth={depth}
-      overrideWidth={overrideWidth}
-      lightBgColor={colors.productCardLight}
+      style={overrideWidth ? { width: overrideWidth } : null}
       {...rest}
     >
       <View style={themed.imageContainer}>
@@ -104,7 +102,7 @@ const ProductCardInner = React.forwardRef(({ item, isDark, depth = 1, isFavorite
         <Text style={themed.prodTitle} numberOfLines={2}>{getLocalizedValue(item.label, lang)}</Text>
         <ProductPrice price={item.price} discountPercent={item.discountPercent} isDark={isDark} />
       </View>
-    </BaseCard>
+    </Card>
   );
 });
 

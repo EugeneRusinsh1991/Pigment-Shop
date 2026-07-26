@@ -1,18 +1,16 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { ForwardArrowIcon } from '../icons/ControlIcons';
-import BaseCard from './BaseCard';
+import Card from './Card';
 import { colors } from '../../theme/tokens';
 
 const NavigationCard = React.forwardRef(({ type, isDark, text, style, ...rest }, ref) => {
   return (
-    <BaseCard
+    <Card
       ref={ref}
+      variant="compact"
       isDark={isDark}
       interactive={true}
-      useDimensions={true}
-      depth={1}
-      lightBgColor={colors.productCardLight}
       style={style}
       {...rest}
     >
@@ -24,7 +22,7 @@ const NavigationCard = React.forwardRef(({ type, isDark, text, style, ...rest },
           {text}
         </Text>
       </View>
-    </BaseCard>
+    </Card>
   );
 });
 

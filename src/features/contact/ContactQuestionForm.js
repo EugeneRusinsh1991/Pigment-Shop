@@ -6,7 +6,7 @@ import { db } from '../../services/firebase';
 import { COLLECTIONS } from '../../services/collections';
 import styles from './ContactPageStyles';
 import { Button } from '../../components/Button';
-import { BaseCard } from '../../components/Card';
+import Card from '../../components/Card';
 
 function buildSupportMessagePayload(questionText, user) {
   const userId = user?.uid || 'guest';
@@ -82,7 +82,7 @@ export default function ContactQuestionForm({ t, ic, isDark, isMobile, contentWi
   ];
 
   return (
-    <BaseCard padding={24} style={cardStyle}>
+    <Card isDark={isDark} style={cardStyle}>
       <FieldTextarea
         label={t('contactUsQuestion')}
         styles={{
@@ -105,6 +105,6 @@ export default function ContactQuestionForm({ t, ic, isDark, isMobile, contentWi
         style={{ marginTop: 16 }}
       />
       <FormFeedbackMessage submitStatus={submitStatus} t={t} />
-    </BaseCard>
+    </Card>
   );
 }

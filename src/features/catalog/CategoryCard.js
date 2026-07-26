@@ -3,7 +3,7 @@ import { Image, Platform, StyleSheet, Text, useWindowDimensions, View } from 're
 import { useTheme } from '../../context/ThemeContext';
 import { useCatalog } from '../../context/CatalogContext';
 import styles from './categoryCardStyles';
-import BaseCard from '../../components/Card/BaseCard';
+import Card from '../../components/Card';
 import { colors, layout } from '../../theme/tokens';
 import { getLocalizedValue } from '../../utils/localization';
 
@@ -71,7 +71,7 @@ function getCategoryCardStyles(isDark, isMobile) {
   };
 }
 
-const CategoryCardInner = React.forwardRef(({ item, isDark, depth, ...rest }, ref) => {
+const CategoryCardInner = React.forwardRef(({ item, isDark, depth, style, ...rest }, ref) => {
   const { lang } = useTheme();
   const { width: windowWidth } = useWindowDimensions();
   const isMobile = windowWidth < 768;
@@ -79,13 +79,12 @@ const CategoryCardInner = React.forwardRef(({ item, isDark, depth, ...rest }, re
   const computedStyles = getCategoryCardStyles(isDark, isMobile);
 
   return (
-    <BaseCard
+    <Card
       ref={ref}
+      variant="compact"
       isDark={isDark}
       interactive={true}
-      useDimensions={true}
-      depth={depth}
-      lightBgColor="#FAF8F6"
+      style={[styles.catCard, style]}
       {...rest}
     >
       <View style={{ ...StyleSheet.absoluteFillObject, borderRadius: layout.radii.lg, overflow: 'hidden' }}>
@@ -96,7 +95,7 @@ const CategoryCardInner = React.forwardRef(({ item, isDark, depth, ...rest }, re
           <Text style={computedStyles.desc}  numberOfLines={2}>{desc}</Text>
         </View>
       </View>
-    </BaseCard>
+    </Card>
   );
 });
 
