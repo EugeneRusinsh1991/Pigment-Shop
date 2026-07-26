@@ -1,5 +1,6 @@
 import React from 'react';
-import { Image, Platform, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { Image, Platform, StyleSheet, useWindowDimensions, View } from 'react-native';
+import { Text, Heading } from '../../components/Text';
 import { useTheme } from '../../context/ThemeContext';
 import { useCatalog } from '../../context/CatalogContext';
 import useCardDimensions from '../../hooks/useCardDimensions';
@@ -141,8 +142,8 @@ const CategoryCardInner = React.forwardRef(({ item, isDark, depth = 1, isBanner 
         />
         <View style={[styles.overlay, computedStyles.overlay]} />
         <View style={getContentStyle(computedStyles, activeIsBanner)}>
-          <Text style={getLabelStyle(computedStyles, activeIsBanner)} numberOfLines={2}>{label}</Text>
-          <Text style={getDescStyle(computedStyles, activeIsBanner)} numberOfLines={2}>{desc}</Text>
+          <Heading level={3} style={getLabelStyle(computedStyles, activeIsBanner)} numberOfLines={2} isDark={isDark}>{label}</Heading>
+          <Text style={getDescStyle(computedStyles, activeIsBanner)} numberOfLines={2} isDark={isDark}>{desc}</Text>
         </View>
       </View>
     </Card>

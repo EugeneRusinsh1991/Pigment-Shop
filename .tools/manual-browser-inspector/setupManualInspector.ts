@@ -40,8 +40,29 @@ function getCircularReplacer() {
   };
 }
 
+function formatScreen(screen: any) {
+  if (!screen) return { viewport: 'Unknown', resolution: 'Unknown' };
+  return {
+    viewport: `${screen.viewportWidth}x${screen.viewportHeight} (PixelRatio: ${screen.devicePixelRatio})`,
+    resolution: `${screen.width}x${screen.height}`
+  };
+}
+
+function formatNetwork(network: any) {
+  if (!network) return 'Unknown';
+  return `Online: \`${network.online}\`, Type: \`${network.effectiveType}\``;
+}
+
+function formatDom(dom: any) {
+  if (!dom) return 'Unknown elements';
+  return `${dom.elementCount} elements`;
+}
+
 function buildReport(timestamp: string, stateDump: any, screenshotFilename: string, screenshotPath: string, statePath: string): string {
   const logsRows = '| N/A | No warnings or errors logged | |';
+  const screen = formatScreen(stateDump.screen);
+  const network = formatNetwork(stateDump.network);
+  const dom = formatDom(stateDump.dom);
   return `# AI Debug Report - ${timestamp}
 
 ## 📊 Environment & Diagnostics
@@ -49,10 +70,10 @@ function buildReport(timestamp: string, stateDump: any, screenshotFilename: stri
 | :--- | :--- |
 | **URL** | [${stateDump.url}](${stateDump.url}) |
 | **User Agent** | \`${stateDump.userAgent}\` |
-| **Viewport Size** | ${stateDump.screen?.viewportWidth}x${stateDump.screen?.viewportHeight} (PixelRatio: ${stateDump.screen?.devicePixelRatio}) |
-| **Screen Resolution** | ${stateDump.screen?.width}x${stateDump.screen?.height} |
-| **Network** | Online: \`${stateDump.network?.online}\`, Type: \`${stateDump.network?.effectiveType}\` |
-| **DOM Size** | ${stateDump.dom?.elementCount} elements |
+| **Viewport Size** | ${screen.viewport} |
+| **Screen Resolution** | ${screen.resolution} |
+| **Network** | ${network} |
+| **DOM Size** | ${dom} |
 
 ## 🖼️ Screenshot
 ![Screenshot](../screenshots/${screenshotFilename})

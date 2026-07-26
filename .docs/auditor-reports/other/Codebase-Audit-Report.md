@@ -1,10 +1,10 @@
 # Pigment Shop (Other/Tools) Codebase Audit Summary
 
 > **Audit Metrics & Health Overview**
-> - **Critical Health Findings:** 5
-> - **High Health Findings:** 14
+> - **Critical Health Findings:** 0
+> - **High Health Findings:** 11
 > - **Large / High-Risk Files:** 20
-> - **Significant Clone Groups:** 6
+> - **Significant Clone Groups:** 5
 > - **Dead Files (Unused):** 98
 > - **Unused Exports:** 77
 > - **Unused Dependencies:** 0

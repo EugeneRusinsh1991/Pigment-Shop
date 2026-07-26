@@ -81,24 +81,41 @@ function createExplorerContext(): ExplorerContext {
   };
 }
 
+function createBaseServices(context: ExplorerContext, config: ExplorerConfig, overrides: DIFactoryOverrides) {
+  return {
+    tracker: overrides.tracker ?? new NavigationTracker(context),
+    scanner: overrides.scanner ?? new ElementScanner(),
+    interactor: overrides.interactor ?? new ElementInteractor(config),
+    policyEngine: overrides.policyEngine ?? new InteractionPolicyEngine(config.interactionPolicyConfig),
+    actionTracker: overrides.actionTracker ?? new ActionDepthTracker(),
+    readiness: overrides.readiness ?? new ReadinessManager(config),
+    stateGraph: overrides.stateGraph ?? new ExecutionStateGraph()
+  };
+}
+
+function createExtendedServices(
+  emitter: ExplorerEventEmitter,
+  context: ExplorerContext,
+  config: ExplorerConfig,
+  overrides: DIFactoryOverrides,
+  base: ReturnType<typeof createBaseServices>
+) {
+  const watchdog = overrides.watchdog ?? new ExecutionWatchdog(emitter, context, config);
+  const cacheManager = overrides.cacheManager ?? new StateCacheManager(base.scanner, base.stateGraph);
+  const navHandler = overrides.navHandler ?? new NavigationHandler(emitter, context, base.readiness, base.stateGraph, cacheManager);
+  const recoveryManager = overrides.recoveryManager ?? new StateRecoveryManager(emitter, context, base.stateGraph, watchdog, base.interactor, cacheManager);
+  return { watchdog, cacheManager, navHandler, recoveryManager };
+}
+
 function createCoreServices(
   emitter: ExplorerEventEmitter,
   context: ExplorerContext,
   config: ExplorerConfig,
   overrides: DIFactoryOverrides
 ) {
-  const tracker = overrides.tracker ?? new NavigationTracker(context);
-  const scanner = overrides.scanner ?? new ElementScanner();
-  const interactor = overrides.interactor ?? new ElementInteractor(config);
-  const policyEngine = overrides.policyEngine ?? new InteractionPolicyEngine(config.interactionPolicyConfig);
-  const actionTracker = overrides.actionTracker ?? new ActionDepthTracker();
-  const readiness = overrides.readiness ?? new ReadinessManager(config);
-  const stateGraph = overrides.stateGraph ?? new ExecutionStateGraph();
-  const watchdog = overrides.watchdog ?? new ExecutionWatchdog(emitter, context, config);
-  const cacheManager = overrides.cacheManager ?? new StateCacheManager(scanner, stateGraph);
-  const navHandler = overrides.navHandler ?? new NavigationHandler(emitter, context, readiness, stateGraph, cacheManager);
-  const recoveryManager = overrides.recoveryManager ?? new StateRecoveryManager(emitter, context, stateGraph, watchdog, interactor, cacheManager);
-  return { tracker, scanner, interactor, policyEngine, actionTracker, readiness, stateGraph, watchdog, cacheManager, navHandler, recoveryManager };
+  const base = createBaseServices(context, config, overrides);
+  const extended = createExtendedServices(emitter, context, config, overrides, base);
+  return { ...base, ...extended };
 }
 
 function createInteractionProcessorInstance(

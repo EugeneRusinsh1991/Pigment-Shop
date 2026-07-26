@@ -15,6 +15,29 @@ import { RelationshipAnalyzer } from './plugins/knowledge-graph/analyzers/Relati
 import { FilesystemWriter } from './plugins/knowledge-graph/pipeline/writers/FilesystemWriter';
 import * as path from 'path';
 
+function buildKnowledgeGraph(builder: KnowledgeGraphBuilder) {
+  // Layer 4 & 5: Pipeline & Analyzers
+  const pipeline = new KnowledgePipeline();
+  pipeline.registerAnalyzer(new RelationshipAnalyzer());
+  pipeline.registerAnalyzer(new CapabilityAnalyzer());
+  pipeline.run(builder.getStore());
+
+  // Layer 6 & 7: Exporters & Writers
+  const reportsDir = path.join(process.cwd(), '.tools', 'browser-automation', 'reports');
+  const writer = new FilesystemWriter(reportsDir);
+  
+  const graph = builder.getStore().getGraph();
+  writer.write('application-knowledge-graph.json', JSONExporter.export(graph));
+  writer.write('application-documentation.md', MarkdownDocumentationExporter.export(graph));
+}
+
+function getSmokeOptions(explorerConfig?: Partial<ExplorerConfig>) {
+  return {
+    baseUrl: explorerConfig?.baseUrl || 'http://localhost:8081',
+    executionMode: explorerConfig?.executionMode || 'everyday-development'
+  };
+}
+
 export async function runSmokeAutomation(
   config?: Partial<SmokeConfig>,
   explorerConfig?: Partial<ExplorerConfig>,
@@ -23,34 +46,15 @@ export async function runSmokeAutomation(
 ): Promise<SmokeReport> {
   const emitter = new ExplorerEventEmitter();
   const plugin = new SmokePlugin(config, screenshotService);
-  const baseUrl = explorerConfig?.baseUrl || 'http://localhost:8081';
-  const executionMode = explorerConfig?.executionMode || 'everyday-development';
+  const { baseUrl, executionMode } = getSmokeOptions(explorerConfig);
   
-  let builder: KnowledgeGraphBuilder | undefined;
-  if (executionMode === 'deep-diagnostics') {
-    // Layer 3: Initialize Builder
-    builder = new KnowledgeGraphBuilder(emitter, baseUrl);
-  }
+  const builder = executionMode === 'deep-diagnostics' ? new KnowledgeGraphBuilder(emitter, baseUrl) : undefined;
   
   plugin.subscribe(emitter);
-
-  // Layer 1 & 2: Execution & Fact Generation
   await runUIExplorer(page, explorerConfig, emitter);
 
-  if (executionMode === 'deep-diagnostics' && builder) {
-    // Layer 4 & 5: Pipeline & Analyzers
-    const pipeline = new KnowledgePipeline();
-    pipeline.registerAnalyzer(new RelationshipAnalyzer());
-    pipeline.registerAnalyzer(new CapabilityAnalyzer());
-    pipeline.run(builder.getStore());
-
-    // Layer 6 & 7: Exporters & Writers
-    const reportsDir = path.join(process.cwd(), '.tools', 'browser-automation', 'reports');
-    const writer = new FilesystemWriter(reportsDir);
-    
-    const graph = builder.getStore().getGraph();
-    writer.write('application-knowledge-graph.json', JSONExporter.export(graph));
-    writer.write('application-documentation.md', MarkdownDocumentationExporter.export(graph));
+  if (builder) {
+    buildKnowledgeGraph(builder);
   }
 
   return plugin.getReport();

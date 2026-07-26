@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors, fonts, buttonTokens } from '../../theme/tokens';
+import { colors, buttonTokens } from '../../theme/tokens';
 import { shadow } from '../../theme/shadows';
 
 const styles = StyleSheet.create({
@@ -9,27 +9,13 @@ const styles = StyleSheet.create({
   content: { padding: 16, gap: 14 },
 
   heading: {
-    fontFamily: fonts.sans,
-    fontSize: 16,
-    fontWeight: '700',
     marginBottom: 16,
-    letterSpacing: 0.3,
   },
   sectionTitlePrice: {
-    fontFamily: fonts.sans,
-    fontSize: 12,
-    fontWeight: '700',
-    textTransform: 'uppercase',
-    letterSpacing: 0.8,
     marginTop: 12,
     marginBottom: 8,
   },
   sectionTitle: {
-    fontFamily: fonts.sans,
-    fontSize: 12,
-    fontWeight: '700',
-    textTransform: 'uppercase',
-    letterSpacing: 0.8,
     marginTop: 0,
     marginBottom: 6,
   },
@@ -44,19 +30,14 @@ const styles = StyleSheet.create({
   priceColumn: { flexDirection: 'column', gap: 8, marginTop: 8 },
   priceFieldRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
   priceFieldLabel: {
-    fontFamily: fonts.sans,
-    fontSize: 12,
-    fontWeight: '500',
     width: 32,
   },
   priceInput: {
-    fontFamily: fonts.sans,
     width: 90,
     borderRadius: buttonTokens.sizes.sm.borderRadius,
     borderWidth: 1,
     paddingHorizontal: 8,
     paddingVertical: 6,
-    fontSize: 13,
   },
   inputDark: { backgroundColor: colors.dark, borderColor: colors.outlineDarkBorder, color: colors.white },
   inputLight: { backgroundColor: colors.white, borderColor: colors.warmNeutralSoft, color: colors.dark },
@@ -69,9 +50,6 @@ const styles = StyleSheet.create({
   checkboxActive: { backgroundColor: colors.accent },
   checkMark: { color: colors.white, fontSize: 11, fontWeight: '700' },
   checkLabel: {
-    fontFamily: fonts.sans,
-    fontSize: 13,
-    fontWeight: '500',
   },
 
   /** Category tree node row */
@@ -94,9 +72,6 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   resetText: {
-    fontFamily: fonts.sans,
-    fontSize: 14,
-    fontWeight: '600',
     color: colors.white,
   },
   accentDark: { color: colors.accent },
@@ -116,9 +91,6 @@ const styles = StyleSheet.create({
   mobileToggleDark: { borderColor: colors.accent, backgroundColor: colors.dark },
   mobileToggleLight: { borderColor: colors.accent, backgroundColor: colors.dangerBgAlt },
   mobileToggleText: {
-    fontFamily: fonts.sans,
-    fontSize: 14,
-    fontWeight: '600',
   },
 
   mobileButtonsRow: {
@@ -139,9 +111,6 @@ const styles = StyleSheet.create({
   mobileButtonDark: { borderColor: colors.accent, backgroundColor: colors.dark },
   mobileButtonLight: { borderColor: colors.accent, backgroundColor: colors.dangerBgAlt },
   mobileButtonText: {
-    fontFamily: fonts.sans,
-    fontSize: 14,
-    fontWeight: '600',
   },
 
   sortDropdown: {
@@ -176,9 +145,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.slateMid,
   },
   sortDropdownText: {
-    fontFamily: fonts.sans,
-    fontSize: 13,
-    fontWeight: '500',
   },
 
   scrim: {
@@ -208,10 +174,6 @@ const styles = StyleSheet.create({
   panelHeaderLight: { borderBottomColor: colors.navItemHoverDark },
 
   panelTitle: {
-    fontFamily: fonts.sans,
-    fontSize: 16,
-    fontWeight: '700',
-    letterSpacing: 0.3,
   },
   closeBtn: {
     position: 'absolute',
@@ -231,9 +193,6 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   applyBtnText: {
-    fontFamily: fonts.sans,
-    fontSize: 14,
-    fontWeight: '600',
     color: colors.white,
   },
   sidebarMobile: { width: '100%', flex: 1 },

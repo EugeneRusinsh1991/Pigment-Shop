@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { FlatList, StyleSheet, Text, View } from 'react-native';
+import { FlatList, StyleSheet, View } from 'react-native';
 import { Link } from 'expo-router';
 import ProductCard from '../product/ProductCard';
 
@@ -57,7 +57,4 @@ export default function ProductGrid({ products, cols, cardWidth, isDark, onCardP
 const styles = StyleSheet.create({
   grid: { paddingBottom: 0 },
   empty: { paddingVertical: 48, alignItems: 'center' },
-  emptyText: { fontSize: 14 },
-  textDark: { color: '#94a3b8' },
-  textLight: { color: '#64748b' },
 });

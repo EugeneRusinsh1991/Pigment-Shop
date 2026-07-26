@@ -62,17 +62,21 @@ export class ConsoleReporter implements Reporter {
     return tag ? tag.charAt(0).toUpperCase() + tag.slice(1) : 'Element';
   }
 
+  private getHrefPath(href: string): string {
+    try { return new URL(href, 'http://dummy').pathname; }
+    catch { return href; }
+  }
+
   private resolveDescription(el: any): string {
-    if (el.text && el.text.trim()) return `"${el.text.trim()}"`;
+    const text = el.text?.trim();
+    if (text) return `"${text}"`;
     if (el.ariaLabel) return `[${el.ariaLabel}]`;
     if (el.testId) return `<${el.testId}>`;
     if (el.id) return `#${el.id}`;
-    if (el.href) {
-      try { return `-> ${new URL(el.href, 'http://dummy').pathname}`; }
-      catch { return `-> ${el.href}`; }
-    }
-    if (el.selector && !el.selector.includes('/')) return el.selector;
-    return `at ${el.selector || 'Unknown'}`;
+    if (el.href) return `-> ${this.getHrefPath(el.href)}`;
+    
+    const selector = el.selector || 'Unknown';
+    return !selector.includes('/') ? selector : `at ${selector}`;
   }
 
   private formatElement(el: any): string {
@@ -142,17 +146,20 @@ export class ConsoleReporter implements Reporter {
     console.log(`======================================\n`);
   }
 
+  private readonly eventHandlers: Record<string, (e: any, t: string) => void> = {
+    NAVIGATION: (e) => this.handleNavigation(e),
+    ACTION: (e, t) => this.handleAction(e, t),
+    PICK: (e) => this.handlePick(e),
+    SUMMARY: (e) => this.handleSummary(e),
+    ERROR: (e) => console.log(`    ${C.r('🔴 ERROR')}   ${e.message}`),
+    WARNING: (e) => console.log(`    ${C.y('🟡 WARN')}    ${e.message}`),
+    SKIP: () => {},
+    SCAN: () => {}
+  };
+
   report(event: ObservabilityEvent): void {
     const timing = 'durationMs' in event ? this.formatTiming(event.durationMs) : '';
-    switch (event.type) {
-      case 'NAVIGATION': this.handleNavigation(event); break;
-      case 'ACTION': this.handleAction(event, timing); break;
-      case 'PICK': this.handlePick(event); break;
-      case 'SKIP':
-      case 'SCAN': break;
-      case 'SUMMARY': this.handleSummary(event); break;
-      case 'ERROR': console.log(`    ${C.r('🔴 ERROR')}   ${event.message}`); break;
-      case 'WARNING': console.log(`    ${C.y('🟡 WARN')}    ${event.message}`); break;
-    }
+    const handler = this.eventHandlers[event.type];
+    if (handler) handler(event, timing);
   }
 }

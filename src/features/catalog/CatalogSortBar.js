@@ -4,8 +4,9 @@
  * Thin horizontal bar with a sort selector for the catalog product grid.
  */
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { SORT_OPTIONS } from './useCatalogFilters';
+import { Text } from '../../components/Text';
 import { useTheme } from '../../context/ThemeContext';
 import Toggle from '../../components/Toggle';
 import { colors } from '../../theme/tokens';
@@ -21,7 +22,7 @@ export default function CatalogSortBar({ sortKey, onSortChange, resultCount, isD
 
   return (
     <View style={styles.bar}>
-      <Text style={[styles.count, isDark ? styles.textDark : styles.textLight]}>
+      <Text style={styles.count} isDark={isDark}>
         {resultCount} {productWord}
       </Text>
       <Toggle
@@ -44,8 +45,6 @@ const styles = StyleSheet.create({
     gap: 8,
     marginBottom: 16,
   },
-  count: { fontSize: 13 },
-  textDark: { color: colors.secondaryDarkText },
-  textLight: { color: colors.secondaryLightText },
+  count: {},
 });
 

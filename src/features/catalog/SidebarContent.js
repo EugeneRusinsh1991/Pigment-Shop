@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import { View, ScrollView } from 'react-native';
+import { Heading } from '../../components/Text';
 import PriceRangeSlider from './PriceRangeSlider';
 import styles from './CatalogFilterSidebarStyles';
 import { SectionTitle, Checkbox, PriceInputs, ResetButton, ApplyButton } from './SidebarUIComponents';
@@ -94,9 +95,9 @@ function CategoryFilterSection({ categoryTree, filters, toggleCategory, isDark, 
 function SidebarHeader({ isNarrow, isDark, label }) {
   if (isNarrow) return null;
   return (
-    <Text style={[styles.heading, isDark ? styles.textDark : styles.textLight]}>
+    <Heading level={4} style={styles.heading} isDark={isDark}>
       {label}
-    </Text>
+    </Heading>
   );
 }
 

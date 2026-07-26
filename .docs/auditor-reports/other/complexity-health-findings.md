@@ -1,71 +1,24 @@
 # 🩺 Complexity Health Findings (Critical & High)
 
-*Generated on: 26.07.2026, 16:03:49*
+*Generated on: 26.07.2026, 16:28:55*
 
-## 🔴 Critical (> 50 lines)
+## 🟠 High (≤ 50 lines)
 
 #### 📁 [DIContainer.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/di/DIContainer.ts)
 `.tools/browser-automation/explorer/di/DIContainer.ts`
 
-- 🔴 **`createDefaultContainer`** [L71](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/di/DIContainer.ts#L71)
-  - Lines: 65 | Cyclomatic: 15 | Cognitive: 14 | CRAP: 240
-
-
-## 🔴 Critical (≤ 50 lines)
+- 🟠 **`createBaseServices`** [L84](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/di/DIContainer.ts#L84)
+  - Lines: 11 | Cyclomatic: 8 | Cognitive: 7 | CRAP: 72
 
 #### 📁 [ConsoleReporter.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/observability/reporters/ConsoleReporter.ts)
 `.tools/browser-automation/explorer/observability/reporters/ConsoleReporter.ts`
 
-- 🔴 **`resolveSemanticType`** [L61](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/observability/reporters/ConsoleReporter.ts#L61)
-  - Lines: 10 | Cyclomatic: 13 | Cognitive: 12 | CRAP: 182
-- 🔴 **`isSemanticType`** [L35](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/observability/reporters/ConsoleReporter.ts#L35)
-  - Lines: 11 | Cyclomatic: 11 | Cognitive: 1 | CRAP: 132
-- 🔴 **`resolveDescription`** [L72](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/observability/reporters/ConsoleReporter.ts#L72)
-  - Lines: 12 | Cyclomatic: 11 | Cognitive: 11 | CRAP: 132
-- 🔴 **`report`** [L152](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/observability/reporters/ConsoleReporter.ts#L152)
-  - Lines: 13 | Cyclomatic: 10 | Cognitive: 2 | CRAP: 110
-
-
-## 🟠 High (> 50 lines)
-
-#### 📁 [ElementEditingValidator.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/helpers/ElementEditingValidator.ts)
-`.tools/browser-automation/explorer/helpers/ElementEditingValidator.ts`
-
-- 🟠 **`validateFieldEditing`** [L11](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/helpers/ElementEditingValidator.ts#L11)
-  - Lines: 54 | Cyclomatic: 7 | Cognitive: 6 | CRAP: 56
-
-
-## 🟠 High (≤ 50 lines)
-
-#### 📁 [setupManualInspector.js](file:///D:/Magazine/_PigmentShop/.tools/manual-browser-inspector/setupManualInspector.js)
-`.tools/manual-browser-inspector/setupManualInspector.js`
-
-- 🟠 **`buildReport`** [L39](file:///D:/Magazine/_PigmentShop/.tools/manual-browser-inspector/setupManualInspector.js#L39)
-  - Lines: 32 | Cyclomatic: 9 | Cognitive: 0 | CRAP: 90
-
-#### 📁 [ManualBrowserInspector.js](file:///D:/Magazine/_PigmentShop/.tools/manual-browser-inspector/ManualBrowserInspector.js)
-`.tools/manual-browser-inspector/ManualBrowserInspector.js`
-
-- 🟠 **`buildTargetInfo`** [L43](file:///D:/Magazine/_PigmentShop/.tools/manual-browser-inspector/ManualBrowserInspector.js#L43)
-  - Lines: 13 | Cyclomatic: 9 | Cognitive: 6 | CRAP: 90
-
-#### 📁 [setupManualInspector.ts](file:///D:/Magazine/_PigmentShop/.tools/manual-browser-inspector/setupManualInspector.ts)
-`.tools/manual-browser-inspector/setupManualInspector.ts`
-
-- 🟠 **`buildReport`** [L43](file:///D:/Magazine/_PigmentShop/.tools/manual-browser-inspector/setupManualInspector.ts#L43)
-  - Lines: 32 | Cyclomatic: 9 | Cognitive: 0 | CRAP: 90
-
-#### 📁 [ConsoleReporter.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/observability/reporters/ConsoleReporter.ts)
-`.tools/browser-automation/explorer/observability/reporters/ConsoleReporter.ts`
-
-- 🟠 **`hasIdentifiableContent`** [L47](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/observability/reporters/ConsoleReporter.ts#L47)
-  - Lines: 6 | Cyclomatic: 9 | Cognitive: 5 | CRAP: 90
-
-#### 📁 [smoke-automation.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/smoke-automation.ts)
-`.tools/browser-automation/smoke-automation.ts`
-
-- 🟠 **`runSmokeAutomation`** [L18](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/smoke-automation.ts#L18)
-  - Lines: 40 | Cyclomatic: 8 | Cognitive: 5 | CRAP: 72
+- 🟠 **`hasIdentifiableContent`** [L44](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/observability/reporters/ConsoleReporter.ts#L44)
+  - Lines: 5 | Cyclomatic: 8 | Cognitive: 4 | CRAP: 72
+- 🟠 **`resolveDescription`** [L70](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/observability/reporters/ConsoleReporter.ts#L70)
+  - Lines: 11 | Cyclomatic: 8 | Cognitive: 7 | CRAP: 72
+- 🟠 **`resolveSemanticType`** [L57](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/observability/reporters/ConsoleReporter.ts#L57)
+  - Lines: 7 | Cyclomatic: 7 | Cognitive: 6 | CRAP: 56
 
 #### 📁 [ElementGroupDetector.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/policy/ElementGroupDetector.ts)
 `.tools/browser-automation/explorer/policy/ElementGroupDetector.ts`
@@ -97,18 +50,16 @@
 - 🟠 **`shouldExcludeElement`** [L49](file:///D:/Magazine/_PigmentShop/.tools/manual-browser-inspector/utils/domHelpers.js#L49)
   - Lines: 6 | Cyclomatic: 7 | Cognitive: 6 | CRAP: 56
 
-#### 📁 [open-playwright.js](file:///D:/Magazine/_PigmentShop/scripts/open-playwright.js)
-`scripts/open-playwright.js`
+#### 📁 [ElementEditingValidator.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/helpers/ElementEditingValidator.ts)
+`.tools/browser-automation/explorer/helpers/ElementEditingValidator.ts`
 
-- 🟠 **`<arrow>`** [L24](file:///D:/Magazine/_PigmentShop/scripts/open-playwright.js#L24)
-  - Lines: 41 | Cyclomatic: 7 | Cognitive: 6 | CRAP: 56
+- 🟠 **`validateFieldEditing`** [L28](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/helpers/ElementEditingValidator.ts#L28)
+  - Lines: 31 | Cyclomatic: 7 | Cognitive: 6 | CRAP: 56
 
 #### 📁 [run-health.cjs](file:///D:/Magazine/_PigmentShop/.tools/.health/run-health.cjs)
 `.tools/.health/run-health.cjs`
 
 - 🟠 **`checkPackageJson`** [L19](file:///D:/Magazine/_PigmentShop/.tools/.health/run-health.cjs#L19)
   - Lines: 17 | Cyclomatic: 7 | Cognitive: 6 | CRAP: 56
-- 🟠 **`<arrow>`** [L88](file:///D:/Magazine/_PigmentShop/.tools/.health/run-health.cjs#L88)
-  - Lines: 29 | Cyclomatic: 7 | Cognitive: 9 | CRAP: 56
 
 

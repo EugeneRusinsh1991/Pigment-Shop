@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, useWindowDimensions } from 'react-native';
+import { View, useWindowDimensions } from 'react-native';
+import { Heading } from '../../components/Text';
 import styles from './CatalogFilterSidebarStyles';
 import { CrossIcon } from '../../components/Icons';
 import { useTheme } from '../../context/ThemeContext';
@@ -20,9 +21,9 @@ function MobileFilterDrawer({ showModal, handleClose, scrimOpacity, panelWidth, 
       isDark={isDark}
     >
       <View style={[styles.panelHeader, isDark ? styles.panelHeaderDark : styles.panelHeaderLight]}>
-        <Text style={[styles.panelTitle, isDark ? styles.textDark : styles.textLight]}>
+        <Heading level={4} style={styles.panelTitle} isDark={isDark}>
           {t('catalogFilters')}
-        </Text>
+        </Heading>
         <AnimatedButton onPress={handleClose} style={styles.closeBtn}>
           <CrossIcon color={colors.accent} size={16} />
         </AnimatedButton>

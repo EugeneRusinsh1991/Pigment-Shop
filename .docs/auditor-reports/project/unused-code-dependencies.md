@@ -1,6 +1,6 @@
 # 📦 Unused Code & Dependencies
 
-*Generated on: 26.07.2026, 16:03:49*
+*Generated on: 26.07.2026, 16:28:55*
 
 ### Dead Files (Unused)
 Files that are not reachable or imported by any other codebase file:
@@ -34,6 +34,9 @@ Exports that are not imported or consumed by any other active file:
 - [index.js](file:///D:/Magazine/_PigmentShop/src/components/Flag/index.js): `useFlagTheme` ([L3](file:///D:/Magazine/_PigmentShop/src/components/Flag/index.js#L3))
 - [index.js](file:///D:/Magazine/_PigmentShop/src/components/Modal/index.js): `Modal` ([L4](file:///D:/Magazine/_PigmentShop/src/components/Modal/index.js#L4)), `default` ([L5](file:///D:/Magazine/_PigmentShop/src/components/Modal/index.js#L5))
 - [index.js](file:///D:/Magazine/_PigmentShop/src/components/Search/index.js): `NamedSearchInput` ([L8](file:///D:/Magazine/_PigmentShop/src/components/Search/index.js#L8)), `NamedAutocompleteSearch` ([L10](file:///D:/Magazine/_PigmentShop/src/components/Search/index.js#L10)), `SearchDropdown` ([L11](file:///D:/Magazine/_PigmentShop/src/components/Search/index.js#L11)), `useSearchTheme` ([L12](file:///D:/Magazine/_PigmentShop/src/components/Search/index.js#L12)), `SearchBar` ([L13](file:///D:/Magazine/_PigmentShop/src/components/Search/index.js#L13)), `default` ([L16](file:///D:/Magazine/_PigmentShop/src/components/Search/index.js#L16))
+- [Heading.js](file:///D:/Magazine/_PigmentShop/src/components/Text/Heading.js): `default` ([L48](file:///D:/Magazine/_PigmentShop/src/components/Text/Heading.js#L48))
+- [TextStyles.js](file:///D:/Magazine/_PigmentShop/src/components/Text/TextStyles.js): `VARIANTS` ([L4](file:///D:/Magazine/_PigmentShop/src/components/Text/TextStyles.js#L4)), `getTextColor` ([L17](file:///D:/Magazine/_PigmentShop/src/components/Text/TextStyles.js#L17))
+- [index.js](file:///D:/Magazine/_PigmentShop/src/components/Text/index.js): `default` ([L1](file:///D:/Magazine/_PigmentShop/src/components/Text/index.js#L1)), `useTextTheme` ([L3](file:///D:/Magazine/_PigmentShop/src/components/Text/index.js#L3)), `VARIANTS` ([L4](file:///D:/Magazine/_PigmentShop/src/components/Text/index.js#L4)), `getTextColor` ([L4](file:///D:/Magazine/_PigmentShop/src/components/Text/index.js#L4)), `getTextStyle` ([L4](file:///D:/Magazine/_PigmentShop/src/components/Text/index.js#L4))
 - [TextFieldStyles.js](file:///D:/Magazine/_PigmentShop/src/components/TextField/TextFieldStyles.js): `SIZES` ([L4](file:///D:/Magazine/_PigmentShop/src/components/TextField/TextFieldStyles.js#L4))
 - [index.js](file:///D:/Magazine/_PigmentShop/src/components/TextField/index.js): `TextField` ([L1](file:///D:/Magazine/_PigmentShop/src/components/TextField/index.js#L1)), `useTextFieldTheme` ([L2](file:///D:/Magazine/_PigmentShop/src/components/TextField/index.js#L2)), `useTextFieldAnimation` ([L3](file:///D:/Magazine/_PigmentShop/src/components/TextField/index.js#L3)), `SIZES` ([L4](file:///D:/Magazine/_PigmentShop/src/components/TextField/index.js#L4)), `getTextFieldStyles` ([L4](file:///D:/Magazine/_PigmentShop/src/components/TextField/index.js#L4)), `styles` ([L4](file:///D:/Magazine/_PigmentShop/src/components/TextField/index.js#L4))
 - [index.js](file:///D:/Magazine/_PigmentShop/src/components/Toggle/index.js): `Toggle` ([L1](file:///D:/Magazine/_PigmentShop/src/components/Toggle/index.js#L1)), `useToggleTheme` ([L2](file:///D:/Magazine/_PigmentShop/src/components/Toggle/index.js#L2)), `useToggleAnimation` ([L3](file:///D:/Magazine/_PigmentShop/src/components/Toggle/index.js#L3))

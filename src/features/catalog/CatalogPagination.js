@@ -1,4 +1,5 @@
-import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, StyleSheet, View } from 'react-native';
+import { Text } from '../../components/Text';
 import { useTheme } from '../../context/ThemeContext';
 import { AnimatedButton } from '../../components/Button';
 import { colors } from '../../theme/tokens';
@@ -17,9 +18,9 @@ function PaginationButton({ label, onPress, isDisabled, isDark }) {
       <Text
         style={[
           styles.buttonText,
-          isDark ? styles.textDark : styles.textLight,
           isDisabled && styles.textDisabled,
         ]}
+        isDark={isDark}
       >
         {label}
       </Text>
@@ -47,7 +48,7 @@ function PageIndicator({ loading, isDark, infoText }) {
     return <ActivityIndicator size="small" color={isDark ? colors.white : colors.dark} />;
   }
   return (
-    <Text style={[styles.pageText, isDark ? styles.textDark : styles.textLight]}>
+    <Text style={styles.pageText} isDark={isDark}>
       {infoText}
     </Text>
   );
@@ -108,21 +109,13 @@ const styles = StyleSheet.create({
     backgroundColor: colors.secondaryDarkBg,
   },
   buttonText: {
-    fontSize: 13,
-    fontWeight: '600',
     textAlign: 'center',
-  },
-  textLight: {
-    color: colors.secondaryLightText,
-  },
-  textDark: {
-    color: colors.secondaryDarkText,
   },
   disabled: {
     opacity: 0.5,
   },
   textDisabled: {
-    color: colors.secondaryDarkText,
+    opacity: 0.5,
   },
   pageInfo: {
     marginHorizontal: 12,
@@ -130,7 +123,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   pageText: {
-    fontSize: 13,
-    fontWeight: '600',
   },
 });

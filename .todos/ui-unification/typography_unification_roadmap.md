@@ -35,9 +35,9 @@ Based on [text-module-spec.md](file:///d:/Magazine/_PigmentShop/.docs/architectu
 ### Task 2.2: Migrate Catalog Components
 > 💡 **Task Recommendation**: 🔴 **Gemini 3.1 Pro (High)** (6 files total). Can be executed as 2 sub-tasks:
 
-- [ ] **Task 2.2a: Category Cards & Grid (`ProductGrid.js`, `CategoryCard.js`, `categoryCardStyles.js`)**
+- [x] **Task 2.2a: Category Cards & Grid (`ProductGrid.js`, `CategoryCard.js`, `categoryCardStyles.js`)**
   - *Complexity*: Low (3 files) | 🟡 **Gemini 3.6 Flash (Medium)**
-- [ ] **Task 2.2b: Sort, Pagination & Filter Sidebar (`CatalogSortBar.js`, `CatalogPagination.js`, `CatalogFilterSidebarStyles.js`)**
+- [x] **Task 2.2b: Sort, Pagination & Filter Sidebar (`CatalogSortBar.js`, `CatalogPagination.js`, `CatalogFilterSidebarStyles.js`)**
   - *Complexity*: Low (3 files) | 🟡 **Gemini 3.6 Flash (Medium)**
 
 ---

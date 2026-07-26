@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors, fonts } from '../../theme/tokens';
+import { colors } from '../../theme/tokens';
 
 export default StyleSheet.create({
   catCard: {
@@ -29,16 +29,9 @@ export default StyleSheet.create({
     right: 24,
   },
   catLabel: {
-    fontFamily: fonts.serif,
-    fontSize: 26,
-    fontWeight: '600',
-    color: colors.white,
     marginBottom: 4,
   },
   catDesc: {
-    fontFamily: fonts.sans,
-    fontSize: 12,
-    color: colors.overlayLight,
     lineHeight: 16,
   },
   arrowCircle: {
@@ -68,11 +61,9 @@ export default StyleSheet.create({
     right: 20,
   },
   bannerLabel: {
-    fontSize: 22,
     lineHeight: 28,
   },
   bannerDesc: {
-    fontSize: 13,
     lineHeight: 18,
   },
 });
