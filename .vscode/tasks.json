@@ -79,6 +79,16 @@
             "problemMatcher": []
         },
         {
+            "label": "Tools: Full Audit, Health & Clean",
+            "dependsOn": [
+                "Tools: UI Audit",
+                "Tools: Health Check",
+                "Tools: Clean Cache & Artifacts"
+            ],
+            "dependsOrder": "sequence",
+            "problemMatcher": []
+        },
+        {
             "label": "Tools: UI Audit",
             "type": "shell",
             "command": "npm run audit:ui",

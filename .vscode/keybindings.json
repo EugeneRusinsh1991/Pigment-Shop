@@ -1,35 +1,5 @@
 [
   {
-    "key": "ctrl+shift+alt+b",
-    "command": "workbench.action.tasks.runTask",
-    "args": "Run Backup"
-  },
-  {
-    "key": "ctrl+shift+alt+v",
-    "command": "workbench.action.tasks.runTask",
-    "args": "Tools: Restore Menu"
-  },
-  {
-    "key": "ctrl+shift+alt+a",
-    "command": "workbench.action.tasks.runTask",
-    "args": "Run Audit"
-  },
-  {
-    "key": "ctrl+shift+alt+c",
-    "command": "workbench.action.tasks.runTask",
-    "args": "Tools: Clean Cache & Artifacts"
-  },
-  {
-    "key": "ctrl+shift+alt+h",
-    "command": "workbench.action.tasks.runTask",
-    "args": "Tools: Health Check"
-  },
-  {
-    "key": "ctrl+shift+alt+z",
-    "command": "workbench.action.tasks.runTask",
-    "args": "Tools: Pack Codebase ZIP"
-  },
-  {
     "key": "alt+1",
     "command": "workbench.action.tasks.runTask",
     "args": "Run Dev"
@@ -42,45 +12,26 @@
   {
     "key": "alt+3",
     "command": "workbench.action.tasks.runTask",
-    "args": "Tools: UI Audit"
+    "args": "Open Playwright Browser"
   },
   {
-    "key": "ctrl+shift+alt+w",
+    "key": "alt+4",
     "command": "workbench.action.tasks.runTask",
-    "args": "Run Dev"
+    "args": "Tools: Full Audit, Health & Clean"
+  },
+  {
+    "key": "ctrl+shift+alt+b",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Run Backup"
+  },
+  {
+    "key": "ctrl+shift+alt+v",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Tools: Restore Menu"
   },
   {
     "key": "ctrl+shift+alt+m",
     "command": "workbench.action.tasks.runTask",
     "args": "Generate Media"
-  },
-  {
-    "key": "ctrl+shift+alt+p",
-    "command": "workbench.action.tasks.runTask",
-    "args": "Open Playwright Browser"
-  },
-  {
-    "key": "ctrl+shift+alt+n",
-    "command": "workbench.action.tasks.runTask",
-    "args": "Run Browser Automation Smoke"
-  },
-  {
-    "key": "ctrl+shift+alt+t",
-    "command": "workbench.action.tasks.runTask",
-    "args": "Run Smoke Test"
-  },
-  {
-    "key": "ctrl+shift+alt+e",
-    "command": "workbench.action.tasks.runTask",
-    "args": "Run Browser Automation Smoke (TSX)"
-  },
-  {
-    "key": "ctrl+shift+alt+r",
-    "command": "workbench.action.tasks.runTask",
-    "args": "Tools: Automation Admin Explorer"
-  },
-  {
-    "key": "ctrl+shift+alt+q",
-    "command": "workbench.action.reopenTextEditor"
   }
 ]
