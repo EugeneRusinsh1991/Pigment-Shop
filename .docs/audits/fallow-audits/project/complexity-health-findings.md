@@ -1,6 +1,6 @@
 # 🩺 Complexity Health Findings (Critical & High)
 
-*Generated on: 27.07.2026, 01:50:22*
+*Generated on: 27.07.2026, 01:59:47*
 
 ## 🔴 Critical (≤ 50 lines)
 
@@ -17,7 +17,7 @@
 `src/components/Badge/Badge.js`
 
 - 🟠 **`Badge`** [L29](file:///D:/Magazine/_PigmentShop/src/components/Badge/Badge.js#L29)
-  - Lines: 66 | Cyclomatic: 7 | Cognitive: 18 | CRAP: 56
+  - Lines: 60 | Cyclomatic: 7 | Cognitive: 18 | CRAP: 56
 
 #### 📁 [useDrawerAnimation.js](file:///D:/Magazine/_PigmentShop/src/components/Drawer/useDrawerAnimation.js)
 `src/components/Drawer/useDrawerAnimation.js`
@@ -63,7 +63,7 @@
 
 - 🟠 **`extractFontProps`** [L17](file:///D:/Magazine/_PigmentShop/src/components/Badge/Badge.js#L17)
   - Lines: 11 | Cyclomatic: 7 | Cognitive: 6 | CRAP: 56
-- 🟠 **`resolveDisplayText`** [L96](file:///D:/Magazine/_PigmentShop/src/components/Badge/Badge.js#L96)
+- 🟠 **`resolveDisplayText`** [L90](file:///D:/Magazine/_PigmentShop/src/components/Badge/Badge.js#L90)
   - Lines: 6 | Cyclomatic: 7 | Cognitive: 6 | CRAP: 56
 
 #### 📁 [useModalTheme.js](file:///D:/Magazine/_PigmentShop/src/components/Modal/useModalTheme.js)

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { View, Animated } from 'react-native';
 import { AutocompleteSearch } from '../../components/Search';
 import { useHomeScrollHide } from '../../hooks/useHomeScrollHide';
@@ -13,6 +13,7 @@ export default function StoreSearchHeader({ isDark: isDarkProp, isHome, contentW
   const isDark = isDarkProp ?? isDarkContext;
   const [isSearchActive, setIsSearchActive] = useState(false);
   const { translateY } = useHomeScrollHide(isSearchActive || !isHome);
+  const searchInnerStyle = useMemo(() => [styles.searchInner, { maxWidth: contentWidth }], [contentWidth]);
 
   if (!isHome) return null;
 
@@ -25,7 +26,7 @@ export default function StoreSearchHeader({ isDark: isDarkProp, isHome, contentW
         { marginTop: translateY }
       ]}
     >
-      <View style={{ width: '100%', maxWidth: contentWidth, minWidth: 0, overflow: 'visible', paddingHorizontal: layout.spacing.sm }}>
+      <View style={searchInnerStyle}>
         <AutocompleteSearch isDark={isDark} onActiveChange={setIsSearchActive} />
       </View>
     </Animated.View>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { StyleSheet } from 'react-native';
 import { ScrollFadeUp } from '../Motion';
 import { colors, layout } from '../../theme/tokens';
 
@@ -16,19 +17,24 @@ function computeStaticCardStyle({ isDark, lightBgColor, darkBgColor, borderColor
   const computedBorderColor = getStaticCardBorderColor(borderColor, isDark);
   const backgroundColor = getStaticCardBackgroundColor(isDark, lightBgColor, darkBgColor);
 
-  const baseStyle = {
+  const dynamicStyle = {
     borderRadius,
-    borderWidth: 1,
     borderColor: computedBorderColor,
     backgroundColor,
-    overflow: 'visible',
   };
 
   if (padding === undefined) {
-    return [baseStyle, style];
+    return [staticStyles.card, dynamicStyle, style];
   }
-  return [baseStyle, { padding }, style];
+  return [staticStyles.card, dynamicStyle, { padding }, style];
 }
+
+const staticStyles = StyleSheet.create({
+  card: {
+    borderWidth: 1,
+    overflow: 'visible',
+  },
+});
 
 const StaticCard = React.forwardRef(({
   isDark,

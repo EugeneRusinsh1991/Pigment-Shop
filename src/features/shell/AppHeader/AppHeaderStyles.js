@@ -20,12 +20,23 @@ export default StyleSheet.create({
     backgroundColor: colors.backgroundLight,
     borderBottomColor: colors.borderLightAlt,
   },
+  innerRow: {
+    width: '100%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    minWidth: 0,
+    paddingHorizontal: layout.spacing.sm,
+  },
   leftSec: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: layout.spacing.lg,
     flexShrink: 1,
     minWidth: 0,
+  },
+  leftSecMobile: {
+    gap: -layout.spacing.xs,
   },
   menuBtn: {
     paddingRight: layout.spacing.xxs,
@@ -163,7 +174,7 @@ export default StyleSheet.create({
   betaBadge: {
     paddingHorizontal: layout.spacing.xs + 4,
     paddingVertical: layout.spacing.xxs,
-    borderRadius: 10,
+    borderRadius: layout.radii.iconBtn,
     borderWidth: 1.5,
     marginLeft: -8,
   },

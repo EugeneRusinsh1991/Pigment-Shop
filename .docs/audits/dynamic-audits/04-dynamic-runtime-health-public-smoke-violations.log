@@ -1,0 +1,9 @@
+---
+type: dynamic-audit
+auditor: runtime-health
+scope: public
+date: 2026-07-26T23:34:22.671Z
+---
+
+### URL: http://localhost:8081/
+- Unhandled exception: Failed to set an indexed property [0] on 'CSSStyleDeclaration': Indexed property setter is not supported.

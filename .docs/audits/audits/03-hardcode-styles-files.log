@@ -1,17 +1,14 @@
 ===================================================================
                FILES WITH ISSUES REPORT                            
-Timestamp: 27.07.2026, 01:50:13
+Timestamp: 27.07.2026, 01:59:39
 ===================================================================
 
-Found 168 issue(s) across 60 target(s):
+Found 161 issue(s) across 55 target(s):
 
-- src\AppStyles.js (1 issues)
 - src\components\Admin\Analytics\CalendarDayCell.js (3 issues)
 - src\components\Admin\SharedFormComponents.js (2 issues)
-- src\components\Badge\Badge.js (2 issues)
 - src\components\Button\Button.js (2 issues)
 - src\components\Button\IconButton.js (1 issues)
-- src\components\Card\BaseCard.js (2 issues)
 - src\components\Card\Card.js (4 issues)
 - src\components\Card\InteractiveCard.js (4 issues)
 - src\components\Card\NavigationCard.js (1 issues)
@@ -58,10 +55,8 @@ Found 168 issue(s) across 60 target(s):
 - src\features\profile\ProfilePageStyles.js (1 issues)
 - src\features\shell\AppHeader\AppHeaderControls.js (2 issues)
 - src\features\shell\AppHeader\AppHeaderLogo.js (1 issues)
-- src\features\shell\AppHeader\AppHeaderStyles.js (1 issues)
 - src\features\shell\AppHeader\HeaderDropdown.js (1 issues)
 - src\features\shell\AppHeader\UserDropdown.js (1 issues)
-- src\features\shell\AppHeader.js (1 issues)
 - src\features\shell\NavMenu\CategoryTreeNodeButtons.js (2 issues)
 - src\features\shell\NavMenu\LanguageSelector.js (5 issues)
 - src\features\shell\StoreSearchHeader.js (1 issues)

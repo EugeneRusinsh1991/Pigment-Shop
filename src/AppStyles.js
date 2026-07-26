@@ -110,7 +110,7 @@ export default StyleSheet.create({
 
   list: {
     paddingBottom: layout.spacing.xxl,
-    paddingHorizontal: 0,
+    paddingHorizontal: layout.spacing.none,
   },
 
   footerProductsSection: {
@@ -143,5 +143,11 @@ export default StyleSheet.create({
     backgroundColor: colors.backgroundLight,
     borderBottomWidth: 0,
     borderBottomColor: colors.borderLightAlt,
+  },
+  searchInner: {
+    width: '100%',
+    minWidth: 0,
+    overflow: 'visible',
+    paddingHorizontal: layout.spacing.sm,
   },
 });

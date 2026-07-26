@@ -50,7 +50,7 @@ export default function AppHeader(props) {
 
   return (
     <View id="app-header" style={[styles.header, theme.headerStyle, { justifyContent: 'center' }]}>
-      <View style={{ width: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', maxWidth: props.contentWidth, minWidth: 0, paddingHorizontal: layout.spacing.sm }}>
+      <View style={[styles.innerRow, { maxWidth: props.contentWidth }]}>
         <AppHeaderLogo
           isDark={props.isDark}
           appName={props.appName}

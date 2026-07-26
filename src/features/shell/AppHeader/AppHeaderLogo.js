@@ -6,20 +6,15 @@ import { calculateHitSlop } from '@/theme/buttonCommon';
 import { layout, typography } from '@/theme/tokens';
 import styles from './AppHeaderStyles';
 
-const MOBILE_GAP = -layout.spacing.xs;
 const DESKTOP_MARGIN_LEFT = -layout.spacing.xl;
 
 function getLogoStyles(isMobile) {
-  const mobile = isMobile
-    ? { gap: { gap: MOBILE_GAP } }
-    : {};
-
   const desktopLogoStyle = isMobile
     ? {}
     : { marginLeft: DESKTOP_MARGIN_LEFT };
 
   return {
-    leftSec: [styles.leftSec, mobile.gap],
+    leftSec: isMobile ? [styles.leftSec, styles.leftSecMobile] : styles.leftSec,
     menuText: [styles.menuBtnText],
     logoText: [styles.logo],
     logoContainer: desktopLogoStyle,

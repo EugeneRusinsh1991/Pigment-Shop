@@ -13,7 +13,7 @@ export const sharedLayoutWrapperStyles = StyleSheet.create({
   content: {
     flexGrow: 1,
     flexShrink: 1,
-    minHeight: 0,
+    minHeight: layout.spacing.none,
     width: '100%',
     alignSelf: 'stretch',
     overflow: 'hidden',

@@ -1,13 +1,16 @@
 import React from 'react';
-import { Text as RNText, Platform } from 'react-native';
+import { Text as RNText, Platform, StyleSheet } from 'react-native';
 import { colors } from '../../theme/tokens';
 
 const getThemeColor = (color) => color || colors.textLight;
 
-const appIconStyles = {
+const iconBaseStyles = StyleSheet.create({
   svg: { display: 'inline-block', verticalAlign: 'middle' },
+});
+
+const appIconStyles = {
   getSvg: (style) => {
-    const base = { display: 'inline-block', verticalAlign: 'middle' };
+    const base = iconBaseStyles.svg;
     if (!style) return base;
     if (Array.isArray(style)) {
       return Object.assign({}, base, ...style.filter(Boolean));
@@ -17,7 +20,7 @@ const appIconStyles = {
   getText: (color, size, style) => [{ color: getThemeColor(color), fontSize: size }, style],
 };
 
-const ThemeSunIcon = ({ color, size = 18, style, ...props }) => {
+export const ThemeSunIcon = ({ color, size = 18, style, ...props }) => {
   if (Platform.OS === 'web') {
     return (
       <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={appIconStyles.getSvg(style)} {...props}>
@@ -36,7 +39,7 @@ const ThemeSunIcon = ({ color, size = 18, style, ...props }) => {
   return <RNText style={appIconStyles.getText(color, size, style)} {...props}>☀️</RNText>;
 };
 
-const ThemeMoonIcon = ({ color, size = 18, style, ...props }) => {
+export const ThemeMoonIcon = ({ color, size = 18, style, ...props }) => {
   if (Platform.OS === 'web') {
     return (
       <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={appIconStyles.getSvg(style)} {...props}>

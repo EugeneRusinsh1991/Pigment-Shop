@@ -79,14 +79,14 @@ export default function AppHeaderControls({
       <Link href="/cart" asChild>
         <IconButton
           icon={(
-            <View style={{ position: 'relative', alignItems: 'center', justifyContent: 'center' }}>
+            <View style={localStyles.bagIconWrapper}>
               <BagIcon color={theme.iconColor} size={18} />
               {cartCount > 0 && (
                 <Badge
                   variant="counter"
                   count={cartCount}
                   animated
-                  style={{ position: 'absolute', top: -layout.spacing.xs, right: -(layout.spacing.xs + 4) }}
+                  style={localStyles.badgePosition}
                 />
               )}
             </View>
@@ -118,3 +118,16 @@ export default function AppHeaderControls({
     </View>
   );
 }
+
+const localStyles = StyleSheet.create({
+  bagIconWrapper: {
+    position: 'relative',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  badgePosition: {
+    position: 'absolute',
+    top: -layout.spacing.xs,
+    right: -(layout.spacing.xs + layout.spacing.xxs),
+  },
+});

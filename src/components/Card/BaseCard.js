@@ -50,7 +50,7 @@ const BaseCard = React.forwardRef(({
         darkBgColor={darkBgColor}
         borderRadius={borderRadius}
         padding={padding}
-        style={style}
+        style={[style]}
         outerStyle={outerStyle}
         activeOpacity={activeOpacity}
         {...rest}
@@ -69,7 +69,8 @@ const BaseCard = React.forwardRef(({
       borderColor={borderColor}
       borderRadius={borderRadius}
       padding={padding}
-      style={style}
+      style={[style]}
+
       {...rest}
     >
       {children}

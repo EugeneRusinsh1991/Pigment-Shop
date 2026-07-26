@@ -63,15 +63,9 @@ const Badge = React.forwardRef(({
   const { cleanedStyle, fontProps } = extractFontProps(textStyleProp);
   const resolvedSize = fontProps.size ?? badgeFontSizes[size] ?? 11;
 
-  const combinedContainerStyle = [
-    ...containerStyle,
-    animatedStyle,
-    style,
-  ].filter(Boolean);
-
   if (interactive || onPress) {
     return (
-      <Animated.View style={combinedContainerStyle}>
+      <Animated.View style={[...containerStyle, animatedStyle, style].filter(Boolean)}>
         <TouchableOpacity
           ref={ref}
           onPress={onPress}
@@ -87,7 +81,7 @@ const Badge = React.forwardRef(({
   }
 
   return (
-    <Animated.View ref={ref} style={combinedContainerStyle} {...rest}>
+    <Animated.View ref={ref} style={[...containerStyle, animatedStyle, style].filter(Boolean)} {...rest}>
       <Text variant="caption" weight="semiBold" {...fontProps} size={resolvedSize} style={[...textStyle, cleanedStyle]}>{displayText}</Text>
     </Animated.View>
   );

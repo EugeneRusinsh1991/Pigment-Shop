@@ -107,7 +107,7 @@
   - Line [31](file:///D:/Magazine/_PigmentShop/src/components/Admin/shared/AdminSaveFooter.js#L31): `<Button>`
 
 ### File: [src/components/Badge/Badge.js](file:///D:/Magazine/_PigmentShop/src/components/Badge/Badge.js)
-  - Line [75](file:///D:/Magazine/_PigmentShop/src/components/Badge/Badge.js#L75): `<TouchableOpacity>`
+  - Line [69](file:///D:/Magazine/_PigmentShop/src/components/Badge/Badge.js#L69): `<TouchableOpacity>`
 
 ### File: [src/components/Button/Button.js](file:///D:/Magazine/_PigmentShop/src/components/Button/Button.js)
   - Line [58](file:///D:/Magazine/_PigmentShop/src/components/Button/Button.js#L58): `<TouchableOpacity>`
@@ -260,8 +260,8 @@
   - Line [101](file:///D:/Magazine/_PigmentShop/src/features/shell/AppHeader/AppHeaderControls.js#L101): `<IconButton>`
 
 ### File: [src/features/shell/AppHeader/AppHeaderLogo.js](file:///D:/Magazine/_PigmentShop/src/features/shell/AppHeader/AppHeaderLogo.js)
-  - Line [35](file:///D:/Magazine/_PigmentShop/src/features/shell/AppHeader/AppHeaderLogo.js#L35): `<IconButton>`
-  - Line [43](file:///D:/Magazine/_PigmentShop/src/features/shell/AppHeader/AppHeaderLogo.js#L43): `<Button>`
+  - Line [30](file:///D:/Magazine/_PigmentShop/src/features/shell/AppHeader/AppHeaderLogo.js#L30): `<IconButton>`
+  - Line [38](file:///D:/Magazine/_PigmentShop/src/features/shell/AppHeader/AppHeaderLogo.js#L38): `<Button>`
 
 ### File: [src/features/shell/AppHeader/AppHeaderNavLinks.js](file:///D:/Magazine/_PigmentShop/src/features/shell/AppHeader/AppHeaderNavLinks.js)
   - Line [24](file:///D:/Magazine/_PigmentShop/src/features/shell/AppHeader/AppHeaderNavLinks.js#L24): `<IconButton>`

@@ -34,7 +34,7 @@ const getFullName = (first, last) => {
 
 const getUserDisplayName = (user, profile) => {
   if (!user) return '';
-  
+
   const p = profile || {};
   const name = getFullName(getTrimmedValue(p.firstName), getTrimmedValue(p.lastName));
   return name || getEmail(user);
@@ -47,7 +47,7 @@ const getDropdownStyles = (isDark) => {
     subtextText: [styles.dropdownText, ic(styles.subtextDark, styles.subtextLight)],
     itemText: [styles.dropdownText, ic(styles.textDark, styles.textLight)],
     borderBottomColor: isDark ? colors.borderDark : colors.secondaryLightBorder,
-    iconColor: isDark ? colors.white : colors.dark
+    iconColor: isDark ? colors.white : colors.dark,
   };
 };
 
@@ -69,7 +69,7 @@ export default function UserDropdown({
   const { shouldRender, translateY, opacity } = useDropdownAnimation(showUserMenu);
 
   if (!shouldRender) return null;
-  
+
   const dStyles = getDropdownStyles(isDark);
 
   return (
@@ -84,7 +84,7 @@ export default function UserDropdown({
     >
       {isAuthenticated ? (
         <>
-          <View style={{ paddingVertical: layout.spacing.sm, paddingHorizontal: layout.spacing.md, borderBottomWidth: 1, borderBottomColor: dStyles.borderBottomColor, marginBottom: layout.spacing.xxs }}>
+          <View style={[localStyles.userHeader, { borderBottomColor: dStyles.borderBottomColor }]}>
             <Text variant="caption" color="secondary" weight="500" size={typography.sizes.xs - 1} numberOfLines={1} ellipsizeMode="tail">
               {getUserDisplayName(user, profile)}
             </Text>
@@ -182,3 +182,12 @@ export default function UserDropdown({
     </Animated.View>
   );
 }
+
+const localStyles = StyleSheet.create({
+  userHeader: {
+    paddingVertical: layout.spacing.sm,
+    paddingHorizontal: layout.spacing.md,
+    borderBottomWidth: 1,
+    marginBottom: layout.spacing.xxs,
+  },
+});

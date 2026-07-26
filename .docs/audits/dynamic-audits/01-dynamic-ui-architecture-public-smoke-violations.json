@@ -390,6 +390,16 @@
         "url": "http://localhost:8081/",
         "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 47x8",
         "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-opacity-6dt33c.r-width-rwqe4o"
+      },
+      {
+        "url": "http://localhost:8081/",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 17x8",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-backgroundColor-14lw9ot.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-opacity-icoktb.r-width-1jg9483"
+      },
+      {
+        "url": "http://localhost:8081/",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 39x8",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-opacity-6dt33c.r-width-rwqe4o"
       }
     ],
     "http://localhost:8081/catalog": [

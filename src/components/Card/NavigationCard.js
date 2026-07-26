@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Text } from '../Text';
-import { ForwardArrowIcon } from '../icons/ControlIcons';
+import { ForwardArrowIcon } from '../Icons/ControlIcons';
 import Card from './Card';
 import { colors, layout } from '../../theme/tokens';
 
