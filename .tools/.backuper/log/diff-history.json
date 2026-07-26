@@ -5099,5 +5099,35 @@
         }
       ]
     }
+  },
+  "src_07-27_02-45_smoke-report.json_102files": {
+    "timestamp": "2026-07-26T23:45:22.214Z",
+    "diff": {
+      "added": 2,
+      "removed": 0,
+      "modified": 26,
+      "topFolders": [
+        {
+          "folder": ".todos/style-tokenization",
+          "count": 9
+        },
+        {
+          "folder": "src/features/home/components/HeroCarousel",
+          "count": 3
+        },
+        {
+          "folder": ".docs/audits/dynamic-audits",
+          "count": 2
+        },
+        {
+          "folder": "src/components/Card",
+          "count": 2
+        },
+        {
+          "folder": "src/components/PageScrollLayout",
+          "count": 2
+        }
+      ]
+    }
   }
 }

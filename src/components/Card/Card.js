@@ -32,7 +32,7 @@ const Card = React.forwardRef(({
   });
 
   const combinedStyle = [
-    ...containerStyle,
+    containerStyle,
     animatedStyle,
     style,
   ];
@@ -82,7 +82,7 @@ const CardContent = ({ style, children, ...rest }) => (
 const CardTitle = ({ style, children, numberOfLines = 2, isDark: isDarkProp, ...rest }) => {
   const { titleStyle } = useCardTheme({ isDarkProp });
   return (
-    <Text variant="subtitle2" weight="600" style={[...titleStyle, style]} numberOfLines={numberOfLines} {...rest}>
+    <Text variant="subtitle2" weight="600" style={[titleStyle, style]} numberOfLines={numberOfLines} {...rest}>
       {children}
     </Text>
   );
@@ -95,7 +95,7 @@ const CardBadge = ({ label, children, style, variant = 'inactive', ...rest }) =>
 );
 
 const CardPrice = ({ value, style, ...rest }) => (
-  <Text variant="subtitle2" weight="bold" style={[{ marginTop: layout.spacing.xxs }, style]} {...rest}>
+  <Text variant="subtitle2" weight="bold" style={[slotStyles.price, style]} {...rest}>
     {value}
   </Text>
 );

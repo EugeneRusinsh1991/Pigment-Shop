@@ -5,6 +5,6 @@
 
 ---
 
-- [ ] L139 `[INLINE_STYLE]` `style={layoutStyles.listContainer}` — move to static StyleSheet
-- [ ] L149 `[INLINE_STYLE]` `style={layoutStyles.listContainer}` — move to static StyleSheet
-- [ ] L163 `[INLINE_STYLE]` `<View style={layoutStyles.footerWrapper}>` — move to static StyleSheet
+- [x] L139 `[INLINE_STYLE]` `style={layoutStyles.listContainer}` — move to static StyleSheet
+- [x] L149 `[INLINE_STYLE]` `style={layoutStyles.listContainer}` — move to static StyleSheet
+- [x] L163 `[INLINE_STYLE]` `<View style={layoutStyles.footerWrapper}>` — move to static StyleSheet

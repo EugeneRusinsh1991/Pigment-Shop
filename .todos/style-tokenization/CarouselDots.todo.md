@@ -5,5 +5,5 @@
 
 ---
 
-- [ ] L35 `[INLINE_STYLE]` `style={{ ... }}` object literal — extract to named style in StyleSheet
-- [ ] L47 `[INLINE_STYLE]` `<View style={localStyles.dotsContainer}>` — move to static StyleSheet
+- [x] L35 `[INLINE_STYLE]` `style={{ ... }}` object literal — extract to named style in StyleSheet
+- [x] L47 `[INLINE_STYLE]` `<View style={localStyles.dotsContainer}>` — move to static StyleSheet

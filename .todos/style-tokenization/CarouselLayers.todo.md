@@ -5,4 +5,4 @@
 
 ---
 
-- [ ] L16 `[INLINE_STYLE]` `style={localStyles.imageFill}` — move to static StyleSheet
+- [x] L16 `[INLINE_STYLE]` `style={localStyles.imageFill}` — move to static StyleSheet

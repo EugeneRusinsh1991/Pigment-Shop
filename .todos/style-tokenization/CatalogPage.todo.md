@@ -5,5 +5,5 @@
 
 ---
 
-- [ ] L67 `[HARDCODED_SPACING]` `{ padding: 0, alignItems: 'center' }` in inline condition — extract to named style in StyleSheet using token
-- [ ] L76 `[INLINE_STYLE]` `<View style={{ flex: 1, minHeight: 0 }}>` — extract to named style in StyleSheet
+- [x] L67 `[HARDCODED_SPACING]` `{ padding: 0, alignItems: 'center' }` in inline condition — extract to named style in StyleSheet using token
+- [x] L76 `[INLINE_STYLE]` `<View style={{ flex: 1, minHeight: 0 }}>` — extract to named style in StyleSheet

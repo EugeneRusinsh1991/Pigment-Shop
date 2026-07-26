@@ -77,7 +77,7 @@ export default function CartItem({ item, isDark, onIncrease, onDecrease, onRemov
 const styles = StyleSheet.create({
   card: {
     flexDirection: 'row',
-    marginHorizontal: 0,
+    marginHorizontal: layout.spacing.none,
     marginVertical: layout.spacing.xs,
     borderRadius: layout.radii.md,
     padding: layout.spacing.md,

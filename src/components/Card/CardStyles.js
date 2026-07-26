@@ -81,6 +81,9 @@ export const slotStyles = StyleSheet.create({
   skeletonDark: {
     backgroundColor: colors.borderDark,
   },
+  price: {
+    marginTop: layout.spacing.xxs,
+  },
 });
 
 export const getShadowStyle = (isDark, elevated = false) => {

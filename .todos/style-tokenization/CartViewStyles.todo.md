@@ -5,4 +5,4 @@
 
 ---
 
-- [ ] L90 `[HARDCODED_SPACING]` Replace `marginHorizontal: 0` with token (e.g. `layout.spacing.none`)
+- [x] L90 `[HARDCODED_SPACING]` Replace `marginHorizontal: 0` with token (e.g. `layout.spacing.none`)

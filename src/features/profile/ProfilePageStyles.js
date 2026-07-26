@@ -1,21 +1,13 @@
 import { StyleSheet } from 'react-native';
 import { colors, buttonTokens, layout } from '../../theme/tokens';
+import commonStyles from '../../theme/commonStyles';
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    width: '100%',
-  },
-  containerDark: { backgroundColor: colors.backgroundDark },
-  containerLight: { backgroundColor: colors.backgroundLight },
-  scrollContent: {
-    flexGrow: 1,
-    paddingBottom: layout.spacing.xl,
-  },
-  pageContent: {
-    paddingHorizontal: layout.spacing.sm,
-    paddingVertical: layout.spacing.lg,
-  },
+  container: commonStyles.container,
+  containerDark: commonStyles.containerDark,
+  containerLight: commonStyles.containerLight,
+  scrollContent: commonStyles.pageScrollContent,
+  pageContent: commonStyles.pageContent,
   title: {
     marginBottom: layout.spacing.lg,
     textAlign: 'center',

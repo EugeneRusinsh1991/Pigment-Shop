@@ -33,35 +33,6 @@ function getHighlightedRange(start, end, hover) {
   };
 }
 
-function getCellStyles(isCurrentMonth, isSelected, isRange) {
-  const currentText = isCurrentMonth ? styles.dayTextCurrent : styles.dayTextOther;
-  
-  if (isSelected) {
-    return {
-      cellStyles: [styles.dayCell],
-      buttonStyles: [styles.dayButton, styles.daySelected],
-      textStyles: [styles.dayText, currentText, styles.dayTextSelected],
-      weight: typography.weights.bold,
-    };
-  }
-  
-  if (isRange) {
-    return {
-      cellStyles: [styles.dayCell, styles.dayHighlight],
-      buttonStyles: [styles.dayButton],
-      textStyles: [styles.dayText, currentText, styles.dayHighlightText],
-      weight: typography.weights.semibold,
-    };
-  }
-
-  return {
-    cellStyles: [styles.dayCell],
-    buttonStyles: [styles.dayButton],
-    textStyles: [styles.dayText, currentText],
-    weight: undefined,
-  };
-}
-
 function checkCellState(cellDate, tempStartDate, tempEndDate, hoverDate) {
   const isSelected = isSameDay(cellDate, tempStartDate) || isSameDay(cellDate, tempEndDate);
   const { s, e } = getHighlightedRange(tempStartDate, tempEndDate, hoverDate);
@@ -97,24 +68,31 @@ export function CalendarDayCell({
     hoverDate
   );
 
-  const { cellStyles, buttonStyles, textStyles, weight } = getCellStyles(
-    cell.isCurrentMonth,
-    isSelected,
-    isRange
-  );
-
   const shouldHover = !!(tempStartDate && !tempEndDate);
+  const currentTextStyle = cell.isCurrentMonth ? styles.dayTextCurrent : styles.dayTextOther;
+  const weight = isSelected ? typography.weights.bold : (isRange ? typography.weights.semibold : undefined);
 
   return (
-    <View style={cellStyles}>
+    <View style={[styles.dayCell, isRange && styles.dayHighlight]}>
       <AnimatedButton
-        style={buttonStyles}
+        style={[styles.dayButton, isSelected && styles.daySelected]}
         onPress={() => handleDayPress(cellDate)}
         onMouseEnter={() => handleHoverEnter(shouldHover, cellDate, setHoverDate)}
         onMouseLeave={() => handleHoverLeave(shouldHover, setHoverDate)}
         hitSlop={calculateHitSlop(32, 32)}
       >
-        <Text variant="body2" weight={weight} style={textStyles}>{cell.dayLabel}</Text>
+        <Text
+          variant="body2"
+          weight={weight}
+          style={[
+            styles.dayText,
+            currentTextStyle,
+            isSelected && styles.dayTextSelected,
+            isRange && styles.dayHighlightText,
+          ]}
+        >
+          {cell.dayLabel}
+        </Text>
       </AnimatedButton>
     </View>
   );

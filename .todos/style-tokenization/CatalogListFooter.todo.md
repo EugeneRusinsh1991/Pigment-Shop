@@ -5,4 +5,4 @@
 
 ---
 
-- [ ] L37 `[INLINE_STYLE]` `<View style={{ height: layout.spacing.xxl }}>` — extract to named style in StyleSheet using token
+- [x] L37 `[INLINE_STYLE]` `<View style={{ height: layout.spacing.xxl }}>` — extract to named style in StyleSheet using token

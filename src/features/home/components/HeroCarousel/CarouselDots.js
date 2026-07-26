@@ -32,11 +32,7 @@ function ActiveDotProgress({ isVideo, videoProgress }) {
 
   return (
     <Animated.View
-      style={{
-        backgroundColor: colors.white,
-        height: '100%',
-        width,
-      }}
+      style={[localStyles.progressBar, { width }]}
     />
   );
 }
@@ -55,7 +51,6 @@ export function CarouselDots({ banners, currentIndex, handleSwitch, videoProgres
             style={[
               localStyles.dot,
               isActive ? localStyles.dotActive : localStyles.dotInactive,
-              isActive && { backgroundColor: colors.overlayScrim, overflow: 'hidden' }
             ]}
             onPress={() => handleSwitch(index)}
             hitSlop={{ top: layout.spacing.lg, bottom: layout.spacing.lg, left: layout.spacing.md, right: layout.spacing.md }}

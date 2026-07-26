@@ -64,7 +64,7 @@ function CatalogMainContent({
   gridWidth,
 }) {
   return (
-    <View style={[styles.main, isNarrow && { padding: 0, alignItems: 'center' }]}>
+    <View style={[styles.main, isNarrow && styles.mainNarrow]}>
       {!isNarrow && (
         <CatalogSortBar
           sortKey={sortKey}
@@ -73,7 +73,7 @@ function CatalogMainContent({
           isDark={isDark}
         />
       )}
-      <View style={{ flex: 1, minHeight: 0 }}>
+      <View style={styles.gridContainer}>
         {triggerKey !== 'pending' && (
           <PageTransition key={triggerKey} trigger={triggerKey}>
             <ProductGrid
@@ -192,4 +192,6 @@ const styles = StyleSheet.create({
   containerLight: { backgroundColor: colors.backgroundLight },
   row: { flex: 1, minHeight: 0, flexDirection: 'row', width: '100%', maxWidth: 1330, alignSelf: 'center', paddingHorizontal: layout.spacing.sm },
   main: { flex: 1, minHeight: 0, padding: layout.spacing.lg },
+  mainNarrow: { padding: layout.spacing.none, alignItems: 'center' },
+  gridContainer: { flex: 1, minHeight: 0 },
 });

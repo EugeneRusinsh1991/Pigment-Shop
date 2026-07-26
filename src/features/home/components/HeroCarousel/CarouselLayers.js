@@ -9,7 +9,8 @@ function CarouselLayer({ uri, index, currentIndex, prevIndex, fadeAnim, onVideoP
 
   return (
     <Animated.View
-      style={[localStyles.imageFill, { opacity, pointerEvents: isActive ? 'auto' : 'none' }]}
+      pointerEvents={isActive ? 'auto' : 'none'}
+      style={[localStyles.imageFill, { opacity }]}
     >
       <MediaRenderer
         uri={uri}

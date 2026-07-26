@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { ScrollView, View } from 'react-native';
 import { Heading } from '../../components/Text';
 import { useAuth } from '../../context/AuthContext';
 import { useTheme } from '../../context/ThemeContext';
@@ -7,8 +6,8 @@ import { useOrders } from '../../hooks/useOrders';
 import useGridLayout from '../../hooks/useGridLayout';
 import OrderCard from './components/OrderCard';
 import styles from './OrdersPageStyles';
-import Footer from '../shell/components/Footer';
 import { ScrollFadeUp } from '../../components/Motion';
+import PageScrollLayout from '../../components/PageScrollLayout';
 
 import CatalogPagination from '../catalog/CatalogPagination';
 import EmptyState from '../../components/DataTable/EmptyState';
@@ -68,34 +67,24 @@ export default function OrdersPage({ isDark }) {
   };
 
   return (
-    <ScrollView 
-      style={[styles.container, isDark ? styles.containerDark : styles.containerLight]}
-      contentContainerStyle={styles.scrollContent}
-      showsVerticalScrollIndicator={false}
-    >
-      <View style={styles.flexOne}>
-        <View style={[styles.pageContent, styles.contentWrapper, { maxWidth: isWide ? 580 : gridWidth }]}>
-          <ScrollFadeUp>
-            <Heading level={1} style={styles.title} isDark={isDark}>
-              {t('ordersTitle')}
-            </Heading>
-          </ScrollFadeUp>
-          
-          <OrdersList
-            orders={orders}
-            paginatedOrders={paginatedOrders}
-            expandedOrders={expandedOrders}
-            toggleExpand={toggleExpand}
-            currentPage={currentPage}
-            totalPages={totalPages}
-            setCurrentPage={setCurrentPage}
-            isDark={isDark}
-            t={t}
-          />
-        </View>
-      </View>
-      <View style={styles.bottomSpacer} />
-      <Footer />
-    </ScrollView>
+    <PageScrollLayout isDark={isDark} maxWidth={isWide ? 580 : gridWidth}>
+      <ScrollFadeUp>
+        <Heading level={1} style={styles.title} isDark={isDark}>
+          {t('ordersTitle')}
+        </Heading>
+      </ScrollFadeUp>
+      
+      <OrdersList
+        orders={orders}
+        paginatedOrders={paginatedOrders}
+        expandedOrders={expandedOrders}
+        toggleExpand={toggleExpand}
+        currentPage={currentPage}
+        totalPages={totalPages}
+        setCurrentPage={setCurrentPage}
+        isDark={isDark}
+        t={t}
+      />
+    </PageScrollLayout>
   );
 }

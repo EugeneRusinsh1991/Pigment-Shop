@@ -29,6 +29,14 @@ export default StyleSheet.create({
     flexGrow: 1,
     paddingBottom: layout.spacing.lg,
   },
+  pageScrollContent: {
+    flexGrow: 1,
+    paddingBottom: layout.spacing.xl,
+  },
+  pageContent: {
+    paddingHorizontal: layout.spacing.sm,
+    paddingVertical: layout.spacing.lg,
+  },
   // Deprecated text styles: prefer using Text/Heading primitives from src/components/Text
   title: {
     marginBottom: layout.spacing.md,
@@ -47,4 +55,7 @@ export default StyleSheet.create({
     backgroundColor: colors.surfaceLight,
     borderColor: colors.borderLight,
   },
+  flex1: { flex: 1 },
+  contentWrapper: { alignSelf: 'center', width: '100%' },
+  bottomSpacer: { height: 40 },
 });

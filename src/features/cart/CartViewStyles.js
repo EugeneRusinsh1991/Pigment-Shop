@@ -87,7 +87,7 @@ export default StyleSheet.create({
   summaryPanelLight: { backgroundColor: colors.white, borderColor: colors.secondaryLightBorder },
 
   summaryPanelMobile: {
-    marginHorizontal: 0,
+    marginHorizontal: layout.spacing.none,
     marginVertical: layout.spacing.sm,
   },
   summaryPanelWide: {

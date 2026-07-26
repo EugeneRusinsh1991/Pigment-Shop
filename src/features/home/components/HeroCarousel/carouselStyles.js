@@ -57,9 +57,15 @@ export const localStyles = StyleSheet.create({
   dotActive: {
     width: 48,
     opacity: 1,
+    backgroundColor: colors.overlayScrim,
+    overflow: 'hidden',
   },
   dotInactive: {
     width: layout.spacing.sm,
     opacity: 0.5,
+  },
+  progressBar: {
+    backgroundColor: colors.white,
+    height: '100%',
   },
 });

@@ -24,7 +24,7 @@ function CatalogFooter({ depth, isDark, isWide, t, favs }) {
 
 export default function CatalogListFooter({ showPromotionalSections, isTransitionReady, depth, isDark, isWide, t, favs }) {
   return (
-    <View style={[styles.footerWrapper, { width: '100%' }]}>
+    <View style={styles.footerWrapper}>
       {showPromotionalSections && isTransitionReady && (
         <CatalogFooter
           depth={depth}
@@ -34,7 +34,7 @@ export default function CatalogListFooter({ showPromotionalSections, isTransitio
           favs={favs}
         />
       )}
-      <View style={{ height: layout.spacing.xxl }} />
+      <View style={styles.spacer} />
       {(!showPromotionalSections || isTransitionReady) && <Footer />}
     </View>
   );
@@ -43,5 +43,8 @@ export default function CatalogListFooter({ showPromotionalSections, isTransitio
 const styles = StyleSheet.create({
   footerWrapper: {
     width: '100%',
+  },
+  spacer: {
+    height: layout.spacing.xxl,
   },
 });
