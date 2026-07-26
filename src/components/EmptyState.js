@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import { Text, Heading } from './Text';
 import { useTheme } from '../context/ThemeContext';
 import { colors } from '../theme/tokens';
 
@@ -16,7 +17,7 @@ function useEmptyStateColors(isDark) {
 function renderChildren(children, descriptionStyle, mutedColor) {
   if (!children) return null;
   if (typeof children === 'string') {
-    return <Text style={[styles.description, { color: mutedColor }, descriptionStyle]}>{children}</Text>;
+    return <Text variant="body" color="muted" style={descriptionStyle}>{children}</Text>;
   }
   return children;
 }
@@ -40,12 +41,12 @@ export default function EmptyState({
     <View style={[styles.container, style]}>
       {icon && <View style={styles.iconWrapper}>{icon}</View>}
       {title && (
-        <Text style={[styles.title, { color: textColor }, titleStyle]}>
+        <Heading level={3} style={titleStyle}>
           {title}
-        </Text>
+        </Heading>
       )}
       {bodyText && (
-        <Text style={[styles.description, { color: mutedColor }, descriptionStyle]}>
+        <Text variant="body" color="muted" style={descriptionStyle}>
           {bodyText}
         </Text>
       )}

@@ -1,7 +1,7 @@
-import { Text, View, useWindowDimensions } from 'react-native';
+import { View, useWindowDimensions } from 'react-native';
+import { Text } from './Text';
 import { AnimatedButton } from './Button';
 import { useTheme } from '../context/ThemeContext';
-import commonStyles from '../theme/commonStyles';
 import Card from './Card';
 import { colors, layout } from '../theme/tokens';
 import { Badge } from './Badge';
@@ -30,13 +30,13 @@ function MobileOrderHeader({ order, t, lang, isExpanded, getStyle }) {
   return (
     <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
       <View style={{ flex: 1, flexDirection: 'column', gap: 4 }}>
-        <Text style={[styles.orderNumber, getStyle(commonStyles.textDark, commonStyles.textLight)]}>
+        <Text style={styles.orderNumber}>
           {t('orderNumber')}{getOrderNumber(order)}
         </Text>
-        <Text style={[styles.orderDate, getStyle(commonStyles.subtextDark, commonStyles.subtextLight)]}>
+        <Text variant="caption" color="muted" style={styles.orderDate}>
           {getFormattedDate(order, lang)}
         </Text>
-        <Text style={[styles.orderTotal, getStyle(commonStyles.textDark, commonStyles.textLight), { marginTop: 2 }]}>
+        <Text style={[styles.orderTotal, { marginTop: 2 }]}>
           {t('orderTotalLabel')} ${getOrderTotalPrice(order)}
         </Text>
       </View>
@@ -54,11 +54,11 @@ function DefaultOrderHeader({ order, t, lang, isExpanded, getStyle, isAdminView 
   return (
     <>
       <View style={[styles.orderHeader, isAdminView && styles.adminOrderHeader]}>
-        <Text style={[styles.orderNumber, getStyle(commonStyles.textDark, commonStyles.textLight)]}>
+        <Text style={styles.orderNumber}>
           {t('orderNumber')}{getOrderNumber(order)}
         </Text>
         {!isAdminView && (
-          <Text style={[styles.orderDate, getStyle(commonStyles.subtextDark, commonStyles.subtextLight)]}>
+          <Text variant="caption" color="muted" style={styles.orderDate}>
             {getFormattedDate(order, lang)}
           </Text>
         )}
@@ -71,12 +71,12 @@ function DefaultOrderHeader({ order, t, lang, isExpanded, getStyle, isAdminView 
         )}
       </View>
       {isAdminView && (
-        <Text style={[styles.orderDate, getStyle(commonStyles.subtextDark, commonStyles.subtextLight), styles.adminOrderDate]}>
+        <Text variant="caption" color="muted" style={[styles.orderDate, styles.adminOrderDate]}>
           {getFormattedDate(order, lang)}
         </Text>
       )}
       <View style={styles.summaryRow}>
-        <Text style={[styles.orderTotal, getStyle(commonStyles.textDark, commonStyles.textLight)]}>
+        <Text style={styles.orderTotal}>
           {t('orderTotalLabel')} ${getOrderTotalPrice(order)}
         </Text>
         <Text style={[styles.toggleText, getStyle(styles.toggleTextDark, styles.toggleTextLight)]}>

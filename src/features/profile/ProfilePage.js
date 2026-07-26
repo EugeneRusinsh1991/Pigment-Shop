@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { ScrollView, Text, View } from 'react-native';
+import { ScrollView, View } from 'react-native';
+import { Heading } from '../../components/Text';
 import { useTheme } from '../../context/ThemeContext';
 import { useToast } from '../../context/ToastContext';
 import { useProfile } from '../../hooks/useProfile';
@@ -78,9 +79,9 @@ export default function ProfilePage({ isDark, auth }) {
           ]}
         >
           <ScrollFadeUp>
-            <Text style={[styles.title, { color: isDark ? '#FFFFFF' : '#1C1C1C' }]}>
+            <Heading level={1} style={styles.title} isDark={isDark}>
               {t('profileTitle')}
-            </Text>
+            </Heading>
           </ScrollFadeUp>
 
           <ScrollFadeUp>

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Text, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
+import { Text } from './Text';
 import { colors } from '../theme/tokens';
 
 /**
@@ -13,7 +14,7 @@ import { colors } from '../theme/tokens';
 export default function FieldError({ error, style }) {
   if (!error) return null;
 
-  return <Text style={[styles.errorText, style]}>{error}</Text>;
+  return <Text variant="caption" color="error" style={[styles.errorText, style]}>{error}</Text>;
 }
 
 const styles = StyleSheet.create({

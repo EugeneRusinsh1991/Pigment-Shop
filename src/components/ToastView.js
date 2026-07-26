@@ -1,5 +1,6 @@
 import React from 'react';
-import { Animated, StyleSheet, Text } from 'react-native';
+import { Animated, StyleSheet } from 'react-native';
+import { Text } from './Text';
 import { colors, layout, shadows } from '../theme/tokens';
 import { useTheme } from '../context/ThemeContext';
 
@@ -48,7 +49,7 @@ export function ToastView({ toast, fadeAnim }) {
       ]}
       pointerEvents="none"
     >
-      <Text style={[styles.text, { color: textColor }]}>{toast.message}</Text>
+      <Text variant="body" style={[styles.text, { color: textColor }]}>{toast.message}</Text>
     </Animated.View>
   );
 }

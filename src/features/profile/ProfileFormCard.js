@@ -1,4 +1,5 @@
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
+import { Text } from '../../components/Text';
 import Card from '../../components/Card/Card';
 import styles from './ProfilePageStyles';
 import { Button } from '../../components/Button';
@@ -7,11 +8,11 @@ import { FieldInput } from '../../components/Admin/SharedFormComponents';
 function EmailField({ label, email, selectTheme }) {
   return (
     <View style={styles.inputGroup}>
-      <Text style={[styles.label, selectTheme(styles.subtextDark, styles.subtextLight)]}>
+      <Text variant="label" color="muted" style={styles.label}>
         {label}
       </Text>
       <View style={[styles.inputContainer, selectTheme(styles.inputContainerDark, styles.inputContainerLight), styles.inputDisabled]}>
-        <Text style={[styles.value, selectTheme(styles.subtextDark, styles.subtextLight)]}>
+        <Text variant="body" color="muted" style={styles.value}>
           {email || 'user@example.com'}
         </Text>
       </View>
@@ -98,7 +99,7 @@ export default function ProfileFormCard({
 
       <SaveButton saving={saving} loading={loading} onSave={onSave} selectTheme={selectTheme} label={t('profileSaveBtn')} />
 
-      <Text style={[styles.requiredNote, isDark ? styles.subtextDark : styles.subtextLight]}>
+      <Text variant="caption" color="muted" style={styles.requiredNote}>
         {t('profileRequiredNote')}
       </Text>
     </Card>

@@ -1,4 +1,5 @@
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, View } from 'react-native';
+import { Text } from './Text';
 import { useTheme } from '../context/ThemeContext';
 import { Link } from 'expo-router';
 import { AnimatedButton } from './Button';
@@ -16,8 +17,8 @@ export default function Footer() {
             <Image source={require('../assets/logo.png')} style={styles.logoImage} resizeMode="contain" />
           </AnimatedButton>
         </Link>
-        <Text style={[styles.separator, ic(styles.subtextDark, styles.subtextLight)]}>•</Text>
-        <Text style={[styles.authorText, ic(styles.subtextDark, styles.subtextLight)]}>Made by Noren Vox ©</Text>
+        <Text variant="caption" color="muted" style={styles.separator}>•</Text>
+        <Text variant="caption" color="muted" style={styles.authorText}>Made by Noren Vox ©</Text>
       </View>
     </View>
   );

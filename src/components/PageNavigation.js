@@ -1,4 +1,5 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import { Text } from './Text';
 import { useTheme } from '../context/ThemeContext';
 import Breadcrumb from './Breadcrumb';
 import { AnimatedButton } from './Button';
@@ -16,7 +17,7 @@ function BackButton({ show, onPress, isDark }) {
       style={styles.backButton} 
       onPress={onPress}
     >
-      <Text style={[styles.backText, isDark ? styles.textDark : styles.textLight]}>
+      <Text variant="body" style={[styles.backText, isDark ? styles.textDark : styles.textLight]}>
         ‹ {t('btnBackLabel')}
       </Text>
     </AnimatedButton>

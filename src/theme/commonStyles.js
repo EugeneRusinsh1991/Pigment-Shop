@@ -29,11 +29,8 @@ export default StyleSheet.create({
     flexGrow: 1,
     paddingBottom: 16,
   },
+  // Deprecated text styles: prefer using Text/Heading primitives from src/components/Text
   title: {
-    fontFamily: fonts.serif,
-    fontSize: 24,
-    lineHeight: 28,
-    fontWeight: '500',
     marginBottom: 12,
     textAlign: 'center',
   },
@@ -50,8 +47,4 @@ export default StyleSheet.create({
     backgroundColor: colors.surfaceLight,
     borderColor: colors.borderLight,
   },
-  textDark: { color: colors.textDark },
-  textLight: { color: colors.textLight },
-  subtextDark: { color: colors.textMutedDark },
-  subtextLight: { color: colors.textMutedLight },
 });

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Text } from 'react-native';
+import { Text } from '../../components/Text';
 import { useAuth } from '../../context/AuthContext';
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import { db } from '../../services/firebase';
@@ -64,7 +64,7 @@ function FormFeedbackMessage({ submitStatus, t }) {
   const textKey = isSuccess ? 'contactUsSuccess' : 'contactUsError';
 
   return (
-    <Text style={{ color, marginTop: 12, fontSize: 14, textAlign: 'center', fontWeight: '500' }}>
+    <Text variant="body" style={{ color, marginTop: 12, textAlign: 'center', fontWeight: '500' }}>
       {t(textKey)}
     </Text>
   );

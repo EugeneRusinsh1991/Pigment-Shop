@@ -65,15 +65,15 @@ Based on [text-module-spec.md](file:///d:/Magazine/_PigmentShop/.docs/architectu
 ### Task 2.5: Migrate Profile, Auth, Contact & Common Components
 > 💡 **Task Recommendation**: 🔴 **Gemini 3.1 Pro (High)** (>15 files total). Sub-divided into targeted sub-tasks:
 
-- [ ] **Task 2.5a: Profile, Favorites & Auth (`ProfilePageStyles.js`, `FavoritesPageStyles.js`, `LoginPageStyles.js`)**
+- [x] **Task 2.5a: Profile, Favorites & Auth (`ProfilePageStyles.js`, `FavoritesPageStyles.js`, `LoginPageStyles.js`)**
   - *Complexity*: Low (3 files) | 🟡 **Gemini 3.6 Flash (Medium)**
-- [ ] **Task 2.5b: Contact Page Components (`ContactPageStyles.js`, `ContactQuestionForm.js`, `SocialButtons.js`)**
+- [x] **Task 2.5b: Contact Page Components (`ContactPageStyles.js`, `ContactQuestionForm.js`, `SocialButtons.js`)**
   - *Complexity*: Low (3 files) | 🟡 **Gemini 3.6 Flash (Medium)**
-- [ ] **Task 2.5c: Core Layout & Form Controls (`TextFieldStyles.js`, `ToggleStyles.js`, `FieldError.js`, `SearchStyles.js`, `SearchDropdown.js`)**
+- [x] **Task 2.5c: Core Layout & Form Controls (`TextFieldStyles.js`, `ToggleStyles.js`, `FieldError.js`, `SearchStyles.js`, `SearchDropdown.js`)**
   - *Complexity*: Medium (5 files) | 🟠 **Gemini 3.6 Flash (High)**
-- [ ] **Task 2.5d: Navigation & Display Widgets (`PageNavigation.js`, `DiscountsSection.js`, `EmptyState.js`, `ToastView.js`, `ConfirmationModal.js`)**
+- [x] **Task 2.5d: Navigation & Display Widgets (`PageNavigation.js`, `DiscountsSection.js`, `EmptyState.js`, `ToastView.js`, `ConfirmationModal.js`)**
   - *Complexity*: Medium (5 files) | 🟠 **Gemini 3.6 Flash (High)**
-- [ ] **Task 2.5e: Footers & Carousels (`Footer.js`, `NewArrivalsFooter.js`, `carouselStyles.js`, `OrdersPageStyles.js`)**
+- [x] **Task 2.5e: Footers & Carousels (`Footer.js`, `NewArrivalsFooter.js`, `carouselStyles.js`, `OrdersPageStyles.js`)**
   - *Complexity*: Medium (4 files) | 🟠 **Gemini 3.6 Flash (High)**
 
 ---
@@ -81,9 +81,9 @@ Based on [text-module-spec.md](file:///d:/Magazine/_PigmentShop/.docs/architectu
 ## Phase 3: Cleanup & Verification
 > 💡 **Phase Recommendation**: 🟡 **Gemini 3.6 Flash (Medium)** (verification & cleanup).
 
-- [ ] **Task 3.1: Deprecate Legacy Text Styles (`commonStyles.js`)**
+- [x] **Task 3.1: Deprecate Legacy Text Styles (`commonStyles.js`)**
   - *Complexity*: Low (1 file) | 🟡 **Gemini 3.6 Flash (Medium)**
-- [ ] **Task 3.2: Codebase Audit & Theme Contrast Verification**
+- [x] **Task 3.2: Codebase Audit & Theme Contrast Verification**
   - *Complexity*: Low-Medium (Codebase search & audit) | 🟡 **Gemini 3.6 Flash (Medium)**
 
 

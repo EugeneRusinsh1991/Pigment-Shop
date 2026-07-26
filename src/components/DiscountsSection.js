@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
-import { Text, View, useWindowDimensions } from 'react-native';
+import { View, useWindowDimensions } from 'react-native';
+import { Text, Heading } from './Text';
 import { PlaceholderGrid } from '../features/catalog/PlaceholderCard';
 import { CountdownTimer } from './FeaturedSections';
 import { useCatalog } from '../context/CatalogContext';
@@ -20,9 +21,9 @@ function DiscountsHeader({ isWide, isDark, title }) {
   };
   return (
     <ScrollFadeUp style={headerStyle}>
-      <Text style={[styles.sectionTitle, isDark ? styles.textDark : styles.textLight]}>
+      <Heading level={2} style={styles.sectionTitle} isDark={isDark}>
         {title}
-      </Text>
+      </Heading>
       <CountdownTimer isDark={isDark} />
     </ScrollFadeUp>
   );
@@ -65,7 +66,7 @@ export default function DiscountsSection({ isDark, isWide, t, onCardPress, favs 
       <DiscountsHeader isWide={isWide} isDark={isDark} title={t.discounts} />
       {discountedProducts.length === 0 ? (
         <View style={{ paddingVertical: 32, alignItems: 'center' }}>
-          <Text style={{ fontSize: 14, color: isDark ? '#94a3b8' : '#64748b', fontStyle: 'italic', textAlign: 'center' }}>
+          <Text variant="body" color="muted" style={{ fontStyle: 'italic', textAlign: 'center' }}>
             {t.emptyDiscounts}
           </Text>
         </View>

@@ -1,4 +1,5 @@
-import { KeyboardAvoidingView, Platform, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { KeyboardAvoidingView, Platform, ScrollView, TextInput, TouchableOpacity, View } from 'react-native';
+import { Text } from '../../components/Text';
 import { useTheme } from '../../context/ThemeContext';
 import { useLanguage } from '../../context/LanguageContext';
 import { useLoginForm } from '../../hooks/useLoginForm';
@@ -63,7 +64,7 @@ export default function LoginPage({ isDark: isDarkProp }) {
 
                 <View style={styles.dividerContainer}>
                   <View style={[styles.dividerLine, ic(isDark, styles.dividerLineDark, styles.dividerLineLight)]} />
-                  <Text style={[styles.dividerText, ic(isDark, styles.subtextDark, styles.subtextLight)]}>{t('loginDivider').toUpperCase()}</Text>
+                  <Text variant="caption" color="muted" style={styles.dividerText}>{t('loginDivider').toUpperCase()}</Text>
                   <View style={[styles.dividerLine, ic(isDark, styles.dividerLineDark, styles.dividerLineLight)]} />
                 </View>
 
@@ -89,7 +90,7 @@ export default function LoginPage({ isDark: isDarkProp }) {
 
                 <View style={styles.inputGroup}>
                   <View style={styles.passwordLabelRow}>
-                    <Text style={[styles.label, ic(isDark, styles.textDark, styles.textLight)]}>{t('loginPasswordLabel')}</Text>
+                    <Text variant="label" style={styles.label}>{t('loginPasswordLabel')}</Text>
                     <ForgotPasswordLink isRegister={isRegister} isDark={isDark} />
                   </View>
                   <PasswordInputField

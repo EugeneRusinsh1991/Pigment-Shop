@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
-import { Text, View, useWindowDimensions } from 'react-native';
+import { View, useWindowDimensions } from 'react-native';
+import { Text, Heading } from './Text';
 import { PlaceholderGrid } from '../features/catalog/PlaceholderCard';
 import { useCatalog } from '../context/CatalogContext';
 import { getDeviceTier } from '../utils/layout';
@@ -39,7 +40,7 @@ function EmptyArrivalsMessage({ isDark, text }) {
   const textColor = isDark ? colors.textDescDark : colors.textSubtleDark;
   return (
     <View style={{ paddingVertical: 32, alignItems: 'center' }}>
-      <Text style={{ fontSize: 14, color: textColor, fontStyle: 'italic', textAlign: 'center' }}>
+      <Text variant="body" color="muted" style={{ fontStyle: 'italic', textAlign: 'center' }}>
         {text}
       </Text>
     </View>
@@ -62,9 +63,9 @@ export default function NewArrivalsFooter({ isDark, isWide, t, onCardPress, favs
   return (
     <View style={styles.footerProductsSection}>
       <ScrollFadeUp>
-        <Text style={[styles.sectionTitle, isDark ? styles.textDark : styles.textLight, styles.footerTitlePadding]}>
+        <Heading level={2} style={[styles.sectionTitle, styles.footerTitlePadding]} isDark={isDark}>
           {t.newArrivals}
-        </Text>
+        </Heading>
       </ScrollFadeUp>
       {newArrivals.length === 0 ? (
         <EmptyArrivalsMessage isDark={isDark} text={t.emptyNewArrivals} />

@@ -1,5 +1,6 @@
 import React from 'react';
-import { ScrollView, Text, View, Image } from 'react-native';
+import { ScrollView, View, Image } from 'react-native';
+import { Text } from '../../components/Text';
 import { Link } from 'expo-router';
 import { useTheme } from '../../context/ThemeContext';
 import { getLocalizedValue } from '../../utils/localization';
@@ -26,12 +27,12 @@ const ResultRow = React.forwardRef(({ item, isDark, onPress, ...rest }, ref) => 
       {item.image ? (
         <Image source={{ uri: item.image }} style={{ width: 24, height: 24, borderRadius: 4 }} />
       ) : (
-        <Text style={{ fontSize: 16 }}>{item.icon || '📦'}</Text>
+        <Text variant="body" style={{ fontSize: 16 }}>{item.icon || '📦'}</Text>
       )}
-      <Text style={[{ flex: 1, fontSize: 14 }, SearchStyles[`text_${isDark ? 'defaultDark' : 'defaultLight'}`]]} numberOfLines={1}>
+      <Text variant="body" style={[{ flex: 1, fontSize: 14 }, SearchStyles[`text_${isDark ? 'defaultDark' : 'defaultLight'}`]]} numberOfLines={1}>
         {label}
       </Text>
-      <Text style={{ fontSize: 16, opacity: 0.5 }}>›</Text>
+      <Text variant="caption" color="muted" style={{ fontSize: 16 }}>›</Text>
     </AnimatedButton>
   );
 });
@@ -42,7 +43,7 @@ function EmptySearchState({ query, isDark, t }) {
 
   return (
     <View style={SearchStyles.dropdownOverlay}>
-      <Text style={[{ padding: 14, textAlign: 'center', fontSize: 14 }, SearchStyles[`text_${isDark ? 'defaultDark' : 'defaultLight'}`]]}>
+      <Text variant="body" style={[{ padding: 14, textAlign: 'center', fontSize: 14 }, SearchStyles[`text_${isDark ? 'defaultDark' : 'defaultLight'}`]]}>
         {message}
       </Text>
     </View>
@@ -53,7 +54,7 @@ function MoreResultsHint({ count, isDark, t }) {
   if (count <= 0) return null;
   const message = t('searchRefinementHint')?.replace('{count}', count) || `+${count} more results`;
   return (
-    <Text style={[{ padding: 10, textAlign: 'center', fontSize: 12, opacity: 0.7 }, SearchStyles[`text_${isDark ? 'defaultDark' : 'defaultLight'}`]]}>
+    <Text variant="caption" color="muted" style={[{ padding: 10, textAlign: 'center', fontSize: 12 }, SearchStyles[`text_${isDark ? 'defaultDark' : 'defaultLight'}`]]}>
       {message}
     </Text>
   );

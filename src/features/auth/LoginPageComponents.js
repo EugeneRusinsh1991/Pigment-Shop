@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { View, TextInput, TouchableOpacity } from 'react-native';
+import { Text, Heading } from '../../components/Text';
 import styles from './LoginPageStyles';
 import { LockIcon, EyeIcon, EyeOffIcon, ForwardArrowIcon } from '@/components/Icons';
 import { useTheme } from '../../context/ThemeContext';
@@ -16,10 +17,10 @@ export function LoginHeader({ isRegister, isDark }) {
       <View style={[styles.iconContainer, ic(isDark, styles.iconContainerDark, styles.iconContainerLight), { justifyContent: 'center', alignItems: 'center' }]}>
         <ForwardArrowIcon color={isDark ? '#FFFFFF' : '#1C1C1C'} size={18} />
       </View>
-      <Text style={[styles.title, ic(isDark, styles.textDark, styles.textLight)]}>
+      <Heading level={2} style={styles.title}>
         {isRegister ? t('loginCreateAccount') : t('loginWelcome')}
-      </Text>
-      <Text style={[styles.subtitle, ic(isDark, styles.subtextDark, styles.subtextLight)]}>
+      </Heading>
+      <Text variant="body" color="muted" style={styles.subtitle}>
         {isRegister ? t('loginSignUpGetStarted') : t('loginToAccount')}
       </Text>
     </View>
@@ -57,7 +58,7 @@ export function LoginFooter({ isRegister, isDark, setIsRegister, setError }) {
   const { t } = useTheme();
   return (
     <View style={styles.footer}>
-      <Text style={[styles.footerText, ic(isDark, styles.subtextDark, styles.subtextLight)]}>
+      <Text variant="body" color="muted" style={styles.footerText}>
         {isRegister ? t('loginAlreadyHaveAccount') : t('loginDontHaveAccount')}{' '}
         <Button
           testID="login-toggle-mode-button"
@@ -85,7 +86,7 @@ export function ErrorText({ error }) {
   else if (error === 'Invalid credentials') errorMsg = t('loginErrorInvalid');
   else if (error === 'Google Sign-In failed') errorMsg = t('errorGoogleSignInFailed');
 
-  return <Text testID="login-error-text" style={styles.errorText}>{errorMsg}</Text>;
+  return <Text testID="login-error-text" variant="body" color="error" style={styles.errorText}>{errorMsg}</Text>;
 }
 
 export function ForgotPasswordLink({ isRegister, isDark }) {
@@ -108,7 +109,7 @@ export function ConfirmPasswordField({ isRegister, value, onChangeText, isDark, 
   if (!isRegister) return null;
   return (
     <View style={styles.inputGroup}>
-      <Text style={[styles.label, ic(isDark, styles.textDark, styles.textLight)]}>{t('loginConfirmPassword')}</Text>
+      <Text variant="label" style={styles.label}>{t('loginConfirmPassword')}</Text>
       <PasswordInputField
         value={value}
         onChangeText={onChangeText}

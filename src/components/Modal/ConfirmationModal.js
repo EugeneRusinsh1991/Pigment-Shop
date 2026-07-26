@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import { Text, Heading } from '../Text';
 import { useTheme } from '../../context/ThemeContext';
 import { colors, layout, shadows } from '../../theme/tokens';
 import { Button } from '../Button';
@@ -55,10 +56,10 @@ export default function ConfirmationModal({
       {...modalProps}
     >
       {resolvedTitle ? (
-        <Text style={[styles.title, { color: titleColor }]}>{resolvedTitle}</Text>
+        <Heading level={3} style={styles.title}>{resolvedTitle}</Heading>
       ) : null}
       {message ? (
-        <Text style={[styles.message, { color: messageColor }]}>{message}</Text>
+        <Text variant="body" color="muted" style={styles.message}>{message}</Text>
       ) : null}
       <View style={styles.footer}>
         <Button

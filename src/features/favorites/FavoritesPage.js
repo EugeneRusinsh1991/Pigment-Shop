@@ -1,5 +1,6 @@
 // Favorites page component displaying the user's saved items.
-import { ScrollView, Text, View } from 'react-native';
+import { ScrollView, View } from 'react-native';
+import { Heading } from '../../components/Text';
 import { useFavoritesContext } from '../../context/FavoritesContext';
 import { useRouter } from 'expo-router';
 import { useTheme } from '../../context/ThemeContext';
@@ -76,7 +77,7 @@ export default function FavoritesPage({ isDark }) {
       <View style={{ flex: 1 }}>
         <View style={[styles.content, { alignSelf: 'center', width: gridWidth, maxWidth: '100%', paddingBottom: 24 }]}> 
           <ScrollFadeUp>
-            <Text style={[styles.title, ic(styles.textDark, styles.textLight)]}>{t('favoritesTitle')}</Text>
+            <Heading level={1} style={styles.title} isDark={isDark}>{t('favoritesTitle')}</Heading>
           </ScrollFadeUp>
 
           {favorites.length === 0

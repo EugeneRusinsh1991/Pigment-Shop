@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { ScrollView, Text, View } from 'react-native';
+import { ScrollView, View } from 'react-native';
+import { Heading } from '../../components/Text';
 import { useAuth } from '../../context/AuthContext';
 import { useTheme } from '../../context/ThemeContext';
 import { useOrders } from '../../hooks/useOrders';
@@ -78,9 +79,9 @@ export default function OrdersPage({ isDark }) {
       <View style={{ flex: 1 }}>
         <View style={contentWrapperStyle}>
           <ScrollFadeUp>
-            <Text style={[styles.title, { color: isDark ? '#FFFFFF' : '#1C1C1C' }]}>
+            <Heading level={1} style={styles.title} isDark={isDark}>
               {t('ordersTitle')}
-            </Text>
+            </Heading>
           </ScrollFadeUp>
           
           <OrdersList

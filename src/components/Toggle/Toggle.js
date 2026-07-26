@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, Animated } from 'react-native';
+import { View, TouchableOpacity, Animated } from 'react-native';
+import { Text } from '../../components/Text';
 import { calculateHitSlop } from '../../theme/buttonCommon';
 import styles from './ToggleStyles';
 import { useToggleTheme } from './useToggleTheme';
@@ -58,7 +59,7 @@ function renderToggleOption(opt, index, ctx) {
       accessibilityRole="tab"
       accessibilityState={{ selected: isActive }}
     >
-      <Text style={getOptionTextStyle(isActive, ctx.textSizeStyle, ctx.theme, ctx.textStyle, ctx.activeTextStyle)}>
+      <Text variant="body" style={getOptionTextStyle(isActive, ctx.textSizeStyle, ctx.theme, ctx.textStyle, ctx.activeTextStyle)}>
         {optionLabel}
       </Text>
     </TouchableOpacity>

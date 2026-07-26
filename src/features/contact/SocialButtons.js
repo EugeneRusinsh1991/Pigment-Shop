@@ -1,5 +1,6 @@
 import React from 'react';
-import { Platform, Text, Linking } from 'react-native';
+import { Platform, Linking } from 'react-native';
+import { Text } from '../../components/Text';
 import styles from './ContactPageStyles';
 import { Button } from '../../components/Button';
 import ScrollFadeUp from '../../components/ScrollFadeUp';

@@ -1,5 +1,6 @@
 import React, { useState, forwardRef, useCallback } from 'react';
-import { View, Text, TextInput, Animated } from 'react-native';
+import { View, TextInput, Animated } from 'react-native';
+import { Text } from '../../components/Text';
 import styles, { getTextFieldStyles } from './TextFieldStyles';
 import { useTextFieldTheme } from './useTextFieldTheme';
 import { useTextFieldAnimation } from './useTextFieldAnimation';
@@ -12,7 +13,7 @@ function getDisplayHelperText(error, helperText) {
 function renderLabel(label, dynamicStyles, labelStyle) {
   if (!label) return null;
   return (
-    <Text style={[dynamicStyles.label, labelStyle]}>
+    <Text variant="label" style={[dynamicStyles.label, labelStyle]}>
       {label}
     </Text>
   );
@@ -21,7 +22,7 @@ function renderLabel(label, dynamicStyles, labelStyle) {
 function renderHelperText(displayHelperText, dynamicStyles, helperStyle) {
   if (!displayHelperText) return null;
   return (
-    <Text style={[dynamicStyles.helperText, helperStyle]}>
+    <Text variant="caption" color="muted" style={[dynamicStyles.helperText, helperStyle]}>
       {displayHelperText}
     </Text>
   );

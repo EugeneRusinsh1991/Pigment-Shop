@@ -1,7 +1,7 @@
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
+import { Text } from './Text';
 import { useCatalog } from '../context/CatalogContext';
 import { useTheme } from '../context/ThemeContext';
-import commonStyles from '../theme/commonStyles';
 import { colors } from '../theme/tokens';
 import styles from './OrdersPageStyles';
 import { getLocalizedValue } from '../utils/localization';
@@ -31,14 +31,14 @@ function OrderItemRow({ item, idx, getStyle }) {
   return (
     <View style={[styles.itemRow, idx > 0 && getStyle(styles.itemBorderDark, styles.itemBorderLight)]}>
       <View style={styles.itemInfo}>
-        <Text style={[styles.itemLabel, getStyle(commonStyles.textDark, commonStyles.textLight)]} numberOfLines={1}>
+        <Text style={styles.itemLabel} numberOfLines={1}>
           {label}
         </Text>
-        <Text style={[styles.itemQtyPrice, getStyle(commonStyles.subtextDark, commonStyles.subtextLight)]}>
+        <Text variant="caption" color="muted" style={styles.itemQtyPrice}>
           {item.qty} {t('pcs')} × {item.price}
         </Text>
       </View>
-      <Text style={[styles.itemSubtotal, getStyle(commonStyles.textDark, commonStyles.textLight)]}>
+      <Text style={styles.itemSubtotal}>
         ${subtotal}
       </Text>
     </View>
@@ -95,10 +95,10 @@ export function ExpandedItemsList({ show, items, getStyle, order }) {
       ))}
       {order.note ? (
         <View style={{ marginTop: 12, paddingTop: 12, borderTopWidth: 1, borderTopColor: getStyle(colors.neutralDarkFaint, colors.secondaryLightBorder) }}>
-          <Text style={[styles.itemLabel, getStyle(commonStyles.subtextDark, commonStyles.subtextLight), { fontSize: 12, marginBottom: 4 }]}> 
+          <Text variant="caption" color="muted" style={[styles.itemLabel, { marginBottom: 4 }]}> 
             {getItemLabel({ en: 'Order Note', ru: 'Комментарий к заказу', uk: 'Коментар до замовлення' }, theme.lang)}
           </Text>
-          <Text style={[styles.itemLabel, getStyle(commonStyles.textDark, commonStyles.textLight)]}>
+          <Text style={styles.itemLabel}>
             {order.note}
           </Text>
         </View>
