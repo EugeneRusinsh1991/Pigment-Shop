@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, useWindowDimensions } from 'react-native';
+import { View, useWindowDimensions } from 'react-native';
+import { Text } from '../Text';
 import EmptyState from './EmptyState';
 import { colors, layout } from '../../theme/tokens';
 import { useTheme } from '../../context/ThemeContext';

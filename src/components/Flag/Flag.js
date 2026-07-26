@@ -1,5 +1,6 @@
 import React from 'react';
-import { Pressable, Text, View } from 'react-native';
+import { Pressable, View } from 'react-native';
+import { Text } from '../Text';
 import styles, { HIT_SLOP_44, colorSchemes } from './FlagStyles';
 import { useFlagTheme } from './useFlagTheme';
 

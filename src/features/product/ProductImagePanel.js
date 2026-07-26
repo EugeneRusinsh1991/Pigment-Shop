@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
-import { View, Text, Animated } from 'react-native';
+import { View, Animated } from 'react-native';
+import { Text } from '../../components/Text/Text';
 import styles from './ProductPageStyles';
 import MediaRenderer from '../../components/Media/MediaRenderer';
 import { useCarouselState, getCarouselOpacity } from '../../hooks/useCarouselState';

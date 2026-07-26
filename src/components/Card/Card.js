@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, Image, TouchableOpacity, Animated, StyleSheet } from 'react-native';
+import { View, Image, TouchableOpacity, Animated, StyleSheet } from 'react-native';
+import { Text } from '../Text';
 import { useCardTheme } from './useCardTheme';
 import { useCardAnimation } from './useCardAnimation';
 import { slotStyles } from './CardStyles';

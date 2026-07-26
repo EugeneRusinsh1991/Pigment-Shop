@@ -1,5 +1,6 @@
 import React from 'react';
-import { ActivityIndicator, Animated, Platform, Pressable, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { ActivityIndicator, Animated, Platform, Pressable, StyleSheet, TouchableOpacity } from 'react-native';
+import { Text } from '../Text';
 import { useButtonProps, DEFAULT_ACTIVE_OPACITY, calculateHitSlop } from '../../theme/buttonCommon';
 import { colors, buttonTokens, motion } from '../../theme/tokens';
 import styles from './ButtonStyles';

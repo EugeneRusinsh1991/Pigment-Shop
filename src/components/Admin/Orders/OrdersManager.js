@@ -2,7 +2,7 @@
  * OrdersManager.js
  */
 import { useMemo, useState } from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
 import useSort from '../../../hooks/useSort';
 import OrderDetails from './OrderDetails';

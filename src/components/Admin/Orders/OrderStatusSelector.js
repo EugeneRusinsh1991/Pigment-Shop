@@ -2,7 +2,7 @@
  * OrderStatusSelector.js — with status badge colors on trigger + dropdown
  */
 import { useState } from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 import { Flag } from '../../Flag';
 import styles from './OrdersStyles';
 import OrderStatusDropdownMenu from './OrderStatusDropdownMenu';

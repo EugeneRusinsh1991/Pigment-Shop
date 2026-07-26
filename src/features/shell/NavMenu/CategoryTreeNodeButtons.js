@@ -1,5 +1,6 @@
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
+import { Text } from '../../../components/Text/Text';
 import { useRouter } from 'expo-router';
 import Button, { IconButton } from '../../../components/Button';
 import { ChevronDownIcon, ChevronRightIcon } from '../../../components/Icons';

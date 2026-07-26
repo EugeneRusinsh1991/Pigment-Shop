@@ -1,4 +1,4 @@
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
 import OrderCard from '../../OrderCard';
 import EmptyState from '../../DataTable/EmptyState';

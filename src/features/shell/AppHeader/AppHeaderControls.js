@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { Link } from 'expo-router';
 import { IconButton } from '@/components/Button';
 import { BagIcon, CurrencyIcon, GlobeIcon, ThemeIcon, UserIcon } from '@/components/Icons';

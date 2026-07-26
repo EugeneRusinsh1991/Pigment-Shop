@@ -9,7 +9,7 @@
  * - Enforces MAX_DEPTH: hides + button on depth-5 rows.
  */
 import React, { useCallback, useMemo, useState } from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 import { Button } from '../../Button';
 import { ChipButton } from '../../Button';
 import styles from './CategoriesStyles';

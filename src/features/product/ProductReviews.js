@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, useWindowDimensions } from 'react-native';
+import { View, useWindowDimensions } from 'react-native';
+import { Text } from '../../components/Text/Text';
 import styles from './ProductReviewsStyles';
 import { useTheme } from '../../context/ThemeContext';
 import { useAuth } from '../../context/AuthContext';

@@ -1,4 +1,5 @@
-import { Image, Text, View } from 'react-native';
+import { Image, View } from 'react-native';
+import { Text } from '../../../components/Text/Text';
 import { useRouter } from 'expo-router';
 import { BackArrowIcon, CrossIcon } from '../../../components/Icons';
 import Button, { IconButton } from '../../../components/Button';

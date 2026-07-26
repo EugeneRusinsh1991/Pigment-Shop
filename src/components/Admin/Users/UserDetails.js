@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
+import { Text } from '../../Text';
 import { useTheme } from '../../../context/ThemeContext';
 import { BackArrowIcon } from '@/components/Icons';
 import { Button } from '../../Button';

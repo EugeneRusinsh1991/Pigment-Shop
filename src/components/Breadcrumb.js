@@ -1,4 +1,5 @@
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
+import { Text } from './Text';
 import { Link, useSegments, useLocalSearchParams } from 'expo-router';
 import { useTheme } from '../context/ThemeContext';
 import { useCatalog } from '../context/CatalogContext';

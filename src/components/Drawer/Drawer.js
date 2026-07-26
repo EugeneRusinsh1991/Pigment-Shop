@@ -1,5 +1,6 @@
 import React from 'react';
-import { Animated, Modal, Platform, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Animated, Modal, Platform, Pressable, StyleSheet, View } from 'react-native';
+import { Text } from '../Text';
 import { colors, layout, shadows } from '../../theme/tokens';
 
 export function DrawerHeader({ title, onClose, children, style, titleStyle }) {

@@ -8,7 +8,8 @@
  * - DescriptionField    (localized description textarea)
  */
 import { useState } from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
+import { Text } from '../../Text';
 import { AnimatedButton } from '../../Button';
 import { useTheme } from '../../../context/ThemeContext';
 import { fromMediaRef } from '../../../media';

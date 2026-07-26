@@ -1,4 +1,5 @@
-import { Text, TouchableOpacity, View } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
+import { Text } from '@/components/Text';
 import { useTheme } from '../../../context/ThemeContext';
 import { DataTableCell, DataTableRow } from '../../DataTable/DataTable';
 import { IconButton } from '@/components/Button';

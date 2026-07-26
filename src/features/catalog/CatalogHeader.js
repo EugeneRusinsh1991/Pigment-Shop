@@ -1,4 +1,5 @@
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
+import { Text } from '../../components/Text/Text';
 import styles from '../../AppStyles';
 import { Link } from 'expo-router';
 import HeroCarousel from '../../components/HeroCarousel';

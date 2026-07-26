@@ -7,7 +7,8 @@
  * Displays a compact list of users. Clicking a user shows their details and orders.
  */
 import React, { useState } from 'react';
-import { ActivityIndicator, Text, View } from 'react-native';
+import { ActivityIndicator, View } from 'react-native';
+import { Text } from '../../Text';
 import { SearchInput } from '../../Search';
 import EmptyState from '../../DataTable/EmptyState';
 import { useTheme } from '../../../context/ThemeContext';

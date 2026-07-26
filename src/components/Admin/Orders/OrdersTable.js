@@ -1,5 +1,6 @@
 import React from 'react';
-import { ActivityIndicator, Text } from 'react-native';
+import { ActivityIndicator } from 'react-native';
+import { Text } from '../../Text';
 import DataTable from '../../DataTable/DataTable';
 import { MobileOrderRow, DesktopOrderRow } from './OrderRow';
 import styles from './OrdersStyles';

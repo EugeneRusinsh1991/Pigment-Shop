@@ -1,4 +1,5 @@
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
+import { Text } from '../../components/Text/Text';
 import sidebarStyles from './CatalogFilterSidebarStyles';
 import { SORT_OPTIONS } from './useCatalogFilters';
 import CatalogPagination from './CatalogPagination';

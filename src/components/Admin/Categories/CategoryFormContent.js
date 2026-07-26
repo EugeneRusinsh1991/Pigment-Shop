@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Text } from '../../Text';
 import { LanguageTabs } from '../SharedFormComponents';
 import { CategoryTypeDisplay, CategoryTypeSelect, DescriptionField, ImagePickerField, NameField } from './CategoryFormFields';
 import { CategoryProductSection } from './CategoryProductSection';
