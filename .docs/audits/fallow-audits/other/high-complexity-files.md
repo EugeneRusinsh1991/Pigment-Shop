@@ -1,11 +1,8 @@
 # 🧠 Highly Complex Files
 
-*Generated on: 26.07.2026, 21:16:52*
+*Generated on: 26.07.2026, 21:22:39*
 
 ### Highly Complex Files (< 200 lines)
-
-- **[catalog-generator.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/catalog-generator.js)** (`.tools/auditor/catalog-generator.js`)
-  - Lines: 147 | CRAP Max: 462 | Complex Funcs: 3 | Density: 33%
 
 - **[hardcode-styles-auditor.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-styles-auditor.js)** (`.tools/auditor/hardcode-styles-auditor.js`)
   - Lines: 136 | CRAP Max: 306 | Complex Funcs: 3 | Density: 34%

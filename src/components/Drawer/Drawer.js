@@ -1,11 +1,13 @@
 import React from 'react';
-import { Animated, Modal, Platform, Pressable, StyleSheet, View } from 'react-native';
+import { Animated, Modal, Pressable, StyleSheet, View } from 'react-native';
 import { Text } from '../Text';
-import { colors, layout, shadows } from '../../theme/tokens';
+import { getDrawerStyles, drawerStyles } from './DrawerStyles';
+import { useDrawerTheme } from './useDrawerTheme';
+import { useDrawerAnimation } from './useDrawerAnimation';
 
 export function DrawerHeader({ title, onClose, children, style, titleStyle }) {
   return (
-    <View style={[styles.header, style]}>
+    <View style={[drawerStyles.header, style]}>
       {title ? <Text variant="h4" style={titleStyle}>{title}</Text> : null}
       {children}
     </View>
@@ -14,7 +16,7 @@ export function DrawerHeader({ title, onClose, children, style, titleStyle }) {
 
 export function DrawerFooter({ children, style }) {
   return (
-    <View style={[styles.footer, style]}>
+    <View style={[drawerStyles.footer, style]}>
       {children}
     </View>
   );
@@ -22,74 +24,66 @@ export function DrawerFooter({ children, style }) {
 
 export function Drawer({
   visible,
+  isOpen,
   onClose,
-  scrimOpacity,
-  panelWidth,
-  slideAnim,
-  isDark,
+  scrimOpacity: scrimOpacityProp,
+  panelWidth = 300,
+  position = 'left',
+  slideAnim: slideAnimProp,
+  isDark: isDarkProp,
+  style,
   children,
 }) {
+  const activeVisible = isOpen !== undefined ? isOpen : visible;
+
+  const animation = useDrawerAnimation({
+    visible: activeVisible,
+    panelWidth,
+    position,
+    onClose,
+  });
+
+  const styles = getDrawerStyles(position);
+  const theme = useDrawerTheme({ isDarkProp, styleMap: styles });
+
+  const activeSlideAnim = slideAnimProp || animation.slideAnim;
+  const activeScrimOpacity = scrimOpacityProp || animation.scrimOpacity;
+  const isVisible = activeVisible !== undefined ? activeVisible : animation.shouldRender;
+
+  const handleCloseAction = onClose || animation.handleClose;
+
   return (
-    <Modal visible={visible} transparent animationType="none" onRequestClose={onClose}>
+    <Modal visible={isVisible} transparent animationType="none" onRequestClose={handleCloseAction}>
       <View id="app-drawer" style={styles.container}>
         <Animated.View
           style={[
             StyleSheet.absoluteFill,
-            {
-              backgroundColor: colors.overlayScrim,
-              opacity: scrimOpacity,
-            },
+            theme.styles.overlay,
+            { opacity: activeScrimOpacity },
           ]}
         />
         <Animated.View
           style={[
             styles.panel,
-            isDark ? styles.panelDark : styles.panelLight,
+            theme.panelStyle,
             {
               width: panelWidth,
-              transform: [{ translateX: slideAnim }],
+              transform: [{ translateX: activeSlideAnim }],
             },
+            style,
           ]}
         >
           {children}
         </Animated.View>
-        <Pressable style={{ flex: 1 }} onPress={onClose} accessibilityRole="button" accessibilityLabel="Close drawer" />
+        <Pressable
+          style={{ flex: 1 }}
+          onPress={handleCloseAction}
+          accessibilityRole="button"
+          accessibilityLabel="Close drawer"
+        />
       </View>
     </Modal>
   );
 }
 
 export default Drawer;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'row',
-    position: 'relative',
-    zIndex: layout.zIndices.drawer,
-  },
-  panel: {
-    height: '100%',
-    ...Platform.select({
-      web: shadows.drawerSide.web,
-      default: shadows.drawerSide.native,
-    }),
-    elevation: layout.elevation.xl,
-  },
-  panelDark: { backgroundColor: colors.navSurfaceDark },
-  panelLight: { backgroundColor: colors.white },
-  header: {
-    padding: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.secondaryLightBorder,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  footer: {
-    padding: 16,
-    borderTopWidth: 1,
-    borderTopColor: colors.secondaryLightBorder,
-    marginTop: 'auto',
-  },
-});

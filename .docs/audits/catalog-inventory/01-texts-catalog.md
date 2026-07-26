@@ -208,7 +208,7 @@
   - Line [38](file:///D:/Magazine/_PigmentShop/src/components/DataTable/DataTable.js#L38): `<Text>` -> `[Dynamic Content]`
 
 ### File: [src/components/Drawer/Drawer.js](file:///D:/Magazine/_PigmentShop/src/components/Drawer/Drawer.js)
-  - Line [9](file:///D:/Magazine/_PigmentShop/src/components/Drawer/Drawer.js#L9): `<Text>` -> `[Dynamic Content]`
+  - Line [11](file:///D:/Magazine/_PigmentShop/src/components/Drawer/Drawer.js#L11): `<Text>` -> `[Dynamic Content]`
 
 ### File: [src/components/Feedback/EmptyState/EmptyState.js](file:///D:/Magazine/_PigmentShop/src/components/Feedback/EmptyState/EmptyState.js)
   - Line [21](file:///D:/Magazine/_PigmentShop/src/components/Feedback/EmptyState/EmptyState.js#L21): `<Text>` -> `[Dynamic Content]`

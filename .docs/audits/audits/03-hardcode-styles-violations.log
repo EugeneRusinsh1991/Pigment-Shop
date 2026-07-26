@@ -1,9 +1,9 @@
 ===================================================================
          3. HARDCODED STYLES, COLORS & SPACING REPORT              
-Timestamp: 26.07.2026, 21:16:44
+Timestamp: 26.07.2026, 21:22:30
 ===================================================================
 
-Found 1380 issue(s) across 175 file(s):
+Found 1380 issue(s) across 176 file(s):
 
 File: src\AppStyles.js
   L39    [HARDCODED_SPACING] paddingTop 16px -> paddingTop: 16,
@@ -795,10 +795,12 @@ File: src\components\DataTable\EmptyState.js
   L10    [INLINE_STYLE] <GlobalEmptyState style={style}>
 
 File: src\components\Drawer\Drawer.js
-  L9     [INLINE_STYLE] {title ? <Text variant="h4" style={titleStyle}>{title}</Text> : null}
-  L56    [INLINE_STYLE] <Pressable style={{ flex: 1 }} onPress={onClose} accessibilityRole="button" accessibilityLabel="Close drawer" />
-  L82    [HARDCODED_SPACING] padding 16px -> padding: 16,
-  L90    [HARDCODED_SPACING] padding 16px -> padding: 16,
+  L11    [INLINE_STYLE] {title ? <Text variant="h4" style={titleStyle}>{title}</Text> : null}
+  L79    [INLINE_STYLE] style={{ flex: 1 }}
+
+File: src\components\Drawer\DrawerStyles.js
+  L26    [HARDCODED_SPACING] padding 16px -> padding: 16,
+  L34    [HARDCODED_SPACING] padding 16px -> padding: 16,
 
 File: src\components\Feedback\EmptyState\EmptyState.js
   L21    [INLINE_STYLE] return <Text variant="body" color="muted" style={descriptionStyle}>{children}</Text>;

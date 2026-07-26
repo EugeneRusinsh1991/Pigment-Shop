@@ -234,6 +234,13 @@ export const motion = {
     tension: 40,
     scale: 1.1,
   },
+  drawer: {
+    slideDuration: 250,
+    durationIn: 250,
+    durationOut: 220,
+    friction: 7,
+    tension: 40,
+  },
 };
 
 export const shadows = {
