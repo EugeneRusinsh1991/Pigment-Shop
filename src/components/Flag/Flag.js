@@ -3,7 +3,6 @@ import { Pressable, View } from 'react-native';
 import { Text } from '../Text';
 import styles, { HIT_SLOP_44, colorSchemes } from './FlagStyles';
 import { useFlagTheme } from './useFlagTheme';
-import { colors } from '../../theme/tokens';
 
 function resolveSchemeStyles(colorScheme, isDark, lightKey, darkKey) {
   const scheme = colorScheme ? colorSchemes[colorScheme] : null;
@@ -14,7 +13,7 @@ function getChipContainerStyle(isDark, checked, disabled, readOnly, colorScheme,
   const darkStyle = isDark ? styles.chipContainerDark : null;
   const checkedStyle = checked ? (isDark ? styles.chipActiveDark : styles.chipActive) : null;
   const schemeContainer = resolveSchemeStyles(colorScheme, isDark, 'container', 'containerDark');
-  const opacityStyle = (disabled && !readOnly) ? { opacity: 0.5 } : null;
+  const opacityStyle = (disabled && !readOnly) ? styles.disabledOpacity : null;
   return [styles.baseContainer, styles.chipContainer, darkStyle, checkedStyle, schemeContainer, opacityStyle, style];
 }
 
@@ -103,7 +102,7 @@ export function Flag({
     if (React.isValidElement(content)) {
       return content;
     }
-    return <Text style={labelStyle} size={size} weight={weight}>{content}</Text>;
+    return <Text style={[labelStyle]} size={size} weight={weight}>{content}</Text>;
   };
 
   const renderChip = () => {
@@ -116,7 +115,7 @@ export function Flag({
         accessibilityRole={getAccessibilityRole()}
         accessibilityState={{ checked, disabled }}
         accessibilityLabel={accessibilityLabel}
-        style={getChipContainerStyle(isDark, checked, disabled, readOnly, colorScheme, style)}
+        style={[getChipContainerStyle(isDark, checked, disabled, readOnly, colorScheme, style)]}
       >
         {renderChildren(children, getChipLabelStyle(isDark, checked, colorScheme, textStyle), "sm", checked ? "semiBold" : "medium")}
       </Pressable>
@@ -133,10 +132,10 @@ export function Flag({
         accessibilityRole="switch"
         accessibilityState={{ checked, disabled }}
         accessibilityLabel={accessibilityLabel}
-        style={[styles.baseContainer, disabled ? { opacity: 0.5 } : null, style]}
+        style={[styles.baseContainer, disabled ? styles.disabledOpacity : null, style]}
       >
-        <View style={getSwitchTrackStyle(isDark, checked)}>
-          <View style={getSwitchThumbStyle(checked)} />
+        <View style={[getSwitchTrackStyle(isDark, checked)]}>
+          <View style={[getSwitchThumbStyle(checked)]} />
         </View>
         {renderChildren(children, getSwitchLabelStyle(isDark, textStyle), "sm", "medium")}
       </Pressable>
@@ -153,11 +152,11 @@ export function Flag({
         accessibilityRole="checkbox"
         accessibilityState={{ checked, disabled }}
         accessibilityLabel={accessibilityLabel}
-        style={[styles.baseContainer, disabled ? { opacity: 0.5 } : null, style]}
+        style={[styles.baseContainer, disabled ? styles.disabledOpacity : null, style]}
       >
-        <View style={getCheckboxBoxStyle(isDark, checked)}>
+        <View style={[getCheckboxBoxStyle(isDark, checked)]}>
           {checked && (
-            <Text variant="caption" weight="bold" style={{ color: colors.white }}>✓</Text>
+            <Text variant="caption" weight="bold" style={styles.checkMarkText}>✓</Text>
           )}
         </View>
         {renderChildren(children, getCheckboxLabelStyle(isDark, textStyle), "sm", "regular")}

@@ -2,7 +2,7 @@
 type: dynamic-audit
 auditor: ui-architecture
 scope: admin
-date: 2026-07-26T22:24:15.193Z
+date: 2026-07-26T22:32:30.789Z
 ---
 
 ### URL: http://localhost:8081/admin
@@ -296,3 +296,9 @@ date: 2026-07-26T22:24:15.193Z
   Selector: `input.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-paddingBlock-1mkv55d.r-backgroundColor-fj6wrk.r-borderColor-1t4g3vi.r-borderRadius-1xfd6ze.r-color-kgv7a8.r-height-eu3ka.r-outlineStyle-1ny4l3l.r-paddingInline-3o4zer`
 - Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.
   Selector: `input.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-paddingBlock-1mkv55d.r-backgroundColor-fj6wrk.r-borderColor-1t4g3vi.r-borderRadius-1xfd6ze.r-color-kgv7a8.r-height-eu3ka.r-outlineStyle-1ny4l3l.r-paddingInline-3o4zer`
+- Design System: Raw/hardcoded CSS color in inline style.
+  Selector: `button.css-view-g5y9jx.r-touchAction-1otgn73.r-alignItems-1awozwy.r-cursor-1loqt21.r-flexDirection-18u37iz.r-justifyContent-1777fci.r-borderRadius-y47klf.r-minHeight-15ysp7h.r-paddingBlock-vuvdlw.r-paddingInline-3o4zer`
+- Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.
+  Selector: `button.css-view-g5y9jx.r-touchAction-1otgn73.r-alignItems-1awozwy.r-cursor-1loqt21.r-flexDirection-18u37iz.r-justifyContent-1777fci.r-borderRadius-y47klf.r-minHeight-15ysp7h.r-paddingBlock-vuvdlw.r-paddingInline-3o4zer`
+- Observability: Clickable element touch target is smaller than 44x44px. Size: 1217x38
+  Selector: `button.css-view-g5y9jx.r-touchAction-1otgn73.r-alignItems-1awozwy.r-cursor-1loqt21.r-flexDirection-18u37iz.r-justifyContent-1777fci.r-borderRadius-y47klf.r-minHeight-15ysp7h.r-paddingBlock-vuvdlw.r-paddingInline-3o4zer`

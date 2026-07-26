@@ -134,9 +134,9 @@
   - Line [78](file:///D:/Magazine/_PigmentShop/src/components/Drawer/Drawer.js#L78): `<Pressable>`
 
 ### File: [src/components/Flag/Flag.js](file:///D:/Magazine/_PigmentShop/src/components/Flag/Flag.js)
-  - Line [111](file:///D:/Magazine/_PigmentShop/src/components/Flag/Flag.js#L111): `<Pressable>`
-  - Line [128](file:///D:/Magazine/_PigmentShop/src/components/Flag/Flag.js#L128): `<Pressable>`
-  - Line [148](file:///D:/Magazine/_PigmentShop/src/components/Flag/Flag.js#L148): `<Pressable>`
+  - Line [110](file:///D:/Magazine/_PigmentShop/src/components/Flag/Flag.js#L110): `<Pressable>`
+  - Line [127](file:///D:/Magazine/_PigmentShop/src/components/Flag/Flag.js#L127): `<Pressable>`
+  - Line [147](file:///D:/Magazine/_PigmentShop/src/components/Flag/Flag.js#L147): `<Pressable>`
 
 ### File: [src/components/Modal/ConfirmationModal.js](file:///D:/Magazine/_PigmentShop/src/components/Modal/ConfirmationModal.js)
   - Line [60](file:///D:/Magazine/_PigmentShop/src/components/Modal/ConfirmationModal.js#L60): `<Button>`

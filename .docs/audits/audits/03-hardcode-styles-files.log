@@ -1,15 +1,14 @@
 ===================================================================
                FILES WITH ISSUES REPORT                            
-Timestamp: 27.07.2026, 01:23:35
+Timestamp: 27.07.2026, 01:31:14
 ===================================================================
 
-Found 264 issue(s) across 69 target(s):
+Found 210 issue(s) across 63 target(s):
 
 - src\AppStyles.js (1 issues)
 - src\components\Admin\Analytics\CalendarDayCell.js (3 issues)
 - src\components\Admin\SharedFormComponents.js (2 issues)
 - src\components\Badge\Badge.js (2 issues)
-- src\components\Badge\BadgeStyles.js (7 issues)
 - src\components\Button\Button.js (2 issues)
 - src\components\Button\IconButton.js (1 issues)
 - src\components\Card\BaseCard.js (2 issues)
@@ -17,14 +16,9 @@ Found 264 issue(s) across 69 target(s):
 - src\components\Card\InteractiveCard.js (4 issues)
 - src\components\Card\NavigationCard.js (1 issues)
 - src\components\Card\StaticCard.js (1 issues)
-- src\components\DataTable\DataTable.js (7 issues)
 - src\components\DataTable\EmptyState.js (1 issues)
 - src\components\Drawer\Drawer.js (1 issues)
-- src\components\Flag\Flag.js (6 issues)
-- src\components\Flag\FlagStyles.js (5 issues)
-- src\components\icons\AdminIcons.js (17 issues)
-- src\components\icons\AppIcons.js (28 issues)
-- src\components\icons\CategoryIcons.js (10 issues)
+- src\components\icons\AppIcons.js (26 issues)
 - src\components\icons\ControlIcons.js (28 issues)
 - src\components\Media\GifRenderer.js (2 issues)
 - src\components\Media\VideoRenderer.js (1 issues)

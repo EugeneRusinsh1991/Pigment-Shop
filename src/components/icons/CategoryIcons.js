@@ -1,9 +1,23 @@
 import React from 'react';
-import { Text as RNText, Platform } from 'react-native';
+import { StyleSheet, Text as RNText, Platform } from 'react-native';
 import { colors } from '../../theme/tokens';
 
+const styles = StyleSheet.create({
+  svg: {
+    display: 'inline-block',
+    verticalAlign: 'middle',
+  },
+});
+
 const getThemeColor = (color) => color || colors.textLight;
-const getSvgStyle = (style) => (style ? { display: 'inline-block', verticalAlign: 'middle', ...style } : { display: 'inline-block', verticalAlign: 'middle' });
+const getSvgStyle = (style) => {
+  const base = { display: 'inline-block', verticalAlign: 'middle' };
+  if (!style) return base;
+  if (Array.isArray(style)) {
+    return Object.assign({}, base, ...style.filter(Boolean));
+  }
+  return typeof style === 'object' ? { ...base, ...style } : base;
+};
 const getTextStyle = (color, size, style) => [{ color: getThemeColor(color), fontSize: size }, style];
 
 export const SparkleIcon = ({ color, size = 18, style, ...props }) => {
@@ -16,7 +30,7 @@ export const SparkleIcon = ({ color, size = 18, style, ...props }) => {
       </svg>
     );
   }
-  return <RNText style={getTextStyle(color, size, style)} {...props}>✨</RNText>;
+  return <RNText style={[getTextStyle(color, size, style)]} {...props}>✨</RNText>;
 };
 
 export const LashIcon = ({ color, size = 18, style, ...props }) => {
@@ -32,7 +46,7 @@ export const LashIcon = ({ color, size = 18, style, ...props }) => {
       </svg>
     );
   }
-  return <RNText style={getTextStyle(color, size, style)} {...props}>👁️</RNText>;
+  return <RNText style={[getTextStyle(color, size, style)]} {...props}>👁️</RNText>;
 };
 
 export const BrowIcon = ({ color, size = 18, style, ...props }) => {
@@ -45,7 +59,7 @@ export const BrowIcon = ({ color, size = 18, style, ...props }) => {
       </svg>
     );
   }
-  return <RNText style={getTextStyle(color, size, style)} {...props}>🖌️</RNText>;
+  return <RNText style={[getTextStyle(color, size, style)]} {...props}>🖌️</RNText>;
 };
 
 export const LipIcon = ({ color, size = 18, style, ...props }) => {
@@ -57,7 +71,7 @@ export const LipIcon = ({ color, size = 18, style, ...props }) => {
       </svg>
     );
   }
-  return <RNText style={getTextStyle(color, size, style)} {...props}>👄</RNText>;
+  return <RNText style={[getTextStyle(color, size, style)]} {...props}>👄</RNText>;
 };
 
 export const NeedleIcon = ({ color, size = 18, style, ...props }) => {
@@ -70,5 +84,5 @@ export const NeedleIcon = ({ color, size = 18, style, ...props }) => {
       </svg>
     );
   }
-  return <RNText style={getTextStyle(color, size, style)} {...props}>📍</RNText>;
+  return <RNText style={[getTextStyle(color, size, style)]} {...props}>📍</RNText>;
 };

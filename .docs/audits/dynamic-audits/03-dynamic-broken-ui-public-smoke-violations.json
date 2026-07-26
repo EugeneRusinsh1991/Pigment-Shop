@@ -90,6 +90,11 @@
         "url": "http://localhost:8081/products",
         "message": "Clickable element is overlapped or intercepted by another element.",
         "selector": "button.css-view-g5y9jx.r-touchAction-1otgn73.r-alignItems-1awozwy.r-cursor-1loqt21.r-flexDirection-18u37iz.r-justifyContent-1777fci.r-borderRadius-y47klf.r-borderWidth-1rf8fdq.r-minHeight-15ysp7h.r-paddingBlock-vuvdlw.r-paddingInline-gu64tb.r-backgroundColor-wt1z2b.r-borderColor-1jl7vqb"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Clickable element is overlapped or intercepted by another element.",
+        "selector": "button.css-view-g5y9jx.r-touchAction-1otgn73.r-alignItems-1awozwy.r-cursor-1loqt21.r-flexDirection-18u37iz.r-justifyContent-1777fci.r-backgroundColor-14lw9ot.r-borderColor-1wr2p1e.r-borderRadius-y47klf.r-borderWidth-1rf8fdq.r-minHeight-15ysp7h.r-paddingBlock-vuvdlw.r-paddingInline-3o4zer"
       }
     ]
   },

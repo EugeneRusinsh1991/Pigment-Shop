@@ -65,10 +65,10 @@ const styles = StyleSheet.create({
 
   // --- Variant: Chip ---
   chipContainer: {
-    paddingHorizontal: 14,
+    paddingHorizontal: layout.spacing.md,
     paddingVertical: layout.spacing.xs,
     minHeight: buttonTokens?.sizes?.sm?.height || 32,
-    borderRadius: 20,
+    borderRadius: layout.radii.lg,
     borderWidth: 1.5,
     borderColor: colors.secondaryLightBorder,
     backgroundColor: colors.surfaceLight,
@@ -102,8 +102,8 @@ const styles = StyleSheet.create({
   switchTrack: {
     width: 44,
     height: 24,
-    borderRadius: 12,
-    padding: 2,
+    borderRadius: layout.radii.md,
+    padding: layout.spacing.xxxs,
     backgroundColor: colors.inputBorderLight,
     justifyContent: 'center',
   },
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
   switchThumb: {
     width: 20,
     height: 20,
-    borderRadius: 10,
+    borderRadius: layout.radii.full,
     backgroundColor: colors.white,
   },
   switchThumbActive: {
@@ -167,6 +167,14 @@ const styles = StyleSheet.create({
   checkboxTextDark: {
     color: colors.textDark,
     marginLeft: layout.spacing.sm,
+  },
+
+  // --- Utilities ---
+  disabledOpacity: {
+    opacity: 0.5,
+  },
+  checkMarkText: {
+    color: colors.white,
   },
 });
 

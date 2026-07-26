@@ -3,7 +3,14 @@ import { Text as RNText, Platform } from 'react-native';
 import { colors } from '../../theme/tokens';
 
 const getThemeColor = (color) => color || colors.textLight;
-const getSvgStyle = (style) => (style ? { display: 'inline-block', verticalAlign: 'middle', ...style } : { display: 'inline-block', verticalAlign: 'middle' });
+const getSvgStyle = (style) => {
+  const base = { display: 'inline-block', verticalAlign: 'middle' };
+  if (!style) return base;
+  if (Array.isArray(style)) {
+    return Object.assign({}, base, ...style.filter(Boolean));
+  }
+  return typeof style === 'object' ? { ...base, ...style } : base;
+};
 const getTextStyle = (color, size, style) => [{ color: getThemeColor(color), fontSize: size }, style];
 
 export const CheckIcon = ({ color, size = 16, style, ...props }) => {

@@ -38,7 +38,7 @@ function HeaderCell({ col, sortField, sortDirection, onSort, isDark }) {
   if (isSortable) {
     return (
       <AnimatedButton 
-        style={colStyle}
+        style={[colStyle]}
         onPress={() => onSort ? onSort(col.key) : null}
       >
         <HeaderCellContent col={col} sortField={sortField} sortDirection={sortDirection} isDark={isDark} isSortable={true} />
@@ -47,7 +47,7 @@ function HeaderCell({ col, sortField, sortDirection, onSort, isDark }) {
   }
 
   return (
-    <View style={colStyle}>
+    <View style={[colStyle]}>
       <HeaderCellContent col={col} sortField={sortField} sortDirection={sortDirection} isDark={isDark} isSortable={false} />
     </View>
   );
@@ -116,14 +116,14 @@ export default function DataTable(props) {
 
   if (!data || data.length === 0) {
     return (
-      <View style={cardStyle}>
+      <View style={[cardStyle]}>
         <EmptyState>{emptyText}</EmptyState>
       </View>
     );
   }
 
   return (
-    <View style={cardStyle}>
+    <View style={[cardStyle]}>
       <TableBody
         data={data}
         columns={columns}
@@ -147,18 +147,18 @@ export function DataTableRow({ children, onPress, style, index = 0, isDark: isDa
 
   if (onPress) {
     return (
-      <AnimatedButton style={rowStyle} onPress={onPress} {...props}>
+      <AnimatedButton style={[rowStyle]} onPress={onPress} {...props}>
         {children}
       </AnimatedButton>
     );
   }
 
-  return <View style={rowStyle} {...props}>{children}</View>;
+  return <View style={[rowStyle]} {...props}>{children}</View>;
 }
 
 export function DataTableCell({ children, style, flex, width, align, ...props }) {
   const cellStyle = getCellStyle({ flex, width, align, style });
 
-  return <View style={cellStyle} {...props}>{children}</View>;
+  return <View style={[cellStyle]} {...props}>{children}</View>;
 }
 

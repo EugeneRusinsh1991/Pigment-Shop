@@ -1,18 +1,9 @@
 ===================================================================
                8. MAGIC NUMBERS REPORT                             
-Timestamp: 27.07.2026, 01:23:37
+Timestamp: 27.07.2026, 01:31:15
 ===================================================================
 
-Found 17 magic number issue(s) across 8 file(s):
-
-File: src\components\Badge\BadgeStyles.js
-  L16    Off-grid paddingHorizontal: 10px
-  L21    Off-grid paddingHorizontal: 10px
-  L26    Off-grid paddingHorizontal: 14px
-  L31    Off-grid paddingHorizontal: 14px
-
-File: src\components\Flag\FlagStyles.js
-  L68    Off-grid paddingHorizontal: 14px
+Found 12 magic number issue(s) across 6 file(s):
 
 File: src\features\catalog\CatalogFilterSidebarStyles.js
   L20    Off-grid marginBottom: 6px

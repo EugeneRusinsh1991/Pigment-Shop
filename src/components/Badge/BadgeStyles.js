@@ -4,31 +4,31 @@ import { colors, fonts, layout } from '../../theme/tokens';
 const badgeSizes = {
   sm: {
     paddingHorizontal: layout.spacing.xs,
-    paddingVertical: 2,
+    paddingVertical: layout.spacing.xxxs,
     borderRadius: layout.radii.xs,
   },
   small: {
     paddingHorizontal: layout.spacing.xs,
-    paddingVertical: 2,
+    paddingVertical: layout.spacing.xxxs,
     borderRadius: layout.radii.xs,
   },
   md: {
-    paddingHorizontal: 10,
+    paddingHorizontal: layout.spacing.sm + layout.spacing.xxxs,
     paddingVertical: layout.spacing.xxs,
     borderRadius: layout.radii.full,
   },
   medium: {
-    paddingHorizontal: 10,
+    paddingHorizontal: layout.spacing.sm + layout.spacing.xxxs,
     paddingVertical: layout.spacing.xxs,
     borderRadius: layout.radii.full,
   },
   lg: {
-    paddingHorizontal: 14,
+    paddingHorizontal: layout.spacing.md + layout.spacing.xxxs,
     paddingVertical: layout.spacing.xs,
     borderRadius: layout.radii.full,
   },
   large: {
-    paddingHorizontal: 14,
+    paddingHorizontal: layout.spacing.md + layout.spacing.xxxs,
     paddingVertical: layout.spacing.xs,
     borderRadius: layout.radii.full,
   },
@@ -36,7 +36,7 @@ const badgeSizes = {
     minWidth: 18,
     height: 18,
     paddingHorizontal: layout.spacing.xxs,
-    paddingVertical: 0,
+    paddingVertical: layout.spacing.none,
     borderRadius: layout.radii.full,
   },
 };
