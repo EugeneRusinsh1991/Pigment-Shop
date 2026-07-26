@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import { Text } from '../../Text';
 import { useTheme } from '../../../context/ThemeContext';
 import { FieldTextarea } from '../SharedFormComponents';
+import { colors, layout } from '../../../theme/tokens';
 import styles from './OrdersStyles';
 
 export default function AdminNoteSection({ note, setNote }) {
@@ -16,15 +17,15 @@ export default function AdminNoteSection({ note, setNote }) {
           value={note}
           onChangeText={setNote}
           placeholder={t('adminUserNotePlaceholder')}
-          placeholderTextColor="#94a3b8"
+          placeholderTextColor={colors.textDescDark}
           numberOfLines={4}
           inputStyle={[
             styles.adminNoteInput,
             {
-              borderColor: '#e2e8f0',
+              borderColor: colors.secondaryLightBorder,
               borderWidth: 1,
-              borderRadius: 6,
-              padding: 12,
+              borderRadius: layout.radii.xs,
+              padding: layout.spacing.md,
               minHeight: 100,
             },
           ]}

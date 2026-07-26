@@ -1,13 +1,10 @@
 ===================================================================
                FILES WITH ISSUES REPORT                            
-Timestamp: 26.07.2026, 23:54:06
+Timestamp: 27.07.2026, 00:33:35
 ===================================================================
 
-Found 147 issue(s) across 43 target(s):
+Found 127 issue(s) across 37 target(s):
 
-- src\AppStyles.js (2 issues)
-- src\components\Admin\AdminPanelStyles.js (1 issues)
-- src\components\Admin\Analytics\AnalyticsStyles.js (5 issues)
 - src\components\Admin\Analytics\DateRangeCalendarStyles.js (1 issues)
 - src\components\Admin\Banners\BannersStyles.js (2 issues)
 - src\components\Admin\Categories\CategoriesStyles.js (10 issues)
@@ -18,17 +15,14 @@ Found 147 issue(s) across 43 target(s):
 - src\components\Admin\Media\MediaBrowserStyles.js (9 issues)
 - src\components\Admin\Orders\OrdersStyles.js (10 issues)
 - src\components\Admin\Orders\OrderStatusDropdownMenu.js (1 issues)
-- src\components\Admin\Orders\OrderStatusSelector.js (1 issues)
-- src\components\Admin\Products\MobileProductRow.js (1 issues)
 - src\components\Admin\Products\ProductFormStyles.js (7 issues)
-- src\components\Admin\Products\ProductsStyles.js (19 issues)
+- src\components\Admin\Products\ProductsStyles.js (15 issues)
 - src\components\Admin\SharedFormComponents.js (1 issues)
 - src\components\Admin\Users\UserRow.js (2 issues)
 - src\components\Admin\Users\UsersStyles.js (6 issues)
-- src\components\Badge\BadgeStyles.js (8 issues)
-- src\components\Button\ChipButton.js (1 issues)
+- src\components\Badge\BadgeStyles.js (4 issues)
 - src\components\DataTable\DataTableStyles.js (2 issues)
-- src\components\Flag\FlagStyles.js (2 issues)
+- src\components\Flag\FlagStyles.js (1 issues)
 - src\components\Search\SearchDropdown.js (3 issues)
 - src\features\auth\LoginPageStyles.js (1 issues)
 - src\features\cart\CartItem.js (1 issues)

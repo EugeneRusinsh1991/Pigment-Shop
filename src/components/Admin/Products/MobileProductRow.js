@@ -1,6 +1,7 @@
 import { TouchableOpacity, View } from 'react-native';
 import { Text } from '@/components/Text';
 import { useTheme } from '../../../context/ThemeContext';
+import { layout, typography } from '../../../theme/tokens';
 import { getRowStyle, NewBadge, StatusBadge, ProductRowActions } from './ProductRowComponents';
 import styles from './ProductsStyles';
 
@@ -30,7 +31,7 @@ function MobileMetaGrid({ product, t }) {
         </CardMetaBlock>
       )}
       <CardMetaBlock label={getLabel(t, 'adminProductsColDiscount', 'Discount')}>
-        <Text style={isDiscounted ? styles.discountText : styles.discountNone} size={isDiscounted ? 13 : undefined}>
+        <Text style={isDiscounted ? styles.discountText : styles.discountNone} size={isDiscounted ? typography.sizes.xs : undefined}>
           {isDiscounted ? `-${discount}%` : '—'}
         </Text>
       </CardMetaBlock>
@@ -55,13 +56,13 @@ export function MobileProductRow({ product, index, label, effectivePrice, highli
       {/* Top: name + badge + price + action */}
       <View style={styles.cardTopRow}>
         <View style={{ flex: 1 }}>
-          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, flexWrap: 'wrap' }}>
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: layout.spacing.xs, flexWrap: 'wrap' }}>
             <Text style={styles.productName} numberOfLines={2}>{label}</Text>
             {product.isNew ? <NewBadge /> : null}
           </View>
           {product.sku ? <Text style={styles.productSku}>{product.sku}</Text> : null}
         </View>
-        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: layout.spacing.xxs }}>
           <Text style={styles.priceText}>${effectivePrice.toLocaleString()}</Text>
           <ProductRowActions product={product} onEdit={onEdit} onDelete={onDelete} />
         </View>

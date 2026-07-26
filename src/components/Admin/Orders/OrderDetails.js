@@ -22,8 +22,8 @@ import { updateOrderStatus, updateAdminNote } from '../../../services/adminOrder
 import OrderStatusSelector from './OrderStatusSelector';
 import styles from './OrdersStyles';
 import { useCrudWorkflow } from '../../../hooks/useCrudWorkflow';
+import { colors, layout } from '../../../theme/tokens';
 import AdminSaveFooter from '../shared/AdminSaveFooter';
-import { colors } from '../../../theme/tokens';
 
 function useOrderNote(order) {
   const [note, setNote] = useState(order?.adminNote || '');
@@ -76,7 +76,7 @@ export default function OrderDetails({ order, onBack, onStatusUpdated }) {
   const orderNumber = order.id.slice(-5).toUpperCase();
 
   return (
-    <ScrollView contentContainerStyle={{ paddingBottom: 40 }}>
+    <ScrollView contentContainerStyle={{ paddingBottom: layout.spacing.xxl + layout.spacing.sm }}>
       {/* Back button */}
       <AnimatedButton style={styles.backBtn} onPress={onBack}>
         <BackArrowIcon color={colors.textDescLight} size={16} />

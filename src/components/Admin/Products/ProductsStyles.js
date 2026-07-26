@@ -7,25 +7,25 @@ import { shadow } from '../../../theme/shadows';
 
 export default StyleSheet.create({
   container: {
-    padding: 24,
+    padding: layout.spacing.xl,
   },
 
   /* Toolbar */
   toolbar: {
-    marginBottom: 12,
+    marginBottom: layout.spacing.md,
   },
 
   filterBar: {
     flexDirection: 'row',
     alignItems: 'center',
     flexWrap: 'wrap',
-    gap: 8,
-    marginBottom: 16,
+    gap: layout.spacing.sm,
+    marginBottom: layout.spacing.lg,
   },
   controlBtn: {
     height: buttonTokens.sizes.sm.height,
     paddingHorizontal: 14,
-    borderRadius: 20,
+    borderRadius: layout.radii.lg,
     borderWidth: 1.5,
     borderColor: colors.secondaryLightBorder,
     backgroundColor: colors.surfaceLight,
@@ -49,11 +49,11 @@ export default StyleSheet.create({
   addBtn: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 6,
+    gap: layout.spacing.xs,
     backgroundColor: colors.textLight,
     borderRadius: layout.radii.sm,
     paddingVertical: 11,
-    paddingHorizontal: 18,
+    paddingHorizontal: layout.spacing.lg,
     height: 44,
   },
   addBtnText: {
@@ -63,25 +63,25 @@ export default StyleSheet.create({
   mobileToolbar: {
     flexDirection: 'column',
     gap: 10,
-    marginBottom: 16,
+    marginBottom: layout.spacing.lg,
   },
   mobileAddBtn: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 6,
+    gap: layout.spacing.xs,
     backgroundColor: colors.textLight,
     borderRadius: layout.radii.sm,
-    paddingVertical: 12,
+    paddingVertical: layout.spacing.md,
     height: 44,
   },
 
   /* Table */
   tableCard: {
     backgroundColor: colors.surfaceLight,
-    borderRadius: 14,
+    borderRadius: layout.radii.iconBtn,
     ...shadow.card(),
-    elevation: 2,
+    elevation: layout.elevation.sm,
     overflow: 'hidden',
   },
   thText: {
@@ -90,19 +90,19 @@ export default StyleSheet.create({
   },
   tableRow: {
     flexDirection: 'column',
-    paddingHorizontal: 16,
-    paddingVertical: 16,
+    paddingHorizontal: layout.spacing.lg,
+    paddingVertical: layout.spacing.lg,
     borderBottomWidth: 1,
     borderBottomColor: colors.secondaryLightBorder,
-    gap: 12,
+    gap: layout.spacing.md,
   },
   tableRowDesktop: {
     flexDirection: 'column',
-    paddingHorizontal: 16,
-    paddingVertical: 6,
+    paddingHorizontal: layout.spacing.lg,
+    paddingVertical: layout.spacing.xs,
     borderBottomWidth: 1,
     borderBottomColor: colors.secondaryLightBorder,
-    gap: 4,
+    gap: layout.spacing.xxs,
   },
   tableRowAlt: {
     backgroundColor: colors.surfaceElevatedLight,
@@ -110,7 +110,7 @@ export default StyleSheet.create({
   rowNum: {
     width: 24,
     color: colors.textDescDark,
-    marginRight: 8,
+    marginRight: layout.spacing.sm,
   },
   desktopTopRow: {
     flexDirection: 'row',
@@ -141,13 +141,13 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
-    gap: 8,
+    gap: layout.spacing.sm,
   },
   cardMetaGrid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: 12,
-    marginTop: 8,
+    gap: layout.spacing.md,
+    marginTop: layout.spacing.sm,
   },
   cardMetaBlock: {
     flexDirection: 'column',
@@ -224,7 +224,7 @@ export default StyleSheet.create({
   colStock: { flex: 0.7 },
   colStatus: { flex: 0.8 },
   colNew: { flex: 0.6 },
-  colActions: { flex: 0.6, flexDirection: 'row', gap: 8, justifyContent: 'flex-end' },
+  colActions: { flex: 0.6, flexDirection: 'row', gap: layout.spacing.sm, justifyContent: 'flex-end' },
 
   /* Product name & sku */
   productName: {
@@ -239,7 +239,7 @@ export default StyleSheet.create({
     borderRadius: 4,
     paddingHorizontal: 5,
     paddingVertical: 1,
-    marginRight: 4,
+    marginRight: layout.spacing.xxs,
     alignSelf: 'flex-start',
   },
   badgeNewText: {
@@ -262,7 +262,7 @@ export default StyleSheet.create({
   },
   statusBadge: {
     borderRadius: layout.radii.xs,
-    paddingHorizontal: 8,
+    paddingHorizontal: layout.spacing.sm,
     paddingVertical: 3,
     alignSelf: 'flex-start',
   },
@@ -291,7 +291,7 @@ export default StyleSheet.create({
 
   sortPickerNative: {
     height: buttonTokens.sizes.sm.height,
-    paddingHorizontal: 12,
+    paddingHorizontal: layout.spacing.md,
     borderRadius: layout.radii.sm,
     borderWidth: 1,
     borderColor: colors.borderLightAlt,

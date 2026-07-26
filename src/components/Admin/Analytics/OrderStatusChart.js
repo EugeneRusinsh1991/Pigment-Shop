@@ -8,7 +8,7 @@ import { Platform, View } from 'react-native';
 import { Text } from '../../Text';
 import { useTheme } from '../../../context/ThemeContext';
 import styles from './AnalyticsStyles';
-import { colors } from '../../../theme/tokens';
+import { colors, layout } from '../../../theme/tokens';
 
 const isWeb = Platform.OS === 'web';
 
@@ -100,7 +100,7 @@ export default function OrderStatusChart({ statusData = [] }) {
   return (
     <View style={styles.donutContainer}>
       <SvgDonut data={displayData} />
-      <View style={{ marginTop: 20 }}>
+      <View style={{ marginTop: layout.radii.lg }}>
         {formattedData.map((s, idx) => (
           <View key={s.id || s.labelKey || idx} style={styles.legendItem}>
             <View style={[styles.legendDot, { backgroundColor: s.color }]} />

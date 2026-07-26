@@ -30,7 +30,7 @@ function scanFile(filePath, violations) {
     if (/(useCallback|useMemo)\(\s*\(\)\s*=>\s*[^,]+,\s*(?!\[)/.test(line)) {
        violations.push({
          location: `${relPath}:${index + 1}`,
-         details: `Missing or malformed dependency array in hook: ${line.trim().substring(0, 50)}...`
+         details: `${line.trim().substring(0, 50)}...`
        });
     }
   });

@@ -4,14 +4,14 @@
  * Styles for the product create/edit form modal and its fields.
  */
 import { StyleSheet } from 'react-native';
-import { colors, fonts, layout } from '../../../theme/tokens';
+import { colors, layout } from '../../../theme/tokens';
 import { shadow } from '../../../theme/shadows';
 
 export default StyleSheet.create({
   /* Modal overlay */
   modalOverlay: {
     flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+    backgroundColor: colors.overlayScrim,
     alignItems: 'center',
     justifyContent: 'center',
     zIndex: layout.zIndices.modal,
@@ -23,15 +23,15 @@ export default StyleSheet.create({
     backgroundColor: colors.surfaceLight,
     borderRadius: layout.radii.md,
     ...shadow.modal(),
-    elevation: 10,
+    elevation: layout.elevation.xl,
   },
   modalHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingHorizontal: 24,
-    paddingTop: 24,
-    paddingBottom: 16,
+    paddingHorizontal: layout.spacing.xl,
+    paddingTop: layout.spacing.xl,
+    paddingBottom: layout.spacing.lg,
     borderBottomWidth: 1,
     borderBottomColor: colors.borderLightAlt,
   },
@@ -40,19 +40,19 @@ export default StyleSheet.create({
   },
   modalCloseBtn: {
     color: colors.textDescDark,
-    padding: 4,
+    padding: layout.spacing.xxs,
   },
   modalBody: {
-    paddingHorizontal: 24,
+    paddingHorizontal: layout.spacing.xl,
     paddingVertical: 20,
   },
   modalFooter: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
-    gap: 12,
-    paddingHorizontal: 24,
-    paddingBottom: 24,
-    paddingTop: 12,
+    gap: layout.spacing.md,
+    paddingHorizontal: layout.spacing.xl,
+    paddingBottom: layout.spacing.xl,
+    paddingTop: layout.spacing.md,
     borderTopWidth: 1,
     borderTopColor: colors.borderLightAlt,
   },
@@ -61,7 +61,7 @@ export default StyleSheet.create({
   fieldRow: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: 16,
+    gap: layout.spacing.lg,
     marginBottom: 14,
   },
   fieldGroup: {
@@ -76,7 +76,7 @@ export default StyleSheet.create({
     height: 40,
     backgroundColor: colors.secondaryLightBg,
     borderRadius: layout.radii.sm,
-    paddingHorizontal: 12,
+    paddingHorizontal: layout.spacing.md,
     color: colors.textLight,
     borderWidth: 1,
     borderColor: colors.navItemHoverDark,
@@ -89,7 +89,7 @@ export default StyleSheet.create({
     height: 72,
     backgroundColor: colors.secondaryLightBg,
     borderRadius: layout.radii.sm,
-    paddingHorizontal: 12,
+    paddingHorizontal: layout.spacing.md,
     paddingVertical: 10,
     color: colors.textLight,
     borderWidth: 1,
@@ -101,7 +101,7 @@ export default StyleSheet.create({
     height: 40,
     backgroundColor: colors.secondaryLightBg,
     borderRadius: layout.radii.sm,
-    paddingHorizontal: 12,
+    paddingHorizontal: layout.spacing.md,
     color: colors.textLight,
     borderWidth: 1,
     borderColor: colors.navItemHoverDark,
@@ -116,7 +116,7 @@ export default StyleSheet.create({
   checkBox: {
     width: 20,
     height: 20,
-    borderRadius: 5,
+    borderRadius: layout.radii.xs,
     borderWidth: 2,
     borderColor: colors.slateStrong,
     alignItems: 'center',
@@ -134,7 +134,7 @@ export default StyleSheet.create({
   },
   errorText: {
     color: colors.accent,
-    marginTop: 2,
+    marginTop: layout.spacing.xxs,
   },
 
   /* Buttons */
@@ -149,7 +149,7 @@ export default StyleSheet.create({
   },
   saveBtn: {
     paddingVertical: 10,
-    paddingHorizontal: 24,
+    paddingHorizontal: layout.spacing.xl,
     borderRadius: layout.radii.sm,
     backgroundColor: colors.textLight,
   },

@@ -12,7 +12,7 @@
   - Line [77](file:///D:/Magazine/_PigmentShop/src/components/Admin/AdminPanel.js#L77): `<Button>`
 
 ### File: [src/components/Admin/Analytics/CalendarDayCell.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Analytics/CalendarDayCell.js)
-  - Line [109](file:///D:/Magazine/_PigmentShop/src/components/Admin/Analytics/CalendarDayCell.js#L109): `<AnimatedButton>`
+  - Line [110](file:///D:/Magazine/_PigmentShop/src/components/Admin/Analytics/CalendarDayCell.js#L110): `<AnimatedButton>`
 
 ### File: [src/components/Admin/Analytics/DateRangeCalendar.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Analytics/DateRangeCalendar.js)
   - Line [80](file:///D:/Magazine/_PigmentShop/src/components/Admin/Analytics/DateRangeCalendar.js#L80): `<TouchableOpacity>`
@@ -26,8 +26,8 @@
   - Line [108](file:///D:/Magazine/_PigmentShop/src/components/Admin/Banners/BannersManager.js#L108): `<AnimatedButton>`
 
 ### File: [src/components/Admin/Categories/CategoryFormFields.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryFormFields.js)
-  - Line [93](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryFormFields.js#L93): `<AnimatedButton>`
-  - Line [97](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryFormFields.js#L97): `<AnimatedButton>`
+  - Line [94](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryFormFields.js#L94): `<AnimatedButton>`
+  - Line [98](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryFormFields.js#L98): `<AnimatedButton>`
 
 ### File: [src/components/Admin/Categories/CategoryFormFooter.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryFormFooter.js)
   - Line [26](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryFormFooter.js#L26): `<Button>`
@@ -36,7 +36,7 @@
   - Line [67](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryFormFooter.js#L67): `<Button>`
 
 ### File: [src/components/Admin/Categories/CategoryProductSection.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryProductSection.js)
-  - Line [39](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryProductSection.js#L39): `<AnimatedButton>`
+  - Line [40](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryProductSection.js#L40): `<AnimatedButton>`
 
 ### File: [src/components/Admin/Categories/CategoryRow.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryRow.js)
   - Line [46](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryRow.js#L46): `<AnimatedButton>`
@@ -45,7 +45,7 @@
   - Line [92](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryRow.js#L92): `<ToggleButton>`
 
 ### File: [src/components/Admin/Categories/CategoryRowElements.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryRowElements.js)
-  - Line [20](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryRowElements.js#L20): `<IconButton>`
+  - Line [21](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryRowElements.js#L21): `<IconButton>`
 
 ### File: [src/components/Admin/Categories/CategoryTree.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryTree.js)
   - Line [74](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryTree.js#L74): `<Button>`
@@ -75,26 +75,26 @@
   - Line [81](file:///D:/Magazine/_PigmentShop/src/components/Admin/Orders/OrderDetails.js#L81): `<AnimatedButton>`
 
 ### File: [src/components/Admin/Orders/OrderRow.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Orders/OrderRow.js)
-  - Line [45](file:///D:/Magazine/_PigmentShop/src/components/Admin/Orders/OrderRow.js#L45): `<AnimatedButton>`
+  - Line [46](file:///D:/Magazine/_PigmentShop/src/components/Admin/Orders/OrderRow.js#L46): `<AnimatedButton>`
 
 ### File: [src/components/Admin/Orders/OrderStatusDropdownMenu.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Orders/OrderStatusDropdownMenu.js)
   - Line [28](file:///D:/Magazine/_PigmentShop/src/components/Admin/Orders/OrderStatusDropdownMenu.js#L28): `<AnimatedButton>`
 
 ### File: [src/components/Admin/Products/MobileProductRow.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/MobileProductRow.js)
-  - Line [50](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/MobileProductRow.js#L50): `<TouchableOpacity>`
+  - Line [51](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/MobileProductRow.js#L51): `<TouchableOpacity>`
 
 ### File: [src/components/Admin/Products/ProductFormModal.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductFormModal.js)
   - Line [83](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductFormModal.js#L83): `<Button>`
 
 ### File: [src/components/Admin/Products/ProductRowComponents.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductRowComponents.js)
-  - Line [62](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductRowComponents.js#L62): `<IconButton>`
-  - Line [69](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductRowComponents.js#L69): `<IconButton>`
+  - Line [63](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductRowComponents.js#L63): `<IconButton>`
+  - Line [70](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductRowComponents.js#L70): `<IconButton>`
 
 ### File: [src/components/Admin/Products/ProductRowVariants.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductRowVariants.js)
-  - Line [18](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductRowVariants.js#L18): `<TouchableOpacity>`
+  - Line [19](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductRowVariants.js#L19): `<TouchableOpacity>`
 
 ### File: [src/components/Admin/Products/ProductsFilterBar.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductsFilterBar.js)
-  - Line [35](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductsFilterBar.js#L35): `<Button>`
+  - Line [36](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductsFilterBar.js#L36): `<Button>`
 
 ### File: [src/components/Admin/Users/UserDetails.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Users/UserDetails.js)
   - Line [51](file:///D:/Magazine/_PigmentShop/src/components/Admin/Users/UserDetails.js#L51): `<Button>`
@@ -121,7 +121,7 @@
   - Line [52](file:///D:/Magazine/_PigmentShop/src/components/Button/IconButton.js#L52): `<Button>`
 
 ### File: [src/components/Card/Card.js](file:///D:/Magazine/_PigmentShop/src/components/Card/Card.js)
-  - Line [49](file:///D:/Magazine/_PigmentShop/src/components/Card/Card.js#L49): `<TouchableOpacity>`
+  - Line [43](file:///D:/Magazine/_PigmentShop/src/components/Card/Card.js#L43): `<TouchableOpacity>`
 
 ### File: [src/components/Card/InteractiveCard.js](file:///D:/Magazine/_PigmentShop/src/components/Card/InteractiveCard.js)
   - Line [73](file:///D:/Magazine/_PigmentShop/src/components/Card/InteractiveCard.js#L73): `<TouchableOpacity>`
@@ -134,9 +134,9 @@
   - Line [79](file:///D:/Magazine/_PigmentShop/src/components/Drawer/Drawer.js#L79): `<Pressable>`
 
 ### File: [src/components/Flag/Flag.js](file:///D:/Magazine/_PigmentShop/src/components/Flag/Flag.js)
-  - Line [110](file:///D:/Magazine/_PigmentShop/src/components/Flag/Flag.js#L110): `<Pressable>`
-  - Line [127](file:///D:/Magazine/_PigmentShop/src/components/Flag/Flag.js#L127): `<Pressable>`
-  - Line [147](file:///D:/Magazine/_PigmentShop/src/components/Flag/Flag.js#L147): `<Pressable>`
+  - Line [111](file:///D:/Magazine/_PigmentShop/src/components/Flag/Flag.js#L111): `<Pressable>`
+  - Line [128](file:///D:/Magazine/_PigmentShop/src/components/Flag/Flag.js#L128): `<Pressable>`
+  - Line [148](file:///D:/Magazine/_PigmentShop/src/components/Flag/Flag.js#L148): `<Pressable>`
 
 ### File: [src/components/Modal/ConfirmationModal.js](file:///D:/Magazine/_PigmentShop/src/components/Modal/ConfirmationModal.js)
   - Line [60](file:///D:/Magazine/_PigmentShop/src/components/Modal/ConfirmationModal.js#L60): `<Button>`

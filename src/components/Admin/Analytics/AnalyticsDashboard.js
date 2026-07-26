@@ -126,7 +126,7 @@ export default function AnalyticsDashboard() {
         onChange={(s, e) => setDateRange({ start: s, end: e })} 
       />
       {loading ? (
-        <ActivityIndicator size="large" color={colors.dark} style={{ marginVertical: 40 }} />
+        <ActivityIndicator size="large" color={colors.dark} style={styles.loadingIndicator} />
       ) : (
         <>
           <StatsRow stats={stats} />

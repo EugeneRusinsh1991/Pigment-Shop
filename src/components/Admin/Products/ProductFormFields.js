@@ -1,6 +1,7 @@
 import { Flag } from '../../Flag';
 import { View } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
+import { layout } from '../../../theme/tokens';
 import styles from './ProductFormStyles';
 
 import { FieldInput as SharedFieldInput, FieldTextarea as SharedFieldTextarea } from '../SharedFormComponents';
@@ -84,7 +85,7 @@ export const CategoryStockRow = ({ form, onChange }) => {
 export const ImageFields = ({ form, onChange }) => {
   const { t } = useTheme();
   return (
-    <View style={{ gap: 8, marginBottom: 12 }}>
+    <View style={{ gap: layout.spacing.sm, marginBottom: layout.spacing.md }}>
       <FieldInput label={`${t('adminProductsFormImage')} 1 *`} value={form.image1} onChangeText={(v) => onChange('image1', v)} placeholder="https://..." />
       <FieldInput label={`${t('adminProductsFormImage')} 2`} value={form.image2} onChangeText={(v) => onChange('image2', v)} placeholder="https://... (optional)" />
       <FieldInput label={`${t('adminProductsFormImage')} 3`} value={form.image3} onChangeText={(v) => onChange('image3', v)} placeholder="https://... (optional)" />

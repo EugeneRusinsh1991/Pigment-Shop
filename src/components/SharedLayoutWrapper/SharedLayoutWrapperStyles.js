@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { layout } from '../../theme/tokens';
 
 export const sharedLayoutWrapperStyles = StyleSheet.create({
   wrapper: {
@@ -21,8 +22,8 @@ export const sharedLayoutWrapperStyles = StyleSheet.create({
     width: '100%',
     alignSelf: 'stretch',
     flexShrink: 0,
-    paddingTop: 16,
-    paddingBottom: 12,
+    paddingTop: layout.spacing.lg,
+    paddingBottom: layout.spacing.md,
   },
   footerInner: {
     width: '100%',

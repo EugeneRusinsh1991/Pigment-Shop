@@ -2,7 +2,7 @@
  * AnalyticsStyles.js
  */
 import { StyleSheet } from 'react-native';
-import { colors, layout } from '../../../theme/tokens';
+import { colors, layout, buttonTokens } from '../../../theme/tokens';
 import { shadow } from '../../../theme/shadows';
 
 export default StyleSheet.create({
@@ -23,15 +23,15 @@ export default StyleSheet.create({
     minWidth: 160,
     backgroundColor: colors.white,
     borderRadius: layout.radii.iconBtn,
-    padding: 18,
+    padding: layout.spacing.lg + layout.spacing.xxs,
     ...shadow.card(),
-    elevation: 2,
+    elevation: layout.elevation.sm,
   },
   statHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 10,
+    marginBottom: layout.spacing.xs + layout.spacing.xxs,
   },
   statLabel: {
   },
@@ -45,10 +45,10 @@ export default StyleSheet.create({
   chartPanel: {
     backgroundColor: colors.white,
     borderRadius: layout.radii.iconBtn,
-    padding: 20,
+    padding: layout.spacing.lg + layout.spacing.xxs,
     marginBottom: layout.spacing.lg,
     ...shadow.card(),
-    elevation: 2,
+    elevation: layout.elevation.sm,
   },
   chartTitle: {
     marginBottom: layout.spacing.lg,
@@ -67,16 +67,16 @@ export default StyleSheet.create({
   barRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 10,
+    marginBottom: layout.spacing.xs + layout.spacing.xxs,
   },
   barLabel: {
     width: 140,
-    marginRight: 10,
+    marginRight: layout.spacing.xs + layout.spacing.xxs,
     flexShrink: 1,
   },
   barTrack: {
     flex: 1,
-    height: 20,
+    height: layout.spacing.lg + layout.spacing.xxs,
     backgroundColor: colors.secondaryLightBg,
     borderRadius: layout.spacing.xxs,
     overflow: 'hidden',
@@ -88,7 +88,7 @@ export default StyleSheet.create({
   },
   barValue: {
     marginLeft: layout.spacing.sm,
-    width: 24,
+    width: layout.spacing.xl,
     textAlign: 'right',
   },
 
@@ -103,15 +103,15 @@ export default StyleSheet.create({
     marginBottom: layout.spacing.xs,
   },
   legendDot: {
-    width: 10,
-    height: 10,
-    borderRadius: 5,
+    width: layout.spacing.xs + layout.spacing.xxs,
+    height: layout.spacing.xs + layout.spacing.xxs,
+    borderRadius: layout.radii.full,
     marginRight: layout.spacing.sm,
   },
   legendText: {
   },
   legendValue: {
-    marginLeft: 4,
+    marginLeft: layout.spacing.xxs,
   },
 
   /* SVG area (for revenue line chart) */
@@ -128,7 +128,7 @@ export default StyleSheet.create({
 
   /* DateRangePicker */
   datePickerContainer: {
-    marginBottom: 20,
+    marginBottom: layout.spacing.lg + layout.spacing.xxs,
     position: 'relative',
     zIndex: layout.zIndices.modal,
   },
@@ -139,7 +139,7 @@ export default StyleSheet.create({
   },
   presetBtn: {
     minWidth: 140,
-    paddingVertical: 10,
+    paddingVertical: layout.spacing.xs + layout.spacing.xxs,
     paddingHorizontal: layout.spacing.lg,
     borderRadius: layout.radii.lg,
     backgroundColor: colors.black,
@@ -169,7 +169,7 @@ export default StyleSheet.create({
   customDateInput: {
     flex: 1,
     minWidth: 120,
-    height: 40,
+    height: buttonTokens.sizes.md.height,
     borderWidth: 1,
     borderColor: colors.secondaryLightBorder,
     borderRadius: layout.radii.sm,
@@ -181,7 +181,7 @@ export default StyleSheet.create({
     color: colors.secondaryDarkText,
   },
   applyBtn: {
-    height: 40,
+    height: buttonTokens.sizes.md.height,
     backgroundColor: colors.successMid,
     justifyContent: 'center',
     alignItems: 'center',
@@ -194,7 +194,7 @@ export default StyleSheet.create({
 
   /* Mobile DateRangePicker */
   mobileDatePickerContainer: {
-    marginBottom: 20,
+    marginBottom: layout.spacing.lg + layout.spacing.xxs,
     position: 'relative',
     zIndex: layout.zIndices.modal,
     gap: layout.spacing.sm,
@@ -203,5 +203,8 @@ export default StyleSheet.create({
     flexDirection: 'row',
     gap: layout.spacing.sm,
     width: '100%',
+  },
+  loadingIndicator: {
+    marginVertical: layout.spacing.xxl + layout.spacing.sm,
   },
 });

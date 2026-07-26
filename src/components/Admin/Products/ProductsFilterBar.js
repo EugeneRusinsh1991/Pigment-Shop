@@ -9,6 +9,7 @@ import { View } from 'react-native';
 import { Button } from '../../Button';
 import { Badge } from '../../Badge';
 import { useTheme } from '../../../context/ThemeContext';
+import { layout } from '../../../theme/tokens';
 
 export default function ProductsFilterBar({
   onlyDiscount,
@@ -19,7 +20,7 @@ export default function ProductsFilterBar({
 }) {
   const { t } = useTheme();
   return (
-    <View style={{ flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', gap: 8, marginBottom: 16 }}>
+    <View style={{ flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', gap: layout.spacing.sm, marginBottom: layout.spacing.lg }}>
       <Badge
         variant="chip"
         selected={onlyDiscount}

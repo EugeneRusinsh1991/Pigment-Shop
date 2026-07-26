@@ -72,28 +72,41 @@ const InteractiveCard = React.forwardRef(({
       <Animated.View style={innerStyle}>
         <TouchableOpacity
           activeOpacity={activeOpacity}
-          style={{ flex: 1, width: '100%', height: '100%' }}
+          style={staticStyles.touchable}
           {...rest}
           onMouseEnter={(e) => { bind.onMouseEnter(e); rest.onMouseEnter?.(e); }}
           onMouseLeave={(e) => { bind.onMouseLeave(e); rest.onMouseLeave?.(e); }}
           onPressIn={handlePressIn}
           onPressOut={handlePressOut}
         >
-          <View style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: cardWidth,
-            height: cardHeight,
-            borderRadius,
-            backgroundColor: isDark ? defaultDarkBg : defaultLightBg
-          }} />
+          <View style={[
+            staticStyles.bgOverlay,
+            {
+              width: cardWidth,
+              height: cardHeight,
+              borderRadius,
+              backgroundColor: isDark ? defaultDarkBg : defaultLightBg
+            }
+          ]} />
           <CardShadow hoverAnim={hoverAnim} isDark={isDark} lightBgColor={defaultLightBg} style={{ width: cardWidth, height: cardHeight, borderRadius }} />
           {children}
         </TouchableOpacity>
       </Animated.View>
     </ScrollFadeUp>
   );
+});
+
+const staticStyles = StyleSheet.create({
+  touchable: {
+    flex: 1,
+    width: '100%',
+    height: '100%',
+  },
+  bgOverlay: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+  },
 });
 
 export default InteractiveCard;

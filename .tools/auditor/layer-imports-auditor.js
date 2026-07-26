@@ -54,14 +54,14 @@ function auditLayerImports() {
         if (/(\/features\/|\/services\/|\/data\/|\/domain\/)/.test(imp)) {
           violations.push({
             location: file.relPath,
-            details: `Shared UI component imports from higher layer: ${imp}`
+            details: imp
           });
         }
       } else if (/^src\/(theme|utils|constants)\//.test(file.relPath)) {
         if (/(\/components\/|\/features\/|\/services\/|\/data\/)/.test(imp)) {
           violations.push({
             location: file.relPath,
-            details: `Base utility/theme layer imports from higher UI/domain layer: ${imp}`
+            details: imp
           });
         }
       }
@@ -83,7 +83,7 @@ function auditLayerImports() {
           seenCycles.add(cycleKey);
           violations.push({
             location: source,
-            details: `Circular dependency with module: ${target}`
+            details: target
           });
         }
       }

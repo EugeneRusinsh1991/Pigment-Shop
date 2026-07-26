@@ -20,7 +20,7 @@ import styles from './ProductFormStyles';
 
 import { useDeleteConfirmation } from '../../../hooks/useDeleteConfirmation';
 import { useForm } from '../../../hooks/useForm';
-import { colors } from '../../../theme/tokens';
+import { colors, layout } from '../../../theme/tokens';
 import { Button } from '../../Button';
 import { FormModalLayout, LanguageTabs } from '../SharedFormComponents';
 import { buildInitialForm, parseFormToProduct, validateForm } from './productFormLogic';
@@ -79,7 +79,7 @@ export default function ProductFormModal({ visible, product, onSave, onClose, on
         <ImageFields form={form} onChange={handleChange} errors={errors} />
         <FlagsSection form={form} onChange={handleChange} />
         {product && onDelete && (
-          <View style={{ marginTop: 20, borderTopWidth: 1, borderTopColor: colors.secondaryLightBorder, paddingTop: 20 }}>
+          <View style={{ marginTop: layout.spacing.xl, borderTopWidth: 1, borderTopColor: colors.borderLightAlt, paddingTop: layout.spacing.xl }}>
             <Button
               title={t('adminProductsActionDelete')}
               onPress={handleDelete}

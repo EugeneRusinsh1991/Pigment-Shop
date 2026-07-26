@@ -4,14 +4,15 @@
 import { useState } from 'react';
 import { View } from 'react-native';
 import { Flag } from '../../Flag';
+import { colors, layout } from '../../../theme/tokens';
 import styles from './OrdersStyles';
 import OrderStatusDropdownMenu from './OrderStatusDropdownMenu';
 
 const STATUSES = [
-  { value: 'New',        localeKey: 'orderStatusPending',    color: '#3B82F6', bg: '#DBEAFE' },
-  { value: 'Processing', localeKey: 'orderStatusProcessing', color: '#D97706', bg: '#FEF3C7' },
-  { value: 'Completed',  localeKey: 'orderStatusCompleted',  color: '#10B981', bg: '#D1FAE5' },
-  { value: 'Cancelled',  localeKey: 'orderStatusCancelled',  color: '#EF4444', bg: '#FEE2E2' },
+  { value: 'New',        localeKey: 'orderStatusPending',    color: colors.infoStrong, bg: colors.infoBgMid },
+  { value: 'Processing', localeKey: 'orderStatusProcessing', color: colors.warningDark, bg: colors.warningBgMid },
+  { value: 'Completed',  localeKey: 'orderStatusCompleted',  color: colors.successMid, bg: colors.successBgMid },
+  { value: 'Cancelled',  localeKey: 'orderStatusCancelled',  color: colors.danger, bg: colors.dangerBgLight },
 ];
 
 // Also handle legacy Russian status values
@@ -50,7 +51,7 @@ export default function OrderStatusSelector({ currentStatus, updating, onStatusC
   };
 
   return (
-    <View style={{ zIndex: 100, position: 'relative', marginBottom: 10 }}>
+    <View style={{ zIndex: layout.zIndices.dropdown, position: 'relative', marginBottom: layout.spacing.md }}>
       <Flag
         variant="chip"
         checked={isOpen}

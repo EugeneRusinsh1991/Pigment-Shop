@@ -9,6 +9,7 @@ import {
   ProductRowActions,
   StatusBadge,
 } from './ProductRowComponents';
+import { layout } from '../../../theme/tokens';
 import styles from './ProductsStyles';
 
 export { MobileProductRow } from './MobileProductRow';
@@ -48,7 +49,7 @@ export function DesktopProductRow({ product, index, label, effectivePrice, highl
       index={index}
       style={[
         styles.tableRowDesktop,
-        { paddingVertical: 8 },
+        { paddingVertical: layout.spacing.sm },
         highlightStyle
       ]}
       onPress={() => onEdit(product)}
@@ -56,7 +57,7 @@ export function DesktopProductRow({ product, index, label, effectivePrice, highl
       <DataTableCell style={{ width: 32 }}>
         <Text style={styles.cellText} size={13}>{index + 1}</Text>
       </DataTableCell>
-      <DataTableCell style={[styles.colProduct, { paddingRight: 12 }]}>
+      <DataTableCell style={[styles.colProduct, { paddingRight: layout.spacing.md }]}>
         <Text style={styles.productName} numberOfLines={1}>{label}</Text>
       </DataTableCell>
       <DataTableCell style={styles.colBrand}>
@@ -81,7 +82,7 @@ export function DesktopProductRow({ product, index, label, effectivePrice, highl
       <DataTableCell style={styles.colPrice}>
         <Text style={styles.priceEmphasis}>${effectivePrice.toLocaleString()}</Text>
       </DataTableCell>
-      <DataTableCell style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
+      <DataTableCell style={{ flexDirection: 'row', alignItems: 'center', gap: layout.spacing.xxs }}>
         <ProductRowActions product={product} onEdit={onEdit} onDelete={onDelete} />
       </DataTableCell>
     </DataTableRow>

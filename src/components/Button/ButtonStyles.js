@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { buttonColors } from '../../theme/buttonCommon';
-import { buttonTokens } from '../../theme/tokens';
+import { buttonTokens, layout } from '../../theme/tokens';
 
 /**
  * Generates button styles dynamically from design tokens.
@@ -43,7 +43,7 @@ function createButtonStyles() {
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'center',
-      gap: 8,
+      gap: layout.spacing.sm,
       borderWidth: 1,
       borderColor: 'transparent',
     },

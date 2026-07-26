@@ -25,7 +25,7 @@ function scanFile(filePath, violations) {
     if (urlMatch) {
       violations.push({
         location: `${relPath}:${index + 1}`,
-        details: `Hardcoded URL found outside of config: ${urlMatch[0]}`
+        details: urlMatch[0]
       });
     }
   });

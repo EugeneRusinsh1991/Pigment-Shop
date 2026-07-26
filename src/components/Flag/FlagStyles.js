@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
   // --- Variant: Chip ---
   chipContainer: {
     paddingHorizontal: 14,
-    paddingVertical: 6,
+    paddingVertical: layout.spacing.xs,
     minHeight: buttonTokens?.sizes?.sm?.height || 32,
     borderRadius: 20,
     borderWidth: 1.5,
@@ -130,11 +130,11 @@ const styles = StyleSheet.create({
   },
   switchText: {
     color: colors.textLight,
-    marginLeft: 8,
+    marginLeft: layout.spacing.sm,
   },
   switchTextDark: {
     color: colors.textDark,
-    marginLeft: 8,
+    marginLeft: layout.spacing.sm,
   },
 
   // --- Variant: Checkbox ---
@@ -162,11 +162,11 @@ const styles = StyleSheet.create({
   },
   checkboxText: {
     color: colors.textLight,
-    marginLeft: 8,
+    marginLeft: layout.spacing.sm,
   },
   checkboxTextDark: {
     color: colors.textDark,
-    marginLeft: 8,
+    marginLeft: layout.spacing.sm,
   },
 });
 

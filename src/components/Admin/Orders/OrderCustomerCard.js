@@ -6,6 +6,7 @@ import { Text } from '../../Text';
 import { useTheme } from '../../../context/ThemeContext';
 import styles from './OrdersStyles';
 import { formatDateLongWithTime } from '../../../utils/dateFormatting';
+import { colors, layout } from '../../../theme/tokens';
 
 
 function DetailRow({ label, value }) {
@@ -24,8 +25,8 @@ export default function OrderCustomerCard({ order }) {
   return (
     <View style={styles.detailCard}>
       {isGuest && (
-        <View style={[styles.detailRow, { backgroundColor: '#fff3cd', padding: 12, borderRadius: 6, marginBottom: 12 }]}>
-          <Text variant="subtitle2" weight="semiBold" style={{ color: '#856404' }}>
+        <View style={[styles.detailRow, { backgroundColor: colors.warningBgLegacy, padding: layout.spacing.md, borderRadius: layout.radii.xs, marginBottom: layout.spacing.md }]}>
+          <Text variant="subtitle2" weight="semiBold" style={{ color: colors.warningDeep }}>
             ⚠️ {t('adminOrdersGuestLabel')}
           </Text>
         </View>

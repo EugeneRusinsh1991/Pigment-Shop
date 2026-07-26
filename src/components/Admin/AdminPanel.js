@@ -87,7 +87,7 @@ export default function AdminPanel({ onBack }) {
       <View>
         <AdminTabBar activeTab={activeTab} onSelect={setActiveTab} />
       </View>
-      <ScrollView style={styles.content} contentContainerStyle={{ paddingBottom: 40 }}>
+      <ScrollView style={styles.content} contentContainerStyle={{ paddingBottom: layout.spacing.xxl + layout.spacing.sm }}>
         <PageTransition key={activeTab} trigger={activeTab}>
           {renderActiveTab(activeTab)}
         </PageTransition>

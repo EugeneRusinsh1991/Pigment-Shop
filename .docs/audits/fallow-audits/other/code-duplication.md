@@ -1,6 +1,6 @@
 # 👥 Significant Code Duplication (≥ 8 lines)
 
-*Generated on: 26.07.2026, 23:54:14*
+*Generated on: 27.07.2026, 00:33:42*
 
 ### Clone Group 1 — 109 lines, 166 tokens · `dup:c58e7944`
 > 💡 Extract duplicated code (109 lines, 2 instances) into a shared function
@@ -30,7 +30,7 @@
 - [hardcode-url-auditor.js:L25–L101](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-url-auditor.js#L25-L101) (`.tools/auditor/hardcode-url-auditor.js`)
 - [performance-auditor.js:L30–L106](file:///D:/Magazine/_PigmentShop/.tools/auditor/performance-auditor.js#L30-L106) (`.tools/auditor/performance-auditor.js`)
 
-### Clone Group 5 — 76 lines, 120 tokens · `dup:913b2dc9`
+### Clone Group 5 — 76 lines, 120 tokens · `dup:6d61e6eb`
 > 💡 Extract duplicated code (76 lines, 2 instances) into a shared function
 
 - [hardcode-url-auditor.js:L26–L101](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-url-auditor.js#L26-L101) (`.tools/auditor/hardcode-url-auditor.js`)

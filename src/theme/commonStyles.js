@@ -3,8 +3,8 @@ import { colors, fonts, layout } from './tokens';
 
 function getContentStyle(isMobile) {
   return {
-    paddingHorizontal: isMobile ? 8 : 24,
-    paddingVertical: isMobile ? 8 : 16,
+    paddingHorizontal: isMobile ? layout.spacing.sm : layout.spacing.xl,
+    paddingVertical: isMobile ? layout.spacing.sm : layout.spacing.lg,
     maxWidth: 1330,
     alignSelf: 'center',
     width: '100%',
@@ -19,24 +19,24 @@ export default StyleSheet.create({
   containerDark: { backgroundColor: colors.backgroundDark },
   containerLight: { backgroundColor: colors.backgroundLight },
   content: {
-    paddingHorizontal: 8,
-    paddingVertical: 8,
+    paddingHorizontal: layout.spacing.sm,
+    paddingVertical: layout.spacing.sm,
     maxWidth: 1330,
     alignSelf: 'center',
     width: '100%',
   },
   scrollContent: {
     flexGrow: 1,
-    paddingBottom: 16,
+    paddingBottom: layout.spacing.lg,
   },
   // Deprecated text styles: prefer using Text/Heading primitives from src/components/Text
   title: {
-    marginBottom: 12,
+    marginBottom: layout.spacing.md,
     textAlign: 'center',
   },
   card: {
     borderRadius: layout.radii.md,
-    padding: 24,
+    padding: layout.spacing.xl,
     borderWidth: 1,
   },
   cardDark: {

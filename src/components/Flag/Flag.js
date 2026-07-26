@@ -3,6 +3,7 @@ import { Pressable, View } from 'react-native';
 import { Text } from '../Text';
 import styles, { HIT_SLOP_44, colorSchemes } from './FlagStyles';
 import { useFlagTheme } from './useFlagTheme';
+import { colors } from '../../theme/tokens';
 
 function resolveSchemeStyles(colorScheme, isDark, lightKey, darkKey) {
   const scheme = colorScheme ? colorSchemes[colorScheme] : null;
@@ -156,7 +157,7 @@ export function Flag({
       >
         <View style={getCheckboxBoxStyle(isDark, checked)}>
           {checked && (
-            <Text variant="caption" weight="bold" style={{ color: '#FFFFFF' }}>✓</Text>
+            <Text variant="caption" weight="bold" style={{ color: colors.white }}>✓</Text>
           )}
         </View>
         {renderChildren(children, getCheckboxLabelStyle(isDark, textStyle), "sm", "regular")}

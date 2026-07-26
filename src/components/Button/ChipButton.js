@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import Button from './Button';
 import { buttonColors } from '../../theme/buttonCommon';
-import { buttonTokens } from '../../theme/tokens';
+import { buttonTokens, layout } from '../../theme/tokens';
 import { useButtonTheme } from './useButtonTheme';
 
 function resolveChipIconColor(active, isDark) {
@@ -74,7 +74,7 @@ const chipStyles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 6,
+    gap: layout.spacing.xs,
     borderWidth: 1.5,
   },
   textBase: {},

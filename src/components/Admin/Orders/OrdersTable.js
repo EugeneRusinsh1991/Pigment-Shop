@@ -3,6 +3,7 @@ import { ActivityIndicator } from 'react-native';
 import { Text } from '../../Text';
 import DataTable from '../../DataTable/DataTable';
 import { MobileOrderRow, DesktopOrderRow } from './OrderRow';
+import { colors, layout } from '../../../theme/tokens';
 import styles from './OrdersStyles';
 
 function OrdersTable({ orders, t, onSelectOrder, sortField, sortDirection, onSort }) {
@@ -42,7 +43,7 @@ function OrdersTable({ orders, t, onSelectOrder, sortField, sortDirection, onSor
 }
 
 export function renderContent({ loading, error, orders, t, onSelectOrder, sortField, sortDirection, onSort }) {
-  if (loading) return <ActivityIndicator size="large" color="#1C1C1C" style={{ marginTop: 40 }} />;
-  if (error) return <Text color="danger" style={{ marginTop: 20 }}>{error}</Text>;
+  if (loading) return <ActivityIndicator size="large" color={colors.textLight} style={{ marginTop: layout.spacing.xxl }} />;
+  if (error) return <Text color="danger" style={{ marginTop: layout.spacing.xl }}>{error}</Text>;
   return <OrdersTable orders={orders} t={t} onSelectOrder={onSelectOrder} sortField={sortField} sortDirection={sortDirection} onSort={onSort} />;
 }

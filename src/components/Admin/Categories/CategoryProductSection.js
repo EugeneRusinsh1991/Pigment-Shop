@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import { Text } from '../../Text';
 import { AnimatedButton } from '../../Button';
 import styles from './CategoryFormStyles';
+import { colors, layout } from '../../../theme/tokens';
 
 const getLanguageFallback = (labelObj, lang) => labelObj[lang] || labelObj.ru || labelObj.en;
 
@@ -17,20 +18,20 @@ const getProductOptionStyle = (selected) => ({
   alignItems: 'center',
   gap: 8,
   borderWidth: 1,
-  borderColor: selected ? '#16A34A' : '#E2E8F0',
-  borderRadius: 8,
+  borderColor: selected ? colors.success : colors.chipLightInactiveBorder,
+  borderRadius: layout.radii.sm,
   paddingVertical: 8,
   paddingHorizontal: 10,
-  backgroundColor: selected ? '#ECFDF5' : '#F8FAFC',
+  backgroundColor: selected ? colors.successBgSoft : colors.slateLight,
 });
 
 const getProductCheckStyle = (selected) => ({
   width: 16,
   height: 16,
-  borderRadius: 999,
+  borderRadius: layout.radii.full,
   borderWidth: 1,
-  borderColor: selected ? '#16A34A' : '#CBD5E1',
-  backgroundColor: selected ? '#16A34A' : '#FFFFFF',
+  borderColor: selected ? colors.success : colors.slateStrong,
+  backgroundColor: selected ? colors.success : colors.white,
   alignItems: 'center',
   justifyContent: 'center',
 });
@@ -43,21 +44,21 @@ const renderProductOption = (product, selected, toggleProduct, lang) => (
     activeOpacity={0.8}
   >
     <View style={getProductCheckStyle(selected)}>
-      {selected ? <Text variant="caption" weight="bold" style={{ color: '#FFFFFF' }}>✓</Text> : null}
+      {selected ? <Text variant="caption" weight="bold" style={{ color: colors.white }}>✓</Text> : null}
     </View>
-    <Text variant="body2" style={{ color: '#1F2937' }}>{getProductLabel(product, lang)}</Text>
+    <Text variant="body2" style={{ color: colors.textLight }}>{getProductLabel(product, lang)}</Text>
   </AnimatedButton>
 );
 
 const renderProductGroup = ({ titleKey, hintKey, emptyKey, products, selected, toggleProduct, lang, t }) => (
   <View>
     <Text style={styles.sectionLabel}>{t(titleKey)}</Text>
-    <Text size={12} style={{ color: '#64748B', marginBottom: 8 }}>
+    <Text size={12} style={{ color: colors.slateText, marginBottom: 8 }}>
       {t(hintKey)}
     </Text>
     <View style={{ gap: 6 }}>
       {products.length === 0 ? (
-        <Text size={12} style={{ color: '#64748B' }}>{t(emptyKey)}</Text>
+        <Text size={12} style={{ color: colors.slateText }}>{t(emptyKey)}</Text>
       ) : products.map((product) => renderProductOption(product, selected, toggleProduct, lang))}
     </View>
   </View>

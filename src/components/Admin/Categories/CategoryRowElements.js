@@ -4,6 +4,7 @@ import { Text } from '../../Text';
 import { useTheme } from '../../../context/ThemeContext';
 import { ChevronDownIcon, ChevronRightIcon, CheckIcon, CrossIcon } from '@/components/Icons';
 import { IconButton } from '@/components/Button';
+import { colors } from '../../../theme/tokens';
 import styles from './CategoriesStyles';
 
 export const INDENT_PER_LEVEL = 20;
@@ -18,7 +19,7 @@ export function ToggleButton({ hasChildren, isCollapsed, onToggle, rowId }) {
   if (!hasChildren) return <View style={styles.togglePlaceholder} />;
   return (
     <IconButton
-      icon={isCollapsed ? <ChevronRightIcon color="#475569" size={12} /> : <ChevronDownIcon color="#475569" size={12} />}
+      icon={isCollapsed ? <ChevronRightIcon color={colors.textDescLight} size={12} /> : <ChevronDownIcon color={colors.textDescLight} size={12} />}
       onPress={(e) => {
         e?.stopPropagation?.();
         onToggle(rowId);
@@ -37,8 +38,8 @@ export function ImageBadge({ image }) {
     <View style={[styles.imageBadge, has ? styles.imageBadgeSet : styles.imageBadgeNone]}>
       <View style={{ flexDirection: 'row', alignItems: 'center' }}>
         {has
-          ? <CheckIcon color="#16A34A" size={12} />
-          : <CrossIcon color="#DC2626" size={12} />}
+          ? <CheckIcon color={colors.success} size={12} />
+          : <CrossIcon color={colors.dangerMid} size={12} />}
         <Text style={[styles.imageBadgeText, has ? styles.imageBadgeSetText : styles.imageBadgeNoneText, { marginLeft: 4 }]}>
           {has ? t('adminCategoriesImageSet') : t('adminCategoriesImageNone')}
         </Text>
@@ -70,7 +71,7 @@ export function DepthBars({ depth, leftOffset = 16 }) {
             top: 0,
             bottom: 0,
             left: leftOffset + i * INDENT_PER_LEVEL,
-            backgroundColor: i === depth - 1 ? '#CBD5E1' : '#E8ECF0',
+            backgroundColor: i === depth - 1 ? colors.slateStrong : colors.neutralLightStrong,
           }}
         />
       ))}

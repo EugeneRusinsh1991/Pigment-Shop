@@ -38,7 +38,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     gap: layout.spacing.xs,
     paddingVertical: layout.spacing.sm,
-    paddingHorizontal: 14,
+    paddingHorizontal: layout.spacing.md + layout.spacing.xxs,
     backgroundColor: colors.secondaryLightBg,
     borderRadius: layout.radii.sm,
   },

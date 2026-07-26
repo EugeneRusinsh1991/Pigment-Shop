@@ -37,12 +37,6 @@ const Card = React.forwardRef(({
     style,
   ];
 
-  const touchableStyle = {
-    width: '100%',
-    height: '100%',
-    position: 'relative',
-  };
-
   if (isInteractive) {
     return (
       <Animated.View style={combinedStyle}>
@@ -50,7 +44,7 @@ const Card = React.forwardRef(({
           ref={ref}
           activeOpacity={0.85}
           onPress={handlePress}
-          style={touchableStyle}
+          style={staticStyles.touchable}
           onMouseEnter={bind.onMouseEnter}
           onMouseLeave={bind.onMouseLeave}
           onPressIn={bind.onPressIn}
@@ -118,6 +112,14 @@ const CardSkeleton = ({ width = '100%', height = 180, style, isDark: isDarkProp,
     <View style={[...skeletonStyle, { width, height }, style]} {...rest} />
   );
 };
+
+const staticStyles = StyleSheet.create({
+  touchable: {
+    width: '100%',
+    height: '100%',
+    position: 'relative',
+  },
+});
 
 Card.Image = CardImage;
 Card.Content = CardContent;

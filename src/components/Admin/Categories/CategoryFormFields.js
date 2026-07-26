@@ -12,6 +12,7 @@ import { View } from 'react-native';
 import { Text } from '../../Text';
 import { AnimatedButton } from '../../Button';
 import { useTheme } from '../../../context/ThemeContext';
+import { colors, layout } from '../../../theme/tokens';
 import { fromMediaRef } from '../../../media';
 import { triggerFileInput } from '../../../utils/fileInput';
 import { ImageIcon, UploadIcon } from '@/components/Icons';
@@ -60,7 +61,7 @@ export function CategoryTypeSelect({ value, onChange, disabled }) {
         </Flag>
       </FlagGroup>
       {disabled && (
-        <Text style={[styles.errorText, { color: '#64748B', marginTop: 4 }]}>
+        <Text style={[styles.errorText, { color: colors.slateText, marginTop: layout.spacing.xxs }]}>
           Type cannot be changed due to existing subcategories or assigned products.
         </Text>
       )}
@@ -90,12 +91,12 @@ export function ImagePickerField({ value, onChange }) {
           placeholder={t('adminCategoriesFormImagePlaceholder')}
           autoCapitalize="none"
         />
-        <AnimatedButton style={[styles.uploadBtn, { flexDirection: 'row', alignItems: 'center', gap: 4 }]} onPress={() => triggerFileInput('cat-image-file-input', onChange)} activeOpacity={0.8}>
-          <UploadIcon color="#FFFFFF" size={12} />
+        <AnimatedButton style={[styles.uploadBtn, { flexDirection: 'row', alignItems: 'center', gap: layout.spacing.xxs }]} onPress={() => triggerFileInput('cat-image-file-input', onChange)} activeOpacity={0.8}>
+          <UploadIcon color={colors.white} size={12} />
           <Text style={styles.uploadBtnText}>{t('adminCategoriesFormUploadBtn')}</Text>
         </AnimatedButton>
-        <AnimatedButton style={[styles.uploadBtn, { flexDirection: 'row', alignItems: 'center', gap: 4 }]} onPress={() => setBrowserOpen(true)} activeOpacity={0.8}>
-          <ImageIcon color="#FFFFFF" size={12} />
+        <AnimatedButton style={[styles.uploadBtn, { flexDirection: 'row', alignItems: 'center', gap: layout.spacing.xxs }]} onPress={() => setBrowserOpen(true)} activeOpacity={0.8}>
+          <ImageIcon color={colors.white} size={12} />
           <Text style={styles.uploadBtnText}>Browse</Text>
         </AnimatedButton>
       </View>

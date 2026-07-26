@@ -20,15 +20,15 @@
   - Line [40](file:///D:/Magazine/_PigmentShop/src/components/Admin/Analytics/AnalyticsDashboard.js#L40): `<BoxIcon>` (Icon: `[Unknown]`)
 
 ### File: [src/components/Admin/Categories/CategoryFormFields.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryFormFields.js)
-  - Line [94](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryFormFields.js#L94): `<UploadIcon>` (Icon: `[Unknown]`)
-  - Line [98](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryFormFields.js#L98): `<ImageIcon>` (Icon: `[Unknown]`)
+  - Line [95](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryFormFields.js#L95): `<UploadIcon>` (Icon: `[Unknown]`)
+  - Line [99](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryFormFields.js#L99): `<ImageIcon>` (Icon: `[Unknown]`)
 
 ### File: [src/components/Admin/Categories/CategoryRowElements.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryRowElements.js)
-  - Line [20](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryRowElements.js#L20): `<IconButton>` (Icon: `[Unknown]`)
-  - Line [21](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryRowElements.js#L21): `<ChevronRightIcon>` (Icon: `[Unknown]`)
-  - Line [21](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryRowElements.js#L21): `<ChevronDownIcon>` (Icon: `[Unknown]`)
-  - Line [40](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryRowElements.js#L40): `<CheckIcon>` (Icon: `[Unknown]`)
-  - Line [41](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryRowElements.js#L41): `<CrossIcon>` (Icon: `[Unknown]`)
+  - Line [21](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryRowElements.js#L21): `<IconButton>` (Icon: `[Unknown]`)
+  - Line [22](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryRowElements.js#L22): `<ChevronRightIcon>` (Icon: `[Unknown]`)
+  - Line [22](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryRowElements.js#L22): `<ChevronDownIcon>` (Icon: `[Unknown]`)
+  - Line [41](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryRowElements.js#L41): `<CheckIcon>` (Icon: `[Unknown]`)
+  - Line [42](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryRowElements.js#L42): `<CrossIcon>` (Icon: `[Unknown]`)
 
 ### File: [src/components/Admin/Categories/CategoryTree.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryTree.js)
   - Line [83](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryTree.js#L83): `<ChevronDownIcon>` (Icon: `[Unknown]`)
@@ -52,10 +52,10 @@
   - Line [82](file:///D:/Magazine/_PigmentShop/src/components/Admin/Orders/OrderDetails.js#L82): `<BackArrowIcon>` (Icon: `[Unknown]`)
 
 ### File: [src/components/Admin/Products/ProductRowComponents.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductRowComponents.js)
-  - Line [62](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductRowComponents.js#L62): `<IconButton>` (Icon: `[Unknown]`)
-  - Line [63](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductRowComponents.js#L63): `<EditIcon>` (Icon: `[Unknown]`)
-  - Line [69](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductRowComponents.js#L69): `<IconButton>` (Icon: `[Unknown]`)
-  - Line [70](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductRowComponents.js#L70): `<TrashIcon>` (Icon: `[Unknown]`)
+  - Line [63](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductRowComponents.js#L63): `<IconButton>` (Icon: `[Unknown]`)
+  - Line [64](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductRowComponents.js#L64): `<EditIcon>` (Icon: `[Unknown]`)
+  - Line [70](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductRowComponents.js#L70): `<IconButton>` (Icon: `[Unknown]`)
+  - Line [71](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductRowComponents.js#L71): `<TrashIcon>` (Icon: `[Unknown]`)
 
 ### File: [src/components/Admin/Users/UserDetails.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Users/UserDetails.js)
   - Line [52](file:///D:/Magazine/_PigmentShop/src/components/Admin/Users/UserDetails.js#L52): `<BackArrowIcon>` (Icon: `[Unknown]`)

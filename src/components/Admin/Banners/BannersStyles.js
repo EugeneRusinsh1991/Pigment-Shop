@@ -101,7 +101,7 @@ export default StyleSheet.create({
   /* In-app delete confirmation modal */
   confirmOverlay: {
     flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+    backgroundColor: colors.overlayScrim,
     alignItems: 'center',
     justifyContent: 'center',
     zIndex: layout.zIndices.modal,

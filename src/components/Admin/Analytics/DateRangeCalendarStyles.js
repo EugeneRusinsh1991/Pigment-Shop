@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors, layout } from '../../../theme/tokens';
+import { colors, layout, typography } from '../../../theme/tokens';
 import { shadow } from '../../../theme/shadows';
 
 export const localStyles = StyleSheet.create({
@@ -14,7 +14,7 @@ export const localStyles = StyleSheet.create({
     padding: layout.spacing.md,
     backgroundColor: colors.white,
     ...shadow.panel(),
-    elevation: 5,
+    elevation: layout.elevation.md,
     width: 280,
   },
   calendarHeader: {
@@ -26,8 +26,8 @@ export const localStyles = StyleSheet.create({
   monthTitle: {
   },
   arrowBtn: {
-    width: 32,
-    height: 32,
+    width: layout.spacing.xxl,
+    height: layout.spacing.xxl,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: layout.radii.xs,
@@ -52,14 +52,14 @@ export const localStyles = StyleSheet.create({
   },
   dayCell: {
     width: '14.28%',
-    height: 32,
+    height: layout.spacing.xxl,
     alignItems: 'center',
     justifyContent: 'center',
     marginVertical: 1,
   },
   dayButton: {
-    width: 28,
-    height: 28,
+    width: typography.sizes.xxl,
+    height: typography.sizes.xxl,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: layout.radii.iconBtn,

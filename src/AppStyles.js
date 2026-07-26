@@ -36,8 +36,8 @@ export default StyleSheet.create({
     overflow: 'hidden',
   },
   footerContainer: {
-    paddingTop: 16,
-    paddingBottom: 12,
+    paddingTop: layout.spacing.lg,
+    paddingBottom: layout.spacing.md,
     flexShrink: 0,
     width: '100%',
     alignSelf: 'stretch',
@@ -45,8 +45,8 @@ export default StyleSheet.create({
 
   breadcrumbBar: {
     borderBottomWidth: 1,
-    paddingHorizontal: 8,
-    paddingVertical: 8,
+    paddingHorizontal: layout.spacing.sm,
+    paddingVertical: layout.spacing.sm,
   },
   breadcrumbBarDark: {
     backgroundColor: colors.backgroundDark,
@@ -59,10 +59,10 @@ export default StyleSheet.create({
 
   // Hero Section Styles
   heroContainer: {
-    paddingHorizontal: 8,
-    paddingTop: 4,
-    paddingBottom: 12,
-    gap: 12,
+    paddingHorizontal: layout.spacing.sm,
+    paddingTop: layout.spacing.xxs,
+    paddingBottom: layout.spacing.md,
+    gap: layout.spacing.md,
     alignItems: 'center',
   },
   heroRight: {
@@ -87,8 +87,8 @@ export default StyleSheet.create({
   heroBtn: {
     backgroundColor: colors.accent,
     borderRadius: layout.radii.full,
-    paddingHorizontal: 32,
-    paddingVertical: 14,
+    paddingHorizontal: layout.spacing.xxl,
+    paddingVertical: layout.spacing.md + layout.spacing.xxs,
   },
   heroBtnText: {
     color: colors.white,
@@ -99,9 +99,9 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: 8,
-    marginTop: 12,
-    marginBottom: 6,
+    paddingHorizontal: layout.spacing.sm,
+    marginTop: layout.spacing.md,
+    marginBottom: layout.spacing.xs,
   },
   sectionTitle: {},
   allSectionsLink: {
@@ -109,16 +109,16 @@ export default StyleSheet.create({
   },
 
   list: {
-    paddingBottom: 32,
+    paddingBottom: layout.spacing.xxl,
     paddingHorizontal: 0,
   },
 
   footerProductsSection: {
-    marginTop: 8,
+    marginTop: layout.spacing.sm,
   },
   footerTitlePadding: {
-    marginBottom: 12,
-    paddingHorizontal: 8,
+    marginBottom: layout.spacing.md,
+    paddingHorizontal: layout.spacing.sm,
   },
 
   textDark: { color: colors.textDark },
@@ -128,9 +128,9 @@ export default StyleSheet.create({
   stickySearchContainer: {
     ...(Platform.OS === 'web' ? { position: 'sticky' } : { position: 'relative' }),
     top: 0,
-    zIndex: 500,
+    zIndex: layout.zIndices.header,
     width: '100%',
-    paddingVertical: 4,
+    paddingVertical: layout.spacing.xxs,
     alignItems: 'center',
     overflow: 'visible',
   },

@@ -19,10 +19,10 @@
   - Line [93](file:///D:/Magazine/_PigmentShop/src/components/Admin/Orders/OrderDetails.js#L93): `<OrderCustomerCard>`
 
 ### File: [src/components/Admin/Products/MobileProductRow.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/MobileProductRow.js)
-  - Line [28](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/MobileProductRow.js#L28): `<CardMetaBlock>`
-  - Line [32](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/MobileProductRow.js#L32): `<CardMetaBlock>`
-  - Line [37](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/MobileProductRow.js#L37): `<CardMetaBlock>`
-  - Line [40](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/MobileProductRow.js#L40): `<CardMetaBlock>`
+  - Line [29](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/MobileProductRow.js#L29): `<CardMetaBlock>`
+  - Line [33](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/MobileProductRow.js#L33): `<CardMetaBlock>`
+  - Line [38](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/MobileProductRow.js#L38): `<CardMetaBlock>`
+  - Line [41](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/MobileProductRow.js#L41): `<CardMetaBlock>`
 
 ### File: [src/components/Admin/Users/UserDetails.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Users/UserDetails.js)
   - Line [60](file:///D:/Magazine/_PigmentShop/src/components/Admin/Users/UserDetails.js#L60): `<UserInfoCard>`

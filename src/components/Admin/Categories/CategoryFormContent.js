@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text } from '../../Text';
+import { layout } from '../../../theme/tokens';
 import { LanguageTabs } from '../SharedFormComponents';
 import { CategoryTypeDisplay, CategoryTypeSelect, DescriptionField, ImagePickerField, NameField } from './CategoryFormFields';
 import { CategoryProductSection } from './CategoryProductSection';
@@ -30,7 +31,7 @@ export function CategoryFormContent({
             onChange={(v) => handleChange('type', v)}
             disabled={isTypeDisabled}
           />
-          {!!errors.type && <Text style={[styles.errorText, { marginBottom: 12 }]}>{errors.type}</Text>}
+          {!!errors.type && <Text style={[styles.errorText, { marginBottom: layout.spacing.md }]}>{errors.type}</Text>}
         </>
       )}
 

@@ -1,7 +1,7 @@
 import { View } from 'react-native';
 import { Text } from '../../Text';
 import { AnimatedButton } from '../../Button';
-import { colors } from '../../../theme/tokens';
+import { colors, layout } from '../../../theme/tokens';
 import { shadow } from '../../../theme/shadows';
 import styles from './OrdersStyles';
 
@@ -18,7 +18,7 @@ export default function OrderStatusDropdownMenu({ statuses, currentStatus, updat
       style={{
         position: 'absolute', top: 48, left: 0, right: 0,
         backgroundColor: colors.surfaceLight, borderWidth: 1, borderColor: colors.secondaryLightBorder,
-        borderRadius: 8, elevation: 3, zIndex: 100, overflow: 'hidden',
+        borderRadius: layout.radii.sm, elevation: 3, zIndex: layout.zIndices.dropdown, overflow: 'hidden',
         ...shadow.dropdown(),
       }}
     >
@@ -30,7 +30,7 @@ export default function OrderStatusDropdownMenu({ statuses, currentStatus, updat
             style={[
               styles.statusOption,
               {
-                paddingVertical: 10, paddingHorizontal: 12,
+                paddingVertical: 10, paddingHorizontal: layout.spacing.md,
                 borderBottomWidth: index === statuses.length - 1 ? 0 : 1,
                 borderBottomColor: colors.slateMid,
                 backgroundColor: isSelected ? status.bg : colors.surfaceLight,
@@ -39,8 +39,8 @@ export default function OrderStatusDropdownMenu({ statuses, currentStatus, updat
             onPress={() => handleSelect(status.value)}
             disabled={updating}
           >
-            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
-              <View style={{ width: 8, height: 8, borderRadius: 4, backgroundColor: status.color }} />
+            <View style={{ flexDirection: 'row', alignItems: 'center', gap: layout.spacing.sm }}>
+              <View style={{ width: layout.spacing.sm, height: layout.spacing.sm, borderRadius: layout.spacing.xxs, backgroundColor: status.color }} />
               <Text style={[styles.statusOptionText, { color: status.color }]} size={14} weight={isSelected ? '700' : '500'}>
                 {t(status.localeKey) || status.value}
               </Text>

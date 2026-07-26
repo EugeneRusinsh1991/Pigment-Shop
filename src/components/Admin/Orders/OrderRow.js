@@ -11,6 +11,7 @@ import { Badge } from '../../Badge';
 import styles from './OrdersStyles';
 import { formatDateShortWithTime } from '../../../utils/dateFormatting';
 import { resolveStatusDef } from '../../../utils/orderStatus';
+import { layout } from '../../../theme/tokens';
 
 function formatRowDate(createdAt, lang) {
   return formatDateShortWithTime(createdAt, lang);
@@ -108,12 +109,12 @@ export function DesktopOrderRow({ order, onPress }) {
           <Text variant="body2" weight="bold" style={[styles.tdText, { textAlign: 'right' }]}>${summary.formattedTotal}</Text>
         </DataTableCell>
       </View>
-      <View style={{ flexDirection: 'row', gap: 24, marginTop: 4 }}>
-        <View style={{ flexDirection: 'row', flex: 1, gap: 4 }}>
+      <View style={{ flexDirection: 'row', gap: layout.spacing.xl, marginTop: layout.spacing.xxs }}>
+        <View style={{ flexDirection: 'row', flex: 1, gap: layout.spacing.xxs }}>
           <Text style={[styles.metaLabel, { marginBottom: 0 }]} size={10}>{t('adminOrdersCustNote')}: </Text>
           <Text variant="body2" style={styles.metaValue} size={13} weight="600" numberOfLines={1}>{order.note || '—'}</Text>
         </View>
-        <View style={{ flexDirection: 'row', flex: 1, gap: 4 }}>
+        <View style={{ flexDirection: 'row', flex: 1, gap: layout.spacing.xxs }}>
           <Text style={[styles.metaLabel, { marginBottom: 0 }]} size={10}>{t('adminOrdersAdminNote')}: </Text>
           <Text variant="body2" style={styles.metaValue} size={13} weight="600" numberOfLines={1}>{order.adminNote || '—'}</Text>
         </View>

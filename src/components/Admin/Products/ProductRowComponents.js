@@ -5,6 +5,7 @@ import { useTheme } from '../../../context/ThemeContext';
 import { Button, IconButton } from '../../Button';
 import { EditIcon, TrashIcon } from '@/components/Icons';
 import { Badge } from '../../Badge';
+import { colors, layout } from '../../../theme/tokens';
 import styles from './ProductsStyles';
 import { getLocalizedValue } from '../../../utils/localization';
 export { getEffectivePrice } from '../../../utils/pricing';
@@ -24,9 +25,9 @@ export const getRowStyle = (index, isMobile) => {
 export const getPlaceholderVal = (val) => val || '—';
 
 export function getHighlightStyle(isNew, discountPercent) {
-  if (isNew && discountPercent > 0) return { backgroundColor: '#F0FDFA' };
-  if (isNew) return { backgroundColor: '#EFF6FF' };
-  if (discountPercent > 0) return { backgroundColor: '#F0FDF4' };
+  if (isNew && discountPercent > 0) return { backgroundColor: colors.successBgTeal };
+  if (isNew) return { backgroundColor: colors.infoBgLight };
+  if (discountPercent > 0) return { backgroundColor: colors.successBgLight };
   return null;
 }
 
@@ -58,7 +59,7 @@ export function DiscountCell({ discountPercent }) {
 
 export function ProductRowActions({ product, onEdit, onDelete }) {
   return (
-    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
+    <View style={{ flexDirection: 'row', alignItems: 'center', gap: layout.spacing.xxs }}>
       <IconButton
         icon={<EditIcon size={14} />}
         onPress={() => onEdit(product)}

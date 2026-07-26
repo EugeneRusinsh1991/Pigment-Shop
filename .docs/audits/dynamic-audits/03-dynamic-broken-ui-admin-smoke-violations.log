@@ -2,7 +2,7 @@
 type: dynamic-audit
 auditor: broken-ui
 scope: admin
-date: 2026-07-26T20:56:44.160Z
+date: 2026-07-26T21:34:59.868Z
 ---
 
 ### URL: http://localhost:8081/admin
@@ -10,43 +10,3 @@ date: 2026-07-26T20:56:44.160Z
   Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderRadius-kdyh1x.r-flex-13awgt0.r-height-1pi2tsx.r-justifyContent-1777fci.r-paddingInline-3o4zer.r-zIndex-184en5c`
 - Element has overflow clipping (`scrollWidth > clientWidth`).
   Selector: `div.css-view-g5y9jx.r-alignItems-1awozwy.r-backgroundColor-fj6wrk.r-flexDirection-18u37iz.r-padding-zhp00w.r-position-bnwqim.r-borderRadius-kdyh1x.r-height-mabqd8`
-- Element has overflow clipping (`scrollWidth > clientWidth`).
-  Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-flexDirection-18u37iz.r-gap-9aw3ui.r-flex-1j6g5un`
-- Element has overflow clipping (`scrollWidth > clientWidth`).
-  Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-flexDirection-18u37iz.r-gap-9aw3ui.r-flex-41uqdh`
-- Element has overflow clipping (`scrollWidth > clientWidth`).
-  Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-flexDirection-18u37iz.r-gap-9aw3ui.r-flex-1w3sgar`
-- Element has overflow clipping (`scrollWidth > clientWidth`).
-  Selector: `div.css-view-g5y9jx.r-marginBlock-l00any.r-marginBottom-6gpygo`
-- Element has overflow clipping (`scrollWidth > clientWidth`).
-  Selector: `input.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-paddingBlock-1mkv55d.r-backgroundColor-fj6wrk.r-borderColor-1t4g3vi.r-borderRadius-1xfd6ze.r-borderWidth-rs99b7.r-color-kgv7a8.r-height-eu3ka.r-outlineStyle-1ny4l3l.r-paddingInline-3o4zer`
-- Clickable element is overlapped or intercepted by another element.
-  Selector: `button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-fj6wrk.r-borderColor-1wr2p1e`
-- Clickable element is overlapped or intercepted by another element.
-  Selector: `button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-paddingInline-3pj75a.r-backgroundColor-wt1z2b.r-borderColor-1jl7vqb`
-- Element has overflow clipping (`scrollWidth > clientWidth`).
-  Selector: `div.css-view-g5y9jx`
-- Element has overflow clipping (`scrollWidth > clientWidth`).
-  Selector: `div.css-view-g5y9jx.r-flex-13awgt0.r-minWidth-qtfnoi`
-- Element has overflow clipping (`scrollWidth > clientWidth`).
-  Selector: `div.css-view-g5y9jx.r-marginBlock-l00any`
-- Element has overflow clipping (`scrollWidth > clientWidth`).
-  Selector: `div.css-view-g5y9jx.r-flexDirection-18u37iz.r-flexWrap-1w6e6rj.r-gap-f4gmv6.r-marginBottom-1cad53l`
-- Element has overflow clipping (`scrollWidth > clientWidth`).
-  Selector: `input.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-paddingBlock-1mkv55d.r-backgroundColor-fj6wrk.r-borderColor-1t4g3vi.r-borderRadius-1xfd6ze.r-color-kgv7a8.r-height-eu3ka.r-outlineStyle-1ny4l3l.r-paddingInline-3o4zer`
-- Clickable element is overlapped or intercepted by another element.
-  Selector: `button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-paddingInline-3pj75a.r-backgroundColor-11jo552.r-borderColor-en0kqj`
-- Clickable element is overlapped or intercepted by another element.
-  Selector: `button.css-view-g5y9jx.r-touchAction-1otgn73.r-alignItems-1awozwy.r-cursor-1loqt21.r-flexDirection-18u37iz.r-justifyContent-1777fci.r-backgroundColor-14lw9ot.r-borderColor-1wr2p1e.r-borderRadius-y47klf.r-borderWidth-1rf8fdq.r-minHeight-15ysp7h.r-paddingBlock-vuvdlw.r-paddingInline-gu64tb`
-- Clickable element is overlapped or intercepted by another element.
-  Selector: `button.css-view-g5y9jx.r-touchAction-1otgn73.r-alignItems-1awozwy.r-cursor-1loqt21.r-flexDirection-18u37iz.r-justifyContent-1777fci.r-borderRadius-y47klf.r-borderWidth-1rf8fdq.r-minHeight-15ysp7h.r-paddingBlock-vuvdlw.r-paddingInline-gu64tb.r-backgroundColor-wt1z2b.r-borderColor-1jl7vqb`
-- Clickable element is overlapped or intercepted by another element.
-  Selector: `button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-paddingInline-3pj75a.r-backgroundColor-fj6wrk.r-borderColor-1wr2p1e`
-- Clickable element is overlapped or intercepted by another element.
-  Selector: `button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-paddingInline-3pj75a.r-backgroundColor-1bbz6r5.r-borderColor-1fvvsgw`
-- Clickable element is overlapped or intercepted by another element.
-  Selector: `button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1867qdf.r-height-h3s6tt.r-paddingInline-cxgwc0.r-backgroundColor-wt1z2b.r-borderColor-1jl7vqb.r-minWidth-19mqnvc`
-- Element has overflow clipping (`scrollWidth > clientWidth`).
-  Selector: `div.css-view-g5y9jx.r-backgroundColor-14lw9ot.r-borderRadius-1867qdf.r-boxShadow-1alywg8.r-marginBottom-117bsoe.r-overflow-1udh08x`
-- Element has overflow clipping (`scrollWidth > clientWidth`).
-  Selector: `div.css-view-g5y9jx.r-backgroundColor-11j01x2.r-borderBottomColor-1lu6zvw.r-borderBottomWidth-qklmqi.r-flexDirection-18u37iz.r-paddingBlock-1mmae3n.r-paddingInline-3pj75a`

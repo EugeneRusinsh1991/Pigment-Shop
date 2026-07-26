@@ -1,6 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import { Text } from '../../Text';
+import { layout } from '../../../theme/tokens';
 import styles from './OrdersStyles';
 import Toggle from '../../Toggle';
 
@@ -20,7 +21,7 @@ export function StatusFilterBar({ t, activeFilter, onSelectFilter, count, isDark
   }));
 
   return (
-    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16, flexWrap: 'wrap', gap: 8 }}>
+    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: layout.spacing.lg, flexWrap: 'wrap', gap: layout.spacing.sm }}>
       <Toggle
         options={options}
         value={activeFilter}

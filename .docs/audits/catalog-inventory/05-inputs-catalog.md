@@ -7,27 +7,27 @@
 ---
 
 ### File: [src/components/Admin/Categories/CategoryFormContent.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryFormContent.js)
-  - Line [28](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryFormContent.js#L28): `<CategoryTypeSelect>`
+  - Line [29](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryFormContent.js#L29): `<CategoryTypeSelect>`
 
 ### File: [src/components/Admin/Categories/CategoryFormFields.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryFormFields.js)
-  - Line [27](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryFormFields.js#L27): `<SharedFieldInput>`
-  - Line [86](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryFormFields.js#L86): `<TextField>`
-  - Line [120](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryFormFields.js#L120): `<FieldInput>`
+  - Line [28](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryFormFields.js#L28): `<SharedFieldInput>`
+  - Line [87](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryFormFields.js#L87): `<TextField>`
+  - Line [121](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryFormFields.js#L121): `<FieldInput>`
 
 ### File: [src/components/Admin/Orders/OrderDetails.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Orders/OrderDetails.js)
   - Line [111](file:///D:/Magazine/_PigmentShop/src/components/Admin/Orders/OrderDetails.js#L111): `<OrderStatusSelector>`
 
 ### File: [src/components/Admin/Products/ProductFormFields.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductFormFields.js)
-  - Line [10](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductFormFields.js#L10): `<SharedFieldInput>`
-  - Line [31](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductFormFields.js#L31): `<FieldInput>`
-  - Line [59](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductFormFields.js#L59): `<FieldInput>`
+  - Line [11](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductFormFields.js#L11): `<SharedFieldInput>`
+  - Line [32](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductFormFields.js#L32): `<FieldInput>`
   - Line [60](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductFormFields.js#L60): `<FieldInput>`
-  - Line [69](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductFormFields.js#L69): `<FieldInput>`
+  - Line [61](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductFormFields.js#L61): `<FieldInput>`
   - Line [70](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductFormFields.js#L70): `<FieldInput>`
-  - Line [79](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductFormFields.js#L79): `<FieldInput>`
-  - Line [88](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductFormFields.js#L88): `<FieldInput>`
+  - Line [71](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductFormFields.js#L71): `<FieldInput>`
+  - Line [80](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductFormFields.js#L80): `<FieldInput>`
   - Line [89](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductFormFields.js#L89): `<FieldInput>`
   - Line [90](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductFormFields.js#L90): `<FieldInput>`
+  - Line [91](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductFormFields.js#L91): `<FieldInput>`
 
 ### File: [src/components/Admin/Products/ProductsManager.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductsManager.js)
   - Line [57](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductsManager.js#L57): `<SearchInput>`

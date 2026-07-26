@@ -4,6 +4,7 @@ import { Text } from '../../Text';
 import { AnimatedButton } from '../../Button';
 import { calculateHitSlop } from '../../../theme/buttonCommon';
 import { localStyles } from './DateRangeCalendarStyles';
+import { typography } from '../../../theme/tokens';
 
 const isSameDay = (d1, d2) => {
   if (!d1 || !d2) return false;
@@ -40,7 +41,7 @@ function getCellStyles(isCurrentMonth, isSelected, isRange) {
       cellStyle: [localStyles.dayCell],
       buttonStyle: [localStyles.dayButton, localStyles.daySelected],
       textStyle: [localStyles.dayText, currentText, localStyles.dayTextSelected],
-      weight: '700',
+      weight: typography.weights.bold,
     };
   }
   
@@ -49,7 +50,7 @@ function getCellStyles(isCurrentMonth, isSelected, isRange) {
       cellStyle: [localStyles.dayCell, localStyles.dayHighlight],
       buttonStyle: [localStyles.dayButton],
       textStyle: [localStyles.dayText, currentText, localStyles.dayHighlightText],
-      weight: '600',
+      weight: typography.weights.semibold,
     };
   }
 

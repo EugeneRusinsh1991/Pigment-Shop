@@ -32,7 +32,7 @@ export default function TopProductsChart({ productsData = [] }) {
 
   if (products.length === 0) {
     return (
-      <View style={{ paddingVertical: 20, alignItems: 'center', justifyContent: 'center' }}>
+      <View style={{ paddingVertical: layout.radii.lg, alignItems: 'center', justifyContent: 'center' }}>
         <Text variant="body2" color="secondary" weight="medium">
           No selling products in this period.
         </Text>
