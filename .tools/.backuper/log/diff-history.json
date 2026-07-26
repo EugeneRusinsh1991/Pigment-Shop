@@ -4267,5 +4267,27 @@
         }
       ]
     }
+  },
+  "src_07-26_20-36_05-service-layer-violations.log_10files": {
+    "timestamp": "2026-07-26T17:36:21.347Z",
+    "diff": {
+      "added": 2,
+      "removed": 0,
+      "modified": 8,
+      "topFolders": [
+        {
+          "folder": ".docs/audits",
+          "count": 5
+        },
+        {
+          "folder": "src/components/Feedback",
+          "count": 3
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        }
+      ]
+    }
   }
 }
