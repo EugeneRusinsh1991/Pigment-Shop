@@ -18,17 +18,35 @@ function renderLabel(label, dynamicStyles, labelStyle) {
   );
 }
 
-function renderIcon(icon, style) {
-  if (!icon) return null;
-  return <View style={style}>{icon}</View>;
-}
-
 function renderHelperText(displayHelperText, dynamicStyles, helperStyle) {
   if (!displayHelperText) return null;
   return (
     <Text style={[dynamicStyles.helperText, helperStyle]}>
       {displayHelperText}
     </Text>
+  );
+}
+
+function renderInputWrapper({ ref, value, onChangeText, placeholder, theme, disabled, multiline, numberOfLines, handleFocus, handleBlur, dynamicStyles, inputStyle, animatedContainerStyle, inputWrapperStyle, leadingIcon, trailingIcon, restProps }) {
+  return (
+    <Animated.View style={[dynamicStyles.inputWrapper, animatedContainerStyle, inputWrapperStyle]}>
+      {leadingIcon ? <View style={dynamicStyles.leadingIcon}>{leadingIcon}</View> : null}
+      <TextInput
+        ref={ref}
+        value={value}
+        onChangeText={onChangeText}
+        placeholder={placeholder}
+        placeholderTextColor={theme.placeholderColor}
+        editable={!disabled}
+        multiline={multiline}
+        numberOfLines={multiline ? numberOfLines : 1}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+        style={[dynamicStyles.input, inputStyle]}
+        {...restProps}
+      />
+      {trailingIcon ? <View style={dynamicStyles.trailingIcon}>{trailingIcon}</View> : null}
+    </Animated.View>
   );
 }
 
@@ -87,34 +105,7 @@ const TextField = forwardRef(function TextField(
   return (
     <View style={[dynamicStyles.container, containerStyle]}>
       {renderLabel(label, dynamicStyles, labelStyle)}
-
-      <Animated.View
-        style={[
-          dynamicStyles.inputWrapper,
-          animatedContainerStyle,
-          inputWrapperStyle,
-        ]}
-      >
-        {renderIcon(leadingIcon, dynamicStyles.leadingIcon)}
-
-        <TextInput
-          ref={ref}
-          value={value}
-          onChangeText={onChangeText}
-          placeholder={placeholder}
-          placeholderTextColor={theme.placeholderColor}
-          editable={!disabled}
-          multiline={multiline}
-          numberOfLines={multiline ? numberOfLines : 1}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-          style={[dynamicStyles.input, inputStyle]}
-          {...restProps}
-        />
-
-        {renderIcon(trailingIcon, dynamicStyles.trailingIcon)}
-      </Animated.View>
-
+      {renderInputWrapper({ ref, value, onChangeText, placeholder, theme, disabled, multiline, numberOfLines, handleFocus, handleBlur, dynamicStyles, inputStyle, animatedContainerStyle, inputWrapperStyle, leadingIcon, trailingIcon, restProps })}
       {renderHelperText(displayHelperText, dynamicStyles, helperStyle)}
     </View>
   );

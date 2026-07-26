@@ -3,20 +3,23 @@ import { Pressable, Text, View } from 'react-native';
 import styles, { HIT_SLOP_44, colorSchemes } from './FlagStyles';
 import { useFlagTheme } from './useFlagTheme';
 
+function resolveSchemeStyles(colorScheme, isDark, lightKey, darkKey) {
+  const scheme = colorScheme ? colorSchemes[colorScheme] : null;
+  return scheme ? (isDark ? scheme[darkKey] : scheme[lightKey]) : null;
+}
+
 function getChipContainerStyle(isDark, checked, disabled, readOnly, colorScheme, style) {
-  const schemeStyles = colorScheme ? colorSchemes[colorScheme] : null;
-  const schemeContainer = schemeStyles && (isDark ? schemeStyles.containerDark : schemeStyles.container);
   const darkStyle = isDark ? styles.chipContainerDark : null;
   const checkedStyle = checked ? (isDark ? styles.chipActiveDark : styles.chipActive) : null;
+  const schemeContainer = resolveSchemeStyles(colorScheme, isDark, 'container', 'containerDark');
   const opacityStyle = (disabled && !readOnly) ? { opacity: 0.5 } : null;
   return [styles.baseContainer, styles.chipContainer, darkStyle, checkedStyle, schemeContainer, opacityStyle, style];
 }
 
 function getChipLabelStyle(isDark, checked, colorScheme, textStyle) {
-  const schemeStyles = colorScheme ? colorSchemes[colorScheme] : null;
-  const schemeText = schemeStyles && (isDark ? schemeStyles.textDark : schemeStyles.text);
   const darkStyle = isDark ? styles.chipTextDark : null;
   const checkedStyle = checked ? (isDark ? styles.chipActiveTextDark : styles.chipActiveText) : null;
+  const schemeText = resolveSchemeStyles(colorScheme, isDark, 'text', 'textDark');
   return [styles.chipText, darkStyle, checkedStyle, schemeText, textStyle];
 }
 

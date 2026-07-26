@@ -65,6 +65,19 @@ function renderToggleOption(opt, index, ctx) {
   );
 }
 
+function buildToggleContext(props, theme, animation, computedHitSlop, textSizeStyle) {
+  const { value, onChange, animated, optionStyle, activeOptionStyle, textStyle, activeTextStyle, disabled } = props;
+  return { value, onChange, animated, theme, optionStyle, activeOptionStyle, textStyle, activeTextStyle, computedHitSlop, disabled, textSizeStyle, animation };
+}
+function computeToggleSizes(size, hitSlop) {
+  const sizeStyle = styles[size] || styles.md;
+  const textSizeStyle = styles[`text_${size}`] || styles.text_md;
+  const { height, width } = getOptionDimensions(size);
+  const computedHitSlop = hitSlop !== undefined ? hitSlop : calculateHitSlop(width, height);
+  return { sizeStyle, textSizeStyle, computedHitSlop };
+}
+
+
 export default function Toggle({
   options = [],
   value,
@@ -83,12 +96,8 @@ export default function Toggle({
 }) {
   const theme = useToggleTheme({ isDarkProp, styleMap: styles });
   const animation = useToggleAnimation({ animated, options, value });
-
-  const sizeStyle = styles[size] || styles.md;
-  const textSizeStyle = styles[`text_${size}`] || styles.text_md;
-  const { height, width } = getOptionDimensions(size);
-  const computedHitSlop = hitSlop !== undefined ? hitSlop : calculateHitSlop(width, height);
-  const ctx = { value, onChange, animated, theme, optionStyle, activeOptionStyle, textStyle, activeTextStyle, computedHitSlop, disabled, textSizeStyle, animation };
+  const { sizeStyle, textSizeStyle, computedHitSlop } = computeToggleSizes(size, hitSlop);
+  const ctx = buildToggleContext({ value, onChange, animated, optionStyle, activeOptionStyle, textStyle, activeTextStyle, disabled }, theme, animation, computedHitSlop, textSizeStyle);
 
   return (
     <View style={[styles.container, sizeStyle, theme?.container, style]} {...props}>

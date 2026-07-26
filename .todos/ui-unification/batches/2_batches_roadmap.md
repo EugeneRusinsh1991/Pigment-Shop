@@ -7,11 +7,11 @@
 
 ## Phase 1: Core Primitive Foundation (`src/components/Badge/`) — 🔴 **Gemini 3.1 Pro (High)**
 
-- [ ] **1.1 Build Dynamic Style Factory (`BadgeStyles.js`)** — 🟡 **3.6 Flash (Medium)**
+- [x] **1.1 Build Dynamic Style Factory (`BadgeStyles.js`)** — 🟡 **3.6 Flash (Medium)**
   - Implement token-driven styles referencing `tokens.js` (colors, radii, typography, variants).
-- [ ] **1.2 Create Theme Hook (`useBadgeTheme.js`)** — 🟡 **3.6 Flash (Medium)**
+- [x] **1.2 Create Theme Hook (`useBadgeTheme.js`)** — 🟡 **3.6 Flash (Medium)**
   - Implement hook for theme context resolution, variant calculations (`new`, `discount`, `status`, `counter`, `chip`), and dark mode support.
-- [ ] **1.3 Create Animation Hook (`useBadgeAnimation.js`)** — 🟡 **3.6 Flash (Medium)**
+- [x] **1.3 Create Animation Hook (`useBadgeAnimation.js`)** — 🟡 **3.6 Flash (Medium)**
   - Implement scale/pulse animation drivers for cart counter badges and interactive chip presses.
 - [ ] **1.4 Create Core Presentational Component (`Badge.js`)** — 🟠 **3.6 Flash (High)**
   - Construct universal `Badge` component supporting variants (`product`, `status`, `counter`, `chip`).
