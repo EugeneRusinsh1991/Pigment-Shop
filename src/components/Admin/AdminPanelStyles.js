@@ -28,13 +28,9 @@ export default StyleSheet.create({
     padding: 6,
   },
   headerBackText: {
-    fontSize: 20,
     color: colors.dark,
   },
   headerTitle: {
-    fontFamily: fonts.serif,
-    fontSize: 20,
-    fontWeight: '600',
     color: colors.dark,
   },
   logoutBtn: {
@@ -47,8 +43,6 @@ export default StyleSheet.create({
     borderRadius: 8,
   },
   logoutText: {
-    fontSize: 13,
-    fontWeight: '600',
     color: colors.secondaryLightText,
   },
   tabBar: {

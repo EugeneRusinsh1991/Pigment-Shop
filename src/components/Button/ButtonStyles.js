@@ -48,7 +48,6 @@ function createButtonStyles() {
       borderColor: 'transparent',
     },
     textBase: {
-      fontWeight: '600',
       textAlign: 'center',
     },
 
@@ -70,9 +69,9 @@ function createButtonStyles() {
     },
 
     // Text sizes
-    text_sm: { fontSize: buttonTokens.sizes.sm.fontSize },
-    text_md: { fontSize: buttonTokens.sizes.md.fontSize },
-    text_lg: { fontSize: buttonTokens.sizes.lg.fontSize },
+    text_sm: {},
+    text_md: {},
+    text_lg: {},
 
     // State modifiers
     fullWidth:    { width: '100%' },

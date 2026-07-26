@@ -41,10 +41,10 @@ export default function OrderStatusDropdownMenu({ statuses, currentStatus, updat
           >
             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
               <View style={{ width: 8, height: 8, borderRadius: 4, backgroundColor: status.color }} />
-              <Text style={[styles.statusOptionText, { color: status.color, fontWeight: isSelected ? '700' : '500' }]}>
+              <Text style={[styles.statusOptionText, { color: status.color }]} size={14} weight={isSelected ? '700' : '500'}>
                 {t(status.localeKey) || status.value}
               </Text>
-              {isSelected && <Text style={{ color: status.color, fontSize: 12 }}>✓</Text>}
+              {isSelected && <Text style={{ color: status.color }} size={12}>✓</Text>}
             </View>
           </AnimatedButton>
         );

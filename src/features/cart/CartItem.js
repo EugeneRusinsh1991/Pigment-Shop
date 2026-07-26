@@ -47,7 +47,7 @@ export default function CartItem({ item, isDark, onIncrease, onDecrease, onRemov
         <View style={styles.footerRow}>
           <View style={styles.qtyRow}>
             <IconButton
-              icon={<Text style={[styles.qtyBtnTxt, ic(styles.qtyBtnTxtDark, styles.qtyBtnTxtLight)]}>−</Text>}
+              icon={<Text variant="body" weight="medium" style={[styles.qtyBtnTxt, ic(styles.qtyBtnTxtDark, styles.qtyBtnTxtLight)]}>−</Text>}
               onPress={onDecrease}
               size={28}
               variant="outline"
@@ -56,7 +56,7 @@ export default function CartItem({ item, isDark, onIncrease, onDecrease, onRemov
             <Text variant="body" weight="bold" style={styles.qty}>{item.qty}</Text>
 
             <IconButton
-              icon={<Text style={[styles.qtyBtnTxt, ic(styles.qtyBtnTxtDark, styles.qtyBtnTxtLight)]}>+</Text>}
+              icon={<Text variant="body" weight="medium" style={[styles.qtyBtnTxt, ic(styles.qtyBtnTxtDark, styles.qtyBtnTxtLight)]}>+</Text>}
               onPress={onIncrease}
               size={28}
               variant="outline"
@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
   qtyBtn: { width: 28, height: 28, borderRadius: 8, alignItems: 'center', justifyContent: 'center', borderWidth: 1 },
   qtyBtnDark: { backgroundColor: '#0f172a', borderColor: '#334155' },
   qtyBtnLight: { backgroundColor: '#f1f5f9', borderColor: '#e2e8f0' },
-  qtyBtnTxt: { fontSize: 16, lineHeight: 20, fontWeight: '500' },
+  qtyBtnTxt: {},
   qtyBtnTxtDark: { color: '#f1f5f9' },
   qtyBtnTxtLight: { color: '#0f172a' },
   qty: { marginHorizontal: 8, minWidth: 20, textAlign: 'center' },

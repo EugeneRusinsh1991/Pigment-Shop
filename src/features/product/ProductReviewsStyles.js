@@ -26,7 +26,6 @@ export default StyleSheet.create({
   },
   starDisplay: {
     color: colors.warningMid,
-    fontSize: 18,
   },
   ratingValueText: {},
   reviewForm: {
@@ -52,7 +51,6 @@ export default StyleSheet.create({
     height: 40,
     paddingHorizontal: 12,
     marginBottom: 8,
-    fontSize: 14,
   },
   inputDark: {
     backgroundColor: colors.productCardDark,
@@ -79,11 +77,9 @@ export default StyleSheet.create({
   },
   activeStar: {
     color: colors.warningMid,
-    fontSize: 24,
   },
   inactiveStar: {
     color: colors.secondaryDarkText,
-    fontSize: 24,
   },
   submitBtn: {
     backgroundColor: colors.accent,
@@ -94,7 +90,6 @@ export default StyleSheet.create({
   },
   submitBtnText: {
     color: colors.white,
-    fontWeight: 'bold',
   },
   reviewsList: {
     gap: 12,
@@ -120,7 +115,6 @@ export default StyleSheet.create({
   author: {},
   reviewStars: {
     color: colors.warningMid,
-    fontSize: 14,
   },
   comment: {
     marginBottom: 4,

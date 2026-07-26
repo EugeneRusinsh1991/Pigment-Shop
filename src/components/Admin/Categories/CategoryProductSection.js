@@ -43,21 +43,21 @@ const renderProductOption = (product, selected, toggleProduct, lang) => (
     activeOpacity={0.8}
   >
     <View style={getProductCheckStyle(selected)}>
-      {selected ? <Text style={{ color: '#FFFFFF', fontSize: 10, fontWeight: '700' }}>✓</Text> : null}
+      {selected ? <Text variant="caption" weight="bold" style={{ color: '#FFFFFF' }}>✓</Text> : null}
     </View>
-    <Text style={{ fontSize: 13, color: '#1F2937' }}>{getProductLabel(product, lang)}</Text>
+    <Text variant="body2" style={{ color: '#1F2937' }}>{getProductLabel(product, lang)}</Text>
   </AnimatedButton>
 );
 
 const renderProductGroup = ({ titleKey, hintKey, emptyKey, products, selected, toggleProduct, lang, t }) => (
   <View>
     <Text style={styles.sectionLabel}>{t(titleKey)}</Text>
-    <Text style={{ fontSize: 12, color: '#64748B', marginBottom: 8 }}>
+    <Text size={12} style={{ color: '#64748B', marginBottom: 8 }}>
       {t(hintKey)}
     </Text>
     <View style={{ gap: 6 }}>
       {products.length === 0 ? (
-        <Text style={{ fontSize: 12, color: '#64748B' }}>{t(emptyKey)}</Text>
+        <Text size={12} style={{ color: '#64748B' }}>{t(emptyKey)}</Text>
       ) : products.map((product) => renderProductOption(product, selected, toggleProduct, lang))}
     </View>
   </View>

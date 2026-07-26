@@ -36,7 +36,6 @@ export default StyleSheet.create({
     backgroundColor: colors.inputBgLight,
   },
   input: {
-    fontSize: 15,
     height: '100%',
   },
   requiredNote: {
@@ -125,8 +124,6 @@ export default StyleSheet.create({
   checkoutBtnTextLight: { color: colors.white },
 
   noteInput: {
-    fontFamily: fonts.sans,
-    fontSize: 14,
     borderRadius: 12,
     borderWidth: 1,
     padding: 12,

@@ -31,13 +31,13 @@ const ProductPrice = React.memo(function ProductPrice({ price, discountPercent }
     const finalPrice = getEffectivePrice(price, discountPercent);
     return (
       <View style={styles.priceRow}>
-        <Text style={styles.priceText}>${finalPrice.toLocaleString()}</Text>
+        <Text variant="subtitle1" weight="700">${finalPrice.toLocaleString()}</Text>
         <Text variant="caption" color="desc" style={styles.originalPriceText}>${price.toLocaleString()}</Text>
       </View>
     );
   }
 
-  return <Text style={styles.priceText}>${price.toLocaleString()}</Text>;
+  return <Text variant="subtitle1" weight="700">${price.toLocaleString()}</Text>;
 });
 
 function safeStopPropagation(e) {
@@ -115,7 +115,7 @@ const ProductCardInner = React.forwardRef(({ item, isDark, depth = 1, isFavorite
         </View>
       </View>
       <View style={themed.prodInfo}>
-        <Text style={styles.brandText}>{item.brand || t('brandFallback')}</Text>
+        <Text variant="overline" color="accent" style={styles.brandText}>{item.brand || t('brandFallback')}</Text>
         <Text variant="subtitle2" style={styles.prodTitle} numberOfLines={2}>{getLocalizedValue(item.label, lang)}</Text>
         <ProductPrice price={item.price} discountPercent={item.discountPercent} />
       </View>

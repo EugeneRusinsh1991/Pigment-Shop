@@ -47,8 +47,6 @@ export default StyleSheet.create({
   },
   addBtnText: {
     color: colors.textDark,
-    fontSize: 13,
-    fontWeight: '600',
   },
 
   /* Expand/collapse all controls */
@@ -69,8 +67,6 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   treeControlBtnText: {
-    fontSize: 13,
-    fontWeight: '500',
     color: colors.textDescLight,
   },
 
@@ -133,20 +129,15 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   toggleIcon: {
-    fontSize: 10,
     color: colors.textDescDark,
-    fontWeight: '700',
   },
   togglePlaceholder: {
     width: 20,
   },
   categoryName: {
-    fontSize: 13,
-    fontWeight: '600',
     color: colors.textLight,
   },
   categoryId: {
-    fontSize: 11,
     color: colors.textDescDark,
     marginTop: 1,
   },
@@ -158,14 +149,11 @@ export default StyleSheet.create({
     borderRadius: layout.radii.full,
   },
   typeBadgeText: {
-    fontSize: 10,
-    fontWeight: '700',
     letterSpacing: 0.2,
     textTransform: 'uppercase',
   },
 
   cellText: {
-    fontSize: 13,
     color: colors.textDescLight,
   },
 
@@ -178,8 +166,6 @@ export default StyleSheet.create({
   imageBadgeSet: { backgroundColor: colors.successBgAlt },
   imageBadgeNone: { backgroundColor: colors.slateMid },
   imageBadgeText: {
-    fontSize: 11,
-    fontWeight: '600',
   },
   imageBadgeSetText: { color: colors.success },
   imageBadgeNoneText: { color: colors.slateText },
@@ -196,8 +182,6 @@ export default StyleSheet.create({
     paddingHorizontal: 12,
   },
   actionBtnText: {
-    fontSize: 12,
-    fontWeight: '700',
     color: colors.slateText,
   },
   addChildBtn: {
@@ -211,13 +195,10 @@ export default StyleSheet.create({
     paddingHorizontal: 12,
   },
   addChildBtnText: {
-    fontSize: 12,
-    fontWeight: '700',
     color: colors.infoStrong,
   },
 
   actionIcon: {
-    fontSize: 13,
   },
 
   /* Save Button */
@@ -230,8 +211,6 @@ export default StyleSheet.create({
   },
   saveBtnText: {
     color: colors.textDark,
-    fontSize: 14,
-    fontWeight: '700',
   },
 
 

@@ -31,8 +31,6 @@ const styles = StyleSheet.create({
     marginVertical: 4,
   },
   label: {
-    fontSize: 13,
-    fontWeight: '500',
     color: colors.textLight,
     marginBottom: 6,
   },
@@ -85,7 +83,6 @@ const styles = StyleSheet.create({
     marginLeft: 8,
   },
   helperText: {
-    fontSize: 12,
     marginTop: 4,
     color: colors.textMutedLight,
   },

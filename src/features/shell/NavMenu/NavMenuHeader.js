@@ -25,7 +25,7 @@ export default function NavMenuHeader({ isDark, onBackClick, onClose, view, titl
       />
       
       {view === 'catalog' || view === 'contact' ? (
-        <Text style={[styles.panelTitle, isDark ? styles.textDark : styles.textLight]}>
+        <Text variant="subtitle1" weight="600" style={[styles.panelTitle, isDark ? styles.textDark : styles.textLight]}>
           {title}
         </Text>
       ) : (

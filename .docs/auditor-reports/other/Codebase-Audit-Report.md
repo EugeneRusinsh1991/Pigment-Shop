@@ -2,11 +2,11 @@
 
 > **Audit Metrics & Health Overview**
 > - **Critical Health Findings:** 0
-> - **High Health Findings:** 11
-> - **Large / High-Risk Files:** 20
-> - **Significant Clone Groups:** 5
-> - **Dead Files (Unused):** 98
-> - **Unused Exports:** 77
+> - **High Health Findings:** 6
+> - **Large / High-Risk Files:** 19
+> - **Significant Clone Groups:** 4
+> - **Dead Files (Unused):** 101
+> - **Unused Exports:** 80
 > - **Unused Dependencies:** 0
 > - **Unlisted Dependencies:** 0
 > - **Circular Dependencies:** 0

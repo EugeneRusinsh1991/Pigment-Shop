@@ -14,37 +14,29 @@ export const VARIANTS = {
   overline: { fontSize: 10, lineHeight: 14, fontWeight: '600', letterSpacing: 1, textTransform: 'uppercase', fontFamily: fonts.sans },
 };
 
+const colorPresetMap = {
+  secondary: (isDark) => isDark ? colors.textMutedDark : colors.textMutedLight,
+  muted:     (isDark) => isDark ? colors.textMutedDark : colors.textMutedLight,
+  desc:      (isDark) => isDark ? colors.textDescDark : colors.textDescLight,
+  subtle:    (isDark) => isDark ? colors.textSubtleDark : colors.textSubtleLight,
+  strong:    (isDark) => isDark ? colors.textStrongDark : colors.textStrongLight,
+  accent:    () => colors.accent,
+  danger:    () => colors.danger,
+  success:   () => colors.success,
+  warning:   (isDark) => isDark ? colors.warningMid : colors.warningDark,
+  white:     () => colors.white,
+  black:     () => colors.black,
+  primary:   (isDark) => isDark ? colors.textDark : colors.textLight,
+};
+
 export function getTextColor(colorPreset = 'primary', isDark = false) {
   if (colorPreset && colorPreset.startsWith && (colorPreset.startsWith('#') || colorPreset.startsWith('rgb'))) {
     return colorPreset;
   }
-  switch (colorPreset) {
-    case 'secondary':
-    case 'muted':
-      return isDark ? colors.textMutedDark : colors.textMutedLight;
-    case 'desc':
-      return isDark ? colors.textDescDark : colors.textDescLight;
-    case 'subtle':
-      return isDark ? colors.textSubtleDark : colors.textSubtleLight;
-    case 'strong':
-      return isDark ? colors.textStrongDark : colors.textStrongLight;
-    case 'accent':
-      return colors.accent;
-    case 'danger':
-      return colors.danger;
-    case 'success':
-      return colors.success;
-    case 'warning':
-      return isDark ? colors.warningMid : colors.warningDark;
-    case 'white':
-      return colors.white;
-    case 'black':
-      return colors.black;
-    case 'primary':
-    default:
-      return isDark ? colors.textDark : colors.textLight;
-  }
+  const resolver = colorPresetMap[colorPreset] || colorPresetMap.primary;
+  return resolver(isDark);
 }
+
 
 export function getTextStyle({
   variant = 'body1',
@@ -59,16 +51,9 @@ export function getTextStyle({
   const baseVariant = VARIANTS[variant] || VARIANTS.body1;
   const textColor = getTextColor(color, isDark);
 
-  const styleObj = {
-    ...baseVariant,
-    color: textColor,
-  };
+  const overrides = { textAlign: align, fontWeight: weight, fontFamily: font, fontSize: size, lineHeight };
+  const filtered = Object.fromEntries(Object.entries(overrides).filter(([, v]) => v !== undefined));
 
-  if (align) styleObj.textAlign = align;
-  if (weight) styleObj.fontWeight = weight;
-  if (font) styleObj.fontFamily = font;
-  if (size !== undefined) styleObj.fontSize = size;
-  if (lineHeight !== undefined) styleObj.lineHeight = lineHeight;
-
-  return StyleSheet.create({ text: styleObj });
+  return StyleSheet.create({ text: { ...baseVariant, color: textColor, ...filtered } });
 }
+

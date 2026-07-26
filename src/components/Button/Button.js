@@ -39,7 +39,7 @@ function buildTextStyle(variant, size, resolvedText, disabled, textStyle) {
   ];
 }
 
-function renderButtonContent(children, loading, title, leftIcon, rightIcon, textCombinedStyle) {
+function renderButtonContent(children, loading, title, leftIcon, rightIcon, textCombinedStyle, size) {
   if (typeof children === 'function') return children({ pressed: false });
   if (children) return children;
   return (
@@ -47,7 +47,7 @@ function renderButtonContent(children, loading, title, leftIcon, rightIcon, text
       {leftIcon}
       {loading
         ? <ActivityIndicator size="small" color={StyleSheet.flatten(textCombinedStyle).color || colors.white} />
-        : title ? <Text style={textCombinedStyle}>{title}</Text> : null}
+        : title ? <Text style={textCombinedStyle} size={size} weight="semiBold">{title}</Text> : null}
       {rightIcon}
     </>
   );
@@ -139,7 +139,7 @@ export default function Button({
   const { height, width } = getDimensionsForSize(size);
   const computedHitSlop = hitSlop !== undefined ? hitSlop : calculateHitSlop(width, height);
 
-  const content = renderButtonContent(children, loading, title, leftIcon, rightIcon, textCombinedStyle);
+  const content = renderButtonContent(children, loading, title, leftIcon, rightIcon, textCombinedStyle, size);
 
   const sharedProps = { touchableProps, containerStyle, computedHitSlop, handlePress, disabled, loading, resolvedRole, content };
 

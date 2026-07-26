@@ -15,7 +15,7 @@ export async function isServerRunning(urlStr: string): Promise<boolean> {
   });
 }
 
-export async function ensureDevServer(urlStr: string = 'http://localhost:8081', maxWaitSeconds = 45): Promise<void> {
+export async function ensureDevServer(urlStr: string = 'http://localhost:8081', maxWaitSeconds = 50): Promise<void> {
   const isUp = await isServerRunning(urlStr);
   if (isUp) {
     console.log(`✓ Dev server is already running at ${urlStr}`);

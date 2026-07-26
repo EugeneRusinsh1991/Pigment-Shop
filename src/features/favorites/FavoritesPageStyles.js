@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors, fonts } from '../../theme/tokens';
+import { colors } from '../../theme/tokens';
 
 export default StyleSheet.create({
   container: {
@@ -18,10 +18,6 @@ export default StyleSheet.create({
     paddingBottom: 64,
   },
   title: {
-    fontFamily: fonts.serif,
-    fontSize: 24,
-    lineHeight: 28,
-    fontWeight: '500',
     marginBottom: 16,
     paddingHorizontal: 8,
   },
@@ -31,12 +27,9 @@ export default StyleSheet.create({
     paddingVertical: 64,
   },
   emptyTitle: {
-    fontSize: 20,
-    fontWeight: '500',
     marginBottom: 8,
   },
   emptyDesc: {
-    fontSize: 14,
     textAlign: 'center',
     maxWidth: 300,
   },

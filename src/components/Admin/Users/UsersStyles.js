@@ -17,8 +17,6 @@ export default StyleSheet.create({
     marginBottom: 16,
   },
   title: {
-    fontSize: 16,
-    fontWeight: '700',
     color: colors.dark,
   },
   countBadge: {
@@ -28,15 +26,12 @@ export default StyleSheet.create({
     paddingVertical: 4,
   },
   countText: {
-    fontSize: 12,
-    fontWeight: '600',
     color: colors.secondaryDarkText,
   },
   loading: {
     marginTop: 40,
     textAlign: 'center',
     color: colors.secondaryDarkText,
-    fontSize: 14,
   },
 
   topRow: {
@@ -75,7 +70,6 @@ export default StyleSheet.create({
   },
   rowNum: {
     width: 24,
-    fontSize: 12,
     color: colors.secondaryDarkText,
     marginRight: 8,
     marginTop: 4,
@@ -85,21 +79,15 @@ export default StyleSheet.create({
     minWidth: 120,
   },
   cellText: {
-    fontSize: 13,
     color: colors.dark,
   },
   userNameBold: {
-    fontSize: 14,
-    fontWeight: '700',
     color: colors.dark,
   },
   rowChevron: {
-    fontSize: 16,
     color: colors.slateStrong,
-    fontWeight: '600',
   },
   cellTextMuted: {
-    fontSize: 13,
     color: colors.slateStrong,
     fontStyle: 'italic',
   },
@@ -115,8 +103,6 @@ export default StyleSheet.create({
     paddingVertical: 4,
   },
   ordersBadgeText: {
-    fontSize: 12,
-    fontWeight: '700',
     color: colors.secondaryLightText,
   },
 
@@ -131,9 +117,7 @@ export default StyleSheet.create({
     gap: 8,
   },
   backBtnText: {
-    fontSize: 14,
     color: colors.secondaryLightText,
-    fontWeight: '500',
   },
   clientInfoCard: {
     backgroundColor: colors.surfaceLight,
@@ -151,21 +135,15 @@ export default StyleSheet.create({
     gap: 4,
   },
   infoLabel: {
-    fontSize: 10,
     color: colors.secondaryDarkText,
-    fontWeight: '600',
     textTransform: 'uppercase',
     letterSpacing: 0.5,
   },
   infoValue: {
-    fontSize: 14,
     color: colors.dark,
-    fontWeight: '500',
     flexShrink: 1,
   },
   sectionTitle: {
-    fontSize: 16,
-    fontWeight: '700',
     color: colors.dark,
     marginBottom: 12,
   },
@@ -181,8 +159,6 @@ export default StyleSheet.create({
     elevation: 2,
   },
   noteTitle: {
-    fontSize: 14,
-    fontWeight: '700',
     color: colors.dark,
     marginBottom: 10,
   },
@@ -192,7 +168,6 @@ export default StyleSheet.create({
     borderRadius: 8,
     paddingHorizontal: 12,
     paddingVertical: 10,
-    fontSize: 13,
     color: colors.dark,
     borderWidth: 1,
     borderColor: colors.navItemHoverDark,
@@ -216,8 +191,6 @@ export default StyleSheet.create({
     backgroundColor: colors.slateStrong,
   },
   noteSaveBtnText: {
-    fontSize: 12,
-    fontWeight: '600',
     color: colors.white,
   },
 
@@ -238,8 +211,6 @@ export default StyleSheet.create({
     flex: 1,
   },
   mobileCardName: {
-    fontSize: 14,
-    fontWeight: '700',
     color: colors.dark,
     marginBottom: 4,
   },
@@ -250,11 +221,9 @@ export default StyleSheet.create({
     marginTop: 2,
   },
   mobileCardMetaItem: {
-    fontSize: 12,
     color: colors.slateText,
   },
   mobileCardMetaDot: {
-    fontSize: 12,
     color: colors.slateStrong,
   },
   mobileCardBadge: {
@@ -267,12 +236,9 @@ export default StyleSheet.create({
     minWidth: 32,
   },
   mobileCardBadgeText: {
-    fontSize: 12,
-    fontWeight: '700',
     color: colors.secondaryLightText,
   },
   mobileCardChevron: {
-    fontSize: 14,
     color: colors.slateStrong,
   },
 });

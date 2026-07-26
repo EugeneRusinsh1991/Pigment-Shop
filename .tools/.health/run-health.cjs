@@ -16,19 +16,23 @@ function checkEnvironment() {
   console.log(`  - Platform: ${process.platform} (${process.arch})`);
 }
 
+function logPackageInfo(pkg) {
+  const name = pkg.name || 'N/A';
+  const version = pkg.version || 'N/A';
+  const depsCount = Object.keys(pkg.dependencies || {}).length;
+  const devDepsCount = Object.keys(pkg.devDependencies || {}).length;
+  console.log(`  ✅ package.json valid (Name: ${name}, Version: ${version})`);
+  console.log(`  📊 Dependencies: ${depsCount} prod, ${devDepsCount} dev`);
+}
+
 function checkPackageJson() {
-  const pkgPath = path.join(ROOT, "package.json");
+  const pkgPath = path.join(ROOT, 'package.json');
   if (!fs.existsSync(pkgPath)) {
-    console.log("  ℹ️  No package.json found in project root.");
+    console.log('  ℹ️  No package.json found in project root.');
     return;
   }
   try {
-    const pkg = JSON.parse(fs.readFileSync(pkgPath, "utf-8"));
-    console.log(`  ✅ package.json valid (Name: ${pkg.name || "N/A"}, Version: ${pkg.version || "N/A"})`);
-    
-    const depsCount = Object.keys(pkg.dependencies || {}).length;
-    const devDepsCount = Object.keys(pkg.devDependencies || {}).length;
-    console.log(`  📊 Dependencies: ${depsCount} prod, ${devDepsCount} dev`);
+    logPackageInfo(JSON.parse(fs.readFileSync(pkgPath, 'utf-8')));
   } catch (err) {
     console.error(`  ❌ Invalid package.json: ${err.message}`);
   }

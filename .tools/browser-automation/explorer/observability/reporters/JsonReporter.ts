@@ -2,6 +2,7 @@ import { Reporter } from '../ObservabilityManager';
 import { ObservabilityEvent } from '../events';
 import * as fs from 'fs';
 import * as path from 'path';
+import { prepareReportFile } from './reporterUtils';
 
 export class JsonReporter implements Reporter {
   private events: ObservabilityEvent[] = [];
@@ -11,14 +12,7 @@ export class JsonReporter implements Reporter {
   }
 
   async flush(): Promise<void> {
-    const reportsDir = path.resolve(process.cwd(), 'reports');
-    if (!fs.existsSync(reportsDir)) {
-      fs.mkdirSync(reportsDir, { recursive: true });
-    }
-
-    const timestamp = new Date().toISOString().replace(/T/, '-').replace(/:/g, '').split('.')[0];
-    const filename = `run-${timestamp}.json`;
-    const filepath = path.join(reportsDir, filename);
+    const { filepath } = prepareReportFile('json');
 
     const summary = this.events.find(e => e.type === 'SUMMARY');
 

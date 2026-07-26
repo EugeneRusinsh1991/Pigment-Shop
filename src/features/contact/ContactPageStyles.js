@@ -19,10 +19,6 @@ export default StyleSheet.create({
     paddingBottom: 64,
   },
   title: {
-    fontFamily: fonts.serif,
-    fontSize: 24,
-    lineHeight: 28,
-    fontWeight: '500',
     marginBottom: 24,
     paddingHorizontal: 8,
   },
@@ -56,14 +52,8 @@ export default StyleSheet.create({
     borderColor: colors.borderLight,
     backgroundColor: colors.white,
   },
-  socialIcon: {
-    fontSize: 20,
-  },
-  socialLabel: {
-    fontFamily: fonts.sans,
-    fontSize: 15,
-    fontWeight: '500',
-  },
+  socialIcon: {},
+  socialLabel: {},
 
   // Question textarea
   questionSection: {
@@ -73,19 +63,14 @@ export default StyleSheet.create({
     marginBottom: 16,
   },
   questionLabel: {
-    fontFamily: fonts.serif,
-    fontSize: 18,
-    fontWeight: '600',
     marginBottom: 10,
   },
   textarea: {
     borderRadius: 12,
     borderWidth: 1,
     padding: 14,
-    fontSize: 14,
     minHeight: 120,
     textAlignVertical: 'top',
-    fontFamily: fonts.sans,
   },
   textareaDark: {
     backgroundColor: colors.productCardDark,
@@ -114,8 +99,6 @@ export default StyleSheet.create({
     backgroundColor: colors.inputBorderLight,
   },
   submitBtnText: {
-    fontSize: 15,
-    fontWeight: '600',
     letterSpacing: 0.3,
   },
   submitBtnTextEnabled: {

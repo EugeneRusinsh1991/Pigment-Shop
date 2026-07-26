@@ -24,6 +24,21 @@ function useCategoryRowData(row, products) {
   return { safeDepth, type, typeColors, countLabel, name, t };
 }
 
+function CategoryTypeBadge({ type, typeColors, countLabel, children }) {
+  return (
+    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 2 }}>
+      <Badge
+        variant="status"
+        status={type === 'category_holder' ? 'categoryHolder' : 'productHolder'}
+        label={typeColors.label}
+        size="sm"
+      />
+      <Text style={styles.categoryId}>{countLabel}</Text>
+      {children}
+    </View>
+  );
+}
+
 export function DesktopCategoryRow({ row, hasChildren, isCollapsed, onToggle, onEdit, isAlt, products }) {
   const { safeDepth, type, typeColors, countLabel, name } = useCategoryRowData(row, products);
 
@@ -44,16 +59,8 @@ export function DesktopCategoryRow({ row, hasChildren, isCollapsed, onToggle, on
         <View style={styles.nameCell}>
           <ToggleButton hasChildren={hasChildren} isCollapsed={isCollapsed} onToggle={onToggle} rowId={row.id} />
           <View style={{ flex: 1 }}>
-            <Text style={[styles.categoryName, safeDepth > 0 && { fontSize: 12 }]}>{name}</Text>
-            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 2 }}>
-              <Badge
-                variant="status"
-                status={type === 'category_holder' ? 'categoryHolder' : 'productHolder'}
-                label={typeColors.label}
-                size="sm"
-              />
-              <Text style={styles.categoryId}>{countLabel}</Text>
-            </View>
+            <Text style={styles.categoryName} size={safeDepth > 0 ? 12 : undefined}>{name}</Text>
+            <CategoryTypeBadge type={type} typeColors={typeColors} countLabel={countLabel} />
           </View>
         </View>
       </View>
@@ -85,20 +92,12 @@ export function MobileCategoryCard({ row, hasChildren, isCollapsed, onToggle, on
         <ToggleButton hasChildren={hasChildren} isCollapsed={isCollapsed} onToggle={onToggle} rowId={row.id} />
 
         <View style={{ flex: 1 }}>
-          <Text style={[styles.categoryName, safeDepth > 0 && { fontSize: 12 }]} numberOfLines={1}>{name}</Text>
-          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 2 }}>
-            <Badge
-              variant="status"
-              status={type === 'category_holder' ? 'categoryHolder' : 'productHolder'}
-              label={typeColors.label}
-              size="sm"
-            />
-            <Text style={styles.categoryId}>{countLabel}</Text>
+          <Text style={styles.categoryName} size={safeDepth > 0 ? 12 : undefined} numberOfLines={1}>{name}</Text>
+          <CategoryTypeBadge type={type} typeColors={typeColors} countLabel={countLabel}>
             <ImageBadge image={row.image} />
-          </View>
+          </CategoryTypeBadge>
         </View>
       </View>
     </AnimatedButton>
   );
 }
-

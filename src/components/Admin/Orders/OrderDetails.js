@@ -80,34 +80,34 @@ export default function OrderDetails({ order, onBack, onStatusUpdated }) {
       {/* Back button */}
       <AnimatedButton style={styles.backBtn} onPress={onBack}>
         <BackArrowIcon color={colors.textDescLight} size={16} />
-        <Text style={styles.backBtnText}>{t('adminOrdersBackBtn')}</Text>
+        <Text style={styles.backBtnText} size={14} weight="500">{t('adminOrdersBackBtn')}</Text>
       </AnimatedButton>
 
       {/* Title row — only order number, no date/total captions */}
       <View style={styles.headerRow}>
-        <Text style={styles.title}>{t('orderNumber')}#{orderNumber}</Text>
+        <Text style={styles.title} size={24} weight="bold">{t('orderNumber')}#{orderNumber}</Text>
       </View>
 
       {/* 1. Customer information */}
-      <Text style={styles.sectionTitle}>{t('adminOrdersCustomer')}</Text>
+      <Text style={styles.sectionTitle} size={16} weight="600">{t('adminOrdersCustomer')}</Text>
       <OrderCustomerCard order={order} />
 
       {/* 2. Customer comment */}
-      <Text style={styles.sectionTitle}>{t('adminOrdersCustNote')}</Text>
+      <Text style={styles.sectionTitle} size={16} weight="600">{t('adminOrdersCustNote')}</Text>
       <View style={styles.detailCard}>
-        <Text style={[styles.detailValue, !order.note && { color: colors.textDescDark }]}>
+        <Text style={[styles.detailValue, !order.note && { color: colors.textDescDark }]} size={14} weight="500">
           {order.note || ''}
         </Text>
       </View>
 
       {/* 3. Order items */}
-      <Text style={styles.sectionTitle}>
+      <Text style={styles.sectionTitle} size={16} weight="600">
         {t('adminOrdersItems')} ({order.totalItems})
       </Text>
       <OrderItemsList items={order.items} totalPrice={order.totalPrice} />
 
       {/* 4. Order status */}
-      <Text style={styles.sectionTitle}>{t('adminOrdersStatus')}</Text>
+      <Text style={styles.sectionTitle} size={16} weight="600">{t('adminOrdersStatus')}</Text>
       <OrderStatusSelector
         currentStatus={currentStatus}
         updating={updating}

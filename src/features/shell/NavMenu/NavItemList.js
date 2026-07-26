@@ -81,7 +81,7 @@ function NavItem({ item, isDark, onSelect }) {
       <View style={styles.iconWrapper}>
         {getNavItemIcon(item, iconColor)}
       </View>
-      <Text style={[styles.itemLabel, isDark ? styles.textDark : styles.textLight]} numberOfLines={1}>
+      <Text variant="body2" weight="500" style={[styles.itemLabel, isDark ? styles.textDark : styles.textLight]} numberOfLines={1}>
         {item.label}
       </Text>
       <ChevronRightIcon color={chevronColor} size={14} />

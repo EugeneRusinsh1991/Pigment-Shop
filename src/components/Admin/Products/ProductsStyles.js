@@ -41,13 +41,10 @@ export default StyleSheet.create({
     borderColor: colors.textLight,
   },
   controlBtnText: {
-    fontSize: 13,
-    fontWeight: '500',
     color: colors.textDescLight,
   },
   controlBtnTextActive: {
     color: colors.textDark,
-    fontWeight: '600',
   },
   addBtn: {
     flexDirection: 'row',
@@ -61,8 +58,6 @@ export default StyleSheet.create({
   },
   addBtnText: {
     color: colors.textDark,
-    fontSize: 13,
-    fontWeight: '700',
   },
   /* Mobile toolbar (stacked) */
   mobileToolbar: {
@@ -90,8 +85,6 @@ export default StyleSheet.create({
     overflow: 'hidden',
   },
   thText: {
-    fontSize: 11,
-    fontWeight: '700',
     color: colors.textDescDark,
     letterSpacing: 0.8,
     textTransform: 'uppercase',
@@ -117,7 +110,6 @@ export default StyleSheet.create({
   },
   rowNum: {
     width: 24,
-    fontSize: 12,
     color: colors.textDescDark,
     marginRight: 8,
   },
@@ -139,7 +131,6 @@ export default StyleSheet.create({
     minWidth: 120,
   },
   desktopCell: {
-    fontSize: 13,
     color: colors.textLight,
     minWidth: 80,
   },
@@ -165,16 +156,12 @@ export default StyleSheet.create({
     minWidth: 70,
   },
   cardMetaLabel: {
-    fontSize: 10,
     color: colors.secondaryDarkText,
-    fontWeight: '600',
     textTransform: 'uppercase',
     letterSpacing: 0.4,
   },
   cardMetaValue: {
-    fontSize: 13,
     color: colors.textLight,
-    fontWeight: '500',
   },
   cardEditBtn: {
     marginTop: 10,
@@ -187,24 +174,17 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   cardEditBtnText: {
-    fontSize: 13,
-    fontWeight: '600',
     color: colors.textStrongLight,
   },
   priceText: {
-    fontSize: 14,
-    fontWeight: '700',
     color: colors.textLight,
   },
   priceEmphasis: {
-    fontSize: 14,
-    fontWeight: '700',
     color: colors.textLight,
     minWidth: 60,
     textAlign: 'right',
   },
   metaText: {
-    fontSize: 13,
     color: colors.slateText,
     minWidth: 80,
   },
@@ -234,8 +214,6 @@ export default StyleSheet.create({
     borderColor: colors.dangerSoftLightBorder,
   },
   actionBtnText: {
-    fontSize: 13,
-    fontWeight: '600',
     color: colors.textStrongLight,
   },
 
@@ -252,12 +230,9 @@ export default StyleSheet.create({
 
   /* Product name & sku */
   productName: {
-    fontSize: 14,
-    fontWeight: '700',
     color: colors.textLight,
   },
   productSku: {
-    fontSize: 11,
     color: colors.textDescDark,
     marginTop: 1,
   },
@@ -270,9 +245,7 @@ export default StyleSheet.create({
     alignSelf: 'flex-start',
   },
   badgeNewText: {
-    fontSize: 9,
     color: colors.infoDeep,
-    fontWeight: '700',
   },
   badgesRow: {
     flexDirection: 'row',
@@ -281,16 +254,12 @@ export default StyleSheet.create({
 
   /* Cells */
   cellText: {
-    fontSize: 13,
     color: colors.textLight,
   },
   discountText: {
-    fontSize: 13,
     color: colors.accent,
-    fontWeight: '600',
   },
   discountNone: {
-    fontSize: 13,
     color: colors.textDescDark,
   },
   statusBadge: {
@@ -301,17 +270,12 @@ export default StyleSheet.create({
   },
   statusActive: { backgroundColor: colors.successBgAlt },
   statusInactive: { backgroundColor: colors.slateMid },
-  statusText: {
-    fontSize: 11,
-    fontWeight: '600',
-  },
+  statusText: {},
   statusActiveText: { color: colors.success },
   statusInactiveText: { color: colors.slateText },
 
   /* Action buttons */
-  actionIcon: {
-    fontSize: 14,
-  },
+  actionIcon: {},
 
 
 
@@ -325,8 +289,6 @@ export default StyleSheet.create({
   },
   saveBtnText: {
     color: colors.textDark,
-    fontSize: 14,
-    fontWeight: '700',
   },
 
   sortPickerNative: {
@@ -340,7 +302,6 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   sortPickerNativeText: {
-    fontSize: 13,
     color: colors.textDescLight,
   },
 

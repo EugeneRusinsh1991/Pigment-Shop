@@ -19,7 +19,7 @@ function InstagramIcon({ color, size = 20 }) {
       </svg>
     );
   }
-  return <Text style={{ color, fontSize: size }}>📷</Text>;
+  return <Text size={size}>{ '📷' }</Text>;
 }
 
 function TelegramIcon({ color, size = 20 }) {
@@ -31,7 +31,7 @@ function TelegramIcon({ color, size = 20 }) {
       </svg>
     );
   }
-  return <Text style={{ color, fontSize: size }}>✈️</Text>;
+  return <Text size={size}>{ '✈️' }</Text>;
 }
 
 function getSocialItemStyle(isMobile, contentWidth) {
@@ -60,7 +60,7 @@ export default function SocialButtons({ t, isMobile, contentWidth, ic, isDark })
         size="lg"
         leftIcon={<InstagramIcon color={colors.instagramPink} size={18} />}
         style={[socialItemStyle, buttonTheme]}
-        textStyle={{ color: colors.instagramPink, fontSize: 15, fontWeight: '500' }}
+        textStyle={{ color: colors.instagramPink }}
       />
 
       <Button
@@ -70,7 +70,7 @@ export default function SocialButtons({ t, isMobile, contentWidth, ic, isDark })
         size="lg"
         leftIcon={<TelegramIcon color={colors.telegramBlue} size={18} />}
         style={[socialItemStyle, buttonTheme]}
-        textStyle={{ color: colors.telegramBlue, fontSize: 15, fontWeight: '500' }}
+        textStyle={{ color: colors.telegramBlue }}
       />
     </ScrollFadeUp>
   );

@@ -37,13 +37,9 @@ export default StyleSheet.create({
     borderBottomColor: colors.borderLightAlt,
   },
   modalTitle: {
-    fontFamily: fonts.serif,
-    fontSize: 20,
-    fontWeight: '600',
     color: colors.textLight,
   },
   modalCloseBtn: {
-    fontSize: 20,
     color: colors.textDescDark,
     padding: 4,
   },
@@ -76,8 +72,6 @@ export default StyleSheet.create({
     paddingTop: 16,
   },
   subSectionTitle: {
-    fontSize: 13,
-    fontWeight: '700',
     color: colors.textLight,
     marginBottom: 12,
   },
@@ -92,15 +86,11 @@ export default StyleSheet.create({
     marginTop: 8,
   },
   deleteConfirmText: {
-    fontSize: 13,
     color: colors.dangerDeep,
-    lineHeight: 20,
   },
 
   /* Section heading */
   sectionLabel: {
-    fontSize: 11,
-    fontWeight: '700',
     color: colors.textDescDark,
     letterSpacing: 0.8,
     textTransform: 'uppercase',
@@ -121,8 +111,6 @@ export default StyleSheet.create({
     marginBottom: 14,
   },
   fieldLabel: {
-    fontSize: 12,
-    fontWeight: '600',
     color: colors.textDescLight,
     marginBottom: 5,
     letterSpacing: 0.3,
@@ -132,7 +120,6 @@ export default StyleSheet.create({
     backgroundColor: colors.secondaryLightBg,
     borderRadius: buttonTokens.sizes.md.borderRadius,
     paddingHorizontal: 12,
-    fontSize: 13,
     color: colors.textLight,
     borderWidth: 1,
     borderColor: colors.navItemHoverDark,
@@ -147,7 +134,6 @@ export default StyleSheet.create({
     borderRadius: buttonTokens.sizes.md.borderRadius,
     paddingHorizontal: 12,
     paddingVertical: 10,
-    fontSize: 13,
     color: colors.textLight,
     borderWidth: 1,
     borderColor: colors.navItemHoverDark,
@@ -156,7 +142,6 @@ export default StyleSheet.create({
   },
   errorText: {
     color: colors.accent,
-    fontSize: 11,
     marginTop: 2,
   },
 
@@ -172,7 +157,6 @@ export default StyleSheet.create({
     backgroundColor: colors.secondaryLightBg,
     borderRadius: buttonTokens.sizes.md.borderRadius,
     paddingHorizontal: 12,
-    fontSize: 13,
     color: colors.textLight,
     borderWidth: 1,
     borderColor: colors.navItemHoverDark,
@@ -189,9 +173,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   uploadBtnText: {
-    fontSize: 13,
     color: colors.textDescLight,
-    fontWeight: '600',
   },
 
   /* Category Type non-editable row */
@@ -208,8 +190,6 @@ export default StyleSheet.create({
     borderColor: colors.secondaryLightBorder,
   },
   categoryTypeLabel: {
-    fontSize: 13,
-    fontWeight: '600',
     color: colors.textDescLight,
   },
   categoryTypeBadge: {
@@ -218,10 +198,7 @@ export default StyleSheet.create({
     borderRadius: layout.radii.xs,
     borderWidth: 1,
   },
-  categoryTypeBadgeText: {
-    fontSize: 12,
-    fontWeight: '600',
-  },
+  categoryTypeBadgeText: {},
 
   /* Buttons & Footer Grid */
   modalFooterGrid: {
@@ -246,8 +223,6 @@ export default StyleSheet.create({
     paddingHorizontal: buttonTokens.sizes.md.paddingHorizontal,
   },
   addSubcategoryBtnText: {
-    fontSize: 13,
-    fontWeight: '600',
     color: colors.textDark,
   },
   cancelBtn: {
@@ -262,8 +237,6 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   cancelBtnText: {
-    fontSize: 13,
-    fontWeight: '600',
     color: colors.textDescLight,
   },
   saveBtn: {
@@ -276,8 +249,6 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   saveBtnText: {
-    fontSize: 13,
-    fontWeight: '700',
     color: colors.textDark,
   },
   deleteBtn: {
@@ -294,8 +265,6 @@ export default StyleSheet.create({
     borderColor: colors.danger,
   },
   deleteBtnText: {
-    fontSize: 13,
-    fontWeight: '600',
     color: colors.textDark,
   },
   deleteBtnTextActive: {

@@ -48,7 +48,7 @@ export function ProductInfoPrice({ price, discountPercent }) {
 
   return (
     <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 8 }}>
-      <Text style={styles.priceText}>${finalPrice.toLocaleString()}</Text>
+      <Text variant="h3" weight="700" style={styles.priceText}>${finalPrice.toLocaleString()}</Text>
       {hasDiscount && (
         <Text variant="body2" color="desc" style={{ textDecorationLine: 'line-through' }}>
           ${safePrice.toLocaleString()}
@@ -68,12 +68,12 @@ export function ProductMetaInfo({ product }) {
 
   return (
     <>
-      <Text style={styles.brandText}>{brand}</Text>
+      <Text variant="overline" color="accent" style={styles.brandText}>{brand}</Text>
       <Heading level={2} style={styles.productName}>{label}</Heading>
       <ProductInfoPrice price={product.price} discountPercent={product.discountPercent} />
-      <Text style={styles.description} color="desc">{desc}</Text>
-      <Text style={styles.skuText}>{t('productSku')}: {sku}</Text>
-      <Text style={styles.stockText}>{stockText}</Text>
+      <Text variant="body2" color="desc" style={styles.description}>{desc}</Text>
+      <Text variant="caption" color="muted" style={styles.skuText}>{t('productSku')}: {sku}</Text>
+      <Text variant="caption" weight="600" style={styles.stockText}>{stockText}</Text>
     </>
   );
 }

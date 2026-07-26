@@ -24,10 +24,10 @@ function ItemRow({ item, lang, t, isLast }) {
 
   return (
     <View style={[styles.itemRow, isLast ? { borderBottomWidth: 0 } : null]}>
-      <Text style={styles.itemLabel} numberOfLines={2}>{name}</Text>
-      <Text style={styles.itemQty}>{qty} {t('pcs')}</Text>
-      <Text style={styles.itemUnitPrice}>${unitPrice.toLocaleString()}</Text>
-      <Text style={styles.itemPrice}>${lineTotal.toLocaleString()}</Text>
+      <Text style={styles.itemLabel} size={14} numberOfLines={2}>{name}</Text>
+      <Text style={styles.itemQty} size={14}>{qty} {t('pcs')}</Text>
+      <Text style={styles.itemUnitPrice} size={14}>${unitPrice.toLocaleString()}</Text>
+      <Text style={styles.itemPrice} size={14} weight="500">${lineTotal.toLocaleString()}</Text>
     </View>
   );
 }
@@ -39,10 +39,10 @@ export default function OrderItemsList({ items, totalPrice }) {
     <View style={styles.detailCard}>
       {/* Column header row */}
       <View style={[styles.itemRow, { borderBottomWidth: 1, borderBottomColor: '#E2E8F0', paddingBottom: 8 }]}>
-        <Text style={[styles.itemLabel, styles.itemColHeader]}>{t('adminOrdersItemName')}</Text>
-        <Text style={[styles.itemQty, styles.itemColHeader]}>{t('adminOrdersItemQty')}</Text>
-        <Text style={[styles.itemUnitPrice, styles.itemColHeader]}>{t('adminOrdersItemUnit')}</Text>
-        <Text style={[styles.itemPrice, styles.itemColHeader]}>{t('adminOrdersItemTotal')}</Text>
+        <Text style={[styles.itemLabel, styles.itemColHeader]} size={11} weight="700">{t('adminOrdersItemName')}</Text>
+        <Text style={[styles.itemQty, styles.itemColHeader]} size={11} weight="700">{t('adminOrdersItemQty')}</Text>
+        <Text style={[styles.itemUnitPrice, styles.itemColHeader]} size={11} weight="700">{t('adminOrdersItemUnit')}</Text>
+        <Text style={[styles.itemPrice, styles.itemColHeader]} size={11} weight="700">{t('adminOrdersItemTotal')}</Text>
       </View>
 
       {items?.map((item, idx) => (
@@ -57,10 +57,10 @@ export default function OrderItemsList({ items, totalPrice }) {
 
       {/* Order total */}
       <View style={[styles.itemRow, { borderTopWidth: 1, borderTopColor: '#E2E8F0', borderBottomWidth: 0, marginTop: 4 }]}>
-        <Text style={[styles.itemLabel, { fontWeight: '700', color: '#1C1C1C' }]}>{t('adminOrdersTotal')}</Text>
-        <Text style={styles.itemQty} />
-        <Text style={styles.itemUnitPrice} />
-        <Text style={[styles.itemPrice, { color: '#1C1C1C', fontWeight: '700' }]}>
+        <Text style={styles.itemLabel} size={14} weight="bold" style={{ color: '#1C1C1C' }}>{t('adminOrdersTotal')}</Text>
+        <Text style={styles.itemQty} size={14} />
+        <Text style={styles.itemUnitPrice} size={14} />
+        <Text style={styles.itemPrice} size={14} weight="bold" style={{ color: '#1C1C1C' }}>
           ${(totalPrice || 0).toLocaleString()}
         </Text>
       </View>

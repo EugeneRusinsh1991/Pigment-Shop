@@ -19,7 +19,7 @@ const NavigationCard = React.forwardRef(({ type, isDark, text, style, ...rest },
         <View style={[styles.circle, isDark ? styles.circleDark : styles.circleLight]}>
           <ForwardArrowIcon color={colors.accent} size={20} />
         </View>
-        <Text style={[styles.text, isDark ? styles.textDark : styles.textLight]}>
+        <Text variant="subtitle1" weight="semiBold" style={[styles.text, isDark ? styles.textDark : styles.textLight]}>
           {text}
         </Text>
       </View>
@@ -52,10 +52,7 @@ const styles = StyleSheet.create({
     borderColor: colors.warmNeutralBorder,
   },
   text: {
-    fontSize: 15,
-    fontWeight: '600',
     textAlign: 'center',
-    fontFamily: 'System, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
   },
   textDark: {
     color: colors.textDark,

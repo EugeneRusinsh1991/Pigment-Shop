@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors, fonts } from '@/theme/tokens';
+import { colors } from '@/theme/tokens';
 
 export default StyleSheet.create({
   container: {
@@ -17,15 +17,10 @@ export default StyleSheet.create({
     paddingVertical: 16,
   },
   title: {
-    fontFamily: fonts.serif,
-    fontSize: 24,
-    lineHeight: 28,
-    fontWeight: '500',
     marginBottom: 16,
     textAlign: 'center',
   },
   emptyText: {
-    fontSize: 14,
     marginTop: 12,
     textAlign: 'center',
   },
@@ -40,14 +35,8 @@ export default StyleSheet.create({
     alignItems: 'center',
     marginBottom: 8,
   },
-  orderNumber: {
-    fontSize: 18,
-    fontWeight: '500',
-  },
-  orderStatus: {
-    fontSize: 14,
-    fontWeight: '600',
-  },
+  orderNumber: {},
+  orderStatus: {},
   statusBadge: {
     width: 110,
     paddingVertical: 4,
@@ -57,8 +46,6 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   statusBadgeText: {
-    fontSize: 12,
-    fontWeight: '600',
     textAlign: 'center',
   },
   statusNewBg: { backgroundColor: colors.infoBgMid },
@@ -77,22 +64,14 @@ export default StyleSheet.create({
   statusCompletedLight: { color: colors.successDeep },
   statusCancelledDark: { color: colors.dangerLight },
   statusCancelledLight: { color: colors.dangerMid },
-  orderDate: {
-    fontSize: 14,
-  },
-  orderTotal: {
-    fontSize: 16,
-    fontWeight: '500',
-  },
+  orderDate: {},
+  orderTotal: {},
   summaryRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-  toggleText: {
-    fontSize: 14,
-    fontWeight: '500',
-  },
+  toggleText: {},
   toggleTextDark: { color: colors.infoLight },
   toggleTextLight: { color: colors.infoDeep },
   itemsList: {
@@ -124,18 +103,11 @@ export default StyleSheet.create({
     flex: 1,
     marginRight: 8,
   },
-  itemLabel: {
-    fontSize: 14,
-    fontWeight: '500',
-  },
+  itemLabel: {},
   itemQtyPrice: {
-    fontSize: 12,
     marginTop: 2,
   },
-  itemSubtotal: {
-    fontSize: 14,
-    fontWeight: '600',
-  },
+  itemSubtotal: {},
   adminCardNew: {
     backgroundColor: colors.infoBgLight,
     borderColor: colors.infoBgMid,

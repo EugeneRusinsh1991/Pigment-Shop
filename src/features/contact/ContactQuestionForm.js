@@ -64,7 +64,7 @@ function FormFeedbackMessage({ submitStatus, t }) {
   const textKey = isSuccess ? 'contactUsSuccess' : 'contactUsError';
 
   return (
-    <Text variant="body" style={{ color, marginTop: 12, textAlign: 'center', fontWeight: '500' }}>
+    <Text variant="body" weight="medium" style={{ color, marginTop: 12, textAlign: 'center' }}>
       {t(textKey)}
     </Text>
   );

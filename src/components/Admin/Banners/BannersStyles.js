@@ -14,8 +14,6 @@ export default StyleSheet.create({
   },
   toolbarTitle: {
     flex: 1,
-    fontSize: 16,
-    fontWeight: '600',
     color: colors.secondaryLightText,
   },
   resetBtn: {
@@ -30,8 +28,6 @@ export default StyleSheet.create({
   },
   resetBtnText: {
     color: colors.neutralDarkStrong,
-    fontSize: 13,
-    fontWeight: '600',
   },
   card: {
     backgroundColor: colors.surfaceLight,
@@ -70,7 +66,6 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   noImageText: {
-    fontSize: 11,
     color: colors.textSubtleLight,
     textAlign: 'center',
   },
@@ -89,8 +84,6 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   uploadBtnText: {
-    fontSize: 13,
-    fontWeight: '600',
     color: colors.white,
   },
   deleteBtn: {
@@ -102,8 +95,6 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   deleteBtnText: {
-    fontSize: 13,
-    fontWeight: '600',
     color: colors.white,
   },
 
@@ -125,15 +116,11 @@ export default StyleSheet.create({
     elevation: 10,
   },
   confirmTitle: {
-    fontSize: 16,
-    fontWeight: '700',
     color: colors.dark,
     marginBottom: 8,
   },
   confirmMsg: {
-    fontSize: 13,
     color: colors.slateText,
-    lineHeight: 18,
     marginBottom: 20,
   },
   confirmRow: {
@@ -151,8 +138,6 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   cancelBtnText: {
-    fontSize: 13,
-    fontWeight: '600',
     color: colors.secondaryLightText,
   },
   confirmDeleteBtn: {
@@ -164,8 +149,6 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   confirmDeleteBtnText: {
-    fontSize: 13,
-    fontWeight: '600',
     color: colors.white,
   },
   /* Desktop grid & cards */

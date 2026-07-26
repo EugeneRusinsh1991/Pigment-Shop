@@ -36,9 +36,6 @@ export const localStyles = StyleSheet.create({
   },
   arrowText: {
     color: colors.white,
-    fontSize: 24,
-    fontWeight: '300',
-    lineHeight: 28,
   },
   dotsContainer: {
     position: 'absolute',

@@ -31,7 +31,7 @@ export function StatusFilterBar({ t, activeFilter, onSelectFilter, count, isDark
 
       {count !== null && count !== undefined && (
         <View style={styles.countBadge}>
-          <Text style={styles.countText}>{count}</Text>
+          <Text style={styles.countText} size={14} weight="700">{count}</Text>
         </View>
       )}
     </View>

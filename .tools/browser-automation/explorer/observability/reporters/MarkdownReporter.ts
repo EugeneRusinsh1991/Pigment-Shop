@@ -2,6 +2,7 @@ import { Reporter } from '../ObservabilityManager';
 import { ObservabilityEvent, SummaryEvent, ActionEvent, SkipEvent, NavigationEvent, ErrorEvent, WarningEvent } from '../events';
 import * as fs from 'fs';
 import * as path from 'path';
+import { prepareReportFile } from './reporterUtils';
 
 export class MarkdownReporter implements Reporter {
   private events: ObservabilityEvent[] = [];
@@ -11,14 +12,7 @@ export class MarkdownReporter implements Reporter {
   }
 
   async flush(): Promise<void> {
-    const reportsDir = path.resolve(process.cwd(), 'reports');
-    if (!fs.existsSync(reportsDir)) {
-      fs.mkdirSync(reportsDir, { recursive: true });
-    }
-
-    const timestamp = new Date().toISOString().replace(/T/, '-').replace(/:/g, '').split('.')[0];
-    const filename = `run-${timestamp}.md`;
-    const filepath = path.join(reportsDir, filename);
+    const { filepath } = prepareReportFile('md');
 
     const summary = this.events.find(e => e.type === 'SUMMARY') as SummaryEvent;
     const actions = this.events.filter(e => e.type === 'ACTION') as ActionEvent[];

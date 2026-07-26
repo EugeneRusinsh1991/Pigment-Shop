@@ -19,8 +19,6 @@ export default StyleSheet.create({
     marginBottom: 20,
   },
   title: {
-    fontSize: 24,
-    fontWeight: '700',
     color: colors.textLight,
   },
   countBadge: {
@@ -31,8 +29,6 @@ export default StyleSheet.create({
   },
   countText: {
     color: colors.textDark,
-    fontWeight: '700',
-    fontSize: 14,
   },
   tableCard: {
     backgroundColor: colors.surfaceLight,
@@ -87,7 +83,6 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   rowDate: {
-    fontSize: 12,
     color: colors.slateText,
   },
   rowMiddle: {
@@ -103,8 +98,6 @@ export default StyleSheet.create({
     marginTop: 2,
   },
   customerName: {
-    fontWeight: '700',
-    fontSize: 14,
     color: colors.textLight,
   },
   metaBlock: {
@@ -112,27 +105,22 @@ export default StyleSheet.create({
     minWidth: 0,
   },
   metaLabel: {
-    fontSize: 10,
     color: colors.secondaryDarkText,
     marginBottom: 3,
     textTransform: 'uppercase',
     letterSpacing: 0.3,
   },
   metaValue: {
-    fontSize: 13,
     color: colors.textLight,
-    fontWeight: '600',
   },
   noteBlock: {
     flex: 1,
     minWidth: 0,
   },
   tdText: {
-    fontSize: 14,
     color: colors.textLight,
   },
   subText: {
-    fontSize: 12,
     color: colors.secondaryDarkText,
     marginTop: 2,
   },
@@ -145,8 +133,6 @@ export default StyleSheet.create({
     alignSelf: 'flex-start',
   },
   statusText: {
-    fontSize: 12,
-    fontWeight: '600',
     textAlign: 'center',
   },
   // Status Colors
@@ -167,13 +153,9 @@ export default StyleSheet.create({
   },
   backBtnText: {
     marginLeft: 8,
-    fontSize: 14,
     color: colors.textDescLight,
-    fontWeight: '500',
   },
   sectionTitle: {
-    fontSize: 16,
-    fontWeight: '600',
     color: colors.textLight,
     marginTop: 12,
     marginBottom: 6,
@@ -194,14 +176,11 @@ export default StyleSheet.create({
     gap: 4,
   },
   detailLabel: {
-    fontSize: 14,
     color: colors.slateText,
     flexShrink: 0,
   },
   detailValue: {
-    fontSize: 14,
     color: colors.textLight,
-    fontWeight: '500',
     flexShrink: 1,
     textAlign: 'right',
     flex: 1,
@@ -215,32 +194,25 @@ export default StyleSheet.create({
     borderBottomColor: colors.secondaryLightBorder,
   },
   itemLabel: {
-    fontSize: 14,
     color: colors.textLight,
     flex: 1,
   },
   itemQty: {
-    fontSize: 14,
     color: colors.slateText,
     width: 60,
     textAlign: 'center',
   },
   itemUnitPrice: {
-    fontSize: 14,
     color: colors.slateText,
     width: 80,
     textAlign: 'right',
   },
   itemPrice: {
-    fontSize: 14,
     color: colors.textLight,
-    fontWeight: '500',
     width: 80,
     textAlign: 'right',
   },
   itemColHeader: {
-    fontSize: 11,
-    fontWeight: '700',
     color: colors.textDescDark,
     textTransform: 'uppercase',
     letterSpacing: 0.5,
@@ -259,11 +231,9 @@ export default StyleSheet.create({
     borderBottomColor: colors.slateMid,
   },
   statusOptionText: {
-    fontSize: 14,
     color: colors.textLight,
   },
   statusOptionActiveText: {
-    fontWeight: '700',
     color: colors.successMid,
   },
   btn: {
@@ -288,10 +258,7 @@ export default StyleSheet.create({
     backgroundColor: colors.dangerSoftLightBg,
     borderColor: colors.dangerSoftLightBorder,
   },
-  feedbackText: {
-    fontSize: 13,
-    fontWeight: '600',
-  },
+  feedbackText: {},
   feedbackSuccessText: {
     color: colors.successDeeper,
   },
@@ -300,7 +267,6 @@ export default StyleSheet.create({
   },
   adminNoteInput: {
     backgroundColor: colors.surfaceLight,
-    fontSize: 14,
     color: colors.textLight,
   },
 });

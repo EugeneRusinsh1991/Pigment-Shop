@@ -9,8 +9,8 @@ function InfoRow({ label, value }) {
   const displayVal = value || '—';
   return (
     <View style={styles.infoGroup}>
-      <Text style={styles.infoLabel}>{label}</Text>
-      <Text style={styles.infoValue}>{displayVal}</Text>
+      <Text style={styles.infoLabel} size={10} weight="600">{label}</Text>
+      <Text style={styles.infoValue} size={14} weight="500">{displayVal}</Text>
     </View>
   );
 }

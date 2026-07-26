@@ -49,7 +49,7 @@ function useCategoryContent(item, lang) {
 
 function getMobileStyleOverrides(isMobile) {
   if (!isMobile) return { bottom: undefined, logo: undefined, desc: undefined };
-  return { bottom: { bottom: 12, left: 12, right: 12 }, logo: { fontSize: 18, lineHeight: 22 }, desc: { fontSize: 10, lineHeight: 13 } };
+  return { bottom: { bottom: 12, left: 12, right: 12 }, logo: undefined, desc: undefined };
 }
 
 function getNativePlatformStyles(isWeb) {

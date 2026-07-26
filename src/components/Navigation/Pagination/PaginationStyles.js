@@ -27,8 +27,6 @@ export const createPaginationStyles = (isDark) => StyleSheet.create({
     marginRight: 16,
   },
   backText: {
-    fontSize: 14,
-    fontWeight: '500',
     color: colors.accent,
   },
   breadcrumbWrapper: {

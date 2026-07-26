@@ -19,13 +19,10 @@ export const createBreadcrumbStyles = (isDark) => StyleSheet.create({
     alignItems: 'center',
   },
   separator: {
-    fontSize: 14,
     marginHorizontal: 6,
     color: colors.accent,
   },
   crumb: {
-    fontSize: 13,
-    fontWeight: '500',
     maxWidth: 120,
   },
   crumbActive: {

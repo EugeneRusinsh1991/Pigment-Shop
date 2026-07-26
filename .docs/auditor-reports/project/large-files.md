@@ -1,9 +1,6 @@
 # 📁 Large / High-Risk Files
 
-*Generated on: 26.07.2026, 16:28:55*
+*Generated on: 26.07.2026, 19:29:11*
 
-### Large Files (≥ 200 lines)
-
-- ⚠️ **[CatalogView.js](file:///D:/Magazine/_PigmentShop/src/features/catalog/CatalogView.js)** (`src/features/catalog/CatalogView.js`)
-  - Lines: 203 | CRAP Max: 42 | Complex Funcs: 1 | Density: 10%
+*No large or high-risk files found.*
 

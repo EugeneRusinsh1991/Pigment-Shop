@@ -37,7 +37,7 @@ class AdminNavContext {
 
 (async () => {
   console.log('--- Starting Admin Panel Navigation Validation ---');
-  await ensureDevServer('http://localhost:8081', 45);
+  await ensureDevServer('http://localhost:8081', 50);
   const authCredentials = validateAuthEnv();
 
   try {

@@ -51,21 +51,15 @@ const styles = StyleSheet.create({
     backgroundColor: buttonColors.surfaceDark,
   },
   textBase: {
-    fontWeight: '500',
     color: buttonColors.textMutedLight,
   },
   textBaseDark: {
     color: buttonColors.textMutedDark,
   },
-  text_sm: {
-    fontSize: buttonTokens.sizes.sm.fontSize,
-  },
-  text_md: {
-    fontSize: buttonTokens.sizes.md.fontSize,
-  },
+  text_sm: {},
+  text_md: {},
   activeText: {
     color: buttonColors.textLight,
-    fontWeight: '600',
   },
   activeTextDark: {
     color: buttonColors.textDark,

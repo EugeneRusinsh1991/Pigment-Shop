@@ -6,13 +6,11 @@ import { calculateHitSlop } from '@/theme/buttonCommon';
 import styles from './AppHeaderStyles';
 
 const MOBILE_GAP = -6;
-const MOBILE_FONT_SIZE = 18;
 const DESKTOP_MARGIN_LEFT = -24;
-const MENU_FONT_SIZE = 24;
 
 function getLogoStyles(isMobile) {
   const mobile = isMobile
-    ? { gap: { gap: MOBILE_GAP }, logo: { fontSize: MOBILE_FONT_SIZE } }
+    ? { gap: { gap: MOBILE_GAP } }
     : {};
 
   const desktopLogoStyle = isMobile
@@ -21,8 +19,8 @@ function getLogoStyles(isMobile) {
 
   return {
     leftSec: [styles.leftSec, mobile.gap],
-    menuText: [styles.menuBtnText, { fontSize: MENU_FONT_SIZE }],
-    logoText: [styles.logo, mobile.logo],
+    menuText: [styles.menuBtnText],
+    logoText: [styles.logo],
     logoContainer: desktopLogoStyle,
   };
 }

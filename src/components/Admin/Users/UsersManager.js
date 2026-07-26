@@ -152,7 +152,7 @@ export default function UsersManager() {
             onClear={() => setSearchQuery('')}
           />
           <View style={styles.countBadge}>
-            <Text style={styles.countText}>{filteredUsers.length}</Text>
+            <Text style={styles.countText} size={12} weight="600">{filteredUsers.length}</Text>
           </View>
         </View>
       )}

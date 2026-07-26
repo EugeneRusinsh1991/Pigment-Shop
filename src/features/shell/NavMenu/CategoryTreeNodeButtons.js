@@ -34,7 +34,7 @@ export function CategoryLabelButton({ isDark, node, iconColor, onClose, isSelect
       <View style={styles.iconWrapper}>
         {getNavItemIcon(node, iconColor)}
       </View>
-      <Text style={[styles.itemLabel, isDark ? styles.textDark : styles.textLight]} numberOfLines={1}>
+      <Text variant="body2" weight="500" style={[styles.itemLabel, isDark ? styles.textDark : styles.textLight]} numberOfLines={1}>
         {node.label}
       </Text>
     </Button>

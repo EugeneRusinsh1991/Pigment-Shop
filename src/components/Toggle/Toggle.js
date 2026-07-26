@@ -59,16 +59,21 @@ function renderToggleOption(opt, index, ctx) {
       accessibilityRole="tab"
       accessibilityState={{ selected: isActive }}
     >
-      <Text variant="body" style={getOptionTextStyle(isActive, ctx.textSizeStyle, ctx.theme, ctx.textStyle, ctx.activeTextStyle)}>
+      <Text
+        variant="body"
+        size={ctx.size === 'sm' ? 'sm' : 'md'}
+        weight={isActive ? 'bold' : 'medium'}
+        style={getOptionTextStyle(isActive, ctx.textSizeStyle, ctx.theme, ctx.textStyle, ctx.activeTextStyle)}
+      >
         {optionLabel}
       </Text>
     </TouchableOpacity>
   );
 }
 
-function buildToggleContext(props, theme, animation, computedHitSlop, textSizeStyle) {
+function buildToggleContext(props, theme, animation, computedHitSlop, textSizeStyle, size) {
   const { value, onChange, animated, optionStyle, activeOptionStyle, textStyle, activeTextStyle, disabled } = props;
-  return { value, onChange, animated, theme, optionStyle, activeOptionStyle, textStyle, activeTextStyle, computedHitSlop, disabled, textSizeStyle, animation };
+  return { value, onChange, animated, theme, optionStyle, activeOptionStyle, textStyle, activeTextStyle, computedHitSlop, disabled, textSizeStyle, animation, size };
 }
 function computeToggleSizes(size, hitSlop) {
   const sizeStyle = styles[size] || styles.md;
@@ -98,7 +103,7 @@ export default function Toggle({
   const theme = useToggleTheme({ isDarkProp, styleMap: styles });
   const animation = useToggleAnimation({ animated, options, value });
   const { sizeStyle, textSizeStyle, computedHitSlop } = computeToggleSizes(size, hitSlop);
-  const ctx = buildToggleContext({ value, onChange, animated, optionStyle, activeOptionStyle, textStyle, activeTextStyle, disabled }, theme, animation, computedHitSlop, textSizeStyle);
+  const ctx = buildToggleContext({ value, onChange, animated, optionStyle, activeOptionStyle, textStyle, activeTextStyle, disabled }, theme, animation, computedHitSlop, textSizeStyle, size);
 
   return (
     <View style={[styles.container, sizeStyle, theme?.container, style]} {...props}>

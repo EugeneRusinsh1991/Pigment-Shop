@@ -2,7 +2,8 @@ import React from 'react';
 import { TouchableOpacity, View } from 'react-native';
 import { Text } from '@/components/Text';
 import { useTheme } from '../../../context/ThemeContext';
-import { Button } from '../../Button';
+import { Button, IconButton } from '../../Button';
+import { EditIcon, TrashIcon } from '@/components/Icons';
 import { Badge } from '../../Badge';
 import styles from './ProductsStyles';
 import { getLocalizedValue } from '../../../utils/localization';
@@ -67,4 +68,25 @@ export function DiscountCell({ discountPercent }) {
     return <Text style={[styles.discountText, styles.colDiscount]}>-{discountPercent}%</Text>;
   }
   return <Text style={[styles.discountNone, styles.colDiscount]}>—</Text>;
+}
+
+export function ProductRowActions({ product, onEdit, onDelete }) {
+  return (
+    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
+      <IconButton
+        icon={<EditIcon size={14} />}
+        onPress={() => onEdit(product)}
+        size="sm"
+        variant="transparent"
+      />
+      {onDelete && (
+        <IconButton
+          icon={<TrashIcon size={14} />}
+          onPress={() => onDelete(product)}
+          size="sm"
+          variant="transparent"
+        />
+      )}
+    </View>
+  );
 }

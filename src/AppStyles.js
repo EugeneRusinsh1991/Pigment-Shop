@@ -81,9 +81,6 @@ export default StyleSheet.create({
     height: '100%',
   },
   heroBadge: {
-    fontFamily: fonts.sans,
-    fontSize: 10,
-    fontWeight: 'bold',
     color: colors.accent,
     letterSpacing: 1.5,
     textAlign: 'center',
@@ -96,8 +93,6 @@ export default StyleSheet.create({
   },
   heroBtnText: {
     color: colors.white,
-    fontWeight: 'bold',
-    fontSize: 14,
   },
 
   // Category list sections
@@ -109,16 +104,8 @@ export default StyleSheet.create({
     marginTop: 12,
     marginBottom: 6,
   },
-  sectionTitle: {
-    fontFamily: fonts.serif,
-    fontSize: 22,
-    lineHeight: 26,
-    fontWeight: '600',
-  },
+  sectionTitle: {},
   allSectionsLink: {
-    fontFamily: fonts.sans,
-    fontSize: 12,
-    fontWeight: '600',
     color: colors.accent,
   },
 

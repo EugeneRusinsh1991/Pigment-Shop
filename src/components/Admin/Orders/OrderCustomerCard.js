@@ -11,8 +11,8 @@ import { formatDateLongWithTime } from '../../../utils/dateFormatting';
 function DetailRow({ label, value }) {
   return (
     <View style={styles.detailRow}>
-      <Text style={styles.detailLabel}>{label}</Text>
-      <Text style={styles.detailValue}>{value || '—'}</Text>
+      <Text style={styles.detailLabel} size={14}>{label}</Text>
+      <Text style={styles.detailValue} size={14} weight="500">{value || '—'}</Text>
     </View>
   );
 }
@@ -25,7 +25,7 @@ export default function OrderCustomerCard({ order }) {
     <View style={styles.detailCard}>
       {isGuest && (
         <View style={[styles.detailRow, { backgroundColor: '#fff3cd', padding: 12, borderRadius: 6, marginBottom: 12 }]}>
-          <Text style={{ color: '#856404', fontWeight: '600', fontSize: 14 }}>
+          <Text variant="subtitle2" weight="semiBold" style={{ color: '#856404' }}>
             ⚠️ {t('adminOrdersGuestLabel')}
           </Text>
         </View>

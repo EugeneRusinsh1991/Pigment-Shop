@@ -29,19 +29,13 @@ const styles = StyleSheet.create({
   },
   iconContainerDark: { backgroundColor: colors.white },
   iconContainerLight: { backgroundColor: colors.dark },
-  icon: { fontSize: 20, fontWeight: 'bold' },
+  icon: {},
   iconDark: { color: colors.dark },
   iconLight: { color: colors.white },
   title: {
-    fontFamily: fonts.serif,
-    fontSize: 22,
-    lineHeight: 26,
-    fontWeight: '700',
     marginBottom: 6,
   },
-  subtitle: {
-    fontSize: 14,
-  },
+  subtitle: {},
   formContainer: {
     width: '100%',
     borderRadius: 16,
@@ -67,14 +61,9 @@ const styles = StyleSheet.create({
   googleBtnLight: { borderColor: colors.neutralLightMid },
   googleIcon: {
     marginRight: 8,
-    fontSize: 16,
-    fontWeight: 'bold',
     color: colors.googleRed,
   },
-  googleBtnText: {
-    fontSize: 14,
-    fontWeight: '500',
-  },
+  googleBtnText: {},
   dividerContainer: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -88,7 +77,6 @@ const styles = StyleSheet.create({
   dividerLineLight: { backgroundColor: colors.neutralLightMid },
   dividerText: {
     marginHorizontal: 12,
-    fontSize: 12,
   },
   inputGroup: {
     marginBottom: 12,
@@ -99,13 +87,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   label: {
-    fontSize: 13,
-    fontWeight: '600',
     marginBottom: 4,
   },
-  forgotText: {
-    fontSize: 12,
-  },
+  forgotText: {},
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -118,12 +102,10 @@ const styles = StyleSheet.create({
   inputContainerLight: { borderColor: colors.neutralLightMid, backgroundColor: colors.inputBgLight },
   inputIcon: {
     marginRight: 8,
-    fontSize: 16,
     color: colors.textSubtleLight,
   },
   input: {
     flex: 1,
-    fontSize: 14,
     height: '100%',
     outlineStyle: 'none',
   },
@@ -136,27 +118,19 @@ const styles = StyleSheet.create({
   },
   loginBtnDark: { backgroundColor: colors.white },
   loginBtnLight: { backgroundColor: colors.dark },
-  loginBtnText: {
-    fontSize: 15,
-    fontWeight: '600',
-  },
+  loginBtnText: {},
   loginBtnTextDark: { color: colors.dark },
   loginBtnTextLight: { color: colors.white },
   errorText: {
     color: colors.accent,
-    fontSize: 13,
     marginBottom: 12,
     textAlign: 'center',
   },
   footer: {
     alignItems: 'center',
   },
-  footerText: {
-    fontSize: 13,
-  },
-  footerLink: {
-    fontWeight: '600',
-  },
+  footerText: {},
+  footerLink: {},
   textDark: { color: colors.white },
   textLight: { color: colors.dark },
   subtextDark: { color: colors.textMutedDark },

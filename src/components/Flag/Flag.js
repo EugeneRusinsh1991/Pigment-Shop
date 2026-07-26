@@ -97,12 +97,12 @@ export function Flag({
     return 'button';
   };
 
-  const renderChildren = (content, labelStyle) => {
+  const renderChildren = (content, labelStyle, size, weight) => {
     if (content === null || content === undefined) return null;
     if (React.isValidElement(content)) {
       return content;
     }
-    return <Text style={labelStyle}>{content}</Text>;
+    return <Text style={labelStyle} size={size} weight={weight}>{content}</Text>;
   };
 
   const renderChip = () => {
@@ -117,7 +117,7 @@ export function Flag({
         accessibilityLabel={accessibilityLabel}
         style={getChipContainerStyle(isDark, checked, disabled, readOnly, colorScheme, style)}
       >
-        {renderChildren(children, getChipLabelStyle(isDark, checked, colorScheme, textStyle))}
+        {renderChildren(children, getChipLabelStyle(isDark, checked, colorScheme, textStyle), "sm", checked ? "semiBold" : "medium")}
       </Pressable>
     );
   };
@@ -137,7 +137,7 @@ export function Flag({
         <View style={getSwitchTrackStyle(isDark, checked)}>
           <View style={getSwitchThumbStyle(checked)} />
         </View>
-        {renderChildren(children, getSwitchLabelStyle(isDark, textStyle))}
+        {renderChildren(children, getSwitchLabelStyle(isDark, textStyle), "sm", "medium")}
       </Pressable>
     );
   };
@@ -156,10 +156,10 @@ export function Flag({
       >
         <View style={getCheckboxBoxStyle(isDark, checked)}>
           {checked && (
-            <Text style={{ color: '#FFFFFF', fontSize: 12, fontWeight: '700' }}>✓</Text>
+            <Text variant="caption" weight="bold" style={{ color: '#FFFFFF' }}>✓</Text>
           )}
         </View>
-        {renderChildren(children, getCheckboxLabelStyle(isDark, textStyle))}
+        {renderChildren(children, getCheckboxLabelStyle(isDark, textStyle), "sm", "regular")}
       </Pressable>
     );
   };

@@ -36,13 +36,9 @@ export default StyleSheet.create({
     borderBottomColor: colors.borderLightAlt,
   },
   modalTitle: {
-    fontFamily: fonts.serif,
-    fontSize: 20,
-    fontWeight: '600',
     color: colors.textLight,
   },
   modalCloseBtn: {
-    fontSize: 20,
     color: colors.textDescDark,
     padding: 4,
   },
@@ -73,8 +69,6 @@ export default StyleSheet.create({
     minWidth: 140,
   },
   fieldLabel: {
-    fontSize: 12,
-    fontWeight: '600',
     color: colors.textDescLight,
     marginBottom: 5,
     letterSpacing: 0.3,
@@ -84,7 +78,6 @@ export default StyleSheet.create({
     backgroundColor: colors.secondaryLightBg,
     borderRadius: layout.radii.sm,
     paddingHorizontal: 12,
-    fontSize: 13,
     color: colors.textLight,
     borderWidth: 1,
     borderColor: colors.navItemHoverDark,
@@ -99,7 +92,6 @@ export default StyleSheet.create({
     borderRadius: layout.radii.sm,
     paddingHorizontal: 12,
     paddingVertical: 10,
-    fontSize: 13,
     color: colors.textLight,
     borderWidth: 1,
     borderColor: colors.navItemHoverDark,
@@ -111,7 +103,6 @@ export default StyleSheet.create({
     backgroundColor: colors.secondaryLightBg,
     borderRadius: layout.radii.sm,
     paddingHorizontal: 12,
-    fontSize: 13,
     color: colors.textLight,
     borderWidth: 1,
     borderColor: colors.navItemHoverDark,
@@ -138,16 +129,12 @@ export default StyleSheet.create({
   },
   checkMark: {
     color: colors.textDark,
-    fontSize: 12,
-    fontWeight: '700',
   },
   checkLabel: {
-    fontSize: 13,
     color: colors.textDescLight,
   },
   errorText: {
     color: colors.accent,
-    fontSize: 11,
     marginTop: 2,
   },
 
@@ -159,8 +146,6 @@ export default StyleSheet.create({
     backgroundColor: colors.secondaryLightBg,
   },
   cancelBtnText: {
-    fontSize: 13,
-    fontWeight: '600',
     color: colors.textDescLight,
   },
   saveBtn: {
@@ -170,8 +155,6 @@ export default StyleSheet.create({
     backgroundColor: colors.textLight,
   },
   saveBtnText: {
-    fontSize: 13,
-    fontWeight: '700',
     color: colors.textDark,
   },
 });

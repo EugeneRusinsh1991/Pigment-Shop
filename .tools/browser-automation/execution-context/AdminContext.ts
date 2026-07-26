@@ -83,13 +83,14 @@ export class AdminContext extends BaseExecutionContext {
       throw e;
     }
 
+    const msg = e?.message || String(e);
     const currentUrl = page.url();
     if (currentUrl.includes(authConfig.loginUrl)) {
       this.logError('Timeout Waiting For Authentication');
       throw new Error('Authentication Error: Timeout Waiting For Authentication - Still on the login page after 10000ms.');
     }
 
-    this.logError('Network/Auth Exception', e?.message || String(e));
-    throw new Error(`Authentication Error: Unexpected Authentication Failure - ${e?.message || String(e)}`);
+    this.logError('Network/Auth Exception', msg);
+    throw new Error(`Authentication Error: Unexpected Authentication Failure - ${msg}`);
   }
 }

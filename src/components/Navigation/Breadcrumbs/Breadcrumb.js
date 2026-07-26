@@ -17,7 +17,7 @@ function CrumbItem({ crumb, isLast, styles, testID }) {
 
   if (isLast) {
     return (
-      <Text style={textStyle} numberOfLines={1}>
+      <Text style={textStyle} size="sm" weight="medium" numberOfLines={1}>
         {crumb.label}
       </Text>
     );
@@ -26,7 +26,7 @@ function CrumbItem({ crumb, isLast, styles, testID }) {
   return (
     <Link href={crumb.href || '/catalog'} asChild testID={testID}>
       <AnimatedButton hitSlop={{ top: 12, bottom: 12, left: 6, right: 6 }}>
-        <Text style={textStyle} numberOfLines={1}>
+        <Text style={textStyle} size="sm" weight="medium" numberOfLines={1}>
           {crumb.label}
         </Text>
       </AnimatedButton>
@@ -66,7 +66,7 @@ export function Breadcrumb({ isDark: isDarkProps }) {
       {stack.map((crumb, index) => (
         <View key={`crumb-${index}`} style={styles.crumbRow}>
           {/* Separator */}
-          <Text style={styles.separator}>/</Text>
+          <Text style={styles.separator} size="sm">/</Text>
 
           {/* Crumb button */}
           <CrumbItem 

@@ -30,6 +30,16 @@
     "args": "Tools: Pack Codebase ZIP"
   },
   {
+    "key": "alt+1",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Run Dev"
+  },
+  {
+    "key": "alt+2",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Tools: Run All Automations"
+  },
+  {
     "key": "ctrl+shift+alt+w",
     "command": "workbench.action.tasks.runTask",
     "args": "Run Dev"

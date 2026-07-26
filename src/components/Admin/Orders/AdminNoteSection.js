@@ -10,7 +10,7 @@ export default function AdminNoteSection({ note, setNote }) {
 
   return (
     <>
-      <Text style={styles.sectionTitle}>{t('adminUserNote')}</Text>
+      <Text style={styles.sectionTitle} size={16} weight="600">{t('adminUserNote')}</Text>
       <View style={styles.detailCard}>
         <FieldTextarea
           value={note}

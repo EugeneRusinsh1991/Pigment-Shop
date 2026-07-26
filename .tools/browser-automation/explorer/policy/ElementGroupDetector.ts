@@ -71,12 +71,14 @@ export class ElementGroupDetector {
         return null;
       };
 
+      const attr = (el: Element, name: string) => (el.getAttribute(name) || '').toLowerCase();
+
       const getNodeAttrs = (el: Element) => ({
-        type: (el.getAttribute('type') || '').toLowerCase(),
-        role: (el.getAttribute('role') || '').toLowerCase(),
-        testId: (el.getAttribute('data-testid') || '').toLowerCase(),
-        ariaLabel: (el.getAttribute('aria-label') || '').toLowerCase(),
-        href: (el.getAttribute('href') || '').toLowerCase(),
+        type: attr(el, 'type'),
+        role: attr(el, 'role'),
+        testId: attr(el, 'data-testid'),
+        ariaLabel: attr(el, 'aria-label'),
+        href: attr(el, 'href'),
         tagName: el.tagName.toLowerCase(),
         text: el.textContent || ''
       });

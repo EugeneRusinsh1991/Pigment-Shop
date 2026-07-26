@@ -50,7 +50,6 @@ const styles = StyleSheet.create({
     opacity: 0.7,
   },
   input: {
-    fontSize: 16,
     height: '100%',
   },
   saveBtn: {
@@ -69,9 +68,7 @@ const styles = StyleSheet.create({
   saveBtnDisabled: {
     opacity: 0.5,
   },
-  saveBtnText: {
-    fontWeight: '600',
-  },
+  saveBtnText: {},
   saveBtnTextDark: {
     color: colors.black,
   },

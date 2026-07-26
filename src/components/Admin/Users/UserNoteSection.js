@@ -9,7 +9,7 @@ export default function UserNoteSection({ note, setNote, loadingNote }) {
   const { t } = useTheme();
   return (
     <View style={styles.noteCard}>
-      <Text style={styles.noteTitle}>{t('adminUserNote')}</Text>
+      <Text style={styles.noteTitle} size={14} weight="bold">{t('adminUserNote')}</Text>
       {loadingNote ? (
         <ActivityIndicator color="#E87A8E" style={{ marginVertical: 20 }} />
       ) : (

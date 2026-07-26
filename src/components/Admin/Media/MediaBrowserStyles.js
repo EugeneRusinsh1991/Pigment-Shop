@@ -30,8 +30,6 @@ export default StyleSheet.create({
   },
   title: {
     flex: 1,
-    fontSize: 15,
-    fontWeight: '700',
     color: colors.dark,
   },
   refreshBtn: {
@@ -43,12 +41,9 @@ export default StyleSheet.create({
     borderColor: colors.secondaryLightBorder,
   },
   refreshBtnText: {
-    fontSize: 12,
-    fontWeight: '600',
     color: colors.secondaryLightText,
   },
   closeBtn: {
-    fontSize: 18,
     color: colors.secondaryDarkText,
     padding: 4,
   },
@@ -63,18 +58,13 @@ export default StyleSheet.create({
     borderColor: colors.warningLight,
   },
   outdatedBannerTitle: {
-    fontSize: 13,
-    fontWeight: '700',
     color: colors.warningDeeper,
     marginBottom: 2,
   },
   outdatedBannerText: {
-    fontSize: 12,
     color: colors.warningDarkAlt,
-    lineHeight: 18,
   },
   outdatedBannerCode: {
-    fontWeight: '700',
     color: colors.warningDeeper,
   },
   tabs: {
@@ -98,8 +88,6 @@ export default StyleSheet.create({
     borderColor: colors.dark,
   },
   tabText: {
-    fontSize: 12,
-    fontWeight: '600',
     color: colors.secondaryLightText,
   },
   tabTextActive: {
@@ -131,7 +119,6 @@ export default StyleSheet.create({
     backgroundColor: colors.secondaryLightBorder,
   },
   itemName: {
-    fontSize: 10,
     color: colors.secondaryLightText,
     paddingHorizontal: 6,
     paddingVertical: 4,
@@ -144,9 +131,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  videoIcon: {
-    fontSize: 22,
-  },
+  videoIcon: {},
   footer: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
@@ -164,8 +149,6 @@ export default StyleSheet.create({
     borderColor: colors.secondaryLightBorder,
   },
   cancelBtnText: {
-    fontSize: 13,
-    fontWeight: '600',
     color: colors.secondaryLightText,
   },
   selectBtn: {
@@ -175,8 +158,6 @@ export default StyleSheet.create({
     backgroundColor: colors.dark,
   },
   selectBtnText: {
-    fontSize: 13,
-    fontWeight: '600',
     color: colors.white,
   },
   selectBtnDisabled: {

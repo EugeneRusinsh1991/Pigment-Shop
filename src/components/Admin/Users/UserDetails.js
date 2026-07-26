@@ -65,7 +65,7 @@ export default function UserDetails({ user, onBack }) {
         loadingNote={loadingNote}
       />
 
-      <Text style={styles.sectionTitle}>{t('ordersTitle')}</Text>
+      <Text style={styles.sectionTitle} size={16} weight="bold">{t('ordersTitle')}</Text>
       <UserOrdersList
         orders={user.orders}
         expandedOrders={expandedOrders}

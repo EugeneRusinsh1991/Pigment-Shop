@@ -51,9 +51,6 @@ const styles = StyleSheet.create({
     rowGap: 4,
   },
   brandText: {
-    fontFamily: '"Cormorant Garamond", "Playfair Display", Georgia, serif',
-    fontSize: 14,
-    fontWeight: '600',
     color: colors.accent,
   },
   logoImage: {
@@ -67,13 +64,9 @@ const styles = StyleSheet.create({
     color: colors.textLight,
   },
   separator: {
-    fontSize: 10,
     marginHorizontal: 2,
   },
-  authorText: {
-    fontFamily: 'System, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-    fontSize: 11,
-  },
+  authorText: {},
   subtextDark: {
     color: colors.textMutedLight,
   },

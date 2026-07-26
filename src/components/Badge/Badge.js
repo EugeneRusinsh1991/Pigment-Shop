@@ -56,7 +56,7 @@ const Badge = React.forwardRef(({
           onPressOut={bind.onPressOut}
           {...rest}
         >
-          <Text style={[...textStyle, textStyleProp]}>{displayText}</Text>
+          <Text variant="caption" weight="semiBold" style={[...textStyle, textStyleProp]}>{displayText}</Text>
         </TouchableOpacity>
       </Animated.View>
     );
@@ -64,7 +64,7 @@ const Badge = React.forwardRef(({
 
   return (
     <Animated.View ref={ref} style={combinedContainerStyle} {...rest}>
-      <Text style={[...textStyle, textStyleProp]}>{displayText}</Text>
+      <Text variant="caption" weight="semiBold" style={[...textStyle, textStyleProp]}>{displayText}</Text>
     </Animated.View>
   );
 });

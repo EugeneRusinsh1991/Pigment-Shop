@@ -10,6 +10,18 @@ function getDisplayHelperText(error, helperText) {
   return helperText;
 }
 
+function buildStyleParams({ size, multiline, numberOfLines, fullWidth, width, height, disabled, error, isFocused, isDark }) {
+  return { size, multiline, numberOfLines, fullWidth, width, height, disabled, error: !!error, focused: isFocused, isDark };
+}
+
+function makeFocusHandler(setFocused, value, externalHandler) {
+  return (e) => {
+    setFocused(value);
+    if (externalHandler) externalHandler(e);
+  };
+}
+
+
 function renderLabel(label, dynamicStyles, labelStyle) {
   if (!label) return null;
   return (
@@ -96,17 +108,21 @@ const TextField = forwardRef(function TextField(
   });
 
   const displayHelperText = getDisplayHelperText(error, helperText);
+  const dynamicStyles = getTextFieldStyles(buildStyleParams({ size, multiline, numberOfLines, fullWidth, width, height, disabled, error, isFocused, isDark: theme.isDark }));
 
-  const styleParams = { size, multiline, numberOfLines, fullWidth, width, height, disabled, error: !!error, focused: isFocused, isDark: theme.isDark };
-  const dynamicStyles = getTextFieldStyles(styleParams);
+  const handleFocus = useCallback(makeFocusHandler(setIsFocused, true, onFocus), [onFocus]);
+  const handleBlur = useCallback(makeFocusHandler(setIsFocused, false, onBlur), [onBlur]);
 
-  const handleFocus = useCallback((e) => { setIsFocused(true); if (onFocus) onFocus(e); }, [onFocus]);
-  const handleBlur = useCallback((e) => { setIsFocused(false); if (onBlur) onBlur(e); }, [onBlur]);
+  const wrapperProps = {
+    ref, value, onChangeText, placeholder, theme, disabled, multiline,
+    numberOfLines, handleFocus, handleBlur, dynamicStyles, inputStyle,
+    animatedContainerStyle, inputWrapperStyle, leadingIcon, trailingIcon, restProps,
+  };
 
   return (
     <View style={[dynamicStyles.container, containerStyle]}>
       {renderLabel(label, dynamicStyles, labelStyle)}
-      {renderInputWrapper({ ref, value, onChangeText, placeholder, theme, disabled, multiline, numberOfLines, handleFocus, handleBlur, dynamicStyles, inputStyle, animatedContainerStyle, inputWrapperStyle, leadingIcon, trailingIcon, restProps })}
+      {renderInputWrapper(wrapperProps)}
       {renderHelperText(displayHelperText, dynamicStyles, helperStyle)}
     </View>
   );

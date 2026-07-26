@@ -107,12 +107,59 @@ export const baseBadgeStyles = StyleSheet.create({
     borderColor: 'transparent',
   },
   text: {
-    fontFamily: fonts.sans,
-    fontWeight: '600',
     textAlign: 'center',
     includeFontPadding: false,
   },
 });
+
+function resolveSubtleCustomColors(isDark, customColor) {
+  const bg = isDark
+    ? (colors[`${customColor}Dark`] || colors.surfaceDark)
+    : colors[`${customColor}BgLight`];
+  const text = isDark
+    ? colors.textDark
+    : (colors[`${customColor}Deep`] || colors.textStrongLight);
+  return { bg, text, border: 'transparent' };
+}
+
+const variantColorResolvers = {
+  counter:  () => ({ bg: colors.accent, text: colors.white, border: 'transparent' }),
+  discount: () => ({ bg: colors.accent, text: colors.white, border: 'transparent' }),
+  new:      () => ({ bg: colors.accent, text: colors.white, border: 'transparent' }),
+  product:  () => ({ bg: colors.accent, text: colors.white, border: 'transparent' }),
+  featured: () => ({ bg: colors.purpleMid, text: colors.white, border: 'transparent' }),
+  status: ({ status, isDark }) => {
+    const st = statusColorMap[status] || statusColorMap.pending;
+    return {
+      bg: isDark ? st.bgDark : st.bgLight,
+      text: isDark ? st.textDark : st.textLight,
+      border: isDark ? st.borderDark : st.borderLight,
+    };
+  },
+  subtle: ({ isDark, customColor }) => {
+    if (!customColor || !colors[`${customColor}BgLight`]) {
+      return {
+        bg: isDark ? colors.surfaceDark : colors.slateMid,
+        text: isDark ? colors.textMutedDark : colors.slateText,
+        border: 'transparent',
+      };
+    }
+    return resolveSubtleCustomColors(isDark, customColor);
+  },
+  chip: ({ selected, isDark }) => {
+    if (selected) return { bg: colors.accent, text: colors.white, border: colors.accent };
+    return {
+      bg: isDark ? colors.chipDarkInactiveBg : colors.surfaceLight,
+      text: isDark ? colors.chipDarkInactiveText : colors.chipLightInactiveText,
+      border: isDark ? colors.chipDarkInactiveBorder : colors.chipLightInactiveBorder,
+    };
+  },
+  outline: ({ isDark }) => ({
+    bg: 'transparent',
+    text: isDark ? colors.textDark : colors.textLight,
+    border: isDark ? colors.borderDark : colors.borderLight,
+  }),
+};
 
 export const getBadgeStyle = ({
   variant = 'product',
@@ -123,48 +170,8 @@ export const getBadgeStyle = ({
   customColor,
 } = {}) => {
   const sizeConfig = badgeSizes[size] || badgeSizes.md;
-
-  let bg = colors.accent;
-  let text = colors.white;
-  let border = 'transparent';
-
-  if (variant === 'counter') {
-    bg = colors.accent;
-    text = colors.white;
-  } else if (variant === 'discount' || variant === 'new' || variant === 'product') {
-    bg = colors.accent;
-    text = colors.white;
-  } else if (variant === 'featured') {
-    bg = colors.purpleMid;
-    text = colors.white;
-  } else if (variant === 'status') {
-    const st = statusColorMap[status] || statusColorMap.pending;
-    bg = isDark ? st.bgDark : st.bgLight;
-    text = isDark ? st.textDark : st.textLight;
-    border = isDark ? st.borderDark : st.borderLight;
-  } else if (variant === 'subtle') {
-    if (customColor && colors[`${customColor}BgLight`]) {
-      bg = isDark ? (colors[`${customColor}Dark`] || colors.surfaceDark) : colors[`${customColor}BgLight`];
-      text = isDark ? colors.textDark : (colors[`${customColor}Deep`] || colors.textStrongLight);
-    } else {
-      bg = isDark ? colors.surfaceDark : colors.slateMid;
-      text = isDark ? colors.textMutedDark : colors.slateText;
-    }
-  } else if (variant === 'chip') {
-    if (selected) {
-      bg = colors.accent;
-      text = colors.white;
-      border = colors.accent;
-    } else {
-      bg = isDark ? colors.chipDarkInactiveBg : colors.surfaceLight;
-      text = isDark ? colors.chipDarkInactiveText : colors.chipLightInactiveText;
-      border = isDark ? colors.chipDarkInactiveBorder : colors.chipLightInactiveBorder;
-    }
-  } else if (variant === 'outline') {
-    bg = 'transparent';
-    text = isDark ? colors.textDark : colors.textLight;
-    border = isDark ? colors.borderDark : colors.borderLight;
-  }
+  const resolver = variantColorResolvers[variant] || variantColorResolvers.product;
+  const { bg, text, border } = resolver({ status, isDark, selected, customColor });
 
   return {
     container: [
@@ -183,7 +190,6 @@ export const getBadgeStyle = ({
       baseBadgeStyles.text,
       {
         color: text,
-        fontSize: sizeConfig.fontSize,
       },
     ],
   };

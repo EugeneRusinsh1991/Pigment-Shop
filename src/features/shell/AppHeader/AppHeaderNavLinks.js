@@ -22,7 +22,7 @@ export default function AppHeaderNavLinks({
   return (
     <View style={styles.centerSec}>
       <IconButton
-        icon={<Text style={[styles.menuBtnText, theme?.textColor]}>☰</Text>}
+        icon={<Text variant="body" style={[styles.menuBtnText, theme?.textColor]}>☰</Text>}
         onPress={onMenuPress}
         size="md"
         variant="transparent"

@@ -54,31 +54,31 @@ export function CountdownTimer({ isDark }) {
 
   return (
     <View style={styles.compactTimerRow}>
-      <Text style={[styles.compactTimerLabel, ic(styles.compactTimerLabelDark, styles.compactTimerLabelLight)]}>
+      <Text variant="caption" style={[styles.compactTimerLabel, ic(styles.compactTimerLabelDark, styles.compactTimerLabelLight)]}>
         {t('offerEndsIn')}:
       </Text>
-      <Text ref={daysRef} style={[styles.compactTimerValue, ic(styles.compactTimerValueDark, styles.compactTimerValueLight)]}>
+      <Text ref={daysRef} variant="caption" weight="bold" style={[styles.compactTimerValue, ic(styles.compactTimerValueDark, styles.compactTimerValueLight)]}>
         07
       </Text>
-      <Text style={[styles.compactTimerUnit, ic(styles.compactTimerUnitDark, styles.compactTimerUnitLight)]}>
+      <Text variant="caption" style={[styles.compactTimerUnit, ic(styles.compactTimerUnitDark, styles.compactTimerUnitLight)]}>
         {' D '}
       </Text>
-      <Text ref={hoursRef} style={[styles.compactTimerValue, ic(styles.compactTimerValueDark, styles.compactTimerValueLight)]}>
+      <Text ref={hoursRef} variant="caption" weight="bold" style={[styles.compactTimerValue, ic(styles.compactTimerValueDark, styles.compactTimerValueLight)]}>
         00
       </Text>
-      <Text style={[styles.compactTimerUnit, ic(styles.compactTimerUnitDark, styles.compactTimerUnitLight)]}>
+      <Text variant="caption" style={[styles.compactTimerUnit, ic(styles.compactTimerUnitDark, styles.compactTimerUnitLight)]}>
         {' H '}
       </Text>
-      <Text ref={minutesRef} style={[styles.compactTimerValue, ic(styles.compactTimerValueDark, styles.compactTimerValueLight)]}>
+      <Text ref={minutesRef} variant="caption" weight="bold" style={[styles.compactTimerValue, ic(styles.compactTimerValueDark, styles.compactTimerValueLight)]}>
         00
       </Text>
-      <Text style={[styles.compactTimerUnit, ic(styles.compactTimerUnitDark, styles.compactTimerUnitLight)]}>
+      <Text variant="caption" style={[styles.compactTimerUnit, ic(styles.compactTimerUnitDark, styles.compactTimerUnitLight)]}>
         {' M '}
       </Text>
-      <Text ref={secondsRef} style={[styles.compactTimerValue, ic(styles.compactTimerValueDark, styles.compactTimerValueLight)]}>
+      <Text ref={secondsRef} variant="caption" weight="bold" style={[styles.compactTimerValue, ic(styles.compactTimerValueDark, styles.compactTimerValueLight)]}>
         00
       </Text>
-      <Text style={[styles.compactTimerUnit, ic(styles.compactTimerUnitDark, styles.compactTimerUnitLight)]}>
+      <Text variant="caption" style={[styles.compactTimerUnit, ic(styles.compactTimerUnitDark, styles.compactTimerUnitLight)]}>
         {' S'}
       </Text>
     </View>
@@ -94,22 +94,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   compactTimerLabel: {
-    fontSize: 13,
-    fontWeight: '600',
     marginRight: 6,
   },
   compactTimerLabelDark: { color: colors.textDescDark },
   compactTimerLabelLight: { color: colors.textSubtleDark },
-  compactTimerValue: {
-    fontSize: 14,
-    fontWeight: '700',
-  },
+  compactTimerValue: {},
   compactTimerValueDark: { color: colors.accent },
   compactTimerValueLight: { color: colors.accent },
-  compactTimerUnit: {
-    fontSize: 13,
-    fontWeight: '600',
-  },
+  compactTimerUnit: {},
   compactTimerUnitDark: { color: colors.textDescDark },
   compactTimerUnitLight: { color: colors.textSubtleDark },
 
@@ -137,13 +129,13 @@ const styles = StyleSheet.create({
   cardLight: { backgroundColor: colors.surfaceLight, borderColor: colors.secondaryLightBorder },
   cardHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
   titleWrap: { flexDirection: 'row', alignItems: 'center', flex: 1 },
-  title: { fontSize: 18, fontWeight: '800', letterSpacing: 0.3 },
+  title: { letterSpacing: 0.3 },
   titleDark: { color: colors.slateMid },
   titleLight: { color: colors.textStrongDark },
-  subtitle: { fontSize: 13, marginTop: 4, lineHeight: 18, marginRight: 24 },
+  subtitle: { marginTop: 4, marginRight: 24 },
   subtitleDark: { color: colors.textDescDark },
   subtitleLight: { color: colors.textSubtleDark },
-  arrow: { fontSize: 24, fontWeight: '300' },
+  arrow: {},
   arrowDark: { color: colors.infoMid },
   arrowLight: { color: colors.purpleMid },
 
@@ -153,7 +145,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginRight: 10,
   },
-  badgeText: { color: colors.white, fontSize: 10, fontWeight: '800' },
+  badgeText: { color: colors.white },
   accentBlue: { backgroundColor: colors.infoMid },
   accentPurple: { backgroundColor: colors.purpleMid },
 });

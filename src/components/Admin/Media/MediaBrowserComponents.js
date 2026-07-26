@@ -19,12 +19,12 @@ const TABS = [
 export function OutdatedBanner() {
   return (
     <View style={styles.outdatedBanner}>
-      <Text style={styles.outdatedBannerTitle}>
+      <Text style={styles.outdatedBannerTitle} size={13} weight="bold">
         <AlertIcon color="#DC2626" size={14} style={{ marginRight: 6 }} /> Media index not generated
       </Text>
-      <Text style={styles.outdatedBannerText}>
+      <Text style={styles.outdatedBannerText} size={12}>
         {'Run '}
-        <Text style={styles.outdatedBannerCode}>npm run generate-media</Text>
+        <Text style={styles.outdatedBannerCode} size={12} weight="bold">npm run generate-media</Text>
         {' in your terminal, then press Refresh to see your local files.'}
       </Text>
     </View>

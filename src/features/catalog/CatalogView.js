@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useCallback } from 'react';
 import { FlatList, ScrollView, StyleSheet, View } from 'react-native';
 import styles from '../../AppStyles';
 import { useFavoritesContext } from '../../context/FavoritesContext';
@@ -10,24 +10,7 @@ import { PageNavigation } from '@/components/Navigation';
 import PlaceholderCard from './PlaceholderCard';
 import CatalogListFooter from './CatalogListFooter';
 import { useCatalogViewData } from '../../hooks/useCatalogViewData';
-
-function useCatalogTransition(showPromotionalSections, showHeroBanner) {
-  const [isTransitionReady, setIsTransitionReady] = useState(false);
-
-  useEffect(() => {
-    if (!showPromotionalSections && !showHeroBanner) {
-      setIsTransitionReady(true);
-      return;
-    }
-    setIsTransitionReady(false);
-    const timer = setTimeout(() => {
-      setIsTransitionReady(true);
-    }, 150);
-    return () => clearTimeout(timer);
-  }, [showPromotionalSections, showHeroBanner]);
-
-  return isTransitionReady;
-}
+import { useCatalogTransition } from './useCatalogTransition';
 
 /**
  * Helper to render catalog list items.
