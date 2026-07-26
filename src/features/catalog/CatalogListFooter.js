@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import NewArrivalsFooter from '../../components/NewArrivalsFooter';
-import DiscountsSection from '../../components/DiscountsSection';
-import Footer from '../../components/Footer';
+import NewArrivalsFooter from './components/NewArrivalsFooter';
+import DiscountsSection from '../home/components/DiscountsSection';
+import Footer from '../shell/components/Footer';
 
 /**
  * CatalogFooter Helper Component

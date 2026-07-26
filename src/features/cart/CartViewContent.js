@@ -2,11 +2,11 @@ import { ScrollView, View } from 'react-native';
 import { Text, Heading } from '../../components/Text';
 import CartItem from './CartItem';
 import CartSummary from './CartSummary';
-import Footer from '../../components/Footer';
+import Footer from '../shell/components/Footer';
 import { CartIcon } from '@/components/Icons';
 import styles from './CartViewStyles';
 import useGridLayout from '../../hooks/useGridLayout';
-import ScrollFadeUp from '../../components/ScrollFadeUp';
+import { ScrollFadeUp } from '../../components/Motion';
 
 function EmptyCart({ isDark, t }) {
   return (

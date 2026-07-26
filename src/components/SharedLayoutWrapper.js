@@ -1,6 +1,6 @@
 import { StyleSheet, View } from 'react-native';
 import { useTheme } from '../context/ThemeContext';
-import Footer from './Footer';
+import Footer from '../features/shell/components/Footer';
 
 export default function SharedLayoutWrapper({
   children,

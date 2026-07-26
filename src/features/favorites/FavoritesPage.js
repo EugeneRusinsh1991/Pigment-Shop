@@ -6,10 +6,10 @@ import { useRouter } from 'expo-router';
 import { useTheme } from '../../context/ThemeContext';
 import useGridLayout from '../../hooks/useGridLayout';
 import styles from './FavoritesPageStyles';
-import Footer from '../../components/Footer';
+import Footer from '../shell/components/Footer';
 import { HeartIcon } from '@/components/Icons';
 import PlaceholderCard, { PlaceholderGrid } from '../catalog/PlaceholderCard';
-import ScrollFadeUp from '../../components/ScrollFadeUp';
+import { ScrollFadeUp } from '../../components/Motion';
 
 
 import { EmptyState } from '../../components/Feedback';

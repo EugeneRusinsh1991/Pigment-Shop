@@ -1,5 +1,5 @@
 import { Flag } from '../../Flag';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { View } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
 import styles from './ProductFormStyles';
 

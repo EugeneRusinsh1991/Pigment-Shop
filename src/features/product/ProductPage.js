@@ -10,8 +10,8 @@ import { ProductImagePanel } from './ProductImagePanel';
 import { ProductInfoPanel } from './ProductInfoPanel';
 import styles from './ProductPageStyles';
 import ProductReviews from './ProductReviews';
-import Footer from '../../components/Footer';
-import ScrollFadeUp from '../../components/ScrollFadeUp';
+import Footer from '../shell/components/Footer';
+import { ScrollFadeUp } from '../../components/Motion';
 import { useTheme } from '../../context/ThemeContext';
 
 function useProductActions(product) {

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Modal, ScrollView, Text, TouchableOpacity, View } from 'react-native';
+import { Modal, ScrollView, View } from 'react-native';
+import { Heading } from '../Text';
 import { colors, layout } from '../../theme/tokens';
 import { useTheme } from '../../context/ThemeContext';
 import { CrossIcon } from '@/components/Icons';
@@ -8,7 +9,7 @@ import { Button, IconButton } from '../Button';
 function ModalHeader({ title, onClose, styles }) {
   return (
     <View style={styles.modalHeader}>
-      {title ? <Text style={styles.modalTitle}>{title}</Text> : <View />}
+      {title ? <Heading level={3} style={styles.modalTitle}>{title}</Heading> : <View />}
       <IconButton
         icon={<CrossIcon color={colors.slateText} size={14} />}
         onPress={onClose}

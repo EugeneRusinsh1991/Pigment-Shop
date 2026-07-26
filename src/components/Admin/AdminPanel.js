@@ -16,7 +16,7 @@ import CategoriesManager from './Categories/CategoriesManager';
 import OrdersManager from './Orders/OrdersManager';
 import ProductsManager from './Products/ProductsManager';
 import UsersManager from './Users/UsersManager';
-import PageTransition from '../PageTransition';
+import { PageTransition } from '../Motion';
 import { colors, layout } from '../../theme/tokens';
 
 import { Button, IconButton } from '../Button';

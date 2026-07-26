@@ -5,10 +5,10 @@ import { useAuth } from '../../context/AuthContext';
 import { useTheme } from '../../context/ThemeContext';
 import { useOrders } from '../../hooks/useOrders';
 import useGridLayout from '../../hooks/useGridLayout';
-import OrderCard from '../../components/OrderCard';
-import styles from '../../components/OrdersPageStyles';
-import Footer from '../../components/Footer';
-import ScrollFadeUp from '../../components/ScrollFadeUp';
+import OrderCard from './components/OrderCard';
+import styles from './OrdersPageStyles';
+import Footer from '../shell/components/Footer';
+import { ScrollFadeUp } from '../../components/Motion';
 
 import CatalogPagination from '../catalog/CatalogPagination';
 import EmptyState from '../../components/DataTable/EmptyState';

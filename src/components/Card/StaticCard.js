@@ -1,5 +1,5 @@
 import React from 'react';
-import ScrollFadeUp from '../ScrollFadeUp';
+import { ScrollFadeUp } from '../Motion';
 import { colors, layout } from '../../theme/tokens';
 
 function getStaticCardBorderColor(borderColor, isDark) {

@@ -2,9 +2,9 @@ import { View } from 'react-native';
 import { Text } from '../../components/Text/Text';
 import styles from '../../AppStyles';
 import { Link } from 'expo-router';
-import HeroCarousel from '../../components/HeroCarousel';
+import HeroCarousel from '../home/components/HeroCarousel';
 import Button from '../../components/Button';
-import ScrollFadeUp from '../../components/ScrollFadeUp';
+import { ScrollFadeUp } from '../../components/Motion';
 
 function HeroBanner({ isDark, isWide, t, isTransitionReady }) {
   return (

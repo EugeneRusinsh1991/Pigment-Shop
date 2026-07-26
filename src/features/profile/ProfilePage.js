@@ -7,8 +7,8 @@ import { useProfile } from '../../hooks/useProfile';
 import useGridLayout from '../../hooks/useGridLayout';
 import ProfileFormCard from './ProfileFormCard';
 import styles from './ProfilePageStyles';
-import Footer from '../../components/Footer';
-import ScrollFadeUp from '../../components/ScrollFadeUp';
+import Footer from '../shell/components/Footer';
+import { ScrollFadeUp } from '../../components/Motion';
 
 function getVal(str) {
   return typeof str === 'string' ? str : '';

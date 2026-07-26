@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { StyleSheet, TouchableOpacity, Animated, View, Platform } from 'react-native';
-import ScrollFadeUp from '../ScrollFadeUp';
+import { ScrollFadeUp } from '../Motion';
 import CardShadow from './CardShadow';
 import useHoverAnimation from '../../hooks/useHoverAnimation';
 import { colors, motion } from '../../theme/tokens';

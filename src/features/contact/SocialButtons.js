@@ -3,7 +3,7 @@ import { Platform, Linking } from 'react-native';
 import { Text } from '../../components/Text';
 import styles from './ContactPageStyles';
 import { Button } from '../../components/Button';
-import ScrollFadeUp from '../../components/ScrollFadeUp';
+import { ScrollFadeUp } from '../../components/Motion';
 import { colors } from '../../theme/tokens';
 
 const INSTAGRAM_URL = 'https://instagram.com';

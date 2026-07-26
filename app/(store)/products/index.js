@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTheme } from '@/context/ThemeContext';
 import CatalogPage from '@/features/catalog/CatalogPage';
-import PageTransition from '@/components/PageTransition';
+import { PageTransition } from '@\/components\/Motion';
 
 export default function ProductsRoute() {
   const { isDark } = useTheme();

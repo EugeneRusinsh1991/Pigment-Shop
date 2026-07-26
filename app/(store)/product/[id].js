@@ -3,7 +3,7 @@ import { useLocalSearchParams } from 'expo-router';
 import { useTheme } from '@/context/ThemeContext';
 import { useCatalog } from '@/context/CatalogContext';
 import ProductPage from '@/features/product/ProductPage';
-import PageTransition from '@/components/PageTransition';
+import { PageTransition } from '@/components/Motion';
 
 export default function ProductRoute() {
   const { isDark } = useTheme();

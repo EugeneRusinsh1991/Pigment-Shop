@@ -6,9 +6,9 @@ import { useLoginForm } from '../../hooks/useLoginForm';
 import { MailIcon } from '@/components/Icons';
 import { ConfirmPasswordField, ErrorText, ForgotPasswordLink, LoginFooter, LoginHeader, PasswordInputField } from './LoginPageComponents';
 import styles from './LoginPageStyles';
-import Footer from '../../components/Footer';
+import Footer from '../shell/components/Footer';
 import { Button } from '../../components/Button';
-import PageTransition from '../../components/PageTransition';
+import { PageTransition } from '../../components/Motion';
 import { FieldInput } from '../../components/Admin/SharedFormComponents';
 
 

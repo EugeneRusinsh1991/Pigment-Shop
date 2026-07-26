@@ -1,6 +1,6 @@
 import { View } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
-import OrderCard from '../../OrderCard';
+import OrderCard from '../../../features/orders/components/OrderCard';
 import EmptyState from '../../DataTable/EmptyState';
 import styles from './UsersStyles';
 
