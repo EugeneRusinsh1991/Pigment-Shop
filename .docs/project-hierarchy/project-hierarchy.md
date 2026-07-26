@@ -33,6 +33,8 @@
 - [src/hooks/](file:///d:/Magazine/_PigmentShop/src/hooks/): React custom hooks.
 - [src/theme/](file:///d:/Magazine/_PigmentShop/src/theme/): Tokenized color palettes, typography, and styling helpers.
 
+- [architecture-standards/](file:///d:/Magazine/_PigmentShop/architecture-standards/): Canonical architecture specifications (UI, Services, Domain standards).
+
 ---
 
 ## 🛠️ Debug & Automation Tools

@@ -13,13 +13,7 @@ itself.
 
 # Mandatory Safety Policy
 
-Before executing this skill:
-
-1. Warn the user to make a backup before proceeding.
-2. Ask the user for confirmation or remind them to create a backup manually.
-3. Proceed only after the user confirms or acknowledges.
-
-After the backup:
+This skill is READ ONLY. Executing this skill proceeds directly without prompting for backups.
 
 - Never delete project files.
 - Never rename project files.

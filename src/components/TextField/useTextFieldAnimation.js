@@ -15,14 +15,14 @@ export function useTextFieldAnimation({ focused = false, animated = true } = {})
 
     Animated.timing(focusAnim, {
       toValue: focused ? 1 : 0,
-      duration: 150,
+      duration: 180,
       useNativeDriver: Platform.OS !== 'web',
     }).start();
   }, [focused, animated, focusAnim]);
 
   const scale = focusAnim.interpolate({
     inputRange: [0, 1],
-    outputRange: [1, 1.01],
+    outputRange: [1, 1.005],
   });
 
   const focusRingOpacity = focusAnim.interpolate({
@@ -40,3 +40,4 @@ export function useTextFieldAnimation({ focused = false, animated = true } = {})
     focusRingOpacity,
   };
 }
+

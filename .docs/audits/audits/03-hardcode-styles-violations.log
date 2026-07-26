@@ -1,9 +1,9 @@
 ===================================================================
          3. HARDCODED STYLES, COLORS & SPACING REPORT              
-Timestamp: 26.07.2026, 21:35:05
+Timestamp: 26.07.2026, 21:48:38
 ===================================================================
 
-Found 1386 issue(s) across 176 file(s):
+Found 1385 issue(s) across 176 file(s):
 
 File: src\AppStyles.js
   L39    [HARDCODED_SPACING] paddingTop 16px -> paddingTop: 16,
@@ -480,9 +480,8 @@ File: src\components\Admin\Orders\OrdersTable.js
   L45    [INLINE_STYLE] if (loading) return <ActivityIndicator size="large" color="#1C1C1C" style={{ marginTop: 40 }} />;
   L45    [HARDCODED_COLOR] #1C1C1C -> if (loading) return <ActivityIndicator size="large" color="#1C1C1C" style={{ marginTop: 40 }} />;
   L45    [HARDCODED_SPACING] marginTop 40px -> if (loading) return <ActivityIndicator size="large" color="#1C1C1C" style={{ marginTop: 40 }} />;
-  L46    [INLINE_STYLE] if (error) return <Text style={{ color: '#E87A8E', marginTop: 20 }}>{error}</Text>;
-  L46    [HARDCODED_COLOR] #E87A8E -> if (error) return <Text style={{ color: '#E87A8E', marginTop: 20 }}>{error}</Text>;
-  L46    [HARDCODED_SPACING] marginTop 20px -> if (error) return <Text style={{ color: '#E87A8E', marginTop: 20 }}>{error}</Text>;
+  L46    [INLINE_STYLE] if (error) return <Text color="danger" style={{ marginTop: 20 }}>{error}</Text>;
+  L46    [HARDCODED_SPACING] marginTop 20px -> if (error) return <Text color="danger" style={{ marginTop: 20 }}>{error}</Text>;
 
 File: src\components\Admin\Orders\OrdersTableControls.js
   L23    [INLINE_STYLE] <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16, flexWrap: 'wrap', gap: 8 }}>

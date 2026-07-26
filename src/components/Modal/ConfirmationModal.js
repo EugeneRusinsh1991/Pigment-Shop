@@ -56,10 +56,10 @@ export default function ConfirmationModal({
       {...modalProps}
     >
       {resolvedTitle ? (
-        <Heading level={3} size={18} weight="600" style={styles.title}>{resolvedTitle}</Heading>
+        <Heading level={4} style={styles.title}>{resolvedTitle}</Heading>
       ) : null}
       {message ? (
-        <Text variant="body1" color="muted" lineHeight={20} style={styles.message}>{message}</Text>
+        <Text variant="body2" color="muted" style={styles.message}>{message}</Text>
       ) : null}
       <View style={styles.footer}>
         <Button

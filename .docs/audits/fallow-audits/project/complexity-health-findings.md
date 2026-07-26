@@ -1,6 +1,6 @@
 # 🩺 Complexity Health Findings (Critical & High)
 
-*Generated on: 26.07.2026, 21:35:14*
+*Generated on: 26.07.2026, 21:48:49*
 
 ## 🔴 Critical (≤ 50 lines)
 
@@ -33,6 +33,12 @@
 
 
 ## 🟠 High (≤ 50 lines)
+
+#### 📁 [IconsStyles.js](file:///D:/Magazine/_PigmentShop/src/components/icons/IconsStyles.js)
+`src/components/icons/IconsStyles.js`
+
+- 🟠 **`getIconColor`** [L26](file:///D:/Magazine/_PigmentShop/src/components/icons/IconsStyles.js#L26)
+  - Lines: 10 | Cyclomatic: 9 | Cognitive: 7 | CRAP: 90
 
 #### 📁 [useDataTableTheme.js](file:///D:/Magazine/_PigmentShop/src/components/DataTable/useDataTableTheme.js)
 `src/components/DataTable/useDataTableTheme.js`

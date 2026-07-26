@@ -43,6 +43,6 @@ function OrdersTable({ orders, t, onSelectOrder, sortField, sortDirection, onSor
 
 export function renderContent({ loading, error, orders, t, onSelectOrder, sortField, sortDirection, onSort }) {
   if (loading) return <ActivityIndicator size="large" color="#1C1C1C" style={{ marginTop: 40 }} />;
-  if (error) return <Text style={{ color: '#E87A8E', marginTop: 20 }}>{error}</Text>;
+  if (error) return <Text color="danger" style={{ marginTop: 20 }}>{error}</Text>;
   return <OrdersTable orders={orders} t={t} onSelectOrder={onSelectOrder} sortField={sortField} sortDirection={sortDirection} onSort={onSort} />;
 }

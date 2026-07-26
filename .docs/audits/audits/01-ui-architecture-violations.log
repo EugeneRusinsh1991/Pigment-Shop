@@ -1,15 +1,12 @@
 ===================================================================
                1. UI ARCHITECTURE COMPLIANCE REPORT                
-Timestamp: 26.07.2026, 21:35:05
+Timestamp: 26.07.2026, 21:48:38
 ===================================================================
 
-Found 6 architecture violation(s) across 6 target(s):
+Found 5 architecture violation(s) across 5 target(s):
 
 Target: src/components/Admin/
   [MISSING_MODULES] Missing: index.js, useAdminTheme.js
-
-Target: src/components/icons/
-  [MISSING_MODULES] Missing: index.js, iconsStyles.js, useiconsTheme.js
 
 Target: src/components/Media/
   [MISSING_MODULES] Missing: MediaStyles.js, useMediaTheme.js

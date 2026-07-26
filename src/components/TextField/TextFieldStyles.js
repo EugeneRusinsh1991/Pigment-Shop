@@ -1,25 +1,25 @@
 import { StyleSheet } from 'react-native';
-import { colors, layout } from '../../theme/tokens';
+import { colors, layout, typography } from '../../theme/tokens';
 
 export const SIZES = {
   sm: {
     height: 36,
     paddingHorizontal: 10,
-    fontSize: 13,
+    fontSize: typography.sizes.xs,
     iconSize: 16,
     borderRadius: layout.radii.xs,
   },
   md: {
     height: 44,
     paddingHorizontal: 12,
-    fontSize: 14,
+    fontSize: typography.sizes.sm,
     iconSize: 18,
     borderRadius: layout.radii.sm,
   },
   lg: {
     height: 52,
     paddingHorizontal: 16,
-    fontSize: 15,
+    fontSize: typography.sizes.md,
     iconSize: 20,
     borderRadius: layout.radii.md,
   },

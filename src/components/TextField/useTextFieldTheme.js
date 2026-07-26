@@ -1,4 +1,5 @@
 import { getIsDarkContext, getStyle } from '../useThemeUtils';
+import { colors } from '../../theme/tokens';
 
 function getBorderColor(isDark, error, styleMap) {
   if (!styleMap) return undefined;
@@ -28,7 +29,7 @@ export function useTextFieldTheme({ isDarkProp, disabled = false, error = false,
     border: getBorderColor(isDark, error, styleMap),
     label: getStyle(styleMap, isDark, 'labelDark', 'labelLight'),
     helper: getHelperColor(isDark, error, styleMap),
-    placeholderColor: isDark ? '#9CA3AF' : '#6B7280',
-    iconColor: isDark ? '#9CA3AF' : '#6B7280',
+    placeholderColor: isDark ? colors.textMutedDark : colors.textMutedLight,
+    iconColor: isDark ? colors.textMutedDark : colors.textMutedLight,
   };
 }

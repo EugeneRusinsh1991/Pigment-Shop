@@ -74,8 +74,10 @@ const TextField = forwardRef(function TextField(
     size = 'md',
     multiline = false,
     numberOfLines = 3,
-    leadingIcon,
-    trailingIcon,
+    leadingIcon: propLeadingIcon,
+    trailingIcon: propTrailingIcon,
+    leftIcon,
+    rightIcon,
     disabled = false,
     isDark: isDarkProp,
     animated = true,
@@ -106,6 +108,9 @@ const TextField = forwardRef(function TextField(
     focused: isFocused,
     animated,
   });
+
+  const leadingIcon = leftIcon || propLeadingIcon;
+  const trailingIcon = rightIcon || propTrailingIcon;
 
   const displayHelperText = getDisplayHelperText(error, helperText);
   const dynamicStyles = getTextFieldStyles(buildStyleParams({ size, multiline, numberOfLines, fullWidth, width, height, disabled, error, isFocused, isDark: theme.isDark }));

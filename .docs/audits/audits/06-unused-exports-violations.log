@@ -1,6 +1,10 @@
 ===================================================================
                6. UNUSED EXPORTS REPORT                            
-Timestamp: 26.07.2026, 21:35:05
+Timestamp: 26.07.2026, 21:48:39
 ===================================================================
 
-SUCCESS: No unused exports found!
+Found 1 unused export issue(s) across 1 target(s):
+
+File: src/components/icons/IconsStyles.js
+  - Exported symbol 'ICON_SIZES' is never imported or used
+
