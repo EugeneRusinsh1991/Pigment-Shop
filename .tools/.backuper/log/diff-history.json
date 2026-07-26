@@ -3793,5 +3793,23 @@
         }
       ]
     }
+  },
+  "src_07-26_16-23_backup-history.log_3files": {
+    "timestamp": "2026-07-26T13:23:14.172Z",
+    "diff": {
+      "added": 1,
+      "removed": 1,
+      "modified": 2,
+      "topFolders": [
+        {
+          "folder": ".docs/automation-browser-log/screenshots",
+          "count": 2
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        }
+      ]
+    }
   }
 }
