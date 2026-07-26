@@ -5,9 +5,27 @@ const SRC_DIR = path.join(__dirname, '../../src');
 const AUDITS_DIR = path.join(__dirname, '../../.docs/audits');
 const LOG_FILE = path.join(AUDITS_DIR, '03-hardcode-styles-violations.log');
 
-function scanFile(filePath, violations) {
+function scanFile(filePath, violations, isFixMode = false) {
   const relPath = path.relative(path.join(__dirname, '../..'), filePath);
-  const content = fs.readFileSync(filePath, 'utf8');
+  let content = fs.readFileSync(filePath, 'utf8');
+  if (isFixMode && content.includes('colors.') && !filePath.endsWith('tokens.js') && !filePath.endsWith('colors.js') && !filePath.endsWith('theme.js')) {
+    const map = {
+      '#ffffff': 'colors.white', '#fff': 'colors.white', '#FFFFFF': 'colors.white', '#FFF': 'colors.white',
+      '#000000': 'colors.black', '#000': 'colors.black',
+      '#E31B23': 'colors.accent', '#e31b23': 'colors.accent',
+      '#EF4444': 'colors.danger', '#ef4444': 'colors.danger',
+      '#16A34A': 'colors.success', '#16a34a': 'colors.success',
+    };
+    let modified = content;
+    Object.entries(map).forEach(([hex, token]) => {
+      const regex = new RegExp(`['"]${hex}['"]`, 'g');
+      modified = modified.replace(regex, token);
+    });
+    if (modified !== content) {
+      fs.writeFileSync(filePath, modified, 'utf8');
+      content = modified;
+    }
+  }
   const lines = content.split('\n');
 
   lines.forEach((line, index) => {
@@ -58,24 +76,25 @@ function deduplicate(violations) {
   });
 }
 
-function walkDir(dirPath, violations) {
+function walkDir(dirPath, violations, isFixMode = false) {
   if (!fs.existsSync(dirPath)) return;
   const entries = fs.readdirSync(dirPath, { withFileTypes: true });
 
   for (const entry of entries) {
     const fullPath = path.join(dirPath, entry.name);
     if (entry.isDirectory()) {
-      walkDir(fullPath, violations);
+      walkDir(fullPath, violations, isFixMode);
     } else if (entry.isFile() && (entry.name.endsWith('.js') || entry.name.endsWith('.jsx') || entry.name.endsWith('.tsx') || entry.name.endsWith('.ts'))) {
-      scanFile(fullPath, violations);
+      scanFile(fullPath, violations, isFixMode);
     }
   }
 }
 
 function auditStyles() {
+  const isFixMode = process.argv.includes('--fix');
   if (!fs.existsSync(AUDITS_DIR)) fs.mkdirSync(AUDITS_DIR, { recursive: true });
   let rawViolations = [];
-  walkDir(SRC_DIR, rawViolations);
+  walkDir(SRC_DIR, rawViolations, isFixMode);
   const violations = deduplicate(rawViolations);
 
   const timestamp = new Date().toLocaleString('ru-RU');

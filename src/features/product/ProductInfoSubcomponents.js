@@ -97,7 +97,7 @@ export function CartButton({ isInCart, isWide, finalPrice, qty, product, onAddTo
       onPress={isInCart ? undefined : handlePress}
       variant={isInCart ? 'accent' : 'primary'}
       size="lg"
-      leftIcon={<CartIcon color="#FFFFFF" size={16} />}
+      leftIcon={<CartIcon color={colors.white} size={16} />}
       style={isWide ? styles.cartBtnWide : { flex: 1 }}
     />
   );

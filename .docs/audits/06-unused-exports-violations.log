@@ -1,0 +1,51 @@
+===================================================================
+     6. UNUSED EXPORTS & ISOLATED COMPONENTS REPORT                
+Timestamp: 26.07.2026, 20:40:47
+===================================================================
+
+Found 11 violation(s):
+
+1. [UNUSED_EXPORT]
+   Target:  src/components/Admin/AdminTabBar.js
+   Details: Exported symbol 'ADMIN_TABS' is never imported or used in other files.
+
+2. [UNUSED_EXPORT]
+   Target:  src/components/Admin/Analytics/DateRangePresets.js
+   Details: Exported symbol 'PresetButton' is never imported or used in other files.
+
+3. [UNUSED_EXPORT]
+   Target:  src/components/Admin/Products/ProductRowComponents.js
+   Details: Exported symbol 'StockBadge' is never imported or used in other files.
+
+4. [UNUSED_EXPORT]
+   Target:  src/components/Badge/BadgeStyles.js
+   Details: Exported symbol 'badgeSizes' is never imported or used in other files.
+
+5. [UNUSED_EXPORT]
+   Target:  src/components/Badge/BadgeStyles.js
+   Details: Exported symbol 'statusColorMap' is never imported or used in other files.
+
+6. [UNUSED_EXPORT]
+   Target:  src/components/Badge/BadgeStyles.js
+   Details: Exported symbol 'baseBadgeStyles' is never imported or used in other files.
+
+7. [UNUSED_EXPORT]
+   Target:  src/components/Card/CardStyles.js
+   Details: Exported symbol 'cardDimensionsContract' is never imported or used in other files.
+
+8. [UNUSED_EXPORT]
+   Target:  src/components/icons/AdminIcons.js
+   Details: Exported symbol 'AnalyticsIcon' is never imported or used in other files.
+
+9. [UNUSED_EXPORT]
+   Target:  src/components/icons/AdminIcons.js
+   Details: Exported symbol 'FolderIcon' is never imported or used in other files.
+
+10. [UNUSED_EXPORT]
+   Target:  src/components/icons/AdminIcons.js
+   Details: Exported symbol 'UsersIcon' is never imported or used in other files.
+
+11. [UNUSED_EXPORT]
+   Target:  src/components/icons/AppIcons.js
+   Details: Exported symbol 'StarIcon' is never imported or used in other files.
+

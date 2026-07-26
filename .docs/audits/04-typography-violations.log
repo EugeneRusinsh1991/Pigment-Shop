@@ -1,235 +1,147 @@
 ===================================================================
                4. TYPOGRAPHY COMPLIANCE REPORT (UNIQUE)            
-Timestamp: 26.07.2026, 20:33:13
+Timestamp: 26.07.2026, 20:40:47
 ===================================================================
 
 Found 88 unique typography violation(s) across 26 file(s):
 
 File: src\AppStyles.js
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 85)
-     Custom typography prop 'letterSpacing' set outside typography foundation: letterSpacing: 1.5,
+   • Line 85: letterSpacing: 1.5,
 
 File: src\components\Admin\Analytics\AnalyticsStyles.js
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 177)
-     Custom typography prop 'fontSize' set outside typography foundation: fontSize: 14,
+   • Line 177: fontSize: 14,
 
 File: src\components\Admin\Analytics\DateRangeCalendarStyles.js
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 37)
-     Custom typography prop 'lineHeight' set outside typography foundation: lineHeight: 20,
+   • Line 37: lineHeight: 20,
 
 File: src\components\Admin\Categories\CategoriesStyles.js
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 152)
-     Custom typography prop 'letterSpacing' set outside typography foundation: letterSpacing: 0.2,
+   • Line 152: letterSpacing: 0.2,
 
 File: src\components\Admin\Categories\CategoryFormStyles.js
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 95)
-     Custom typography prop 'letterSpacing' set outside typography foundation: letterSpacing: 0.8,
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 116)
-     Custom typography prop 'letterSpacing' set outside typography foundation: letterSpacing: 0.3,
+   • Line 95: letterSpacing: 0.8,
+   • Line 116: letterSpacing: 0.3,
 
 File: src\components\Admin\Orders\OrdersStyles.js
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 111)
-     Custom typography prop 'letterSpacing' set outside typography foundation: letterSpacing: 0.3,
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 218)
-     Custom typography prop 'letterSpacing' set outside typography foundation: letterSpacing: 0.5,
+   • Line 111: letterSpacing: 0.3,
+   • Line 218: letterSpacing: 0.5,
 
 File: src\components\Admin\Products\ProductFormStyles.js
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 74)
-     Custom typography prop 'letterSpacing' set outside typography foundation: letterSpacing: 0.3,
+   • Line 74: letterSpacing: 0.3,
 
 File: src\components\Admin\Products\ProductsStyles.js
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 89)
-     Custom typography prop 'letterSpacing' set outside typography foundation: letterSpacing: 0.8,
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 161)
-     Custom typography prop 'letterSpacing' set outside typography foundation: letterSpacing: 0.4,
+   • Line 89: letterSpacing: 0.8,
+   • Line 161: letterSpacing: 0.4,
 
 File: src\components\Admin\Users\UsersStyles.js
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 140)
-     Custom typography prop 'letterSpacing' set outside typography foundation: letterSpacing: 0.5,
+   • Line 140: letterSpacing: 0.5,
 
 File: src\components\Drawer\Drawer.js
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 90)
-     Custom typography prop 'fontSize' set outside typography foundation: fontSize: 18,
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 91)
-     Custom typography prop 'fontWeight' set outside typography foundation: fontWeight: '600',
+   • Line 90: fontSize: 18,
+   • Line 91: fontWeight: '600',
 
 File: src\components\Feedback\EmptyState\EmptyStateStyles.js
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 14)
-     Custom typography prop 'fontSize' set outside typography foundation: fontSize: 18,
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 15)
-     Custom typography prop 'fontWeight' set outside typography foundation: fontWeight: '600',
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 20)
-     Custom typography prop 'fontSize' set outside typography foundation: fontSize: 14,
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 22)
-     Custom typography prop 'lineHeight' set outside typography foundation: lineHeight: 20,
+   • Line 14: fontSize: 18,
+   • Line 15: fontWeight: '600',
+   • Line 20: fontSize: 14,
+   • Line 22: lineHeight: 20,
 
 File: src\components\Feedback\Toast\ToastStyles.js
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 18)
-     Custom typography prop 'fontSize' set outside typography foundation: fontSize: 14,
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 19)
-     Custom typography prop 'fontWeight' set outside typography foundation: fontWeight: '500',
+   • Line 18: fontSize: 14,
+   • Line 19: fontWeight: '500',
 
 File: src\components\icons\AdminIcons.js
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 17)
-     Custom typography prop 'fontSize' set outside typography foundation: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>⚙</RNText>;
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 30)
-     Custom typography prop 'fontSize' set outside typography foundation: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📊</RNText>;
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 43)
-     Custom typography prop 'fontSize' set outside typography foundation: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📦</RNText>;
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 54)
-     Custom typography prop 'fontSize' set outside typography foundation: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📂</RNText>;
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 67)
-     Custom typography prop 'fontSize' set outside typography foundation: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🖼️</RNText>;
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 80)
-     Custom typography prop 'fontSize' set outside typography foundation: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📋</RNText>;
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 94)
-     Custom typography prop 'fontSize' set outside typography foundation: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🚪</RNText>;
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 107)
-     Custom typography prop 'fontSize' set outside typography foundation: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🚪</RNText>;
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 120)
-     Custom typography prop 'fontSize' set outside typography foundation: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🔒</RNText>;
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 134)
-     Custom typography prop 'fontSize' set outside typography foundation: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>👥</RNText>;
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 150)
-     Custom typography prop 'fontSize' set outside typography foundation: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📈</RNText>;
+   • Line 17: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>⚙</RNText>;
+   • Line 30: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📊</RNText>;
+   • Line 43: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📦</RNText>;
+   • Line 54: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📂</RNText>;
+   • Line 67: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🖼️</RNText>;
+   • Line 80: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📋</RNText>;
+   • Line 94: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🚪</RNText>;
+   • Line 107: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🚪</RNText>;
+   • Line 120: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🔒</RNText>;
+   • Line 134: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>👥</RNText>;
+   • Line 150: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📈</RNText>;
 
 File: src\components\icons\AppIcons.js
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 23)
-     Custom typography prop 'fontSize' set outside typography foundation: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>☀️</RNText>;
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 34)
-     Custom typography prop 'fontSize' set outside typography foundation: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🌙</RNText>;
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 55)
-     Custom typography prop 'fontSize' set outside typography foundation: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🌐</RNText>;
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 68)
-     Custom typography prop 'fontSize' set outside typography foundation: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>👜</RNText>;
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 80)
-     Custom typography prop 'fontSize' set outside typography foundation: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>👤</RNText>;
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 93)
-     Custom typography prop 'fontSize' set outside typography foundation: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🛒</RNText>;
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 104)
-     Custom typography prop 'fontSize' set outside typography foundation: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>{filled ? '❤️' : '♡'}</RNText>;
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 116)
-     Custom typography prop 'fontSize' set outside typography foundation: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>✉</RNText>;
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 128)
-     Custom typography prop 'fontSize' set outside typography foundation: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🏷️</RNText>;
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 140)
-     Custom typography prop 'fontSize' set outside typography foundation: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🔍</RNText>;
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 152)
-     Custom typography prop 'fontSize' set outside typography foundation: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🏠</RNText>;
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 163)
-     Custom typography prop 'fontSize' set outside typography foundation: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>★</RNText>;
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 177)
-     Custom typography prop 'fontSize' set outside typography foundation: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🗂️</RNText>;
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 189)
-     Custom typography prop 'fontSize' set outside typography foundation: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>$</RNText>;
+   • Line 23: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>☀️</RNText>;
+   • Line 34: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🌙</RNText>;
+   • Line 55: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🌐</RNText>;
+   • Line 68: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>👜</RNText>;
+   • Line 80: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>👤</RNText>;
+   • Line 93: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🛒</RNText>;
+   • Line 104: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>{filled ? '❤️' : '♡'}</RNText>;
+   • Line 116: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>✉</RNText>;
+   • Line 128: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🏷️</RNText>;
+   • Line 140: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🔍</RNText>;
+   • Line 152: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🏠</RNText>;
+   • Line 163: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>★</RNText>;
+   • Line 177: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🗂️</RNText>;
+   • Line 189: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>$</RNText>;
 
 File: src\components\icons\CategoryIcons.js
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 17)
-     Custom typography prop 'fontSize' set outside typography foundation: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>✨</RNText>;
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 33)
-     Custom typography prop 'fontSize' set outside typography foundation: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>👁️</RNText>;
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 46)
-     Custom typography prop 'fontSize' set outside typography foundation: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🖌️</RNText>;
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 58)
-     Custom typography prop 'fontSize' set outside typography foundation: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>👄</RNText>;
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 71)
-     Custom typography prop 'fontSize' set outside typography foundation: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📍</RNText>;
+   • Line 17: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>✨</RNText>;
+   • Line 33: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>👁️</RNText>;
+   • Line 46: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🖌️</RNText>;
+   • Line 58: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>👄</RNText>;
+   • Line 71: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📍</RNText>;
 
 File: src\components\icons\ControlIcons.js
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 15)
-     Custom typography prop 'fontSize' set outside typography foundation: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>✓</RNText>;
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 27)
-     Custom typography prop 'fontSize' set outside typography foundation: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>✗</RNText>;
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 40)
-     Custom typography prop 'fontSize' set outside typography foundation: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>←</RNText>;
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 52)
-     Custom typography prop 'fontSize' set outside typography foundation: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>→</RNText>;
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 63)
-     Custom typography prop 'fontSize' set outside typography foundation: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>◀</RNText>;
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 74)
-     Custom typography prop 'fontSize' set outside typography foundation: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>▶</RNText>;
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 85)
-     Custom typography prop 'fontSize' set outside typography foundation: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>▼</RNText>;
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 97)
-     Custom typography prop 'fontSize' set outside typography foundation: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>👁️</RNText>;
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 109)
-     Custom typography prop 'fontSize' set outside typography foundation: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🙈</RNText>;
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 120)
-     Custom typography prop 'fontSize' set outside typography foundation: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🔄</RNText>;
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 133)
-     Custom typography prop 'fontSize' set outside typography foundation: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📁</RNText>;
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 146)
-     Custom typography prop 'fontSize' set outside typography foundation: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>⚠️</RNText>;
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 158)
-     Custom typography prop 'fontSize' set outside typography foundation: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>✏️</RNText>;
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 170)
-     Custom typography prop 'fontSize' set outside typography foundation: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🗑️</RNText>;
+   • Line 15: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>✓</RNText>;
+   • Line 27: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>✗</RNText>;
+   • Line 40: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>←</RNText>;
+   • Line 52: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>→</RNText>;
+   • Line 63: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>◀</RNText>;
+   • Line 74: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>▶</RNText>;
+   • Line 85: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>▼</RNText>;
+   • Line 97: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>👁️</RNText>;
+   • Line 109: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🙈</RNText>;
+   • Line 120: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🔄</RNText>;
+   • Line 133: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📁</RNText>;
+   • Line 146: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>⚠️</RNText>;
+   • Line 158: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>✏️</RNText>;
+   • Line 170: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🗑️</RNText>;
 
 File: src\components\Search\SearchStyles.js
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 57)
-     Custom typography prop 'fontSize' set outside typography foundation: fontSize: 14,
+   • Line 57: fontSize: 14,
 
 File: src\components\Text\TextStyles.js
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 5)
-     Custom typography prop 'fontSize' set outside typography foundation: h1: { fontSize: 32, lineHeight: 38, fontWeight: '700', fontFamily: fonts.serif },
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 6)
-     Custom typography prop 'fontSize' set outside typography foundation: h2: { fontSize: 24, lineHeight: 30, fontWeight: '600', fontFamily: fonts.serif },
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 7)
-     Custom typography prop 'fontSize' set outside typography foundation: h3: { fontSize: 20, lineHeight: 26, fontWeight: '600', fontFamily: fonts.sans },
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 8)
-     Custom typography prop 'fontSize' set outside typography foundation: h4: { fontSize: 18, lineHeight: 24, fontWeight: '600', fontFamily: fonts.sans },
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 9)
-     Custom typography prop 'fontSize' set outside typography foundation: subtitle1: { fontSize: 16, lineHeight: 22, fontWeight: '500', fontFamily: fonts.sans },
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 10)
-     Custom typography prop 'fontSize' set outside typography foundation: subtitle2: { fontSize: 14, lineHeight: 20, fontWeight: '500', fontFamily: fonts.sans },
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 11)
-     Custom typography prop 'fontSize' set outside typography foundation: body1: { fontSize: 16, lineHeight: 24, fontWeight: '400', fontFamily: fonts.sans },
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 12)
-     Custom typography prop 'fontSize' set outside typography foundation: body2: { fontSize: 14, lineHeight: 20, fontWeight: '400', fontFamily: fonts.sans },
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 13)
-     Custom typography prop 'fontSize' set outside typography foundation: caption: { fontSize: 12, lineHeight: 16, fontWeight: '400', fontFamily: fonts.sans },
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 14)
-     Custom typography prop 'fontSize' set outside typography foundation: overline: { fontSize: 10, lineHeight: 14, fontWeight: '600', letterSpacing: 1, textTransform: 'uppercase', fontFamily: fonts.sans },
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 54)
-     Custom typography prop 'fontWeight' set outside typography foundation: const overrides = { textAlign: align, fontWeight: weight, fontFamily: font, fontSize: size, lineHeight };
+   • Line 5: h1: { fontSize: 32, lineHeight: 38, fontWeight: '700', fontFamily: fonts.serif },
+   • Line 6: h2: { fontSize: 24, lineHeight: 30, fontWeight: '600', fontFamily: fonts.serif },
+   • Line 7: h3: { fontSize: 20, lineHeight: 26, fontWeight: '600', fontFamily: fonts.sans },
+   • Line 8: h4: { fontSize: 18, lineHeight: 24, fontWeight: '600', fontFamily: fonts.sans },
+   • Line 9: subtitle1: { fontSize: 16, lineHeight: 22, fontWeight: '500', fontFamily: fonts.sans },
+   • Line 10: subtitle2: { fontSize: 14, lineHeight: 20, fontWeight: '500', fontFamily: fonts.sans },
+   • Line 11: body1: { fontSize: 16, lineHeight: 24, fontWeight: '400', fontFamily: fonts.sans },
+   • Line 12: body2: { fontSize: 14, lineHeight: 20, fontWeight: '400', fontFamily: fonts.sans },
+   • Line 13: caption: { fontSize: 12, lineHeight: 16, fontWeight: '400', fontFamily: fonts.sans },
+   • Line 14: overline: { fontSize: 10, lineHeight: 14, fontWeight: '600', letterSpacing: 1, textTransform: 'uppercase', fontFamily: fonts.sans },
+   • Line 54: const overrides = { textAlign: align, fontWeight: weight, fontFamily: font, fontSize: size, lineHeight };
 
 File: src\components\TextField\TextFieldStyles.js
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 8)
-     Custom typography prop 'fontSize' set outside typography foundation: fontSize: 13,
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 15)
-     Custom typography prop 'fontSize' set outside typography foundation: fontSize: 14,
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 22)
-     Custom typography prop 'fontSize' set outside typography foundation: fontSize: 15,
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 131)
-     Custom typography prop 'fontSize' set outside typography foundation: { fontSize: sizeTokens.fontSize },
+   • Line 8: fontSize: 13,
+   • Line 15: fontSize: 14,
+   • Line 22: fontSize: 15,
+   • Line 131: { fontSize: sizeTokens.fontSize },
 
 File: src\features\cart\CartViewStyles.js
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 161)
-     Custom typography prop 'letterSpacing' set outside typography foundation: letterSpacing: 0.5,
+   • Line 161: letterSpacing: 0.5,
 
 File: src\features\contact\ContactPageStyles.js
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 102)
-     Custom typography prop 'letterSpacing' set outside typography foundation: letterSpacing: 0.3,
+   • Line 102: letterSpacing: 0.3,
 
 File: src\features\home\components\FeaturedSections.js
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 132)
-     Custom typography prop 'letterSpacing' set outside typography foundation: title: { letterSpacing: 0.3 },
+   • Line 132: title: { letterSpacing: 0.3 },
 
 File: src\features\product\ProductCardStyles.js
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 41)
-     Custom typography prop 'letterSpacing' set outside typography foundation: letterSpacing: 1.2,
+   • Line 41: letterSpacing: 1.2,
 
 File: src\features\product\ProductPageStyles.js
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 50)
-     Custom typography prop 'letterSpacing' set outside typography foundation: letterSpacing: 1.5,
+   • Line 50: letterSpacing: 1.5,
 
 File: src\features\shell\AppHeader\AppHeaderStyles.js
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 151)
-     Custom typography prop 'letterSpacing' set outside typography foundation: letterSpacing: 0.3,
+   • Line 151: letterSpacing: 0.3,
 
 File: src\features\shell\NavMenu\NavMenuStyles.js
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 33)
-     Custom typography prop 'letterSpacing' set outside typography foundation: letterSpacing: 0.3,
-   • [CUSTOM_TYPOGRAPHY_OVERRIDE] (Line 76)
-     Custom typography prop 'letterSpacing' set outside typography foundation: letterSpacing: 0.8,
+   • Line 33: letterSpacing: 0.3,
+   • Line 76: letterSpacing: 0.8,
 

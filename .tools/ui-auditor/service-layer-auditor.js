@@ -16,7 +16,7 @@ function scanFile(filePath, violations) {
       violations.push({
         type: 'DIRECT_FIRESTORE_UI_IMPORT',
         location: `${relPath}:${index + 1}`,
-        details: `Direct database call inside UI component/feature: ${line.trim()}`
+        details: line.trim()
       });
     }
   });
@@ -64,8 +64,8 @@ function auditServiceLayer() {
     Object.entries(grouped).forEach(([filePath, items]) => {
       report += `File: ${filePath}\n`;
       items.forEach((item) => {
-        const lineStr = item.lineNum ? ` (Line ${item.lineNum})` : '';
-        report += `   • [${item.type}]${lineStr}\n     ${item.details}\n`;
+        const lineStr = item.lineNum ? `Line ${item.lineNum}: ` : '';
+        report += `   • ${lineStr}${item.details}\n`;
       });
       report += `\n`;
     });

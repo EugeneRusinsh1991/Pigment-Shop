@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
         boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.06)',
       },
       default: {
-        shadowColor: '#000',
+        shadowColor: colors.black,
         shadowOffset: { width: 0, height: 4 },
         shadowOpacity: 0.06,
         shadowRadius: 8,

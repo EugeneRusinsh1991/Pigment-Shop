@@ -16,7 +16,7 @@ function scanFile(filePath, violations) {
       violations.push({
         type: 'CUSTOM_TYPOGRAPHY_OVERRIDE',
         location: `${relPath}:${index + 1}`,
-        details: `Custom typography prop '${typoMatch[1]}' set outside typography foundation: ${line.trim()}`
+        details: line.trim()
       });
     }
   });
@@ -74,8 +74,8 @@ function auditTypography() {
     Object.entries(grouped).forEach(([filePath, items]) => {
       report += `File: ${filePath}\n`;
       items.forEach((item) => {
-        const lineStr = item.lineNum ? ` (Line ${item.lineNum})` : '';
-        report += `   • [${item.type}]${lineStr}\n     ${item.details}\n`;
+        const lineStr = item.lineNum ? `Line ${item.lineNum}: ` : '';
+        report += `   • ${lineStr}${item.details}\n`;
       });
       report += `\n`;
     });

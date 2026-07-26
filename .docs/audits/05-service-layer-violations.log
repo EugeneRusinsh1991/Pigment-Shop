@@ -1,41 +1,28 @@
 ===================================================================
               5. SERVICE LAYER ARCHITECTURE REPORT                 
-Timestamp: 26.07.2026, 20:33:13
+Timestamp: 26.07.2026, 20:40:47
 ===================================================================
 
 Found 13 service layer violation(s) across 4 file(s):
 
 File: src\components\Admin\Analytics\AnalyticsDashboard.js
-   • [DIRECT_FIRESTORE_UI_IMPORT] (Line 5)
-     Direct database call inside UI component/feature: import { collection, getDocs } from 'firebase/firestore';
-   • [DIRECT_FIRESTORE_UI_IMPORT] (Line 94)
-     Direct database call inside UI component/feature: const snap = await getDocs(collection(db, COLLECTIONS.ORDERS));
+   • Line 5: import { collection, getDocs } from 'firebase/firestore';
+   • Line 94: const snap = await getDocs(collection(db, COLLECTIONS.ORDERS));
 
 File: src\components\Admin\shared\adminSharedService.js
-   • [DIRECT_FIRESTORE_UI_IMPORT] (Line 1)
-     Direct database call inside UI component/feature: import { collection, getDocs } from 'firebase/firestore';
-   • [DIRECT_FIRESTORE_UI_IMPORT] (Line 13)
-     Direct database call inside UI component/feature: getDocs(collection(db, COLLECTIONS.USERS)),
-   • [DIRECT_FIRESTORE_UI_IMPORT] (Line 14)
-     Direct database call inside UI component/feature: getDocs(collection(db, COLLECTIONS.ORDERS))
+   • Line 1: import { collection, getDocs } from 'firebase/firestore';
+   • Line 13: getDocs(collection(db, COLLECTIONS.USERS)),
+   • Line 14: getDocs(collection(db, COLLECTIONS.ORDERS))
 
 File: src\features\contact\ContactQuestionForm.js
-   • [DIRECT_FIRESTORE_UI_IMPORT] (Line 4)
-     Direct database call inside UI component/feature: import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
-   • [DIRECT_FIRESTORE_UI_IMPORT] (Line 39)
-     Direct database call inside UI component/feature: await addDoc(collection(db, COLLECTIONS.SUPPORT_MESSAGES), payload);
+   • Line 4: import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
+   • Line 39: await addDoc(collection(db, COLLECTIONS.SUPPORT_MESSAGES), payload);
 
 File: src\features\product\useReviewsState.js
-   • [DIRECT_FIRESTORE_UI_IMPORT] (Line 3)
-     Direct database call inside UI component/feature: import { addDoc, collection, onSnapshot } from 'firebase/firestore';
-   • [DIRECT_FIRESTORE_UI_IMPORT] (Line 32)
-     Direct database call inside UI component/feature: function useFirestoreSubcollection(productId, subcollectionName, fallbackData, setter) {
-   • [DIRECT_FIRESTORE_UI_IMPORT] (Line 39)
-     Direct database call inside UI component/feature: const ref = collection(db, COLLECTIONS.PRODUCTS, productId, subcollectionName);
-   • [DIRECT_FIRESTORE_UI_IMPORT] (Line 67)
-     Direct database call inside UI component/feature: const ref = collection(db, COLLECTIONS.PRODUCTS, productId, subcollectionName);
-   • [DIRECT_FIRESTORE_UI_IMPORT] (Line 93)
-     Direct database call inside UI component/feature: useFirestoreSubcollection(productId, 'reviews', initialReviews, setReviewsList);
-   • [DIRECT_FIRESTORE_UI_IMPORT] (Line 94)
-     Direct database call inside UI component/feature: useFirestoreSubcollection(productId, 'questions', initialQuestions, setQuestionsList);
+   • Line 3: import { addDoc, collection, onSnapshot } from 'firebase/firestore';
+   • Line 32: function useFirestoreSubcollection(productId, subcollectionName, fallbackData, setter) {
+   • Line 39: const ref = collection(db, COLLECTIONS.PRODUCTS, productId, subcollectionName);
+   • Line 67: const ref = collection(db, COLLECTIONS.PRODUCTS, productId, subcollectionName);
+   • Line 93: useFirestoreSubcollection(productId, 'reviews', initialReviews, setReviewsList);
+   • Line 94: useFirestoreSubcollection(productId, 'questions', initialQuestions, setQuestionsList);
 

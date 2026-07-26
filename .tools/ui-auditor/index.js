@@ -4,6 +4,8 @@ const { auditTextLiterals } = require('./hardcode-text-auditor');
 const { auditStyles } = require('./hardcode-styles-auditor');
 const { auditTypography } = require('./typography-auditor');
 const { auditServiceLayer } = require('./service-layer-auditor');
+const { auditUnusedExports } = require('./unused-exports-auditor');
+const { auditLayerImports } = require('./layer-imports-auditor');
 
 /**
  * Main Audit Suite Runner
@@ -19,6 +21,8 @@ function runAllAudits() {
   try { auditStyles(); } catch (e) { console.error('Error 03:', e.message); }
   try { auditTypography(); } catch (e) { console.error('Error 04:', e.message); }
   try { auditServiceLayer(); } catch (e) { console.error('Error 05:', e.message); }
+  try { auditUnusedExports(); } catch (e) { console.error('Error 06:', e.message); }
+  try { auditLayerImports(); } catch (e) { console.error('Error 07:', e.message); }
 
   console.log('===================================================================');
   console.log('All audit reports generated inside .docs/audits/ directory.');

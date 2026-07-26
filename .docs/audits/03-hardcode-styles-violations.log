@@ -1,9 +1,9 @@
 ===================================================================
          3. HARDCODED STYLES, COLORS & SPACING REPORT (UNIQUE)    
-Timestamp: 26.07.2026, 20:33:13
+Timestamp: 26.07.2026, 20:40:46
 ===================================================================
 
-Found 1392 unique violation(s) across 176 file(s):
+Found 1390 unique violation(s) across 176 file(s):
 
 File: src\AppStyles.js
    • [HARDCODED_SPACING_VIOLATION] (Line 39)
@@ -2460,8 +2460,6 @@ File: src\features\home\components\FeaturedSections.js
      Raw numeric spacing for borderRadius (16px): borderRadius: 16,
    • [HARDCODED_COLOR_VIOLATION] (Line 117)
      Hardcoded color(s) rgba(0, 0, 0, 0.06): boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.06)',
-   • [HARDCODED_COLOR_VIOLATION] (Line 120)
-     Hardcoded color(s) #000: shadowColor: '#000',
    • [HARDCODED_SPACING_VIOLATION] (Line 135)
      Raw numeric spacing for marginTop (4px): subtitle: { marginTop: 4, marginRight: 24 },
    • [HARDCODED_SPACING_VIOLATION] (Line 143)
@@ -2690,8 +2688,6 @@ File: src\features\product\ProductInfoSubcomponents.js
      Raw numeric spacing for gap (8px): <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 8 }}>
    • [INLINE_STYLE_HARDCODE] (Line 53)
      Inline style detected in JSX: <Text variant="body2" color="desc" style={{ textDecorationLine: 'line-through' }}>
-   • [HARDCODED_COLOR_VIOLATION] (Line 100)
-     Hardcoded color(s) #FFFFFF: leftIcon={<CartIcon color="#FFFFFF" size={16} />}
    • [INLINE_STYLE_HARDCODE] (Line 125)
      Inline style detected in JSX: <View style={actionRowStyle}>
    • [INLINE_STYLE_HARDCODE] (Line 143)
