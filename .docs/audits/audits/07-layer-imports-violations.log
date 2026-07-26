@@ -1,6 +1,6 @@
 ===================================================================
                7. LAYER IMPORTS & CYCLIC REPORT                    
-Timestamp: 26.07.2026, 21:48:39
+Timestamp: 26.07.2026, 22:17:01
 ===================================================================
 
 Found 19 layer import issue(s) across 13 file(s):
@@ -47,6 +47,6 @@ File: src/components/Admin/Users/UserOrdersList.js
 File: src/components/Admin/Users/UsersManager.js
   - Shared UI component imports from higher layer: ../../../services/adminUsersService
 
-File: src/components/SharedLayoutWrapper.js
-  - Shared UI component imports from higher layer: ../features/shell/components/Footer
+File: src/components/SharedLayoutWrapper/SharedLayoutWrapper.js
+  - Shared UI component imports from higher layer: ../../features/shell/components/Footer
 

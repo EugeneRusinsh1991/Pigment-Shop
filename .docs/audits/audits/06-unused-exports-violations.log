@@ -1,9 +1,12 @@
 ===================================================================
                6. UNUSED EXPORTS REPORT                            
-Timestamp: 26.07.2026, 21:48:39
+Timestamp: 26.07.2026, 22:17:01
 ===================================================================
 
-Found 1 unused export issue(s) across 1 target(s):
+Found 2 unused export issue(s) across 2 target(s):
+
+File: src/components/SharedLayoutWrapper
+  - Isolated component folder 'SharedLayoutWrapper' is not referenced outside its directory
 
 File: src/components/icons/IconsStyles.js
   - Exported symbol 'ICON_SIZES' is never imported or used

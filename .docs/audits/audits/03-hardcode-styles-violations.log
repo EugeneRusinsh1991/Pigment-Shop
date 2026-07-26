@@ -1,9 +1,9 @@
 ===================================================================
          3. HARDCODED STYLES, COLORS & SPACING REPORT              
-Timestamp: 26.07.2026, 21:48:38
+Timestamp: 26.07.2026, 22:17:00
 ===================================================================
 
-Found 1385 issue(s) across 176 file(s):
+Found 1385 issue(s) across 175 file(s):
 
 File: src\AppStyles.js
   L39    [HARDCODED_SPACING] paddingTop 16px -> paddingTop: 16,
@@ -978,17 +978,15 @@ File: src\components\Navigation\Breadcrumbs\Breadcrumb.js
   L61    [INLINE_STYLE] <AnimatedButton style={{ paddingVertical: 4, paddingHorizontal: 6 }} hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}>
   L61    [HARDCODED_SPACING] paddingVertical 4px -> <AnimatedButton style={{ paddingVertical: 4, paddingHorizontal: 6 }} hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}>
 
-File: src\components\Navigation\Breadcrumbs\BreadcrumbStyles.js
+File: src\components\Navigation\NavigationStyles.js
   L12    [HARDCODED_SPACING] paddingHorizontal 0px -> paddingHorizontal: 0,
   L13    [HARDCODED_SPACING] paddingVertical 4px -> paddingVertical: 4,
   L22    [HARDCODED_SPACING] marginHorizontal 6px -> marginHorizontal: 6,
-
-File: src\components\Navigation\Pagination\PaginationStyles.js
-  L9     [HARDCODED_SPACING] paddingHorizontal 8px -> paddingHorizontal: 8,
-  L10    [HARDCODED_SPACING] paddingVertical 4px -> paddingVertical: 4,
-  L23    [HARDCODED_SPACING] paddingVertical 4px -> paddingVertical: 4,
-  L27    [HARDCODED_SPACING] marginRight 16px -> marginRight: 16,
-  L33    [HARDCODED_SPACING] paddingVertical 2px -> paddingVertical: 2,
+  L41    [HARDCODED_SPACING] paddingHorizontal 8px -> paddingHorizontal: 8,
+  L42    [HARDCODED_SPACING] paddingVertical 4px -> paddingVertical: 4,
+  L55    [HARDCODED_SPACING] paddingVertical 4px -> paddingVertical: 4,
+  L59    [HARDCODED_SPACING] marginRight 16px -> marginRight: 16,
+  L65    [HARDCODED_SPACING] paddingVertical 2px -> paddingVertical: 2,
 
 File: src\components\Search\AutocompleteSearch.js
   L68    [INLINE_STYLE] <View style={{ position: 'relative', width: '100%', zIndex: 100 }}>
@@ -1015,9 +1013,13 @@ File: src\components\Search\SearchStyles.js
 File: src\components\Search\useSearchTheme.js
   L20    [HARDCODED_COLOR] #9CA3AF, #6B7280 -> const placeholderColor = isDark ? '#9CA3AF' : '#6B7280';
 
-File: src\components\SharedLayoutWrapper.js
-  L51    [HARDCODED_SPACING] paddingTop 16px -> paddingTop: 16,
-  L52    [HARDCODED_SPACING] paddingBottom 12px -> paddingBottom: 12,
+File: src\components\SharedLayoutWrapper\SharedLayoutWrapper.js
+  L17    [INLINE_STYLE] <View style={sharedLayoutWrapperStyles.wrapper}>
+  L24    [INLINE_STYLE] <View style={sharedLayoutWrapperStyles.footerInner}>
+
+File: src\components\SharedLayoutWrapper\SharedLayoutWrapperStyles.js
+  L24    [HARDCODED_SPACING] paddingTop 16px -> paddingTop: 16,
+  L25    [HARDCODED_SPACING] paddingBottom 12px -> paddingBottom: 12,
 
 File: src\components\Text\Heading.js
   L40    [INLINE_STYLE] style={style}
@@ -1038,10 +1040,6 @@ File: src\components\TextField\TextFieldStyles.js
   L78    [HARDCODED_SPACING] marginRight 8px -> marginRight: 8,
   L83    [HARDCODED_SPACING] marginLeft 8px -> marginLeft: 8,
   L86    [HARDCODED_SPACING] marginTop 4px -> marginTop: 4,
-
-File: src\components\TextField\useTextFieldTheme.js
-  L31    [HARDCODED_COLOR] #9CA3AF, #6B7280 -> placeholderColor: isDark ? '#9CA3AF' : '#6B7280',
-  L32    [HARDCODED_COLOR] #9CA3AF, #6B7280 -> iconColor: isDark ? '#9CA3AF' : '#6B7280',
 
 File: src\components\Toggle\Toggle.js
   L54    [INLINE_STYLE] style={getOptionStyle(isActive, ctx.animated, ctx.theme, ctx.activeOptionStyle, ctx.optionStyle)}

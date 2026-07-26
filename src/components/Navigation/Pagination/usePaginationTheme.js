@@ -1,15 +1,13 @@
-import { useTheme } from '@/context/ThemeContext';
-import { createPaginationStyles } from './PaginationStyles';
-import { useMemo } from 'react';
+import { useNavigationTheme } from '../useNavigationTheme';
 
 export function usePaginationTheme(isDarkProps) {
-  const { t, isDark: themeIsDark } = useTheme();
-  const isDark = isDarkProps !== undefined ? isDarkProps : themeIsDark;
-  const styles = useMemo(() => createPaginationStyles(isDark), [isDark]);
-  
+  const { t, lang, isDark, paginationStyles } = useNavigationTheme(isDarkProps);
   return {
     t,
+    lang,
     isDark,
-    styles,
+    styles: paginationStyles,
   };
 }
+
+export default usePaginationTheme;

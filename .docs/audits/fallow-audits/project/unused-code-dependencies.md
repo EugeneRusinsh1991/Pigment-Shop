@@ -1,6 +1,6 @@
 # 📦 Unused Code & Dependencies
 
-*Generated on: 26.07.2026, 21:48:49*
+*Generated on: 26.07.2026, 22:17:15*
 
 ### Dead Files (Unused)
 Files that are not reachable or imported by any other codebase file:
@@ -11,6 +11,8 @@ Files that are not reachable or imported by any other codebase file:
 - [DataTable.styles.js](file:///D:/Magazine/_PigmentShop/src/components/DataTable/DataTable.styles.js) (`src/components/DataTable/DataTable.styles.js`)
 - [index.js](file:///D:/Magazine/_PigmentShop/src/components/DataTable/index.js) (`src/components/DataTable/index.js`)
 - [index.js](file:///D:/Magazine/_PigmentShop/src/components/Media/index.js) (`src/components/Media/index.js`)
+- [BreadcrumbStyles.js](file:///D:/Magazine/_PigmentShop/src/components/Navigation/Breadcrumbs/BreadcrumbStyles.js) (`src/components/Navigation/Breadcrumbs/BreadcrumbStyles.js`)
+- [PaginationStyles.js](file:///D:/Magazine/_PigmentShop/src/components/Navigation/Pagination/PaginationStyles.js) (`src/components/Navigation/Pagination/PaginationStyles.js`)
 - [IconsStyles.js](file:///D:/Magazine/_PigmentShop/src/components/icons/IconsStyles.js) (`src/components/icons/IconsStyles.js`)
 - [useIconTheme.js](file:///D:/Magazine/_PigmentShop/src/components/icons/useIconTheme.js) (`src/components/icons/useIconTheme.js`)
 - [useHoverAnimation.js](file:///D:/Magazine/_PigmentShop/src/hooks/useHoverAnimation.js) (`src/hooks/useHoverAnimation.js`)
@@ -42,7 +44,14 @@ Exports that are not imported or consumed by any other active file:
 - [ScrollFadeUp.js](file:///D:/Magazine/_PigmentShop/src/components/Motion/ScrollFadeUp/ScrollFadeUp.js): `ScrollFadeUp` ([L5](file:///D:/Magazine/_PigmentShop/src/components/Motion/ScrollFadeUp/ScrollFadeUp.js#L5))
 - [index.js](file:///D:/Magazine/_PigmentShop/src/components/Motion/ScrollFadeUp/index.js): `useScrollAnimation` ([L2](file:///D:/Magazine/_PigmentShop/src/components/Motion/ScrollFadeUp/index.js#L2))
 - [index.js](file:///D:/Magazine/_PigmentShop/src/components/Navigation/Breadcrumbs/index.js): `Breadcrumb` ([L1](file:///D:/Magazine/_PigmentShop/src/components/Navigation/Breadcrumbs/index.js#L1))
+- [useBreadcrumbTheme.js](file:///D:/Magazine/_PigmentShop/src/components/Navigation/Breadcrumbs/useBreadcrumbTheme.js): `default` ([L13](file:///D:/Magazine/_PigmentShop/src/components/Navigation/Breadcrumbs/useBreadcrumbTheme.js#L13))
+- [usePaginationTheme.js](file:///D:/Magazine/_PigmentShop/src/components/Navigation/Pagination/usePaginationTheme.js): `default` ([L13](file:///D:/Magazine/_PigmentShop/src/components/Navigation/Pagination/usePaginationTheme.js#L13))
+- [index.js](file:///D:/Magazine/_PigmentShop/src/components/Navigation/index.js): `useNavigationTheme` ([L4](file:///D:/Magazine/_PigmentShop/src/components/Navigation/index.js#L4)), `useNavigationThemeDefault` ([L4](file:///D:/Magazine/_PigmentShop/src/components/Navigation/index.js#L4))
+- [useNavigationTheme.js](file:///D:/Magazine/_PigmentShop/src/components/Navigation/useNavigationTheme.js): `default` ([L21](file:///D:/Magazine/_PigmentShop/src/components/Navigation/useNavigationTheme.js#L21))
 - [index.js](file:///D:/Magazine/_PigmentShop/src/components/Search/index.js): `NamedSearchInput` ([L8](file:///D:/Magazine/_PigmentShop/src/components/Search/index.js#L8)), `NamedAutocompleteSearch` ([L10](file:///D:/Magazine/_PigmentShop/src/components/Search/index.js#L10)), `SearchDropdown` ([L11](file:///D:/Magazine/_PigmentShop/src/components/Search/index.js#L11)), `useSearchTheme` ([L12](file:///D:/Magazine/_PigmentShop/src/components/Search/index.js#L12)), `SearchBar` ([L13](file:///D:/Magazine/_PigmentShop/src/components/Search/index.js#L13)), `default` ([L16](file:///D:/Magazine/_PigmentShop/src/components/Search/index.js#L16))
+- [SharedLayoutWrapperStyles.js](file:///D:/Magazine/_PigmentShop/src/components/SharedLayoutWrapper/SharedLayoutWrapperStyles.js): `default` ([L33](file:///D:/Magazine/_PigmentShop/src/components/SharedLayoutWrapper/SharedLayoutWrapperStyles.js#L33))
+- [index.js](file:///D:/Magazine/_PigmentShop/src/components/SharedLayoutWrapper/index.js): `SharedLayoutWrapper` ([L6](file:///D:/Magazine/_PigmentShop/src/components/SharedLayoutWrapper/index.js#L6)), `useSharedLayoutWrapperTheme` ([L7](file:///D:/Magazine/_PigmentShop/src/components/SharedLayoutWrapper/index.js#L7)), `sharedLayoutWrapperStyles` ([L8](file:///D:/Magazine/_PigmentShop/src/components/SharedLayoutWrapper/index.js#L8))
+- [useSharedLayoutWrapperTheme.js](file:///D:/Magazine/_PigmentShop/src/components/SharedLayoutWrapper/useSharedLayoutWrapperTheme.js): `default` ([L17](file:///D:/Magazine/_PigmentShop/src/components/SharedLayoutWrapper/useSharedLayoutWrapperTheme.js#L17))
 - [Heading.js](file:///D:/Magazine/_PigmentShop/src/components/Text/Heading.js): `default` ([L49](file:///D:/Magazine/_PigmentShop/src/components/Text/Heading.js#L49))
 - [TextStyles.js](file:///D:/Magazine/_PigmentShop/src/components/Text/TextStyles.js): `VARIANTS` ([L4](file:///D:/Magazine/_PigmentShop/src/components/Text/TextStyles.js#L4)), `getTextColor` ([L34](file:///D:/Magazine/_PigmentShop/src/components/Text/TextStyles.js#L34))
 - [index.js](file:///D:/Magazine/_PigmentShop/src/components/Text/index.js): `default` ([L1](file:///D:/Magazine/_PigmentShop/src/components/Text/index.js#L1)), `useTextTheme` ([L3](file:///D:/Magazine/_PigmentShop/src/components/Text/index.js#L3)), `VARIANTS` ([L4](file:///D:/Magazine/_PigmentShop/src/components/Text/index.js#L4)), `getTextColor` ([L4](file:///D:/Magazine/_PigmentShop/src/components/Text/index.js#L4)), `getTextStyle` ([L4](file:///D:/Magazine/_PigmentShop/src/components/Text/index.js#L4))

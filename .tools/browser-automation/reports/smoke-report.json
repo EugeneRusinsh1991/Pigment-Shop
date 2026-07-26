@@ -2,7 +2,7 @@
   "summary": {
     "visitedScreens": 0,
     "visitedInteractions": 0,
-    "successfulInteractions": 43,
+    "successfulInteractions": 55,
     "failedInteractions": 0,
     "warnings": 1,
     "errors": 1,
@@ -10,24 +10,24 @@
   },
   "failures": [
     {
-      "screen": "http://localhost:8081/admin",
+      "screen": "http://localhost:8081/product/prod-2-2-1-1",
       "interaction": "Click",
-      "elementIdentifier": "btn|EN",
+      "elementIdentifier": "btn|‹",
       "event": "AfterInteraction",
-      "timestamp": 1785092393737,
+      "timestamp": 1785093492068,
       "errorType": "Health Check Evaluation Failed",
       "errorMessage": "[Application Bug] page.evaluate: Target page, context or browser has been closed"
     }
   ],
   "warnings": [
     {
-      "screen": "http://localhost:8081/admin",
-      "interaction": "Click",
-      "elementIdentifier": "btn|adminProductsActio...",
+      "screen": "http://localhost:8081/",
+      "interaction": "Initial Load",
+      "elementIdentifier": "None",
       "event": "Runtime",
-      "timestamp": 1785092388747,
+      "timestamp": 1785093447921,
       "errorType": "Console Warning",
-      "errorMessage": "Disconnected from Metro (1006)\nTo reconnect:\n- Ensure that Metro is running and available on the same network\n- Reload this app (will trigger further help if Metro cannot be connected to)"
+      "errorMessage": "props.pointerEvents is deprecated. Use style.pointerEvents"
     }
   ]
 }

@@ -1,6 +1,6 @@
 # 🩺 Complexity Health Findings (Critical & High)
 
-*Generated on: 26.07.2026, 21:48:49*
+*Generated on: 26.07.2026, 22:17:15*
 
 ## 🔴 Critical (≤ 50 lines)
 
@@ -29,7 +29,7 @@
 `src/components/TextField/TextField.js`
 
 - 🟠 **`TextField`** [L66](file:///D:/Magazine/_PigmentShop/src/components/TextField/TextField.js#L66)
-  - Lines: 64 | Cyclomatic: 1 | Cognitive: 25 | CRAP: —
+  - Lines: 69 | Cyclomatic: 3 | Cognitive: 29 | CRAP: —
 
 
 ## 🟠 High (≤ 50 lines)

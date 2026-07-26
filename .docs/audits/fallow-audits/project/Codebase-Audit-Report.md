@@ -5,12 +5,12 @@
 > - **High Health Findings:** 7
 > - **Large / High-Risk Files:** 45
 > - **Significant Clone Groups:** 0
-> - **Dead Files (Unused):** 10
-> - **Unused Exports:** 113
+> - **Dead Files (Unused):** 12
+> - **Unused Exports:** 123
 > - **Unused Dependencies:** 0
 > - **Unlisted Dependencies:** 4
 > - **Circular Dependencies:** 0
-> - **Small / Pass-Through Files:** 25
+> - **Small / Pass-Through Files:** 27
 
 ---
 

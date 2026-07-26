@@ -1,6 +1,6 @@
 ===================================================================
                8. MAGIC NUMBERS REPORT                             
-Timestamp: 26.07.2026, 21:48:39
+Timestamp: 26.07.2026, 22:17:02
 ===================================================================
 
 Found 157 magic number issue(s) across 47 file(s):
@@ -168,7 +168,7 @@ File: src\components\Flag\FlagStyles.js
   L68    Off-grid paddingHorizontal: 14px
   L69    Off-grid paddingVertical: 6px
 
-File: src\components\Navigation\Breadcrumbs\BreadcrumbStyles.js
+File: src\components\Navigation\NavigationStyles.js
   L22    Off-grid marginHorizontal: 6px
 
 File: src\components\Search\SearchDropdown.js

@@ -1,16 +1,13 @@
-import { useTheme } from '@/context/ThemeContext';
-import { createBreadcrumbStyles } from './BreadcrumbStyles';
-import { useMemo } from 'react';
+import { useNavigationTheme } from '../useNavigationTheme';
 
 export function useBreadcrumbTheme(isDarkProps) {
-  const { t, lang, isDark: themeIsDark } = useTheme();
-  const isDark = isDarkProps !== undefined ? isDarkProps : themeIsDark;
-  const styles = useMemo(() => createBreadcrumbStyles(isDark), [isDark]);
-  
+  const { t, lang, isDark, breadcrumbStyles } = useNavigationTheme(isDarkProps);
   return {
     t,
     lang,
     isDark,
-    styles,
+    styles: breadcrumbStyles,
   };
 }
+
+export default useBreadcrumbTheme;
