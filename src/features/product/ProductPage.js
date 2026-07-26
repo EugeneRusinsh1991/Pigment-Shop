@@ -5,7 +5,7 @@ import { useCatalog } from '../../context/CatalogContext';
 import { useFavoritesContext } from '../../context/FavoritesContext';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import useGridLayout from '../../hooks/useGridLayout';
-import PageNavigation from '../../components/PageNavigation';
+import { PageNavigation } from '@/components/Navigation';
 import { ProductImagePanel } from './ProductImagePanel';
 import { ProductInfoPanel } from './ProductInfoPanel';
 import styles from './ProductPageStyles';

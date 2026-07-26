@@ -6,7 +6,7 @@ import { useRouter } from 'expo-router';
 import { useTheme } from '../../context/ThemeContext';
 
 import CatalogHeader from './CatalogHeader';
-import PageNavigation from '../../components/PageNavigation';
+import { PageNavigation } from '@/components/Navigation';
 import PlaceholderCard from './PlaceholderCard';
 import CatalogListFooter from './CatalogListFooter';
 import { useCatalogViewData } from '../../hooks/useCatalogViewData';
