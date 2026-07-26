@@ -3,7 +3,7 @@
  */
 import { useState } from 'react';
 import { Text, View } from 'react-native';
-import { AnimatedButton } from '../../Button';
+import { Flag } from '../../Flag';
 import styles from './OrdersStyles';
 import OrderStatusDropdownMenu from './OrderStatusDropdownMenu';
 
@@ -36,23 +36,19 @@ export default function OrderStatusSelector({ currentStatus, updating, onStatusC
     setIsOpen(false);
   };
 
+  const colorScheme = statusObj.value === 'Completed' ? 'completed' : statusObj.value === 'Cancelled' ? 'cancelled' : 'pending';
+
   return (
     <View style={{ zIndex: 100, position: 'relative', marginBottom: 10 }}>
-      <AnimatedButton
-        style={[
-          styles.statusDropdown,
-          { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginTop: 0,
-            backgroundColor: statusObj.bg, borderColor: statusObj.color, borderWidth: 1.5 },
-        ]}
-        onPress={() => setIsOpen(!isOpen)}
+      <Flag
+        variant="chip"
+        checked={isOpen}
+        onChange={() => setIsOpen(!isOpen)}
         disabled={updating}
-        activeOpacity={0.7}
+        colorScheme={colorScheme}
       >
-        <Text style={[styles.statusOptionText, { fontWeight: '700', color: statusObj.color }]}>
-          {t(statusObj.localeKey) || currentStatus}
-        </Text>
-        <Text style={{ fontSize: 10, color: statusObj.color }}>{isOpen ? '▲' : '▼'}</Text>
-      </AnimatedButton>
+        {(t(statusObj.localeKey) || currentStatus)} {isOpen ? '▲' : '▼'}
+      </Flag>
 
       {isOpen && (
         <OrderStatusDropdownMenu

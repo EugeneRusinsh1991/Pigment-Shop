@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, View } from 'react-native';
 import { AnimatedButton } from '../../Button';
 import { useTheme } from '../../../context/ThemeContext';
+import { Flag } from '../../Flag';
 import styles, { CATEGORY_TYPE_COLORS } from './CategoriesStyles';
 import {
   DepthBars,
@@ -44,9 +45,9 @@ export function DesktopCategoryRow({ row, hasChildren, isCollapsed, onToggle, on
           <View style={{ flex: 1 }}>
             <Text style={[styles.categoryName, safeDepth > 0 && { fontSize: 12 }]}>{name}</Text>
             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 2 }}>
-              <View style={[styles.typeBadge, { backgroundColor: typeColors.softBg }]}>
-                <Text style={[styles.typeBadgeText, { color: typeColors.text }]}>{typeColors.label}</Text>
-              </View>
+              <Flag variant="chip" readOnly style={{ backgroundColor: typeColors.softBg, borderColor: typeColors.accent }} textStyle={{ color: typeColors.text, fontSize: 11 }}>
+                {typeColors.label}
+              </Flag>
               <Text style={styles.categoryId}>{countLabel}</Text>
             </View>
           </View>
@@ -82,9 +83,9 @@ export function MobileCategoryCard({ row, hasChildren, isCollapsed, onToggle, on
         <View style={{ flex: 1 }}>
           <Text style={[styles.categoryName, safeDepth > 0 && { fontSize: 12 }]} numberOfLines={1}>{name}</Text>
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 2 }}>
-            <View style={[styles.typeBadge, { backgroundColor: typeColors.softBg }]}>
-              <Text style={[styles.typeBadgeText, { color: typeColors.text }]}>{typeColors.label}</Text>
-            </View>
+            <Flag variant="chip" readOnly style={{ backgroundColor: typeColors.softBg, borderColor: typeColors.accent }} textStyle={{ color: typeColors.text, fontSize: 11 }}>
+              {typeColors.label}
+            </Flag>
             <Text style={styles.categoryId}>{countLabel}</Text>
             <ImageBadge image={row.image} />
           </View>

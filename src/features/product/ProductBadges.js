@@ -2,21 +2,27 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { useTheme } from '../../context/ThemeContext';
 import { colors } from '../../theme/tokens';
+import { Flag } from '../../components/Flag';
 
-export default function ProductBadges({ isNew, discountPercent, containerStyle }) {
+export default function ProductBadges({ isNew, isFeatured, discountPercent, containerStyle }) {
   const { t } = useTheme();
-  if (!isNew && !(discountPercent > 0)) return null;
+  if (!isNew && !isFeatured && !(discountPercent > 0)) return null;
   return (
     <View style={[styles.badgeContainer, containerStyle]}>
       {isNew ? (
-        <View style={styles.newBadge}>
-          <Text style={styles.badgeText}>{t('badgeNew')}</Text>
-        </View>
+        <Flag variant="chip" readOnly colorScheme="new">
+          {t('badgeNew')}
+        </Flag>
+      ) : null}
+      {isFeatured ? (
+        <Flag variant="chip" readOnly colorScheme="featured">
+          {t('badgeFeatured') || 'FEATURED'}
+        </Flag>
       ) : null}
       {discountPercent > 0 ? (
-        <View style={styles.discountBadge}>
-          <Text style={styles.discountBadgeText}>-{discountPercent}%</Text>
-        </View>
+        <Flag variant="chip" readOnly colorScheme="sale">
+          -{discountPercent}%
+        </Flag>
       ) : null}
     </View>
   );

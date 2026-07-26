@@ -6,6 +6,7 @@ import { Text, View } from 'react-native';
 import { AnimatedButton } from '../../Button';
 import { useTheme } from '../../../context/ThemeContext';
 import { DataTableRow, DataTableCell } from '../../DataTable/DataTable';
+import { Flag } from '../../Flag';
 import styles from './OrdersStyles';
 import { formatDateShortWithTime } from '../../../utils/dateFormatting';
 import { resolveStatusDef, createStatusBadgeStyleMap } from '../../../utils/orderStatus';
@@ -23,6 +24,7 @@ function getOrderSummary(order, t, lang) {
     formattedDate: formatRowDate(order.createdAt, lang),
     orderNum: order.id.slice(-5).toUpperCase(),
     statusDef: { ...badgeStyles, localeKey: def.localeKey, rowBg: { backgroundColor: def.rowBg } },
+    statusKey: def.key,
     rowBg: { backgroundColor: def.rowBg },
     statusDisplay: t(def.localeKey) || order.status,
     contact,
@@ -30,11 +32,12 @@ function getOrderSummary(order, t, lang) {
   };
 }
 
-function StatusBadge({ statusDef, statusDisplay }) {
+function StatusBadge({ statusKey, statusDisplay }) {
+  const scheme = statusKey === 'completed' ? 'completed' : statusKey === 'cancelled' ? 'cancelled' : 'pending';
   return (
-    <View style={[styles.statusBadge, statusDef.bg]}>
-      <Text style={[styles.statusText, statusDef.text]}>{statusDisplay}</Text>
-    </View>
+    <Flag variant="chip" readOnly colorScheme={scheme}>
+      {statusDisplay}
+    </Flag>
   );
 }
 
@@ -61,7 +64,7 @@ export function MobileOrderRow({ order, onPress }) {
         </View>
         <View style={styles.metaBlock}>
           <Text style={styles.metaLabel}>{t('adminOrdersStatus')}</Text>
-          <StatusBadge statusDef={summary.statusDef} statusDisplay={summary.statusDisplay} />
+          <StatusBadge statusKey={summary.statusKey} statusDef={summary.statusDef} statusDisplay={summary.statusDisplay} />
         </View>
         <View style={styles.metaBlock}>
           <Text style={styles.metaLabel}>{t('adminOrdersTotal')}</Text>
@@ -103,7 +106,7 @@ export function DesktopOrderRow({ order, onPress }) {
           <Text style={styles.tdText}>{summary.formattedDate}</Text>
         </DataTableCell>
         <DataTableCell style={[styles.colStatus, { flexDirection: 'row', justifyContent: 'center' }]}>
-          <StatusBadge statusDef={summary.statusDef} statusDisplay={summary.statusDisplay} />
+          <StatusBadge statusKey={summary.statusKey} statusDef={summary.statusDef} statusDisplay={summary.statusDisplay} />
         </DataTableCell>
         <DataTableCell style={[styles.colTotal, { flexDirection: 'row', justifyContent: 'flex-end' }]}>
           <Text style={[styles.tdText, { fontWeight: '700', textAlign: 'right' }]}>${summary.formattedTotal}</Text>

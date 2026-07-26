@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
 import { Button } from '../../Button';
+import { Flag } from '../../Flag';
 import styles from './ProductsStyles';
 import { getLocalizedValue } from '../../../utils/localization';
 export { getEffectivePrice } from '../../../utils/pricing';
@@ -30,22 +31,28 @@ export function getHighlightStyle(isNew, discountPercent) {
 export function NewBadge() {
   const { t } = useTheme();
   return (
-    <View style={styles.badgeNew}>
-      <Text style={styles.badgeNewText}>{t('badgeNew')}</Text>
-    </View>
+    <Flag variant="chip" readOnly colorScheme="new">
+      {t('badgeNew')}
+    </Flag>
   );
 }
 
 export function StatusBadge({ active }) {
   const { t } = useTheme();
-  const themedStyle = active ? styles.statusActive : styles.statusInactive;
-  const themedTextStyle = active ? styles.statusActiveText : styles.statusInactiveText;
   return (
-    <View style={[styles.statusBadge, themedStyle]}>
-      <Text style={[styles.statusText, themedTextStyle]}>
-        {active ? t('adminProductsActive') : t('adminProductsInactive')}
-      </Text>
-    </View>
+    <Flag variant="chip" readOnly colorScheme={active ? 'active' : 'inactive'}>
+      {active ? t('adminProductsActive') : t('adminProductsInactive')}
+    </Flag>
+  );
+}
+
+export function StockBadge({ stock }) {
+  const { t } = useTheme();
+  const inStock = (stock ?? 0) > 0;
+  return (
+    <Flag variant="chip" readOnly colorScheme={inStock ? 'active' : 'inactive'}>
+      {inStock ? (t('productInStock') || 'In Stock') : (t('productOutOfStock') || 'Out of Stock')}
+    </Flag>
   );
 }
 

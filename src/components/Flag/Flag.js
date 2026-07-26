@@ -1,6 +1,6 @@
 import React from 'react';
 import { Pressable, Text, View } from 'react-native';
-import styles, { HIT_SLOP_44 } from './FlagStyles';
+import styles, { HIT_SLOP_44, colorSchemes } from './FlagStyles';
 import { useFlagTheme } from './useFlagTheme';
 
 /**
@@ -12,6 +12,8 @@ export function Flag({
   onChange,
   variant = 'chip',
   disabled = false,
+  readOnly = false,
+  colorScheme,
   isDark: isDarkProp,
   children,
   style,
@@ -20,26 +22,41 @@ export function Flag({
   accessibilityLabel,
 }) {
   const { isDark } = useFlagTheme({ isDarkProp });
+  const isInteractive = !disabled && !readOnly;
 
   const handlePress = () => {
-    if (!disabled && onChange) {
+    if (isInteractive && onChange) {
       onChange(!checked);
     }
   };
 
   const getAccessibilityRole = () => {
+    if (readOnly) return undefined;
     if (variant === 'switch') return 'switch';
     if (variant === 'checkbox') return 'checkbox';
     return 'button';
   };
 
+  const renderChildren = (content, labelStyle) => {
+    if (content === null || content === undefined) return null;
+    if (React.isValidElement(content)) {
+      return content;
+    }
+    return <Text style={labelStyle}>{content}</Text>;
+  };
+
   const renderChip = () => {
+    const schemeStyles = colorScheme && colorSchemes[colorScheme];
+    const schemeContainer = schemeStyles ? (isDark ? schemeStyles.containerDark : schemeStyles.container) : null;
+    const schemeText = schemeStyles ? (isDark ? schemeStyles.textDark : schemeStyles.text) : null;
+
     const containerStyle = [
       styles.baseContainer,
       styles.chipContainer,
       isDark && styles.chipContainerDark,
       checked && (isDark ? styles.chipActiveDark : styles.chipActive),
-      disabled && { opacity: 0.5 },
+      schemeContainer,
+      (disabled || readOnly) && { opacity: readOnly ? 1 : 0.5 },
       style,
     ];
 
@@ -47,6 +64,7 @@ export function Flag({
       styles.chipText,
       isDark && styles.chipTextDark,
       checked && (isDark ? styles.chipActiveTextDark : styles.chipActiveText),
+      schemeText,
       textStyle,
     ];
 
@@ -55,17 +73,13 @@ export function Flag({
         testID={testID}
         hitSlop={HIT_SLOP_44}
         onPress={handlePress}
-        disabled={disabled}
+        disabled={disabled || readOnly}
         accessibilityRole={getAccessibilityRole()}
         accessibilityState={{ checked, disabled }}
         accessibilityLabel={accessibilityLabel}
         style={containerStyle}
       >
-        {typeof children === 'string' ? (
-          <Text style={labelStyle}>{children}</Text>
-        ) : (
-          children
-        )}
+        {renderChildren(children, labelStyle)}
       </Pressable>
     );
   };
@@ -102,13 +116,7 @@ export function Flag({
         <View style={trackStyle}>
           <View style={thumbStyle} />
         </View>
-        {children && (
-          typeof children === 'string' ? (
-            <Text style={labelStyle}>{children}</Text>
-          ) : (
-            children
-          )
-        )}
+        {renderChildren(children, labelStyle)}
       </Pressable>
     );
   };
@@ -142,13 +150,7 @@ export function Flag({
             <Text style={{ color: '#FFFFFF', fontSize: 12, fontWeight: '700' }}>✓</Text>
           )}
         </View>
-        {children && (
-          typeof children === 'string' ? (
-            <Text style={labelStyle}>{children}</Text>
-          ) : (
-            children
-          )
-        )}
+        {renderChildren(children, labelStyle)}
       </Pressable>
     );
   };

@@ -17,6 +17,7 @@ import { ImageIcon, UploadIcon } from '@/components/Icons';
 import TextField from '@/components/TextField';
 import MediaBrowser from '../Media/MediaBrowser';
 import { FieldInput as SharedFieldInput, FieldTextarea as SharedFieldTextarea } from '../SharedFormComponents';
+import { Flag, FlagGroup } from '../../Flag';
 import { CATEGORY_TYPE_COLORS } from './CategoriesStyles';
 import styles from './CategoryFormStyles';
 
@@ -24,46 +25,6 @@ import styles from './CategoryFormStyles';
 
 const FieldInput = (props) => <SharedFieldInput {...props} styles={styles} />;
 const FieldTextarea = (props) => <SharedFieldTextarea {...props} styles={styles} numberOfLines={2} />;
-
-/* ─── CategoryTypeSelect helpers ────────────────────────────── */
-
-function TypeToggleButton({ typeKey, label, activeValue, disabled, onPress }) {
-  const isActive = activeValue === typeKey;
-  const typeColors = CATEGORY_TYPE_COLORS[typeKey];
-  const buttonStyle = isActive
-    ? {
-        backgroundColor: typeColors.softBg,
-        borderColor: typeColors.accent,
-      }
-    : {
-        backgroundColor: '#F1F5F9',
-        borderColor: '#E2E8F0',
-      };
-  const textStyle = isActive
-    ? { color: typeColors.text }
-    : { color: '#475569' };
-
-  return (
-    <AnimatedButton
-      style={{
-        flex: 1,
-        paddingVertical: 10,
-        borderRadius: 8,
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderWidth: 1,
-        opacity: disabled ? 0.6 : 1,
-        ...buttonStyle,
-      }}
-      onPress={() => !disabled && onPress(typeKey)}
-      activeOpacity={disabled ? 1 : 0.7}
-    >
-      <Text style={{ fontSize: 13, fontWeight: '600', ...textStyle }}>
-        {label}
-      </Text>
-    </AnimatedButton>
-  );
-}
 
 /* ─── CategoryTypeDisplay ────────────────────────────────────── */
 
@@ -89,10 +50,14 @@ export function CategoryTypeSelect({ value, onChange, disabled }) {
   return (
     <View style={styles.fieldGroup}>
       <Text style={styles.fieldLabel}>Category Type</Text>
-      <View style={{ flexDirection: 'row', gap: 8 }}>
-        <TypeToggleButton typeKey="category_holder" label="Category Holder" activeValue={value} disabled={disabled} onPress={onChange} />
-        <TypeToggleButton typeKey="product_holder" label="Product Holder" activeValue={value} disabled={disabled} onPress={onChange} />
-      </View>
+      <FlagGroup value={value} onChange={onChange} multiple={false}>
+        <Flag value="category_holder" variant="chip" disabled={disabled}>
+          Category Holder
+        </Flag>
+        <Flag value="product_holder" variant="chip" disabled={disabled}>
+          Product Holder
+        </Flag>
+      </FlagGroup>
       {disabled && (
         <Text style={[styles.errorText, { color: '#64748B', marginTop: 4 }]}>
           Type cannot be changed due to existing subcategories or assigned products.

@@ -7,6 +7,7 @@ import styles from './OrdersPageStyles';
 import { getLocalizedValue } from '../utils/localization';
 import { formatDateLong } from '../utils/dateFormatting';
 import { resolveStatusKey, resolveStatusDef, createStatusBadgeStyleMap } from '../utils/orderStatus';
+export { resolveStatusKey };
 
 const JUST_NOW_TRANSLATIONS = {
   uk: 'Щойно',
