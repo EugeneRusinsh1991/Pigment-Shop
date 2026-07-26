@@ -47,11 +47,14 @@ function renderToggleOption(opt, index, ctx) {
   const handleLayout = (e) => ctx.animation?.setOptionLayout && ctx.animation.setOptionLayout(optionValue, e.nativeEvent.layout);
   const handlePress = () => { if (!isActive && ctx.onChange) ctx.onChange(optionValue); };
 
+  const computedOptionStyle = getOptionStyle(isActive, ctx.animated, ctx.theme, ctx.activeOptionStyle, ctx.optionStyle);
+  const computedTextStyle = getOptionTextStyle(isActive, ctx.textSizeStyle, ctx.theme, ctx.textStyle, ctx.activeTextStyle);
+
   return (
     <TouchableOpacity
       key={key}
       onLayout={handleLayout}
-      style={getOptionStyle(isActive, ctx.animated, ctx.theme, ctx.activeOptionStyle, ctx.optionStyle)}
+      style={computedOptionStyle}
       hitSlop={ctx.computedHitSlop}
       disabled={ctx.disabled}
       activeOpacity={0.7}
@@ -63,7 +66,7 @@ function renderToggleOption(opt, index, ctx) {
         variant="body"
         size={ctx.size === 'sm' ? 'sm' : 'md'}
         weight={isActive ? 'bold' : 'medium'}
-        style={getOptionTextStyle(isActive, ctx.textSizeStyle, ctx.theme, ctx.textStyle, ctx.activeTextStyle)}
+        style={computedTextStyle}
       >
         {optionLabel}
       </Text>

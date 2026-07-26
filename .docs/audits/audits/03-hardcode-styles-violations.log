@@ -1,9 +1,9 @@
 ===================================================================
          3. HARDCODED STYLES, COLORS & SPACING REPORT              
-Timestamp: 26.07.2026, 23:11:52
+Timestamp: 26.07.2026, 23:54:05
 ===================================================================
 
-Found 1385 issue(s) across 177 file(s):
+Found 1255 issue(s) across 166 file(s):
 
 File: src\AppStyles.js
   L39    [HARDCODED_SPACING] paddingTop 16px -> paddingTop: 16,
@@ -27,68 +27,27 @@ File: src\AppStyles.js
   L133   [HARDCODED_SPACING] paddingVertical 4px -> paddingVertical: 4,
 
 File: src\components\Admin\AdminPanel.js
-  L79    [INLINE_STYLE] leftIcon={<LogoutIcon color={colors.secondaryLightText} size={14} style={{ marginRight: 6 }} />}
-  L79    [HARDCODED_SPACING] marginRight 6px -> leftIcon={<LogoutIcon color={colors.secondaryLightText} size={14} style={{ marginRight: 6 }} />}
+  L79    [INLINE_STYLE] leftIcon={<LogoutIcon color={colors.secondaryLightText} size={14} style={{ marginRight: layout.spacing.xs }} />}
   L90    [HARDCODED_SPACING] paddingBottom 40px -> <ScrollView style={styles.content} contentContainerStyle={{ paddingBottom: 40 }}>
 
 File: src\components\Admin\AdminPanelStyles.js
-  L17    [HARDCODED_SPACING] paddingHorizontal 24px -> paddingHorizontal: 24,
-  L25    [HARDCODED_SPACING] gap 10px -> gap: 10,
-  L28    [HARDCODED_SPACING] padding 6px -> padding: 6,
-  L39    [HARDCODED_SPACING] gap 6px -> gap: 6,
-  L40    [HARDCODED_SPACING] paddingVertical 8px -> paddingVertical: 8,
   L41    [HARDCODED_SPACING] paddingHorizontal 14px -> paddingHorizontal: 14,
-  L43    [HARDCODED_SPACING] borderRadius 8px -> borderRadius: 8,
-  L53    [HARDCODED_SPACING] paddingHorizontal 24px -> paddingHorizontal: 24,
-
-File: src\components\Admin\AdminTabBar.js
-  L29    [HARDCODED_SPACING] paddingRight 24px -> contentContainerStyle={{ paddingRight: 24, paddingVertical: 8, alignItems: 'center' }}
 
 File: src\components\Admin\Analytics\AnalyticsDashboard.js
-  L36    [HARDCODED_COLOR] #10B981 -> <StatCard label={t('adminAnalyticsRevenue')} value={formatCurrency(stats.revenue)} icon={<DollarIcon color="#10B981" size={18} />} />
-  L37    [HARDCODED_COLOR] #3B82F6 -> <StatCard label={t('adminAnalyticsOrders')} value={String(stats.orders)} icon={<ClipboardIcon color="#3B82F6" size={18} />} />
-  L38    [HARDCODED_COLOR] #EC4899 -> <StatCard label={t('adminAnalyticsAvgOrder')} value={formatCurrency(stats.avgOrder)} icon={<TrendIcon color="#EC4899" size={18} />} />
-  L39    [HARDCODED_COLOR] #8B5CF6 -> <StatCard label={t('adminAnalyticsTotalSold')} value={String(stats.totalSold)} icon={<BoxIcon color="#8B5CF6" size={18} />} />
-  L128   [INLINE_STYLE] <ActivityIndicator size="large" color="#1C1C1C" style={{ marginVertical: 40 }} />
-  L128   [HARDCODED_COLOR] #1C1C1C -> <ActivityIndicator size="large" color="#1C1C1C" style={{ marginVertical: 40 }} />
-  L128   [HARDCODED_SPACING] marginVertical 40px -> <ActivityIndicator size="large" color="#1C1C1C" style={{ marginVertical: 40 }} />
+  L129   [INLINE_STYLE] <ActivityIndicator size="large" color={colors.dark} style={{ marginVertical: 40 }} />
+  L129   [HARDCODED_SPACING] marginVertical 40px -> <ActivityIndicator size="large" color={colors.dark} style={{ marginVertical: 40 }} />
 
 File: src\components\Admin\Analytics\AnalyticsStyles.js
-  L10    [HARDCODED_SPACING] paddingHorizontal 24px -> paddingHorizontal: 24,
-  L11    [HARDCODED_SPACING] paddingTop 24px -> paddingTop: 24,
-  L18    [HARDCODED_SPACING] gap 12px -> gap: 12,
-  L19    [HARDCODED_SPACING] marginBottom 24px -> marginBottom: 24,
-  L25    [HARDCODED_SPACING] borderRadius 14px -> borderRadius: 14,
   L26    [HARDCODED_SPACING] padding 18px -> padding: 18,
   L34    [HARDCODED_SPACING] marginBottom 10px -> marginBottom: 10,
-  L47    [HARDCODED_SPACING] borderRadius 14px -> borderRadius: 14,
   L48    [HARDCODED_SPACING] padding 20px -> padding: 20,
-  L49    [HARDCODED_SPACING] marginBottom 16px -> marginBottom: 16,
-  L54    [HARDCODED_SPACING] marginBottom 16px -> marginBottom: 16,
-  L58    [HARDCODED_SPACING] gap 16px -> gap: 16,
   L70    [HARDCODED_SPACING] marginBottom 10px -> marginBottom: 10,
   L74    [HARDCODED_SPACING] marginRight 10px -> marginRight: 10,
-  L81    [HARDCODED_SPACING] borderRadius 4px -> borderRadius: 4,
-  L87    [HARDCODED_SPACING] borderRadius 4px -> borderRadius: 4,
-  L90    [HARDCODED_SPACING] marginLeft 8px -> marginLeft: 8,
-  L103   [HARDCODED_SPACING] marginBottom 6px -> marginBottom: 6,
   L108   [HARDCODED_SPACING] borderRadius 5px -> borderRadius: 5,
-  L109   [HARDCODED_SPACING] marginRight 8px -> marginRight: 8,
   L114   [HARDCODED_SPACING] marginLeft 4px -> marginLeft: 4,
   L131   [HARDCODED_SPACING] marginBottom 20px -> marginBottom: 20,
-  L138   [HARDCODED_SPACING] gap 8px -> gap: 8,
   L142   [HARDCODED_SPACING] paddingVertical 10px -> paddingVertical: 10,
-  L143   [HARDCODED_SPACING] paddingHorizontal 16px -> paddingHorizontal: 16,
-  L144   [HARDCODED_SPACING] borderRadius 20px -> borderRadius: 20,
-  L166   [HARDCODED_SPACING] gap 8px -> gap: 8,
-  L167   [HARDCODED_SPACING] marginTop 8px -> marginTop: 8,
-  L175   [HARDCODED_SPACING] borderRadius 8px -> borderRadius: 8,
-  L176   [HARDCODED_SPACING] paddingHorizontal 12px -> paddingHorizontal: 12,
-  L188   [HARDCODED_SPACING] paddingHorizontal 16px -> paddingHorizontal: 16,
-  L189   [HARDCODED_SPACING] borderRadius 8px -> borderRadius: 8,
   L197   [HARDCODED_SPACING] marginBottom 20px -> marginBottom: 20,
-  L200   [HARDCODED_SPACING] gap 8px -> gap: 8,
-  L204   [HARDCODED_SPACING] gap 8px -> gap: 8,
 
 File: src\components\Admin\Analytics\CalendarDayCell.js
   L108   [INLINE_STYLE] <View style={cellStyle}>
@@ -109,62 +68,36 @@ File: src\components\Admin\Analytics\DateRangeCalendar.js
   L107   [INLINE_STYLE] <View style={localStyles.daysGrid}>
 
 File: src\components\Admin\Analytics\DateRangeCalendarStyles.js
-  L13    [HARDCODED_SPACING] borderRadius 12px -> borderRadius: 12,
-  L14    [HARDCODED_SPACING] padding 12px -> padding: 12,
-  L24    [HARDCODED_SPACING] marginBottom 12px -> marginBottom: 12,
-  L33    [HARDCODED_SPACING] borderRadius 6px -> borderRadius: 6,
-  L41    [HARDCODED_SPACING] marginBottom 6px -> marginBottom: 6,
   L58    [HARDCODED_SPACING] marginVertical 1px -> marginVertical: 1,
-  L65    [HARDCODED_SPACING] borderRadius 14px -> borderRadius: 14,
   L83    [HARDCODED_SPACING] borderRadius 0px -> borderRadius: 0,
 
 File: src\components\Admin\Analytics\DateRangePicker.js
-  L94    [INLINE_STYLE] <View style={{ position: 'relative', zIndex: 3000 }}>
+  L95    [INLINE_STYLE] <View style={{ position: 'relative', zIndex: layout.zIndices.toast }}>
 
 File: src\components\Admin\Analytics\OrderStatusChart.js
-  L24    [INLINE_STYLE] <View style={{ width: size, alignItems: 'center' }}>
-  L26    [INLINE_STYLE] style={{
-  L32    [HARDCODED_COLOR] #F5F7FA -> backgroundColor: '#F5F7FA',
-  L36    [INLINE_STYLE] <View key={idx} style={{ flex: item.value / total, backgroundColor: item.color }} />
-  L46    [INLINE_STYLE] <svg width={size} height={size} style={{ transform: 'rotate(-90deg)' }}>
-  L73    [HARDCODED_COLOR] #3B82F6 -> pending: { labelKey: 'orderStatusPending', color: '#3B82F6' },
-  L74    [HARDCODED_COLOR] #D97706 -> processing: { labelKey: 'orderStatusProcessing', color: '#D97706' },
-  L75    [HARDCODED_COLOR] #10B981 -> completed: { labelKey: 'orderStatusCompleted', color: '#10B981' },
-  L76    [HARDCODED_COLOR] #EF4444 -> cancelled: { labelKey: 'orderStatusCancelled', color: '#EF4444' },
-  L85    [HARDCODED_COLOR] #3B82F6 -> color: item.color || '#3B82F6',
-  L97    [HARDCODED_COLOR] #E2E8F0 -> : [{ labelKey: null, value: 1, color: '#E2E8F0' }];
-  L102   [INLINE_STYLE] <View style={{ marginTop: 20 }}>
-  L102   [HARDCODED_SPACING] marginTop 20px -> <View style={{ marginTop: 20 }}>
+  L25    [INLINE_STYLE] <View style={{ width: size, alignItems: 'center' }}>
+  L27    [INLINE_STYLE] style={{
+  L37    [INLINE_STYLE] <View key={idx} style={{ flex: item.value / total, backgroundColor: item.color }} />
+  L47    [INLINE_STYLE] <svg width={size} height={size} style={{ transform: 'rotate(-90deg)' }}>
+  L103   [INLINE_STYLE] <View style={{ marginTop: 20 }}>
+  L103   [HARDCODED_SPACING] marginTop 20px -> <View style={{ marginTop: 20 }}>
 
 File: src\components\Admin\Analytics\RevenueChart.js
-  L63    [INLINE_STYLE] <View style={{ height: 180, justifyContent: 'center', alignItems: 'center' }}>
-  L102   [INLINE_STYLE] style={{ display: 'block' }}
-  L106   [HARDCODED_COLOR] #10B981 -> <stop offset="0%" stopColor="#10B981" stopOpacity="0.15" />
-  L107   [HARDCODED_COLOR] #10B981 -> <stop offset="100%" stopColor="#10B981" stopOpacity="0" />
-  L117   [HARDCODED_COLOR] #CBD5E1, #E2E8F0 -> stroke={value === 0 ? '#CBD5E1' : '#E2E8F0'}
-  L123   [HARDCODED_COLOR] #94a3b8 -> fontSize="9" fill="#94a3b8" textAnchor="end"
-  L136   [HARDCODED_COLOR] #F1F5F9 -> stroke="#F1F5F9" strokeWidth="1"
-  L144   [HARDCODED_COLOR] #10B981 -> <path d={linePath} fill="none" stroke="#10B981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-  L148   [HARDCODED_COLOR] #10B981 -> <circle key={i} cx={p.x.toFixed(1)} cy={p.y.toFixed(1)} r="2.5" fill="#10B981" />
-  L159   [HARDCODED_COLOR] #94a3b8 -> fill="#94a3b8"
-  L168   [INLINE_STYLE] <View style={{ flex: 1, justifyContent: 'flex-end' }}>
-  L169   [INLINE_STYLE] <View style={{ flexDirection: 'row', alignItems: 'flex-end', height: PLOT_H }}>
-  L173   [INLINE_STYLE] <View key={i} style={{ flex: 1, marginLeft: i === 0 ? 0 : 2, alignItems: 'center' }}>
-  L174   [INLINE_STYLE] <View style={{ width: 6, height: barH, backgroundColor: '#10B981', borderRadius: 3 }} />
-  L174   [HARDCODED_COLOR] #10B981 -> <View style={{ width: 6, height: barH, backgroundColor: '#10B981', borderRadius: 3 }} />
-  L174   [HARDCODED_SPACING] borderRadius 3px -> <View style={{ width: 6, height: barH, backgroundColor: '#10B981', borderRadius: 3 }} />
+  L64    [INLINE_STYLE] <View style={{ height: 180, justifyContent: 'center', alignItems: 'center' }}>
+  L103   [INLINE_STYLE] style={{ display: 'block' }}
+  L169   [INLINE_STYLE] <View style={{ flex: 1, justifyContent: 'flex-end' }}>
+  L170   [INLINE_STYLE] <View style={{ flexDirection: 'row', alignItems: 'flex-end', height: PLOT_H }}>
+  L174   [INLINE_STYLE] <View key={i} style={{ flex: 1, marginLeft: i === 0 ? 0 : 2, alignItems: 'center' }}>
+  L175   [INLINE_STYLE] <View style={{ width: 6, height: barH, backgroundColor: colors.successMid, borderRadius: 3 }} />
+  L175   [HARDCODED_SPACING] borderRadius 3px -> <View style={{ width: 6, height: barH, backgroundColor: colors.successMid, borderRadius: 3 }} />
 
 File: src\components\Admin\Analytics\TopProductsChart.js
-  L34    [INLINE_STYLE] <View style={{ paddingVertical: 20, alignItems: 'center', justifyContent: 'center' }}>
-  L34    [HARDCODED_SPACING] paddingVertical 20px -> <View style={{ paddingVertical: 20, alignItems: 'center', justifyContent: 'center' }}>
-  L50    [INLINE_STYLE] <View style={{ flexDirection: 'row', width: `${(p.value / maxValue) * 100}%`, height: '100%', borderRadius: 4, overflow: 'hidden' }}>
-  L50    [HARDCODED_SPACING] borderRadius 4px -> <View style={{ flexDirection: 'row', width: `${(p.value / maxValue) * 100}%`, height: '100%', borderRadius: 4, overflow: 'hidden' }}>
-  L52    [INLINE_STYLE] <View style={{ flex: p.completed, backgroundColor: '#10B981' }} />
-  L52    [HARDCODED_COLOR] #10B981 -> <View style={{ flex: p.completed, backgroundColor: '#10B981' }} />
-  L55    [INLINE_STYLE] <View style={{ flex: p.processing, backgroundColor: '#F59E0B' }} />
-  L55    [HARDCODED_COLOR] #F59E0B -> <View style={{ flex: p.processing, backgroundColor: '#F59E0B' }} />
-  L58    [INLINE_STYLE] <View style={{ flex: p.pending, backgroundColor: '#3B82F6' }} />
-  L58    [HARDCODED_COLOR] #3B82F6 -> <View style={{ flex: p.pending, backgroundColor: '#3B82F6' }} />
+  L35    [INLINE_STYLE] <View style={{ paddingVertical: 20, alignItems: 'center', justifyContent: 'center' }}>
+  L35    [HARDCODED_SPACING] paddingVertical 20px -> <View style={{ paddingVertical: 20, alignItems: 'center', justifyContent: 'center' }}>
+  L51    [INLINE_STYLE] <View style={{ flexDirection: 'row', width: `${(p.value / maxValue) * 100}%`, height: '100%', borderRadius: layout.spacing.xxs, overflow: 'hidden' }}>
+  L53    [INLINE_STYLE] <View style={{ flex: p.completed, backgroundColor: colors.successMid }} />
+  L56    [INLINE_STYLE] <View style={{ flex: p.processing, backgroundColor: colors.warningStrong }} />
+  L59    [INLINE_STYLE] <View style={{ flex: p.pending, backgroundColor: colors.infoStrong }} />
 
 File: src\components\Admin\Banners\BannersStyles.js
   L7     [HARDCODED_SPACING] padding 24px -> padding: 24,
@@ -342,12 +275,8 @@ File: src\components\Admin\Categories\CategoryRowElements.js
   L67    [INLINE_STYLE] style={{
   L73    [HARDCODED_COLOR] #CBD5E1, #E8ECF0 -> backgroundColor: i === depth - 1 ? '#CBD5E1' : '#E8ECF0',
 
-File: src\components\Admin\FormModalLayout.js
-  L28    [HARDCODED_SPACING] gap 12px -> <View style={styles.modalFooterRight ?? { flexDirection: 'row', gap: 12, alignItems: 'center' }}>
-
 File: src\components\Admin\LanguageTabs.js
-  L13    [INLINE_STYLE] <View style={{ flexDirection: 'row', gap: 8, marginBottom: 16 }}>
-  L13    [HARDCODED_SPACING] gap 8px -> <View style={{ flexDirection: 'row', gap: 8, marginBottom: 16 }}>
+  L14    [INLINE_STYLE] <View style={{ flexDirection: 'row', gap: layout.spacing.sm, marginBottom: layout.spacing.lg }}>
 
 File: src\components\Admin\Media\MediaBrowserComponents.js
   L23    [INLINE_STYLE] <AlertIcon color="#DC2626" size={14} style={{ marginRight: 6 }} /> Media index not generated
@@ -712,20 +641,6 @@ File: src\components\Badge\BadgeStyles.js
   L32    [HARDCODED_SPACING] paddingVertical 6px -> paddingVertical: 6,
   L38    [HARDCODED_SPACING] paddingHorizontal 4px -> paddingHorizontal: 4,
   L39    [HARDCODED_SPACING] paddingVertical 0px -> paddingVertical: 0,
-  L49    [HARDCODED_COLOR] rgba(245, 158, 11, 0.2) -> bgDark: 'rgba(245, 158, 11, 0.2)',
-  L51    [HARDCODED_COLOR] rgba(245, 158, 11, 0.4) -> borderDark: 'rgba(245, 158, 11, 0.4)',
-  L57    [HARDCODED_COLOR] rgba(59, 130, 246, 0.2) -> bgDark: 'rgba(59, 130, 246, 0.2)',
-  L59    [HARDCODED_COLOR] rgba(59, 130, 246, 0.4) -> borderDark: 'rgba(59, 130, 246, 0.4)',
-  L65    [HARDCODED_COLOR] rgba(16, 185, 129, 0.2) -> bgDark: 'rgba(16, 185, 129, 0.2)',
-  L67    [HARDCODED_COLOR] rgba(16, 185, 129, 0.4) -> borderDark: 'rgba(16, 185, 129, 0.4)',
-  L73    [HARDCODED_COLOR] rgba(239, 68, 68, 0.2) -> bgDark: 'rgba(239, 68, 68, 0.2)',
-  L75    [HARDCODED_COLOR] rgba(239, 68, 68, 0.4) -> borderDark: 'rgba(239, 68, 68, 0.4)',
-  L81    [HARDCODED_COLOR] rgba(16, 185, 129, 0.2) -> bgDark: 'rgba(16, 185, 129, 0.2)',
-  L83    [HARDCODED_COLOR] rgba(16, 185, 129, 0.4) -> borderDark: 'rgba(16, 185, 129, 0.4)',
-  L97    [HARDCODED_COLOR] rgba(139, 92, 246, 0.2) -> bgDark: 'rgba(139, 92, 246, 0.2)',
-  L99    [HARDCODED_COLOR] rgba(139, 92, 246, 0.4) -> borderDark: 'rgba(139, 92, 246, 0.4)',
-  L105   [HARDCODED_COLOR] rgba(37, 99, 235, 0.2) -> bgDark: 'rgba(37, 99, 235, 0.2)',
-  L107   [HARDCODED_COLOR] rgba(37, 99, 235, 0.4) -> borderDark: 'rgba(37, 99, 235, 0.4)',
 
 File: src\components\Button\Button.js
   L50    [INLINE_STYLE] : title ? <Text style={textCombinedStyle} size={size} weight="semiBold">{title}</Text> : null}
@@ -745,18 +660,10 @@ File: src\components\Card\BaseCard.js
   L72    [INLINE_STYLE] style={style}
 
 File: src\components\Card\Card.js
-  L47    [INLINE_STYLE] <Animated.View style={combinedStyle}>
-  L52    [INLINE_STYLE] style={touchableStyle}
-  L66    [INLINE_STYLE] <View ref={ref} style={combinedStyle} {...rest}>
-  L75    [INLINE_STYLE] <View style={slotStyles.imageContainer}>
-  L103   [HARDCODED_SPACING] marginTop 4px -> <Text variant="subtitle2" weight="bold" style={[{ marginTop: 4 }, style]} {...rest}>
-
-File: src\components\Card\CardStyles.js
-  L52    [HARDCODED_SPACING] padding 12px -> padding: 12,
-  L57    [HARDCODED_SPACING] marginBottom 4px -> marginBottom: 4,
-  L67    [HARDCODED_SPACING] marginBottom 6px -> marginBottom: 6,
-  L73    [HARDCODED_SPACING] paddingHorizontal 12px -> paddingHorizontal: 12,
-  L74    [HARDCODED_SPACING] paddingBottom 12px -> paddingBottom: 12,
+  L48    [INLINE_STYLE] <Animated.View style={combinedStyle}>
+  L53    [INLINE_STYLE] style={touchableStyle}
+  L67    [INLINE_STYLE] <View ref={ref} style={combinedStyle} {...rest}>
+  L76    [INLINE_STYLE] <View style={slotStyles.imageContainer}>
 
 File: src\components\Card\InteractiveCard.js
   L71    [INLINE_STYLE] <ScrollFadeUp ref={ref} style={computedOuterStyle}>
@@ -767,8 +674,6 @@ File: src\components\Card\InteractiveCard.js
 
 File: src\components\Card\NavigationCard.js
   L15    [INLINE_STYLE] style={style}
-  L36    [HARDCODED_SPACING] gap 12px -> gap: 12,
-  L41    [HARDCODED_SPACING] borderRadius 24px -> borderRadius: 24,
 
 File: src\components\Card\StaticCard.js
   L55    [INLINE_STYLE] <ScrollFadeUp ref={ref} style={computedStyle} {...rest}>
@@ -801,36 +706,20 @@ File: src\components\DataTable\EmptyState.js
 
 File: src\components\Drawer\Drawer.js
   L11    [INLINE_STYLE] {title ? <Text variant="h4" style={titleStyle}>{title}</Text> : null}
-  L79    [INLINE_STYLE] style={{ flex: 1 }}
-
-File: src\components\Drawer\DrawerStyles.js
-  L26    [HARDCODED_SPACING] padding 16px -> padding: 16,
-  L34    [HARDCODED_SPACING] padding 16px -> padding: 16,
+  L80    [INLINE_STYLE] style={pressableStyle}
 
 File: src\components\Feedback\EmptyState\EmptyState.js
   L12    [INLINE_STYLE] return <Text variant="body" color="muted" style={descriptionStyle}>{children}</Text>;
 
 File: src\components\Feedback\EmptyState\EmptyStateStyles.js
-  L7     [HARDCODED_SPACING] paddingVertical 40px -> paddingVertical: 40,
-  L8     [HARDCODED_SPACING] paddingHorizontal 24px -> paddingHorizontal: 24,
-  L11    [HARDCODED_SPACING] marginBottom 16px -> marginBottom: 16,
-  L15    [HARDCODED_SPACING] marginBottom 8px -> marginBottom: 8,
-  L22    [HARDCODED_SPACING] marginTop 20px -> marginTop: 20,
-
-File: src\components\Feedback\InlineError\FieldErrorStyles.js
-  L6     [HARDCODED_SPACING] marginTop 4px -> marginTop: 4,
-  L7     [HARDCODED_SPACING] marginBottom 8px -> marginBottom: 8,
+  L8     [HARDCODED_SPACING] paddingVertical 40px -> paddingVertical: 40,
+  L23    [HARDCODED_SPACING] marginTop 20px -> marginTop: 20,
 
 File: src\components\Feedback\Skeleton\SkeletonLoader.js
   L57    [INLINE_STYLE] style={style}
 
-File: src\components\Feedback\Skeleton\SkeletonStyles.js
-  L5     [HARDCODED_SPACING] gap 12px -> gap: 12,
-  L6     [HARDCODED_SPACING] paddingVertical 12px -> paddingVertical: 12,
-
 File: src\components\Feedback\Toast\ToastStyles.js
   L9     [HARDCODED_SPACING] paddingHorizontal 20px -> paddingHorizontal: 20,
-  L10    [HARDCODED_SPACING] paddingVertical 12px -> paddingVertical: 12,
 
 File: src\components\Flag\Flag.js
   L105   [INLINE_STYLE] return <Text style={labelStyle} size={size} weight={weight}>{content}</Text>;
@@ -966,53 +855,32 @@ File: src\components\Media\VideoRenderer.js
   L122   [INLINE_STYLE] <Image source={{ uri }} style={StyleSheet.absoluteFill} resizeMode={resizeMode} />
   L154   [INLINE_STYLE] style={style}
 
-File: src\components\Modal\ModalStyles.js
-  L9     [HARDCODED_SPACING] padding 20px -> padding: 20,
-  L20    [HARDCODED_SPACING] padding 24px -> padding: 24,
-  L23    [HARDCODED_SPACING] marginBottom 8px -> marginBottom: 8,
-  L26    [HARDCODED_SPACING] marginBottom 24px -> marginBottom: 24,
-  L31    [HARDCODED_SPACING] gap 12px -> gap: 12,
-
-File: src\components\Modal\useModalTheme.js
-  L9     [HARDCODED_COLOR] rgba(0, 0, 0, 0.6) -> overlayBg: 'rgba(0, 0, 0, 0.6)',
-
 File: src\components\Navigation\Breadcrumbs\Breadcrumb.js
   L20    [INLINE_STYLE] <Text style={textStyle} size="sm" weight="medium" numberOfLines={1}>
   L29    [INLINE_STYLE] <Text style={textStyle} size="sm" weight="medium" numberOfLines={1}>
-  L61    [INLINE_STYLE] <AnimatedButton style={{ paddingVertical: 4, paddingHorizontal: 6 }} hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}>
-  L61    [HARDCODED_SPACING] paddingVertical 4px -> <AnimatedButton style={{ paddingVertical: 4, paddingHorizontal: 6 }} hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}>
+  L61    [INLINE_STYLE] <AnimatedButton style={{ paddingVertical: layout.spacing.xxs, paddingHorizontal: layout.spacing.xs }} hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}>
 
 File: src\components\Navigation\NavigationStyles.js
   L12    [HARDCODED_SPACING] paddingHorizontal 0px -> paddingHorizontal: 0,
-  L13    [HARDCODED_SPACING] paddingVertical 4px -> paddingVertical: 4,
-  L22    [HARDCODED_SPACING] marginHorizontal 6px -> marginHorizontal: 6,
-  L41    [HARDCODED_SPACING] paddingHorizontal 8px -> paddingHorizontal: 8,
-  L42    [HARDCODED_SPACING] paddingVertical 4px -> paddingVertical: 4,
-  L55    [HARDCODED_SPACING] paddingVertical 4px -> paddingVertical: 4,
-  L59    [HARDCODED_SPACING] marginRight 16px -> marginRight: 16,
   L65    [HARDCODED_SPACING] paddingVertical 2px -> paddingVertical: 2,
 
 File: src\components\Search\AutocompleteSearch.js
   L68    [INLINE_STYLE] <View style={{ position: 'relative', width: '100%', zIndex: 100 }}>
 
 File: src\components\Search\SearchDropdown.js
-  L23    [HARDCODED_SPACING] paddingHorizontal 12px -> style={[SearchStyles.resultRow, { minHeight: 44, flexDirection: 'row', alignItems: 'center', paddingHorizontal: 12, gap: 10 }]}
-  L28    [INLINE_STYLE] <Image source={{ uri: item.image }} style={{ width: 24, height: 24, borderRadius: 4 }} />
-  L28    [HARDCODED_SPACING] borderRadius 4px -> <Image source={{ uri: item.image }} style={{ width: 24, height: 24, borderRadius: 4 }} />
-  L45    [INLINE_STYLE] <View style={SearchStyles.dropdownOverlay}>
-  L46    [HARDCODED_SPACING] padding 14px -> <Text variant="body" size={14} style={[{ padding: 14, textAlign: 'center' }, SearchStyles[`text_${isDark ? 'defaultDark' : 'defaultLight'}`]]}>
-  L57    [HARDCODED_SPACING] padding 10px -> <Text variant="caption" color="muted" size={12} style={[{ padding: 10, textAlign: 'center' }, SearchStyles[`text_${isDark ? 'defaultDark' : 'defaultLight'}`]]}>
-  L74    [INLINE_STYLE] <View style={SearchStyles.dropdownOverlay}>
-  L75    [INLINE_STYLE] <ScrollView keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false} style={{ maxHeight: 300 }}>
+  L24    [HARDCODED_SPACING] gap 10px -> style={[SearchStyles.resultRow, { minHeight: 44, flexDirection: 'row', alignItems: 'center', paddingHorizontal: layout.spacing.md, gap: 10 }]}
+  L29    [INLINE_STYLE] <Image source={{ uri: item.image }} style={{ width: layout.spacing.xl, height: layout.spacing.xl, borderRadius: layout.radii.xs }} />
+  L46    [INLINE_STYLE] <View style={SearchStyles.dropdownOverlay}>
+  L47    [HARDCODED_SPACING] padding 14px -> <Text variant="body" size={14} style={[{ padding: 14, textAlign: 'center' }, SearchStyles[`text_${isDark ? 'defaultDark' : 'defaultLight'}`]]}>
+  L58    [HARDCODED_SPACING] padding 10px -> <Text variant="caption" color="muted" size={12} style={[{ padding: 10, textAlign: 'center' }, SearchStyles[`text_${isDark ? 'defaultDark' : 'defaultLight'}`]]}>
+  L75    [INLINE_STYLE] <View style={SearchStyles.dropdownOverlay}>
+  L76    [INLINE_STYLE] <ScrollView keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false} style={{ maxHeight: 300 }}>
 
 File: src\components\Search\SearchInput.js
   L41    [INLINE_STYLE] style={SearchStyles.clearButton}
 
 File: src\components\Search\SearchStyles.js
-  L50    [HARDCODED_SPACING] paddingHorizontal 12px -> paddingHorizontal: 12,
   L57    [HARDCODED_SPACING] paddingVertical 0px -> paddingVertical: 0,
-  L58    [HARDCODED_SPACING] paddingHorizontal 8px -> paddingHorizontal: 8,
-  L65    [HARDCODED_SPACING] padding 4px -> padding: 4,
 
 File: src\components\Search\useSearchTheme.js
   L20    [HARDCODED_COLOR] #9CA3AF, #6B7280 -> const placeholderColor = isDark ? '#9CA3AF' : '#6B7280';
@@ -1028,29 +896,9 @@ File: src\components\SharedLayoutWrapper\SharedLayoutWrapperStyles.js
 File: src\components\Text\Heading.js
   L40    [INLINE_STYLE] style={style}
 
-File: src\components\TextField\TextField.js
-  L46    [INLINE_STYLE] {leadingIcon ? <View style={dynamicStyles.leadingIcon}>{leadingIcon}</View> : null}
-  L61    [INLINE_STYLE] {trailingIcon ? <View style={dynamicStyles.trailingIcon}>{trailingIcon}</View> : null}
-
-File: src\components\TextField\TextFieldStyles.js
-  L7     [HARDCODED_SPACING] paddingHorizontal 10px -> paddingHorizontal: 10,
-  L14    [HARDCODED_SPACING] paddingHorizontal 12px -> paddingHorizontal: 12,
-  L21    [HARDCODED_SPACING] paddingHorizontal 16px -> paddingHorizontal: 16,
-  L31    [HARDCODED_SPACING] marginVertical 4px -> marginVertical: 4,
-  L35    [HARDCODED_SPACING] marginBottom 6px -> marginBottom: 6,
-  L65    [HARDCODED_SPACING] paddingVertical 0px -> paddingVertical: 0,
-  L66    [HARDCODED_SPACING] margin 0px -> margin: 0,
-  L73    [HARDCODED_SPACING] paddingVertical 10px -> paddingVertical: 10,
-  L78    [HARDCODED_SPACING] marginRight 8px -> marginRight: 8,
-  L83    [HARDCODED_SPACING] marginLeft 8px -> marginLeft: 8,
-  L86    [HARDCODED_SPACING] marginTop 4px -> marginTop: 4,
-
 File: src\components\Toggle\Toggle.js
-  L54    [INLINE_STYLE] style={getOptionStyle(isActive, ctx.animated, ctx.theme, ctx.activeOptionStyle, ctx.optionStyle)}
-  L66    [INLINE_STYLE] style={getOptionTextStyle(isActive, ctx.textSizeStyle, ctx.theme, ctx.textStyle, ctx.activeTextStyle)}
-
-File: src\components\Toggle\ToggleStyles.js
-  L9     [HARDCODED_SPACING] padding 2px -> padding: 2,
+  L57    [INLINE_STYLE] style={computedOptionStyle}
+  L69    [INLINE_STYLE] style={computedTextStyle}
 
 File: src\features\auth\LoginPage.js
   L17    [HARDCODED_COLOR] #888, #aaa -> const getPlaceholderColor = (isDark) => (isDark ? '#888' : '#aaa');

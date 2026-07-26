@@ -8,6 +8,7 @@ import { Platform, View } from 'react-native';
 import { Text } from '../../Text';
 import { useLanguage } from '../../../context/LanguageContext';
 import styles from './AnalyticsStyles';
+import { colors } from '../../../theme/tokens';
 
 const isWeb = Platform.OS === 'web';
 
@@ -103,8 +104,8 @@ export default function RevenueChart({ revenueData = [] }) {
         >
           <defs>
             <linearGradient id="revenueGrad2" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#10B981" stopOpacity="0.15" />
-              <stop offset="100%" stopColor="#10B981" stopOpacity="0" />
+              <stop offset="0%" stopColor={colors.successMid} stopOpacity="0.15" />
+              <stop offset="100%" stopColor={colors.successMid} stopOpacity="0" />
             </linearGradient>
           </defs>
 
@@ -114,13 +115,13 @@ export default function RevenueChart({ revenueData = [] }) {
               <line
                 x1={PAD_LEFT} y1={y.toFixed(1)}
                 x2={PAD_LEFT + PLOT_W} y2={y.toFixed(1)}
-                stroke={value === 0 ? '#CBD5E1' : '#E2E8F0'}
+                stroke={value === 0 ? colors.slateStrong : colors.secondaryLightBorder}
                 strokeWidth="1"
                 strokeDasharray={value === 0 ? undefined : '4 3'}
               />
               <text
                 x={(PAD_LEFT - 6).toFixed(1)} y={(y + 3.5).toFixed(1)}
-                fontSize="9" fill="#94a3b8" textAnchor="end"
+                fontSize="9" fill={colors.secondaryDarkText} textAnchor="end"
               >
                 {niceLabel(value)}
               </text>
@@ -133,7 +134,7 @@ export default function RevenueChart({ revenueData = [] }) {
               key={i}
               x1={p.x.toFixed(1)} y1={PAD_TOP}
               x2={p.x.toFixed(1)} y2={(PAD_TOP + PLOT_H).toFixed(1)}
-              stroke="#F1F5F9" strokeWidth="1"
+              stroke={colors.slateMid} strokeWidth="1"
             />
           ))}
 
@@ -141,11 +142,11 @@ export default function RevenueChart({ revenueData = [] }) {
           <path d={fillPath} fill="url(#revenueGrad2)" />
 
           {/* Line */}
-          <path d={linePath} fill="none" stroke="#10B981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          <path d={linePath} fill="none" stroke={colors.successMid} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
 
           {/* Dots */}
           {pts.map((p, i) => (
-            <circle key={i} cx={p.x.toFixed(1)} cy={p.y.toFixed(1)} r="2.5" fill="#10B981" />
+            <circle key={i} cx={p.x.toFixed(1)} cy={p.y.toFixed(1)} r="2.5" fill={colors.successMid} />
           ))}
 
           {/* X labels inside SVG */}
@@ -156,7 +157,7 @@ export default function RevenueChart({ revenueData = [] }) {
                 x={p.x.toFixed(1)}
                 y={(SVG_H - 4).toFixed(1)}
                 fontSize="9"
-                fill="#94a3b8"
+                fill={colors.secondaryDarkText}
                 textAnchor={i === 0 ? 'start' : i === n - 1 ? 'end' : 'middle'}
               >
                 {p.label}
@@ -171,7 +172,7 @@ export default function RevenueChart({ revenueData = [] }) {
               const barH = max === 0 ? 4 : Math.max(4, (d.value / max) * PLOT_H);
               return (
                 <View key={i} style={{ flex: 1, marginLeft: i === 0 ? 0 : 2, alignItems: 'center' }}>
-                  <View style={{ width: 6, height: barH, backgroundColor: '#10B981', borderRadius: 3 }} />
+                  <View style={{ width: 6, height: barH, backgroundColor: colors.successMid, borderRadius: 3 }} />
                 </View>
               );
             })}

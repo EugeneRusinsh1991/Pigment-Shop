@@ -49,12 +49,12 @@ export const slotStyles = StyleSheet.create({
     resizeMode: 'cover',
   },
   content: {
-    padding: 12,
+    padding: layout.spacing.md,
     flexDirection: 'column',
     flex: 1,
   },
   title: {
-    marginBottom: 4,
+    marginBottom: layout.spacing.xxs,
   },
   titleLight: {
     color: colors.textLight,
@@ -64,14 +64,14 @@ export const slotStyles = StyleSheet.create({
   },
   badge: {
     alignSelf: 'flex-start',
-    marginBottom: 6,
+    marginBottom: layout.spacing.xs,
   },
   actions: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: 12,
-    paddingBottom: 12,
+    paddingHorizontal: layout.spacing.md,
+    paddingBottom: layout.spacing.md,
   },
   skeleton: {
     backgroundColor: colors.borderLight,

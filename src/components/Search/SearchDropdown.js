@@ -6,6 +6,7 @@ import { useTheme } from '../../context/ThemeContext';
 import { getLocalizedValue } from '../../utils/localization';
 import { AnimatedButton } from '../Button';
 import SearchStyles from './SearchStyles';
+import { layout } from '../../theme/tokens';
 
 const MAX_RESULTS = 20;
 
@@ -20,12 +21,12 @@ const ResultRow = React.forwardRef(({ item, isDark, onPress, ...rest }, ref) => 
   return (
     <AnimatedButton
       ref={ref}
-      style={[SearchStyles.resultRow, { minHeight: 44, flexDirection: 'row', alignItems: 'center', paddingHorizontal: 12, gap: 10 }]}
+      style={[SearchStyles.resultRow, { minHeight: 44, flexDirection: 'row', alignItems: 'center', paddingHorizontal: layout.spacing.md, gap: 10 }]}
       onPress={onPress}
       {...rest}
     >
       {item.image ? (
-        <Image source={{ uri: item.image }} style={{ width: 24, height: 24, borderRadius: 4 }} />
+        <Image source={{ uri: item.image }} style={{ width: layout.spacing.xl, height: layout.spacing.xl, borderRadius: layout.radii.xs }} />
       ) : (
         <Text variant="body" size={16}>{item.icon || '📦'}</Text>
       )}

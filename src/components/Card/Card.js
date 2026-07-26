@@ -4,6 +4,7 @@ import { Text } from '../Text';
 import { useCardTheme } from './useCardTheme';
 import { useCardAnimation } from './useCardAnimation';
 import { slotStyles } from './CardStyles';
+import { layout } from '../../theme/tokens';
 import Flag from '../Flag';
 
 const Card = React.forwardRef(({
@@ -100,7 +101,7 @@ const CardBadge = ({ label, children, style, variant = 'inactive', ...rest }) =>
 );
 
 const CardPrice = ({ value, style, ...rest }) => (
-  <Text variant="subtitle2" weight="bold" style={[{ marginTop: 4 }, style]} {...rest}>
+  <Text variant="subtitle2" weight="bold" style={[{ marginTop: layout.spacing.xxs }, style]} {...rest}>
     {value}
   </Text>
 );

@@ -1,6 +1,6 @@
 # 📄 Small & Pass-Through Files Findings
 
-*Generated on: 26.07.2026, 23:12:05*
+*Generated on: 26.07.2026, 23:54:14*
 
 ### Candidate Files for Refactoring/Elimination
 
@@ -89,7 +89,7 @@
   > 💡 This component is very small; consider declaring it inline within its parent component.
 
 - **[useModalTheme.js](file:///D:/Magazine/_PigmentShop/src/components/Modal/useModalTheme.js)** (`src/components/Modal/useModalTheme.js`)
-  - Lines: 18 | Size: 654 B | Type: **Tiny Component**
+  - Lines: 18 | Size: 653 B | Type: **Tiny Component**
   > 💡 This component is very small; consider declaring it inline within its parent component.
 
 - **[useSharedLayoutWrapperTheme.js](file:///D:/Magazine/_PigmentShop/src/components/SharedLayoutWrapper/useSharedLayoutWrapperTheme.js)** (`src/components/SharedLayoutWrapper/useSharedLayoutWrapperTheme.js`)

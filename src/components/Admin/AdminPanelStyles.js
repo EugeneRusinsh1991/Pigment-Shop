@@ -2,7 +2,7 @@
  * AdminPanelStyles.js
  */
 import { StyleSheet } from 'react-native';
-import { colors, fonts } from '../../theme/tokens';
+import { colors, fonts, layout } from '../../theme/tokens';
 
 export default StyleSheet.create({
   container: {
@@ -14,7 +14,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: 24,
+    paddingHorizontal: layout.spacing.xl,
     backgroundColor: colors.surfaceLight,
     borderBottomWidth: 1,
     borderBottomColor: colors.borderLightAlt,
@@ -22,10 +22,10 @@ export default StyleSheet.create({
   headerLeft: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 10,
+    gap: layout.spacing.sm,
   },
   headerBackBtn: {
-    padding: 6,
+    padding: layout.spacing.xs,
   },
   headerBackText: {
     color: colors.dark,
@@ -36,11 +36,11 @@ export default StyleSheet.create({
   logoutBtn: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 6,
-    paddingVertical: 8,
+    gap: layout.spacing.xs,
+    paddingVertical: layout.spacing.sm,
     paddingHorizontal: 14,
     backgroundColor: colors.secondaryLightBg,
-    borderRadius: 8,
+    borderRadius: layout.radii.sm,
   },
   logoutText: {
     color: colors.secondaryLightText,
@@ -50,7 +50,7 @@ export default StyleSheet.create({
     backgroundColor: colors.surfaceLight,
     borderBottomWidth: 1,
     borderBottomColor: colors.borderLightAlt,
-    paddingHorizontal: 24,
+    paddingHorizontal: layout.spacing.xl,
   },
   content: {
     flex: 1,

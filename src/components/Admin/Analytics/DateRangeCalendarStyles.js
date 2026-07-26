@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors } from '../../../theme/tokens';
+import { colors, layout } from '../../../theme/tokens';
 import { shadow } from '../../../theme/shadows';
 
 export const localStyles = StyleSheet.create({
@@ -7,11 +7,11 @@ export const localStyles = StyleSheet.create({
     position: 'absolute',
     top: 42,
     right: 0,
-    zIndex: 3000,
+    zIndex: layout.zIndices.toast,
     borderWidth: 1,
     borderColor: colors.secondaryLightBorder,
-    borderRadius: 12,
-    padding: 12,
+    borderRadius: layout.spacing.md,
+    padding: layout.spacing.md,
     backgroundColor: colors.white,
     ...shadow.panel(),
     elevation: 5,
@@ -21,7 +21,7 @@ export const localStyles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 12,
+    marginBottom: layout.spacing.md,
   },
   monthTitle: {
   },
@@ -30,7 +30,7 @@ export const localStyles = StyleSheet.create({
     height: 32,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 6,
+    borderRadius: layout.radii.xs,
     backgroundColor: colors.slateMid,
   },
   arrowText: {
@@ -38,7 +38,7 @@ export const localStyles = StyleSheet.create({
   weekdaysRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 6,
+    marginBottom: layout.spacing.xs,
   },
   weekdayCell: {
     width: '14.28%',
@@ -62,7 +62,7 @@ export const localStyles = StyleSheet.create({
     height: 28,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 14,
+    borderRadius: layout.radii.iconBtn,
   },
   dayText: {
   },

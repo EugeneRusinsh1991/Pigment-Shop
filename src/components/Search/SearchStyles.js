@@ -47,7 +47,7 @@ function createSearchStyles() {
       height: 44,
       borderRadius: layout.radii.sm,
       borderWidth: 1,
-      paddingHorizontal: 12,
+      paddingHorizontal: layout.spacing.md,
     },
     containerFocused: {
       borderColor: colors.infoStrong,
@@ -55,14 +55,14 @@ function createSearchStyles() {
     inputBase: {
       flex: 1,
       paddingVertical: 0,
-      paddingHorizontal: 8,
+      paddingHorizontal: layout.spacing.sm,
     },
     searchIconWrapper: {
       alignItems: 'center',
       justify: 'center',
     },
     clearButton: {
-      padding: 4,
+      padding: layout.spacing.xxs,
       alignItems: 'center',
       justifyContent: 'center',
     },

@@ -2,11 +2,13 @@ import { StyleSheet } from 'react-native';
 import { layout, buttonTokens } from '../../theme/tokens';
 import { buttonColors } from '../../theme/buttonCommon';
 
+const TOGGLE_PADDING = 2;
+
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
-    padding: 2,
+    padding: TOGGLE_PADDING,
     borderRadius: layout.radii.sm,
     backgroundColor: buttonColors.secondaryLightBg,
     position: 'relative',
@@ -40,9 +42,9 @@ const styles = StyleSheet.create({
   },
   activeIndicator: {
     position: 'absolute',
-    top: 2,
-    bottom: 2,
-    left: 2,
+    top: TOGGLE_PADDING,
+    bottom: TOGGLE_PADDING,
+    left: TOGGLE_PADDING,
     backgroundColor: buttonColors.surfaceLight,
     borderRadius: layout.radii.xs,
     zIndex: 0,

@@ -8,6 +8,7 @@ import { View } from 'react-native';
 import { Text } from '../../Text';
 import styles from './AnalyticsStyles';
 import { useTheme } from '../../../context/ThemeContext';
+import { colors, layout } from '../../../theme/tokens';
 import { getLocalizedValue } from '../../../utils/localization';
 
 function truncateLabel(label, maxLen = 28) {
@@ -47,15 +48,15 @@ export default function TopProductsChart({ productsData = [] }) {
             {truncateLabel(p.label)}
           </Text>
           <View style={styles.barTrack}>
-            <View style={{ flexDirection: 'row', width: `${(p.value / maxValue) * 100}%`, height: '100%', borderRadius: 4, overflow: 'hidden' }}>
+            <View style={{ flexDirection: 'row', width: `${(p.value / maxValue) * 100}%`, height: '100%', borderRadius: layout.spacing.xxs, overflow: 'hidden' }}>
               {p.completed > 0 && (
-                <View style={{ flex: p.completed, backgroundColor: '#10B981' }} />
+                <View style={{ flex: p.completed, backgroundColor: colors.successMid }} />
               )}
               {p.processing > 0 && (
-                <View style={{ flex: p.processing, backgroundColor: '#F59E0B' }} />
+                <View style={{ flex: p.processing, backgroundColor: colors.warningStrong }} />
               )}
               {p.pending > 0 && (
-                <View style={{ flex: p.pending, backgroundColor: '#3B82F6' }} />
+                <View style={{ flex: p.pending, backgroundColor: colors.infoStrong }} />
               )}
             </View>
           </View>

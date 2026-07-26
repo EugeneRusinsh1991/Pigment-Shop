@@ -3,6 +3,7 @@ import { ScrollView } from 'react-native';
 import styles from './AdminPanelStyles';
 import { useTheme } from '../../context/ThemeContext';
 import Toggle from '../Toggle';
+import { layout } from '../../theme/tokens';
 
 const ADMIN_TABS = [
   { id: 'analytics', labelKey: 'adminTabAnalytics' },
@@ -26,7 +27,7 @@ export default function AdminTabBar({ activeTab, onSelect, isDark }) {
       horizontal
       showsHorizontalScrollIndicator={false}
       style={styles.tabBar}
-      contentContainerStyle={{ paddingRight: 24, paddingVertical: 8, alignItems: 'center' }}
+      contentContainerStyle={{ paddingRight: layout.spacing.xl, paddingVertical: layout.spacing.sm, alignItems: 'center' }}
     >
       <Toggle
         options={options}

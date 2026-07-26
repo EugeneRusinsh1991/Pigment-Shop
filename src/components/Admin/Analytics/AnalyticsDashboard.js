@@ -12,6 +12,7 @@ import styles from './AnalyticsStyles';
 import { useTheme } from '../../../context/ThemeContext';
 import { COLLECTIONS } from '../../../services/collections';
 import { DollarIcon, ClipboardIcon, TrendIcon, BoxIcon } from '@/components/Icons';
+import { colors } from '../../../theme/tokens';
 
 function StatCard({ label, value, icon }) {
   return (
@@ -33,10 +34,10 @@ function StatsRow({ stats }) {
   const { t } = useTheme();
   return (
     <View style={styles.statsRow}>
-      <StatCard label={t('adminAnalyticsRevenue')} value={formatCurrency(stats.revenue)} icon={<DollarIcon color="#10B981" size={18} />} />
-      <StatCard label={t('adminAnalyticsOrders')} value={String(stats.orders)} icon={<ClipboardIcon color="#3B82F6" size={18} />} />
-      <StatCard label={t('adminAnalyticsAvgOrder')} value={formatCurrency(stats.avgOrder)} icon={<TrendIcon color="#EC4899" size={18} />} />
-      <StatCard label={t('adminAnalyticsTotalSold')} value={String(stats.totalSold)} icon={<BoxIcon color="#8B5CF6" size={18} />} />
+      <StatCard label={t('adminAnalyticsRevenue')} value={formatCurrency(stats.revenue)} icon={<DollarIcon color={colors.successMid} size={18} />} />
+      <StatCard label={t('adminAnalyticsOrders')} value={String(stats.orders)} icon={<ClipboardIcon color={colors.infoStrong} size={18} />} />
+      <StatCard label={t('adminAnalyticsAvgOrder')} value={formatCurrency(stats.avgOrder)} icon={<TrendIcon color={colors.accentPink} size={18} />} />
+      <StatCard label={t('adminAnalyticsTotalSold')} value={String(stats.totalSold)} icon={<BoxIcon color={colors.purpleLight} size={18} />} />
     </View>
   );
 }
@@ -125,7 +126,7 @@ export default function AnalyticsDashboard() {
         onChange={(s, e) => setDateRange({ start: s, end: e })} 
       />
       {loading ? (
-        <ActivityIndicator size="large" color="#1C1C1C" style={{ marginVertical: 40 }} />
+        <ActivityIndicator size="large" color={colors.dark} style={{ marginVertical: 40 }} />
       ) : (
         <>
           <StatsRow stats={stats} />

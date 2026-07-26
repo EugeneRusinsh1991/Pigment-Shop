@@ -6,7 +6,7 @@ export function useModalTheme() {
   const { isDark } = useTheme();
 
   return {
-    overlayBg: 'rgba(0, 0, 0, 0.6)',
+    overlayBg: colors.overlayScrim,
     cardBg: isDark ? colors.surfaceDark : colors.surfaceLight,
     titleColor: isDark ? colors.textDark : colors.textLight,
     messageColor: isDark ? colors.textMutedDark : colors.textMutedLight,

@@ -6,6 +6,7 @@ import { formatDateCompact as formatCompactDate } from '../../../utils/dateForma
 import { calculatePresetDateRange } from './DateRangePresets';
 import { DateRangeCalendar } from './DateRangeCalendar';
 import Toggle from '../../Toggle';
+import { layout } from '../../../theme/tokens';
 
 export default function DateRangePicker({ startDate, endDate, onChange }) {
   const { t } = useTheme();
@@ -91,7 +92,7 @@ export default function DateRangePicker({ startDate, endDate, onChange }) {
 
   return (
     <View style={styles.datePickerContainer}>
-      <View style={{ position: 'relative', zIndex: 3000 }}>
+      <View style={{ position: 'relative', zIndex: layout.zIndices.toast }}>
         <Toggle
           options={options}
           value={mode}

@@ -1,6 +1,6 @@
 # 📦 Unused Exports
 
-*Generated on: 26.07.2026, 23:12:05*
+*Generated on: 26.07.2026, 23:54:14*
 
 Exports that are not imported or consumed by any other active file:
 
@@ -39,6 +39,7 @@ Exports that are not imported or consumed by any other active file:
 - [SamplingStrategy.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/policy/SamplingStrategy.ts): `SamplingStrategy` ([L28](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/policy/SamplingStrategy.ts#L28))
 - [BoundedCollections.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/utils/BoundedCollections.ts): `BoundedSet` ([L1](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/utils/BoundedCollections.ts#L1)), `BoundedMap` ([L41](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/utils/BoundedCollections.ts#L41))
 - [devServerHelper.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/devServerHelper.ts): `isServerRunning` ([L5](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/devServerHelper.ts#L5)), `ensureDevServer` ([L18](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/devServerHelper.ts#L18))
+- [dynamic-report-writer.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/dynamic-report-writer.ts): `clearSeenViolations` ([L15](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/dynamic-report-writer.ts#L15))
 - [envValidator.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/envValidator.ts): `validateAuthEnv` ([L6](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/envValidator.ts#L6))
 - [hoverInfoHelper.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/hoverInfoHelper.ts): `extractElementHoverInfo` ([L44](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/hoverInfoHelper.ts#L44))
 - [index.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/index.ts): `runUIExplorer` ([L25](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/index.ts#L25))
@@ -59,7 +60,7 @@ Exports that are not imported or consumed by any other active file:
 - [SmokeConsoleListener.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/plugins/smoke/SmokeConsoleListener.ts): `SmokeConsoleListener` ([L15](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/plugins/smoke/SmokeConsoleListener.ts#L15))
 - [SmokePlugin.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/plugins/smoke/SmokePlugin.ts): `SmokePlugin` ([L22](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/plugins/smoke/SmokePlugin.ts#L22))
 - [SmokeReportPrinter.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/plugins/smoke/SmokeReportPrinter.ts): `SmokeReportPrinter` ([L6](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/plugins/smoke/SmokeReportPrinter.ts#L6))
-- [smoke-automation.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/smoke-automation.ts): `runSmokeAutomation` ([L41](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/smoke-automation.ts#L41))
+- [smoke-automation.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/smoke-automation.ts): `runSmokeAutomation` ([L48](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/smoke-automation.ts#L48))
 - [setupManualInspector.ts](file:///D:/Magazine/_PigmentShop/.tools/manual-browser-inspector/setupManualInspector.ts): `setupManualInspector` ([L106](file:///D:/Magazine/_PigmentShop/.tools/manual-browser-inspector/setupManualInspector.ts#L106))
 - [cleanOldFiles.js](file:///D:/Magazine/_PigmentShop/scripts/cleanOldFiles.js): `cleanOldFiles` ([L30](file:///D:/Magazine/_PigmentShop/scripts/cleanOldFiles.js#L30))
 - [devServerReport.js](file:///D:/Magazine/_PigmentShop/scripts/devServerReport.js): `cleanOldFiles` ([L48](file:///D:/Magazine/_PigmentShop/scripts/devServerReport.js#L48)), `generateMarkdownReport` ([L49](file:///D:/Magazine/_PigmentShop/scripts/devServerReport.js#L49))

@@ -25,7 +25,7 @@ function ModalFooter({ onCancel, onSave, styles, footerLeft }) {
   return (
     <View style={styles.modalFooter}>
       {footerLeft ?? <View />}
-      <View style={styles.modalFooterRight ?? { flexDirection: 'row', gap: 12, alignItems: 'center' }}>
+      <View style={styles.modalFooterRight ?? { flexDirection: 'row', gap: layout.spacing.md, alignItems: 'center' }}>
         <Button
           title={t('btnCancelLabel')}
           onPress={onCancel}

@@ -2,49 +2,22 @@
   "summary": {
     "visitedScreens": 0,
     "visitedInteractions": 0,
-    "successfulInteractions": 170,
-    "failedInteractions": 0,
-    "warnings": 4,
-    "errors": 0,
+    "successfulInteractions": 60,
+    "failedInteractions": 1,
+    "warnings": 0,
+    "errors": 1,
     "executionDurationMs": 0
   },
-  "failures": [],
-  "warnings": [
+  "failures": [
     {
-      "screen": "http://localhost:8081/",
-      "interaction": "Initial Load",
-      "elementIdentifier": "None",
-      "event": "Runtime",
-      "timestamp": 1785097465357,
-      "errorType": "Console Warning",
-      "errorMessage": "props.pointerEvents is deprecated. Use style.pointerEvents"
-    },
-    {
-      "screen": "http://localhost:8081/product/prod-1-2-2-1",
+      "screen": "http://localhost:8081/admin",
       "interaction": "Click",
-      "elementIdentifier": "btn|toggleAskQuestion",
-      "event": "Runtime",
-      "timestamp": 1785097718315,
-      "errorType": "Console Error",
-      "errorMessage": "Failed to load resource: net::ERR_CONNECTION_REFUSED"
-    },
-    {
-      "screen": "http://localhost:8081/product/prod-1-2-2-1",
-      "interaction": "Click",
-      "elementIdentifier": "btn|toggleAskQuestion",
-      "event": "Runtime",
-      "timestamp": 1785097718318,
-      "errorType": "Console Warning",
-      "errorMessage": "[ServiceError] TypeError: Failed to fetch\n    at _notifyOrderCreated (http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:170001:28)\n    at http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:155270:50\n    at executeServiceOperation (http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:155242:28)\n    at http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:155270:20\n    at sendOrderNotification (http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:169872:66)\n    at _processCheckout (http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:169914:11)\n    at async executeServiceOperation (http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:155242:22)\n    at async Object.processCheckout (http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:155270:14)\n    at async handleCheckoutProcess (http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable:169758:20)"
-    },
-    {
-      "screen": "http://localhost:8081/product/prod-1-2-2-1",
-      "interaction": "Click",
-      "elementIdentifier": "btn|toggleAskQuestion",
-      "event": "Runtime",
-      "timestamp": 1785097718321,
-      "errorType": "Console Warning",
-      "errorMessage": "[checkoutService] Notification failed: Failed to fetch {orderId: stsMnZjAe6Vu4MC2y2Hx, totalItems: 6, totalPrice: 3364, errorDetails: Object}"
+      "elementIdentifier": "btn|adminProductsColSt...",
+      "event": "AfterInteraction",
+      "timestamp": 1785099407151,
+      "errorType": "Health Check Evaluation Failed",
+      "errorMessage": "[Application Bug] page.evaluate: Target page, context or browser has been closed"
     }
-  ]
+  ],
+  "warnings": []
 }

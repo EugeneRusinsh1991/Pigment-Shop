@@ -43,7 +43,7 @@ function renderHelperText(displayHelperText, dynamicStyles, helperStyle) {
 function renderInputWrapper({ ref, value, onChangeText, placeholder, theme, disabled, multiline, numberOfLines, handleFocus, handleBlur, dynamicStyles, inputStyle, animatedContainerStyle, inputWrapperStyle, leadingIcon, trailingIcon, restProps }) {
   return (
     <Animated.View style={[dynamicStyles.inputWrapper, animatedContainerStyle, inputWrapperStyle]}>
-      {leadingIcon ? <View style={dynamicStyles.leadingIcon}>{leadingIcon}</View> : null}
+      {leadingIcon ? <View style={styles.leadingIconContainer}>{leadingIcon}</View> : null}
       <TextInput
         ref={ref}
         value={value}
@@ -58,7 +58,7 @@ function renderInputWrapper({ ref, value, onChangeText, placeholder, theme, disa
         style={[dynamicStyles.input, inputStyle]}
         {...restProps}
       />
-      {trailingIcon ? <View style={dynamicStyles.trailingIcon}>{trailingIcon}</View> : null}
+      {trailingIcon ? <View style={styles.trailingIconContainer}>{trailingIcon}</View> : null}
     </Animated.View>
   );
 }

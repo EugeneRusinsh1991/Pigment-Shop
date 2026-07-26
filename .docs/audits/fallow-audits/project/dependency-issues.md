@@ -1,6 +1,6 @@
 # 🔗 Dependency Issues
 
-*Generated on: 26.07.2026, 23:12:05*
+*Generated on: 26.07.2026, 23:54:14*
 
 #### Unlisted Dependencies
 - `@babel/parser` (imported at: `.tools/auditor/catalog-generator.js:3`)

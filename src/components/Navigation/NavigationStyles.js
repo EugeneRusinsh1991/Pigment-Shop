@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors } from '@/theme/tokens';
+import { colors, layout } from '@/theme/tokens';
 
 export const createBreadcrumbStyles = (isDark) => StyleSheet.create({
   scroll: {
@@ -10,7 +10,7 @@ export const createBreadcrumbStyles = (isDark) => StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 0,
-    paddingVertical: 4,
+    paddingVertical: layout.spacing.xxs,
     flexWrap: 'nowrap',
     minWidth: 0,
   },
@@ -19,7 +19,7 @@ export const createBreadcrumbStyles = (isDark) => StyleSheet.create({
     alignItems: 'center',
   },
   separator: {
-    marginHorizontal: 6,
+    marginHorizontal: layout.spacing.xs,
     color: colors.accent,
   },
   crumb: {
@@ -38,8 +38,8 @@ export const createPaginationStyles = (isDark) => StyleSheet.create({
     alignSelf: 'center',
     width: '100%',
     maxWidth: 1330,
-    paddingHorizontal: 8,
-    paddingVertical: 4,
+    paddingHorizontal: layout.spacing.sm,
+    paddingVertical: layout.spacing.xxs,
     borderBottomWidth: 0,
     minHeight: 36,
     backgroundColor: isDark ? colors.backgroundDark : colors.backgroundLight,
@@ -52,11 +52,11 @@ export const createPaginationStyles = (isDark) => StyleSheet.create({
     justifyContent: 'flex-start',
   },
   backButton: {
-    paddingVertical: 4,
+    paddingVertical: layout.spacing.xxs,
     minHeight: 44,
     justifyContent: 'center',
     flexShrink: 0,
-    marginRight: 16,
+    marginRight: layout.spacing.lg,
   },
   backText: {
     color: colors.accent,

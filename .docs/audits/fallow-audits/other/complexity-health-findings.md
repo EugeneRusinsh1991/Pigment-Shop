@@ -1,6 +1,6 @@
 # 🩺 Complexity Health Findings (Critical & High)
 
-*Generated on: 26.07.2026, 23:12:05*
+*Generated on: 26.07.2026, 23:54:14*
 
 ## 🔴 Critical (> 50 lines)
 
@@ -21,6 +21,12 @@
 
 - 🔴 **`auditUnusedExports`** [L25](file:///D:/Magazine/_PigmentShop/.tools/auditor/unused-exports-auditor.js#L25)
   - Lines: 92 | Cyclomatic: 16 | Cognitive: 37 | CRAP: 272
+
+#### 📁 [dynamic-report-writer.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/dynamic-report-writer.ts)
+`.tools/browser-automation/helpers/dynamic-report-writer.ts`
+
+- 🔴 **`writeDynamicReport`** [L21](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/dynamic-report-writer.ts#L21)
+  - Lines: 104 | Cyclomatic: 13 | Cognitive: 15 | CRAP: 182
 
 #### 📁 [12-raw-i18n-keys-auditor.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/12-raw-i18n-keys-auditor.js)
 `.tools/auditor/12-raw-i18n-keys-auditor.js`
@@ -46,6 +52,12 @@
 - 🔴 **`auditPerformance`** [L53](file:///D:/Magazine/_PigmentShop/.tools/auditor/performance-auditor.js#L53)
   - Lines: 54 | Cyclomatic: 10 | Cognitive: 23 | CRAP: 110
 
+#### 📁 [01-dynamic-ui-architecture-auditor.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/auditors/01-dynamic-ui-architecture-auditor.ts)
+`.tools/browser-automation/auditors/01-dynamic-ui-architecture-auditor.ts`
+
+- 🔴 **`issues`** [L12](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/auditors/01-dynamic-ui-architecture-auditor.ts#L12)
+  - Lines: 111 | Cyclomatic: 10 | Cognitive: 13 | CRAP: 110
+
 
 ## 🔴 Critical (≤ 50 lines)
 
@@ -61,6 +73,12 @@
 - 🔴 **`JSXElement`** [L94](file:///D:/Magazine/_PigmentShop/.tools/auditor/catalog-generator.js#L94)
   - Lines: 42 | Cyclomatic: 21 | Cognitive: 17 | CRAP: 462
 
+#### 📁 [02-dynamic-raw-i18n-auditor.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/auditors/02-dynamic-raw-i18n-auditor.ts)
+`.tools/browser-automation/auditors/02-dynamic-raw-i18n-auditor.ts`
+
+- 🔴 **`rawIssues`** [L13](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/auditors/02-dynamic-raw-i18n-auditor.ts#L13)
+  - Lines: 36 | Cyclomatic: 19 | Cognitive: 26 | CRAP: 380
+
 #### 📁 [hardcode-styles-auditor.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-styles-auditor.js)
 `.tools/auditor/hardcode-styles-auditor.js`
 
@@ -73,11 +91,15 @@
 - 🔴 **`runAllAudits`** [L20](file:///D:/Magazine/_PigmentShop/.tools/auditor/index.js#L20)
   - Lines: 32 | Cyclomatic: 15 | Cognitive: 14 | CRAP: 240
 
-#### 📁 [02-dynamic-raw-i18n-auditor.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/auditors/02-dynamic-raw-i18n-auditor.ts)
-`.tools/browser-automation/auditors/02-dynamic-raw-i18n-auditor.ts`
+#### 📁 [01-dynamic-ui-architecture-auditor.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/auditors/01-dynamic-ui-architecture-auditor.ts)
+`.tools/browser-automation/auditors/01-dynamic-ui-architecture-auditor.ts`
 
-- 🔴 **`rawIssues`** [L13](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/auditors/02-dynamic-raw-i18n-auditor.ts#L13)
-  - Lines: 31 | Cyclomatic: 12 | Cognitive: 13 | CRAP: 156
+- 🔴 **`<arrow>`** [L126](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/auditors/01-dynamic-ui-architecture-auditor.ts#L126)
+  - Lines: 24 | Cyclomatic: 15 | Cognitive: 5 | CRAP: 240
+- 🔴 **`<arrow>`** [L71](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/auditors/01-dynamic-ui-architecture-auditor.ts#L71)
+  - Lines: 19 | Cyclomatic: 14 | Cognitive: 15 | CRAP: 210
+- 🔴 **`<arrow>`** [L27](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/auditors/01-dynamic-ui-architecture-auditor.ts#L27)
+  - Lines: 24 | Cyclomatic: 10 | Cognitive: 11 | CRAP: 110
 
 #### 📁 [03-dynamic-broken-ui-auditor.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/auditors/03-dynamic-broken-ui-auditor.ts)
 `.tools/browser-automation/auditors/03-dynamic-broken-ui-auditor.ts`
@@ -119,12 +141,6 @@
 
 - 🟠 **`auditTypography`** [L57](file:///D:/Magazine/_PigmentShop/.tools/auditor/typography-auditor.js#L57)
   - Lines: 59 | Cyclomatic: 8 | Cognitive: 18 | CRAP: 72
-
-#### 📁 [dynamic-report-writer.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/dynamic-report-writer.ts)
-`.tools/browser-automation/helpers/dynamic-report-writer.ts`
-
-- 🟠 **`writeDynamicReport`** [L11](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/dynamic-report-writer.ts#L11)
-  - Lines: 77 | Cyclomatic: 7 | Cognitive: 10 | CRAP: 56
 
 
 ## 🟠 High (≤ 50 lines)

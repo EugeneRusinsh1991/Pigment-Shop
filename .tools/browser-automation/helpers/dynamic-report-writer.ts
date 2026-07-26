@@ -8,12 +8,14 @@ interface Violation {
   [key: string]: any;
 }
 
-const seenViolations = new Set<string>();
-const seenUrls = new Set<string>();
+const loadedState = new Set<string>();
+const memoryViolations: Record<string, Record<string, Violation[]>> = {};
+const memoryUrls: Record<string, Set<string>> = {};
 
 export function clearSeenViolations() {
-  seenViolations.clear();
-  seenUrls.clear();
+  loadedState.clear();
+  Object.keys(memoryViolations).forEach(k => delete memoryViolations[k]);
+  Object.keys(memoryUrls).forEach(k => delete memoryUrls[k]);
 }
 
 export function writeDynamicReport(
@@ -32,82 +34,92 @@ export function writeDynamicReport(
   const sessionSuffix = sessionId ? `-${sessionId}` : '';
   const baseFileName = `${auditorPrefix}-dynamic-${auditorName}-${scope}${sessionSuffix}`;
   const violationsFilePath = path.join(dirPath, `${baseFileName}-violations.log`);
+  const jsonFilePath = path.join(dirPath, `${baseFileName}-violations.json`);
   const filesFilePath = path.join(dirPath, `${baseFileName}-files.log`);
 
-  const newViolations = violations.filter(v => {
-    const key = `${auditorPrefix}:${auditorName}:${scope}:${sessionId || ''}:${v.url}:${v.message}:${v.selector || ''}`;
-    if (seenViolations.has(key)) {
-      return false;
+  if (!loadedState.has(baseFileName)) {
+    loadedState.add(baseFileName);
+    memoryViolations[baseFileName] = {};
+    memoryUrls[baseFileName] = new Set<string>();
+    
+    if (fs.existsSync(jsonFilePath)) {
+      try {
+        const data = JSON.parse(fs.readFileSync(jsonFilePath, 'utf-8'));
+        memoryViolations[baseFileName] = data.violations || {};
+        const urls = data.urls || [];
+        urls.forEach((u: string) => memoryUrls[baseFileName].add(u));
+      } catch (e) {
+        console.error('Failed to parse existing dynamic audit state:', e);
+      }
     }
-    seenViolations.add(key);
-    return true;
+  }
+
+  const state = memoryViolations[baseFileName];
+  const urlState = memoryUrls[baseFileName];
+  let hasNew = false;
+  let hasNewUrls = false;
+
+  violations.forEach(v => {
+    if (!state[v.url]) {
+      state[v.url] = [];
+    }
+    const isDuplicate = state[v.url].some((existing: Violation) => 
+      existing.message === v.message && existing.selector === v.selector
+    );
+    if (!isDuplicate) {
+      state[v.url].push(v);
+      hasNew = true;
+    }
+    if (!urlState.has(v.url)) {
+      urlState.add(v.url);
+      hasNewUrls = true;
+    }
   });
 
-  if (newViolations.length === 0) {
+  if (!hasNew && !hasNewUrls) {
     return;
   }
 
-  const groupedByUrl = newViolations.reduce((acc, violation) => {
-    if (!acc[violation.url]) {
-      acc[violation.url] = [];
-    }
-    acc[violation.url].push(violation);
-    return acc;
-  }, {} as Record<string, Violation[]>);
+  fs.writeFileSync(jsonFilePath, JSON.stringify({
+    violations: state,
+    urls: Array.from(urlState)
+  }, null, 2), 'utf-8');
 
-  const affectedUrls = Object.keys(groupedByUrl);
-
-  let reportContent = '';
-  const fileExists = fs.existsSync(violationsFilePath);
-  if (!fileExists) {
-    reportContent += `---
+  if (hasNew) {
+    let reportContent = `---
 type: dynamic-audit
 auditor: ${auditorName}
 scope: ${scope}
 date: ${new Date().toISOString()}
 ---\n`;
+
+    Object.keys(state).forEach(url => {
+      if (state[url].length === 0) return;
+      reportContent += `\n### URL: ${url}\n`;
+      state[url].forEach((v: Violation) => {
+        reportContent += `- ${v.message}\n`;
+        if (v.selector) {
+          reportContent += `  Selector: \`${v.selector}\`\n`;
+        }
+      });
+    });
+
+    fs.writeFileSync(violationsFilePath, reportContent, 'utf-8');
   }
 
-  affectedUrls.forEach(url => {
-    reportContent += `\n### URL: ${url}\n`;
-    groupedByUrl[url].forEach(v => {
-      reportContent += `- ${v.message}\n`;
-      if (v.selector) {
-        reportContent += `  Selector: \`${v.selector}\`\n`;
-      }
-    });
-  });
-
-  fs.appendFileSync(violationsFilePath, reportContent, 'utf-8');
-
-  affectedUrls.forEach(url => seenUrls.add(`${auditorPrefix}:${auditorName}:${scope}:${sessionId || ''}:${url}`));
-  const scopePrefix = `${auditorPrefix}:${auditorName}:${scope}:${sessionId || ''}:`;
-  const totalUrlsCount = Array.from(seenUrls).filter(k => k.startsWith(scopePrefix)).length;
-
-  if (totalUrlsCount > 10) {
-    const filesFileExists = fs.existsSync(filesFilePath);
-    let filesContent = '';
-    if (!filesFileExists) {
-      filesContent += `---
+  if (urlState.size > 10 && hasNewUrls) {
+    let filesContent = `---
 type: dynamic-audit-urls
 auditor: ${auditorName}
 scope: ${scope}
 date: ${new Date().toISOString()}
 ---\n\n`;
-      const currentScopeUrls = Array.from(seenUrls)
-        .filter(k => k.startsWith(scopePrefix))
-        .map(k => k.replace(scopePrefix, ''));
-      
-      currentScopeUrls.forEach(url => {
-        filesContent += `- ${url}\n`;
-      });
-      fs.writeFileSync(filesFilePath, filesContent, 'utf-8');
-    } else {
-      affectedUrls.forEach(url => {
-        filesContent += `- ${url}\n`;
-      });
-      fs.appendFileSync(filesFilePath, filesContent, 'utf-8');
-    }
+
+    Array.from(urlState).forEach(url => {
+      filesContent += `- ${url}\n`;
+    });
+    
+    fs.writeFileSync(filesFilePath, filesContent, 'utf-8');
   }
 }
 

@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
     top: 20,
     alignSelf: 'center',
     paddingHorizontal: 20,
-    paddingVertical: 12,
+    paddingVertical: layout.spacing.md,
     borderRadius: layout.radii.md,
     borderWidth: 1,
     maxWidth: '90%',

@@ -1,8 +1,11 @@
 # 🧠 Highly Complex Files
 
-*Generated on: 26.07.2026, 23:12:05*
+*Generated on: 26.07.2026, 23:54:14*
 
 ### Highly Complex Files (< 200 lines)
+
+- **[02-dynamic-raw-i18n-auditor.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/auditors/02-dynamic-raw-i18n-auditor.ts)** (`.tools/browser-automation/auditors/02-dynamic-raw-i18n-auditor.ts`)
+  - Lines: 73 | CRAP Max: 380 | Complex Funcs: 2 | Density: 36%
 
 - **[hardcode-styles-auditor.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-styles-auditor.js)** (`.tools/auditor/hardcode-styles-auditor.js`)
   - Lines: 158 | CRAP Max: 306 | Complex Funcs: 4 | Density: 33%
@@ -16,8 +19,11 @@
 - **[index.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/index.js)** (`.tools/auditor/index.js`)
   - Lines: 58 | CRAP Max: 240 | Complex Funcs: 1 | Density: 26%
 
-- **[02-dynamic-raw-i18n-auditor.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/auditors/02-dynamic-raw-i18n-auditor.ts)** (`.tools/browser-automation/auditors/02-dynamic-raw-i18n-auditor.ts`)
-  - Lines: 66 | CRAP Max: 156 | Complex Funcs: 1 | Density: 26%
+- **[01-dynamic-ui-architecture-auditor.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/auditors/01-dynamic-ui-architecture-auditor.ts)** (`.tools/browser-automation/auditors/01-dynamic-ui-architecture-auditor.ts`)
+  - Lines: 153 | CRAP Max: 240 | Complex Funcs: 6 | Density: 44%
+
+- **[dynamic-report-writer.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/dynamic-report-writer.ts)** (`.tools/browser-automation/helpers/dynamic-report-writer.ts`)
+  - Lines: 126 | CRAP Max: 182 | Complex Funcs: 1 | Density: 22%
 
 - **[03-dynamic-broken-ui-auditor.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/auditors/03-dynamic-broken-ui-auditor.ts)** (`.tools/browser-automation/auditors/03-dynamic-broken-ui-auditor.ts`)
   - Lines: 93 | CRAP Max: 132 | Complex Funcs: 3 | Density: 33%

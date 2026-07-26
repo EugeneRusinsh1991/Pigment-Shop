@@ -7,10 +7,10 @@
 ---
 
 ### File: [src/components/Admin/Analytics/AnalyticsDashboard.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Analytics/AnalyticsDashboard.js)
-  - Line [36](file:///D:/Magazine/_PigmentShop/src/components/Admin/Analytics/AnalyticsDashboard.js#L36): `<StatCard>`
   - Line [37](file:///D:/Magazine/_PigmentShop/src/components/Admin/Analytics/AnalyticsDashboard.js#L37): `<StatCard>`
   - Line [38](file:///D:/Magazine/_PigmentShop/src/components/Admin/Analytics/AnalyticsDashboard.js#L38): `<StatCard>`
   - Line [39](file:///D:/Magazine/_PigmentShop/src/components/Admin/Analytics/AnalyticsDashboard.js#L39): `<StatCard>`
+  - Line [40](file:///D:/Magazine/_PigmentShop/src/components/Admin/Analytics/AnalyticsDashboard.js#L40): `<StatCard>`
 
 ### File: [src/components/Admin/Categories/CategoryTree.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryTree.js)
   - Line [112](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryTree.js#L112): `<MobileCategoryCard>`

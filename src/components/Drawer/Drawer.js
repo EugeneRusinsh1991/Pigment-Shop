@@ -51,6 +51,7 @@ export function Drawer({
   const isVisible = activeVisible !== undefined ? activeVisible : animation.shouldRender;
 
   const handleCloseAction = onClose || animation.handleClose;
+  const pressableStyle = { flex: 1 };
 
   return (
     <Modal visible={isVisible} transparent animationType="none" onRequestClose={handleCloseAction}>
@@ -76,7 +77,7 @@ export function Drawer({
           {children}
         </Animated.View>
         <Pressable
-          style={{ flex: 1 }}
+          style={pressableStyle}
           onPress={handleCloseAction}
           accessibilityRole="button"
           accessibilityLabel="Close drawer"

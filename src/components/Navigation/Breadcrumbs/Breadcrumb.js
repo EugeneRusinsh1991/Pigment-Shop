@@ -5,7 +5,7 @@ import { Link, useSegments, useLocalSearchParams } from 'expo-router';
 import { useCatalog } from '@/context/CatalogContext';
 import { HomeIcon } from '@/components/Icons';
 import { buildBreadcrumbStack } from '@/utils/breadcrumbResolver';
-import { colors } from '@/theme/tokens';
+import { colors, layout } from '@/theme/tokens';
 import { AnimatedButton } from '@/components/Button';
 import { useBreadcrumbTheme } from './useBreadcrumbTheme';
 
@@ -25,7 +25,7 @@ function CrumbItem({ crumb, isLast, styles, testID }) {
 
   return (
     <Link href={crumb.href || '/catalog'} asChild testID={testID}>
-      <AnimatedButton hitSlop={{ top: 12, bottom: 12, left: 6, right: 6 }}>
+      <AnimatedButton hitSlop={{ top: layout.spacing.md, bottom: layout.spacing.md, left: layout.spacing.xs, right: layout.spacing.xs }}>
         <Text style={textStyle} size="sm" weight="medium" numberOfLines={1}>
           {crumb.label}
         </Text>
@@ -58,7 +58,7 @@ export function Breadcrumb({ isDark: isDarkProps }) {
     >
       {/* "Home" crumb */}
       <Link href="/" asChild testID="breadcrumb-home">
-        <AnimatedButton style={{ paddingVertical: 4, paddingHorizontal: 6 }} hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}>
+        <AnimatedButton style={{ paddingVertical: layout.spacing.xxs, paddingHorizontal: layout.spacing.xs }} hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}>
           <HomeIcon color={colors.accent} size={14} />
         </AnimatedButton>
       </Link>

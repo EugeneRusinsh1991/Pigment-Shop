@@ -58,7 +58,7 @@
   - Line [35](file:///D:/Magazine/_PigmentShop/src/components/Admin/FormModalLayout.js#L35): `<Button>`
 
 ### File: [src/components/Admin/LanguageTabs.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/LanguageTabs.js)
-  - Line [17](file:///D:/Magazine/_PigmentShop/src/components/Admin/LanguageTabs.js#L17): `<ChipButton>`
+  - Line [18](file:///D:/Magazine/_PigmentShop/src/components/Admin/LanguageTabs.js#L18): `<ChipButton>`
 
 ### File: [src/components/Admin/Media/MediaBrowserComponents.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Media/MediaBrowserComponents.js)
   - Line [38](file:///D:/Magazine/_PigmentShop/src/components/Admin/Media/MediaBrowserComponents.js#L38): `<Button>`
@@ -121,7 +121,7 @@
   - Line [52](file:///D:/Magazine/_PigmentShop/src/components/Button/IconButton.js#L52): `<Button>`
 
 ### File: [src/components/Card/Card.js](file:///D:/Magazine/_PigmentShop/src/components/Card/Card.js)
-  - Line [48](file:///D:/Magazine/_PigmentShop/src/components/Card/Card.js#L48): `<TouchableOpacity>`
+  - Line [49](file:///D:/Magazine/_PigmentShop/src/components/Card/Card.js#L49): `<TouchableOpacity>`
 
 ### File: [src/components/Card/InteractiveCard.js](file:///D:/Magazine/_PigmentShop/src/components/Card/InteractiveCard.js)
   - Line [73](file:///D:/Magazine/_PigmentShop/src/components/Card/InteractiveCard.js#L73): `<TouchableOpacity>`
@@ -131,7 +131,7 @@
   - Line [151](file:///D:/Magazine/_PigmentShop/src/components/DataTable/DataTable.js#L151): `<AnimatedButton>`
 
 ### File: [src/components/Drawer/Drawer.js](file:///D:/Magazine/_PigmentShop/src/components/Drawer/Drawer.js)
-  - Line [78](file:///D:/Magazine/_PigmentShop/src/components/Drawer/Drawer.js#L78): `<Pressable>`
+  - Line [79](file:///D:/Magazine/_PigmentShop/src/components/Drawer/Drawer.js#L79): `<Pressable>`
 
 ### File: [src/components/Flag/Flag.js](file:///D:/Magazine/_PigmentShop/src/components/Flag/Flag.js)
   - Line [110](file:///D:/Magazine/_PigmentShop/src/components/Flag/Flag.js#L110): `<Pressable>`
@@ -155,13 +155,13 @@
   - Line [62](file:///D:/Magazine/_PigmentShop/src/components/Navigation/Pagination/PageNavigation.js#L62): `<BackButton>`
 
 ### File: [src/components/Search/SearchDropdown.js](file:///D:/Magazine/_PigmentShop/src/components/Search/SearchDropdown.js)
-  - Line [21](file:///D:/Magazine/_PigmentShop/src/components/Search/SearchDropdown.js#L21): `<AnimatedButton>`
+  - Line [22](file:///D:/Magazine/_PigmentShop/src/components/Search/SearchDropdown.js#L22): `<AnimatedButton>`
 
 ### File: [src/components/Search/SearchInput.js](file:///D:/Magazine/_PigmentShop/src/components/Search/SearchInput.js)
   - Line [38](file:///D:/Magazine/_PigmentShop/src/components/Search/SearchInput.js#L38): `<IconButton>`
 
 ### File: [src/components/Toggle/Toggle.js](file:///D:/Magazine/_PigmentShop/src/components/Toggle/Toggle.js)
-  - Line [51](file:///D:/Magazine/_PigmentShop/src/components/Toggle/Toggle.js#L51): `<TouchableOpacity>`
+  - Line [54](file:///D:/Magazine/_PigmentShop/src/components/Toggle/Toggle.js#L54): `<TouchableOpacity>`
 
 ### File: [src/features/auth/LoginPage.js](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPage.js)
   - Line [56](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPage.js#L56): `<Button>`

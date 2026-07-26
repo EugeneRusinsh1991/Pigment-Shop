@@ -76,7 +76,7 @@ export default function AdminPanel({ onBack }) {
         ) : (
           <Button
             title={t('userLogout')}
-            leftIcon={<LogoutIcon color={colors.secondaryLightText} size={14} style={{ marginRight: 6 }} />}
+            leftIcon={<LogoutIcon color={colors.secondaryLightText} size={14} style={{ marginRight: layout.spacing.xs }} />}
             onPress={handleLogout}
             variant="secondary"
             size="sm"

@@ -72,6 +72,18 @@ export const colors = {
   dangerSoftLightText: '#111827',
   dangerSoftDarkBg: 'rgba(239, 68, 68, 0.15)',
   dangerSoftDarkBorder: 'rgba(239, 68, 68, 0.3)',
+  dangerSoftDarkBgAlt: 'rgba(239, 68, 68, 0.2)',
+  dangerSoftDarkBorderAlt: 'rgba(239, 68, 68, 0.4)',
+  warningSoftDarkBg: 'rgba(245, 158, 11, 0.2)',
+  warningSoftDarkBorder: 'rgba(245, 158, 11, 0.4)',
+  infoSoftDarkBg: 'rgba(59, 130, 246, 0.2)',
+  infoSoftDarkBorder: 'rgba(59, 130, 246, 0.4)',
+  successSoftDarkBg: 'rgba(16, 185, 129, 0.2)',
+  successSoftDarkBorder: 'rgba(16, 185, 129, 0.4)',
+  purpleSoftDarkBg: 'rgba(139, 92, 246, 0.2)',
+  purpleSoftDarkBorder: 'rgba(139, 92, 246, 0.4)',
+  blueSoftDarkBg: 'rgba(37, 99, 235, 0.2)',
+  blueSoftDarkBorder: 'rgba(37, 99, 235, 0.4)',
 
   // Danger Scale (admin status / order states)
   dangerLight: '#F87171',
@@ -235,6 +247,15 @@ export const layout = {
     modal: 2000,
     toast: 3000,
     tooltip: 4000,
+  },
+  spacing: {
+    xxs: 4,
+    xs: 6,
+    sm: 8,
+    md: 12,
+    lg: 16,
+    xl: 24,
+    xxl: 32,
   },
 };
 

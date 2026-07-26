@@ -1,21 +1,15 @@
 ===================================================================
                8. MAGIC NUMBERS REPORT                             
-Timestamp: 26.07.2026, 23:11:53
+Timestamp: 26.07.2026, 23:54:06
 ===================================================================
 
-Found 157 magic number issue(s) across 47 file(s):
+Found 147 magic number issue(s) across 43 file(s):
 
 File: src\AppStyles.js
   L91    Off-grid paddingVertical: 14px
   L104   Off-grid marginBottom: 6px
 
-File: src\components\Admin\AdminPanel.js
-  L79    Off-grid marginRight: 6px
-
 File: src\components\Admin\AdminPanelStyles.js
-  L25    Off-grid gap: 10px
-  L28    Off-grid padding: 6px
-  L39    Off-grid gap: 6px
   L41    Off-grid paddingHorizontal: 14px
 
 File: src\components\Admin\Analytics\AnalyticsStyles.js
@@ -23,11 +17,9 @@ File: src\components\Admin\Analytics\AnalyticsStyles.js
   L34    Off-grid marginBottom: 10px
   L70    Off-grid marginBottom: 10px
   L74    Off-grid marginRight: 10px
-  L103   Off-grid marginBottom: 6px
   L142   Off-grid paddingVertical: 10px
 
 File: src\components\Admin\Analytics\DateRangeCalendarStyles.js
-  L41    Off-grid marginBottom: 6px
   L58    Off-grid marginVertical: 1px
 
 File: src\components\Admin\Banners\BannersStyles.js
@@ -157,9 +149,6 @@ File: src\components\Badge\BadgeStyles.js
 File: src\components\Button\ChipButton.js
   L77    Off-grid gap: 6px
 
-File: src\components\Card\CardStyles.js
-  L67    Off-grid marginBottom: 6px
-
 File: src\components\DataTable\DataTableStyles.js
   L34    Off-grid paddingVertical: 10px
   L111   Off-grid paddingVertical: 10px
@@ -168,17 +157,10 @@ File: src\components\Flag\FlagStyles.js
   L68    Off-grid paddingHorizontal: 14px
   L69    Off-grid paddingVertical: 6px
 
-File: src\components\Navigation\NavigationStyles.js
-  L22    Off-grid marginHorizontal: 6px
-
 File: src\components\Search\SearchDropdown.js
-  L46    Off-grid padding: 14px
-  L57    Off-grid padding: 10px
-
-File: src\components\TextField\TextFieldStyles.js
-  L7     Off-grid paddingHorizontal: 10px
-  L35    Off-grid marginBottom: 6px
-  L73    Off-grid paddingVertical: 10px
+  L24    Off-grid gap: 10px
+  L47    Off-grid padding: 14px
+  L58    Off-grid padding: 10px
 
 File: src\features\auth\LoginPageStyles.js
   L36    Off-grid marginBottom: 6px

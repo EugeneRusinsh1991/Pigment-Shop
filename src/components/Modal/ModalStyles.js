@@ -1,12 +1,14 @@
 import { StyleSheet, Platform } from 'react-native';
 import { layout, shadows } from '../../theme/tokens';
 
+const OVERLAY_PADDING = 20;
+
 export const modalStyles = StyleSheet.create({
   overlay: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 20,
+    padding: OVERLAY_PADDING,
     zIndex: layout.zIndices.modal,
   },
   content: {
@@ -17,17 +19,17 @@ export const modalStyles = StyleSheet.create({
     width: '100%',
     maxWidth: 420,
     borderRadius: layout.radii.md,
-    padding: 24,
+    padding: layout.spacing.xl,
   },
   title: {
-    marginBottom: 8,
+    marginBottom: layout.spacing.sm,
   },
   message: {
-    marginBottom: 24,
+    marginBottom: layout.spacing.xl,
   },
   footer: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
-    gap: 12,
+    gap: layout.spacing.md,
   },
 });

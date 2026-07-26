@@ -1,6 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import { ChipButton } from '../Button';
+import { layout } from '../../theme/tokens';
 
 const LANGUAGES = [
   { code: 'uk', label: 'UA' },
@@ -10,7 +11,7 @@ const LANGUAGES = [
 
 export function LanguageTabs({ activeLang, onChange }) {
   return (
-    <View style={{ flexDirection: 'row', gap: 8, marginBottom: 16 }}>
+    <View style={{ flexDirection: 'row', gap: layout.spacing.sm, marginBottom: layout.spacing.lg }}>
       {LANGUAGES.map((item) => {
         const isActive = activeLang === item.code;
         return (

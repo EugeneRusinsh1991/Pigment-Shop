@@ -14,10 +14,10 @@
   - Line [79](file:///D:/Magazine/_PigmentShop/src/components/Admin/AdminPanel.js#L79): `<LogoutIcon>` (Icon: `[Unknown]`)
 
 ### File: [src/components/Admin/Analytics/AnalyticsDashboard.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Analytics/AnalyticsDashboard.js)
-  - Line [36](file:///D:/Magazine/_PigmentShop/src/components/Admin/Analytics/AnalyticsDashboard.js#L36): `<DollarIcon>` (Icon: `[Unknown]`)
-  - Line [37](file:///D:/Magazine/_PigmentShop/src/components/Admin/Analytics/AnalyticsDashboard.js#L37): `<ClipboardIcon>` (Icon: `[Unknown]`)
-  - Line [38](file:///D:/Magazine/_PigmentShop/src/components/Admin/Analytics/AnalyticsDashboard.js#L38): `<TrendIcon>` (Icon: `[Unknown]`)
-  - Line [39](file:///D:/Magazine/_PigmentShop/src/components/Admin/Analytics/AnalyticsDashboard.js#L39): `<BoxIcon>` (Icon: `[Unknown]`)
+  - Line [37](file:///D:/Magazine/_PigmentShop/src/components/Admin/Analytics/AnalyticsDashboard.js#L37): `<DollarIcon>` (Icon: `[Unknown]`)
+  - Line [38](file:///D:/Magazine/_PigmentShop/src/components/Admin/Analytics/AnalyticsDashboard.js#L38): `<ClipboardIcon>` (Icon: `[Unknown]`)
+  - Line [39](file:///D:/Magazine/_PigmentShop/src/components/Admin/Analytics/AnalyticsDashboard.js#L39): `<TrendIcon>` (Icon: `[Unknown]`)
+  - Line [40](file:///D:/Magazine/_PigmentShop/src/components/Admin/Analytics/AnalyticsDashboard.js#L40): `<BoxIcon>` (Icon: `[Unknown]`)
 
 ### File: [src/components/Admin/Categories/CategoryFormFields.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryFormFields.js)
   - Line [94](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryFormFields.js#L94): `<UploadIcon>` (Icon: `[Unknown]`)

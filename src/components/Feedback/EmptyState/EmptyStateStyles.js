@@ -1,18 +1,19 @@
 import { StyleSheet } from 'react-native';
+import { layout } from '../../../theme/tokens';
 
 export const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    justify: 'center',
+    justifyContent: 'center',
     paddingVertical: 40,
-    paddingHorizontal: 24,
+    paddingHorizontal: layout.spacing.xl,
   },
   iconWrapper: {
-    marginBottom: 16,
+    marginBottom: layout.spacing.lg,
   },
   title: {
     textAlign: 'center',
-    marginBottom: 8,
+    marginBottom: layout.spacing.sm,
   },
   description: {
     textAlign: 'center',

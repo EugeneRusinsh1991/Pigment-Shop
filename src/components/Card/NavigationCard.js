@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import { Text } from '../Text';
 import { ForwardArrowIcon } from '../icons/ControlIcons';
 import Card from './Card';
-import { colors } from '../../theme/tokens';
+import { colors, layout } from '../../theme/tokens';
 
 const NavigationCard = React.forwardRef(({ type, isDark, text, style, ...rest }, ref) => {
   return (
@@ -33,12 +33,12 @@ const styles = StyleSheet.create({
   content: {
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 12,
+    gap: layout.spacing.md,
   },
   circle: {
     width: 48,
     height: 48,
-    borderRadius: 24,
+    borderRadius: layout.radii.xl,
     borderWidth: 1,
     justifyContent: 'center',
     alignItems: 'center',

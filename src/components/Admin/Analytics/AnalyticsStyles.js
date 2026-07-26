@@ -2,27 +2,27 @@
  * AnalyticsStyles.js
  */
 import { StyleSheet } from 'react-native';
-import { colors } from '../../../theme/tokens';
+import { colors, layout } from '../../../theme/tokens';
 import { shadow } from '../../../theme/shadows';
 
 export default StyleSheet.create({
   container: {
-    paddingHorizontal: 24,
-    paddingTop: 24,
+    paddingHorizontal: layout.spacing.xl,
+    paddingTop: layout.spacing.xl,
   },
 
   /* Stat Cards */
   statsRow: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: 12,
-    marginBottom: 24,
+    gap: layout.spacing.md,
+    marginBottom: layout.spacing.xl,
   },
   statCard: {
     flex: 1,
     minWidth: 160,
     backgroundColor: colors.white,
-    borderRadius: 14,
+    borderRadius: layout.radii.iconBtn,
     padding: 18,
     ...shadow.card(),
     elevation: 2,
@@ -44,18 +44,18 @@ export default StyleSheet.create({
   /* Chart Panels */
   chartPanel: {
     backgroundColor: colors.white,
-    borderRadius: 14,
+    borderRadius: layout.radii.iconBtn,
     padding: 20,
-    marginBottom: 16,
+    marginBottom: layout.spacing.lg,
     ...shadow.card(),
     elevation: 2,
   },
   chartTitle: {
-    marginBottom: 16,
+    marginBottom: layout.spacing.lg,
   },
   chartsRow: {
     flexDirection: 'row',
-    gap: 16,
+    gap: layout.spacing.lg,
     flexWrap: 'wrap',
   },
   chartHalf: {
@@ -78,16 +78,16 @@ export default StyleSheet.create({
     flex: 1,
     height: 20,
     backgroundColor: colors.secondaryLightBg,
-    borderRadius: 4,
+    borderRadius: layout.spacing.xxs,
     overflow: 'hidden',
   },
   barFill: {
     height: '100%',
     backgroundColor: colors.accent,
-    borderRadius: 4,
+    borderRadius: layout.spacing.xxs,
   },
   barValue: {
-    marginLeft: 8,
+    marginLeft: layout.spacing.sm,
     width: 24,
     textAlign: 'right',
   },
@@ -100,13 +100,13 @@ export default StyleSheet.create({
   legendItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 6,
+    marginBottom: layout.spacing.xs,
   },
   legendDot: {
     width: 10,
     height: 10,
     borderRadius: 5,
-    marginRight: 8,
+    marginRight: layout.spacing.sm,
   },
   legendText: {
   },
@@ -130,18 +130,18 @@ export default StyleSheet.create({
   datePickerContainer: {
     marginBottom: 20,
     position: 'relative',
-    zIndex: 2000,
+    zIndex: layout.zIndices.modal,
   },
   datePickerPresets: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 8,
+    gap: layout.spacing.sm,
   },
   presetBtn: {
     minWidth: 140,
     paddingVertical: 10,
-    paddingHorizontal: 16,
-    borderRadius: 20,
+    paddingHorizontal: layout.spacing.lg,
+    borderRadius: layout.radii.lg,
     backgroundColor: colors.black,
     borderWidth: 1.5,
     borderColor: colors.black,
@@ -163,8 +163,8 @@ export default StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     alignItems: 'center',
-    gap: 8,
-    marginTop: 8,
+    gap: layout.spacing.sm,
+    marginTop: layout.spacing.sm,
   },
   customDateInput: {
     flex: 1,
@@ -172,8 +172,8 @@ export default StyleSheet.create({
     height: 40,
     borderWidth: 1,
     borderColor: colors.secondaryLightBorder,
-    borderRadius: 8,
-    paddingHorizontal: 12,
+    borderRadius: layout.radii.sm,
+    paddingHorizontal: layout.spacing.md,
     color: colors.dark,
     backgroundColor: colors.slateLight,
   },
@@ -185,8 +185,8 @@ export default StyleSheet.create({
     backgroundColor: colors.successMid,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 16,
-    borderRadius: 8,
+    paddingHorizontal: layout.spacing.lg,
+    borderRadius: layout.radii.sm,
   },
   applyBtnText: {
     color: colors.white,
@@ -196,12 +196,12 @@ export default StyleSheet.create({
   mobileDatePickerContainer: {
     marginBottom: 20,
     position: 'relative',
-    zIndex: 2000,
-    gap: 8,
+    zIndex: layout.zIndices.modal,
+    gap: layout.spacing.sm,
   },
   mobilePresetsRow: {
     flexDirection: 'row',
-    gap: 8,
+    gap: layout.spacing.sm,
     width: '100%',
   },
 });

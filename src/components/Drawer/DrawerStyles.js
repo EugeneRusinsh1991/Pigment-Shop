@@ -23,7 +23,7 @@ export const getDrawerStyles = (position = 'left') => {
     panelDark: { backgroundColor: colors.navSurfaceDark },
     panelLight: { backgroundColor: colors.white },
     header: {
-      padding: 16,
+      padding: layout.spacing.lg,
       borderBottomWidth: 1,
       borderBottomColor: colors.secondaryLightBorder,
       flexDirection: 'row',
@@ -31,7 +31,7 @@ export const getDrawerStyles = (position = 'left') => {
       justifyContent: 'space-between',
     },
     footer: {
-      padding: 16,
+      padding: layout.spacing.lg,
       borderTopWidth: 1,
       borderTopColor: colors.secondaryLightBorder,
       marginTop: 'auto',

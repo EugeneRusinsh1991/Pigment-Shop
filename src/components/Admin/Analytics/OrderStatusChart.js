@@ -8,6 +8,7 @@ import { Platform, View } from 'react-native';
 import { Text } from '../../Text';
 import { useTheme } from '../../../context/ThemeContext';
 import styles from './AnalyticsStyles';
+import { colors } from '../../../theme/tokens';
 
 const isWeb = Platform.OS === 'web';
 
@@ -29,7 +30,7 @@ function SvgDonut({ data, size = 120, strokeWidth = 20 }) {
             borderRadius: size / 6,
             flexDirection: 'row',
             overflow: 'hidden',
-            backgroundColor: '#F5F7FA',
+            backgroundColor: colors.secondaryLightBg,
           }}
         >
           {data.map((item, idx) => (
@@ -70,10 +71,10 @@ function SvgDonut({ data, size = 120, strokeWidth = 20 }) {
 }
 
 const STATUS_CONFIG = {
-  pending: { labelKey: 'orderStatusPending', color: '#3B82F6' },
-  processing: { labelKey: 'orderStatusProcessing', color: '#D97706' },
-  completed: { labelKey: 'orderStatusCompleted', color: '#10B981' },
-  cancelled: { labelKey: 'orderStatusCancelled', color: '#EF4444' },
+  pending: { labelKey: 'orderStatusPending', color: colors.infoStrong },
+  processing: { labelKey: 'orderStatusProcessing', color: colors.warningDark },
+  completed: { labelKey: 'orderStatusCompleted', color: colors.successMid },
+  cancelled: { labelKey: 'orderStatusCancelled', color: colors.danger },
 };
 
 export default function OrderStatusChart({ statusData = [] }) {
@@ -82,7 +83,7 @@ export default function OrderStatusChart({ statusData = [] }) {
   const formattedData = statusData.map((item) => {
     const config = STATUS_CONFIG[item.id || item.status] || {
       labelKey: item.labelKey || 'orderStatusPending',
-      color: item.color || '#3B82F6',
+      color: item.color || colors.infoStrong,
     };
     return {
       ...item,
@@ -94,7 +95,7 @@ export default function OrderStatusChart({ statusData = [] }) {
   const hasData = formattedData.some((d) => d.value > 0);
   const displayData = hasData
     ? formattedData
-    : [{ labelKey: null, value: 1, color: '#E2E8F0' }];
+    : [{ labelKey: null, value: 1, color: colors.secondaryLightBorder }];
 
   return (
     <View style={styles.donutContainer}>

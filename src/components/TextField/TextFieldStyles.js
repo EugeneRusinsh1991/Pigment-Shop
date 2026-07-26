@@ -4,35 +4,37 @@ import { colors, layout, typography } from '../../theme/tokens';
 export const SIZES = {
   sm: {
     height: 36,
-    paddingHorizontal: 10,
+    paddingHorizontal: layout.spacing.md,
     fontSize: typography.sizes.xs,
     iconSize: 16,
     borderRadius: layout.radii.xs,
   },
   md: {
     height: 44,
-    paddingHorizontal: 12,
+    paddingHorizontal: layout.spacing.md,
     fontSize: typography.sizes.sm,
     iconSize: 18,
     borderRadius: layout.radii.sm,
   },
   lg: {
     height: 52,
-    paddingHorizontal: 16,
+    paddingHorizontal: layout.spacing.lg,
     fontSize: typography.sizes.md,
     iconSize: 20,
     borderRadius: layout.radii.md,
   },
 };
 
+const SPACING_NONE = 0;
+
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    marginVertical: 4,
+    marginVertical: layout.spacing.xxs,
   },
   label: {
     color: colors.textLight,
-    marginBottom: 6,
+    marginBottom: layout.spacing.xs,
   },
   labelDark: {
     color: colors.textDark,
@@ -62,28 +64,28 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     color: colors.textLight,
-    paddingVertical: 0,
-    margin: 0,
+    paddingVertical: SPACING_NONE,
+    margin: SPACING_NONE,
   },
   inputDark: {
     color: colors.textDark,
   },
   inputMultiline: {
     textAlignVertical: 'top',
-    paddingVertical: 10,
+    paddingVertical: layout.spacing.md,
   },
   leadingIconContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: 8,
+    marginRight: layout.spacing.sm,
   },
   trailingIconContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    marginLeft: 8,
+    marginLeft: layout.spacing.sm,
   },
   helperText: {
-    marginTop: 4,
+    marginTop: layout.spacing.xxs,
     color: colors.textMutedLight,
   },
   helperTextDark: {
