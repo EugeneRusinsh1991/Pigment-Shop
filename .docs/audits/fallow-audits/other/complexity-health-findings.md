@@ -1,14 +1,14 @@
 # 🩺 Complexity Health Findings (Critical & High)
 
-*Generated on: 26.07.2026, 22:31:22*
+*Generated on: 26.07.2026, 22:37:06*
 
 ## 🔴 Critical (> 50 lines)
 
 #### 📁 [ui-architecture-audit.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/ui-architecture-audit.js)
 `.tools/auditor/ui-architecture-audit.js`
 
-- 🔴 **`auditComponents`** [L86](file:///D:/Magazine/_PigmentShop/.tools/auditor/ui-architecture-audit.js#L86)
-  - Lines: 77 | Cyclomatic: 13 | Cognitive: 27 | CRAP: 182
+- 🔴 **`auditComponents`** [L126](file:///D:/Magazine/_PigmentShop/.tools/auditor/ui-architecture-audit.js#L126)
+  - Lines: 79 | Cyclomatic: 13 | Cognitive: 27 | CRAP: 182
 
 #### 📁 [layer-imports-auditor.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/layer-imports-auditor.js)
 `.tools/auditor/layer-imports-auditor.js`
@@ -108,6 +108,12 @@
   - Lines: 11 | Cyclomatic: 8 | Cognitive: 7 | CRAP: 72
 - 🟠 **`resolveSemanticType`** [L57](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/observability/reporters/ConsoleReporter.ts#L57)
   - Lines: 7 | Cyclomatic: 7 | Cognitive: 6 | CRAP: 56
+
+#### 📁 [maintenance-reports.cjs](file:///D:/Magazine/_PigmentShop/.tools/auditor/fallow-auditor/src/maintenance-reports.cjs)
+`.tools/auditor/fallow-auditor/src/maintenance-reports.cjs`
+
+- 🟠 **`generateDependencyIssuesReport`** [L39](file:///D:/Magazine/_PigmentShop/.tools/auditor/fallow-auditor/src/maintenance-reports.cjs#L39)
+  - Lines: 10 | Cyclomatic: 7 | Cognitive: 6 | CRAP: 56
 
 #### 📁 [restore.js](file:///D:/Magazine/_PigmentShop/.tools/.backuper/restore.js)
 `.tools/.backuper/restore.js`

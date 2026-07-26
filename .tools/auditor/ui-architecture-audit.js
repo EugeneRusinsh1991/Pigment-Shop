@@ -20,7 +20,6 @@ function readFile(filePath) {
 
 /**
  * GHOST_IMPORT check: architecture file exists but the main component doesn't import it.
- * Finds the main component file (e.g. Button.js inside Button/) and checks its imports.
  */
 function checkGhostImports(compName, compDir, files) {
   const violations = [];
@@ -28,7 +27,6 @@ function checkGhostImports(compName, compDir, files) {
   const stylesFile = files.find(f => f.endsWith('Styles.js'));
   const themeHookFile = files.find(f => f.startsWith('use') && f.endsWith('Theme.js'));
 
-  // Find the main component file: ComponentName.js or ComponentName.jsx
   const mainFile = files.find(f => f === `${compName}.js` || f === `${compName}.jsx`);
   if (!mainFile) return violations;
 
@@ -55,7 +53,6 @@ function checkGhostImports(compName, compDir, files) {
 
 /**
  * EMPTY_ARCHITECTURE check: architecture file exists but has almost no real content.
- * Detects stub/placeholder files that were created but never filled in.
  */
 function checkEmptyArchitecture(compName, compDir, files) {
   const violations = [];
@@ -78,6 +75,49 @@ function checkEmptyArchitecture(compName, compDir, files) {
         details: `${archFile} exists but appears to be a stub (${meaningfulLines.length} meaningful line(s))`
       });
     }
+  }
+
+  return violations;
+}
+
+/**
+ * BAD_INDEX_EXPORT check: index.js exists but doesn't export the component or its architecture pieces.
+ */
+function checkBadIndexExport(compName, compDir, files) {
+  const violations = [];
+  if (!files.includes('index.js')) return violations;
+
+  const indexContent = readFile(path.join(compDir, 'index.js'));
+  const mainFile = files.find(f => f === `${compName}.js` || f === `${compName}.jsx`);
+
+  if (mainFile && !indexContent.includes(compName)) {
+    violations.push({
+      type: 'BAD_INDEX_EXPORT',
+      location: `src/components/${compName}/`,
+      details: `index.js does not export main component '${compName}'`
+    });
+  }
+
+  return violations;
+}
+
+/**
+ * HOOK_RETURNS_EMPTY check: theme hook exists but returns empty object/null or lacks return statement.
+ */
+function checkHookReturnsEmpty(compName, compDir, files) {
+  const violations = [];
+  const themeHookFile = files.find(f => f.startsWith('use') && f.endsWith('Theme.js'));
+  if (!themeHookFile) return violations;
+
+  const hookContent = readFile(path.join(compDir, themeHookFile));
+  const cleaned = hookContent.replace(/\s+/g, '');
+
+  if (cleaned.includes('return{}') || cleaned.includes('returnnull') || !hookContent.includes('return')) {
+    violations.push({
+      type: 'HOOK_RETURNS_EMPTY',
+      location: `src/components/${compName}/`,
+      details: `${themeHookFile} returns empty object/null or has no return statement`
+    });
   }
 
   return violations;
@@ -121,11 +161,13 @@ function auditComponents() {
         });
       }
 
-      // Only run functional checks when structure is present
       if (hasStyles || hasThemeHook) {
         violations.push(...checkGhostImports(compName, compDir, files));
         violations.push(...checkEmptyArchitecture(compName, compDir, files));
       }
+
+      violations.push(...checkBadIndexExport(compName, compDir, files));
+      violations.push(...checkHookReturnsEmpty(compName, compDir, files));
     }
   }
 

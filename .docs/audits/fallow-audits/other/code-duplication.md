@@ -1,6 +1,6 @@
 # 👥 Significant Code Duplication (≥ 8 lines)
 
-*Generated on: 26.07.2026, 22:31:22*
+*Generated on: 26.07.2026, 22:37:06*
 
 ### Clone Group 1 — 88 lines, 158 tokens · `dup:8e843fc1`
 > 💡 Extract duplicated code (88 lines, 2 instances) into a shared function
@@ -21,10 +21,10 @@
 - [hardcode-text-auditor.js:L18–L85](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-text-auditor.js#L18-L85) (`.tools/auditor/hardcode-text-auditor.js`)
 - [typography-auditor.js:L26–L93](file:///D:/Magazine/_PigmentShop/.tools/auditor/typography-auditor.js#L26-L93) (`.tools/auditor/typography-auditor.js`)
 
-### Clone Group 4 — 53 lines, 95 tokens · `dup:f8ec9cca`
-> 💡 Extract duplicated code (53 lines, 2 instances) into a shared function
+### Clone Group 4 — 55 lines, 95 tokens · `dup:5955510c`
+> 💡 Extract duplicated code (55 lines, 2 instances) into a shared function
 
-- [ui-architecture-audit.js:L93–L145](file:///D:/Magazine/_PigmentShop/.tools/auditor/ui-architecture-audit.js#L93-L145) (`.tools/auditor/ui-architecture-audit.js`)
+- [ui-architecture-audit.js:L133–L187](file:///D:/Magazine/_PigmentShop/.tools/auditor/ui-architecture-audit.js#L133-L187) (`.tools/auditor/ui-architecture-audit.js`)
 - [unused-exports-auditor.js:L48–L77](file:///D:/Magazine/_PigmentShop/.tools/auditor/unused-exports-auditor.js#L48-L77) (`.tools/auditor/unused-exports-auditor.js`)
 
 ### Clone Group 5 — 52 lines, 142 tokens · `dup:92556a9f`
@@ -122,7 +122,7 @@
 > 💡 Extract duplicated code (9 lines, 2 instances) into a shared function
 
 - [hardcode-styles-auditor.js:L113–L121](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-styles-auditor.js#L113-L121) (`.tools/auditor/hardcode-styles-auditor.js`)
-- [ui-architecture-audit.js:L145–L153](file:///D:/Magazine/_PigmentShop/.tools/auditor/ui-architecture-audit.js#L145-L153) (`.tools/auditor/ui-architecture-audit.js`)
+- [ui-architecture-audit.js:L187–L195](file:///D:/Magazine/_PigmentShop/.tools/auditor/ui-architecture-audit.js#L187-L195) (`.tools/auditor/ui-architecture-audit.js`)
 
 ### Clone Group 19 — 9 lines, 73 tokens · `dup:86a32a92`
 > 💡 Extract duplicated code (9 lines, 2 instances) into a shared function

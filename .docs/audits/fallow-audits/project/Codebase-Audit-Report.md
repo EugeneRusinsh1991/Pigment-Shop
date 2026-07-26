@@ -21,5 +21,7 @@
 - [🧠 Highly Complex Files](file:///D:/Magazine/_PigmentShop/.docs/auditor-reports/project/high-complexity-files.md)
 - [🎯 Priority Refactoring Targets](file:///D:/Magazine/_PigmentShop/.docs/auditor-reports/project/priority-refactor-targets.md)
 - [👥 Code Duplication Groups](file:///D:/Magazine/_PigmentShop/.docs/auditor-reports/project/code-duplication.md)
-- [📦 Unused Code & Dependencies](file:///D:/Magazine/_PigmentShop/.docs/auditor-reports/project/unused-code-dependencies.md)
+- [💀 Dead Files (Unused)](file:///D:/Magazine/_PigmentShop/.docs/auditor-reports/project/dead-files.md)
+- [📦 Unused Exports](file:///D:/Magazine/_PigmentShop/.docs/auditor-reports/project/unused-exports.md)
+- [🔗 Dependency Issues](file:///D:/Magazine/_PigmentShop/.docs/auditor-reports/project/dependency-issues.md)
 - [📄 Small & Pass-Through Files](file:///D:/Magazine/_PigmentShop/.docs/auditor-reports/project/small-files.md)

@@ -1,24 +1,7 @@
-# 📦 Unused Code & Dependencies
+# 📦 Unused Exports
 
-*Generated on: 26.07.2026, 22:31:22*
+*Generated on: 26.07.2026, 22:37:06*
 
-### Dead Files (Unused)
-Files that are not reachable or imported by any other codebase file:
-
-- [BaseCard.js](file:///D:/Magazine/_PigmentShop/src/components/Card/BaseCard.js) (`src/components/Card/BaseCard.js`)
-- [InteractiveCard.js](file:///D:/Magazine/_PigmentShop/src/components/Card/InteractiveCard.js) (`src/components/Card/InteractiveCard.js`)
-- [StaticCard.js](file:///D:/Magazine/_PigmentShop/src/components/Card/StaticCard.js) (`src/components/Card/StaticCard.js`)
-- [DataTable.styles.js](file:///D:/Magazine/_PigmentShop/src/components/DataTable/DataTable.styles.js) (`src/components/DataTable/DataTable.styles.js`)
-- [index.js](file:///D:/Magazine/_PigmentShop/src/components/DataTable/index.js) (`src/components/DataTable/index.js`)
-- [index.js](file:///D:/Magazine/_PigmentShop/src/components/Media/index.js) (`src/components/Media/index.js`)
-- [BreadcrumbStyles.js](file:///D:/Magazine/_PigmentShop/src/components/Navigation/Breadcrumbs/BreadcrumbStyles.js) (`src/components/Navigation/Breadcrumbs/BreadcrumbStyles.js`)
-- [PaginationStyles.js](file:///D:/Magazine/_PigmentShop/src/components/Navigation/Pagination/PaginationStyles.js) (`src/components/Navigation/Pagination/PaginationStyles.js`)
-- [IconsStyles.js](file:///D:/Magazine/_PigmentShop/src/components/icons/IconsStyles.js) (`src/components/icons/IconsStyles.js`)
-- [useIconTheme.js](file:///D:/Magazine/_PigmentShop/src/components/icons/useIconTheme.js) (`src/components/icons/useIconTheme.js`)
-- [useHoverAnimation.js](file:///D:/Magazine/_PigmentShop/src/hooks/useHoverAnimation.js) (`src/hooks/useHoverAnimation.js`)
-- [index.ts](file:///D:/Magazine/_PigmentShop/src/types/index.ts) (`src/types/index.ts`)
-
-### Unused Exports
 Exports that are not imported or consumed by any other active file:
 
 - [appBootstrap.js](file:///D:/Magazine/_PigmentShop/src/bootstrap/appBootstrap.js): `stopAppBootstrap` ([L127](file:///D:/Magazine/_PigmentShop/src/bootstrap/appBootstrap.js#L127)), `resetAppBootstrap` ([L138](file:///D:/Magazine/_PigmentShop/src/bootstrap/appBootstrap.js#L138))
@@ -86,12 +69,4 @@ Exports that are not imported or consumed by any other active file:
 - [locationContext.js](file:///D:/Magazine/_PigmentShop/src/utils/locationContext.js): `getLocationHierarchy` ([L71](file:///D:/Magazine/_PigmentShop/src/utils/locationContext.js#L71))
 - [orderStatus.js](file:///D:/Magazine/_PigmentShop/src/utils/orderStatus.js): `STATUS_RAW_TO_KEY` ([L43](file:///D:/Magazine/_PigmentShop/src/utils/orderStatus.js#L43)), `STATUS_RAW_TO_CANONICAL` ([L65](file:///D:/Magazine/_PigmentShop/src/utils/orderStatus.js#L65))
 - [sorting.js](file:///D:/Magazine/_PigmentShop/src/utils/sorting.js): `coerceToNumber` ([L16](file:///D:/Magazine/_PigmentShop/src/utils/sorting.js#L16)), `sortByField` ([L79](file:///D:/Magazine/_PigmentShop/src/utils/sorting.js#L79))
-
-### Dependency Issues
-
-#### Unlisted Dependencies
-- `@babel/parser` (imported at: `.tools/auditor/catalog-generator.js:3`)
-- `@babel/traverse` (imported at: `.tools/auditor/catalog-generator.js:4`)
-- `expo-av` (imported at: `src/components/Media/VideoRenderer.js:8`)
-- `expo-video` (imported at: `src/components/Media/VideoRenderer.js:11`)
 

@@ -78,13 +78,22 @@ function cleanupAuditArtifacts(rawJsonPath) {
 
 function writeAllReports(reports, subDir) {
   const base = subDir ? path.resolve(REPORTS_DIR, subDir) : REPORTS_DIR;
+  
+  // Clean up obsolete unified report file if it exists
+  const oldUnusedFile = path.resolve(base, "unused-code-dependencies.md");
+  if (fs.existsSync(oldUnusedFile)) {
+    try { fs.unlinkSync(oldUnusedFile); } catch (_) {}
+  }
+
   const reportFiles = [
     [path.resolve(base, "Codebase-Audit-Report.md"), reports.main],
     [path.resolve(base, "complexity-health-findings.md"), reports.complexity],
     [path.resolve(base, "large-files.md"), reports.largeFiles],
     [path.resolve(base, "high-complexity-files.md"), reports.highComplexity],
     [path.resolve(base, "code-duplication.md"), reports.duplication],
-    [path.resolve(base, "unused-code-dependencies.md"), reports.unused],
+    [path.resolve(base, "dead-files.md"), reports.deadFiles],
+    [path.resolve(base, "unused-exports.md"), reports.unusedExports],
+    [path.resolve(base, "dependency-issues.md"), reports.dependencyIssues],
     [path.resolve(base, "small-files.md"), reports.smallFiles],
   ];
 

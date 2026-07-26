@@ -2,7 +2,7 @@
 
 > **Audit Metrics & Health Overview**
 > - **Critical Health Findings:** 6
-> - **High Health Findings:** 14
+> - **High Health Findings:** 15
 > - **Large / High-Risk Files:** 32
 > - **Significant Clone Groups:** 21
 > - **Dead Files (Unused):** 101
@@ -21,5 +21,7 @@
 - [🧠 Highly Complex Files](file:///D:/Magazine/_PigmentShop/.docs/auditor-reports/other/high-complexity-files.md)
 - [🎯 Priority Refactoring Targets](file:///D:/Magazine/_PigmentShop/.docs/auditor-reports/other/priority-refactor-targets.md)
 - [👥 Code Duplication Groups](file:///D:/Magazine/_PigmentShop/.docs/auditor-reports/other/code-duplication.md)
-- [📦 Unused Code & Dependencies](file:///D:/Magazine/_PigmentShop/.docs/auditor-reports/other/unused-code-dependencies.md)
+- [💀 Dead Files (Unused)](file:///D:/Magazine/_PigmentShop/.docs/auditor-reports/other/dead-files.md)
+- [📦 Unused Exports](file:///D:/Magazine/_PigmentShop/.docs/auditor-reports/other/unused-exports.md)
+- [🔗 Dependency Issues](file:///D:/Magazine/_PigmentShop/.docs/auditor-reports/other/dependency-issues.md)
 - [📄 Small & Pass-Through Files](file:///D:/Magazine/_PigmentShop/.docs/auditor-reports/other/small-files.md)

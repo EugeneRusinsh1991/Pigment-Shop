@@ -14,7 +14,9 @@ const {
 } = require("./health-reports.cjs");
 const {
   generateDuplicationReport,
-  generateUnusedReport,
+  generateDeadFilesReport,
+  generateUnusedExportsReport,
+  generateDependencyIssuesReport,
 } = require("./maintenance-reports.cjs");
 
 // ---------------------------------------------------------------------------
@@ -49,7 +51,9 @@ function generateMainReport(cleaned, dateStr, projectName, paths) {
 - [🧠 Highly Complex Files](file:///${paths.highComplexity})
 - [🎯 Priority Refactoring Targets](file:///${paths.targets})
 - [👥 Code Duplication Groups](file:///${paths.duplication})
-- [📦 Unused Code & Dependencies](file:///${paths.unused})
+- [💀 Dead Files (Unused)](file:///${paths.deadFiles})
+- [📦 Unused Exports](file:///${paths.unusedExports})
+- [🔗 Dependency Issues](file:///${paths.dependencyIssues})
 - [📄 Small & Pass-Through Files](file:///${paths.smallFiles})
 `;
 }
@@ -62,24 +66,28 @@ function generateReports(cleaned, rootPath, projectName, subDir = "") {
   const dateStr = new Date().toLocaleString();
   const baseDir = subDir ? `.docs/auditor-reports/${subDir}` : `.docs/auditor-reports`;
   const paths = {
-    complexity:  cleanPath(rootPath, `${baseDir}/complexity-health-findings.md`),
-    largeFiles:  cleanPath(rootPath, `${baseDir}/large-files.md`),
-    highComplexity: cleanPath(rootPath, `${baseDir}/high-complexity-files.md`),
-    targets:     cleanPath(rootPath, `${baseDir}/priority-refactor-targets.md`),
-    duplication: cleanPath(rootPath, `${baseDir}/code-duplication.md`),
-    unused:      cleanPath(rootPath, `${baseDir}/unused-code-dependencies.md`),
-    smallFiles:  cleanPath(rootPath, `${baseDir}/small-files.md`),
+    complexity:       cleanPath(rootPath, `${baseDir}/complexity-health-findings.md`),
+    largeFiles:       cleanPath(rootPath, `${baseDir}/large-files.md`),
+    highComplexity:   cleanPath(rootPath, `${baseDir}/high-complexity-files.md`),
+    targets:          cleanPath(rootPath, `${baseDir}/priority-refactor-targets.md`),
+    duplication:      cleanPath(rootPath, `${baseDir}/code-duplication.md`),
+    deadFiles:        cleanPath(rootPath, `${baseDir}/dead-files.md`),
+    unusedExports:    cleanPath(rootPath, `${baseDir}/unused-exports.md`),
+    dependencyIssues: cleanPath(rootPath, `${baseDir}/dependency-issues.md`),
+    smallFiles:       cleanPath(rootPath, `${baseDir}/small-files.md`),
   };
 
   return {
-    main:        generateMainReport(cleaned, dateStr, projectName, paths),
-    complexity:  generateComplexityReport(cleaned, dateStr, rootPath),
-    largeFiles:  generateLargeFilesReport(cleaned, dateStr, rootPath),
-    highComplexity: generateHighComplexityFilesReport(cleaned, dateStr, rootPath),
-    targets:     generateTargetsReport(cleaned, dateStr, rootPath),
-    duplication: generateDuplicationReport(cleaned, dateStr, rootPath),
-    unused:      generateUnusedReport(cleaned, dateStr, rootPath),
-    smallFiles:  generateSmallFilesReport(cleaned, dateStr, rootPath),
+    main:             generateMainReport(cleaned, dateStr, projectName, paths),
+    complexity:       generateComplexityReport(cleaned, dateStr, rootPath),
+    largeFiles:       generateLargeFilesReport(cleaned, dateStr, rootPath),
+    highComplexity:   generateHighComplexityFilesReport(cleaned, dateStr, rootPath),
+    targets:          generateTargetsReport(cleaned, dateStr, rootPath),
+    duplication:      generateDuplicationReport(cleaned, dateStr, rootPath),
+    deadFiles:        generateDeadFilesReport(cleaned, dateStr, rootPath),
+    unusedExports:    generateUnusedExportsReport(cleaned, dateStr, rootPath),
+    dependencyIssues: generateDependencyIssuesReport(cleaned, dateStr, rootPath),
+    smallFiles:       generateSmallFilesReport(cleaned, dateStr, rootPath),
   };
 }
 

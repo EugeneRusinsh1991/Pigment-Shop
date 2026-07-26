@@ -26,7 +26,9 @@ Identify the refactoring category from the user request, supplied file, or audit
 | Large Files | large-files.md | references/large-files.md |
 | Small Files | small-files.md | references/small-files.md |
 | Code Duplication | code-duplication.md | references/code-duplication.md |
-| Unused Code & Dependencies | unused-code-dependencies.md | references/unused-code-dependencies.md |
+| Dead Files (Unused) | dead-files.md | references/dead-files.md |
+| Unused Exports | unused-exports.md | references/unused-exports.md |
+| Dependency Issues | dependency-issues.md | references/dependency-issues.md |
 
 ---
 

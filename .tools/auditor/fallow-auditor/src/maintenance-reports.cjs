@@ -20,21 +20,36 @@ function generateDuplicationReport(cleaned, dateStr, rootPath, backLink = "") {
   return header + buildCloneSections(groups, rootPath) + `\n\n${backLink}`;
 }
 
-function generateUnusedReport(cleaned, dateStr, rootPath, backLink = "") {
-  const { unused_files, unused_exports, unused_dependencies, unlisted_dependencies, circular_dependencies } = cleaned.check;
-  let md = `# 📦 Unused Code & Dependencies\n\n*Generated on: ${dateStr}*\n\n`;
-  md += `### Dead Files (Unused)\nFiles that are not reachable or imported by any other codebase file:\n\n`;
+function generateDeadFilesReport(cleaned, dateStr, rootPath, backLink = "") {
+  const { unused_files } = cleaned.check;
+  let md = `# 💀 Dead Files (Unused)\n\n*Generated on: ${dateStr}*\n\n`;
+  md += `Files that are not reachable or imported by any other codebase file:\n\n`;
   md += formatDeadFiles(unused_files, rootPath);
-  md += `### Unused Exports\nExports that are not imported or consumed by any other active file:\n\n`;
+  return md + backLink;
+}
+
+function generateUnusedExportsReport(cleaned, dateStr, rootPath, backLink = "") {
+  const { unused_exports } = cleaned.check;
+  let md = `# 📦 Unused Exports\n\n*Generated on: ${dateStr}*\n\n`;
+  md += `Exports that are not imported or consumed by any other active file:\n\n`;
   md += formatUnusedExports(unused_exports, rootPath);
-  if (unused_dependencies.length > 0 || unlisted_dependencies.length > 0 || circular_dependencies.length > 0) {
-    md += `### Dependency Issues\n\n`;
+  return md + backLink;
+}
+
+function generateDependencyIssuesReport(cleaned, dateStr, rootPath, backLink = "") {
+  const { unused_dependencies, unlisted_dependencies, circular_dependencies } = cleaned.check;
+  let md = `# 🔗 Dependency Issues\n\n*Generated on: ${dateStr}*\n\n`;
+  if ((unused_dependencies && unused_dependencies.length > 0) || (unlisted_dependencies && unlisted_dependencies.length > 0) || (circular_dependencies && circular_dependencies.length > 0)) {
     md += formatDependencyIssues(unused_dependencies, unlisted_dependencies, circular_dependencies, rootPath);
+  } else {
+    md += `*No dependency issues found.*\n\n`;
   }
   return md + backLink;
 }
 
 module.exports = {
   generateDuplicationReport,
-  generateUnusedReport,
+  generateDeadFilesReport,
+  generateUnusedExportsReport,
+  generateDependencyIssuesReport,
 };
