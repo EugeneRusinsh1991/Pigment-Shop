@@ -1,11 +1,12 @@
 import React from 'react';
-import { View, useWindowDimensions } from 'react-native';
+import { View } from 'react-native';
 import { Text } from '../Text';
 import EmptyState from './EmptyState';
-import { colors, layout } from '../../theme/tokens';
-import { useTheme } from '../../context/ThemeContext';
+import { colors } from '../../theme/tokens';
 import { AnimatedButton } from '../Button';
-import { styles } from './DataTable.styles';
+import { styles, getHeaderColStyle, getRowStyle, getCellStyle } from './DataTableStyles';
+import useDataTableTheme from './useDataTableTheme';
+import useDataTable from './useDataTable';
 
 function SortIndicator({ isActive, direction, style }) {
   return (
@@ -13,23 +14,6 @@ function SortIndicator({ isActive, direction, style }) {
       {isActive ? (direction === 'asc' ? ' ▲' : ' ▼') : ' ↕'}
     </Text>
   );
-}
-
-function getHeaderAlignStyle(align) {
-  if (align === 'right') return { justifyContent: 'flex-end' };
-  if (align === 'center') return { justifyContent: 'center' };
-  if (align === 'left') return { justifyContent: 'flex-start' };
-  return null;
-}
-
-function getHeaderColStyle(col) {
-  return [
-    styles.colHeader,
-    col.flex ? { flex: col.flex } : null,
-    col.width ? { width: col.width } : null,
-    getHeaderAlignStyle(col.align),
-    col.style
-  ];
 }
 
 function HeaderCellContent({ col, sortField, sortDirection, isDark, isSortable }) {
@@ -109,19 +93,25 @@ export default function DataTable(props) {
   const {
     data,
     columns,
-    sortField,
-    sortDirection,
-    onSort,
+    sortField: propSortField,
+    sortDirection: propSortDirection,
+    onSort: propOnSort,
     emptyText,
     renderRow,
     renderMobileRow,
-    keyExtractor = (item, index) => item.id || index,
+    keyExtractor = (item, index) => item?.id ?? index,
     style,
     headerStyle,
+    isDark: isDarkProp,
   } = props;
-  const { width } = useWindowDimensions();
-  const isMobile = width < layout.breakpoints.mobile;
-  const { isDark } = useTheme();
+
+  const { isDark } = useDataTableTheme({ isDarkProp });
+  const { isMobile, sortField, sortDirection, handleSort, getItemKey } = useDataTable({
+    sortField: propSortField,
+    sortDirection: propSortDirection,
+    onSort: propOnSort,
+    keyExtractor,
+  });
 
   const cardStyle = [styles.tableCard, isDark && styles.tableCardDark, style];
 
@@ -140,24 +130,21 @@ export default function DataTable(props) {
         columns={columns}
         sortField={sortField}
         sortDirection={sortDirection}
-        onSort={onSort}
+        onSort={handleSort}
         isDark={isDark}
         headerStyle={headerStyle}
         isMobile={isMobile}
         renderMobileRow={renderMobileRow}
         renderRow={renderRow}
-        keyExtractor={keyExtractor}
+        keyExtractor={getItemKey}
       />
     </View>
   );
 }
 
-export function DataTableRow({ children, onPress, style, index = 0, isDark = false, ...props }) {
-  const rowStyle = [
-    styles.rowBase,
-    index % 2 === 1 && (isDark ? styles.rowAltDark : styles.rowAltLight),
-    style,
-  ];
+export function DataTableRow({ children, onPress, style, index = 0, isDark: isDarkProp, ...props }) {
+  const { isDark } = useDataTableTheme({ isDarkProp });
+  const rowStyle = getRowStyle(index, isDark, style);
 
   if (onPress) {
     return (
@@ -171,14 +158,7 @@ export function DataTableRow({ children, onPress, style, index = 0, isDark = fal
 }
 
 export function DataTableCell({ children, style, flex, width, align, ...props }) {
-  const cellStyle = [
-    styles.cellBase,
-    flex ? { flex } : null,
-    width ? { width } : null,
-    align === 'right' ? { alignItems: 'flex-end' } : null,
-    align === 'center' ? { alignItems: 'center' } : null,
-    style,
-  ];
+  const cellStyle = getCellStyle({ flex, width, align, style });
 
   return <View style={cellStyle} {...props}>{children}</View>;
 }

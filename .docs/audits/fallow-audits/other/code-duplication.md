@@ -1,6 +1,6 @@
 # 👥 Significant Code Duplication (≥ 8 lines)
 
-*Generated on: 26.07.2026, 21:22:39*
+*Generated on: 26.07.2026, 21:31:26*
 
 ### Clone Group 1 — 88 lines, 158 tokens · `dup:8e843fc1`
 > 💡 Extract duplicated code (88 lines, 2 instances) into a shared function
@@ -75,19 +75,25 @@
 - [magic-numbers-auditor.js:L72–L88](file:///D:/Magazine/_PigmentShop/.tools/auditor/magic-numbers-auditor.js#L72-L88) (`.tools/auditor/magic-numbers-auditor.js`)
 - [typography-auditor.js:L59–L75](file:///D:/Magazine/_PigmentShop/.tools/auditor/typography-auditor.js#L59-L75) (`.tools/auditor/typography-auditor.js`)
 
-### Clone Group 12 — 17 lines, 156 tokens · `dup:b6c5f617`
+### Clone Group 12 — 17 lines, 102 tokens · `dup:7662dfa5`
+> 💡 Extract duplicated code (17 lines, 2 instances) into a shared function
+
+- [devServerHelper.ts:L37–L53](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/devServerHelper.ts#L37-L53) (`.tools/browser-automation/helpers/devServerHelper.ts`)
+- [open-playwright.js:L52–L68](file:///D:/Magazine/_PigmentShop/scripts/open-playwright.js#L52-L68) (`scripts/open-playwright.js`)
+
+### Clone Group 13 — 17 lines, 156 tokens · `dup:b6c5f617`
 > 💡 Extract duplicated code (17 lines, 2 instances) into a shared function
 
 - [setupManualInspector.js:L115–L131](file:///D:/Magazine/_PigmentShop/.tools/manual-browser-inspector/setupManualInspector.js#L115-L131) (`.tools/manual-browser-inspector/setupManualInspector.js`)
 - [setupManualInspector.ts:L119–L135](file:///D:/Magazine/_PigmentShop/.tools/manual-browser-inspector/setupManualInspector.ts#L119-L135) (`.tools/manual-browser-inspector/setupManualInspector.ts`)
 
-### Clone Group 13 — 16 lines, 122 tokens · `dup:0fee105a`
+### Clone Group 14 — 16 lines, 122 tokens · `dup:0fee105a`
 > 💡 Extract duplicated code (16 lines, 2 instances) into a shared function
 
 - [setupManualInspector.js:L15–L30](file:///D:/Magazine/_PigmentShop/.tools/manual-browser-inspector/setupManualInspector.js#L15-L30) (`.tools/manual-browser-inspector/setupManualInspector.js`)
 - [setupManualInspector.ts:L19–L34](file:///D:/Magazine/_PigmentShop/.tools/manual-browser-inspector/setupManualInspector.ts#L19-L34) (`.tools/manual-browser-inspector/setupManualInspector.ts`)
 
-### Clone Group 14 — 14 lines, 69 tokens · `dup:817b57b7`
+### Clone Group 15 — 14 lines, 69 tokens · `dup:817b57b7`
 > 💡 Extract duplicated code (14 lines, 6 instances) into a shared function
 
 - [hardcode-styles-auditor.js:L98–L111](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-styles-auditor.js#L98-L111) (`.tools/auditor/hardcode-styles-auditor.js`)
@@ -97,13 +103,13 @@
 - [service-layer-auditor.js:L42–L55](file:///D:/Magazine/_PigmentShop/.tools/auditor/service-layer-auditor.js#L42-L55) (`.tools/auditor/service-layer-auditor.js`)
 - [typography-auditor.js:L60–L73](file:///D:/Magazine/_PigmentShop/.tools/auditor/typography-auditor.js#L60-L73) (`.tools/auditor/typography-auditor.js`)
 
-### Clone Group 15 — 13 lines, 52 tokens · `dup:a4cc3f17`
+### Clone Group 16 — 13 lines, 52 tokens · `dup:a4cc3f17`
 > 💡 Extract duplicated code (13 lines, 2 instances) into a shared function
 
 - [DIContainer.ts:L26–L38](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/di/DIContainer.ts#L26-L38) (`.tools/browser-automation/explorer/di/DIContainer.ts`)
 - [DIContainer.ts:L42–L54](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/di/DIContainer.ts#L42-L54) (`.tools/browser-automation/explorer/di/DIContainer.ts`)
 
-### Clone Group 16 — 11 lines, 91 tokens · `dup:cfae6a9b`
+### Clone Group 17 — 11 lines, 91 tokens · `dup:cfae6a9b`
 > 💡 Extract duplicated code (11 lines, 5 instances) into a shared function
 
 - [hardcode-styles-auditor.js:L113–L123](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-styles-auditor.js#L113-L123) (`.tools/auditor/hardcode-styles-auditor.js`)
@@ -112,25 +118,25 @@
 - [service-layer-auditor.js:L57–L67](file:///D:/Magazine/_PigmentShop/.tools/auditor/service-layer-auditor.js#L57-L67) (`.tools/auditor/service-layer-auditor.js`)
 - [typography-auditor.js:L75–L85](file:///D:/Magazine/_PigmentShop/.tools/auditor/typography-auditor.js#L75-L85) (`.tools/auditor/typography-auditor.js`)
 
-### Clone Group 17 — 9 lines, 69 tokens · `dup:1287942e`
+### Clone Group 18 — 9 lines, 69 tokens · `dup:1287942e`
 > 💡 Extract duplicated code (9 lines, 2 instances) into a shared function
 
 - [hardcode-styles-auditor.js:L113–L121](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-styles-auditor.js#L113-L121) (`.tools/auditor/hardcode-styles-auditor.js`)
 - [ui-architecture-audit.js:L67–L75](file:///D:/Magazine/_PigmentShop/.tools/auditor/ui-architecture-audit.js#L67-L75) (`.tools/auditor/ui-architecture-audit.js`)
 
-### Clone Group 18 — 9 lines, 73 tokens · `dup:86a32a92`
+### Clone Group 19 — 9 lines, 73 tokens · `dup:86a32a92`
 > 💡 Extract duplicated code (9 lines, 2 instances) into a shared function
 
 - [hardcode-text-auditor.js:L6–L14](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-text-auditor.js#L6-L14) (`.tools/auditor/hardcode-text-auditor.js`)
 - [typography-auditor.js:L6–L14](file:///D:/Magazine/_PigmentShop/.tools/auditor/typography-auditor.js#L6-L14) (`.tools/auditor/typography-auditor.js`)
 
-### Clone Group 19 — 8 lines, 63 tokens · `dup:646b145b`
+### Clone Group 20 — 8 lines, 63 tokens · `dup:646b145b`
 > 💡 Extract duplicated code (8 lines, 2 instances) into a shared function
 
 - [backupConfig.js:L37–L44](file:///D:/Magazine/_PigmentShop/.tools/.backuper/backupConfig.js#L37-L44) (`.tools/.backuper/backupConfig.js`)
 - [backupConfig.js:L52–L59](file:///D:/Magazine/_PigmentShop/.tools/.backuper/backupConfig.js#L52-L59) (`.tools/.backuper/backupConfig.js`)
 
-### Clone Group 20 — 8 lines, 72 tokens · `dup:4e4717ea`
+### Clone Group 21 — 8 lines, 72 tokens · `dup:4e4717ea`
 > 💡 Extract duplicated code (8 lines, 3 instances) into a shared function
 
 - [hardcode-text-auditor.js:L6–L13](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-text-auditor.js#L6-L13) (`.tools/auditor/hardcode-text-auditor.js`)
