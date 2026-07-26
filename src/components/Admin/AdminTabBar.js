@@ -1,39 +1,42 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
 import styles from './AdminPanelStyles';
-import { AnalyticsIcon, ClipboardIcon, BoxIcon, FolderIcon, ImageIcon, UsersIcon } from '@/components/Icons';
 import { useTheme } from '../../context/ThemeContext';
-import { ChipButton } from '../Button';
+import Toggle from '../Toggle';
 
-const ICON_SIZE = 16;
-
-const TABS = [
-  { id: 'analytics', labelKey: 'adminTabAnalytics', Icon: AnalyticsIcon },
-  { id: 'orders', labelKey: 'adminTabOrders', Icon: ClipboardIcon },
-  { id: 'products', labelKey: 'adminTabProducts', Icon: BoxIcon },
-  { id: 'categories', labelKey: 'adminTabCategories', Icon: FolderIcon },
-  { id: 'banners', labelKey: 'adminTabBanners', Icon: ImageIcon },
-  { id: 'users', labelKey: 'adminTabUsers', Icon: UsersIcon },
+export const ADMIN_TABS = [
+  { id: 'analytics', labelKey: 'adminTabAnalytics' },
+  { id: 'orders', labelKey: 'adminTabOrders' },
+  { id: 'products', labelKey: 'adminTabProducts' },
+  { id: 'categories', labelKey: 'adminTabCategories' },
+  { id: 'banners', labelKey: 'adminTabBanners' },
+  { id: 'users', labelKey: 'adminTabUsers' },
 ];
 
-export default function AdminTabBar({ activeTab, onSelect }) {
+export default function AdminTabBar({ activeTab, onSelect, isDark }) {
   const { t } = useTheme();
+
+  const options = ADMIN_TABS.map((tab) => ({
+    value: tab.id,
+    label: t(tab.labelKey),
+  }));
+
   return (
-    <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.tabBar} contentContainerStyle={{ paddingRight: 24, gap: 8, paddingVertical: 8, alignItems: 'center' }}>
-      {TABS.map((tab) => {
-        const isActive = activeTab === tab.id;
-        const IconComponent = tab.Icon;
-        return (
-          <ChipButton
-            key={tab.id}
-            label={t(tab.labelKey)}
-            leftIcon={<IconComponent size={ICON_SIZE} />}
-            active={isActive}
-            onPress={() => onSelect(tab.id)}
-          />
-        );
-      })}
+    <ScrollView
+      horizontal
+      showsHorizontalScrollIndicator={false}
+      style={styles.tabBar}
+      contentContainerStyle={{ paddingRight: 24, paddingVertical: 8, alignItems: 'center' }}
+    >
+      <Toggle
+        options={options}
+        value={activeTab}
+        onChange={onSelect}
+        size="md"
+        isDark={isDark}
+      />
     </ScrollView>
   );
 }
+
 

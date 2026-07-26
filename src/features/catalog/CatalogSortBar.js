@@ -7,43 +7,30 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { SORT_OPTIONS } from './useCatalogFilters';
 import { useTheme } from '../../context/ThemeContext';
-import { AnimatedButton } from '../../components/Button';
+import Toggle from '../../components/Toggle';
 import { colors } from '../../theme/tokens';
-
-function SortChip({ labelText, isActive, onPress, isDark }) {
-  return (
-    <AnimatedButton
-      style={[styles.chip, isActive && styles.chipActive]}
-      onPress={onPress}
-      hitSlop={{ top: 6, bottom: 6, left: 4, right: 4 }}
-    >
-      <Text style={[styles.chipText, isActive ? styles.chipTextActive : (isDark ? styles.chipTextDark : styles.chipTextLight)]}>
-        {labelText}
-      </Text>
-    </AnimatedButton>
-  );
-}
 
 export default function CatalogSortBar({ sortKey, onSortChange, resultCount, isDark }) {
   const { t } = useTheme();
   const productWord = resultCount === 1 ? t('catalogProduct') : t('catalogProducts');
+
+  const toggleOptions = SORT_OPTIONS.map((opt) => ({
+    label: t(opt.labelKey),
+    value: opt.key,
+  }));
 
   return (
     <View style={styles.bar}>
       <Text style={[styles.count, isDark ? styles.textDark : styles.textLight]}>
         {resultCount} {productWord}
       </Text>
-      <View style={styles.chips}>
-        {SORT_OPTIONS.map((opt) => (
-          <SortChip
-            key={opt.key}
-            labelText={t(opt.labelKey)}
-            isActive={sortKey === opt.key}
-            onPress={() => onSortChange(opt.key)}
-            isDark={isDark}
-          />
-        ))}
-      </View>
+      <Toggle
+        options={toggleOptions}
+        value={sortKey}
+        onChange={onSortChange}
+        size="sm"
+        isDark={isDark}
+      />
     </View>
   );
 }
@@ -60,21 +47,5 @@ const styles = StyleSheet.create({
   count: { fontSize: 13 },
   textDark: { color: colors.secondaryDarkText },
   textLight: { color: colors.secondaryLightText },
-
-  chips: { flexDirection: 'row', gap: 6, flexWrap: 'wrap' },
-  chip: {
-    paddingHorizontal: 12,
-    paddingVertical: 8,
-    minHeight: 36,
-    borderRadius: 20,
-    borderWidth: 1,
-    borderColor: colors.borderLightAlt,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  chipActive: { backgroundColor: colors.accent, borderColor: colors.accent },
-  chipText: { fontSize: 12, fontWeight: '500' },
-  chipTextActive: { color: colors.white },
-  chipTextDark: { color: colors.white },
-  chipTextLight: { color: colors.dark },
 });
+

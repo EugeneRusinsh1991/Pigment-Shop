@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { View, useWindowDimensions } from 'react-native';
+import { View } from 'react-native';
 import styles from './AnalyticsStyles';
 import { useTheme } from '../../../context/ThemeContext';
 import { formatDateCompact as formatCompactDate } from '../../../utils/dateFormatting';
-import { calculatePresetDateRange, PresetButton } from './DateRangePresets';
+import { calculatePresetDateRange } from './DateRangePresets';
 import { DateRangeCalendar } from './DateRangeCalendar';
+import Toggle from '../../Toggle';
 
 export default function DateRangePicker({ startDate, endDate, onChange }) {
   const { t } = useTheme();
-  const { width } = useWindowDimensions();
-  const isMobile = width < 768;
 
   const [mode, setMode] = useState('7days'); // '7days', '30days', 'custom'
   
@@ -84,83 +83,37 @@ export default function DateRangePicker({ startDate, endDate, onChange }) {
     return t('adminAnalyticsDateCustom') || 'Custom';
   };
 
-  if (isMobile) {
-    return (
-      <View style={styles.mobileDatePickerContainer}>
-        <View style={styles.mobilePresetsRow}>
-          <PresetButton
-            mode={mode}
-            preset="7days"
-            label={t('adminAnalyticsDateLast7')}
-            onPress={handlePresetSelect}
-            style={{ flex: 1, minWidth: 0 }}
-          />
-          <PresetButton
-            mode={mode}
-            preset="30days"
-            label={t('adminAnalyticsDateLast30')}
-            onPress={handlePresetSelect}
-            style={{ flex: 1, minWidth: 0 }}
-          />
-        </View>
-
-        <View style={{ position: 'relative', zIndex: 3000, width: '100%' }}>
-          <PresetButton
-            mode={mode}
-            preset="custom"
-            label={getCustomButtonLabel()}
-            onPress={handlePresetSelect}
-            style={{ width: '100%', minWidth: 0 }}
-          />
-
-          {isCalendarOpen && (
-            <DateRangeCalendar
-              month={currentMonth.getMonth()}
-              year={currentMonth.getFullYear()}
-              currentMonth={currentMonth}
-              navigateMonth={navigateMonth}
-              tempStartDate={tempStartDate}
-              tempEndDate={tempEndDate}
-              hoverDate={hoverDate}
-              setHoverDate={setHoverDate}
-              handleDayPress={handleDayPress}
-            />
-          )}
-        </View>
-      </View>
-    );
-  }
+  const options = [
+    { value: '7days', label: t('adminAnalyticsDateLast7') },
+    { value: '30days', label: t('adminAnalyticsDateLast30') },
+    { value: 'custom', label: getCustomButtonLabel() },
+  ];
 
   return (
     <View style={styles.datePickerContainer}>
-      <View style={styles.datePickerPresets}>
-        <PresetButton mode={mode} preset="7days" label={t('adminAnalyticsDateLast7')} onPress={handlePresetSelect} />
-        <PresetButton mode={mode} preset="30days" label={t('adminAnalyticsDateLast30')} onPress={handlePresetSelect} />
-        
-        {/* Custom button with absolute popup */}
-        <View style={{ position: 'relative', zIndex: 3000 }}>
-          <PresetButton
-            mode={mode}
-            preset="custom"
-            label={getCustomButtonLabel()}
-            onPress={handlePresetSelect}
-          />
+      <View style={{ position: 'relative', zIndex: 3000 }}>
+        <Toggle
+          options={options}
+          value={mode}
+          onChange={handlePresetSelect}
+          size="sm"
+        />
 
-          {isCalendarOpen && (
-            <DateRangeCalendar
-              month={currentMonth.getMonth()}
-              year={currentMonth.getFullYear()}
-              currentMonth={currentMonth}
-              navigateMonth={navigateMonth}
-              tempStartDate={tempStartDate}
-              tempEndDate={tempEndDate}
-              hoverDate={hoverDate}
-              setHoverDate={setHoverDate}
-              handleDayPress={handleDayPress}
-            />
-          )}
-        </View>
+        {isCalendarOpen && (
+          <DateRangeCalendar
+            month={currentMonth.getMonth()}
+            year={currentMonth.getFullYear()}
+            currentMonth={currentMonth}
+            navigateMonth={navigateMonth}
+            tempStartDate={tempStartDate}
+            tempEndDate={tempEndDate}
+            hoverDate={hoverDate}
+            setHoverDate={setHoverDate}
+            handleDayPress={handleDayPress}
+          />
+        )}
       </View>
     </View>
   );
 }
+

@@ -23,14 +23,8 @@ export default function OrdersManager() {
   // Sorting — independent from status filter
   const { sortField, sortDirection, handleSort } = useSort('date');
 
-  // Status filter — all 4 active by default (show everything)
-  const [activeFilters, setActiveFilters] = useState(['pending', 'processing', 'completed', 'cancelled']);
-
-  const handleToggleFilter = (key) => {
-    setActiveFilters((prev) =>
-      prev.includes(key) ? prev.filter((k) => k !== key) : [...prev, key]
-    );
-  };
+  // Status filter — 'all' by default (show everything)
+  const [activeFilter, setActiveFilter] = useState('all');
 
   const handleStatusUpdated = (orderId, newStatus) => {
     setInternalData((prev) => 
@@ -42,9 +36,12 @@ export default function OrdersManager() {
   };
 
   const filteredSortedOrders = useMemo(() => {
-    const filtered = orders.filter((o) => activeFilters.includes(getStatusGroup(o.status)));
+    const filtered = orders.filter((o) => {
+      if (activeFilter === 'all') return true;
+      return getStatusGroup(o.status) === activeFilter;
+    });
     return sortOrders(filtered, sortField, sortDirection);
-  }, [orders, activeFilters, sortField, sortDirection]);
+  }, [orders, activeFilter, sortField, sortDirection]);
 
   if (selectedOrder) {
     return (
@@ -62,8 +59,8 @@ export default function OrdersManager() {
     <View style={styles.container}>
       <StatusFilterBar
         t={t}
-        activeFilters={activeFilters}
-        onToggle={handleToggleFilter}
+        activeFilter={activeFilter}
+        onSelectFilter={setActiveFilter}
         count={!loading ? filteredSortedOrders.length : null}
       />
 

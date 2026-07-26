@@ -3,56 +3,22 @@ import { View, Text, StyleSheet } from 'react-native';
 import styles from './ProductReviewsStyles';
 import { useTheme } from '../../context/ThemeContext';
 import Button, { AnimatedButton } from '../../components/Button';
+import Toggle from '../../components/Toggle';
 import { Link } from 'expo-router';
 import { colors } from '../../theme/tokens';
 import { FieldTextarea } from '../../components/Admin/SharedFormComponents';
 
 export { getAccountName, useReviewsState } from './useReviewsState';
 
-const SEGMENTED_THEME = {
-  active: {
-    dark: { bg: colors.white, border: colors.white, text: colors.dark },
-    light: { bg: colors.dark, border: colors.dark, text: colors.white },
-  },
-  inactive: {
-    dark: { bg: colors.secondaryDarkBg, border: colors.secondaryDarkBorder, text: colors.secondaryDarkText },
-    light: { bg: colors.slateMid, border: colors.secondaryLightBorder, text: colors.secondaryLightText },
-  },
-};
-
-function getSegmentedTheme(isActive, isDark) {
-  const stateKey = isActive ? 'active' : 'inactive';
-  const modeKey = isDark ? 'dark' : 'light';
-  return SEGMENTED_THEME[stateKey][modeKey];
-}
-
 export function SegmentedToggle({ options, activeValue, onChange, isDark }) {
   return (
-    <View style={{ flexDirection: 'row', gap: 8, marginBottom: 16 }}>
-      {options.map((opt) => {
-        const theme = getSegmentedTheme(activeValue === opt.value, isDark);
-        return (
-          <AnimatedButton
-            key={opt.value}
-            style={{
-              paddingVertical: 8,
-              paddingHorizontal: 16,
-              minHeight: 44,
-              justifyContent: 'center',
-              borderRadius: 8,
-              backgroundColor: theme.bg,
-              borderWidth: 1,
-              borderColor: theme.border,
-            }}
-            onPress={() => onChange(opt.value)}
-          >
-            <Text style={{ fontSize: 13, fontWeight: '600', color: theme.text }}>
-              {opt.label}
-            </Text>
-          </AnimatedButton>
-        );
-      })}
-    </View>
+    <Toggle
+      options={options}
+      value={activeValue}
+      onChange={onChange}
+      isDark={isDark}
+      style={{ marginBottom: 16 }}
+    />
   );
 }
 
