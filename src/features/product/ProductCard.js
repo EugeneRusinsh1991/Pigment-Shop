@@ -43,6 +43,7 @@ const ProductPrice = React.memo(function ProductPrice({ price, discountPercent, 
 });
 
 const ProductCardInner = React.forwardRef(({ item, isDark, depth = 1, isFavorite, onToggleFavorite, overrideWidth, ...rest }, ref) => {
+  const [imgError, setImgError] = React.useState(false);
   const { t, lang } = useTheme();
   const { addItem } = useCartContext();
   const { cardHeight, imgContainerHeight } = useCardDimensions(depth);
@@ -69,13 +70,18 @@ const ProductCardInner = React.forwardRef(({ item, isDark, depth = 1, isFavorite
       variant="grid"
       isDark={isDark}
       interactive={true}
-      style={[{ height: cardHeight, maxHeight: cardHeight }, overrideWidth ? { width: overrideWidth } : null]}
+      style={[{ minHeight: cardHeight }, overrideWidth ? { width: overrideWidth } : null]}
       {...rest}
     >
       <View style={themed.imageContainer}>
-        <Image source={{ uri: item.image || PRODUCT_PLACEHOLDER }} style={styles.prodImage} resizeMode="cover" />
+        <Image
+          source={{ uri: (!item?.image || imgError) ? PRODUCT_PLACEHOLDER : item.image }}
+          style={styles.prodImage}
+          resizeMode="cover"
+          onError={() => setImgError(true)}
+        />
         <ProductBadges isNew={item.isNew} discountPercent={item.discountPercent} />
-        <View style={styles.topOverlayWrapper}>
+        <View style={styles.topOverlayWrapper} pointerEvents="auto">
           <IconButton
             testID="product-fav-button"
             icon={<HeartIcon filled={isFavorite} color={heartColor} size={14} />}
@@ -85,7 +91,7 @@ const ProductCardInner = React.forwardRef(({ item, isDark, depth = 1, isFavorite
             animated={true}
           />
         </View>
-        <View style={styles.bottomOverlayWrapper}>
+        <View style={styles.bottomOverlayWrapper} pointerEvents="auto">
           <IconButton
             testID="product-cart-button"
             icon={<CartIcon color={colors.white} size={14} />}

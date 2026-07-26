@@ -50,7 +50,7 @@ export default StyleSheet.create({
     fontSize: 14,
     fontWeight: '500',
     lineHeight: 18,
-    height: 36,
+    minHeight: 36,
     marginBottom: 4,
   },
   prodTitleDark: {

@@ -14,10 +14,10 @@ function EmptyCatalogState({ isDark, label }) {
 }
 
 export default function ProductGrid({ products, cols, cardWidth, isDark, onCardPress, favs, emptyLabel, listHeader, listFooter, isNarrow, gridWidth }) {
-  const maxWidth = `${(100 / cols).toFixed(4)}%`;
+  const itemWidth = `${(100 / cols).toFixed(4)}%`;
   const renderItem = useCallback(
     ({ item }) => (
-      <View style={{ flex: 1, maxWidth }}>
+      <View style={{ width: itemWidth, alignSelf: 'stretch' }}>
         <Link href={{ pathname: '/product/[id]', params: { id: item.id } }} asChild>
           <ProductCard
             item={item}
@@ -29,7 +29,7 @@ export default function ProductGrid({ products, cols, cardWidth, isDark, onCardP
         </Link>
       </View>
     ),
-    [isDark, cols, maxWidth, favs]
+    [isDark, cols, itemWidth, favs]
   );
 
   return (
@@ -38,9 +38,9 @@ export default function ProductGrid({ products, cols, cardWidth, isDark, onCardP
       keyExtractor={(item) => item.id}
       numColumns={cols}
       key={`catalog-grid-${cols}`}
-      style={isNarrow ? { alignSelf: 'center', width: gridWidth || '100%' } : { width: '100%' }}
+      style={isNarrow ? { alignSelf: 'center', width: gridWidth || '100%', minHeight: '100%' } : { width: '100%', minHeight: '100%' }}
       renderItem={renderItem}
-      contentContainerStyle={styles.grid}
+      contentContainerStyle={[styles.grid, { flexGrow: 1, minHeight: '100%' }]}
       ListHeaderComponent={listHeader}
       ListHeaderComponentStyle={isNarrow ? { zIndex: 1000, elevation: 1000, position: 'relative' } : undefined}
       ListFooterComponent={listFooter}

@@ -34,9 +34,10 @@ function useCatalogTransition(showPromotionalSections, showHeroBanner) {
  */
 function renderCatalogItem({ item, isDark, depth, favs, cols }) {
   const isLeaf = !item.isCategory;
-  const maxWidth = `${(100 / cols).toFixed(4)}%`;
+  const isBanner = Boolean(item?.isBanner || item?.isSingleSubcategory);
+  const itemWidth = isBanner ? '100%' : `${(100 / cols).toFixed(4)}%`;
   return (
-    <View style={{ width: maxWidth }}>
+    <View style={{ width: itemWidth, alignSelf: 'stretch' }}>
       <PlaceholderCard
         item={item}
         isDark={isDark}
@@ -134,7 +135,7 @@ export default function CatalogView({
           numColumns={cols}
           key={`grid-${cols}`}
           renderItem={renderItem}
-          contentContainerStyle={[styles.list, { alignSelf: 'center', width: gridWidth, paddingBottom: 0, flexGrow: 1 }]}
+          contentContainerStyle={[styles.list, { alignSelf: 'center', width: gridWidth, paddingBottom: 0, flexGrow: 1, minHeight: '100%' }]}
           showsVerticalScrollIndicator={false}
           ListFooterComponentStyle={{ flex: 1, justifyContent: 'flex-end' }}
           ListFooterComponent={
@@ -192,10 +193,10 @@ export default function CatalogView({
 const layoutStyles = StyleSheet.create({
   catalogContainer: {
     flex: 1,
-    minHeight: 0,
+    minHeight: '100%',
   },
   listContainer: {
     flex: 1,
-    minHeight: 0,
+    minHeight: '100%',
   },
 });
