@@ -3373,5 +3373,35 @@
         }
       ]
     }
+  },
+  "src_07-26_12-58_AppHeaderControls.js_9files": {
+    "timestamp": "2026-07-26T09:58:57.075Z",
+    "diff": {
+      "added": 3,
+      "removed": 3,
+      "modified": 6,
+      "topFolders": [
+        {
+          "folder": ".docs/manual-browser-log/screenshots",
+          "count": 7
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        },
+        {
+          "folder": ".docs/manual-browser-log/reports",
+          "count": 1
+        },
+        {
+          "folder": ".docs/manual-browser-log/state",
+          "count": 1
+        },
+        {
+          "folder": "src/features/shell/AppHeader",
+          "count": 1
+        }
+      ]
+    }
   }
 }

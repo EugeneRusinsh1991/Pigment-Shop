@@ -1,7 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { Link } from 'expo-router';
 import { IconButton } from '@/components/Button';
-import { Flag } from '@/components/Flag';
 import { BagIcon, CurrencyIcon, GlobeIcon, ThemeIcon, UserIcon } from '@/components/Icons';
 import styles from './AppHeaderStyles';
 import LangDropdown from './LangDropdown';
@@ -31,10 +30,12 @@ export default function AppHeaderControls({
     <View style={[styles.rightSec, isMobile && { gap: 8 }]}>
 
       {!isMobile && (
-        <Flag
-          variant="switch"
-          checked={isDark}
-          onChange={onToggleTheme}
+        <IconButton
+          icon={<ThemeIcon color={theme.iconColor} size={18} />}
+          onPress={onToggleTheme}
+          size={44}
+          variant="transparent"
+          isDark={isDark}
           accessibilityLabel="Toggle Theme"
         />
       )}
