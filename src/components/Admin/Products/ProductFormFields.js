@@ -1,4 +1,4 @@
-import { CheckIcon } from '@/components/Icons';
+import { Flag } from '../../Flag';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
 import styles from './ProductFormStyles';
@@ -12,12 +12,13 @@ const FieldTextarea = (props) => <SharedFieldTextarea {...props} styles={styles}
 
 function FieldCheckbox({ label, value, onChange }) {
   return (
-    <TouchableOpacity style={styles.checkRow} onPress={() => onChange(!value)} activeOpacity={0.7}>
-      <View style={[styles.checkBox, value && styles.checkBoxActive, { justifyContent: 'center', alignItems: 'center' }]}>
-        {value && <CheckIcon color="#FFFFFF" size={10} />}
-      </View>
-      <Text style={styles.checkLabel}>{label}</Text>
-    </TouchableOpacity>
+    <Flag
+      variant="checkbox"
+      checked={!!value}
+      onChange={onChange}
+    >
+      {label}
+    </Flag>
   );
 }
 

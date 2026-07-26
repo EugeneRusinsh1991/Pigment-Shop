@@ -7,9 +7,8 @@
 import React from 'react';
 import { View } from 'react-native';
 import { Button } from '../../Button';
-import { ChipButton } from '../../Button';
+import { Flag, FlagGroup } from '../../Flag';
 import { useTheme } from '../../../context/ThemeContext';
-import { TagIcon, StarIcon } from '@/components/Icons';
 
 export default function ProductsFilterBar({
   onlyDiscount,
@@ -21,20 +20,22 @@ export default function ProductsFilterBar({
   const { t } = useTheme();
   return (
     <View style={{ flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', gap: 8, marginBottom: 16 }}>
-      <ChipButton
-        variant="pill"
-        leftIcon={<TagIcon size={14} />}
-        label={t('adminProductsFilterDiscount')}
-        active={onlyDiscount}
-        onPress={onToggleDiscount}
-      />
-      <ChipButton
-        variant="pill"
-        leftIcon={<StarIcon size={14} />}
-        label={t('adminProductsFilterNew')}
-        active={onlyNew}
-        onPress={onToggleNew}
-      />
+      <FlagGroup>
+        <Flag
+          variant="chip"
+          checked={onlyDiscount}
+          onChange={onToggleDiscount}
+        >
+          {t('adminProductsFilterDiscount')}
+        </Flag>
+        <Flag
+          variant="chip"
+          checked={onlyNew}
+          onChange={onToggleNew}
+        >
+          {t('adminProductsFilterNew')}
+        </Flag>
+      </FlagGroup>
       <Button
         title={t('adminProductsAddBtn')}
         onPress={onAdd}

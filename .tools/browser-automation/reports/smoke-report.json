@@ -2,9 +2,9 @@
   "summary": {
     "visitedScreens": 0,
     "visitedInteractions": 0,
-    "successfulInteractions": 20,
-    "failedInteractions": 0,
-    "warnings": 0,
+    "successfulInteractions": 67,
+    "failedInteractions": 1,
+    "warnings": 1,
     "errors": 1,
     "executionDurationMs": 0
   },
@@ -12,12 +12,22 @@
     {
       "screen": "http://localhost:8081/admin",
       "interaction": "Click",
-      "elementIdentifier": "card|Card|/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[5]/div[2]/input[1]",
+      "elementIdentifier": "btn|Group 1-1-2 RUProd...",
       "event": "AfterInteraction",
-      "timestamp": 1785058976562,
+      "timestamp": 1785059598485,
       "errorType": "Health Check Evaluation Failed",
       "errorMessage": "[Application Bug] page.evaluate: Target page, context or browser has been closed"
     }
   ],
-  "warnings": []
+  "warnings": [
+    {
+      "screen": "http://localhost:8081/admin",
+      "interaction": "Click",
+      "elementIdentifier": "btn|Browse",
+      "event": "Runtime",
+      "timestamp": 1785059581754,
+      "errorType": "Console Warning",
+      "errorMessage": "props.pointerEvents is deprecated. Use style.pointerEvents"
+    }
+  ]
 }
