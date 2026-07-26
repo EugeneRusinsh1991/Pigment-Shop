@@ -14,20 +14,22 @@ function EmptyCatalogState({ isDark, label }) {
 }
 
 export default function ProductGrid({ products, cols, cardWidth, isDark, onCardPress, favs, emptyLabel, listHeader, listFooter, isNarrow, gridWidth }) {
+  const maxWidth = `${(100 / cols).toFixed(4)}%`;
   const renderItem = useCallback(
     ({ item }) => (
-      <Link href={{ pathname: '/product/[id]', params: { id: item.id } }} asChild>
-        <ProductCard
-          item={item}
-          isDark={isDark}
-          depth={1}
-          overrideWidth={cardWidth}
-          isFavorite={favs?.isFavorite(item.id)}
-          onToggleFavorite={favs?.toggleFavorite}
-        />
-      </Link>
+      <View style={{ flex: 1, maxWidth }}>
+        <Link href={{ pathname: '/product/[id]', params: { id: item.id } }} asChild>
+          <ProductCard
+            item={item}
+            isDark={isDark}
+            depth={1}
+            isFavorite={favs?.isFavorite(item.id)}
+            onToggleFavorite={favs?.toggleFavorite}
+          />
+        </Link>
+      </View>
     ),
-    [isDark, cardWidth, favs]
+    [isDark, cols, maxWidth, favs]
   );
 
   return (
@@ -36,7 +38,7 @@ export default function ProductGrid({ products, cols, cardWidth, isDark, onCardP
       keyExtractor={(item) => item.id}
       numColumns={cols}
       key={`catalog-grid-${cols}`}
-      style={isNarrow ? { alignSelf: 'center', width: gridWidth } : null}
+      style={isNarrow ? { alignSelf: 'center', width: gridWidth || '100%' } : { width: '100%' }}
       renderItem={renderItem}
       contentContainerStyle={styles.grid}
       ListHeaderComponent={listHeader}

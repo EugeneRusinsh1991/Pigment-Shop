@@ -8,4 +8,3 @@ export { default as InteractiveCard } from './Card';
 export { default as StaticCard } from './Card';
 export { default as CardShadow } from './CardShadow';
 export { default as NavigationCard } from './NavigationCard';
-export { default as PlaceholderCard, PlaceholderGrid } from './PlaceholderCard';

@@ -7,7 +7,7 @@ import { useTheme } from '../../context/ThemeContext';
 
 import CatalogHeader from './CatalogHeader';
 import PageNavigation from '../../components/PageNavigation';
-import { PlaceholderCard } from '../../components/Card';
+import PlaceholderCard from './PlaceholderCard';
 import CatalogListFooter from './CatalogListFooter';
 import { useCatalogViewData } from '../../hooks/useCatalogViewData';
 
@@ -32,17 +32,20 @@ function useCatalogTransition(showPromotionalSections, showHeroBanner) {
 /**
  * Helper to render catalog list items.
  */
-function renderCatalogItem({ item, isDark, depth, favs }) {
+function renderCatalogItem({ item, isDark, depth, favs, cols }) {
   const isLeaf = !item.isCategory;
+  const maxWidth = `${(100 / cols).toFixed(4)}%`;
   return (
-    <PlaceholderCard
-      item={item}
-      isDark={isDark}
-      isLeaf={isLeaf}
-      depth={depth}
-      isFavorite={favs?.isFavorite(item.id)}
-      onToggleFavorite={favs?.toggleFavorite}
-    />
+    <View style={{ width: maxWidth }}>
+      <PlaceholderCard
+        item={item}
+        isDark={isDark}
+        isLeaf={isLeaf}
+        depth={depth}
+        isFavorite={favs?.isFavorite(item.id)}
+        onToggleFavorite={favs?.toggleFavorite}
+      />
+    </View>
   );
 }
 
@@ -93,8 +96,8 @@ export default function CatalogView({
   const isTransitionReady = useCatalogTransition(showPromotionalSections, showHeroBanner);
 
   const renderItem = useCallback(
-    ({ item }) => renderCatalogItem({ item, isDark, depth, favs }),
-    [isDark, depth, favs]
+    ({ item }) => renderCatalogItem({ item, isDark, depth, favs, cols }),
+    [isDark, depth, favs, cols]
   );
 
   return (

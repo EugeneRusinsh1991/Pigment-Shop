@@ -6,12 +6,6 @@ import { useTheme } from '../context/ThemeContext';
 import { getContentGridWidth, getDeviceTier, getGridCols } from '../utils/layout';
 import { findCategoryPath } from '../utils/categoryTreeUtils';
 
-const COLS_MAP = {
-  desktop: { depth0: 5, depthRest: 5 },
-  tablet: { depth0: 3, depthRest: 3 },
-  mobile: { depth0: 2, depthRest: 2 },
-};
-
 function getCatalogLayout(isWide, depth, windowWidth, hasFilterSidebar = false) {
   const cols = getGridCols(windowWidth, hasFilterSidebar);
   const gridWidth = getContentGridWidth(windowWidth, depth, hasFilterSidebar);

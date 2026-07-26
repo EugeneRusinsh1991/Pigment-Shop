@@ -57,4 +57,22 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     color: colors.black,
   },
+  bannerCard: {
+    width: '100%',
+    marginHorizontal: 0,
+    marginVertical: 8,
+  },
+  bannerContent: {
+    bottom: 20,
+    left: 20,
+    right: 20,
+  },
+  bannerLabel: {
+    fontSize: 22,
+    lineHeight: 28,
+  },
+  bannerDesc: {
+    fontSize: 13,
+    lineHeight: 18,
+  },
 });

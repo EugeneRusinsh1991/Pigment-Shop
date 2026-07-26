@@ -67,10 +67,5 @@ export function getGridCols(windowWidth, hasFilterSidebar = false) {
  * @param {boolean} [hasFilterSidebar=false] - whether active filter sidebar is shown
  */
 export function getContentGridWidth(windowWidth, depth = 0, hasFilterSidebar = false) {
-  const device = getDeviceTier(windowWidth);
-  const depthKey = depth === 0 ? 'depth0' : 'depthRest';
-  const cols = hasFilterSidebar ? FILTERED_COLS_MAP[device] : COLS_MAP[device][depthKey];
-  const cardWidth = CARD_WIDTH_MAP[depthKey][device];
-  const margin = CARD_MARGIN_MAP[device];
-  return cols * (cardWidth + margin * 2);
+  return Math.min(windowWidth, 1330);
 }

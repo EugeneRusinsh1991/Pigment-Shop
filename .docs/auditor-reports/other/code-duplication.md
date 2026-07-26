@@ -1,6 +1,6 @@
 # 👥 Significant Code Duplication (≥ 8 lines)
 
-*Generated on: 25.07.2026, 23:40:38*
+*Generated on: 26.07.2026, 15:20:54*
 
 ### Clone Group 1 — 61 lines, 298 tokens · `dup:21a2cf31`
 > 💡 Extract duplicated code (61 lines, 2 instances) into a shared function
@@ -8,7 +8,7 @@
 - [setupManualInspector.js:L45–L105](file:///D:/Magazine/_PigmentShop/.tools/manual-browser-inspector/setupManualInspector.js#L45-L105) (`.tools/manual-browser-inspector/setupManualInspector.js`)
 - [setupManualInspector.ts:L49–L109](file:///D:/Magazine/_PigmentShop/.tools/manual-browser-inspector/setupManualInspector.ts#L49-L109) (`.tools/manual-browser-inspector/setupManualInspector.ts`)
 
-### Clone Group 2 — 26 lines, 228 tokens · `dup:2f9f54f4`
+### Clone Group 2 — 26 lines, 230 tokens · `dup:8f2a7d59`
 > 💡 Extract duplicated code (26 lines, 2 instances) into a shared function
 
 - [setupManualInspector.js:L19–L44](file:///D:/Magazine/_PigmentShop/.tools/manual-browser-inspector/setupManualInspector.js#L19-L44) (`.tools/manual-browser-inspector/setupManualInspector.js`)

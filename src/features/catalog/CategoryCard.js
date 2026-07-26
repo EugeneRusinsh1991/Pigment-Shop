@@ -4,7 +4,7 @@ import { useTheme } from '../../context/ThemeContext';
 import { useCatalog } from '../../context/CatalogContext';
 import useCardDimensions from '../../hooks/useCardDimensions';
 import styles from './categoryCardStyles';
-import Card from '../../components/Card';
+import Card from '../../components/Card/Card';
 import { colors, layout } from '../../theme/tokens';
 import { getLocalizedValue } from '../../utils/localization';
 
@@ -71,13 +71,23 @@ function getCategoryCardStyles(isDark, isMobile) {
     overlay: native.overlay,
   };
 }
-const CategoryCardInner = React.forwardRef(({ item, isDark, depth = 1, style, ...rest }, ref) => {
+const CATEGORY_GRID_HEIGHTS = { desktop: 280, tablet: 250, mobile: 200 };
+const CATEGORY_BANNER_HEIGHTS = { desktop: 180, tablet: 160, mobile: 140 };
+
+function getCategoryCardHeight(isBanner, device) {
+  return isBanner ? CATEGORY_BANNER_HEIGHTS[device] : CATEGORY_GRID_HEIGHTS[device];
+}
+
+const CategoryCardInner = React.forwardRef(({ item, isDark, depth = 1, isBanner = false, style, ...rest }, ref) => {
   const { lang } = useTheme();
   const { width: windowWidth } = useWindowDimensions();
   const isMobile = windowWidth < 768;
+  const device = windowWidth >= 1024 ? 'desktop' : isMobile ? 'mobile' : 'tablet';
   const { desc, label } = useCategoryContent(item, lang);
   const computedStyles = getCategoryCardStyles(isDark, isMobile);
-  const { cardHeight } = useCardDimensions(depth);
+  const activeIsBanner = Boolean(isBanner || item?.isBanner || item?.isSingleSubcategory);
+
+  const cardHeight = getCategoryCardHeight(activeIsBanner, device);
 
   return (
     <Card
@@ -85,15 +95,15 @@ const CategoryCardInner = React.forwardRef(({ item, isDark, depth = 1, style, ..
       variant="compact"
       isDark={isDark}
       interactive={true}
-      style={[styles.catCard, { height: cardHeight }, style]}
+      style={[styles.catCard, { height: cardHeight, maxHeight: cardHeight }, activeIsBanner && styles.bannerCard, style]}
       {...rest}
     >
       <View style={{ ...StyleSheet.absoluteFillObject, borderRadius: layout.radii.lg, overflow: 'hidden' }}>
-        <Image source={{ uri: CATEGORY_PLACEHOLDER }} style={styles.catImage} resizeMode="cover" />
+        <Image source={{ uri: item?.image || CATEGORY_PLACEHOLDER }} style={styles.catImage} resizeMode="cover" />
         <View style={[styles.overlay, computedStyles.overlay]} />
-        <View style={computedStyles.content}>
-          <Text style={computedStyles.label} numberOfLines={2}>{label}</Text>
-          <Text style={computedStyles.desc}  numberOfLines={2}>{desc}</Text>
+        <View style={[computedStyles.content, activeIsBanner && styles.bannerContent]}>
+          <Text style={[computedStyles.label, activeIsBanner && styles.bannerLabel]} numberOfLines={2}>{label}</Text>
+          <Text style={[computedStyles.desc, activeIsBanner && styles.bannerDesc]} numberOfLines={2}>{desc}</Text>
         </View>
       </View>
     </Card>

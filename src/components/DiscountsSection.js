@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { Text, View, useWindowDimensions } from 'react-native';
-import { PlaceholderGrid } from './Card';
+import { PlaceholderGrid } from '../features/catalog/PlaceholderCard';
 import { CountdownTimer } from './FeaturedSections';
 import { useCatalog } from '../context/CatalogContext';
 import { getDeviceTier } from '../utils/layout';

@@ -35,6 +35,12 @@ const Card = React.forwardRef(({
     style,
   ];
 
+  const touchableStyle = {
+    width: '100%',
+    height: '100%',
+    position: 'relative',
+  };
+
   if (isInteractive) {
     return (
       <Animated.View style={combinedStyle}>
@@ -42,7 +48,7 @@ const Card = React.forwardRef(({
           ref={ref}
           activeOpacity={0.85}
           onPress={handlePress}
-          style={{ flex: 1, width: '100%' }}
+          style={touchableStyle}
           onMouseEnter={bind.onMouseEnter}
           onMouseLeave={bind.onMouseLeave}
           onPressIn={bind.onPressIn}

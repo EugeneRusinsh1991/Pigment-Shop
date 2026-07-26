@@ -6,7 +6,7 @@ import { HeartIcon, CartIcon } from '@/components/Icons';
 import styles from './ProductCardStyles';
 import { IconButton } from '../../components/Button';
 import ProductBadges from './ProductBadges';
-import Card from '../../components/Card';
+import Card from '../../components/Card/Card';
 import { useCartContext } from '../../context/CartContext';
 import { colors } from '../../theme/tokens';
 
@@ -69,7 +69,7 @@ const ProductCardInner = React.forwardRef(({ item, isDark, depth = 1, isFavorite
       variant="grid"
       isDark={isDark}
       interactive={true}
-      style={[{ height: cardHeight }, overrideWidth ? { width: overrideWidth } : null]}
+      style={[{ height: cardHeight, maxHeight: cardHeight }, overrideWidth ? { width: overrideWidth } : null]}
       {...rest}
     >
       <View style={themed.imageContainer}>

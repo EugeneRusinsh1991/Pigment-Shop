@@ -1,6 +1,6 @@
 # 🩺 Complexity Health Findings (Critical & High)
 
-*Generated on: 25.07.2026, 23:40:38*
+*Generated on: 26.07.2026, 15:20:54*
 
 ## 🔴 Critical (> 50 lines)
 
@@ -15,6 +15,12 @@
 
 - 🔴 **`createDefaultContainer`** [L71](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/di/DIContainer.ts#L71)
   - Lines: 65 | Cyclomatic: 15 | Cognitive: 14 | CRAP: 240
+
+#### 📁 [playwright.helpers.js](file:///D:/Magazine/_PigmentShop/scripts/playwright.helpers.js)
+`scripts/playwright.helpers.js`
+
+- 🔴 **`<arrow>`** [L15](file:///D:/Magazine/_PigmentShop/scripts/playwright.helpers.js#L15)
+  - Lines: 99 | Cyclomatic: 13 | Cognitive: 24 | CRAP: 182
 
 #### 📁 [setupManualInspector.js](file:///D:/Magazine/_PigmentShop/.tools/manual-browser-inspector/setupManualInspector.js)
 `.tools/manual-browser-inspector/setupManualInspector.js`
@@ -39,11 +45,23 @@
 - 🔴 **`formatElement`** [L52](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/observability/reporters/ConsoleReporter.ts#L52)
   - Lines: 42 | Cyclomatic: 26 | Cognitive: 27 | CRAP: 702
 
+#### 📁 [ManualBrowserInspector.js](file:///D:/Magazine/_PigmentShop/.tools/manual-browser-inspector/ManualBrowserInspector.js)
+`.tools/manual-browser-inspector/ManualBrowserInspector.js`
+
+- 🔴 **`getHoverInfo`** [L43](file:///D:/Magazine/_PigmentShop/.tools/manual-browser-inspector/ManualBrowserInspector.js#L43)
+  - Lines: 34 | Cyclomatic: 14 | Cognitive: 11 | CRAP: 210
+
 #### 📁 [restore.js](file:///D:/Magazine/_PigmentShop/.tools/.backuper/restore.js)
 `.tools/.backuper/restore.js`
 
 - 🔴 **`onKeypress`** [L127](file:///D:/Magazine/_PigmentShop/.tools/.backuper/restore.js#L127)
   - Lines: 37 | Cyclomatic: 13 | Cognitive: 16 | CRAP: 182
+
+#### 📁 [hoverInfoHelper.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/hoverInfoHelper.ts)
+`.tools/browser-automation/helpers/hoverInfoHelper.ts`
+
+- 🔴 **`extractElementHoverInfo`** [L24](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/hoverInfoHelper.ts#L24)
+  - Lines: 44 | Cyclomatic: 12 | Cognitive: 9 | CRAP: 156
 
 #### 📁 [ElementScanner.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/ElementScanner.ts)
 `.tools/browser-automation/explorer/ElementScanner.ts`
@@ -63,7 +81,7 @@
 #### 📁 [core.js](file:///D:/Magazine/_PigmentShop/.tools/.backuper/backup/core.js)
 `.tools/.backuper/backup/core.js`
 
-- 🟠 **`createBackup`** [L125](file:///D:/Magazine/_PigmentShop/.tools/.backuper/backup/core.js#L125)
+- 🟠 **`createBackup`** [L118](file:///D:/Magazine/_PigmentShop/.tools/.backuper/backup/core.js#L118)
   - Lines: 69 | Cyclomatic: 8 | Cognitive: 9 | CRAP: 72
 
 #### 📁 [ElementEditingValidator.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/helpers/ElementEditingValidator.ts)
