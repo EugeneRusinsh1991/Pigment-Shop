@@ -2,6 +2,7 @@ import { View } from 'react-native';
 import { useCatalog } from '../../../context/CatalogContext';
 import CategoryTreeNode, { useExpandedIds } from './CategoryTreeNode';
 import { useAutoExpandSelectedCategory } from './useExpandedIds';
+import styles from './NavMenuStyles';
 
 export default function CatalogMenuContent({ isDark, onClose, selectedCategoryId }) {
   const { categoryTree } = useCatalog();
@@ -12,7 +13,7 @@ export default function CatalogMenuContent({ isDark, onClose, selectedCategoryId
   const roots = categoryTree ? categoryTree.filter((node) => node.isCategory) : [];
 
   return (
-    <View style={{ paddingVertical: 8 }}>
+    <View style={styles.catalogContainer}>
       {roots.map((node) => (
         <CategoryTreeNode
           key={node.id}

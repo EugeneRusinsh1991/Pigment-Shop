@@ -17,7 +17,7 @@ import {
     LogoutIcon,
     UserIcon
 } from '@/components/Icons';
-import { colors } from '@/theme/tokens';
+import { colors, layout, typography } from '@/theme/tokens';
 import styles from './AppHeaderStyles';
 
 const getTrimmedValue = (val) => {
@@ -84,8 +84,8 @@ export default function UserDropdown({
     >
       {isAuthenticated ? (
         <>
-          <View style={{ paddingVertical: 8, paddingHorizontal: 12, borderBottomWidth: 1, borderBottomColor: dStyles.borderBottomColor, marginBottom: 4 }}>
-            <Text variant="caption" color="secondary" weight="500" size={11} numberOfLines={1} ellipsizeMode="tail">
+          <View style={{ paddingVertical: layout.spacing.sm, paddingHorizontal: layout.spacing.md, borderBottomWidth: 1, borderBottomColor: dStyles.borderBottomColor, marginBottom: layout.spacing.xxs }}>
+            <Text variant="caption" color="secondary" weight="500" size={typography.sizes.xs - 1} numberOfLines={1} ellipsizeMode="tail">
               {getUserDisplayName(user, profile)}
             </Text>
           </View>
@@ -94,7 +94,7 @@ export default function UserDropdown({
               variant="ghost"
               size="sm"
               fullWidth
-              leftIcon={<UserIcon color={dStyles.iconColor} size={14} />}
+              leftIcon={<UserIcon color={dStyles.iconColor} size={typography.sizes.sm} />}
               title={t('userProfile')}
               style={StyleSheet.flatten([styles.dropdownItem, { justifyContent: 'flex-start' }])}
               textStyle={dStyles.itemText}
@@ -106,7 +106,7 @@ export default function UserDropdown({
               variant="ghost"
               size="sm"
               fullWidth
-              leftIcon={<HeartIcon color={dStyles.iconColor} size={14} />}
+              leftIcon={<HeartIcon color={dStyles.iconColor} size={typography.sizes.sm} />}
               title={t('navFavorites')}
               style={StyleSheet.flatten([styles.dropdownItem, { justifyContent: 'flex-start' }])}
               textStyle={dStyles.itemText}
@@ -118,7 +118,7 @@ export default function UserDropdown({
               variant="ghost"
               size="sm"
               fullWidth
-              leftIcon={<ClipboardIcon color={dStyles.iconColor} size={14} />}
+              leftIcon={<ClipboardIcon color={dStyles.iconColor} size={typography.sizes.sm} />}
               title={t('userOrders')}
               style={StyleSheet.flatten([styles.dropdownItem, { justifyContent: 'flex-start' }])}
               textStyle={dStyles.itemText}
@@ -131,7 +131,7 @@ export default function UserDropdown({
                 variant="ghost"
                 size="sm"
                 fullWidth
-                leftIcon={<AdminIcon color={dStyles.iconColor} size={14} />}
+                leftIcon={<AdminIcon color={dStyles.iconColor} size={typography.sizes.sm} />}
                 title={t('adminTitle')}
                 style={StyleSheet.flatten([styles.dropdownItem, { justifyContent: 'flex-start' }])}
                 textStyle={dStyles.itemText}
@@ -144,7 +144,7 @@ export default function UserDropdown({
             variant="ghost"
             size="sm"
             fullWidth
-            leftIcon={<LogoutIcon color={dStyles.iconColor} size={14} />}
+            leftIcon={<LogoutIcon color={dStyles.iconColor} size={typography.sizes.sm} />}
             title={t('userLogout')}
             style={StyleSheet.flatten([styles.dropdownItem, { justifyContent: 'flex-start' }])}
             textStyle={dStyles.itemText}
@@ -158,7 +158,7 @@ export default function UserDropdown({
               variant="ghost"
               size="sm"
               fullWidth
-              leftIcon={<LoginIcon color={dStyles.iconColor} size={14} />}
+              leftIcon={<LoginIcon color={dStyles.iconColor} size={typography.sizes.sm} />}
               title={t('userLogin')}
               style={StyleSheet.flatten([styles.dropdownItem, { justifyContent: 'flex-start' }])}
               textStyle={dStyles.itemText}
@@ -170,7 +170,7 @@ export default function UserDropdown({
               variant="ghost"
               size="sm"
               fullWidth
-              leftIcon={<UserIcon color={dStyles.iconColor} size={14} />}
+              leftIcon={<UserIcon color={dStyles.iconColor} size={typography.sizes.sm} />}
               title={t('reviewsRegisterBtn')}
               style={StyleSheet.flatten([styles.dropdownItem, { justifyContent: 'flex-start' }])}
               textStyle={dStyles.itemText}

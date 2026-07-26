@@ -1,6 +1,6 @@
 # 📄 Small & Pass-Through Files Findings
 
-*Generated on: 27.07.2026, 00:40:36*
+*Generated on: 27.07.2026, 00:55:28*
 
 ### Candidate Files for Refactoring/Elimination
 
@@ -53,7 +53,7 @@
   > 💡 This component is very small; consider declaring it inline within its parent component.
 
 - **[useMediaTheme.js](file:///D:/Magazine/_PigmentShop/src/components/Media/useMediaTheme.js)** (`src/components/Media/useMediaTheme.js`)
-  - Lines: 13 | Size: 316 B | Type: **Tiny Component**
+  - Lines: 13 | Size: 313 B | Type: **Tiny Component**
   > 💡 This component is very small; consider declaring it inline within its parent component.
 
 - **[useEmptyStateTheme.js](file:///D:/Magazine/_PigmentShop/src/components/Feedback/EmptyState/useEmptyStateTheme.js)** (`src/components/Feedback/EmptyState/useEmptyStateTheme.js`)
@@ -116,12 +116,12 @@
   - Lines: 23 | Size: 985 B | Type: **Tiny Component**
   > 💡 This component is very small; consider declaring it inline within its parent component.
 
-- **[useSearchTheme.js](file:///D:/Magazine/_PigmentShop/src/components/Search/useSearchTheme.js)** (`src/components/Search/useSearchTheme.js`)
-  - Lines: 24 | Size: 1017 B | Type: **Tiny Component**
-  > 💡 This component is very small; consider declaring it inline within its parent component.
-
 - **[useFeedbackTheme.js](file:///D:/Magazine/_PigmentShop/src/components/Feedback/useFeedbackTheme.js)** (`src/components/Feedback/useFeedbackTheme.js`)
   - Lines: 25 | Size: 532 B | Type: **Tiny Component**
+  > 💡 This component is very small; consider declaring it inline within its parent component.
+
+- **[useSearchTheme.js](file:///D:/Magazine/_PigmentShop/src/components/Search/useSearchTheme.js)** (`src/components/Search/useSearchTheme.js`)
+  - Lines: 25 | Size: 1087 B | Type: **Tiny Component**
   > 💡 This component is very small; consider declaring it inline within its parent component.
 
 - **[ScrollFadeUp.js](file:///D:/Magazine/_PigmentShop/src/components/Motion/ScrollFadeUp/ScrollFadeUp.js)** (`src/components/Motion/ScrollFadeUp/ScrollFadeUp.js`)

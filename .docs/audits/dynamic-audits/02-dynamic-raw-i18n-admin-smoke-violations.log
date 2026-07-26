@@ -2,7 +2,7 @@
 type: dynamic-audit
 auditor: raw-i18n
 scope: admin
-date: 2026-07-26T21:35:05.149Z
+date: 2026-07-26T21:58:20.914Z
 ---
 
 ### URL: http://localhost:8081/admin
@@ -326,3 +326,81 @@ date: 2026-07-26T21:35:05.149Z
   Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7`
 - Found raw camelCase i18n key: "adminUserNote"
   Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-1kfrs79.r-lineHeight-135wba7.r-color-kgv7a8.r-marginBottom-f1odvy.r-marginTop-1s2bzr4`
+- Found hardcoded text without i18n key: "ME1ET"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1x35g6.r-fontWeight-vw2c0b.r-lineHeight-135wba7.r-color-kgv7a8`
+- Found hardcoded text without i18n key: "ADMIN ADMIN"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0.r-flexShrink-1wbh5a2.r-textAlign-1ff274t`
+- Found hardcoded text without i18n key: "ADMIN"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0.r-flexShrink-1wbh5a2.r-textAlign-1ff274t`
+- Found hardcoded text without i18n key: "25 июля 2026 г. в 20:45"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0.r-flexShrink-1wbh5a2.r-textAlign-1ff274t`
+- Found hardcoded text without i18n key: "Product 1-1-2-1 RU11111"
+  Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0`
+- Found hardcoded text without i18n key: "Product 1-2-1-1 RU"
+  Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0`
+- Found hardcoded text without i18n key: "orderStatusCancelled ▼"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7`
+- Found hardcoded text without i18n key: "LIV3L"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1x35g6.r-fontWeight-vw2c0b.r-lineHeight-135wba7.r-color-kgv7a8`
+- Found hardcoded text without i18n key: "25 июля 2026 г. в 20:54"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0.r-flexShrink-1wbh5a2.r-textAlign-1ff274t`
+- Found hardcoded text without i18n key: "Product 1-2-2-1 RU"
+  Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0`
+- Found hardcoded text without i18n key: "Product 2-1-2-1 RU"
+  Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0`
+- Found hardcoded text without i18n key: "Product 2-2-2-1 RU"
+  Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0`
+- Found hardcoded text without i18n key: "Product 2-1-1-1 RU"
+  Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0`
+- Found raw camelCase i18n key: "adminTabOrders"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-color-1cucpzw`
+- Found raw camelCase i18n key: "adminTabProducts"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-vw2c0b.r-lineHeight-135wba7.r-color-kgv7a8`
+- Found raw camelCase i18n key: "adminProductsFilterDiscount"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1gkfh8e.r-fontWeight-1qxivpv.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j`
+- Found raw camelCase i18n key: "adminProductsFilterNew"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1gkfh8e.r-fontWeight-1qxivpv.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j`
+- Found raw camelCase i18n key: "adminProductsAddBtn"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-jwli3a`
+- Found raw camelCase i18n key: "adminProductsColProduct"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-b88u0q.r-letterSpacing-ud0q2t.r-lineHeight-1f529hi.r-color-1s7ct43.r-textTransform-tsynxw`
+- Found raw camelCase i18n key: "adminProductsColBrand"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-b88u0q.r-letterSpacing-ud0q2t.r-lineHeight-1f529hi.r-color-1s7ct43.r-textTransform-tsynxw`
+- Found raw camelCase i18n key: "adminProductsColDiscount"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-b88u0q.r-letterSpacing-ud0q2t.r-lineHeight-1f529hi.r-color-1s7ct43.r-textTransform-tsynxw`
+- Found raw camelCase i18n key: "adminProductsColNew"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-b88u0q.r-letterSpacing-ud0q2t.r-lineHeight-1f529hi.r-color-1s7ct43.r-textTransform-tsynxw`
+- Found raw camelCase i18n key: "adminProductsColStatus"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-b88u0q.r-letterSpacing-ud0q2t.r-lineHeight-1f529hi.r-color-1s7ct43.r-textTransform-tsynxw`
+- Found raw camelCase i18n key: "adminProductsColStock"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-b88u0q.r-letterSpacing-ud0q2t.r-lineHeight-1f529hi.r-color-1s7ct43.r-textTransform-tsynxw`
+- Found raw camelCase i18n key: "adminProductsColPrice"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-b88u0q.r-letterSpacing-ud0q2t.r-lineHeight-1f529hi.r-color-1s7ct43.r-textTransform-tsynxw`
+- Found hardcoded text without i18n key: "Product 1-1-1-1 EN"
+  Selector: `div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8`
+- Found hardcoded text without i18n key: "CHEYENNE"
+  Selector: `div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8`
+- Found raw camelCase i18n key: "adminProductsActive"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-1qxivpv.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j`
+- Found hardcoded text without i18n key: "Product 1-1-2-1 EN"
+  Selector: `div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8`
+- Found hardcoded text without i18n key: "BARBARA"
+  Selector: `div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8`
+- Found hardcoded text without i18n key: "Product 1-2-1-1 EN"
+  Selector: `div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8`
+- Found raw camelCase i18n key: "badgeNew"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-1qxivpv.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j`
+- Found raw camelCase i18n key: "adminProductsInactive"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-1qxivpv.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j`
+- Found hardcoded text without i18n key: "Product 1-2-2-1 EN"
+  Selector: `div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8`
+- Found hardcoded text without i18n key: "Product 2-1-1-1 EN"
+  Selector: `div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8`
+- Found hardcoded text without i18n key: "LOVELY"
+  Selector: `div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8`
+- Found hardcoded text without i18n key: "Product 2-1-2-1 EN"
+  Selector: `div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8`
+- Found hardcoded text without i18n key: "Product 2-2-1-1 EN"
+  Selector: `div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8`
+- Found hardcoded text without i18n key: "Product 2-2-2-1 EN"
+  Selector: `div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8`

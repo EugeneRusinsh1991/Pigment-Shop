@@ -1,4 +1,6 @@
-export const ACCENT_COLOR = '#E31B23';
+import { colors } from '../../../theme/tokens';
+
+export const ACCENT_COLOR = colors.accent;
 export const LANGUAGES = [
   { code: 'ru', label: 'RU' },
   { code: 'uk', label: 'UKR' },

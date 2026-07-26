@@ -4,6 +4,7 @@ import { useRouter } from 'expo-router';
 import { useCatalog } from '../../context/CatalogContext';
 import SearchInput from './SearchInput';
 import SearchDropdown from './SearchDropdown';
+import SearchStyles from './SearchStyles';
 
 function matchItem(tokens, queryWords) {
   if (!tokens) return false;
@@ -65,7 +66,7 @@ export function AutocompleteSearch({ isDark, onActiveChange, variant = 'default'
   };
 
   return (
-    <View style={{ position: 'relative', width: '100%', zIndex: 100 }}>
+    <View style={SearchStyles.autocompleteContainer}>
       <SearchInput
         ref={inputRef}
         isDark={isDark}

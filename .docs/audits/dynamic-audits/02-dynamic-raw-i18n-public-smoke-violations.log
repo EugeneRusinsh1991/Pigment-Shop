@@ -2,7 +2,7 @@
 type: dynamic-audit
 auditor: raw-i18n
 scope: public
-date: 2026-07-26T21:34:58.268Z
+date: 2026-07-26T22:00:38.410Z
 ---
 
 ### URL: http://localhost:8081/
@@ -44,6 +44,12 @@ date: 2026-07-26T21:34:58.268Z
   Selector: `h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-eaezby.r-marginBottom-15zivkp`
 - Found hardcoded text without i18n key: "Описание для Category 2 EN"
   Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7`
+- Found hardcoded text without i18n key: "Каталог"
+  Selector: `div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-color-12zy4o2.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-b88u0q.r-lineHeight-rjixqe.r-flex-13awgt0.r-marginInlineStart-1cwvpvk`
+- Found hardcoded text without i18n key: "Все товары"
+  Selector: `div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-color-12zy4o2.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-b88u0q.r-lineHeight-rjixqe.r-flex-13awgt0.r-marginInlineStart-1cwvpvk`
+- Found hardcoded text without i18n key: "Контакты"
+  Selector: `div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-color-12zy4o2.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-b88u0q.r-lineHeight-rjixqe.r-flex-13awgt0.r-marginInlineStart-1cwvpvk`
 
 ### URL: http://localhost:8081/catalog
 - Found hardcoded text without i18n key: "Главная"

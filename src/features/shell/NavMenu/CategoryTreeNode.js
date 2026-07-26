@@ -1,6 +1,8 @@
 import React from 'react';
 import { View } from 'react-native';
 import { CategoryLabelButton, CategoryExpandButton } from './CategoryTreeNodeButtons';
+import { colors, layout } from '../../../theme/tokens';
+import styles from './NavMenuStyles';
 export { useExpandedIds } from './useExpandedIds';
 
 function getCategoryChildren(node) {
@@ -52,8 +54,8 @@ function CategoryTreeChildrenList({
 
 function getTreeNodeTheme(isDark) {
   return {
-    iconColor: isDark ? '#f1f5f9' : '#0f172a',
-    arrowColor: isDark ? '#475569' : '#94a3b8',
+    iconColor: isDark ? colors.slateMid : colors.navTextDark,
+    arrowColor: isDark ? colors.textDescLight : colors.textDescDark,
   };
 }
 
@@ -61,7 +63,7 @@ function TreeNodeRow({ isDark, hasChildren, node, onClose, isHighlighted, indent
   const { iconColor, arrowColor } = getTreeNodeTheme(isDark);
 
   return (
-    <View style={{ flexDirection: 'row', alignItems: 'stretch' }}>
+    <View style={styles.treeNodeRow}>
       <CategoryLabelButton
         isDark={isDark}
         hasChildren={hasChildren}
@@ -103,14 +105,14 @@ export default function CategoryTreeNode({
   const isHighlighted = lastExpandedId === node.id || selectedCategoryId === node.id;
 
   return (
-    <View style={{ width: '100%' }}>
+    <View style={styles.treeNodeWrapper}>
       <TreeNodeRow
         isDark={isDark}
         hasChildren={hasChildren}
         node={node}
         onClose={onClose}
         isHighlighted={isHighlighted}
-        indent={depth * 8}
+        indent={depth * layout.spacing.sm}
         isExpanded={isExpanded}
         toggleExpand={toggleExpand}
       />

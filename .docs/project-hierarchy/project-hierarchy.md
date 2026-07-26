@@ -18,12 +18,17 @@
 ### 2. UI Components & Visual Primitives (`src/components/`)
 - [src/components/Text/](file:///d:/Magazine/_PigmentShop/src/components/Text/): Unified typography primitives (`Text`, `Heading`).
 - [src/components/Feedback/](file:///d:/Magazine/_PigmentShop/src/components/Feedback/): Toast, Skeleton, EmptyState, InlineError.
+- [src/components/Media/](file:///d:/Magazine/_PigmentShop/src/components/Media/): Image, Video, Media galleries.
 - [src/components/Navigation/](file:///d:/Magazine/_PigmentShop/src/components/Navigation/): Breadcrumbs, Pagination.
 - [src/components/Motion/](file:///d:/Magazine/_PigmentShop/src/components/Motion/): Page transition & animation wrappers (`ScrollFadeUp`, `PageTransition`).
 - [src/components/Card/](file:///d:/Magazine/_PigmentShop/src/components/Card/): Card container primitives.
 - [src/components/Button/](file:///d:/Magazine/_PigmentShop/src/components/Button/): Button & IconButton primitives.
 - [src/components/Badge/](file:///d:/Magazine/_PigmentShop/src/components/Badge/): Badge status primitives.
 - [src/components/Admin/](file:///d:/Magazine/_PigmentShop/src/components/Admin/): Admin management presentation components.
+- [src/components/DataTable/](file:///d:/Magazine/_PigmentShop/src/components/DataTable/): Data tables.
+- [src/components/Drawer/](file:///d:/Magazine/_PigmentShop/src/components/Drawer/): Side drawers and modals.
+- [src/components/TextField/](file:///d:/Magazine/_PigmentShop/src/components/TextField/), [Toggle/](file:///d:/Magazine/_PigmentShop/src/components/Toggle/), [Search/](file:///d:/Magazine/_PigmentShop/src/components/Search/): Form and input primitives.
+- [src/components/Flag/](file:///d:/Magazine/_PigmentShop/src/components/Flag/), [Modal/](file:///d:/Magazine/_PigmentShop/src/components/Modal/): Other primitives.
 
 ### 3. Business Domains & Data Layer (`src/`)
 - [src/context/](file:///d:/Magazine/_PigmentShop/src/context/): Global providers (Theme, Cart, Auth, Language, Toast).

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image } from 'react-native';
+import { Image, StyleSheet } from 'react-native';
 import { mediaStyles } from './MediaStyles';
 
 /**
@@ -10,11 +10,11 @@ function WebGifRenderer({ uri, resizeMode, flatStyle }) {
   return (
     <img 
       src={uri}
-      style={[
+      style={StyleSheet.flatten([
         mediaStyles.webMedia,
         { objectFit: resizeMode === 'cover' ? 'cover' : 'contain' },
         flatStyle
-      ]}
+      ])}
       alt="media"
     />
   );

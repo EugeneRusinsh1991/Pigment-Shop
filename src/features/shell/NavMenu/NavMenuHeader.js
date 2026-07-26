@@ -5,6 +5,7 @@ import { BackArrowIcon, CrossIcon } from '../../../components/Icons';
 import Button, { IconButton } from '../../../components/Button';
 import { calculateHitSlop } from '../../../theme/buttonCommon';
 import { ACCENT_COLOR } from './constants';
+import { colors } from '../../../theme/tokens';
 import styles from './NavMenuStyles';
 
 export default function NavMenuHeader({ isDark, onBackClick, onClose, view, title }) {
@@ -21,7 +22,7 @@ export default function NavMenuHeader({ isDark, onBackClick, onClose, view, titl
         onPress={onBackClick}
         style={styles.headerLeftBtn}
         isDark={isDark}
-        icon={<BackArrowIcon color={isDark ? '#f1f5f9' : '#0f172a'} size={18} />}
+        icon={<BackArrowIcon color={isDark ? colors.slateMid : colors.navTextDark} size={18} />}
       />
       
       {view === 'catalog' || view === 'contact' ? (

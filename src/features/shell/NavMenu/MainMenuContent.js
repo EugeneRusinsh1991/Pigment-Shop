@@ -5,6 +5,7 @@ import { useRouter } from 'expo-router';
 
 import Button, { IconButton } from '../../../components/Button';
 import { ChevronDownIcon, ChevronRightIcon } from '../../../components/Icons';
+import { colors } from '../../../theme/tokens';
 import { useTheme } from '../../../context/ThemeContext';
 import { useLanguage } from '../../../context/LanguageContext';
 import { useCatalog } from '../../../context/CatalogContext';
@@ -29,14 +30,14 @@ function MenuRowItem({ isDark, item, iconColor, onPress, style, href, onClose })
     <Button
       variant="ghost"
       isDark={isDark}
-      style={StyleSheet.flatten([styles.itemRow, isDark ? styles.itemRowDark : styles.itemRowLight, { paddingVertical: 12, minHeight: 44 }, style])}
+      style={StyleSheet.flatten([styles.itemRow, isDark ? styles.itemRowDark : styles.itemRowLight, styles.menuRowItem, style])}
       onPress={handlePress}
       activeOpacity={0.7}
     >
       <View style={styles.iconWrapper}>
         {getNavItemIcon(item, iconColor)}
       </View>
-      <Text variant="body2" weight="700" color="accent" style={{ flex: 1, marginLeft: 12 }} numberOfLines={1}>
+      <Text variant="body2" weight="700" color="accent" style={styles.menuRowLabel} numberOfLines={1}>
         {item.label}
       </Text>
     </Button>
@@ -53,14 +54,14 @@ function CatalogMenuRow({
   catalogExpanded
 }) {
   return (
-    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+    <View style={styles.catalogRow}>
       <MenuRowItem
         isDark={isDark}
         item={item}
         iconColor={iconColor}
         href="/catalog"
         onClose={onCatalogPress}
-        style={{ flex: 1 }}
+        style={styles.catalogRowItem}
       />
 
       <IconButton
@@ -109,8 +110,8 @@ export default function MainMenuContent({
     });
   };
 
-  const iconColor = isDark ? '#f1f5f9' : '#0f172a';
-  const arrowColor = isDark ? '#475569' : '#94a3b8';
+  const iconColor = isDark ? colors.slateMid : colors.navTextDark;
+  const arrowColor = isDark ? colors.textDescLight : colors.textDescDark;
 
   const catalogItem = { id: 'nav-catalog', label: t('navCatalog'), icon: '▣' };
   const allProductsItem = { id: 'nav-all-products', label: t('navAllProducts'), icon: '⬢' };
@@ -119,7 +120,7 @@ export default function MainMenuContent({
   const roots = categoryTree ? categoryTree.filter((node) => node.isCategory) : [];
 
   return (
-    <View style={{ paddingVertical: 8 }}>
+    <View style={styles.catalogContainer}>
       {/* 1. Catalog Item */}
       <View>
         <CatalogMenuRow

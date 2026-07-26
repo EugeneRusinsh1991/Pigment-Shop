@@ -13,12 +13,14 @@ The application is a multi-platform e-commerce shop built on **Expo / React Nati
 2. **Design System & Theme Tokens (`src/theme/`)**:
    - Tokenized theme system controlling colors, layout grids, radii, and typography.
    - Theme consumed via `ThemeContext` (`src/context/ThemeContext.js`).
+   - Detailed in [ui-design-system.md](file:///d:/Magazine/_PigmentShop/.docs/project-knowledge/ui-design-system.md).
 
 3. **Global Context Layer (`src/context/`)**:
    - Manages state across Theme, Cart, User Auth, and Localization.
 
 4. **UI Primitive Hierarchy (`src/components/`)**:
    - Centralized components for buttons, inputs, modals, and product cards.
+   - Detailed in [ui-design-system.md](file:///d:/Magazine/_PigmentShop/.docs/project-knowledge/ui-design-system.md).
 
 5. **Browser Automation Subsystem**:
    - Detailed in [browser-automation.md](file:///d:/Magazine/_PigmentShop/.docs/project-knowledge/browser-automation.md).

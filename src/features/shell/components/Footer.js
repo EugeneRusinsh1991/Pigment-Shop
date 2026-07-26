@@ -3,7 +3,7 @@ import { Text } from '@/components/Text';
 import { useTheme } from '@/context/ThemeContext';
 import { Link } from 'expo-router';
 import { AnimatedButton } from '@/components/Button';
-import { colors } from '@/theme/tokens';
+import { colors, layout } from '@/theme/tokens';
 
 export default function Footer() {
   const { isDark } = useTheme();
@@ -13,7 +13,7 @@ export default function Footer() {
     <View style={[styles.footer, ic(styles.footerDark, styles.footerLight)]}>
       <View style={styles.contentRow}>
         <Link href="/" asChild>
-          <AnimatedButton hitSlop={{ top: 12, bottom: 12, left: 12, right: 12 }}>
+          <AnimatedButton hitSlop={{ top: layout.spacing.md, bottom: layout.spacing.md, left: layout.spacing.md, right: layout.spacing.md }}>
             <Image source={require('../../../assets/logo.png')} style={styles.logoImage} resizeMode="contain" />
           </AnimatedButton>
         </Link>
@@ -26,9 +26,9 @@ export default function Footer() {
 
 const styles = StyleSheet.create({
   footer: {
-    paddingTop: 5,
-    paddingBottom: 3,
-    paddingHorizontal: 16,
+    paddingTop: layout.spacing.xs,
+    paddingBottom: layout.spacing.xxs,
+    paddingHorizontal: layout.spacing.lg,
     borderTopWidth: 0,
     width: '100%',
     alignItems: 'center',
@@ -47,8 +47,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     flexWrap: 'wrap',
-    columnGap: 8,
-    rowGap: 4,
+    columnGap: layout.spacing.sm,
+    rowGap: layout.spacing.xxs,
   },
   brandText: {
     color: colors.accent,
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     color: colors.textLight,
   },
   separator: {
-    marginHorizontal: 2,
+    marginHorizontal: layout.spacing.xxs / 2,
   },
   authorText: {},
   subtextDark: {
@@ -74,3 +74,4 @@ const styles = StyleSheet.create({
     color: colors.textSubtleLight,
   },
 });
+

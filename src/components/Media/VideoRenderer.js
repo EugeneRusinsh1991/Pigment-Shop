@@ -76,11 +76,11 @@ function WebVideoRenderer({ uri, resizeMode, flatStyle, autoPlay, loop, muted, p
     <video
       ref={videoRef}
       src={uri}
-      style={[
+      style={StyleSheet.flatten([
         mediaStyles.webMedia,
         { objectFit: resizeMode === 'cover' ? 'cover' : 'contain' },
         flatStyle
-      ]}
+      ])}
       autoPlay={shouldPlay && autoPlay}
       loop={loop}
       muted={muted}

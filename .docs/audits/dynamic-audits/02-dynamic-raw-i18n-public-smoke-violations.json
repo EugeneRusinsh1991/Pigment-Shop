@@ -95,6 +95,21 @@
         "url": "http://localhost:8081/",
         "message": "Found hardcoded text without i18n key: \"Описание для Category 2 EN\"",
         "selector": "div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7"
+      },
+      {
+        "url": "http://localhost:8081/",
+        "message": "Found hardcoded text without i18n key: \"Каталог\"",
+        "selector": "div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-color-12zy4o2.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-b88u0q.r-lineHeight-rjixqe.r-flex-13awgt0.r-marginInlineStart-1cwvpvk"
+      },
+      {
+        "url": "http://localhost:8081/",
+        "message": "Found hardcoded text without i18n key: \"Все товары\"",
+        "selector": "div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-color-12zy4o2.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-b88u0q.r-lineHeight-rjixqe.r-flex-13awgt0.r-marginInlineStart-1cwvpvk"
+      },
+      {
+        "url": "http://localhost:8081/",
+        "message": "Found hardcoded text without i18n key: \"Контакты\"",
+        "selector": "div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-color-12zy4o2.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-b88u0q.r-lineHeight-rjixqe.r-flex-13awgt0.r-marginInlineStart-1cwvpvk"
       }
     ],
     "http://localhost:8081/catalog": [

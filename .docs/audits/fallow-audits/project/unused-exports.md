@@ -1,6 +1,6 @@
 # 📦 Unused Exports
 
-*Generated on: 27.07.2026, 00:40:36*
+*Generated on: 27.07.2026, 00:55:28*
 
 Exports that are not imported or consumed by any other active file:
 
@@ -50,7 +50,7 @@ Exports that are not imported or consumed by any other active file:
 - [FavoritesContext.js](file:///D:/Magazine/_PigmentShop/src/context/FavoritesContext.js): `useFavorites` ([L17](file:///D:/Magazine/_PigmentShop/src/context/FavoritesContext.js#L17))
 - [catalogEntityContract.ts](file:///D:/Magazine/_PigmentShop/src/domain/catalogEntityContract.ts): `emptyLocalizedString` ([L45](file:///D:/Magazine/_PigmentShop/src/domain/catalogEntityContract.ts#L45)), `getLocale` ([L61](file:///D:/Magazine/_PigmentShop/src/domain/catalogEntityContract.ts#L61)), `makeSortState` ([L80](file:///D:/Magazine/_PigmentShop/src/domain/catalogEntityContract.ts#L80)), `toggleSortState` ([L84](file:///D:/Magazine/_PigmentShop/src/domain/catalogEntityContract.ts#L84))
 - [ProductInfoSubcomponents.js](file:///D:/Magazine/_PigmentShop/src/features/product/ProductInfoSubcomponents.js): `getSafePrice` ([L15](file:///D:/Magazine/_PigmentShop/src/features/product/ProductInfoSubcomponents.js#L15)), `calcFinalPrice` ([L17](file:///D:/Magazine/_PigmentShop/src/features/product/ProductInfoSubcomponents.js#L17)), `QtySelector` ([L22](file:///D:/Magazine/_PigmentShop/src/features/product/ProductInfoSubcomponents.js#L22)), `ProductInfoPrice` ([L44](file:///D:/Magazine/_PigmentShop/src/features/product/ProductInfoSubcomponents.js#L44)), `CartButton` ([L86](file:///D:/Magazine/_PigmentShop/src/features/product/ProductInfoSubcomponents.js#L86))
-- [NavItemList.js](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/NavItemList.js): `default` ([L92](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/NavItemList.js#L92))
+- [NavItemList.js](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/NavItemList.js): `default` ([L93](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/NavItemList.js#L93))
 - [useExpandedIds.js](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/useExpandedIds.js): `findCategoryPath` ([L58](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/useExpandedIds.js#L58)), `getParentCategoryIds` ([L58](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/useExpandedIds.js#L58))
 - [useHoverAnimation.js](file:///D:/Magazine/_PigmentShop/src/hooks/useHoverAnimation.js): `default` ([L12](file:///D:/Magazine/_PigmentShop/src/hooks/useHoverAnimation.js#L12))
 - [adminProductsTransforms.js](file:///D:/Magazine/_PigmentShop/src/services/adminProductsTransforms.js): `getAllProducts` ([L19](file:///D:/Magazine/_PigmentShop/src/services/adminProductsTransforms.js#L19))

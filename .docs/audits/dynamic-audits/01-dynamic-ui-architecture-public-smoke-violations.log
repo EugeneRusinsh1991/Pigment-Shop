@@ -2,7 +2,7 @@
 type: dynamic-audit
 auditor: ui-architecture
 scope: public
-date: 2026-07-26T21:34:58.259Z
+date: 2026-07-26T22:00:38.398Z
 ---
 
 ### URL: http://localhost:8081/
@@ -142,6 +142,8 @@ date: 2026-07-26T21:34:58.259Z
   Selector: `h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-eaezby.r-marginBottom-15zivkp`
 - i18n: Potential hardcoded text string found: "Category 2 EN" without data-i18n tracking.
   Selector: `h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-eaezby.r-marginBottom-15zivkp`
+- Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.
+  Selector: `button.css-view-g5y9jx.r-cursor-1loqt21.r-touchAction-1otgn73.r-flex-13awgt0`
 
 ### URL: http://localhost:8081/catalog
 - Design System: Hardcoded spacing/border-radius lacking spatial tokens.

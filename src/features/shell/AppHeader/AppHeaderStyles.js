@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors } from '../../../theme/tokens';
+import { colors, layout } from '../../../theme/tokens';
 import { shadow } from '../../../theme/shadows';
 
 export default StyleSheet.create({
@@ -10,7 +10,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     borderBottomWidth: 0,
-    zIndex: 11000,
+    zIndex: layout.zIndices.header,
   },
   headerDark: {
     backgroundColor: colors.backgroundDark,
@@ -23,18 +23,18 @@ export default StyleSheet.create({
   leftSec: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 16,
+    gap: layout.spacing.lg,
     flexShrink: 1,
     minWidth: 0,
   },
   menuBtn: {
-    paddingRight: 4,
+    paddingRight: layout.spacing.xxs,
     justifyContent: 'center',
     alignItems: 'center',
   },
   menuBtnText: {},
   backBtn: {
-    paddingRight: 8,
+    paddingRight: layout.spacing.sm,
   },
   backText: {},
   logo: {
@@ -43,7 +43,7 @@ export default StyleSheet.create({
   centerSec: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 24,
+    gap: layout.spacing.xl,
     flexShrink: 0,
   },
   navLink: {},
@@ -51,7 +51,7 @@ export default StyleSheet.create({
   rightSec: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 16,
+    gap: layout.spacing.lg,
     flexShrink: 1,
     minWidth: 0,
   },
@@ -70,11 +70,11 @@ export default StyleSheet.create({
     top: 42,
     right: 0,
     width: 140,
-    borderRadius: 12,
-    padding: 6,
+    borderRadius: layout.radii.md,
+    padding: layout.spacing.xs,
     ...shadow.header(),
-    elevation: 5,
-    zIndex: 9999,
+    elevation: layout.elevation.md,
+    zIndex: layout.zIndices.dropdown,
   },
   dropdownDark: {
     backgroundColor: colors.navSurfaceDark,
@@ -87,9 +87,9 @@ export default StyleSheet.create({
     borderColor: colors.navItemHoverDark,
   },
   dropdownItem: {
-    paddingVertical: 8,
-    paddingHorizontal: 12,
-    borderRadius: 8,
+    paddingVertical: layout.spacing.sm,
+    paddingHorizontal: layout.spacing.md,
+    borderRadius: layout.radii.sm,
   },
   dropdownItemActiveDark: {
     backgroundColor: colors.borderDarkAlt,
@@ -111,7 +111,7 @@ export default StyleSheet.create({
     right: -2,
     width: 16,
     height: 16,
-    borderRadius: 8,
+    borderRadius: layout.radii.sm,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -133,9 +133,9 @@ export default StyleSheet.create({
   subtextDark: { color: colors.secondaryDarkText },
   subtextLight: { color: colors.secondaryLightText },
   adminBtn: {
-    paddingVertical: 6,
-    paddingHorizontal: 10,
-    borderRadius: 8,
+    paddingVertical: layout.spacing.xs,
+    paddingHorizontal: layout.spacing.xs + 4,
+    borderRadius: layout.radii.sm,
     borderWidth: 1,
     flexDirection: 'row',
     alignItems: 'center',
@@ -161,8 +161,8 @@ export default StyleSheet.create({
     minWidth: 0,
   },
   betaBadge: {
-    paddingHorizontal: 10,
-    paddingVertical: 4,
+    paddingHorizontal: layout.spacing.xs + 4,
+    paddingVertical: layout.spacing.xxs,
     borderRadius: 10,
     borderWidth: 1.5,
     marginLeft: -8,

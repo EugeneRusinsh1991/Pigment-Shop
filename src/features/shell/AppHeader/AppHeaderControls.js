@@ -3,6 +3,7 @@ import { Link } from 'expo-router';
 import { IconButton } from '@/components/Button';
 import { BagIcon, CurrencyIcon, GlobeIcon, ThemeIcon, UserIcon } from '@/components/Icons';
 import { Badge } from '@/components/Badge';
+import { layout } from '@/theme/tokens';
 import styles from './AppHeaderStyles';
 import LangDropdown from './LangDropdown';
 import CurrencyDropdown from './CurrencyDropdown';
@@ -28,7 +29,7 @@ export default function AppHeaderControls({
   isAuthenticated,
 }) {
   return (
-    <View style={[styles.rightSec, isMobile && { gap: 8 }]}>
+    <View style={[styles.rightSec, isMobile && { gap: layout.spacing.sm }]}>
 
       {!isMobile && (
         <IconButton
@@ -85,7 +86,7 @@ export default function AppHeaderControls({
                   variant="counter"
                   count={cartCount}
                   animated
-                  style={{ position: 'absolute', top: -6, right: -10 }}
+                  style={{ position: 'absolute', top: -layout.spacing.xs, right: -(layout.spacing.xs + 4) }}
                 />
               )}
             </View>

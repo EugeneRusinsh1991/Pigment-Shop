@@ -1,6 +1,7 @@
 import { View, useWindowDimensions } from 'react-native';
 import { useTheme } from '../../context/ThemeContext';
 import { useLanguage } from '../../context/LanguageContext';
+import { colors, layout } from '../../theme/tokens';
 import AppHeaderControls from './AppHeader/AppHeaderControls';
 import AppHeaderLogo from './AppHeader/AppHeaderLogo';
 import AppHeaderNavLinks from './AppHeader/AppHeaderNavLinks';
@@ -9,7 +10,7 @@ import styles from './AppHeader/AppHeaderStyles';
 const DARK_THEME = {
   textColor: 'textDark',
   subtextColor: 'subtextDark',
-  iconColor: '#FFFFFF',
+  iconColor: colors.white,
   headerStyle: 'headerDark',
   adminBtnStyle: 'adminBtnDark',
   badgeStyle: 'badgeDark',
@@ -19,7 +20,7 @@ const DARK_THEME = {
 const LIGHT_THEME = {
   textColor: 'textLight',
   subtextColor: 'subtextLight',
-  iconColor: '#1C1C1C',
+  iconColor: colors.dark,
   headerStyle: 'headerLight',
   adminBtnStyle: 'adminBtnLight',
   badgeStyle: 'badgeLight',
@@ -49,7 +50,7 @@ export default function AppHeader(props) {
 
   return (
     <View id="app-header" style={[styles.header, theme.headerStyle, { justifyContent: 'center' }]}>
-      <View style={{ width: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', maxWidth: props.contentWidth, minWidth: 0, paddingHorizontal: 8 }}>
+      <View style={{ width: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', maxWidth: props.contentWidth, minWidth: 0, paddingHorizontal: layout.spacing.sm }}>
         <AppHeaderLogo
           isDark={props.isDark}
           appName={props.appName}

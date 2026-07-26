@@ -42,7 +42,7 @@
   - Line [147](file:///D:/Magazine/_PigmentShop/src/components/Admin/Users/UsersManager.js#L147): `<SearchInput>`
 
 ### File: [src/components/Search/AutocompleteSearch.js](file:///D:/Magazine/_PigmentShop/src/components/Search/AutocompleteSearch.js)
-  - Line [69](file:///D:/Magazine/_PigmentShop/src/components/Search/AutocompleteSearch.js#L69): `<SearchInput>`
+  - Line [70](file:///D:/Magazine/_PigmentShop/src/components/Search/AutocompleteSearch.js#L70): `<SearchInput>`
 
 ### File: [src/components/Search/SearchInput.js](file:///D:/Magazine/_PigmentShop/src/components/Search/SearchInput.js)
   - Line [47](file:///D:/Magazine/_PigmentShop/src/components/Search/SearchInput.js#L47): `<TextField>`

@@ -2,7 +2,7 @@
 type: dynamic-audit
 auditor: ui-architecture
 scope: admin
-date: 2026-07-26T21:35:05.142Z
+date: 2026-07-26T21:58:21.782Z
 ---
 
 ### URL: http://localhost:8081/admin
@@ -140,3 +140,99 @@ date: 2026-07-26T21:35:05.142Z
   Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0.r-flexShrink-1wbh5a2.r-textAlign-1ff274t`
 - i18n: Potential hardcoded text string found: "Product 2-2-1-1 RU" without data-i18n tracking.
   Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0`
+- Observability: Clickable element touch target is smaller than 44x44px. Size: 170x14
+  Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-flexDirection-18u37iz.r-gap-9aw3ui.r-flex-13awgt0`
+- Observability: Clickable element touch target is smaller than 44x44px. Size: 341x14
+  Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-flexDirection-18u37iz.r-gap-9aw3ui.r-flex-dta0w2`
+- Observability: Clickable element touch target is smaller than 44x44px. Size: 256x14
+  Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-flexDirection-18u37iz.r-gap-9aw3ui.r-flex-sax9pr`
+- Observability: Clickable element touch target is smaller than 44x44px. Size: 256x14
+  Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-flexDirection-18u37iz.r-gap-9aw3ui.r-alignItems-1awozwy.r-flex-sax9pr`
+- Observability: Clickable element touch target is smaller than 44x44px. Size: 170x14
+  Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-flexDirection-18u37iz.r-gap-9aw3ui.r-alignItems-obd0qt.r-flex-13awgt0`
+- Observability: Clickable element touch target is smaller than 44x44px. Size: 173x14
+  Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-flexDirection-18u37iz.r-gap-9aw3ui.r-flex-13awgt0`
+- Observability: Clickable element touch target is smaller than 44x44px. Size: 345x14
+  Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-flexDirection-18u37iz.r-gap-9aw3ui.r-flex-dta0w2`
+- Observability: Clickable element touch target is smaller than 44x44px. Size: 259x14
+  Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-flexDirection-18u37iz.r-gap-9aw3ui.r-flex-sax9pr`
+- Observability: Clickable element touch target is smaller than 44x44px. Size: 259x14
+  Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-flexDirection-18u37iz.r-gap-9aw3ui.r-alignItems-1awozwy.r-flex-sax9pr`
+- Observability: Clickable element touch target is smaller than 44x44px. Size: 173x14
+  Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-flexDirection-18u37iz.r-gap-9aw3ui.r-alignItems-obd0qt.r-flex-13awgt0`
+- i18n: Potential hardcoded text string found: "Product 1-1-2-1 RU11111" without data-i18n tracking.
+  Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0`
+- i18n: Potential hardcoded text string found: "Product 1-2-1-1 RU" without data-i18n tracking.
+  Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0`
+- i18n: Potential hardcoded text string found: "Product 1-2-2-1 RU" without data-i18n tracking.
+  Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0`
+- i18n: Potential hardcoded text string found: "Product 2-1-2-1 RU" without data-i18n tracking.
+  Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0`
+- i18n: Potential hardcoded text string found: "Product 2-2-2-1 RU" without data-i18n tracking.
+  Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0`
+- i18n: Potential hardcoded text string found: "Product 2-1-1-1 RU" without data-i18n tracking.
+  Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0`
+- Design System: Raw/hardcoded CSS color in inline style.
+  Selector: `input.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-color-kgv7a8.r-flex-13awgt0.r-margin-crgep1.r-paddingBlock-1mkv55d`
+- Design System: Raw/hardcoded CSS color in inline style.
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1gkfh8e.r-fontWeight-1qxivpv.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j`
+- Design System: Hardcoded spacing/border-radius lacking spatial tokens.
+  Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-minHeight-peo1c.r-borderBottomColor-eaxd7d.r-borderBottomWidth-qklmqi.r-flexDirection-eqz5dr.r-gap-9aw3ui.r-paddingInline-3pj75a`
+- Design System: Hardcoded spacing/border-radius lacking spatial tokens.
+  Selector: `div.css-view-g5y9jx.r-justifyContent-1777fci.r-flex-sax9pr`
+- Design System: Raw/hardcoded CSS color in inline style.
+  Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-minHeight-peo1c.r-borderBottomColor-eaxd7d.r-borderBottomWidth-qklmqi.r-flexDirection-eqz5dr.r-gap-9aw3ui.r-paddingInline-3pj75a`
+- Design System: Hardcoded spacing/border-radius lacking spatial tokens.
+  Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-minHeight-peo1c.r-backgroundColor-1ins33t.r-borderBottomColor-eaxd7d.r-borderBottomWidth-qklmqi.r-flexDirection-eqz5dr.r-gap-9aw3ui.r-paddingInline-3pj75a`
+- Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.
+  Selector: `input.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-color-kgv7a8.r-flex-13awgt0.r-margin-crgep1.r-paddingBlock-1mkv55d`
+- Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.
+  Selector: `button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-paddingInline-3pj75a.r-backgroundColor-wt1z2b.r-borderColor-1jl7vqb`
+- Observability: Clickable element touch target is smaller than 44x44px. Size: 140x16
+  Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73`
+- Observability: Clickable element touch target is smaller than 44x44px. Size: 119x16
+  Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73`
+- Observability: Clickable element touch target is smaller than 44x44px. Size: 173x40
+  Selector: `button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-paddingInline-3pj75a.r-backgroundColor-wt1z2b.r-borderColor-1jl7vqb`
+- Observability: Clickable element touch target is smaller than 44x44px. Size: 281x28
+  Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-flexDirection-18u37iz.r-gap-9aw3ui.r-flex-sax9pr`
+- Observability: Clickable element touch target is smaller than 44x44px. Size: 187x28
+  Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-flexDirection-18u37iz.r-gap-9aw3ui.r-flex-13awgt0`
+- Observability: Clickable element touch target is smaller than 44x44px. Size: 150x28
+  Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-flexDirection-18u37iz.r-gap-9aw3ui.r-flex-1j6g5un`
+- Observability: Clickable element touch target is smaller than 44x44px. Size: 112x28
+  Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-flexDirection-18u37iz.r-gap-9aw3ui.r-flex-41uqdh`
+- Observability: Clickable element touch target is smaller than 44x44px. Size: 131x28
+  Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-flexDirection-18u37iz.r-gap-9aw3ui.r-flex-1w3sgar`
+- Theme/Motion: Custom CSS transition/animation defined outside token system.
+  Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73`
+- Theme/Motion: Custom CSS transition/animation defined outside token system.
+  Selector: `button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-paddingInline-3pj75a.r-backgroundColor-wt1z2b.r-borderColor-1jl7vqb`
+- Theme/Motion: Custom CSS transition/animation defined outside token system.
+  Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-flexDirection-18u37iz.r-gap-9aw3ui.r-flex-1j6g5un`
+- Theme/Motion: Custom CSS transition/animation defined outside token system.
+  Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-flexDirection-18u37iz.r-gap-9aw3ui.r-flex-41uqdh`
+- Theme/Motion: Custom CSS transition/animation defined outside token system.
+  Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-flexDirection-18u37iz.r-gap-9aw3ui.r-flex-1w3sgar`
+- Theme/Motion: Custom CSS transition/animation defined outside token system.
+  Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-minHeight-peo1c.r-borderBottomColor-eaxd7d.r-borderBottomWidth-qklmqi.r-flexDirection-eqz5dr.r-gap-9aw3ui.r-paddingInline-3pj75a`
+- Theme/Motion: Custom CSS transition/animation defined outside token system.
+  Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-minHeight-peo1c.r-backgroundColor-1ins33t.r-borderBottomColor-eaxd7d.r-borderBottomWidth-qklmqi.r-flexDirection-eqz5dr.r-gap-9aw3ui.r-paddingInline-3pj75a`
+- i18n: Potential hardcoded text string found: "Product 1-1-1-1 EN" without data-i18n tracking.
+  Selector: `div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8`
+- i18n: Potential hardcoded text string found: "Product 1-1-2-1 EN" without data-i18n tracking.
+  Selector: `div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8`
+- i18n: Potential hardcoded text string found: "Product 1-2-1-1 EN" without data-i18n tracking.
+  Selector: `div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8`
+- i18n: Potential hardcoded text string found: "Product 1-2-2-1 EN" without data-i18n tracking.
+  Selector: `div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8`
+- i18n: Potential hardcoded text string found: "Product 2-1-1-1 EN" without data-i18n tracking.
+  Selector: `div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8`
+- i18n: Potential hardcoded text string found: "Product 2-1-2-1 EN" without data-i18n tracking.
+  Selector: `div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8`
+- i18n: Potential hardcoded text string found: "Product 2-2-1-1 EN" without data-i18n tracking.
+  Selector: `div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8`
+- i18n: Potential hardcoded text string found: "Product 2-2-2-1 EN" without data-i18n tracking.
+  Selector: `div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8`
+- Design System: Hardcoded spacing/border-radius lacking spatial tokens.
+  Selector: `div.css-view-g5y9jx.r-backgroundColor-1ins33t.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-width-13qz1uu.r-borderColor-169eryd`

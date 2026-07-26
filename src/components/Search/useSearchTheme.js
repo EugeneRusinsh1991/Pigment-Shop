@@ -1,4 +1,5 @@
 import { useTheme } from '../../context/ThemeContext';
+import { colors } from '../../theme/tokens';
 
 function resolveStyle(styleMap, keys) {
   if (!styleMap) return null;
@@ -17,7 +18,7 @@ export function useSearchTheme({ isDarkProp, variant = 'default', state = '', fa
   const container = resolveStyle(styleMap, [`${variant}${suffix}`, `base${suffix}`, `${fallbackVariant}${suffix}`]);
   const text = resolveStyle(styleMap, [`text_${variant}${suffix}`, `text${suffix}`, `text_${fallbackVariant}${suffix}`]);
   const icon = resolveStyle(styleMap, [`icon_${variant}${suffix}`, `icon${suffix}`, `icon_${fallbackVariant}${suffix}`]);
-  const placeholderColor = isDark ? '#9CA3AF' : '#6B7280';
+  const placeholderColor = isDark ? colors.textSubtleDark : colors.textSubtleLight;
 
   return { isDark, themeKey, container, text, icon, placeholderColor };
 }

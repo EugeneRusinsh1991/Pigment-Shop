@@ -1,18 +1,18 @@
 import { StyleSheet } from 'react-native';
-import { colors } from '../../../theme/tokens';
+import { colors, layout } from '../../../theme/tokens';
 import { shadow } from '../../../theme/shadows';
 
 export default StyleSheet.create({
   scrim: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.45)',
+    backgroundColor: colors.overlayScrim,
     flexDirection: 'row',
   },
   panel: {
     width: 260,
     height: '100%',
     ...shadow.drawer(),
-    elevation: 16,
+    elevation: layout.elevation.xl,
   },
   panelDark: { backgroundColor: colors.navSurfaceDark },
   panelLight: { backgroundColor: colors.white },
@@ -22,7 +22,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingHorizontal: 16,
+    paddingHorizontal: layout.spacing.lg,
     borderBottomWidth: 1,
     position: 'relative',
   },
@@ -35,13 +35,13 @@ export default StyleSheet.create({
 
   headerLeftBtn: {
     position: 'absolute',
-    left: 16,
-    padding: 6,
+    left: layout.spacing.lg,
+    padding: layout.spacing.xs,
   },
   closeBtn: {
     position: 'absolute',
-    right: 16,
-    padding: 6,
+    right: layout.spacing.lg,
+    padding: layout.spacing.xs,
   },
   closeIcon: {},
   logoImage: {
@@ -54,7 +54,7 @@ export default StyleSheet.create({
   utilRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 16,
+    paddingHorizontal: layout.spacing.lg,
     paddingVertical: 13,
   },
   utilRowDark: { backgroundColor: colors.navSurfaceDark },
@@ -65,11 +65,11 @@ export default StyleSheet.create({
   accentLight: { color: colors.accent },
   mainNavLabel: { color: colors.accent },
 
-  divider: { height: 1, marginHorizontal: 16, marginVertical: 4 },
-  sectionSeparator: { height: 1, marginHorizontal: 16, marginVertical: 12 },
+  divider: { height: 1, marginHorizontal: layout.spacing.lg, marginVertical: layout.spacing.xxs },
+  sectionSeparator: { height: 1, marginHorizontal: layout.spacing.lg, marginVertical: layout.spacing.md },
   sectionHeading: {
-    paddingHorizontal: 16,
-    paddingVertical: 8,
+    paddingHorizontal: layout.spacing.lg,
+    paddingVertical: layout.spacing.sm,
     textTransform: 'uppercase',
   },
   dividerDark: { backgroundColor: colors.borderDarkAlt },
@@ -78,8 +78,8 @@ export default StyleSheet.create({
   itemRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 16,
-    paddingVertical: 12,
+    paddingHorizontal: layout.spacing.lg,
+    paddingVertical: layout.spacing.md,
   },
   itemRowDark: { backgroundColor: colors.navSurfaceDark },
   itemRowLight: { backgroundColor: colors.white },
@@ -93,14 +93,14 @@ export default StyleSheet.create({
   },
   itemLabel: {
     flex: 1,
-    marginLeft: 12,
+    marginLeft: layout.spacing.md,
   },
   chevron: {},
   mutedDark: { color: colors.secondaryLightText },
   mutedLight: { color: colors.secondaryDarkText },
   menuFooter: {
-    paddingHorizontal: 16,
-    paddingTop: 16,
+    paddingHorizontal: layout.spacing.lg,
+    paddingTop: layout.spacing.lg,
     paddingBottom: 28,
     borderTopWidth: 1,
     marginTop: 'auto',
@@ -113,4 +113,14 @@ export default StyleSheet.create({
     borderTopColor: colors.navItemHoverDark,
     backgroundColor: colors.surfaceElevatedLight,
   },
+  catalogContainer: { paddingVertical: layout.spacing.sm },
+  treeNodeRow: { flexDirection: 'row', alignItems: 'stretch' },
+  treeNodeWrapper: { width: '100%' },
+  langColumn: { flex: 1, flexDirection: 'column', gap: layout.spacing.sm },
+  langRow: { flexDirection: 'row', gap: 10 },
+  chipWidth: { width: '100%' },
+  menuRowItem: { paddingVertical: layout.spacing.md, minHeight: 44 },
+  menuRowLabel: { flex: 1, marginLeft: layout.spacing.md },
+  catalogRow: { flexDirection: 'row', alignItems: 'center' },
+  catalogRowItem: { flex: 1 },
 });

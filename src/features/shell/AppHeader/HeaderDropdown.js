@@ -1,6 +1,7 @@
 import React from 'react';
 import { Animated } from 'react-native';
 import { ChipButton } from '@/components/Button';
+import { layout } from '@/theme/tokens';
 import styles from './AppHeaderStyles';
 import { useDropdownAnimation } from '../../../hooks/useDropdownAnimation';
 
@@ -31,7 +32,7 @@ export default function HeaderDropdown({ isVisible, isDark, items, selectedValue
           onPress={() => onSelect(item.code)}
           variant="rect"
           size="sm"
-          style={{ marginVertical: 2, width: '100%' }}
+          style={{ marginVertical: layout.spacing.xxs / 2, width: '100%' }}
         />
       ))}
     </Animated.View>

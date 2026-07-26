@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { layout } from '../../theme/tokens';
 
 export const mediaStyles = StyleSheet.create({
   nativeContainer: {

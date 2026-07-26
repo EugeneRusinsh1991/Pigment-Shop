@@ -1,6 +1,7 @@
 import { View } from 'react-native';
 import { Text } from '@/components/Text/Text';
 import Button from '@/components/Button';
+import { colors } from '../../../theme/tokens';
 import {
     BagIcon,
     BrowIcon,
@@ -66,8 +67,8 @@ export function getNavItemIcon(item, color, size = 18) {
 }
 
 function NavItem({ item, isDark, onSelect }) {
-  const iconColor = isDark ? '#f1f5f9' : '#0f172a';
-  const chevronColor = isDark ? '#475569' : '#94a3b8';
+  const iconColor = isDark ? colors.slateMid : colors.navTextDark;
+  const chevronColor = isDark ? colors.textDescLight : colors.textDescDark;
 
   return (
     <Button

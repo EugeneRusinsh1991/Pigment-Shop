@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import { Text } from '@/components/Text';
 import { AnimatedButton, ChipButton } from '@/components/Button';
 import { ThemeIcon } from '@/components/Icons';
+import { colors, layout } from '../../../theme/tokens';
 import styles from './NavMenuStyles';
 import { LANGUAGES, CURRENCIES } from './constants';
 
@@ -16,20 +17,20 @@ function getThemeToggleStyle(isDark) {
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: 10,
-    paddingHorizontal: 8,
+    paddingHorizontal: layout.spacing.sm,
     minHeight: 44,
-    borderRadius: 8,
+    borderRadius: layout.radii.sm,
     borderWidth: 1,
-    borderColor: isDark ? '#242424' : '#e8edf5',
+    borderColor: isDark ? colors.borderDarkAlt : colors.navItemHoverDark,
     backgroundColor: isDark ? 'rgba(255,255,255,0.03)' : 'rgba(15,23,42,0.03)',
-    marginBottom: 12,
+    marginBottom: layout.spacing.md,
   };
 }
 
 function getThemeIconStyles(isDark) {
   return {
     container: { marginRight: 10 },
-    icon: { isDark, color: isDark ? '#FFFFFF' : '#1C1C1C', size: 16 },
+    icon: { isDark, color: isDark ? colors.white : colors.dark, size: 16 },
   };
 }
 
@@ -58,9 +59,9 @@ export default function LanguageSelector({ isDark, lang, onSelectLanguage, onTog
       )}
 
       {onSelectLanguage && (
-        <View style={{ flexDirection: 'row', gap: 10 }}>
+        <View style={styles.langRow}>
           {/* Column 1: Language buttons (RU, UKR, ENG) */}
-          <View style={{ flex: 1, flexDirection: 'column', gap: 8 }}>
+          <View style={styles.langColumn}>
             {LANGUAGES.map((item) => (
               <ChipButton
                 key={item.code}
@@ -69,13 +70,13 @@ export default function LanguageSelector({ isDark, lang, onSelectLanguage, onTog
                 isDark={isDark}
                 onPress={() => onSelectLanguage(item.code)}
                 variant="rect"
-                style={{ width: '100%' }}
+                style={styles.chipWidth}
               />
             ))}
           </View>
 
           {/* Column 2: Currency buttons (UAH, USD) */}
-          <View style={{ flex: 1, flexDirection: 'column', gap: 8 }}>
+          <View style={styles.langColumn}>
             {CURRENCIES.map((item) => (
               <ChipButton
                 key={item.code}
@@ -84,7 +85,7 @@ export default function LanguageSelector({ isDark, lang, onSelectLanguage, onTog
                 isDark={isDark}
                 onPress={() => setSelectedCurrency(item.code)}
                 variant="rect"
-                style={{ width: '100%' }}
+                style={styles.chipWidth}
               />
             ))}
           </View>

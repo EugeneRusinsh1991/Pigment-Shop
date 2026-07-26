@@ -253,15 +253,15 @@
   - Line [100](file:///D:/Magazine/_PigmentShop/src/features/profile/ProfileFormCard.js#L100): `<SaveButton>`
 
 ### File: [src/features/shell/AppHeader/AppHeaderControls.js](file:///D:/Magazine/_PigmentShop/src/features/shell/AppHeader/AppHeaderControls.js)
-  - Line [34](file:///D:/Magazine/_PigmentShop/src/features/shell/AppHeader/AppHeaderControls.js#L34): `<IconButton>`
-  - Line [46](file:///D:/Magazine/_PigmentShop/src/features/shell/AppHeader/AppHeaderControls.js#L46): `<IconButton>`
-  - Line [64](file:///D:/Magazine/_PigmentShop/src/features/shell/AppHeader/AppHeaderControls.js#L64): `<IconButton>`
-  - Line [79](file:///D:/Magazine/_PigmentShop/src/features/shell/AppHeader/AppHeaderControls.js#L79): `<IconButton>`
-  - Line [100](file:///D:/Magazine/_PigmentShop/src/features/shell/AppHeader/AppHeaderControls.js#L100): `<IconButton>`
+  - Line [35](file:///D:/Magazine/_PigmentShop/src/features/shell/AppHeader/AppHeaderControls.js#L35): `<IconButton>`
+  - Line [47](file:///D:/Magazine/_PigmentShop/src/features/shell/AppHeader/AppHeaderControls.js#L47): `<IconButton>`
+  - Line [65](file:///D:/Magazine/_PigmentShop/src/features/shell/AppHeader/AppHeaderControls.js#L65): `<IconButton>`
+  - Line [80](file:///D:/Magazine/_PigmentShop/src/features/shell/AppHeader/AppHeaderControls.js#L80): `<IconButton>`
+  - Line [101](file:///D:/Magazine/_PigmentShop/src/features/shell/AppHeader/AppHeaderControls.js#L101): `<IconButton>`
 
 ### File: [src/features/shell/AppHeader/AppHeaderLogo.js](file:///D:/Magazine/_PigmentShop/src/features/shell/AppHeader/AppHeaderLogo.js)
-  - Line [34](file:///D:/Magazine/_PigmentShop/src/features/shell/AppHeader/AppHeaderLogo.js#L34): `<IconButton>`
-  - Line [42](file:///D:/Magazine/_PigmentShop/src/features/shell/AppHeader/AppHeaderLogo.js#L42): `<Button>`
+  - Line [35](file:///D:/Magazine/_PigmentShop/src/features/shell/AppHeader/AppHeaderLogo.js#L35): `<IconButton>`
+  - Line [43](file:///D:/Magazine/_PigmentShop/src/features/shell/AppHeader/AppHeaderLogo.js#L43): `<Button>`
 
 ### File: [src/features/shell/AppHeader/AppHeaderNavLinks.js](file:///D:/Magazine/_PigmentShop/src/features/shell/AppHeader/AppHeaderNavLinks.js)
   - Line [24](file:///D:/Magazine/_PigmentShop/src/features/shell/AppHeader/AppHeaderNavLinks.js#L24): `<IconButton>`
@@ -271,7 +271,7 @@
   - Line [58](file:///D:/Magazine/_PigmentShop/src/features/shell/AppHeader/AppHeaderNavLinks.js#L58): `<Button>`
 
 ### File: [src/features/shell/AppHeader/HeaderDropdown.js](file:///D:/Magazine/_PigmentShop/src/features/shell/AppHeader/HeaderDropdown.js)
-  - Line [26](file:///D:/Magazine/_PigmentShop/src/features/shell/AppHeader/HeaderDropdown.js#L26): `<ChipButton>`
+  - Line [27](file:///D:/Magazine/_PigmentShop/src/features/shell/AppHeader/HeaderDropdown.js#L27): `<ChipButton>`
 
 ### File: [src/features/shell/AppHeader/UserDropdown.js](file:///D:/Magazine/_PigmentShop/src/features/shell/AppHeader/UserDropdown.js)
   - Line [93](file:///D:/Magazine/_PigmentShop/src/features/shell/AppHeader/UserDropdown.js#L93): `<Button>`
@@ -283,29 +283,29 @@
   - Line [169](file:///D:/Magazine/_PigmentShop/src/features/shell/AppHeader/UserDropdown.js#L169): `<Button>`
 
 ### File: [src/features/shell/NavMenu/CategoryTreeNode.js](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/CategoryTreeNode.js)
-  - Line [65](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/CategoryTreeNode.js#L65): `<CategoryLabelButton>`
-  - Line [76](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/CategoryTreeNode.js#L76): `<CategoryExpandButton>`
+  - Line [67](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/CategoryTreeNode.js#L67): `<CategoryLabelButton>`
+  - Line [78](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/CategoryTreeNode.js#L78): `<CategoryExpandButton>`
 
 ### File: [src/features/shell/NavMenu/CategoryTreeNodeButtons.js](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/CategoryTreeNodeButtons.js)
-  - Line [22](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/CategoryTreeNodeButtons.js#L22): `<Button>`
-  - Line [46](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/CategoryTreeNodeButtons.js#L46): `<IconButton>`
+  - Line [23](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/CategoryTreeNodeButtons.js#L23): `<Button>`
+  - Line [47](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/CategoryTreeNodeButtons.js#L47): `<IconButton>`
 
 ### File: [src/features/shell/NavMenu/LanguageSelector.js](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/LanguageSelector.js)
-  - Line [47](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/LanguageSelector.js#L47): `<AnimatedButton>`
-  - Line [65](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/LanguageSelector.js#L65): `<ChipButton>`
-  - Line [80](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/LanguageSelector.js#L80): `<ChipButton>`
+  - Line [48](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/LanguageSelector.js#L48): `<AnimatedButton>`
+  - Line [66](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/LanguageSelector.js#L66): `<ChipButton>`
+  - Line [81](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/LanguageSelector.js#L81): `<ChipButton>`
 
 ### File: [src/features/shell/NavMenu/MainMenuContent.js](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/MainMenuContent.js)
-  - Line [29](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/MainMenuContent.js#L29): `<Button>`
-  - Line [66](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/MainMenuContent.js#L66): `<IconButton>`
+  - Line [30](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/MainMenuContent.js#L30): `<Button>`
+  - Line [67](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/MainMenuContent.js#L67): `<IconButton>`
 
 ### File: [src/features/shell/NavMenu/NavItemList.js](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/NavItemList.js)
-  - Line [73](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/NavItemList.js#L73): `<Button>`
+  - Line [74](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/NavItemList.js#L74): `<Button>`
 
 ### File: [src/features/shell/NavMenu/NavMenuHeader.js](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/NavMenuHeader.js)
-  - Line [20](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/NavMenuHeader.js#L20): `<IconButton>`
-  - Line [32](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/NavMenuHeader.js#L32): `<Button>`
-  - Line [46](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/NavMenuHeader.js#L46): `<IconButton>`
+  - Line [21](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/NavMenuHeader.js#L21): `<IconButton>`
+  - Line [33](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/NavMenuHeader.js#L33): `<Button>`
+  - Line [47](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/NavMenuHeader.js#L47): `<IconButton>`
 
 ### File: [src/features/shell/components/Footer.js](file:///D:/Magazine/_PigmentShop/src/features/shell/components/Footer.js)
   - Line [16](file:///D:/Magazine/_PigmentShop/src/features/shell/components/Footer.js#L16): `<AnimatedButton>`

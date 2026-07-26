@@ -22,7 +22,7 @@ export const SearchInput = forwardRef(function SearchInput(
   },
   ref
 ) {
-  const { icon } = useSearchTheme({
+  const { icon, placeholderColor } = useSearchTheme({
     isDarkProp,
     variant,
     styleMap: SearchStyles,
@@ -49,6 +49,7 @@ export const SearchInput = forwardRef(function SearchInput(
       value={value}
       onChangeText={onChangeText}
       placeholder={placeholder}
+      placeholderTextColor={placeholderColor}
       size={size}
       isDark={isDarkProp}
       leadingIcon={leadingIcon}

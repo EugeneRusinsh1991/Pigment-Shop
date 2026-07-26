@@ -21,16 +21,16 @@ const ResultRow = React.forwardRef(({ item, isDark, onPress, ...rest }, ref) => 
   return (
     <AnimatedButton
       ref={ref}
-      style={[SearchStyles.resultRow, { minHeight: 44, flexDirection: 'row', alignItems: 'center', paddingHorizontal: layout.spacing.md, gap: 10 }]}
+      style={[SearchStyles.resultRow, SearchStyles.resultRowContent]}
       onPress={onPress}
       {...rest}
     >
       {item.image ? (
-        <Image source={{ uri: item.image }} style={{ width: layout.spacing.xl, height: layout.spacing.xl, borderRadius: layout.radii.xs }} />
+        <Image source={{ uri: item.image }} style={SearchStyles.resultImage} />
       ) : (
         <Text variant="body" size={16}>{item.icon || '📦'}</Text>
       )}
-      <Text variant="body" size={14} style={[{ flex: 1 }, SearchStyles[`text_${isDark ? 'defaultDark' : 'defaultLight'}`]]} numberOfLines={1}>
+      <Text variant="body" size={14} style={[SearchStyles.resultText, SearchStyles[`text_${isDark ? 'defaultDark' : 'defaultLight'}`]]} numberOfLines={1}>
         {label}
       </Text>
       <Text variant="caption" color="muted" size={16}>›</Text>
@@ -44,7 +44,7 @@ function EmptySearchState({ query, isDark, t }) {
 
   return (
     <View style={SearchStyles.dropdownOverlay}>
-      <Text variant="body" size={14} style={[{ padding: 14, textAlign: 'center' }, SearchStyles[`text_${isDark ? 'defaultDark' : 'defaultLight'}`]]}>
+      <Text variant="body" size={14} style={[SearchStyles.emptyText, SearchStyles[`text_${isDark ? 'defaultDark' : 'defaultLight'}`]]}>
         {message}
       </Text>
     </View>
@@ -55,7 +55,7 @@ function MoreResultsHint({ count, isDark, t }) {
   if (count <= 0) return null;
   const message = t('searchRefinementHint')?.replace('{count}', count) || `+${count} more results`;
   return (
-    <Text variant="caption" color="muted" size={12} style={[{ padding: 10, textAlign: 'center' }, SearchStyles[`text_${isDark ? 'defaultDark' : 'defaultLight'}`]]}>
+    <Text variant="caption" color="muted" size={12} style={[SearchStyles.moreText, SearchStyles[`text_${isDark ? 'defaultDark' : 'defaultLight'}`]]}>
       {message}
     </Text>
   );
@@ -73,7 +73,7 @@ export default function SearchDropdown({ results, isDark, onSelect, isEmpty, que
 
   return (
     <View style={SearchStyles.dropdownOverlay}>
-      <ScrollView keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false} style={{ maxHeight: 300 }}>
+      <ScrollView keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false} style={SearchStyles.scrollView}>
         {visibleResults.map((item) => (
           <Link key={item.id} href={{ pathname: '/product/[id]', params: { id: item.id } }} asChild>
             <ResultRow item={item} isDark={isDark} onPress={onSelect} />

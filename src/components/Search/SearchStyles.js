@@ -76,6 +76,37 @@ function createSearchStyles() {
       borderWidth: 1,
       overflow: 'hidden',
     },
+    autocompleteContainer: {
+      position: 'relative',
+      width: '100%',
+      zIndex: layout.zIndices.dropdown,
+    },
+    resultRowContent: {
+      minHeight: 44,
+      flexDirection: 'row',
+      alignItems: 'center',
+      paddingHorizontal: layout.spacing.md,
+      gap: layout.spacing.sm,
+    },
+    resultImage: {
+      width: layout.spacing.xl,
+      height: layout.spacing.xl,
+      borderRadius: layout.radii.xs,
+    },
+    resultText: {
+      flex: 1,
+    },
+    emptyText: {
+      padding: layout.spacing.md,
+      textAlign: 'center',
+    },
+    moreText: {
+      padding: layout.spacing.sm,
+      textAlign: 'center',
+    },
+    scrollView: {
+      maxHeight: 300,
+    },
   };
 
   for (const [key, val] of Object.entries(searchVariants)) {
