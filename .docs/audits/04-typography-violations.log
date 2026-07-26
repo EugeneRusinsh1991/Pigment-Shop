@@ -1,147 +1,147 @@
 ===================================================================
-               4. TYPOGRAPHY COMPLIANCE REPORT (UNIQUE)            
-Timestamp: 26.07.2026, 20:40:47
+               4. TYPOGRAPHY COMPLIANCE REPORT                     
+Timestamp: 26.07.2026, 20:58:27
 ===================================================================
 
-Found 88 unique typography violation(s) across 26 file(s):
+Found 88 typography issue(s) across 26 file(s):
 
 File: src\AppStyles.js
-   • Line 85: letterSpacing: 1.5,
+  L85    letterSpacing: 1.5,
 
 File: src\components\Admin\Analytics\AnalyticsStyles.js
-   • Line 177: fontSize: 14,
+  L177   fontSize: 14,
 
 File: src\components\Admin\Analytics\DateRangeCalendarStyles.js
-   • Line 37: lineHeight: 20,
+  L37    lineHeight: 20,
 
 File: src\components\Admin\Categories\CategoriesStyles.js
-   • Line 152: letterSpacing: 0.2,
+  L152   letterSpacing: 0.2,
 
 File: src\components\Admin\Categories\CategoryFormStyles.js
-   • Line 95: letterSpacing: 0.8,
-   • Line 116: letterSpacing: 0.3,
+  L95    letterSpacing: 0.8,
+  L116   letterSpacing: 0.3,
 
 File: src\components\Admin\Orders\OrdersStyles.js
-   • Line 111: letterSpacing: 0.3,
-   • Line 218: letterSpacing: 0.5,
+  L111   letterSpacing: 0.3,
+  L218   letterSpacing: 0.5,
 
 File: src\components\Admin\Products\ProductFormStyles.js
-   • Line 74: letterSpacing: 0.3,
+  L74    letterSpacing: 0.3,
 
 File: src\components\Admin\Products\ProductsStyles.js
-   • Line 89: letterSpacing: 0.8,
-   • Line 161: letterSpacing: 0.4,
+  L89    letterSpacing: 0.8,
+  L161   letterSpacing: 0.4,
 
 File: src\components\Admin\Users\UsersStyles.js
-   • Line 140: letterSpacing: 0.5,
+  L140   letterSpacing: 0.5,
 
 File: src\components\Drawer\Drawer.js
-   • Line 90: fontSize: 18,
-   • Line 91: fontWeight: '600',
+  L90    fontSize: 18,
+  L91    fontWeight: '600',
 
 File: src\components\Feedback\EmptyState\EmptyStateStyles.js
-   • Line 14: fontSize: 18,
-   • Line 15: fontWeight: '600',
-   • Line 20: fontSize: 14,
-   • Line 22: lineHeight: 20,
+  L14    fontSize: 18,
+  L15    fontWeight: '600',
+  L20    fontSize: 14,
+  L22    lineHeight: 20,
 
 File: src\components\Feedback\Toast\ToastStyles.js
-   • Line 18: fontSize: 14,
-   • Line 19: fontWeight: '500',
+  L18    fontSize: 14,
+  L19    fontWeight: '500',
 
 File: src\components\icons\AdminIcons.js
-   • Line 17: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>⚙</RNText>;
-   • Line 30: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📊</RNText>;
-   • Line 43: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📦</RNText>;
-   • Line 54: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📂</RNText>;
-   • Line 67: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🖼️</RNText>;
-   • Line 80: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📋</RNText>;
-   • Line 94: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🚪</RNText>;
-   • Line 107: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🚪</RNText>;
-   • Line 120: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🔒</RNText>;
-   • Line 134: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>👥</RNText>;
-   • Line 150: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📈</RNText>;
+  L17    return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>⚙</RNText>;
+  L30    return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📊</RNText>;
+  L43    return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📦</RNText>;
+  L54    return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📂</RNText>;
+  L67    return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🖼️</RNText>;
+  L80    return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📋</RNText>;
+  L94    return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🚪</RNText>;
+  L107   return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🚪</RNText>;
+  L120   return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🔒</RNText>;
+  L134   return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>👥</RNText>;
+  L150   return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📈</RNText>;
 
 File: src\components\icons\AppIcons.js
-   • Line 23: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>☀️</RNText>;
-   • Line 34: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🌙</RNText>;
-   • Line 55: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🌐</RNText>;
-   • Line 68: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>👜</RNText>;
-   • Line 80: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>👤</RNText>;
-   • Line 93: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🛒</RNText>;
-   • Line 104: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>{filled ? '❤️' : '♡'}</RNText>;
-   • Line 116: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>✉</RNText>;
-   • Line 128: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🏷️</RNText>;
-   • Line 140: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🔍</RNText>;
-   • Line 152: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🏠</RNText>;
-   • Line 163: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>★</RNText>;
-   • Line 177: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🗂️</RNText>;
-   • Line 189: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>$</RNText>;
+  L23    return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>☀️</RNText>;
+  L34    return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🌙</RNText>;
+  L55    return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🌐</RNText>;
+  L68    return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>👜</RNText>;
+  L80    return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>👤</RNText>;
+  L93    return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🛒</RNText>;
+  L104   return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>{filled ? '❤️' : '♡'}</RNText>;
+  L116   return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>✉</RNText>;
+  L128   return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🏷️</RNText>;
+  L140   return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🔍</RNText>;
+  L152   return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🏠</RNText>;
+  L163   return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>★</RNText>;
+  L177   return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🗂️</RNText>;
+  L189   return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>$</RNText>;
 
 File: src\components\icons\CategoryIcons.js
-   • Line 17: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>✨</RNText>;
-   • Line 33: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>👁️</RNText>;
-   • Line 46: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🖌️</RNText>;
-   • Line 58: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>👄</RNText>;
-   • Line 71: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📍</RNText>;
+  L17    return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>✨</RNText>;
+  L33    return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>👁️</RNText>;
+  L46    return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🖌️</RNText>;
+  L58    return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>👄</RNText>;
+  L71    return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📍</RNText>;
 
 File: src\components\icons\ControlIcons.js
-   • Line 15: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>✓</RNText>;
-   • Line 27: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>✗</RNText>;
-   • Line 40: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>←</RNText>;
-   • Line 52: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>→</RNText>;
-   • Line 63: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>◀</RNText>;
-   • Line 74: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>▶</RNText>;
-   • Line 85: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>▼</RNText>;
-   • Line 97: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>👁️</RNText>;
-   • Line 109: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🙈</RNText>;
-   • Line 120: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🔄</RNText>;
-   • Line 133: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📁</RNText>;
-   • Line 146: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>⚠️</RNText>;
-   • Line 158: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>✏️</RNText>;
-   • Line 170: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🗑️</RNText>;
+  L15    return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>✓</RNText>;
+  L27    return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>✗</RNText>;
+  L40    return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>←</RNText>;
+  L52    return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>→</RNText>;
+  L63    return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>◀</RNText>;
+  L74    return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>▶</RNText>;
+  L85    return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>▼</RNText>;
+  L97    return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>👁️</RNText>;
+  L109   return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🙈</RNText>;
+  L120   return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🔄</RNText>;
+  L133   return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📁</RNText>;
+  L146   return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>⚠️</RNText>;
+  L158   return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>✏️</RNText>;
+  L170   return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🗑️</RNText>;
 
 File: src\components\Search\SearchStyles.js
-   • Line 57: fontSize: 14,
+  L57    fontSize: 14,
 
 File: src\components\Text\TextStyles.js
-   • Line 5: h1: { fontSize: 32, lineHeight: 38, fontWeight: '700', fontFamily: fonts.serif },
-   • Line 6: h2: { fontSize: 24, lineHeight: 30, fontWeight: '600', fontFamily: fonts.serif },
-   • Line 7: h3: { fontSize: 20, lineHeight: 26, fontWeight: '600', fontFamily: fonts.sans },
-   • Line 8: h4: { fontSize: 18, lineHeight: 24, fontWeight: '600', fontFamily: fonts.sans },
-   • Line 9: subtitle1: { fontSize: 16, lineHeight: 22, fontWeight: '500', fontFamily: fonts.sans },
-   • Line 10: subtitle2: { fontSize: 14, lineHeight: 20, fontWeight: '500', fontFamily: fonts.sans },
-   • Line 11: body1: { fontSize: 16, lineHeight: 24, fontWeight: '400', fontFamily: fonts.sans },
-   • Line 12: body2: { fontSize: 14, lineHeight: 20, fontWeight: '400', fontFamily: fonts.sans },
-   • Line 13: caption: { fontSize: 12, lineHeight: 16, fontWeight: '400', fontFamily: fonts.sans },
-   • Line 14: overline: { fontSize: 10, lineHeight: 14, fontWeight: '600', letterSpacing: 1, textTransform: 'uppercase', fontFamily: fonts.sans },
-   • Line 54: const overrides = { textAlign: align, fontWeight: weight, fontFamily: font, fontSize: size, lineHeight };
+  L5     h1: { fontSize: 32, lineHeight: 38, fontWeight: '700', fontFamily: fonts.serif },
+  L6     h2: { fontSize: 24, lineHeight: 30, fontWeight: '600', fontFamily: fonts.serif },
+  L7     h3: { fontSize: 20, lineHeight: 26, fontWeight: '600', fontFamily: fonts.sans },
+  L8     h4: { fontSize: 18, lineHeight: 24, fontWeight: '600', fontFamily: fonts.sans },
+  L9     subtitle1: { fontSize: 16, lineHeight: 22, fontWeight: '500', fontFamily: fonts.sans },
+  L10    subtitle2: { fontSize: 14, lineHeight: 20, fontWeight: '500', fontFamily: fonts.sans },
+  L11    body1: { fontSize: 16, lineHeight: 24, fontWeight: '400', fontFamily: fonts.sans },
+  L12    body2: { fontSize: 14, lineHeight: 20, fontWeight: '400', fontFamily: fonts.sans },
+  L13    caption: { fontSize: 12, lineHeight: 16, fontWeight: '400', fontFamily: fonts.sans },
+  L14    overline: { fontSize: 10, lineHeight: 14, fontWeight: '600', letterSpacing: 1, textTransform: 'uppercase', fontFamily: fonts.sans },
+  L54    const overrides = { textAlign: align, fontWeight: weight, fontFamily: font, fontSize: size, lineHeight };
 
 File: src\components\TextField\TextFieldStyles.js
-   • Line 8: fontSize: 13,
-   • Line 15: fontSize: 14,
-   • Line 22: fontSize: 15,
-   • Line 131: { fontSize: sizeTokens.fontSize },
+  L8     fontSize: 13,
+  L15    fontSize: 14,
+  L22    fontSize: 15,
+  L131   { fontSize: sizeTokens.fontSize },
 
 File: src\features\cart\CartViewStyles.js
-   • Line 161: letterSpacing: 0.5,
+  L161   letterSpacing: 0.5,
 
 File: src\features\contact\ContactPageStyles.js
-   • Line 102: letterSpacing: 0.3,
+  L102   letterSpacing: 0.3,
 
 File: src\features\home\components\FeaturedSections.js
-   • Line 132: title: { letterSpacing: 0.3 },
+  L132   title: { letterSpacing: 0.3 },
 
 File: src\features\product\ProductCardStyles.js
-   • Line 41: letterSpacing: 1.2,
+  L41    letterSpacing: 1.2,
 
 File: src\features\product\ProductPageStyles.js
-   • Line 50: letterSpacing: 1.5,
+  L50    letterSpacing: 1.5,
 
 File: src\features\shell\AppHeader\AppHeaderStyles.js
-   • Line 151: letterSpacing: 0.3,
+  L151   letterSpacing: 0.3,
 
 File: src\features\shell\NavMenu\NavMenuStyles.js
-   • Line 33: letterSpacing: 0.3,
-   • Line 76: letterSpacing: 0.8,
+  L33    letterSpacing: 0.3,
+  L76    letterSpacing: 0.8,
 

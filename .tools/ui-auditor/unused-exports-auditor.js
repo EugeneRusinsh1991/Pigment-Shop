@@ -34,9 +34,8 @@ function auditUnusedExports() {
         const isUsed = allFiles.some(f => !f.relPath.startsWith(`src/components/${compName}`) && (f.content.includes(compName) || f.content.includes(`components/${compName}`)));
         if (!isUsed) {
           violations.push({
-            type: 'ISOLATED_UI_COMPONENT',
             location: `src/components/${compName}`,
-            details: `Component '${compName}' is not imported or referenced anywhere outside its own directory.`
+            details: `Isolated component folder '${compName}' is not referenced outside its directory`
           });
         }
       }
@@ -55,9 +54,8 @@ function auditUnusedExports() {
       const isReferenced = allFiles.some(f => f.fullPath !== file.fullPath && f.content.includes(expName));
       if (!isReferenced) {
         violations.push({
-          type: 'UNUSED_EXPORT',
           location: file.relPath,
-          details: `Exported symbol '${expName}' is never imported or used in other files.`
+          details: `Exported symbol '${expName}' is never imported or used`
         });
       }
     }
@@ -65,16 +63,29 @@ function auditUnusedExports() {
 
   const timestamp = new Date().toLocaleString('ru-RU');
   let report = `===================================================================\n`;
-  report += `     6. UNUSED EXPORTS & ISOLATED COMPONENTS REPORT                \n`;
+  report += `               6. UNUSED EXPORTS REPORT                            \n`;
   report += `Timestamp: ${timestamp}\n`;
   report += `===================================================================\n\n`;
 
   if (violations.length === 0) {
-    report += `SUCCESS: No isolated UI components or unused exports found!\n`;
+    report += `SUCCESS: No unused exports found!\n`;
   } else {
-    report += `Found ${violations.length} violation(s):\n\n`;
-    violations.forEach((v, index) => {
-      report += `${index + 1}. [${v.type}]\n   Target:  ${v.location}\n   Details: ${v.details}\n\n`;
+    const grouped = {};
+    violations.forEach(v => {
+      const filePath = v.location;
+      if (!grouped[filePath]) grouped[filePath] = [];
+      grouped[filePath].push(v.details);
+    });
+
+    const fileCount = Object.keys(grouped).length;
+    report += `Found ${violations.length} unused export issue(s) across ${fileCount} target(s):\n\n`;
+
+    Object.entries(grouped).forEach(([filePath, items]) => {
+      report += `File: ${filePath}\n`;
+      items.forEach((details) => {
+        report += `  - ${details}\n`;
+      });
+      report += `\n`;
     });
   }
 

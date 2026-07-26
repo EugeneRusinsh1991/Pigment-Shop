@@ -1,39 +1,31 @@
 ===================================================================
                1. UI ARCHITECTURE COMPLIANCE REPORT                
-Timestamp: 26.07.2026, 20:40:46
+Timestamp: 26.07.2026, 20:58:27
 ===================================================================
 
-Found 8 architecture violation(s):
+Found 8 architecture violation(s) across 8 target(s):
 
-1. [MODULE_DECOMPOSITION_VIOLATION]
-   Target:  src/components/Admin/
-   Details: Missing required architectural files: index.js (Public Barrel Export); useAdminTheme.js (Theme Hook)
+Target: src/components/Admin/
+  [MISSING_MODULES] Missing: index.js, useAdminTheme.js
 
-2. [MODULE_DECOMPOSITION_VIOLATION]
-   Target:  src/components/DataTable/
-   Details: Missing required architectural files: index.js (Public Barrel Export); DataTableStyles.js (Token Style Factory); useDataTableTheme.js (Theme Hook)
+Target: src/components/DataTable/
+  [MISSING_MODULES] Missing: index.js, DataTableStyles.js, useDataTableTheme.js
 
-3. [MODULE_DECOMPOSITION_VIOLATION]
-   Target:  src/components/Drawer/
-   Details: Missing required architectural files: DrawerStyles.js (Token Style Factory); useDrawerTheme.js (Theme Hook)
+Target: src/components/Drawer/
+  [MISSING_MODULES] Missing: DrawerStyles.js, useDrawerTheme.js
 
-4. [MODULE_DECOMPOSITION_VIOLATION]
-   Target:  src/components/icons/
-   Details: Missing required architectural files: index.js (Public Barrel Export); iconsStyles.js (Token Style Factory); useiconsTheme.js (Theme Hook)
+Target: src/components/icons/
+  [MISSING_MODULES] Missing: index.js, iconsStyles.js, useiconsTheme.js
 
-5. [MODULE_DECOMPOSITION_VIOLATION]
-   Target:  src/components/Media/
-   Details: Missing required architectural files: MediaStyles.js (Token Style Factory); useMediaTheme.js (Theme Hook)
+Target: src/components/Media/
+  [MISSING_MODULES] Missing: MediaStyles.js, useMediaTheme.js
 
-6. [MODULE_DECOMPOSITION_VIOLATION]
-   Target:  src/components/Modal/
-   Details: Missing required architectural files: ModalStyles.js (Token Style Factory); useModalTheme.js (Theme Hook)
+Target: src/components/Modal/
+  [MISSING_MODULES] Missing: ModalStyles.js, useModalTheme.js
 
-7. [MODULE_DECOMPOSITION_VIOLATION]
-   Target:  src/components/Motion/
-   Details: Missing required architectural files: MotionStyles.js (Token Style Factory); useMotionTheme.js (Theme Hook)
+Target: src/components/Motion/
+  [MISSING_MODULES] Missing: MotionStyles.js, useMotionTheme.js
 
-8. [MODULE_DECOMPOSITION_VIOLATION]
-   Target:  src/components/Navigation/
-   Details: Missing required architectural files: NavigationStyles.js (Token Style Factory); useNavigationTheme.js (Theme Hook)
+Target: src/components/Navigation/
+  [MISSING_MODULES] Missing: NavigationStyles.js, useNavigationTheme.js
 

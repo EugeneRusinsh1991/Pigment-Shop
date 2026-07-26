@@ -1,83 +1,52 @@
 ===================================================================
-     7. LAYER ARCHITECTURE & CYCLIC IMPORTS REPORT                 
-Timestamp: 26.07.2026, 20:40:47
+               7. LAYER IMPORTS & CYCLIC REPORT                    
+Timestamp: 26.07.2026, 20:58:27
 ===================================================================
 
-Found 19 violation(s):
+Found 19 layer import issue(s) across 13 file(s):
 
-1. [PROHIBITED_LAYER_IMPORT]
-   Target:  src/components/Admin/AdminPanel.js
-   Details: Shared UI component imports from higher-level layer: ../../services/adminDomain
+File: src/components/Admin/AdminPanel.js
+  - Shared UI component imports from higher layer: ../../services/adminDomain
 
-2. [PROHIBITED_LAYER_IMPORT]
-   Target:  src/components/Admin/Analytics/AnalyticsDashboard.js
-   Details: Shared UI component imports from higher-level layer: ../../../services/firebase
+File: src/components/Admin/Analytics/AnalyticsDashboard.js
+  - Shared UI component imports from higher layer: ../../../services/firebase
+  - Shared UI component imports from higher layer: ../../../data/adminAnalytics
+  - Shared UI component imports from higher layer: ../../../services/collections
 
-3. [PROHIBITED_LAYER_IMPORT]
-   Target:  src/components/Admin/Analytics/AnalyticsDashboard.js
-   Details: Shared UI component imports from higher-level layer: ../../../data/adminAnalytics
+File: src/components/Admin/Banners/useBannersWorkflow.js
+  - Shared UI component imports from higher layer: ../../../services/adminDomain
+  - Shared UI component imports from higher layer: ../../../data/catalogState
 
-4. [PROHIBITED_LAYER_IMPORT]
-   Target:  src/components/Admin/Analytics/AnalyticsDashboard.js
-   Details: Shared UI component imports from higher-level layer: ../../../services/collections
+File: src/components/Admin/Categories/categoryFormLogic.js
+  - Shared UI component imports from higher layer: ../../../services/adminCategoriesTransforms
 
-5. [PROHIBITED_LAYER_IMPORT]
-   Target:  src/components/Admin/Banners/useBannersWorkflow.js
-   Details: Shared UI component imports from higher-level layer: ../../../services/adminDomain
+File: src/components/Admin/Categories/useCategoriesWorkflow.js
+  - Shared UI component imports from higher layer: ../../../services/adminDomain
+  - Shared UI component imports from higher layer: ../../../services/adminCategoriesTransforms
 
-6. [PROHIBITED_LAYER_IMPORT]
-   Target:  src/components/Admin/Banners/useBannersWorkflow.js
-   Details: Shared UI component imports from higher-level layer: ../../../data/catalogState
+File: src/components/Admin/Orders/OrderDetails.js
+  - Shared UI component imports from higher layer: ../../../services/adminOrdersService
 
-7. [PROHIBITED_LAYER_IMPORT]
-   Target:  src/components/Admin/Categories/categoryFormLogic.js
-   Details: Shared UI component imports from higher-level layer: ../../../services/adminCategoriesTransforms
+File: src/components/Admin/Orders/OrdersManager.js
+  - Shared UI component imports from higher layer: ../../../services/adminOrdersService
 
-8. [PROHIBITED_LAYER_IMPORT]
-   Target:  src/components/Admin/Categories/useCategoriesWorkflow.js
-   Details: Shared UI component imports from higher-level layer: ../../../services/adminDomain
+File: src/components/Admin/Products/useProductsWorkflow.js
+  - Shared UI component imports from higher layer: ../../../services/adminDomain
+  - Shared UI component imports from higher layer: ../../../services/adminProductsTransforms
 
-9. [PROHIBITED_LAYER_IMPORT]
-   Target:  src/components/Admin/Categories/useCategoriesWorkflow.js
-   Details: Shared UI component imports from higher-level layer: ../../../services/adminCategoriesTransforms
+File: src/components/Admin/shared/adminSharedService.js
+  - Shared UI component imports from higher layer: ../../../services/firebase
+  - Shared UI component imports from higher layer: ../../../services/collections
 
-10. [PROHIBITED_LAYER_IMPORT]
-   Target:  src/components/Admin/Orders/OrderDetails.js
-   Details: Shared UI component imports from higher-level layer: ../../../services/adminOrdersService
+File: src/components/Admin/Users/UserDetails.js
+  - Shared UI component imports from higher layer: ../../../services/adminUsersService
 
-11. [PROHIBITED_LAYER_IMPORT]
-   Target:  src/components/Admin/Orders/OrdersManager.js
-   Details: Shared UI component imports from higher-level layer: ../../../services/adminOrdersService
+File: src/components/Admin/Users/UserOrdersList.js
+  - Shared UI component imports from higher layer: ../../../features/orders/components/OrderCard
 
-12. [PROHIBITED_LAYER_IMPORT]
-   Target:  src/components/Admin/Products/useProductsWorkflow.js
-   Details: Shared UI component imports from higher-level layer: ../../../services/adminDomain
+File: src/components/Admin/Users/UsersManager.js
+  - Shared UI component imports from higher layer: ../../../services/adminUsersService
 
-13. [PROHIBITED_LAYER_IMPORT]
-   Target:  src/components/Admin/Products/useProductsWorkflow.js
-   Details: Shared UI component imports from higher-level layer: ../../../services/adminProductsTransforms
-
-14. [PROHIBITED_LAYER_IMPORT]
-   Target:  src/components/Admin/shared/adminSharedService.js
-   Details: Shared UI component imports from higher-level layer: ../../../services/firebase
-
-15. [PROHIBITED_LAYER_IMPORT]
-   Target:  src/components/Admin/shared/adminSharedService.js
-   Details: Shared UI component imports from higher-level layer: ../../../services/collections
-
-16. [PROHIBITED_LAYER_IMPORT]
-   Target:  src/components/Admin/Users/UserDetails.js
-   Details: Shared UI component imports from higher-level layer: ../../../services/adminUsersService
-
-17. [PROHIBITED_LAYER_IMPORT]
-   Target:  src/components/Admin/Users/UserOrdersList.js
-   Details: Shared UI component imports from higher-level layer: ../../../features/orders/components/OrderCard
-
-18. [PROHIBITED_LAYER_IMPORT]
-   Target:  src/components/Admin/Users/UsersManager.js
-   Details: Shared UI component imports from higher-level layer: ../../../services/adminUsersService
-
-19. [PROHIBITED_LAYER_IMPORT]
-   Target:  src/components/SharedLayoutWrapper.js
-   Details: Shared UI component imports from higher-level layer: ../features/shell/components/Footer
+File: src/components/SharedLayoutWrapper.js
+  - Shared UI component imports from higher layer: ../features/shell/components/Footer
 

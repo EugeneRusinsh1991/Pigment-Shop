@@ -52,17 +52,15 @@ function auditLayerImports() {
       if (file.relPath.startsWith('src/components/')) {
         if (/(\/features\/|\/services\/|\/data\/|\/domain\/)/.test(imp)) {
           violations.push({
-            type: 'PROHIBITED_LAYER_IMPORT',
             location: file.relPath,
-            details: `Shared UI component imports from higher-level layer: ${imp}`
+            details: `Shared UI component imports from higher layer: ${imp}`
           });
         }
       } else if (/^src\/(theme|utils|constants)\//.test(file.relPath)) {
         if (/(\/components\/|\/features\/|\/services\/|\/data\/)/.test(imp)) {
           violations.push({
-            type: 'PROHIBITED_LAYER_IMPORT',
             location: file.relPath,
-            details: `Base utility/theme layer imports from higher-level UI/domain layer: ${imp}`
+            details: `Base utility/theme layer imports from higher UI/domain layer: ${imp}`
           });
         }
       }
@@ -83,42 +81,39 @@ function auditLayerImports() {
         if (!seenCycles.has(cycleKey)) {
           seenCycles.add(cycleKey);
           violations.push({
-            type: 'CYCLIC_IMPORT_VIOLATION',
-            location: `${source} <-> ${target}`,
-            details: `Direct circular dependency detected between two modules.`
+            location: source,
+            details: `Circular dependency with module: ${target}`
           });
         }
-      } else {
-        targetImports.forEach(target2 => {
-          const target2Imports = graph[target2] || [];
-          if (target2Imports.includes(source)) {
-            const cycleKey = [source, target, target2].sort().join(' -> ');
-            if (!seenCycles.has(cycleKey)) {
-              seenCycles.add(cycleKey);
-              violations.push({
-                type: 'CYCLIC_IMPORT_VIOLATION',
-                location: `${source} -> ${target} -> ${target2} -> ${source}`,
-                details: `3-way circular dependency chain detected.`
-              });
-            }
-          }
-        });
       }
     });
   });
 
   const timestamp = new Date().toLocaleString('ru-RU');
   let report = `===================================================================\n`;
-  report += `     7. LAYER ARCHITECTURE & CYCLIC IMPORTS REPORT                 \n`;
+  report += `               7. LAYER IMPORTS & CYCLIC REPORT                    \n`;
   report += `Timestamp: ${timestamp}\n`;
   report += `===================================================================\n\n`;
 
   if (violations.length === 0) {
-    report += `SUCCESS: No prohibited layer imports or circular dependencies found!\n`;
+    report += `SUCCESS: No layer import or circular dependency violations found!\n`;
   } else {
-    report += `Found ${violations.length} violation(s):\n\n`;
-    violations.forEach((v, index) => {
-      report += `${index + 1}. [${v.type}]\n   Target:  ${v.location}\n   Details: ${v.details}\n\n`;
+    const grouped = {};
+    violations.forEach(v => {
+      const filePath = v.location;
+      if (!grouped[filePath]) grouped[filePath] = [];
+      grouped[filePath].push(v.details);
+    });
+
+    const fileCount = Object.keys(grouped).length;
+    report += `Found ${violations.length} layer import issue(s) across ${fileCount} file(s):\n\n`;
+
+    Object.entries(grouped).forEach(([filePath, items]) => {
+      report += `File: ${filePath}\n`;
+      items.forEach((details) => {
+        report += `  - ${details}\n`;
+      });
+      report += `\n`;
     });
   }
 

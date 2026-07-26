@@ -6,6 +6,7 @@ const { auditTypography } = require('./typography-auditor');
 const { auditServiceLayer } = require('./service-layer-auditor');
 const { auditUnusedExports } = require('./unused-exports-auditor');
 const { auditLayerImports } = require('./layer-imports-auditor');
+const { auditMagicNumbers } = require('./magic-numbers-auditor');
 
 /**
  * Main Audit Suite Runner
@@ -23,6 +24,7 @@ function runAllAudits() {
   try { auditServiceLayer(); } catch (e) { console.error('Error 05:', e.message); }
   try { auditUnusedExports(); } catch (e) { console.error('Error 06:', e.message); }
   try { auditLayerImports(); } catch (e) { console.error('Error 07:', e.message); }
+  try { auditMagicNumbers(); } catch (e) { console.error('Error 08:', e.message); }
 
   console.log('===================================================================');
   console.log('All audit reports generated inside .docs/audits/ directory.');

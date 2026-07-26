@@ -14,7 +14,6 @@ function scanFile(filePath, violations) {
   lines.forEach((line, index) => {
     if (line.includes('firebase/firestore') || line.includes('getDoc(') || line.includes('setDoc(') || line.includes('collection(')) {
       violations.push({
-        type: 'DIRECT_FIRESTORE_UI_IMPORT',
         location: `${relPath}:${index + 1}`,
         details: line.trim()
       });
@@ -44,7 +43,7 @@ function auditServiceLayer() {
 
   const timestamp = new Date().toLocaleString('ru-RU');
   let report = `===================================================================\n`;
-  report += `              5. SERVICE LAYER ARCHITECTURE REPORT                 \n`;
+  report += `               5. SERVICE LAYER ARCHITECTURE REPORT                \n`;
   report += `Timestamp: ${timestamp}\n`;
   report += `===================================================================\n\n`;
 
@@ -55,17 +54,17 @@ function auditServiceLayer() {
     violations.forEach(v => {
       const [filePath, lineNum] = v.location.split(':');
       if (!grouped[filePath]) grouped[filePath] = [];
-      grouped[filePath].push({ lineNum: lineNum || '', type: v.type, details: v.details });
+      grouped[filePath].push({ lineNum: lineNum || '', details: v.details });
     });
 
     const fileCount = Object.keys(grouped).length;
-    report += `Found ${violations.length} service layer violation(s) across ${fileCount} file(s):\n\n`;
+    report += `Found ${violations.length} service layer issue(s) across ${fileCount} file(s):\n\n`;
 
     Object.entries(grouped).forEach(([filePath, items]) => {
       report += `File: ${filePath}\n`;
       items.forEach((item) => {
-        const lineStr = item.lineNum ? `Line ${item.lineNum}: ` : '';
-        report += `   • ${lineStr}${item.details}\n`;
+        const lineStr = item.lineNum ? `L${item.lineNum}` : '';
+        report += `  ${lineStr.padEnd(6)} ${item.details}\n`;
       });
       report += `\n`;
     });

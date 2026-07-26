@@ -32,9 +32,9 @@ function scanFile(filePath, violations, isFixMode = false) {
     // 1. Inline style prop usage in JSX
     if (line.includes('style={{') || (line.includes('style={') && !line.includes('styles.') && !line.includes('style={['))) {
       violations.push({
-        type: 'INLINE_STYLE_HARDCODE',
+        type: 'INLINE_STYLE',
         location: `${relPath}:${index + 1}`,
-        details: `Inline style detected in JSX: ${line.trim()}`
+        details: line.trim()
       });
     }
 
@@ -45,9 +45,9 @@ function scanFile(filePath, violations, isFixMode = false) {
       if (hexMatches || rgbMatches) {
         const found = [...(hexMatches || []), ...(rgbMatches || [])];
         violations.push({
-          type: 'HARDCODED_COLOR_VIOLATION',
+          type: 'HARDCODED_COLOR',
           location: `${relPath}:${index + 1}`,
-          details: `Hardcoded color(s) ${found.join(', ')}: ${line.trim()}`
+          details: `${found.join(', ')} -> ${line.trim()}`
         });
       }
     }
@@ -57,9 +57,9 @@ function scanFile(filePath, violations, isFixMode = false) {
       const dimMatch = line.match(/\b(margin|marginTop|marginBottom|marginLeft|marginRight|marginVertical|marginHorizontal|padding|paddingTop|paddingBottom|paddingLeft|paddingRight|paddingVertical|paddingHorizontal|borderRadius|gap)\s*:\s*(\d+)/);
       if (dimMatch && !line.includes('//') && !line.includes('tokens.')) {
         violations.push({
-          type: 'HARDCODED_SPACING_VIOLATION',
+          type: 'HARDCODED_SPACING',
           location: `${relPath}:${index + 1}`,
-          details: `Raw numeric spacing for ${dimMatch[1]} (${dimMatch[2]}px): ${line.trim()}`
+          details: `${dimMatch[1]} ${dimMatch[2]}px -> ${line.trim()}`
         });
       }
     }
@@ -99,7 +99,7 @@ function auditStyles() {
 
   const timestamp = new Date().toLocaleString('ru-RU');
   let report = `===================================================================\n`;
-  report += `         3. HARDCODED STYLES, COLORS & SPACING REPORT (UNIQUE)    \n`;
+  report += `         3. HARDCODED STYLES, COLORS & SPACING REPORT              \n`;
   report += `Timestamp: ${timestamp}\n`;
   report += `===================================================================\n\n`;
 
@@ -114,13 +114,13 @@ function auditStyles() {
     });
 
     const fileCount = Object.keys(grouped).length;
-    report += `Found ${violations.length} unique violation(s) across ${fileCount} file(s):\n\n`;
+    report += `Found ${violations.length} issue(s) across ${fileCount} file(s):\n\n`;
 
-    Object.entries(grouped).forEach(([filePath, items], fIndex) => {
+    Object.entries(grouped).forEach(([filePath, items]) => {
       report += `File: ${filePath}\n`;
       items.forEach((item) => {
-        const lineStr = item.lineNum ? ` (Line ${item.lineNum})` : '';
-        report += `   • [${item.type}]${lineStr}\n     ${item.details}\n`;
+        const lineStr = item.lineNum ? `L${item.lineNum}` : '';
+        report += `  ${lineStr.padEnd(6)} [${item.type}] ${item.details}\n`;
       });
       report += `\n`;
     });

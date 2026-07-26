@@ -22,7 +22,7 @@ function auditComponents() {
     if (!entry.isDirectory()) {
       if (!ROOT_FILE_WHITELIST.includes(entry.name)) {
         violations.push({
-          type: 'DOMAIN_RELOCATION_VIOLATION',
+          type: 'DOMAIN_RELOCATION',
           location: `src/components/${entry.name}`,
           details: 'Root level component file should be moved into src/features/ or encapsulated in a component folder.'
         });
@@ -37,15 +37,15 @@ function auditComponents() {
       const hasThemeHook = files.some(f => f.startsWith('use') && f.endsWith('Theme.js'));
 
       const missingModules = [];
-      if (!hasIndex) missingModules.push('index.js (Public Barrel Export)');
-      if (!hasStyles) missingModules.push(`${compName}Styles.js (Token Style Factory)`);
-      if (!hasThemeHook) missingModules.push(`use${compName}Theme.js (Theme Hook)`);
+      if (!hasIndex) missingModules.push('index.js');
+      if (!hasStyles) missingModules.push(`${compName}Styles.js`);
+      if (!hasThemeHook) missingModules.push(`use${compName}Theme.js`);
 
       if (missingModules.length > 0) {
         violations.push({
-          type: 'MODULE_DECOMPOSITION_VIOLATION',
+          type: 'MISSING_MODULES',
           location: `src/components/${compName}/`,
-          details: `Missing required architectural files: ${missingModules.join('; ')}`
+          details: `Missing: ${missingModules.join(', ')}`
         });
       }
     }
@@ -60,9 +60,22 @@ function auditComponents() {
   if (violations.length === 0) {
     report += `SUCCESS: All UI components comply with architectural standards!\n`;
   } else {
-    report += `Found ${violations.length} architecture violation(s):\n\n`;
-    violations.forEach((v, index) => {
-      report += `${index + 1}. [${v.type}]\n   Target:  ${v.location}\n   Details: ${v.details}\n\n`;
+    const grouped = {};
+    violations.forEach(v => {
+      const filePath = v.location;
+      if (!grouped[filePath]) grouped[filePath] = [];
+      grouped[filePath].push({ type: v.type, details: v.details });
+    });
+
+    const fileCount = Object.keys(grouped).length;
+    report += `Found ${violations.length} architecture violation(s) across ${fileCount} target(s):\n\n`;
+
+    Object.entries(grouped).forEach(([filePath, items]) => {
+      report += `Target: ${filePath}\n`;
+      items.forEach((item) => {
+        report += `  [${item.type}] ${item.details}\n`;
+      });
+      report += `\n`;
     });
   }
 

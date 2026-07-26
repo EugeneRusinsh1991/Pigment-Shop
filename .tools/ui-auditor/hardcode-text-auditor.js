@@ -14,9 +14,8 @@ function scanFile(filePath, violations) {
     const rawTextMatch = line.match(/>\s*([A-Za-zА-Яа-я0-9_\s]{3,})\s*</);
     if (rawTextMatch && !line.includes('{') && !line.includes('//') && !line.includes('/*')) {
       violations.push({
-        type: 'HARDCODED_TEXT_LITERAL',
         location: `${relPath}:${index + 1}`,
-        details: `Raw text literal '${rawTextMatch[1].trim()}' in JSX: ${line.trim()}`
+        details: `Raw text '${rawTextMatch[1].trim()}' in JSX: ${line.trim()}`
       });
     }
   });
@@ -25,7 +24,7 @@ function scanFile(filePath, violations) {
 function deduplicate(violations) {
   const seen = new Set();
   return violations.filter(v => {
-    const key = `${v.type}|${v.location}|${v.details}`;
+    const key = `${v.location}|${v.details}`;
     if (seen.has(key)) return false;
     seen.add(key);
     return true;
@@ -54,7 +53,7 @@ function auditTextLiterals() {
 
   const timestamp = new Date().toLocaleString('ru-RU');
   let report = `===================================================================\n`;
-  report += `               2. HARDCODED TEXT LITERALS REPORT (UNIQUE)          \n`;
+  report += `               2. HARDCODED TEXT LITERALS REPORT                   \n`;
   report += `Timestamp: ${timestamp}\n`;
   report += `===================================================================\n\n`;
 
@@ -65,17 +64,17 @@ function auditTextLiterals() {
     violations.forEach(v => {
       const [filePath, lineNum] = v.location.split(':');
       if (!grouped[filePath]) grouped[filePath] = [];
-      grouped[filePath].push({ lineNum: lineNum || '', type: v.type, details: v.details });
+      grouped[filePath].push({ lineNum: lineNum || '', details: v.details });
     });
 
     const fileCount = Object.keys(grouped).length;
-    report += `Found ${violations.length} unique raw text violation(s) across ${fileCount} file(s):\n\n`;
+    report += `Found ${violations.length} raw text issue(s) across ${fileCount} file(s):\n\n`;
 
     Object.entries(grouped).forEach(([filePath, items]) => {
       report += `File: ${filePath}\n`;
       items.forEach((item) => {
-        const lineStr = item.lineNum ? ` (Line ${item.lineNum})` : '';
-        report += `   • [${item.type}]${lineStr}\n     ${item.details}\n`;
+        const lineStr = item.lineNum ? `L${item.lineNum}` : '';
+        report += `  ${lineStr.padEnd(6)} ${item.details}\n`;
       });
       report += `\n`;
     });
