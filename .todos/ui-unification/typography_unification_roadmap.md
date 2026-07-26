@@ -45,9 +45,9 @@ Based on [text-module-spec.md](file:///d:/Magazine/_PigmentShop/.docs/architectu
 ### Task 2.3: Migrate Product Details & Cards
 > 💡 **Task Recommendation**: 🔴 **Gemini 3.1 Pro (High)** (5 files total). Can be executed as 2 sub-tasks:
 
-- [ ] **Task 2.3a: Product Page & Info (`ProductInfoSubcomponents.js`, `ProductPageStyles.js`, `ProductCardStyles.js`)**
+- [x] **Task 2.3a: Product Page & Info (`ProductInfoSubcomponents.js`, `ProductPageStyles.js`, `ProductCardStyles.js`)**
   - *Complexity*: Low (3 files) | 🟡 **Gemini 3.6 Flash (Medium)**
-- [ ] **Task 2.3b: Product Reviews (`ProductReviewsStyles.js`, `ProductReviewSubcomponents.js`)**
+- [x] **Task 2.3b: Product Reviews (`ProductReviewsStyles.js`, `ProductReviewSubcomponents.js`)**
   - *Complexity*: Low (2 files) | 🟡 **Gemini 3.6 Flash (Medium)**
 
 ---
@@ -55,9 +55,9 @@ Based on [text-module-spec.md](file:///d:/Magazine/_PigmentShop/.docs/architectu
 ### Task 2.4: Migrate Cart & Orders Components
 > 💡 **Task Recommendation**: 🔴 **Gemini 3.1 Pro (High)** (5 files total). Can be executed as 2 sub-tasks:
 
-- [ ] **Task 2.4a: Cart Views (`CartViewStyles.js`, `CartItem.js`)**
+- [x] **Task 2.4a: Cart Views (`CartViewStyles.js`, `CartItem.js`)**
   - *Complexity*: Low (2 files) | 🟡 **Gemini 3.6 Flash (Medium)**
-- [ ] **Task 2.4b: Orders Feature (`OrderRows.js`, `OrderHeader.js`, `OrderDetailsCard.js`)**
+- [x] **Task 2.4b: Orders Feature (`OrderRows.js`, `OrderHeader.js`, `OrderDetailsCard.js`)**
   - *Complexity*: Low (3 files) | 🟡 **Gemini 3.6 Flash (Medium)**
 
 ---

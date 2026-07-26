@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useMemo, useCallback } from 'react';
-import { Image, Text, View, StyleSheet, Platform } from 'react-native';
+import { Image, View, StyleSheet, Platform } from 'react-native';
+import { Text } from '../../components/Text';
 import { useTheme, getThemedValue } from '../../context/ThemeContext';
 import useCardDimensions from '../../hooks/useCardDimensions';
 import { HeartIcon, CartIcon } from '@/components/Icons';
@@ -19,27 +20,24 @@ const getThemedStyles = (isDark, imgHeight) => {
   return {
     prodCard: [styles.prodCard, ic(styles.prodCardDark, styles.prodCardLight)],
     imageContainer: [styles.imageContainer, ic(styles.imageContainerDark, styles.imageContainerLight), { height: imgHeight }],
-    prodTitle: [styles.prodTitle, ic(styles.prodTitleDark, styles.prodTitleLight)],
     prodInfo: [styles.prodInfo, ic(styles.prodInfoDark, styles.prodInfoLight)],
     heartColor: isDark ? colors.white : colors.dark,
   };
 };
 
 
-const ProductPrice = React.memo(function ProductPrice({ price, discountPercent, isDark }) {
-  const pStyle = [styles.priceText, isDark ? styles.priceTextDark : styles.priceTextLight];
-
+const ProductPrice = React.memo(function ProductPrice({ price, discountPercent }) {
   if (discountPercent > 0) {
     const finalPrice = getEffectivePrice(price, discountPercent);
     return (
       <View style={styles.priceRow}>
-        <Text style={pStyle}>${finalPrice.toLocaleString()}</Text>
-        <Text style={styles.originalPriceText}>${price.toLocaleString()}</Text>
+        <Text style={styles.priceText}>${finalPrice.toLocaleString()}</Text>
+        <Text variant="caption" color="desc" style={styles.originalPriceText}>${price.toLocaleString()}</Text>
       </View>
     );
   }
 
-  return <Text style={pStyle}>${price.toLocaleString()}</Text>;
+  return <Text style={styles.priceText}>${price.toLocaleString()}</Text>;
 });
 
 function safeStopPropagation(e) {
@@ -118,8 +116,8 @@ const ProductCardInner = React.forwardRef(({ item, isDark, depth = 1, isFavorite
       </View>
       <View style={themed.prodInfo}>
         <Text style={styles.brandText}>{item.brand || t('brandFallback')}</Text>
-        <Text style={themed.prodTitle} numberOfLines={2}>{getLocalizedValue(item.label, lang)}</Text>
-        <ProductPrice price={item.price} discountPercent={item.discountPercent} isDark={isDark} />
+        <Text variant="subtitle2" style={styles.prodTitle} numberOfLines={2}>{getLocalizedValue(item.label, lang)}</Text>
+        <ProductPrice price={item.price} discountPercent={item.discountPercent} />
       </View>
     </Card>
   );

@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import { Text } from '../../components/Text';
 import { getLocalizedValue } from '../../utils/localization';
 
 function getProductLabel(item, flatList, lang) {
@@ -12,8 +13,8 @@ export function OrderMetaRow({ label, value, isPrice, isLast, isDark, textStyle,
   const borderStyle = isDark ? styles.borderDark : styles.borderLight;
   return (
     <View style={[styles.metaRow, borderStyle, isLast && { borderBottomWidth: 0, paddingBottom: 0 }]}>
-      <Text style={[styles.metaLabel, subtextStyle]}>{label}</Text>
-      <Text style={[isPrice ? styles.metaPrice : styles.metaValue, textStyle]}>
+      <Text variant="body" color="muted" style={subtextStyle}>{label}</Text>
+      <Text variant={isPrice ? 'title' : 'body'} weight={isPrice ? 'heavy' : 'medium'} style={textStyle}>
         {value}
       </Text>
     </View>
@@ -28,16 +29,16 @@ export function OrderItemRow({ item, flatList, lang, isDark, isLast, textStyle, 
 
   return (
     <View style={[styles.itemRow, borderStyle, isLast && { borderBottomWidth: 0, paddingBottom: 0 }]}>
-      <Text style={[styles.itemText, styles.colProduct, textStyle]} numberOfLines={2}>
+      <Text variant="body" style={[styles.colProduct, textStyle]} numberOfLines={2}>
         {label}
       </Text>
-      <Text style={[styles.itemText, styles.colQty, subtextStyle, { textAlign: 'center' }]}>
+      <Text variant="body" color="muted" style={[styles.colQty, subtextStyle, { textAlign: 'center' }]}>
         {item.qty}
       </Text>
-      <Text style={[styles.itemText, styles.colPrice, subtextStyle, { textAlign: 'right' }]}>
+      <Text variant="body" color="muted" style={[styles.colPrice, subtextStyle, { textAlign: 'right' }]}>
         ${priceNum.toFixed(2)}
       </Text>
-      <Text style={[styles.itemText, styles.colTotal, textStyle, { textAlign: 'right', fontWeight: '500' }]}>
+      <Text variant="body" weight="medium" style={[styles.colTotal, textStyle, { textAlign: 'right' }]}>
         ${lineTotal}
       </Text>
     </View>
@@ -58,25 +59,11 @@ const styles = StyleSheet.create({
   borderLight: {
     borderBottomColor: '#F1F5F9',
   },
-  metaLabel: {
-    fontSize: 14,
-  },
-  metaValue: {
-    fontSize: 14,
-    fontWeight: '500',
-  },
-  metaPrice: {
-    fontSize: 18,
-    fontWeight: '600',
-  },
   itemRow: {
     flexDirection: 'row',
     alignItems: 'center',
     paddingVertical: 12,
     borderBottomWidth: 1,
-  },
-  itemText: {
-    fontSize: 13,
   },
   colProduct: {
     flex: 4,

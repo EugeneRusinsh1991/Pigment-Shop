@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
+import { Text, Heading } from '../../components/Text';
 import styles from './ProductReviewsStyles';
 import { useTheme } from '../../context/ThemeContext';
 import Button, { AnimatedButton } from '../../components/Button';
@@ -26,10 +27,10 @@ export function ReviewCard({ rev, isDark }) {
   return (
     <View style={[styles.reviewCard, isDark ? styles.reviewCardDark : styles.reviewCardLight]}>
       <View style={styles.reviewHeader}>
-        <Text style={[styles.author, isDark ? styles.textDark : styles.textLight]}>{rev.author}</Text>
+        <Text style={styles.author}>{rev.author}</Text>
       </View>
-      <Text style={[styles.comment, isDark ? styles.descDark : styles.descLight]}>{rev.comment}</Text>
-      <Text style={styles.dateText}>{rev.date}</Text>
+      <Text color="desc" style={styles.comment}>{rev.comment}</Text>
+      <Text variant="caption" color="desc" style={styles.dateText}>{rev.date}</Text>
     </View>
   );
 }
@@ -38,7 +39,7 @@ export function RegistrationPrompt({ isDark }) {
   const { t } = useTheme();
   return (
     <View style={[styles.reviewForm, isDark ? styles.formDark : styles.formLight, { alignItems: 'center', gap: 12 }]}>
-      <Text style={[styles.comment, isDark ? styles.textDark : styles.textLight, { textAlign: 'center', fontSize: 14 }]}>
+      <Text variant="body2" align="center" style={styles.comment}>
         {t('reviewsRegisterRequired')}
       </Text>
       <Link href={{ pathname: '/login', params: { isRegister: 'true' } }} asChild>
@@ -80,9 +81,9 @@ function ReviewFormHeader({ showModeToggle, setSubmitMode, hideHeading, isDark, 
   }
   if (!hideHeading) {
     return (
-      <Text style={[styles.formTitle, isDark ? styles.textDark : styles.textLight]}>
+      <Heading level={4} style={styles.formTitle}>
         {title}
-      </Text>
+      </Heading>
     );
   }
   return null;

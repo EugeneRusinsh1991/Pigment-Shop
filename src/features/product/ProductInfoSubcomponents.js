@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
-import { Animated, Text, View, Platform } from 'react-native';
+import { Animated, View, Platform } from 'react-native';
+import { Text, Heading } from '../../components/Text';
 import { CartIcon, HeartIcon } from '@/components/Icons';
 import { useTheme } from '../../context/ThemeContext';
 import { useCartContext } from '../../context/CartContext';
@@ -19,21 +20,19 @@ export const calcFinalPrice = (price, discountPercent) => {
 };
 
 export function QtySelector({ qty, isDark, onDecrease, onIncrease }) {
-  const tc = isDark ? styles.textDark : styles.textLight;
-
   return (
     <View style={[styles.qtyRow, isDark ? styles.qtyRowDark : styles.qtyRowLight]}>
       <IconButton
         testID="product-qty-minus"
-        icon={<Text style={[styles.qtyBtnText, tc]}>−</Text>}
+        icon={<Text size={18} weight="500">−</Text>}
         onPress={onDecrease}
         size="sm"
         variant="transparent"
       />
-      <Text style={[styles.qtyVal, tc]}>{qty}</Text>
+      <Text variant="body2" weight="bold" style={styles.qtyVal}>{qty}</Text>
       <IconButton
         testID="product-qty-plus"
-        icon={<Text style={[styles.qtyBtnText, tc]}>+</Text>}
+        icon={<Text size={18} weight="500">+</Text>}
         onPress={onIncrease}
         size="sm"
         variant="transparent"
@@ -42,16 +41,16 @@ export function QtySelector({ qty, isDark, onDecrease, onIncrease }) {
   );
 }
 
-export function ProductInfoPrice({ price, discountPercent, tc }) {
+export function ProductInfoPrice({ price, discountPercent }) {
   const safePrice = getSafePrice(price);
   const finalPrice = calcFinalPrice(safePrice, discountPercent);
   const hasDiscount = (discountPercent || 0) > 0;
 
   return (
     <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 8 }}>
-      <Text style={[styles.priceText, tc]}>${finalPrice.toLocaleString()}</Text>
+      <Text style={styles.priceText}>${finalPrice.toLocaleString()}</Text>
       {hasDiscount && (
-        <Text style={{ fontSize: 14, color: colors.secondaryDarkText, textDecorationLine: 'line-through' }}>
+        <Text variant="body2" color="desc" style={{ textDecorationLine: 'line-through' }}>
           ${safePrice.toLocaleString()}
         </Text>
       )}
@@ -59,7 +58,7 @@ export function ProductInfoPrice({ price, discountPercent, tc }) {
   );
 }
 
-export function ProductMetaInfo({ product, tc, dc }) {
+export function ProductMetaInfo({ product }) {
   const { t, lang } = useTheme();
   const desc = getLocalizedValue(product.description, lang, t('productNoDesc'));
   const label = getLocalizedValue(product.label, lang);
@@ -70,9 +69,9 @@ export function ProductMetaInfo({ product, tc, dc }) {
   return (
     <>
       <Text style={styles.brandText}>{brand}</Text>
-      <Text style={[styles.productName, tc]}>{label}</Text>
-      <ProductInfoPrice price={product.price} discountPercent={product.discountPercent} tc={tc} />
-      <Text style={[styles.description, dc]}>{desc}</Text>
+      <Heading level={2} style={styles.productName}>{label}</Heading>
+      <ProductInfoPrice price={product.price} discountPercent={product.discountPercent} />
+      <Text style={styles.description} color="desc">{desc}</Text>
       <Text style={styles.skuText}>{t('productSku')}: {sku}</Text>
       <Text style={styles.stockText}>{stockText}</Text>
     </>

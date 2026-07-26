@@ -182,10 +182,6 @@ export default StyleSheet.create({
   },
   favOverlayDark: { backgroundColor: colors.overlayDark },
   favOverlayLight: { backgroundColor: colors.overlayLight },
-  textDark: { color: colors.white },
-  textLight: { color: colors.dark },
-  descDark: { color: colors.secondaryDarkText },
-  descLight: { color: colors.secondaryLightText },
   carouselContainer: {
     width: '100%',
     height: '100%',

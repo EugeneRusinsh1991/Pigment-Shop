@@ -2,10 +2,7 @@ import { StyleSheet } from 'react-native';
 import { colors, fonts } from '../../theme/tokens';
 
 export default StyleSheet.create({
-  textDark: { color: colors.white },
-  textLight: { color: colors.dark },
-  descDark: { color: colors.secondaryDarkText },
-  descLight: { color: colors.secondaryLightText },
+
 
   reviewsSection: {
     marginTop: 24,

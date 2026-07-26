@@ -53,22 +53,10 @@ export default StyleSheet.create({
     minHeight: 36,
     marginBottom: 4,
   },
-  prodTitleDark: {
-    color: colors.textDark,
-  },
-  prodTitleLight: {
-    color: colors.textLight,
-  },
   priceText: {
     fontFamily: fonts.serif,
     fontSize: 16,
     fontWeight: '600',
-  },
-  priceTextDark: {
-    color: colors.textDark,
-  },
-  priceTextLight: {
-    color: colors.textLight,
   },
   priceRow: {
     flexDirection: 'row',

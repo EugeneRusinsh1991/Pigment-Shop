@@ -1,5 +1,6 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
+import { Text } from '../../components/Text';
 import { useTheme } from '../../context/ThemeContext';
 import styles from './CartViewStyles';
 import { Button } from '../../components/Button';
@@ -29,10 +30,10 @@ export default function CartSummary({ totalItems, totalPrice, isWide, isDark, no
       ]}
     >
       <View style={styles.summaryRow}>
-        <Text style={[styles.summaryLabel, ic(styles.summaryLabelDark, styles.summaryLabelLight)]}>
+        <Text variant="label" color="muted">
           {t('cartItemsCount')}
         </Text>
-        <Text style={[styles.summaryValue, ic(styles.summaryValueDark, styles.summaryValueLight)]}>
+        <Text variant="body" weight="heavy">
           {totalItems}
         </Text>
       </View>
@@ -51,14 +52,14 @@ export default function CartSummary({ totalItems, totalPrice, isWide, isDark, no
           isDark={isDark}
           style={styles.inputGroup}
           styles={{
-            fieldLabel: [styles.label, ic(styles.summaryLabelDark, styles.summaryLabelLight)],
-            fieldInput: [styles.input, ic(styles.textDark, styles.textLight)],
+            fieldLabel: [styles.label],
+            fieldInput: [styles.input],
             inputContainer: [styles.inputContainer, ic(styles.inputContainerDark, styles.inputContainerLight)],
           }}
         />
       ))}
 
-      <Text style={[styles.requiredNote, ic(styles.summaryLabelDark, styles.summaryLabelLight)]}>
+      <Text variant="caption" color="muted" style={styles.requiredNote}>
         {`${t('profileRequiredNote')}`}
       </Text>
 
@@ -72,7 +73,7 @@ export default function CartSummary({ totalItems, totalPrice, isWide, isDark, no
         isDark={isDark}
         numberOfLines={3}
         styles={{
-          fieldLabel: [styles.noteLabel, ic(styles.summaryLabelDark, styles.summaryLabelLight)],
+          fieldLabel: [styles.noteLabel],
           fieldTextarea: [styles.noteInput, ic(styles.noteInputDark, styles.noteInputLight)],
         }}
       />
@@ -80,10 +81,10 @@ export default function CartSummary({ totalItems, totalPrice, isWide, isDark, no
       <View style={styles.summaryDivider} />
 
       <View style={styles.summaryRow}>
-        <Text style={[styles.totalLabel, ic(styles.totalLabelDark, styles.totalLabelLight)]}>
+        <Text variant="label" color="muted">
           {t('cartTotal')}
         </Text>
-        <Text style={[styles.totalPrice, ic(styles.totalPriceDark, styles.totalPriceLight)]}>
+        <Text variant="title" weight="bold">
           ${totalPrice.toLocaleString()}
         </Text>
       </View>

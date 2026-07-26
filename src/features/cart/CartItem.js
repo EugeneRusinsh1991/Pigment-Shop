@@ -1,5 +1,6 @@
 import React from 'react';
-import { Platform, StyleSheet, Text, View, Image } from 'react-native';
+import { Platform, StyleSheet, View, Image } from 'react-native';
+import { Text } from '../../components/Text';
 import { useTheme } from '../../context/ThemeContext';
 import { CrossIcon } from '@/components/Icons';
 import { IconButton } from '../../components/Button';
@@ -25,7 +26,7 @@ export default function CartItem({ item, isDark, onIncrease, onDecrease, onRemov
       {/* Product Info & Controls */}
       <View style={styles.details}>
         <View style={styles.headerRow}>
-          <Text style={[styles.label, ic(styles.labelDark, styles.labelLight)]} numberOfLines={2}>
+          <Text variant="body" weight="bold" style={styles.label} numberOfLines={2}>
             {getLocalizedValue(item.label, lang, item.label)}
           </Text>
           <IconButton
@@ -38,7 +39,7 @@ export default function CartItem({ item, isDark, onIncrease, onDecrease, onRemov
         </View>
 
         <View style={styles.priceRow}>
-          <Text style={[styles.unitPrice, ic(styles.unitPriceDark, styles.unitPriceLight)]}>
+          <Text variant="caption" color="muted">
             {item.price}
           </Text>
         </View>
@@ -52,7 +53,7 @@ export default function CartItem({ item, isDark, onIncrease, onDecrease, onRemov
               variant="outline"
             />
 
-            <Text style={[styles.qty, ic(styles.qtyDark, styles.qtyLight)]}>{item.qty}</Text>
+            <Text variant="body" weight="bold" style={styles.qty}>{item.qty}</Text>
 
             <IconButton
               icon={<Text style={[styles.qtyBtnTxt, ic(styles.qtyBtnTxtDark, styles.qtyBtnTxtLight)]}>+</Text>}
@@ -62,7 +63,7 @@ export default function CartItem({ item, isDark, onIncrease, onDecrease, onRemov
             />
           </View>
 
-          <Text style={[styles.subtotal, ic(styles.subtotalDark, styles.subtotalLight)]}>
+          <Text variant="body" weight="heavy" color={isDark ? 'info' : 'primary'}>
             {subtotal}
           </Text>
         </View>
@@ -119,19 +120,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'flex-start',
   },
-  label: { fontSize: 13, fontWeight: '700', flex: 1, marginRight: 8, lineHeight: 18 },
-  labelDark: { color: '#ffffff' },
-  labelLight: { color: '#0f172a' },
-
-  removeBtn: { padding: 4, marginTop: -4 },
-  removeTxt: { fontSize: 14, fontWeight: '600' },
-  removeTxtDark: { color: '#64748b' },
-  removeTxtLight: { color: '#94a3b8' },
-
-  priceRow: { marginBottom: 2 },
-  unitPrice: { fontSize: 12 },
-  unitPriceDark: { color: '#64748b' },
-  unitPriceLight: { color: '#94a3b8' },
+  label: { flex: 1, marginRight: 8 },
 
   footerRow: {
     flexDirection: 'row',
@@ -145,11 +134,5 @@ const styles = StyleSheet.create({
   qtyBtnTxt: { fontSize: 16, lineHeight: 20, fontWeight: '500' },
   qtyBtnTxtDark: { color: '#f1f5f9' },
   qtyBtnTxtLight: { color: '#0f172a' },
-  qty: { fontSize: 14, fontWeight: '700', marginHorizontal: 8, minWidth: 20, textAlign: 'center' },
-  qtyDark: { color: '#f1f5f9' },
-  qtyLight: { color: '#0f172a' },
-
-  subtotal: { fontSize: 13, fontWeight: '800' },
-  subtotalDark: { color: '#38bdf8' },
-  subtotalLight: { color: '#7c3aed' },
+  qty: { marginHorizontal: 8, minWidth: 20, textAlign: 'center' },
 });

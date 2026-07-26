@@ -1,4 +1,5 @@
-import { ScrollView, Text, View } from 'react-native';
+import { ScrollView, View } from 'react-native';
+import { Text, Heading } from '../../components/Text';
 import CartItem from './CartItem';
 import CartSummary from './CartSummary';
 import Footer from '../../components/Footer';
@@ -11,7 +12,7 @@ function EmptyCart({ isDark, t }) {
   return (
     <ScrollFadeUp style={[styles.emptyState, isDark ? styles.containerDark : styles.containerLight]}>
       <CartIcon color={isDark ? '#FFFFFF' : '#1C1C1C'} size={48} style={{ marginBottom: 12 }} />
-      <Text style={[styles.emptyText, isDark ? styles.emptyTextDark : styles.emptyTextLight]}>
+      <Text variant="body" color="muted">
         {t('cartEmpty')}
       </Text>
     </ScrollFadeUp>
@@ -109,9 +110,9 @@ export default function CartViewContent({
           ) : (
             <>
               <ScrollFadeUp>
-                <Text style={[styles.cartTitle, ic(styles.textDark, styles.textLight)]}>
+                <Heading level={2} style={styles.cartTitle}>
                   {t('cartTitle')}
-                </Text>
+                </Heading>
               </ScrollFadeUp>
 
               {isWide ? (

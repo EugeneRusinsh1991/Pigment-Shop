@@ -18,7 +18,6 @@ export default StyleSheet.create({
     marginBottom: 8,
   },
   label: {
-    fontSize: 13,
     marginBottom: 6,
   },
   inputContainer: {
@@ -49,10 +48,6 @@ export default StyleSheet.create({
   containerLight: { backgroundColor: colors.backgroundLight },
 
   cartTitle: {
-    fontFamily: fonts.serif,
-    fontSize: 24,
-    lineHeight: 28,
-    fontWeight: '600',
     marginBottom: 12,
   },
 
@@ -83,9 +78,6 @@ export default StyleSheet.create({
     paddingBottom: 16,
   },
   emptyIcon: { fontSize: 48, marginBottom: 12 },
-  emptyText: { fontSize: 16, fontWeight: '500' },
-  emptyTextDark: { color: colors.slateText },
-  emptyTextLight: { color: colors.secondaryDarkText },
 
   // Summary Panel
   summaryPanel: {
@@ -110,42 +102,12 @@ export default StyleSheet.create({
     alignItems: 'center',
     marginVertical: 8,
   },
-  summaryLabel: {
-    fontFamily: fonts.sans,
-    fontSize: 14,
-  },
-  summaryLabelDark: { color: colors.secondaryDarkText },
-  summaryLabelLight: { color: colors.slateText },
-
-  summaryValue: {
-    fontFamily: fonts.sans,
-    fontSize: 14,
-    fontWeight: '600',
-  },
-  summaryValueDark: { color: colors.white },
-  summaryValueLight: { color: colors.navTextDark },
-
   summaryDivider: {
     height: 1,
     backgroundColor: colors.secondaryDarkBorder,
     marginVertical: 12,
     opacity: 0.2,
   },
-
-  totalLabel: {
-    fontFamily: fonts.sans,
-    fontSize: 15,
-  },
-  totalLabelDark: { color: colors.secondaryDarkText },
-  totalLabelLight: { color: colors.slateText },
-
-  totalPrice: {
-    fontFamily: fonts.serif,
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  totalPriceDark: { color: colors.white },
-  totalPriceLight: { color: colors.dark },
 
   checkoutBtn: {
     borderRadius: 50,
@@ -160,15 +122,8 @@ export default StyleSheet.create({
   checkoutBtnLight: {
     backgroundColor: colors.dark,
   },
-  checkoutBtnText: {
-    fontWeight: 'bold',
-    fontSize: 14,
-  },
   checkoutBtnTextDark: { color: colors.dark },
   checkoutBtnTextLight: { color: colors.white },
-
-  textDark: { color: colors.white },
-  textLight: { color: colors.dark },
 
   noteInput: {
     fontFamily: fonts.sans,
@@ -192,9 +147,6 @@ export default StyleSheet.create({
     color: colors.navTextDark,
   },
   noteLabel: {
-    fontFamily: fonts.sans,
-    fontSize: 14,
-    fontWeight: '500',
     marginBottom: 4,
   },
 
