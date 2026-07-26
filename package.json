@@ -26,6 +26,7 @@
     "restore": "node .tools/.backuper/restore.js",
     "audit": "node .tools/auditor/fallow-auditor/run-audit.cjs",
     "audit:ui": "node .tools/auditor/index.js",
+    "audit:dynamic": "npx tsx .tools/browser-automation/run-dynamic-audit.ts",
     "clean": "node .tools/.cleaner/run-clean.cjs",
     "health": "node .tools/.health/run-health.cjs",
     "pack": "node .tools/.packer/run-pack.cjs",
@@ -43,6 +44,7 @@
     "@types/node": "^26.1.1",
     "@types/react": "~19.2.4",
     "playwright": "^1.61.1",
+    "ts-node": "^10.9.2",
     "typescript": "~6.0.3"
   }
 }

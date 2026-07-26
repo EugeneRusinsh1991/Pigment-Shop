@@ -1,0 +1,13 @@
+---
+type: dynamic-audit
+auditor: ui-architecture
+scope: public
+date: 2026-07-26T20:17:25.736Z
+total_violations: 1
+affected_urls: 1
+---
+
+
+### URL: http://localhost:8081/
+- Element rendered with inline `style` attribute.
+  Selector: `div`

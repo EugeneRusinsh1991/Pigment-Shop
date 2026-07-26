@@ -15,6 +15,13 @@ import { RelationshipAnalyzer } from './plugins/knowledge-graph/analyzers/Relati
 import { FilesystemWriter } from './plugins/knowledge-graph/pipeline/writers/FilesystemWriter';
 import * as path from 'path';
 
+import { auditUIArchitecture } from './auditors/01-dynamic-ui-architecture-auditor';
+import { auditRawI18n } from './auditors/02-dynamic-raw-i18n-auditor';
+import { auditBrokenUI } from './auditors/03-dynamic-broken-ui-auditor';
+import { RuntimeHealthAuditor } from './auditors/04-dynamic-runtime-health-auditor';
+import { writeDynamicReport } from './helpers/dynamic-report-writer';
+import { PlaywrightPage } from './explorer/driver/PlaywrightAdapter';
+
 function buildKnowledgeGraph(builder: KnowledgeGraphBuilder) {
   // Layer 4 & 5: Pipeline & Analyzers
   const pipeline = new KnowledgePipeline();
@@ -42,7 +49,8 @@ export async function runSmokeAutomation(
   config?: Partial<SmokeConfig>,
   explorerConfig?: Partial<ExplorerConfig>,
   screenshotService?: ScreenshotService,
-  page?: Page
+  page?: Page,
+  sessionId: string = 'smoke'
 ): Promise<SmokeReport> {
   const emitter = new ExplorerEventEmitter();
   const plugin = new SmokePlugin(config, screenshotService);
@@ -51,6 +59,73 @@ export async function runSmokeAutomation(
   const builder = executionMode === 'deep-diagnostics' ? new KnowledgeGraphBuilder(emitter, baseUrl) : undefined;
   
   plugin.subscribe(emitter);
+
+  let healthAuditor: RuntimeHealthAuditor | undefined;
+  let activePlaywrightPage: Page | undefined = page;
+
+  const determineScope = (url: string): 'public' | 'admin' => {
+    return url.includes('/admin') ? 'admin' : 'public';
+  };
+
+  const runVisualAudits = async (p: Page) => {
+    try {
+      const url = p.url();
+      if (!url || url === 'about:blank') return;
+      const scope = determineScope(url);
+
+      const archViolations = await auditUIArchitecture(p, url, scope);
+      writeDynamicReport('01', 'ui-architecture', scope, archViolations, sessionId);
+
+      const i18nViolations = await auditRawI18n(p, url, scope);
+      writeDynamicReport('02', 'raw-i18n', scope, i18nViolations, sessionId);
+
+      const brokenViolations = await auditBrokenUI(p, url, scope);
+      writeDynamicReport('03', 'broken-ui', scope, brokenViolations, sessionId);
+    } catch {
+      // Non-blocking audit error handling
+    }
+  };
+
+  const setupHealthAuditor = (p: Page) => {
+    activePlaywrightPage = p;
+    const scope = determineScope(p.url());
+    healthAuditor = new RuntimeHealthAuditor(p, scope, sessionId);
+    healthAuditor.start();
+  };
+
+  if (activePlaywrightPage) {
+    setupHealthAuditor(activePlaywrightPage);
+  }
+
+  emitter.on('ExplorerStarted', (event) => {
+    if (event.page && (event.page as PlaywrightPage).page) {
+      const p = (event.page as PlaywrightPage).page;
+      if (!healthAuditor) {
+        setupHealthAuditor(p);
+      }
+    }
+  });
+
+  emitter.on('NavigationCompleted', async () => {
+    if (activePlaywrightPage) {
+      await runVisualAudits(activePlaywrightPage);
+    }
+  });
+
+  emitter.on('AfterInteraction', async () => {
+    if (activePlaywrightPage) {
+      await runVisualAudits(activePlaywrightPage);
+    }
+  });
+
+  emitter.on('ExplorerFinished', async () => {
+    if (healthAuditor) {
+      const violations = healthAuditor.getViolations();
+      const scope = activePlaywrightPage ? determineScope(activePlaywrightPage.url()) : 'public';
+      writeDynamicReport('04', 'runtime-health', scope, violations, sessionId);
+    }
+  });
+
   await runUIExplorer(page, explorerConfig, emitter);
 
   if (builder) {

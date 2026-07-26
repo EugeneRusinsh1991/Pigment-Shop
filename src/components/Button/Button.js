@@ -151,5 +151,5 @@ export default function Button({
 }
 
 export function AnimatedButton(props) {
-  return <Button variant="unstyled" accessibilityRole="none" {...props} />;
+  return <Button variant="unstyled" accessibilityRole="none" accessibilityLabel={props.accessibilityLabel} {...props} />;
 }

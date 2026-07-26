@@ -4,6 +4,7 @@ const path = require('path');
 const SRC_DIR = path.join(__dirname, '../../src');
 const AUDITS_DIR = path.join(__dirname, '../../.docs/audits/audits');
 const LOG_FILE = path.join(AUDITS_DIR, '04-typography-violations.log');
+const FILES_LOG_FILE = path.join(AUDITS_DIR, '04-typography-violations.log'.replace('violations', 'files'));
 
 function scanFile(filePath, violations) {
   const relPath = path.relative(path.join(__dirname, '../..'), filePath);
@@ -90,6 +91,24 @@ function auditTypography() {
       report += `\n`;
     });
 
+    
+    if (fileCount > 10) {
+      let filesReport = "===================================================================\n";
+      filesReport += "               FILES WITH ISSUES REPORT                            \n";
+      filesReport += "Timestamp: " + timestamp + "\n";
+      filesReport += "===================================================================\n\n";
+      filesReport += "Found " + violations.length + " issue(s) across " + fileCount + " target(s):\n\n";
+      
+      Object.keys(grouped).forEach(filePath => {
+        filesReport += "- " + filePath + " (" + grouped[filePath].length + " issues)\n";
+      });
+      
+      fs.writeFileSync(FILES_LOG_FILE, filesReport);
+      console.log("  -> Also generated compact file list: " + path.basename(FILES_LOG_FILE));
+    } else {
+      if (fs.existsSync(FILES_LOG_FILE)) { try { fs.unlinkSync(FILES_LOG_FILE); } catch (_) {} }
+    }
+    
     fs.writeFileSync(LOG_FILE, report);
     console.log(`[04 Typography Audit] Finished (${violations.length} unique issues) -> .docs/audits/audits/04-typography-violations.log`);
   }

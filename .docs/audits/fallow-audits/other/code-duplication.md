@@ -1,133 +1,211 @@
 # 👥 Significant Code Duplication (≥ 8 lines)
 
-*Generated on: 26.07.2026, 22:41:25*
+*Generated on: 26.07.2026, 23:12:05*
 
-### Clone Group 1 — 91 lines, 158 tokens · `dup:8e843fc1`
-> 💡 Extract duplicated code (91 lines, 2 instances) into a shared function
+### Clone Group 1 — 109 lines, 166 tokens · `dup:c58e7944`
+> 💡 Extract duplicated code (109 lines, 2 instances) into a shared function
 
-- [layer-imports-auditor.js:L6–L37](file:///D:/Magazine/_PigmentShop/.tools/auditor/layer-imports-auditor.js#L6-L37) (`.tools/auditor/layer-imports-auditor.js`)
-- [unused-exports-auditor.js:L7–L97](file:///D:/Magazine/_PigmentShop/.tools/auditor/unused-exports-auditor.js#L7-L97) (`.tools/auditor/unused-exports-auditor.js`)
+- [layer-imports-auditor.js:L7–L38](file:///D:/Magazine/_PigmentShop/.tools/auditor/layer-imports-auditor.js#L7-L38) (`.tools/auditor/layer-imports-auditor.js`)
+- [unused-exports-auditor.js:L8–L116](file:///D:/Magazine/_PigmentShop/.tools/auditor/unused-exports-auditor.js#L8-L116) (`.tools/auditor/unused-exports-auditor.js`)
 
-### Clone Group 2 — 78 lines, 208 tokens · `dup:8b39860e`
-> 💡 Extract duplicated code (78 lines, 3 instances) into a shared function
+### Clone Group 2 — 96 lines, 208 tokens · `dup:9a1e3542`
+> 💡 Extract duplicated code (96 lines, 4 instances) into a shared function
 
-- [hardcode-text-auditor.js:L15–L88](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-text-auditor.js#L15-L88) (`.tools/auditor/hardcode-text-auditor.js`)
-- [magic-numbers-auditor.js:L32–L109](file:///D:/Magazine/_PigmentShop/.tools/auditor/magic-numbers-auditor.js#L32-L109) (`.tools/auditor/magic-numbers-auditor.js`)
-- [typography-auditor.js:L23–L96](file:///D:/Magazine/_PigmentShop/.tools/auditor/typography-auditor.js#L23-L96) (`.tools/auditor/typography-auditor.js`)
+- [12-raw-i18n-keys-auditor.js:L37–L130](file:///D:/Magazine/_PigmentShop/.tools/auditor/12-raw-i18n-keys-auditor.js#L37-L130) (`.tools/auditor/12-raw-i18n-keys-auditor.js`)
+- [hardcode-text-auditor.js:L16–L107](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-text-auditor.js#L16-L107) (`.tools/auditor/hardcode-text-auditor.js`)
+- [magic-numbers-auditor.js:L33–L128](file:///D:/Magazine/_PigmentShop/.tools/auditor/magic-numbers-auditor.js#L33-L128) (`.tools/auditor/magic-numbers-auditor.js`)
+- [typography-auditor.js:L24–L115](file:///D:/Magazine/_PigmentShop/.tools/auditor/typography-auditor.js#L24-L115) (`.tools/auditor/typography-auditor.js`)
 
-### Clone Group 3 — 71 lines, 217 tokens · `dup:5baf4c5e`
-> 💡 Extract duplicated code (71 lines, 2 instances) into a shared function
+### Clone Group 3 — 91 lines, 217 tokens · `dup:54c28b0a`
+> 💡 Extract duplicated code (91 lines, 3 instances) into a shared function
 
-- [hardcode-text-auditor.js:L18–L88](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-text-auditor.js#L18-L88) (`.tools/auditor/hardcode-text-auditor.js`)
-- [typography-auditor.js:L26–L96](file:///D:/Magazine/_PigmentShop/.tools/auditor/typography-auditor.js#L26-L96) (`.tools/auditor/typography-auditor.js`)
+- [12-raw-i18n-keys-auditor.js:L40–L130](file:///D:/Magazine/_PigmentShop/.tools/auditor/12-raw-i18n-keys-auditor.js#L40-L130) (`.tools/auditor/12-raw-i18n-keys-auditor.js`)
+- [hardcode-text-auditor.js:L19–L107](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-text-auditor.js#L19-L107) (`.tools/auditor/hardcode-text-auditor.js`)
+- [typography-auditor.js:L27–L115](file:///D:/Magazine/_PigmentShop/.tools/auditor/typography-auditor.js#L27-L115) (`.tools/auditor/typography-auditor.js`)
 
-### Clone Group 4 — 55 lines, 142 tokens · `dup:df65aa3a`
-> 💡 Extract duplicated code (55 lines, 4 instances) into a shared function
+### Clone Group 4 — 84 lines, 116 tokens · `dup:7044ab05`
+> 💡 Extract duplicated code (84 lines, 3 instances) into a shared function
 
-- [hardcode-text-auditor.js:L34–L88](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-text-auditor.js#L34-L88) (`.tools/auditor/hardcode-text-auditor.js`)
-- [magic-numbers-auditor.js:L55–L109](file:///D:/Magazine/_PigmentShop/.tools/auditor/magic-numbers-auditor.js#L55-L109) (`.tools/auditor/magic-numbers-auditor.js`)
-- [service-layer-auditor.js:L24–L78](file:///D:/Magazine/_PigmentShop/.tools/auditor/service-layer-auditor.js#L24-L78) (`.tools/auditor/service-layer-auditor.js`)
-- [typography-auditor.js:L42–L96](file:///D:/Magazine/_PigmentShop/.tools/auditor/typography-auditor.js#L42-L96) (`.tools/auditor/typography-auditor.js`)
+- [a11y-auditor.js:L16–L99](file:///D:/Magazine/_PigmentShop/.tools/auditor/a11y-auditor.js#L16-L99) (`.tools/auditor/a11y-auditor.js`)
+- [hardcode-url-auditor.js:L25–L101](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-url-auditor.js#L25-L101) (`.tools/auditor/hardcode-url-auditor.js`)
+- [performance-auditor.js:L30–L106](file:///D:/Magazine/_PigmentShop/.tools/auditor/performance-auditor.js#L30-L106) (`.tools/auditor/performance-auditor.js`)
 
-### Clone Group 5 — 52 lines, 73 tokens · `dup:98649679`
+### Clone Group 5 — 76 lines, 120 tokens · `dup:913b2dc9`
+> 💡 Extract duplicated code (76 lines, 2 instances) into a shared function
+
+- [hardcode-url-auditor.js:L26–L101](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-url-auditor.js#L26-L101) (`.tools/auditor/hardcode-url-auditor.js`)
+- [performance-auditor.js:L31–L106](file:///D:/Magazine/_PigmentShop/.tools/auditor/performance-auditor.js#L31-L106) (`.tools/auditor/performance-auditor.js`)
+
+### Clone Group 6 — 75 lines, 142 tokens · `dup:f601e283`
+> 💡 Extract duplicated code (75 lines, 5 instances) into a shared function
+
+- [12-raw-i18n-keys-auditor.js:L56–L130](file:///D:/Magazine/_PigmentShop/.tools/auditor/12-raw-i18n-keys-auditor.js#L56-L130) (`.tools/auditor/12-raw-i18n-keys-auditor.js`)
+- [hardcode-text-auditor.js:L35–L107](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-text-auditor.js#L35-L107) (`.tools/auditor/hardcode-text-auditor.js`)
+- [magic-numbers-auditor.js:L56–L128](file:///D:/Magazine/_PigmentShop/.tools/auditor/magic-numbers-auditor.js#L56-L128) (`.tools/auditor/magic-numbers-auditor.js`)
+- [service-layer-auditor.js:L25–L97](file:///D:/Magazine/_PigmentShop/.tools/auditor/service-layer-auditor.js#L25-L97) (`.tools/auditor/service-layer-auditor.js`)
+- [typography-auditor.js:L43–L115](file:///D:/Magazine/_PigmentShop/.tools/auditor/typography-auditor.js#L43-L115) (`.tools/auditor/typography-auditor.js`)
+
+### Clone Group 7 — 52 lines, 73 tokens · `dup:98649679`
 > 💡 Extract duplicated code (52 lines, 2 instances) into a shared function
 
-- [ui-architecture-audit.js:L133–L184](file:///D:/Magazine/_PigmentShop/.tools/auditor/ui-architecture-audit.js#L133-L184) (`.tools/auditor/ui-architecture-audit.js`)
-- [unused-exports-auditor.js:L48–L74](file:///D:/Magazine/_PigmentShop/.tools/auditor/unused-exports-auditor.js#L48-L74) (`.tools/auditor/unused-exports-auditor.js`)
+- [ui-architecture-audit.js:L134–L185](file:///D:/Magazine/_PigmentShop/.tools/auditor/ui-architecture-audit.js#L134-L185) (`.tools/auditor/ui-architecture-audit.js`)
+- [unused-exports-auditor.js:L49–L75](file:///D:/Magazine/_PigmentShop/.tools/auditor/unused-exports-auditor.js#L49-L75) (`.tools/auditor/unused-exports-auditor.js`)
 
-### Clone Group 6 — 36 lines, 107 tokens · `dup:5c11a5aa`
+### Clone Group 8 — 45 lines, 329 tokens · `dup:e79450b5`
+> 💡 Extract duplicated code (45 lines, 4 instances) into a shared function
+
+- [12-raw-i18n-keys-auditor.js:L89–L132](file:///D:/Magazine/_PigmentShop/.tools/auditor/12-raw-i18n-keys-auditor.js#L89-L132) (`.tools/auditor/12-raw-i18n-keys-auditor.js`)
+- [hardcode-text-auditor.js:L65–L109](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-text-auditor.js#L65-L109) (`.tools/auditor/hardcode-text-auditor.js`)
+- [service-layer-auditor.js:L55–L99](file:///D:/Magazine/_PigmentShop/.tools/auditor/service-layer-auditor.js#L55-L99) (`.tools/auditor/service-layer-auditor.js`)
+- [typography-auditor.js:L73–L117](file:///D:/Magazine/_PigmentShop/.tools/auditor/typography-auditor.js#L73-L117) (`.tools/auditor/typography-auditor.js`)
+
+### Clone Group 9 — 44 lines, 292 tokens · `dup:ea73f8ed`
+> 💡 Extract duplicated code (44 lines, 2 instances) into a shared function
+
+- [layer-imports-auditor.js:L103–L146](file:///D:/Magazine/_PigmentShop/.tools/auditor/layer-imports-auditor.js#L103-L146) (`.tools/auditor/layer-imports-auditor.js`)
+- [unused-exports-auditor.js:L75–L118](file:///D:/Magazine/_PigmentShop/.tools/auditor/unused-exports-auditor.js#L75-L118) (`.tools/auditor/unused-exports-auditor.js`)
+
+### Clone Group 10 — 42 lines, 324 tokens · `dup:22788ff8`
+> 💡 Extract duplicated code (42 lines, 5 instances) into a shared function
+
+- [12-raw-i18n-keys-auditor.js:L89–L129](file:///D:/Magazine/_PigmentShop/.tools/auditor/12-raw-i18n-keys-auditor.js#L89-L129) (`.tools/auditor/12-raw-i18n-keys-auditor.js`)
+- [hardcode-text-auditor.js:L65–L106](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-text-auditor.js#L65-L106) (`.tools/auditor/hardcode-text-auditor.js`)
+- [magic-numbers-auditor.js:L86–L127](file:///D:/Magazine/_PigmentShop/.tools/auditor/magic-numbers-auditor.js#L86-L127) (`.tools/auditor/magic-numbers-auditor.js`)
+- [service-layer-auditor.js:L55–L96](file:///D:/Magazine/_PigmentShop/.tools/auditor/service-layer-auditor.js#L55-L96) (`.tools/auditor/service-layer-auditor.js`)
+- [typography-auditor.js:L73–L114](file:///D:/Magazine/_PigmentShop/.tools/auditor/typography-auditor.js#L73-L114) (`.tools/auditor/typography-auditor.js`)
+
+### Clone Group 11 — 42 lines, 313 tokens · `dup:03644404`
+> 💡 Extract duplicated code (42 lines, 3 instances) into a shared function
+
+- [a11y-auditor.js:L60–L101](file:///D:/Magazine/_PigmentShop/.tools/auditor/a11y-auditor.js#L60-L101) (`.tools/auditor/a11y-auditor.js`)
+- [hardcode-url-auditor.js:L62–L103](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-url-auditor.js#L62-L103) (`.tools/auditor/hardcode-url-auditor.js`)
+- [performance-auditor.js:L67–L108](file:///D:/Magazine/_PigmentShop/.tools/auditor/performance-auditor.js#L67-L108) (`.tools/auditor/performance-auditor.js`)
+
+### Clone Group 12 — 36 lines, 107 tokens · `dup:5c11a5aa`
 > 💡 Extract duplicated code (36 lines, 2 instances) into a shared function
 
 - [setupManualInspector.js:L58–L93](file:///D:/Magazine/_PigmentShop/.tools/manual-browser-inspector/setupManualInspector.js#L58-L93) (`.tools/manual-browser-inspector/setupManualInspector.js`)
 - [setupManualInspector.ts:L62–L97](file:///D:/Magazine/_PigmentShop/.tools/manual-browser-inspector/setupManualInspector.ts#L62-L97) (`.tools/manual-browser-inspector/setupManualInspector.ts`)
 
-### Clone Group 7 — 27 lines, 194 tokens · `dup:6aa3f7e1`
-> 💡 Extract duplicated code (27 lines, 3 instances) into a shared function
+### Clone Group 13 — 29 lines, 179 tokens · `dup:3db0692d`
+> 💡 Extract duplicated code (29 lines, 2 instances) into a shared function
 
-- [hardcode-text-auditor.js:L64–L90](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-text-auditor.js#L64-L90) (`.tools/auditor/hardcode-text-auditor.js`)
-- [service-layer-auditor.js:L54–L80](file:///D:/Magazine/_PigmentShop/.tools/auditor/service-layer-auditor.js#L54-L80) (`.tools/auditor/service-layer-auditor.js`)
-- [typography-auditor.js:L72–L98](file:///D:/Magazine/_PigmentShop/.tools/auditor/typography-auditor.js#L72-L98) (`.tools/auditor/typography-auditor.js`)
+- [hardcode-styles-auditor.js:L127–L155](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-styles-auditor.js#L127-L155) (`.tools/auditor/hardcode-styles-auditor.js`)
+- [ui-architecture-audit.js:L200–L228](file:///D:/Magazine/_PigmentShop/.tools/auditor/ui-architecture-audit.js#L200-L228) (`.tools/auditor/ui-architecture-audit.js`)
 
-### Clone Group 8 — 26 lines, 157 tokens · `dup:f3f2a393`
-> 💡 Extract duplicated code (26 lines, 2 instances) into a shared function
+### Clone Group 14 — 21 lines, 93 tokens · `dup:50c3f410`
+> 💡 Extract duplicated code (21 lines, 2 instances) into a shared function
 
-- [layer-imports-auditor.js:L102–L127](file:///D:/Magazine/_PigmentShop/.tools/auditor/layer-imports-auditor.js#L102-L127) (`.tools/auditor/layer-imports-auditor.js`)
-- [unused-exports-auditor.js:L74–L99](file:///D:/Magazine/_PigmentShop/.tools/auditor/unused-exports-auditor.js#L74-L99) (`.tools/auditor/unused-exports-auditor.js`)
+- [a11y-auditor.js:L7–L27](file:///D:/Magazine/_PigmentShop/.tools/auditor/a11y-auditor.js#L7-L27) (`.tools/auditor/a11y-auditor.js`)
+- [performance-auditor.js:L7–L26](file:///D:/Magazine/_PigmentShop/.tools/auditor/performance-auditor.js#L7-L26) (`.tools/auditor/performance-auditor.js`)
 
-### Clone Group 9 — 17 lines, 102 tokens · `dup:7662dfa5`
+### Clone Group 15 — 17 lines, 102 tokens · `dup:7662dfa5`
 > 💡 Extract duplicated code (17 lines, 2 instances) into a shared function
 
 - [devServerHelper.ts:L37–L53](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/devServerHelper.ts#L37-L53) (`.tools/browser-automation/helpers/devServerHelper.ts`)
 - [open-playwright.js:L52–L68](file:///D:/Magazine/_PigmentShop/scripts/open-playwright.js#L52-L68) (`scripts/open-playwright.js`)
 
-### Clone Group 10 — 17 lines, 156 tokens · `dup:b6c5f617`
+### Clone Group 16 — 17 lines, 156 tokens · `dup:b6c5f617`
 > 💡 Extract duplicated code (17 lines, 2 instances) into a shared function
 
 - [setupManualInspector.js:L115–L131](file:///D:/Magazine/_PigmentShop/.tools/manual-browser-inspector/setupManualInspector.js#L115-L131) (`.tools/manual-browser-inspector/setupManualInspector.js`)
 - [setupManualInspector.ts:L119–L135](file:///D:/Magazine/_PigmentShop/.tools/manual-browser-inspector/setupManualInspector.ts#L119-L135) (`.tools/manual-browser-inspector/setupManualInspector.ts`)
 
-### Clone Group 11 — 16 lines, 122 tokens · `dup:0fee105a`
+### Clone Group 17 — 16 lines, 122 tokens · `dup:0fee105a`
 > 💡 Extract duplicated code (16 lines, 2 instances) into a shared function
 
 - [setupManualInspector.js:L15–L30](file:///D:/Magazine/_PigmentShop/.tools/manual-browser-inspector/setupManualInspector.js#L15-L30) (`.tools/manual-browser-inspector/setupManualInspector.js`)
 - [setupManualInspector.ts:L19–L34](file:///D:/Magazine/_PigmentShop/.tools/manual-browser-inspector/setupManualInspector.ts#L19-L34) (`.tools/manual-browser-inspector/setupManualInspector.ts`)
 
-### Clone Group 12 — 14 lines, 84 tokens · `dup:3a096449`
+### Clone Group 18 — 15 lines, 99 tokens · `dup:51543ab5`
+> 💡 Extract duplicated code (15 lines, 2 instances) into a shared function
+
+- [performance-auditor.js:L33–L47](file:///D:/Magazine/_PigmentShop/.tools/auditor/performance-auditor.js#L33-L47) (`.tools/auditor/performance-auditor.js`)
+- [service-layer-auditor.js:L19–L33](file:///D:/Magazine/_PigmentShop/.tools/auditor/service-layer-auditor.js#L19-L33) (`.tools/auditor/service-layer-auditor.js`)
+
+### Clone Group 19 — 14 lines, 137 tokens · `dup:1642cec4`
+> 💡 Extract duplicated code (14 lines, 3 instances) into a shared function
+
+- [a11y-auditor.js:L47–L60](file:///D:/Magazine/_PigmentShop/.tools/auditor/a11y-auditor.js#L47-L60) (`.tools/auditor/a11y-auditor.js`)
+- [hardcode-url-auditor.js:L49–L62](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-url-auditor.js#L49-L62) (`.tools/auditor/hardcode-url-auditor.js`)
+- [performance-auditor.js:L54–L67](file:///D:/Magazine/_PigmentShop/.tools/auditor/performance-auditor.js#L54-L67) (`.tools/auditor/performance-auditor.js`)
+
+### Clone Group 20 — 14 lines, 84 tokens · `dup:3a096449`
 > 💡 Extract duplicated code (14 lines, 4 instances) into a shared function
 
-- [hardcode-styles-auditor.js:L97–L110](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-styles-auditor.js#L97-L110) (`.tools/auditor/hardcode-styles-auditor.js`)
-- [hardcode-text-auditor.js:L51–L64](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-text-auditor.js#L51-L64) (`.tools/auditor/hardcode-text-auditor.js`)
-- [magic-numbers-auditor.js:L72–L85](file:///D:/Magazine/_PigmentShop/.tools/auditor/magic-numbers-auditor.js#L72-L85) (`.tools/auditor/magic-numbers-auditor.js`)
-- [typography-auditor.js:L59–L72](file:///D:/Magazine/_PigmentShop/.tools/auditor/typography-auditor.js#L59-L72) (`.tools/auditor/typography-auditor.js`)
+- [hardcode-styles-auditor.js:L98–L111](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-styles-auditor.js#L98-L111) (`.tools/auditor/hardcode-styles-auditor.js`)
+- [hardcode-text-auditor.js:L52–L65](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-text-auditor.js#L52-L65) (`.tools/auditor/hardcode-text-auditor.js`)
+- [magic-numbers-auditor.js:L73–L86](file:///D:/Magazine/_PigmentShop/.tools/auditor/magic-numbers-auditor.js#L73-L86) (`.tools/auditor/magic-numbers-auditor.js`)
+- [typography-auditor.js:L60–L73](file:///D:/Magazine/_PigmentShop/.tools/auditor/typography-auditor.js#L60-L73) (`.tools/auditor/typography-auditor.js`)
 
-### Clone Group 13 — 13 lines, 75 tokens · `dup:05193719`
+### Clone Group 21 — 14 lines, 62 tokens · `dup:afd2f576`
+> 💡 Extract duplicated code (14 lines, 2 instances) into a shared function
+
+- [01-dynamic-ui-architecture-auditor.ts:L61–L74](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/auditors/01-dynamic-ui-architecture-auditor.ts#L61-L74) (`.tools/browser-automation/auditors/01-dynamic-ui-architecture-auditor.ts`)
+- [03-dynamic-broken-ui-auditor.ts:L78–L91](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/auditors/03-dynamic-broken-ui-auditor.ts#L78-L91) (`.tools/browser-automation/auditors/03-dynamic-broken-ui-auditor.ts`)
+
+### Clone Group 22 — 13 lines, 75 tokens · `dup:05193719`
 > 💡 Extract duplicated code (13 lines, 6 instances) into a shared function
 
-- [hardcode-styles-auditor.js:L98–L110](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-styles-auditor.js#L98-L110) (`.tools/auditor/hardcode-styles-auditor.js`)
-- [hardcode-text-auditor.js:L52–L64](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-text-auditor.js#L52-L64) (`.tools/auditor/hardcode-text-auditor.js`)
-- [layer-imports-auditor.js:L90–L102](file:///D:/Magazine/_PigmentShop/.tools/auditor/layer-imports-auditor.js#L90-L102) (`.tools/auditor/layer-imports-auditor.js`)
-- [magic-numbers-auditor.js:L73–L85](file:///D:/Magazine/_PigmentShop/.tools/auditor/magic-numbers-auditor.js#L73-L85) (`.tools/auditor/magic-numbers-auditor.js`)
-- [service-layer-auditor.js:L42–L54](file:///D:/Magazine/_PigmentShop/.tools/auditor/service-layer-auditor.js#L42-L54) (`.tools/auditor/service-layer-auditor.js`)
-- [typography-auditor.js:L60–L72](file:///D:/Magazine/_PigmentShop/.tools/auditor/typography-auditor.js#L60-L72) (`.tools/auditor/typography-auditor.js`)
+- [hardcode-styles-auditor.js:L99–L111](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-styles-auditor.js#L99-L111) (`.tools/auditor/hardcode-styles-auditor.js`)
+- [hardcode-text-auditor.js:L53–L65](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-text-auditor.js#L53-L65) (`.tools/auditor/hardcode-text-auditor.js`)
+- [layer-imports-auditor.js:L91–L103](file:///D:/Magazine/_PigmentShop/.tools/auditor/layer-imports-auditor.js#L91-L103) (`.tools/auditor/layer-imports-auditor.js`)
+- [magic-numbers-auditor.js:L74–L86](file:///D:/Magazine/_PigmentShop/.tools/auditor/magic-numbers-auditor.js#L74-L86) (`.tools/auditor/magic-numbers-auditor.js`)
+- [service-layer-auditor.js:L43–L55](file:///D:/Magazine/_PigmentShop/.tools/auditor/service-layer-auditor.js#L43-L55) (`.tools/auditor/service-layer-auditor.js`)
+- [typography-auditor.js:L61–L73](file:///D:/Magazine/_PigmentShop/.tools/auditor/typography-auditor.js#L61-L73) (`.tools/auditor/typography-auditor.js`)
 
-### Clone Group 14 — 13 lines, 52 tokens · `dup:a4cc3f17`
+### Clone Group 23 — 13 lines, 52 tokens · `dup:a4cc3f17`
 > 💡 Extract duplicated code (13 lines, 2 instances) into a shared function
 
 - [DIContainer.ts:L26–L38](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/di/DIContainer.ts#L26-L38) (`.tools/browser-automation/explorer/di/DIContainer.ts`)
 - [DIContainer.ts:L42–L54](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/di/DIContainer.ts#L42-L54) (`.tools/browser-automation/explorer/di/DIContainer.ts`)
 
-### Clone Group 15 — 11 lines, 91 tokens · `dup:cfae6a9b`
-> 💡 Extract duplicated code (11 lines, 5 instances) into a shared function
+### Clone Group 24 — 11 lines, 91 tokens · `dup:2f946866`
+> 💡 Extract duplicated code (11 lines, 6 instances) into a shared function
 
-- [hardcode-styles-auditor.js:L116–L126](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-styles-auditor.js#L116-L126) (`.tools/auditor/hardcode-styles-auditor.js`)
-- [hardcode-text-auditor.js:L70–L80](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-text-auditor.js#L70-L80) (`.tools/auditor/hardcode-text-auditor.js`)
-- [magic-numbers-auditor.js:L91–L101](file:///D:/Magazine/_PigmentShop/.tools/auditor/magic-numbers-auditor.js#L91-L101) (`.tools/auditor/magic-numbers-auditor.js`)
-- [service-layer-auditor.js:L60–L70](file:///D:/Magazine/_PigmentShop/.tools/auditor/service-layer-auditor.js#L60-L70) (`.tools/auditor/service-layer-auditor.js`)
-- [typography-auditor.js:L78–L88](file:///D:/Magazine/_PigmentShop/.tools/auditor/typography-auditor.js#L78-L88) (`.tools/auditor/typography-auditor.js`)
+- [12-raw-i18n-keys-auditor.js:L95–L105](file:///D:/Magazine/_PigmentShop/.tools/auditor/12-raw-i18n-keys-auditor.js#L95-L105) (`.tools/auditor/12-raw-i18n-keys-auditor.js`)
+- [hardcode-styles-auditor.js:L117–L127](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-styles-auditor.js#L117-L127) (`.tools/auditor/hardcode-styles-auditor.js`)
+- [hardcode-text-auditor.js:L71–L81](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-text-auditor.js#L71-L81) (`.tools/auditor/hardcode-text-auditor.js`)
+- [magic-numbers-auditor.js:L92–L102](file:///D:/Magazine/_PigmentShop/.tools/auditor/magic-numbers-auditor.js#L92-L102) (`.tools/auditor/magic-numbers-auditor.js`)
+- [service-layer-auditor.js:L61–L71](file:///D:/Magazine/_PigmentShop/.tools/auditor/service-layer-auditor.js#L61-L71) (`.tools/auditor/service-layer-auditor.js`)
+- [typography-auditor.js:L79–L89](file:///D:/Magazine/_PigmentShop/.tools/auditor/typography-auditor.js#L79-L89) (`.tools/auditor/typography-auditor.js`)
 
-### Clone Group 16 — 9 lines, 69 tokens · `dup:1287942e`
+### Clone Group 25 — 10 lines, 71 tokens · `dup:c82bd0a1`
+> 💡 Extract duplicated code (10 lines, 3 instances) into a shared function
+
+- [12-raw-i18n-keys-auditor.js:L9–L18](file:///D:/Magazine/_PigmentShop/.tools/auditor/12-raw-i18n-keys-auditor.js#L9-L18) (`.tools/auditor/12-raw-i18n-keys-auditor.js`)
+- [hardcode-text-auditor.js:L7–L15](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-text-auditor.js#L7-L15) (`.tools/auditor/hardcode-text-auditor.js`)
+- [typography-auditor.js:L7–L15](file:///D:/Magazine/_PigmentShop/.tools/auditor/typography-auditor.js#L7-L15) (`.tools/auditor/typography-auditor.js`)
+
+### Clone Group 26 — 9 lines, 69 tokens · `dup:1287942e`
 > 💡 Extract duplicated code (9 lines, 2 instances) into a shared function
 
-- [hardcode-styles-auditor.js:L116–L124](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-styles-auditor.js#L116-L124) (`.tools/auditor/hardcode-styles-auditor.js`)
-- [ui-architecture-audit.js:L190–L198](file:///D:/Magazine/_PigmentShop/.tools/auditor/ui-architecture-audit.js#L190-L198) (`.tools/auditor/ui-architecture-audit.js`)
+- [hardcode-styles-auditor.js:L117–L125](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-styles-auditor.js#L117-L125) (`.tools/auditor/hardcode-styles-auditor.js`)
+- [ui-architecture-audit.js:L191–L199](file:///D:/Magazine/_PigmentShop/.tools/auditor/ui-architecture-audit.js#L191-L199) (`.tools/auditor/ui-architecture-audit.js`)
 
-### Clone Group 17 — 9 lines, 73 tokens · `dup:86a32a92`
+### Clone Group 27 — 9 lines, 81 tokens · `dup:daec3d41`
 > 💡 Extract duplicated code (9 lines, 2 instances) into a shared function
 
-- [hardcode-text-auditor.js:L6–L14](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-text-auditor.js#L6-L14) (`.tools/auditor/hardcode-text-auditor.js`)
-- [typography-auditor.js:L6–L14](file:///D:/Magazine/_PigmentShop/.tools/auditor/typography-auditor.js#L6-L14) (`.tools/auditor/typography-auditor.js`)
+- [hardcode-text-auditor.js:L7–L15](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-text-auditor.js#L7-L15) (`.tools/auditor/hardcode-text-auditor.js`)
+- [typography-auditor.js:L7–L15](file:///D:/Magazine/_PigmentShop/.tools/auditor/typography-auditor.js#L7-L15) (`.tools/auditor/typography-auditor.js`)
 
-### Clone Group 18 — 8 lines, 63 tokens · `dup:646b145b`
+### Clone Group 28 — 9 lines, 65 tokens · `dup:3a52b035`
+> 💡 Extract duplicated code (9 lines, 2 instances) into a shared function
+
+- [hardcode-url-auditor.js:L16–L24](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-url-auditor.js#L16-L24) (`.tools/auditor/hardcode-url-auditor.js`)
+- [magic-numbers-auditor.js:L16–L23](file:///D:/Magazine/_PigmentShop/.tools/auditor/magic-numbers-auditor.js#L16-L23) (`.tools/auditor/magic-numbers-auditor.js`)
+
+### Clone Group 29 — 8 lines, 63 tokens · `dup:646b145b`
 > 💡 Extract duplicated code (8 lines, 2 instances) into a shared function
 
 - [backupConfig.js:L37–L44](file:///D:/Magazine/_PigmentShop/.tools/.backuper/backupConfig.js#L37-L44) (`.tools/.backuper/backupConfig.js`)
 - [backupConfig.js:L52–L59](file:///D:/Magazine/_PigmentShop/.tools/.backuper/backupConfig.js#L52-L59) (`.tools/.backuper/backupConfig.js`)
 
-### Clone Group 19 — 8 lines, 72 tokens · `dup:4e4717ea`
+### Clone Group 30 — 8 lines, 80 tokens · `dup:e23afdb3`
 > 💡 Extract duplicated code (8 lines, 3 instances) into a shared function
 
-- [hardcode-text-auditor.js:L6–L13](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-text-auditor.js#L6-L13) (`.tools/auditor/hardcode-text-auditor.js`)
-- [service-layer-auditor.js:L7–L14](file:///D:/Magazine/_PigmentShop/.tools/auditor/service-layer-auditor.js#L7-L14) (`.tools/auditor/service-layer-auditor.js`)
-- [typography-auditor.js:L6–L13](file:///D:/Magazine/_PigmentShop/.tools/auditor/typography-auditor.js#L6-L13) (`.tools/auditor/typography-auditor.js`)
+- [hardcode-text-auditor.js:L7–L14](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-text-auditor.js#L7-L14) (`.tools/auditor/hardcode-text-auditor.js`)
+- [service-layer-auditor.js:L8–L15](file:///D:/Magazine/_PigmentShop/.tools/auditor/service-layer-auditor.js#L8-L15) (`.tools/auditor/service-layer-auditor.js`)
+- [typography-auditor.js:L7–L14](file:///D:/Magazine/_PigmentShop/.tools/auditor/typography-auditor.js#L7-L14) (`.tools/auditor/typography-auditor.js`)
 
 

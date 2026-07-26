@@ -7,6 +7,10 @@ const { auditServiceLayer } = require('./service-layer-auditor');
 const { auditUnusedExports } = require('./unused-exports-auditor');
 const { auditLayerImports } = require('./layer-imports-auditor');
 const { auditMagicNumbers } = require('./magic-numbers-auditor');
+const { auditA11y } = require('./a11y-auditor');
+const { auditPerformance } = require('./performance-auditor');
+const { auditHardcodeUrl } = require('./hardcode-url-auditor');
+const { auditRawI18nKeys } = require('./12-raw-i18n-keys-auditor');
 const { runFallowAudit } = require('./fallow-auditor/run-audit.cjs');
 
 /**
@@ -26,6 +30,10 @@ function runAllAudits() {
   try { auditUnusedExports(); } catch (e) { console.error('Error 06:', e.message); }
   try { auditLayerImports(); } catch (e) { console.error('Error 07:', e.message); }
   try { auditMagicNumbers(); } catch (e) { console.error('Error 08:', e.message); }
+  try { auditA11y(); } catch (e) { console.error('Error 09:', e.message); }
+  try { auditPerformance(); } catch (e) { console.error('Error 10:', e.message); }
+  try { auditHardcodeUrl(); } catch (e) { console.error('Error 11:', e.message); }
+  try { auditRawI18nKeys(); } catch (e) { console.error('Error 12:', e.message); }
 
   console.log('-------------------------------------------------------------------');
   console.log('         RUNNING CODEBASE CATALOG GENERATOR                        ');

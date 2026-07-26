@@ -5,6 +5,7 @@ const SRC_DIR = path.join(__dirname, '../../src');
 const COMPONENTS_DIR = path.join(__dirname, '../../src/components');
 const AUDITS_DIR = path.join(__dirname, '../../.docs/audits/audits');
 const LOG_FILE = path.join(AUDITS_DIR, '06-unused-exports-violations.log');
+const FILES_LOG_FILE = path.join(AUDITS_DIR, '06-unused-exports-violations.log'.replace('violations', 'files'));
 
 function getAllFiles(dir, fileList = []) {
   if (!fs.existsSync(dir)) return fileList;
@@ -91,6 +92,24 @@ function auditUnusedExports() {
       report += `\n`;
     });
 
+    
+    if (fileCount > 10) {
+      let filesReport = "===================================================================\n";
+      filesReport += "               FILES WITH ISSUES REPORT                            \n";
+      filesReport += "Timestamp: " + timestamp + "\n";
+      filesReport += "===================================================================\n\n";
+      filesReport += "Found " + violations.length + " issue(s) across " + fileCount + " target(s):\n\n";
+      
+      Object.keys(grouped).forEach(filePath => {
+        filesReport += "- " + filePath + " (" + grouped[filePath].length + " issues)\n";
+      });
+      
+      fs.writeFileSync(FILES_LOG_FILE, filesReport);
+      console.log("  -> Also generated compact file list: " + path.basename(FILES_LOG_FILE));
+    } else {
+      if (fs.existsSync(FILES_LOG_FILE)) { try { fs.unlinkSync(FILES_LOG_FILE); } catch (_) {} }
+    }
+    
     fs.writeFileSync(LOG_FILE, report);
     console.log(`[06 Unused Exports Audit] Finished (${violations.length} issues) -> .docs/audits/audits/06-unused-exports-violations.log`);
   }
