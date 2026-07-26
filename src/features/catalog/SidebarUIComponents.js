@@ -33,7 +33,6 @@ export function Checkbox({ checked, label, onToggle, isDark, testID }) {
 }
 
 export function PriceInputs({ priceMin, priceMax, onMinChange, onMaxChange, isDark, t }) {
-  const placeholderColor = isDark ? colors.textMutedDark : colors.textMutedLight;
   return (
     <View style={styles.priceColumn}>
       <FieldInput
@@ -45,10 +44,10 @@ export function PriceInputs({ priceMin, priceMax, onMinChange, onMaxChange, isDa
           fieldInput: [styles.priceInput, isDark ? styles.inputDark : styles.inputLight],
         }}
         placeholder="0"
-        placeholderTextColor={placeholderColor}
         keyboardType="numeric"
         value={priceMin}
         onChangeText={onMinChange}
+        isDark={isDark}
       />
       <FieldInput
         testID="filter-price-max"
@@ -59,10 +58,10 @@ export function PriceInputs({ priceMin, priceMax, onMinChange, onMaxChange, isDa
           fieldInput: [styles.priceInput, isDark ? styles.inputDark : styles.inputLight],
         }}
         placeholder="5000"
-        placeholderTextColor={placeholderColor}
         keyboardType="numeric"
         value={priceMax}
         onChangeText={onMaxChange}
+        isDark={isDark}
       />
     </View>
   );

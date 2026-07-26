@@ -134,7 +134,7 @@ export function ReviewForm({
           fieldTextarea: [styles.input, isDark ? styles.inputDark : styles.inputLight, styles.textArea],
         }}
         placeholder={config.placeholder}
-        placeholderTextColor={colors.secondaryDarkText}
+        isDark={isDark}
         numberOfLines={3}
         value={config.value}
         onChangeText={config.onChangeText}

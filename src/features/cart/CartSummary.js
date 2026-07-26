@@ -46,9 +46,9 @@ export default function CartSummary({ totalItems, totalPrice, isWide, isDark, no
           value={field.value}
           onChangeText={field.onChange}
           placeholder={t(field.labelKey)}
-          placeholderTextColor={isDark ? '#64748b' : '#94a3b8'}
           keyboardType={field.keyboardType}
           autoCapitalize={field.autoCapitalize || 'sentences'}
+          isDark={isDark}
           style={styles.inputGroup}
           styles={{
             fieldLabel: [styles.label, ic(styles.summaryLabelDark, styles.summaryLabelLight)],
@@ -69,7 +69,7 @@ export default function CartSummary({ totalItems, totalPrice, isWide, isDark, no
         value={note}
         onChangeText={onNoteChange}
         placeholder={t('cartOrderNotePlaceholder')}
-        placeholderTextColor={isDark ? '#64748b' : '#94a3b8'}
+        isDark={isDark}
         numberOfLines={3}
         styles={{
           fieldLabel: [styles.noteLabel, ic(styles.summaryLabelDark, styles.summaryLabelLight)],

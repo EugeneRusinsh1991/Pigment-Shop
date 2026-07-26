@@ -2,10 +2,7 @@ import { Text, View } from 'react-native';
 import { BaseCard } from '../../components/Card';
 import styles from './ProfilePageStyles';
 import { Button } from '../../components/Button';
-import { colors } from '../../theme/tokens';
 import { FieldInput } from '../../components/Admin/SharedFormComponents';
-
-const getPlaceholderColor = (isDark) => (isDark ? colors.textMutedDark : colors.slateText);
 
 function EmailField({ label, email, selectTheme }) {
   return (
@@ -29,8 +26,8 @@ function ProfileTextField({ label, placeholder, value, onChangeText, isDark, sel
       value={value}
       onChangeText={onChangeText}
       placeholder={placeholder}
-      placeholderTextColor={getPlaceholderColor(isDark)}
       keyboardType={keyboardType}
+      isDark={isDark}
       style={styles.inputGroup}
       styles={{
         fieldLabel: [styles.label, selectTheme(styles.textDark, styles.textLight)],

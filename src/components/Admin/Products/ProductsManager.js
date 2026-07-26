@@ -8,7 +8,7 @@
  * Read helpers (getAllProducts, searchProducts) remain in adminProductsTransforms.
  */
 import { useState } from 'react';
-import { TextInput, View, useWindowDimensions } from 'react-native';
+import { View, useWindowDimensions } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
 import { SearchInput } from '../../Search';
 import ProductFormModal from './ProductFormModal';

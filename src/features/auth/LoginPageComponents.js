@@ -33,7 +33,7 @@ export function PasswordInputField({ value, onChangeText, showToggle, isDark, sh
       value={value}
       onChangeText={onChangeText}
       placeholder="......"
-      placeholderTextColor={isDark ? '#888' : '#aaa'}
+      isDark={isDark}
       secureTextEntry={!showPassword}
       style={{ flex: 1 }}
       styles={{

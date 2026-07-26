@@ -1,5 +1,5 @@
-import React, { forwardRef, useState } from 'react';
-import { View, TextInput } from 'react-native';
+import React, { forwardRef } from 'react';
+import TextField from '../TextField';
 import { SearchIcon, CrossIcon } from '../Icons';
 import { IconButton } from '../Button';
 import { useSearchTheme } from './useSearchTheme';
@@ -22,64 +22,44 @@ export const SearchInput = forwardRef(function SearchInput(
   },
   ref
 ) {
-  const [isFocused, setIsFocused] = useState(false);
-  const { isDark, container, text, icon, placeholderColor } = useSearchTheme({
+  const { icon } = useSearchTheme({
     isDarkProp,
     variant,
     styleMap: SearchStyles,
   });
 
-  const handleFocus = (e) => {
-    setIsFocused(true);
-    if (onFocus) onFocus(e);
-  };
-
-  const handleBlur = (e) => {
-    setIsFocused(false);
-    if (onBlur) onBlur(e);
-  };
-
-  const containerStyles = [
-    SearchStyles.containerBase,
-    container,
-    isFocused && SearchStyles.containerFocused,
-    style,
-  ];
-
-  const inputStyles = [
-    SearchStyles.inputBase,
-    text,
-    inputStyle,
-  ];
-
   const iconColor = icon?.color;
 
+  const leadingIcon = (
+    <SearchIcon color={iconColor} size={16} />
+  );
+
+  const trailingIcon = Boolean(onClear && value && value.length > 0) ? (
+    <IconButton
+      onPress={onClear}
+      size={32}
+      style={SearchStyles.clearButton}
+      icon={<CrossIcon color={iconColor} size={14} />}
+    />
+  ) : null;
+
   return (
-    <View style={containerStyles}>
-      <View style={SearchStyles.searchIconWrapper}>
-        <SearchIcon color={iconColor} size={16} />
-      </View>
-      <TextInput
-        ref={ref}
-        style={inputStyles}
-        value={value}
-        onChangeText={onChangeText}
-        placeholder={placeholder}
-        placeholderTextColor={placeholderColor}
-        autoCapitalize="none"
-        onFocus={handleFocus}
-        onBlur={handleBlur}
-        {...props}
-      />
-      {Boolean(onClear && value && value.length > 0) && (
-        <IconButton
-          onPress={onClear}
-          size={32}
-          style={SearchStyles.clearButton}
-          icon={<CrossIcon color={iconColor} size={14} />}
-        />
-      )}
-    </View>
+    <TextField
+      ref={ref}
+      value={value}
+      onChangeText={onChangeText}
+      placeholder={placeholder}
+      size={size}
+      isDark={isDarkProp}
+      leadingIcon={leadingIcon}
+      trailingIcon={trailingIcon}
+      containerStyle={style}
+      inputStyle={inputStyle}
+      onFocus={onFocus}
+      onBlur={onBlur}
+      autoCapitalize="none"
+      {...props}
+    />
   );
 });
 

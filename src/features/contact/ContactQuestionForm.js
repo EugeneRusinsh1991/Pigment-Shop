@@ -90,10 +90,10 @@ export default function ContactQuestionForm({ t, ic, isDark, isMobile, contentWi
           fieldTextarea: [styles.textarea, ic(styles.textareaDark, styles.textareaLight)],
         }}
         placeholder={t('contactUsQuestionPlaceholder')}
-        placeholderTextColor={isDark ? '#888' : '#aaa'}
         value={questionText}
         onChangeText={handleChangeText}
         editable={!submitting}
+        isDark={isDark}
       />
       <Button
         title={t('contactUsQuestion')}

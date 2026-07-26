@@ -8,12 +8,13 @@
  * - DescriptionField    (localized description textarea)
  */
 import { useState } from 'react';
-import { Text, TextInput, View } from 'react-native';
+import { Text, View } from 'react-native';
 import { AnimatedButton } from '../../Button';
 import { useTheme } from '../../../context/ThemeContext';
 import { fromMediaRef } from '../../../media';
 import { triggerFileInput } from '../../../utils/fileInput';
 import { ImageIcon, UploadIcon } from '@/components/Icons';
+import TextField from '@/components/TextField';
 import MediaBrowser from '../Media/MediaBrowser';
 import { FieldInput as SharedFieldInput, FieldTextarea as SharedFieldTextarea } from '../SharedFormComponents';
 import { CATEGORY_TYPE_COLORS } from './CategoriesStyles';
@@ -116,12 +117,11 @@ export function ImagePickerField({ value, onChange }) {
     <View style={styles.fieldGroup}>
       <Text style={styles.fieldLabel}>{t('adminCategoriesFormImage')}</Text>
       <View style={styles.imagePickerRow}>
-        <TextInput
-          style={styles.imagePickerInput}
+        <TextField
+          containerStyle={{ flex: 1 }}
           value={String(value ?? '')}
           onChangeText={onChange}
           placeholder={t('adminCategoriesFormImagePlaceholder')}
-          placeholderTextColor="#CBD5E1"
           autoCapitalize="none"
         />
         <AnimatedButton style={[styles.uploadBtn, { flexDirection: 'row', alignItems: 'center', gap: 4 }]} onPress={() => triggerFileInput('cat-image-file-input', onChange)} activeOpacity={0.8}>

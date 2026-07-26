@@ -75,9 +75,9 @@ export default function LoginPage({ isDark: isDarkProp }) {
                   value={email}
                   onChangeText={setEmail}
                   placeholder="email@example.com"
-                  placeholderTextColor={getPlaceholderColor(isDark)}
                   keyboardType="email-address"
                   autoCapitalize="none"
+                  isDark={isDark}
                   style={styles.inputGroup}
                   styles={{
                     fieldLabel: [styles.label, ic(isDark, styles.textDark, styles.textLight)],
