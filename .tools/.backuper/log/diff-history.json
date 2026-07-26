@@ -5159,5 +5159,35 @@
         }
       ]
     }
+  },
+  "src_07-27_02-56_02-dynamic-raw-i18n-public-smoke-violations.log_94files": {
+    "timestamp": "2026-07-26T23:56:09.399Z",
+    "diff": {
+      "added": 2,
+      "removed": 9,
+      "modified": 18,
+      "topFolders": [
+        {
+          "folder": ".docs/audits/dynamic-audits",
+          "count": 12
+        },
+        {
+          "folder": ".todos/style-tokenization",
+          "count": 9
+        },
+        {
+          "folder": "src/components/Drawer",
+          "count": 2
+        },
+        {
+          "folder": ".docs/ai-audit-framework",
+          "count": 1
+        },
+        {
+          "folder": ".docs/ai-audit-framework/stages",
+          "count": 1
+        }
+      ]
+    }
   }
 }

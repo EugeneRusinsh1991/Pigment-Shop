@@ -39,6 +39,9 @@ export const getDrawerStyles = (position = 'left') => {
     dismissPressable: {
       flex: 1,
     },
+    title: {
+      flex: 1,
+    },
   });
 };
 

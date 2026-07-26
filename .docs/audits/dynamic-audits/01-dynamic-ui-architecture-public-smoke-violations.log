@@ -2,7 +2,7 @@
 type: dynamic-audit
 auditor: ui-architecture
 scope: public
-date: 2026-07-26T23:49:24.327Z
+date: 2026-07-26T23:55:51.239Z
 ---
 
 ### URL: http://localhost:8081/
@@ -170,6 +170,50 @@ date: 2026-07-26T23:49:24.327Z
   Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-backgroundColor-xl3lkw.r-opacity-6dt33c.r-overflow-1udh08x.r-width-rwqe4o`
 - Theme/Motion: Custom CSS transition/animation defined outside token system.
   Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-backgroundColor-xl3lkw.r-opacity-6dt33c.r-overflow-1udh08x.r-width-rwqe4o`
+- Design System: Raw/hardcoded CSS color in inline style.
+  Selector: `div.css-view-g5y9jx.r-borderRadius-1jkafct.r-height-hdaws3.r-justifyContent-1777fci.r-position-bnwqim`
+- Design System: Raw/hardcoded CSS color in inline style.
+  Selector: `input.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-borderRadius-kdyh1x.r-borderWidth-rs99b7.r-paddingBlock-vuvdlw.r-paddingInline-is05cd.r-width-19554kt.r-backgroundColor-14lw9ot.r-borderColor-zj8kiy.r-color-kgv7a8`
+- Design System: Hardcoded spacing/border-radius lacking spatial tokens.
+  Selector: `div.css-view-g5y9jx.r-alignItems-1awozwy.r-flexDirection-18u37iz.r-minHeight-peo1c`
+- Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.
+  Selector: `input.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-borderRadius-kdyh1x.r-borderWidth-rs99b7.r-paddingBlock-vuvdlw.r-paddingInline-is05cd.r-width-19554kt.r-backgroundColor-14lw9ot.r-borderColor-zj8kiy.r-color-kgv7a8`
+- Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.
+  Selector: `button.css-view-g5y9jx.r-touchAction-1otgn73.r-alignItems-1awozwy.r-cursor-1loqt21.r-flexDirection-18u37iz.r-justifyContent-1777fci.r-borderRadius-y47klf.r-borderWidth-1rf8fdq.r-minHeight-15ysp7h.r-paddingBlock-vuvdlw.r-paddingInline-3o4zer.r-backgroundColor-wt1z2b.r-borderColor-1jl7vqb`
+- Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.
+  Selector: `button.css-view-g5y9jx.r-touchAction-1otgn73.r-alignItems-1awozwy.r-cursor-1loqt21.r-flexDirection-18u37iz.r-justifyContent-1777fci.r-backgroundColor-14lw9ot.r-borderColor-1wr2p1e.r-borderRadius-y47klf.r-borderWidth-1rf8fdq.r-minHeight-15ysp7h.r-paddingBlock-vuvdlw.r-paddingInline-3o4zer`
+- Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.
+  Selector: `button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-paddingInline-3pj75a.r-borderColor-1jl7vqb.r-alignItems-1awozwy.r-backgroundColor-wt1z2b.r-borderRadius-1xfd6ze.r-height-eu3ka.r-justifyContent-1777fci.r-marginTop-1s2bzr4.r-width-13qz1uu`
+- Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.
+  Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderRadius-kdyh1x.r-flex-13awgt0.r-height-1pi2tsx.r-justifyContent-1777fci.r-paddingInline-3o4zer.r-zIndex-184en5c`
+- Theme/Motion: Custom CSS transition/animation defined outside token system.
+  Selector: `button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-paddingInline-3pj75a.r-borderColor-1jl7vqb.r-alignItems-1awozwy.r-backgroundColor-wt1z2b.r-borderRadius-1xfd6ze.r-height-eu3ka.r-justifyContent-1777fci.r-marginTop-1s2bzr4.r-width-13qz1uu`
+- Theme/Motion: Custom CSS transition/animation defined outside token system.
+  Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderRadius-kdyh1x.r-flex-13awgt0.r-height-1pi2tsx.r-justifyContent-1777fci.r-paddingInline-3o4zer.r-zIndex-184en5c`
+- i18n: Potential hardcoded text string found: "Category 1 RU" without data-i18n tracking.
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-color-jwli3a`
+- i18n: Potential hardcoded text string found: "Subcategory 1-1 RU" without data-i18n tracking.
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-color-jwli3a`
+- i18n: Potential hardcoded text string found: "Group 1-1-2 RU" without data-i18n tracking.
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-color-jwli3a`
+- i18n: Potential hardcoded text string found: "Subcategory 1-2 RU" without data-i18n tracking.
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-color-jwli3a`
+- i18n: Potential hardcoded text string found: "Group 1-2-1 RU" without data-i18n tracking.
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-color-jwli3a`
+- i18n: Potential hardcoded text string found: "Group 1-2-2 RU" without data-i18n tracking.
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-color-jwli3a`
+- i18n: Potential hardcoded text string found: "Category 2 RU" without data-i18n tracking.
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-color-jwli3a`
+- i18n: Potential hardcoded text string found: "Subcategory 2-1 RU" without data-i18n tracking.
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-color-1dk24ck`
+- i18n: Potential hardcoded text string found: "Subcategory 2-2 RU" without data-i18n tracking.
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-color-1dk24ck`
+- i18n: Potential hardcoded text string found: "Category 1 RU" without data-i18n tracking.
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8`
+- i18n: Potential hardcoded text string found: "Subcategory 1-1 EN" without data-i18n tracking.
+  Selector: `h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-eaezby.r-marginBottom-15zivkp`
+- i18n: Potential hardcoded text string found: "Subcategory 1-2 EN" without data-i18n tracking.
+  Selector: `h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-eaezby.r-marginBottom-15zivkp`
 
 ### URL: http://localhost:8081/catalog
 - Design System: Hardcoded spacing/border-radius lacking spatial tokens.
@@ -288,6 +332,46 @@ date: 2026-07-26T23:49:24.327Z
   Selector: `h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-eaezby.r-marginBottom-15zivkp`
 - Theme/Motion: Custom CSS transition/animation defined outside token system.
   Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-backgroundColor-xl3lkw.r-opacity-6dt33c.r-overflow-1udh08x.r-width-rwqe4o`
+- Design System: Raw/hardcoded CSS color in inline style.
+  Selector: `div.css-view-g5y9jx.r-borderRadius-1jkafct.r-height-hdaws3.r-justifyContent-1777fci.r-position-bnwqim`
+- Design System: Hardcoded spacing/border-radius lacking spatial tokens.
+  Selector: `div.css-view-g5y9jx.r-backgroundColor-1ins33t.r-borderColor-1w15a45.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-width-13qz1uu`
+- Design System: Raw/hardcoded CSS color in inline style.
+  Selector: `input.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-borderRadius-kdyh1x.r-borderWidth-rs99b7.r-paddingBlock-vuvdlw.r-paddingInline-is05cd.r-width-19554kt.r-backgroundColor-14lw9ot.r-borderColor-zj8kiy.r-color-kgv7a8`
+- Design System: Hardcoded spacing/border-radius lacking spatial tokens.
+  Selector: `div.css-view-g5y9jx.r-alignItems-1awozwy.r-flexDirection-18u37iz.r-minHeight-peo1c`
+- Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.
+  Selector: `input.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-borderRadius-kdyh1x.r-borderWidth-rs99b7.r-paddingBlock-vuvdlw.r-paddingInline-is05cd.r-width-19554kt.r-backgroundColor-14lw9ot.r-borderColor-zj8kiy.r-color-kgv7a8`
+- Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.
+  Selector: `button.css-view-g5y9jx.r-touchAction-1otgn73.r-alignItems-1awozwy.r-cursor-1loqt21.r-flexDirection-18u37iz.r-justifyContent-1777fci.r-borderRadius-y47klf.r-borderWidth-1rf8fdq.r-minHeight-15ysp7h.r-paddingBlock-vuvdlw.r-paddingInline-3o4zer.r-backgroundColor-wt1z2b.r-borderColor-1jl7vqb`
+- Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.
+  Selector: `button.css-view-g5y9jx.r-touchAction-1otgn73.r-alignItems-1awozwy.r-cursor-1loqt21.r-flexDirection-18u37iz.r-justifyContent-1777fci.r-backgroundColor-14lw9ot.r-borderColor-1wr2p1e.r-borderRadius-y47klf.r-borderWidth-1rf8fdq.r-minHeight-15ysp7h.r-paddingBlock-vuvdlw.r-paddingInline-3o4zer`
+- Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.
+  Selector: `button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-paddingInline-3pj75a.r-borderColor-1jl7vqb.r-alignItems-1awozwy.r-backgroundColor-wt1z2b.r-borderRadius-1xfd6ze.r-height-eu3ka.r-justifyContent-1777fci.r-marginTop-1s2bzr4.r-width-13qz1uu`
+- Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.
+  Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderRadius-kdyh1x.r-flex-13awgt0.r-height-1pi2tsx.r-justifyContent-1777fci.r-paddingInline-3o4zer.r-zIndex-184en5c`
+- Theme/Motion: Custom CSS transition/animation defined outside token system.
+  Selector: `button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-paddingInline-3pj75a.r-borderColor-1jl7vqb.r-alignItems-1awozwy.r-backgroundColor-wt1z2b.r-borderRadius-1xfd6ze.r-height-eu3ka.r-justifyContent-1777fci.r-marginTop-1s2bzr4.r-width-13qz1uu`
+- Theme/Motion: Custom CSS transition/animation defined outside token system.
+  Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderRadius-kdyh1x.r-flex-13awgt0.r-height-1pi2tsx.r-justifyContent-1777fci.r-paddingInline-3o4zer.r-zIndex-184en5c`
+- i18n: Potential hardcoded text string found: "Category 1 RU" without data-i18n tracking.
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-color-jwli3a`
+- i18n: Potential hardcoded text string found: "Subcategory 1-1 RU" without data-i18n tracking.
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-color-jwli3a`
+- i18n: Potential hardcoded text string found: "Group 1-1-2 RU" without data-i18n tracking.
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-color-jwli3a`
+- i18n: Potential hardcoded text string found: "Subcategory 1-2 RU" without data-i18n tracking.
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-color-jwli3a`
+- i18n: Potential hardcoded text string found: "Group 1-2-1 RU" without data-i18n tracking.
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-color-jwli3a`
+- i18n: Potential hardcoded text string found: "Group 1-2-2 RU" without data-i18n tracking.
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-color-jwli3a`
+- i18n: Potential hardcoded text string found: "Category 2 RU" without data-i18n tracking.
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-color-jwli3a`
+- i18n: Potential hardcoded text string found: "Subcategory 2-1 RU" without data-i18n tracking.
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-color-1dk24ck`
+- i18n: Potential hardcoded text string found: "Subcategory 2-2 RU" without data-i18n tracking.
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-color-1dk24ck`
 
 ### URL: http://localhost:8081/catalog/cat-root-0
 - Design System: Hardcoded spacing/border-radius lacking spatial tokens.
@@ -404,6 +488,46 @@ date: 2026-07-26T23:49:24.327Z
   Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-opacity-6dt33c.r-width-rwqe4o`
 - Theme/Motion: Custom CSS transition/animation defined outside token system.
   Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-backgroundColor-xl3lkw.r-opacity-6dt33c.r-overflow-1udh08x.r-width-rwqe4o`
+- Design System: Raw/hardcoded CSS color in inline style.
+  Selector: `div.css-view-g5y9jx.r-borderRadius-1jkafct.r-height-hdaws3.r-justifyContent-1777fci.r-position-bnwqim`
+- Design System: Hardcoded spacing/border-radius lacking spatial tokens.
+  Selector: `div.css-view-g5y9jx.r-backgroundColor-1ins33t.r-borderColor-1w15a45.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-width-13qz1uu`
+- Design System: Raw/hardcoded CSS color in inline style.
+  Selector: `input.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-borderRadius-kdyh1x.r-borderWidth-rs99b7.r-paddingBlock-vuvdlw.r-paddingInline-is05cd.r-width-19554kt.r-backgroundColor-14lw9ot.r-borderColor-zj8kiy.r-color-kgv7a8`
+- Design System: Hardcoded spacing/border-radius lacking spatial tokens.
+  Selector: `div.css-view-g5y9jx.r-alignItems-1awozwy.r-flexDirection-18u37iz.r-minHeight-peo1c`
+- Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.
+  Selector: `input.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-borderRadius-kdyh1x.r-borderWidth-rs99b7.r-paddingBlock-vuvdlw.r-paddingInline-is05cd.r-width-19554kt.r-backgroundColor-14lw9ot.r-borderColor-zj8kiy.r-color-kgv7a8`
+- Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.
+  Selector: `button.css-view-g5y9jx.r-touchAction-1otgn73.r-alignItems-1awozwy.r-cursor-1loqt21.r-flexDirection-18u37iz.r-justifyContent-1777fci.r-borderRadius-y47klf.r-borderWidth-1rf8fdq.r-minHeight-15ysp7h.r-paddingBlock-vuvdlw.r-paddingInline-3o4zer.r-backgroundColor-wt1z2b.r-borderColor-1jl7vqb`
+- Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.
+  Selector: `button.css-view-g5y9jx.r-touchAction-1otgn73.r-alignItems-1awozwy.r-cursor-1loqt21.r-flexDirection-18u37iz.r-justifyContent-1777fci.r-backgroundColor-14lw9ot.r-borderColor-1wr2p1e.r-borderRadius-y47klf.r-borderWidth-1rf8fdq.r-minHeight-15ysp7h.r-paddingBlock-vuvdlw.r-paddingInline-3o4zer`
+- Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.
+  Selector: `button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-paddingInline-3pj75a.r-borderColor-1jl7vqb.r-alignItems-1awozwy.r-backgroundColor-wt1z2b.r-borderRadius-1xfd6ze.r-height-eu3ka.r-justifyContent-1777fci.r-marginTop-1s2bzr4.r-width-13qz1uu`
+- Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.
+  Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderRadius-kdyh1x.r-flex-13awgt0.r-height-1pi2tsx.r-justifyContent-1777fci.r-paddingInline-3o4zer.r-zIndex-184en5c`
+- Theme/Motion: Custom CSS transition/animation defined outside token system.
+  Selector: `button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-paddingInline-3pj75a.r-borderColor-1jl7vqb.r-alignItems-1awozwy.r-backgroundColor-wt1z2b.r-borderRadius-1xfd6ze.r-height-eu3ka.r-justifyContent-1777fci.r-marginTop-1s2bzr4.r-width-13qz1uu`
+- Theme/Motion: Custom CSS transition/animation defined outside token system.
+  Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderRadius-kdyh1x.r-flex-13awgt0.r-height-1pi2tsx.r-justifyContent-1777fci.r-paddingInline-3o4zer.r-zIndex-184en5c`
+- i18n: Potential hardcoded text string found: "Category 1 RU" without data-i18n tracking.
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-color-jwli3a`
+- i18n: Potential hardcoded text string found: "Subcategory 1-1 RU" without data-i18n tracking.
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-color-jwli3a`
+- i18n: Potential hardcoded text string found: "Group 1-1-2 RU" without data-i18n tracking.
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-color-jwli3a`
+- i18n: Potential hardcoded text string found: "Subcategory 1-2 RU" without data-i18n tracking.
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-color-jwli3a`
+- i18n: Potential hardcoded text string found: "Group 1-2-1 RU" without data-i18n tracking.
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-color-jwli3a`
+- i18n: Potential hardcoded text string found: "Group 1-2-2 RU" without data-i18n tracking.
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-color-jwli3a`
+- i18n: Potential hardcoded text string found: "Category 2 RU" without data-i18n tracking.
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-color-jwli3a`
+- i18n: Potential hardcoded text string found: "Subcategory 2-1 RU" without data-i18n tracking.
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-color-1dk24ck`
+- i18n: Potential hardcoded text string found: "Subcategory 2-2 RU" without data-i18n tracking.
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-color-1dk24ck`
 
 ### URL: http://localhost:8081/catalog/cat-root-0-sub-0
 - Design System: Hardcoded spacing/border-radius lacking spatial tokens.
@@ -890,6 +1014,8 @@ date: 2026-07-26T23:49:24.327Z
   Selector: `h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-eaezby.r-marginBottom-15zivkp`
 - i18n: Potential hardcoded text string found: "Group 2-1-2 EN" without data-i18n tracking.
   Selector: `h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-eaezby.r-marginBottom-15zivkp`
+- Theme/Motion: Custom CSS transition/animation defined outside token system.
+  Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-backgroundColor-xl3lkw.r-opacity-6dt33c.r-overflow-1udh08x.r-width-rwqe4o`
 
 ### URL: http://localhost:8081/catalog/cat-root-1-sub-1
 - Design System: Hardcoded spacing/border-radius lacking spatial tokens.
@@ -1006,6 +1132,8 @@ date: 2026-07-26T23:49:24.327Z
   Selector: `h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-eaezby.r-marginBottom-15zivkp`
 - i18n: Potential hardcoded text string found: "Group 2-2-2 EN" without data-i18n tracking.
   Selector: `h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-eaezby.r-marginBottom-15zivkp`
+- Theme/Motion: Custom CSS transition/animation defined outside token system.
+  Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-backgroundColor-xl3lkw.r-opacity-6dt33c.r-overflow-1udh08x.r-width-rwqe4o`
 
 ### URL: http://localhost:8081/products
 - Design System: Hardcoded spacing/border-radius lacking spatial tokens.
@@ -1212,3 +1340,31 @@ date: 2026-07-26T23:49:24.327Z
   Selector: `button.css-view-g5y9jx.r-touchAction-1otgn73.r-alignItems-1awozwy.r-cursor-1loqt21.r-flexDirection-18u37iz.r-justifyContent-1777fci.r-backgroundColor-14lw9ot.r-borderColor-1wr2p1e.r-borderRadius-y47klf.r-borderWidth-1rf8fdq.r-minHeight-15ysp7h.r-paddingBlock-vuvdlw.r-paddingInline-3o4zer`
 - Observability: Clickable element touch target is smaller than 44x44px. Size: 109x38
   Selector: `button.css-view-g5y9jx.r-touchAction-1otgn73.r-alignItems-1awozwy.r-cursor-1loqt21.r-flexDirection-18u37iz.r-justifyContent-1777fci.r-backgroundColor-14lw9ot.r-borderColor-1wr2p1e.r-borderRadius-y47klf.r-borderWidth-1rf8fdq.r-minHeight-15ysp7h.r-paddingBlock-vuvdlw.r-paddingInline-3o4zer`
+- Design System: Raw/hardcoded CSS color in inline style.
+  Selector: `div.css-view-g5y9jx.r-borderRadius-1tw7wh.r-borderWidth-d045u9.r-cursor-1loqt21.r-height-z80fyv.r-position-u8s1d.r-top-1wghi3f.r-width-19wmn03`
+- Theme/Motion: Custom CSS transition/animation defined outside token system.
+  Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-backgroundColor-xl3lkw.r-opacity-6dt33c.r-overflow-1udh08x.r-width-rwqe4o`
+- Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.
+  Selector: `button.css-view-g5y9jx.r-touchAction-1otgn73.r-alignItems-1awozwy.r-cursor-1loqt21.r-flexDirection-18u37iz.r-justifyContent-1777fci.r-borderRadius-y47klf.r-borderWidth-1rf8fdq.r-minHeight-15ysp7h.r-paddingBlock-vuvdlw.r-paddingInline-3o4zer.r-backgroundColor-wt1z2b.r-borderColor-1jl7vqb`
+- Observability: Clickable element touch target is smaller than 44x44px. Size: 116x38
+  Selector: `button.css-view-g5y9jx.r-touchAction-1otgn73.r-alignItems-1awozwy.r-cursor-1loqt21.r-flexDirection-18u37iz.r-justifyContent-1777fci.r-borderRadius-y47klf.r-borderWidth-1rf8fdq.r-minHeight-15ysp7h.r-paddingBlock-vuvdlw.r-paddingInline-3o4zer.r-backgroundColor-wt1z2b.r-borderColor-1jl7vqb`
+- Observability: Clickable element touch target is smaller than 44x44px. Size: 143x38
+  Selector: `button.css-view-g5y9jx.r-touchAction-1otgn73.r-alignItems-1awozwy.r-cursor-1loqt21.r-flexDirection-18u37iz.r-justifyContent-1777fci.r-borderRadius-y47klf.r-borderWidth-1rf8fdq.r-minHeight-15ysp7h.r-paddingBlock-vuvdlw.r-paddingInline-3o4zer.r-backgroundColor-wt1z2b.r-borderColor-1jl7vqb`
+- Observability: Clickable element touch target is smaller than 44x44px. Size: 115x38
+  Selector: `button.css-view-g5y9jx.r-touchAction-1otgn73.r-alignItems-1awozwy.r-cursor-1loqt21.r-flexDirection-18u37iz.r-justifyContent-1777fci.r-borderRadius-y47klf.r-borderWidth-1rf8fdq.r-minHeight-15ysp7h.r-paddingBlock-vuvdlw.r-paddingInline-3o4zer.r-backgroundColor-wt1z2b.r-borderColor-1jl7vqb`
+- Observability: Clickable element touch target is smaller than 44x44px. Size: 109x38
+  Selector: `button.css-view-g5y9jx.r-touchAction-1otgn73.r-alignItems-1awozwy.r-cursor-1loqt21.r-flexDirection-18u37iz.r-justifyContent-1777fci.r-borderRadius-y47klf.r-borderWidth-1rf8fdq.r-minHeight-15ysp7h.r-paddingBlock-vuvdlw.r-paddingInline-3o4zer.r-backgroundColor-wt1z2b.r-borderColor-1jl7vqb`
+- Observability: Clickable element touch target is smaller than 44x44px. Size: 150x38
+  Selector: `button.css-view-g5y9jx.r-touchAction-1otgn73.r-alignItems-1awozwy.r-cursor-1loqt21.r-flexDirection-18u37iz.r-justifyContent-1777fci.r-backgroundColor-14lw9ot.r-borderColor-1wr2p1e.r-borderRadius-y47klf.r-borderWidth-1rf8fdq.r-minHeight-15ysp7h.r-paddingBlock-vuvdlw.r-paddingInline-3o4zer`
+- Observability: Clickable element touch target is smaller than 44x44px. Size: 150x38
+  Selector: `button.css-view-g5y9jx.r-touchAction-1otgn73.r-alignItems-1awozwy.r-cursor-1loqt21.r-flexDirection-18u37iz.r-justifyContent-1777fci.r-borderRadius-y47klf.r-borderWidth-1rf8fdq.r-minHeight-15ysp7h.r-paddingBlock-vuvdlw.r-paddingInline-3o4zer.r-backgroundColor-wt1z2b.r-borderColor-1jl7vqb`
+- Observability: Clickable element touch target is smaller than 44x44px. Size: 124x38
+  Selector: `button.css-view-g5y9jx.r-touchAction-1otgn73.r-alignItems-1awozwy.r-cursor-1loqt21.r-flexDirection-18u37iz.r-justifyContent-1777fci.r-backgroundColor-14lw9ot.r-borderColor-1wr2p1e.r-borderRadius-y47klf.r-borderWidth-1rf8fdq.r-minHeight-15ysp7h.r-paddingBlock-vuvdlw.r-paddingInline-3o4zer`
+- Observability: Clickable element touch target is smaller than 44x44px. Size: 124x38
+  Selector: `button.css-view-g5y9jx.r-touchAction-1otgn73.r-alignItems-1awozwy.r-cursor-1loqt21.r-flexDirection-18u37iz.r-justifyContent-1777fci.r-borderRadius-y47klf.r-borderWidth-1rf8fdq.r-minHeight-15ysp7h.r-paddingBlock-vuvdlw.r-paddingInline-3o4zer.r-backgroundColor-wt1z2b.r-borderColor-1jl7vqb`
+- i18n: Potential hardcoded text string found: "Group 1-1-2 RU" without data-i18n tracking.
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-color-jwli3a`
+- i18n: Potential hardcoded text string found: "Group 1-2-1 RU" without data-i18n tracking.
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-color-jwli3a`
+- i18n: Potential hardcoded text string found: "Group 1-2-2 RU" without data-i18n tracking.
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-color-jwli3a`

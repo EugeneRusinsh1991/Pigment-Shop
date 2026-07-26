@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { View, useWindowDimensions } from 'react-native';
+import { StyleSheet, View, useWindowDimensions } from 'react-native';
 import { Text, Heading } from '@/components/Text';
 import { PlaceholderGrid } from '@/features/catalog/PlaceholderCard';
 import { CountdownTimer } from './FeaturedSections';
@@ -65,8 +65,8 @@ export default function DiscountsSection({ isDark, isWide, t, onCardPress, favs 
     <View style={styles.footerProductsSection}>
       <DiscountsHeader isWide={isWide} isDark={isDark} title={t.discounts} />
       {discountedProducts.length === 0 ? (
-        <View style={{ paddingVertical: layout.spacing.xxl, alignItems: 'center' }}>
-          <Text variant="body" color="muted" style={{ fontStyle: 'italic', textAlign: 'center' }}>
+        <View style={localStyles.emptyContainer}>
+          <Text variant="body" color="muted" style={localStyles.emptyText}>
             {t.emptyDiscounts}
           </Text>
         </View>
@@ -83,3 +83,13 @@ export default function DiscountsSection({ isDark, isWide, t, onCardPress, favs 
     </View>
   );
 }
+const localStyles = StyleSheet.create({
+  emptyContainer: {
+    paddingVertical: layout.spacing.xxl,
+    alignItems: 'center',
+  },
+  emptyText: {
+    fontStyle: 'italic',
+    textAlign: 'center',
+  },
+});

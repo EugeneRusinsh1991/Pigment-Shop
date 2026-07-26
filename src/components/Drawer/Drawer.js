@@ -8,7 +8,7 @@ import { useDrawerAnimation } from './useDrawerAnimation';
 export function DrawerHeader({ title, onClose, children, style, titleStyle }) {
   return (
     <View style={[drawerStyles.header, style]}>
-      {title ? <Text variant="h4" style={titleStyle}>{title}</Text> : null}
+      {title ? <Text variant="h4" style={[drawerStyles.title, titleStyle]}>{title}</Text> : null}
       {children}
     </View>
   );

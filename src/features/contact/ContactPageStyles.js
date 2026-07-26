@@ -109,7 +109,7 @@ export default StyleSheet.create({
     color: colors.textSubtleLight,
   },
   noPaddingBottom: {
-    paddingBottom: 0,
+    paddingBottom: layout.spacing.none,
   },
   flex1: {
     flex: 1,

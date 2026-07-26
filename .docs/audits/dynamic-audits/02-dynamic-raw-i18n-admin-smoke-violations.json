@@ -1145,6 +1145,56 @@
         "url": "http://localhost:8081/admin",
         "message": "Found hardcoded text without i18n key: \"Универсальный продукт для Product 1-2-1-1 EN\"",
         "selector": "textarea.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-backgroundColor-fj6wrk.r-borderColor-1t4g3vi.r-borderRadius-1xfd6ze.r-color-kgv7a8.r-height-wy61xf.r-outlineStyle-1ny4l3l.r-paddingBlock-ytbthy.r-paddingInline-3o4zer.r-verticalAlign-ad9o1y"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"adminProductsFormNew\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-color-1dk24ck"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"adminProductsFormActive\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-color-jwli3a"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"confirmDeleteDefaultTitle\"",
+        "selector": "h1.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-1kfrs79.r-lineHeight-hbpseb.r-marginBottom-5oul0u"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"confirmDeleteDefaultMsg\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-rjixqe.r-marginBottom-1peese0"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"confirmDeleteCancel\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-1dk24ck"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"confirmDeleteYes\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-jwli3a"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"btnSaveLabel\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1kitb6n.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-jwli3a"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"adminProductsNewTitle\"",
+        "selector": "h1.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-eaezby.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"adminProductsRequiredField\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-1cwl3u0.r-marginBottom-5oul0u.r-marginTop-14gqq1x"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"adminProductsInvalidPrice\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-1cwl3u0.r-marginBottom-5oul0u.r-marginTop-14gqq1x"
       }
     ]
   },
