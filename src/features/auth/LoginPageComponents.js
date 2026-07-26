@@ -4,6 +4,7 @@ import { Text, Heading } from '../../components/Text';
 import styles from './LoginPageStyles';
 import { LockIcon, EyeIcon, EyeOffIcon, ForwardArrowIcon } from '@/components/Icons';
 import { useTheme } from '../../context/ThemeContext';
+import { colors } from '../../theme/tokens';
 
 import { Button, IconButton, AnimatedButton } from '../../components/Button';
 import { FieldInput } from '../../components/Admin/SharedFormComponents';
@@ -15,7 +16,7 @@ export function LoginHeader({ isRegister, isDark }) {
   return (
     <View style={styles.header}>
       <View style={[styles.iconContainer, ic(isDark, styles.iconContainerDark, styles.iconContainerLight), { justifyContent: 'center', alignItems: 'center' }]}>
-        <ForwardArrowIcon color={isDark ? '#FFFFFF' : '#1C1C1C'} size={18} />
+        <ForwardArrowIcon color={isDark ? colors.white : colors.dark} size={18} />
       </View>
       <Heading level={2} style={styles.title}>
         {isRegister ? t('loginCreateAccount') : t('loginWelcome')}
@@ -36,15 +37,15 @@ export function PasswordInputField({ value, onChangeText, showToggle, isDark, sh
       placeholder="......"
       isDark={isDark}
       secureTextEntry={!showPassword}
-      style={{ flex: 1 }}
+      style={styles.flex1}
       styles={{
         fieldInput: [styles.input, ic(isDark, styles.textDark, styles.textLight)],
         inputContainer: [styles.inputContainer, ic(isDark, styles.inputContainerDark, styles.inputContainerLight), { flexDirection: 'row', alignItems: 'center' }],
       }}
-      leftIcon={<LockIcon color="#888" size={16} style={{ marginRight: 8 }} />}
+      leftIcon={<LockIcon color={colors.textSubtleLight} size={16} style={styles.iconMargin} />}
       rightIcon={showToggle ? (
         <IconButton
-          icon={showPassword ? <EyeOffIcon color={isDark ? '#888' : '#666'} size={16} /> : <EyeIcon color={isDark ? '#888' : '#666'} size={16} />}
+          icon={showPassword ? <EyeOffIcon color={isDark ? colors.textSubtleLight : colors.textMutedLight} size={16} /> : <EyeIcon color={isDark ? colors.textSubtleLight : colors.textMutedLight} size={16} />}
           onPress={() => setShowPassword(!showPassword)}
           variant="transparent"
           size="sm"

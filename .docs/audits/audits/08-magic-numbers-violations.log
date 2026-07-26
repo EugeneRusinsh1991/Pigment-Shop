@@ -1,116 +1,9 @@
 ===================================================================
                8. MAGIC NUMBERS REPORT                             
-Timestamp: 27.07.2026, 01:05:57
+Timestamp: 27.07.2026, 01:23:37
 ===================================================================
 
-Found 112 magic number issue(s) across 33 file(s):
-
-File: src\components\Admin\Analytics\DateRangeCalendarStyles.js
-  L58    Off-grid marginVertical: 1px
-
-File: src\components\Admin\Banners\BannersStyles.js
-  L76    Off-grid gap: 10px
-  L168   Off-grid gap: 14px
-
-File: src\components\Admin\Categories\CategoriesStyles.js
-  L40    Off-grid paddingHorizontal: 14px
-  L56    Off-grid marginBottom: 10px
-  L61    Off-grid paddingHorizontal: 14px
-  L89    Off-grid paddingVertical: 10px
-  L123   Off-grid gap: 6px
-  L142   Off-grid marginTop: 1px
-  L146   Off-grid marginTop: 3px
-  L147   Off-grid paddingHorizontal: 7px
-  L161   Off-grid paddingHorizontal: 6px
-  L208   Off-grid paddingVertical: 14px
-
-File: src\components\Admin\Categories\CategoryFormStyles.js
-  L96    Off-grid marginBottom: 10px
-  L105   Off-grid marginBottom: 14px
-  L110   Off-grid marginBottom: 14px
-  L114   Off-grid marginBottom: 5px
-  L134   Off-grid paddingVertical: 10px
-  L165   Off-grid paddingHorizontal: 14px
-  L184   Off-grid paddingHorizontal: 14px
-  L185   Off-grid paddingVertical: 10px
-  L195   Off-grid paddingHorizontal: 10px
-
-File: src\components\Admin\Categories\CategoryProductSection.js
-  L24    Off-grid paddingHorizontal: 10px
-  L59    Off-grid gap: 6px
-
-File: src\components\Admin\Categories\CategoryRow.js
-  L29    Off-grid gap: 6px
-
-File: src\components\Admin\Media\MediaBrowserComponents.js
-  L23    Off-grid marginRight: 6px
-
-File: src\components\Admin\Media\MediaBrowserStyles.js
-  L26    Off-grid paddingVertical: 14px
-  L36    Off-grid paddingVertical: 6px
-  L73    Off-grid paddingVertical: 10px
-  L79    Off-grid paddingVertical: 6px
-  L103   Off-grid gap: 10px
-  L123   Off-grid paddingHorizontal: 6px
-  L138   Off-grid gap: 10px
-  L144   Off-grid paddingVertical: 10px
-  L155   Off-grid paddingVertical: 10px
-
-File: src\components\Admin\Orders\OrdersStyles.js
-  L75    Off-grid gap: 6px
-  L109   Off-grid marginBottom: 3px
-  L160   Off-grid marginBottom: 6px
-  L168   Off-grid marginBottom: 10px
-  L174   Off-grid marginBottom: 6px
-  L191   Off-grid paddingVertical: 6px
-  L227   Off-grid paddingVertical: 10px
-  L238   Off-grid paddingVertical: 10px
-  L245   Off-grid paddingVertical: 10px
-  L248   Off-grid marginBottom: 10px
-
-File: src\components\Admin\Orders\OrderStatusDropdownMenu.js
-  L33    Off-grid paddingVertical: 10px
-
-File: src\components\Admin\Products\ProductFormStyles.js
-  L65    Off-grid marginBottom: 14px
-  L73    Off-grid marginBottom: 5px
-  L93    Off-grid paddingVertical: 10px
-  L113   Off-grid gap: 10px
-  L114   Off-grid marginBottom: 14px
-  L142   Off-grid paddingVertical: 10px
-  L151   Off-grid paddingVertical: 10px
-
-File: src\components\Admin\Products\ProductsStyles.js
-  L27    Off-grid paddingHorizontal: 14px
-  L55    Off-grid paddingVertical: 11px
-  L65    Off-grid gap: 10px
-  L119   Off-grid gap: 10px
-  L126   Off-grid gap: 10px
-  L165   Off-grid marginTop: 10px
-  L191   Off-grid paddingVertical: 10px
-  L192   Off-grid paddingHorizontal: 14px
-  L200   Off-grid gap: 10px
-  L235   Off-grid marginTop: 1px
-  L240   Off-grid paddingHorizontal: 5px
-  L241   Off-grid paddingVertical: 1px
-  L250   Off-grid marginTop: 3px
-  L266   Off-grid paddingVertical: 3px
-  L285   Off-grid paddingVertical: 14px
-
-File: src\components\Admin\SharedFormComponents.js
-  L9     Off-grid gap: 6px
-
-File: src\components\Admin\Users\UserRow.js
-  L21    Off-grid gap: 6px
-  L58    Off-grid gap: 6px
-
-File: src\components\Admin\Users\UsersStyles.js
-  L25    Off-grid paddingHorizontal: 10px
-  L64    Off-grid paddingVertical: 14px
-  L162   Off-grid marginBottom: 10px
-  L169   Off-grid paddingVertical: 10px
-  L199   Off-grid paddingVertical: 14px
-  L219   Off-grid gap: 6px
+Found 17 magic number issue(s) across 8 file(s):
 
 File: src\components\Badge\BadgeStyles.js
   L16    Off-grid paddingHorizontal: 10px
@@ -121,18 +14,6 @@ File: src\components\Badge\BadgeStyles.js
 File: src\components\Flag\FlagStyles.js
   L68    Off-grid paddingHorizontal: 14px
 
-File: src\features\auth\LoginPageStyles.js
-  L36    Off-grid marginBottom: 6px
-
-File: src\features\cart\CartItem.js
-  L79    Off-grid marginVertical: 6px
-
-File: src\features\cart\CartViewStyles.js
-  L21    Off-grid marginBottom: 6px
-  L42    Off-grid marginTop: 10px
-  L94    Off-grid marginTop: 6px
-  L131   Off-grid marginTop: 6px
-
 File: src\features\catalog\CatalogFilterSidebarStyles.js
   L20    Off-grid marginBottom: 6px
   L40    Off-grid paddingVertical: 6px
@@ -140,35 +21,9 @@ File: src\features\catalog\CatalogFilterSidebarStyles.js
 File: src\features\catalog\PriceRangeSlider.js
   L155   Off-grid paddingHorizontal: 10px
 
-File: src\features\contact\ContactPageStyles.js
-  L41    Off-grid gap: 10px
-  L66    Off-grid marginBottom: 10px
-  L71    Off-grid padding: 14px
-
 File: src\features\home\components\FeaturedSections.js
   L112   Off-grid padding: 18px
   L144   Off-grid paddingVertical: 3px
-
-File: src\features\orders\OrdersPageStyles.js
-  L92    Off-grid paddingVertical: 6px
-  L130   Off-grid marginBottom: 6px
-
-File: src\features\product\ProductCardStyles.js
-  L52    Off-grid gap: 6px
-
-File: src\features\product\ProductPageStyles.js
-  L16    Off-grid paddingBottom: 60px
-  L56    Off-grid marginBottom: 10px
-
-File: src\features\product\ProductReviewsStyles.js
-  L19    Off-grid marginBottom: 6px
-  L113   Off-grid marginBottom: 6px
-
-File: src\features\profile\ProfileFormCard.js
-  L52    Off-grid marginTop: 6px
-
-File: src\features\profile\ProfilePageStyles.js
-  L60    Off-grid marginTop: 6px
 
 File: src\features\shell\NavMenu\CategoryTreeNodeButtons.js
   L30    Off-grid paddingVertical: 10px

@@ -1,6 +1,6 @@
 ===================================================================
                5. SERVICE LAYER ARCHITECTURE REPORT                
-Timestamp: 27.07.2026, 01:05:57
+Timestamp: 27.07.2026, 01:23:36
 ===================================================================
 
 Found 13 service layer issue(s) across 4 file(s):
@@ -16,7 +16,7 @@ File: src\components\Admin\shared\adminSharedService.js
 
 File: src\features\contact\ContactQuestionForm.js
   L4     import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
-  L39    await addDoc(collection(db, COLLECTIONS.SUPPORT_MESSAGES), payload);
+  L40    await addDoc(collection(db, COLLECTIONS.SUPPORT_MESSAGES), payload);
 
 File: src\features\product\useReviewsState.js
   L3     import { addDoc, collection, onSnapshot } from 'firebase/firestore';

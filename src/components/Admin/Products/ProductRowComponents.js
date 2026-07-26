@@ -59,7 +59,7 @@ export function DiscountCell({ discountPercent }) {
 
 export function ProductRowActions({ product, onEdit, onDelete }) {
   return (
-    <View style={{ flexDirection: 'row', alignItems: 'center', gap: layout.spacing.xxs }}>
+    <View style={styles.rowActionsCompact}>
       <IconButton
         icon={<EditIcon size={14} />}
         onPress={() => onEdit(product)}

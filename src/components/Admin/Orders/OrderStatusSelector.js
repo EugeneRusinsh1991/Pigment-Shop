@@ -51,7 +51,7 @@ export default function OrderStatusSelector({ currentStatus, updating, onStatusC
   };
 
   return (
-    <View style={{ zIndex: layout.zIndices.dropdown, position: 'relative', marginBottom: layout.spacing.md }}>
+    <View style={styles.statusSelectorContainer}>
       <Flag
         variant="chip"
         checked={isOpen}

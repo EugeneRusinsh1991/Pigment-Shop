@@ -49,7 +49,7 @@ function SaveButton({ saving, loading, onSave, label }) {
       disabled={saving || loading}
       variant="primary"
       size="md"
-      style={{ marginTop: 6 }}
+      style={styles.saveBtnMargin}
     />
   );
 }

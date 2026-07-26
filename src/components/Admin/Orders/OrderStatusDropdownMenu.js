@@ -14,14 +14,7 @@ export default function OrderStatusDropdownMenu({ statuses, currentStatus, updat
   const canonical = LEGACY_MAP[currentStatus] || currentStatus;
 
   return (
-    <View
-      style={{
-        position: 'absolute', top: 48, left: 0, right: 0,
-        backgroundColor: colors.surfaceLight, borderWidth: 1, borderColor: colors.secondaryLightBorder,
-        borderRadius: layout.radii.sm, elevation: 3, zIndex: layout.zIndices.dropdown, overflow: 'hidden',
-        ...shadow.dropdown(),
-      }}
-    >
+    <View style={styles.dropdownMenuContainer}>
       {statuses.map((status, index) => {
         const isSelected = canonical === status.value;
         return (
@@ -29,22 +22,19 @@ export default function OrderStatusDropdownMenu({ statuses, currentStatus, updat
             key={status.value}
             style={[
               styles.statusOption,
-              {
-                paddingVertical: 10, paddingHorizontal: layout.spacing.md,
-                borderBottomWidth: index === statuses.length - 1 ? 0 : 1,
-                borderBottomColor: colors.slateMid,
-                backgroundColor: isSelected ? status.bg : colors.surfaceLight,
-              },
+              styles.dropdownOption,
+              index !== statuses.length - 1 && styles.dropdownOptionBorder,
+              isSelected && { backgroundColor: status.bg },
             ]}
             onPress={() => handleSelect(status.value)}
             disabled={updating}
           >
-            <View style={{ flexDirection: 'row', alignItems: 'center', gap: layout.spacing.sm }}>
-              <View style={{ width: layout.spacing.sm, height: layout.spacing.sm, borderRadius: layout.spacing.xxs, backgroundColor: status.color }} />
+            <View style={styles.dropdownOptionRow}>
+              <View style={[styles.statusDot, { backgroundColor: status.color }]} />
               <Text style={[styles.statusOptionText, { color: status.color }]} size={14} weight={isSelected ? '700' : '500'}>
                 {t(status.localeKey) || status.value}
               </Text>
-              {isSelected && <Text style={{ color: status.color }} size={12}>✓</Text>}
+              {isSelected && <Text style={[styles.checkmark, { color: status.color }]} size={12}>✓</Text>}
             </View>
           </AnimatedButton>
         );

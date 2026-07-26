@@ -19,7 +19,7 @@ export default function MediaBrowserItem({ item, selected, onSelect, onDelete })
       style={[styles.itemBtn, selected && styles.itemBtnSelected]}
       onPress={() => onSelect(item)}
     >
-      <View style={{ width: '100%', height: 80, overflow: 'hidden' }}>
+      <View style={styles.itemThumbContainer}>
         <MediaRenderer uri={uri} style={styles.itemThumb} resizeMode="cover" />
       </View>
       <Text style={styles.itemName} size={10} numberOfLines={1}>{item.name}</Text>

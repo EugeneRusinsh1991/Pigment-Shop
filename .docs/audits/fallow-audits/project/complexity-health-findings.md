@@ -1,6 +1,6 @@
 # 🩺 Complexity Health Findings (Critical & High)
 
-*Generated on: 27.07.2026, 01:06:06*
+*Generated on: 27.07.2026, 01:23:49*
 
 ## 🔴 Critical (≤ 50 lines)
 
@@ -25,6 +25,12 @@
 - 🟠 **`useDrawerAnimation`** [L12](file:///D:/Magazine/_PigmentShop/src/components/Drawer/useDrawerAnimation.js#L12)
   - Lines: 79 | Cyclomatic: 7 | Cognitive: 8 | CRAP: 56
 
+#### 📁 [CartViewContent.js](file:///D:/Magazine/_PigmentShop/src/features/cart/CartViewContent.js)
+`src/features/cart/CartViewContent.js`
+
+- 🟠 **`CartViewContent`** [L28](file:///D:/Magazine/_PigmentShop/src/features/cart/CartViewContent.js#L28)
+  - Lines: 111 | Cyclomatic: 5 | Cognitive: 25 | CRAP: 30
+
 #### 📁 [TextField.js](file:///D:/Magazine/_PigmentShop/src/components/TextField/TextField.js)
 `src/components/TextField/TextField.js`
 
@@ -39,6 +45,12 @@
 
 - 🟠 **`getIconColor`** [L26](file:///D:/Magazine/_PigmentShop/src/components/icons/IconsStyles.js#L26)
   - Lines: 10 | Cyclomatic: 9 | Cognitive: 7 | CRAP: 90
+
+#### 📁 [UserRow.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Users/UserRow.js)
+`src/components/Admin/Users/UserRow.js`
+
+- 🟠 **`DesktopUserRow`** [L36](file:///D:/Magazine/_PigmentShop/src/components/Admin/Users/UserRow.js#L36)
+  - Lines: 29 | Cyclomatic: 9 | Cognitive: 8 | CRAP: 90
 
 #### 📁 [useDataTableTheme.js](file:///D:/Magazine/_PigmentShop/src/components/DataTable/useDataTableTheme.js)
 `src/components/DataTable/useDataTableTheme.js`

@@ -9,7 +9,7 @@ import { formatDateLong } from '../../utils/dateFormatting';
 
 function OrderItemsHeader({ isDark, t }) {
   return (
-    <View style={[styles.itemsHeader, isDark ? styles.borderDark : styles.borderLight, { marginTop: 24 }]}>
+    <View style={[styles.itemsHeader, isDark ? styles.borderDark : styles.borderLight, styles.itemsHeaderTop]}>
       <Text variant="label" weight="medium" style={[styles.colProduct]}>
         {t('orderConfirmationItemProduct')}
       </Text>
@@ -78,12 +78,21 @@ export default function OrderDetailsCard({ isDark, orderId, items = [], totalPri
 
 const styles = StyleSheet.create({
   cardSpecific: {
-    marginBottom: 20,
+    marginBottom: layout.spacing.xl,
   },
   itemsHeader: {
     flexDirection: 'row',
-    paddingBottom: 8,
+    paddingBottom: layout.spacing.sm,
     borderBottomWidth: 1,
+  },
+  itemsHeaderTop: {
+    marginTop: layout.spacing.xl,
+  },
+  borderDark: {
+    borderBottomColor: colors.borderDark,
+  },
+  borderLight: {
+    borderBottomColor: colors.borderLight,
   },
   colProduct: {
     flex: 4,

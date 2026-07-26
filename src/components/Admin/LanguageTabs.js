@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { ChipButton } from '../Button';
 import { layout } from '../../theme/tokens';
 
@@ -11,7 +11,7 @@ const LANGUAGES = [
 
 export function LanguageTabs({ activeLang, onChange }) {
   return (
-    <View style={{ flexDirection: 'row', gap: layout.spacing.sm, marginBottom: layout.spacing.lg }}>
+    <View style={styles.container}>
       {LANGUAGES.map((item) => {
         const isActive = activeLang === item.code;
         return (
@@ -27,3 +27,11 @@ export function LanguageTabs({ activeLang, onChange }) {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    gap: layout.spacing.sm,
+    marginBottom: layout.spacing.lg,
+  },
+});

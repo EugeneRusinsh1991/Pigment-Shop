@@ -2,7 +2,7 @@ import React from 'react';
 import { View, TouchableOpacity } from 'react-native';
 import { Text } from '../../Text';
 import { useTheme } from '../../../context/ThemeContext';
-import { localStyles } from './DateRangeCalendarStyles';
+import { localStyles as styles } from './DateRangeCalendarStyles';
 import { CalendarDayCell } from './CalendarDayCell';
 
 function getPrevMonthCells(year, month, firstDayIndex, daysInPrevMonth) {
@@ -75,36 +75,36 @@ export function DateRangeCalendar({
   const weekdayLabels = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
 
   return (
-    <View style={localStyles.calendarPopup}>
-      <View style={localStyles.calendarHeader}>
+    <View style={styles.calendarPopup}>
+      <View style={styles.calendarHeader}>
         <TouchableOpacity 
-          style={localStyles.arrowBtn} 
+          style={styles.arrowBtn} 
           onPress={() => navigateMonth(-1)}
           activeOpacity={0.7}
         >
-          <Text style={localStyles.arrowText}>‹</Text>
+          <Text style={styles.arrowText}>‹</Text>
         </TouchableOpacity>
-        <Text variant="subtitle1" weight="bold" style={localStyles.monthTitle}>
+        <Text variant="subtitle1" weight="bold" style={styles.monthTitle}>
           {monthNames[month]} {year}
         </Text>
         <TouchableOpacity 
-          style={localStyles.arrowBtn} 
+          style={styles.arrowBtn} 
           onPress={() => navigateMonth(1)}
           activeOpacity={0.7}
         >
-          <Text style={localStyles.arrowText}>›</Text>
+          <Text style={styles.arrowText}>›</Text>
         </TouchableOpacity>
       </View>
 
-      <View style={localStyles.weekdaysRow}>
+      <View style={styles.weekdaysRow}>
         {weekdayLabels.map((label, idx) => (
-          <View key={idx} style={localStyles.weekdayCell}>
-            <Text variant="caption" weight="semibold" color="secondary" style={localStyles.weekdayText}>{label}</Text>
+          <View key={idx} style={styles.weekdayCell}>
+            <Text variant="caption" weight="semibold" color="secondary" style={styles.weekdayText}>{label}</Text>
           </View>
         ))}
       </View>
 
-      <View style={localStyles.daysGrid}>
+      <View style={styles.daysGrid}>
         {cells.map((cell, idx) => (
           <CalendarDayCell
             key={idx}

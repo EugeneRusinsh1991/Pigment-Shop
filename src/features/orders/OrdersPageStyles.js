@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors } from '@/theme/tokens';
+import { colors, layout } from '@/theme/tokens';
 
 export default StyleSheet.create({
   container: {
@@ -10,38 +10,38 @@ export default StyleSheet.create({
   containerLight: { backgroundColor: colors.backgroundLight },
   scrollContent: {
     flexGrow: 1,
-    paddingBottom: 24,
+    paddingBottom: 0,
   },
   pageContent: {
-    paddingHorizontal: 8,
-    paddingVertical: 16,
+    paddingHorizontal: layout.spacing.sm,
+    paddingVertical: layout.spacing.lg,
   },
   title: {
-    marginBottom: 16,
+    marginBottom: layout.spacing.lg,
     textAlign: 'center',
   },
   emptyText: {
-    marginTop: 12,
+    marginTop: layout.spacing.md,
     textAlign: 'center',
   },
   emptyTextDark: { color: colors.textMutedDark },
   emptyTextLight: { color: colors.textMutedLight },
   cardSpecific: {
-    marginBottom: 12,
+    marginBottom: layout.spacing.md,
   },
   orderHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 8,
+    marginBottom: layout.spacing.sm,
   },
   orderNumber: {},
   orderStatus: {},
   statusBadge: {
     width: 110,
-    paddingVertical: 4,
-    paddingHorizontal: 8,
-    borderRadius: 16,
+    paddingVertical: layout.spacing.xxs,
+    paddingHorizontal: layout.spacing.sm,
+    borderRadius: layout.radii.md,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -75,9 +75,9 @@ export default StyleSheet.create({
   toggleTextDark: { color: colors.infoLight },
   toggleTextLight: { color: colors.infoDeep },
   itemsList: {
-    marginTop: 12,
-    borderRadius: 8,
-    padding: 12,
+    marginTop: layout.spacing.md,
+    borderRadius: layout.radii.sm,
+    padding: layout.spacing.md,
   },
   itemsListDark: {
     backgroundColor: colors.productCardDark,
@@ -89,7 +89,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingVertical: 6,
+    paddingVertical: layout.spacing.xs,
   },
   itemBorderDark: {
     borderTopWidth: 1,
@@ -101,11 +101,11 @@ export default StyleSheet.create({
   },
   itemInfo: {
     flex: 1,
-    marginRight: 8,
+    marginRight: layout.spacing.sm,
   },
   itemLabel: {},
   itemQtyPrice: {
-    marginTop: 2,
+    marginTop: layout.elevation.sm,
   },
   itemSubtotal: {},
   adminCardNew: {
@@ -125,15 +125,23 @@ export default StyleSheet.create({
     borderColor: colors.dangerBgLight,
   },
   adminCardSpecific: {
-    paddingVertical: 8,
-    paddingHorizontal: 16,
-    marginBottom: 6,
-    borderRadius: 12,
+    paddingVertical: layout.spacing.sm,
+    paddingHorizontal: layout.spacing.lg,
+    marginBottom: layout.spacing.xs,
+    borderRadius: layout.spacing.md,
   },
   adminOrderHeader: {
-    marginBottom: 4,
+    marginBottom: layout.spacing.xxs,
   },
   adminOrderDate: {
-    marginBottom: 4,
+    marginBottom: layout.spacing.xxs,
   },
+  flexOne: { flex: 1 },
+  contentWrapper: { alignSelf: 'center', width: '100%' },
+  noteSection: { marginTop: layout.spacing.md, paddingTop: layout.spacing.md },
+  noteTitle: { marginBottom: layout.spacing.xxs },
+  mobileHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
+  mobileCol: { flex: 1, flexDirection: 'column', gap: layout.spacing.xxs },
+  mobileTotal: { marginTop: layout.elevation.sm },
+  mobileRight: { alignItems: 'flex-end', gap: layout.spacing.sm },
 });

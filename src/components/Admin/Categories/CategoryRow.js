@@ -1,9 +1,10 @@
 import React from 'react';
-import { View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { Text } from '../../Text';
 import { AnimatedButton } from '../../Button';
 import { useTheme } from '../../../context/ThemeContext';
 import { Badge } from '../../Badge';
+import { layout } from '../../../theme/tokens';
 import styles, { CATEGORY_TYPE_COLORS } from './CategoriesStyles';
 import {
   DepthBars,
@@ -13,6 +14,23 @@ import {
   getCategoryMeta,
   resolveCategoryName,
 } from './CategoryRowElements';
+
+const row_styles = StyleSheet.create({
+  badgeRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: layout.spacing.xs,
+    marginTop: layout.spacing.xxs,
+  },
+  mobileRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: layout.spacing.sm,
+  },
+  flex1: {
+    flex: 1,
+  },
+});
 
 function useCategoryRowData(row, products) {
   const { lang, t } = useTheme();
@@ -26,7 +44,7 @@ function useCategoryRowData(row, products) {
 
 function CategoryTypeBadge({ type, typeColors, countLabel, children }) {
   return (
-    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 2 }}>
+    <View style={row_styles.badgeRow}>
       <Badge
         variant="status"
         status={type === 'category_holder' ? 'categoryHolder' : 'productHolder'}
@@ -55,10 +73,10 @@ export function DesktopCategoryRow({ row, hasChildren, isCollapsed, onToggle, on
       <DepthBars depth={safeDepth} leftOffset={16} />
 
       {/* Name column */}
-      <View style={[styles.colName, { paddingLeft: safeDepth * INDENT_PER_LEVEL + (safeDepth > 0 ? 10 : 0) }]}>
+      <View style={[styles.colName, { paddingLeft: safeDepth * INDENT_PER_LEVEL + (safeDepth > 0 ? layout.spacing.sm : 0) }]}>
         <View style={styles.nameCell}>
           <ToggleButton hasChildren={hasChildren} isCollapsed={isCollapsed} onToggle={onToggle} rowId={row.id} />
-          <View style={{ flex: 1 }}>
+          <View style={row_styles.flex1}>
             <Text style={styles.categoryName} size={safeDepth > 0 ? 12 : undefined}>{name}</Text>
             <CategoryTypeBadge type={type} typeColors={typeColors} countLabel={countLabel} />
           </View>
@@ -88,10 +106,10 @@ export function MobileCategoryCard({ row, hasChildren, isCollapsed, onToggle, on
       <DepthBars depth={safeDepth} leftOffset={16} />
 
       {/* Single row: toggle + name + image badge */}
-      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, paddingLeft: safeDepth * INDENT_PER_LEVEL + (safeDepth > 0 ? 10 : 0) }}>
+      <View style={[row_styles.mobileRow, { paddingLeft: safeDepth * INDENT_PER_LEVEL + (safeDepth > 0 ? layout.spacing.sm : 0) }]}>
         <ToggleButton hasChildren={hasChildren} isCollapsed={isCollapsed} onToggle={onToggle} rowId={row.id} />
 
-        <View style={{ flex: 1 }}>
+        <View style={row_styles.flex1}>
           <Text style={styles.categoryName} size={safeDepth > 0 ? 12 : undefined} numberOfLines={1}>{name}</Text>
           <CategoryTypeBadge type={type} typeColors={typeColors} countLabel={countLabel}>
             <ImageBadge image={row.image} />

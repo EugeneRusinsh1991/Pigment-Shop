@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors, fonts, buttonTokens } from '../../theme/tokens';
+import { colors, fonts, buttonTokens, layout } from '../../theme/tokens';
 import { shadow } from '../../theme/shadows';
 
 const styles = StyleSheet.create({
@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     width: '100%',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 24,
+    padding: layout.spacing.xl,
   },
   content: {
     width: '100%',
@@ -17,15 +17,15 @@ const styles = StyleSheet.create({
   },
   header: {
     alignItems: 'center',
-    marginBottom: 12,
+    marginBottom: layout.spacing.md,
   },
   iconContainer: {
     width: 48,
     height: 48,
-    borderRadius: 12,
+    borderRadius: layout.radii.md,
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 12,
+    marginBottom: layout.spacing.md,
   },
   iconContainerDark: { backgroundColor: colors.white },
   iconContainerLight: { backgroundColor: colors.dark },
@@ -33,17 +33,17 @@ const styles = StyleSheet.create({
   iconDark: { color: colors.dark },
   iconLight: { color: colors.white },
   title: {
-    marginBottom: 6,
+    marginBottom: layout.spacing.xs,
   },
   subtitle: {},
   formContainer: {
     width: '100%',
-    borderRadius: 16,
-    paddingHorizontal: 24,
-    paddingVertical: 16,
+    borderRadius: layout.radii.md,
+    paddingHorizontal: layout.spacing.xl,
+    paddingVertical: layout.spacing.lg,
     ...shadow.panel(),
     elevation: 2,
-    marginBottom: 16,
+    marginBottom: layout.spacing.lg,
   },
   formContainerDark: { backgroundColor: colors.dark, borderWidth: 1, borderColor: colors.borderDark },
   formContainerLight: { backgroundColor: colors.white, borderWidth: 1, borderColor: colors.borderLight },
@@ -55,19 +55,19 @@ const styles = StyleSheet.create({
     paddingHorizontal: buttonTokens.sizes.lg.paddingHorizontal,
     borderRadius: buttonTokens.sizes.lg.borderRadius,
     borderWidth: 1,
-    marginBottom: 16,
+    marginBottom: layout.spacing.lg,
   },
   googleBtnDark: { borderColor: colors.outlineDarkBorder },
   googleBtnLight: { borderColor: colors.neutralLightMid },
   googleIcon: {
-    marginRight: 8,
+    marginRight: layout.spacing.sm,
     color: colors.googleRed,
   },
   googleBtnText: {},
   dividerContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 16,
+    marginBottom: layout.spacing.lg,
   },
   dividerLine: {
     flex: 1,
@@ -76,10 +76,10 @@ const styles = StyleSheet.create({
   dividerLineDark: { backgroundColor: colors.outlineDarkBorder },
   dividerLineLight: { backgroundColor: colors.neutralLightMid },
   dividerText: {
-    marginHorizontal: 12,
+    marginHorizontal: layout.spacing.md,
   },
   inputGroup: {
-    marginBottom: 12,
+    marginBottom: layout.spacing.md,
   },
   passwordLabelRow: {
     flexDirection: 'row',
@@ -87,21 +87,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   label: {
-    marginBottom: 4,
+    marginBottom: layout.spacing.xxs,
   },
   forgotText: {},
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 1,
-    borderRadius: 8,
-    paddingHorizontal: 12,
+    borderRadius: layout.radii.sm,
+    paddingHorizontal: layout.spacing.md,
     height: 44,
   },
   inputContainerDark: { borderColor: colors.outlineDarkBorder, backgroundColor: colors.borderDarkAlt },
   inputContainerLight: { borderColor: colors.neutralLightMid, backgroundColor: colors.inputBgLight },
   inputIcon: {
-    marginRight: 8,
+    marginRight: layout.spacing.sm,
     color: colors.textSubtleLight,
   },
   input: {
@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
     borderRadius: buttonTokens.sizes.lg.borderRadius,
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 8,
+    marginTop: layout.spacing.sm,
   },
   loginBtnDark: { backgroundColor: colors.white },
   loginBtnLight: { backgroundColor: colors.dark },
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
   loginBtnTextLight: { color: colors.white },
   errorText: {
     color: colors.accent,
-    marginBottom: 12,
+    marginBottom: layout.spacing.md,
     textAlign: 'center',
   },
   footer: {
@@ -135,6 +135,35 @@ const styles = StyleSheet.create({
   textLight: { color: colors.dark },
   subtextDark: { color: colors.textMutedDark },
   subtextLight: { color: colors.textMutedLight },
+  noPadding: {
+    padding: 0,
+  },
+  contentPadding: {
+    paddingBottom: layout.spacing.xxl,
+  },
+  scrollContent: {
+    flexGrow: 1,
+    width: '100%',
+    paddingTop: layout.spacing.xl,
+    paddingBottom: 0,
+  },
+  centerContainer: {
+    flex: 1,
+    width: '100%',
+    alignItems: 'center',
+  },
+  iconMargin: {
+    marginRight: layout.spacing.sm,
+  },
+  flex1: {
+    flex: 1,
+  },
+  marginBottom16: {
+    marginBottom: layout.spacing.lg,
+  },
+  marginTop8: {
+    marginTop: layout.spacing.sm,
+  },
 });
 
 export default styles;

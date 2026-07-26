@@ -8,7 +8,7 @@ import { Platform, View } from 'react-native';
 import { Text } from '../../Text';
 import { useLanguage } from '../../../context/LanguageContext';
 import styles from './AnalyticsStyles';
-import { colors } from '../../../theme/tokens';
+import { colors, layout } from '../../../theme/tokens';
 
 const isWeb = Platform.OS === 'web';
 
@@ -61,7 +61,7 @@ export default function RevenueChart({ revenueData = [] }) {
 
   if (revenueData.length === 0) {
     return (
-      <View style={{ height: 180, justifyContent: 'center', alignItems: 'center' }}>
+      <View style={styles.chartEmpty}>
         <Text variant="body2" color="secondary">{t.adminAnalyticsNoData}</Text>
       </View>
     );
@@ -100,7 +100,7 @@ export default function RevenueChart({ revenueData = [] }) {
           height="100%"
           viewBox={`0 0 ${SVG_W} ${SVG_H}`}
           preserveAspectRatio="xMidYMid meet"
-          style={{ display: 'block' }}
+          style={styles.svgBlock}
         >
           <defs>
             <linearGradient id="revenueGrad2" x1="0" y1="0" x2="0" y2="1">
@@ -166,13 +166,13 @@ export default function RevenueChart({ revenueData = [] }) {
           )}
         </svg>
       ) : (
-        <View style={{ flex: 1, justifyContent: 'flex-end' }}>
-          <View style={{ flexDirection: 'row', alignItems: 'flex-end', height: PLOT_H }}>
+        <View style={styles.revenueNativeContainer}>
+          <View style={[styles.revenueNativeRow, { height: PLOT_H }]}>
             {revenueData.map((d, i) => {
               const barH = max === 0 ? 4 : Math.max(4, (d.value / max) * PLOT_H);
               return (
-                <View key={i} style={{ flex: 1, marginLeft: i === 0 ? 0 : 2, alignItems: 'center' }}>
-                  <View style={{ width: 6, height: barH, backgroundColor: colors.successMid, borderRadius: 3 }} />
+                <View key={i} style={[styles.revenueBarCol, { marginLeft: i === 0 ? layout.spacing.none : layout.spacing.xxxs }]}>
+                  <View style={[styles.revenueBarFill, { height: barH }]} />
                 </View>
               );
             })}

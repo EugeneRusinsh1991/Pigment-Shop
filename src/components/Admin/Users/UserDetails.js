@@ -54,7 +54,7 @@ export default function UserDetails({ user, onBack }) {
         onPress={onBack}
         variant="ghost"
         size="sm"
-        style={{ alignSelf: 'flex-start', marginBottom: 16 }}
+        style={styles.backBtnStyle}
       />
 
       <UserInfoCard user={user} t={t} />

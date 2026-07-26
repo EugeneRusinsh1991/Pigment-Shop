@@ -30,9 +30,9 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingHorizontal: 24,
-    paddingTop: 24,
-    paddingBottom: 16,
+    paddingHorizontal: layout.spacing.xl,
+    paddingTop: layout.spacing.xl,
+    paddingBottom: layout.spacing.lg,
     borderBottomWidth: 1,
     borderBottomColor: colors.borderLightAlt,
   },
@@ -41,39 +41,39 @@ export default StyleSheet.create({
   },
   modalCloseBtn: {
     color: colors.textDescDark,
-    padding: 4,
+    padding: layout.spacing.xxs,
   },
   modalBody: {
-    paddingHorizontal: 24,
-    paddingVertical: 20,
+    paddingHorizontal: layout.spacing.xl,
+    paddingVertical: layout.spacing.lg,
   },
   modalFooter: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    gap: 12,
-    paddingHorizontal: 24,
-    paddingBottom: 24,
-    paddingTop: 12,
+    gap: layout.spacing.md,
+    paddingHorizontal: layout.spacing.xl,
+    paddingBottom: layout.spacing.xl,
+    paddingTop: layout.spacing.md,
     borderTopWidth: 1,
     borderTopColor: colors.borderLightAlt,
   },
   modalFooterRight: {
     flexDirection: 'row',
-    gap: 12,
+    gap: layout.spacing.md,
   },
 
   /* Subsection divider */
   subSectionDivider: {
-    marginTop: 20,
-    marginBottom: 16,
+    marginTop: layout.spacing.lg,
+    marginBottom: layout.spacing.lg,
     borderTopWidth: 1,
     borderTopColor: colors.secondaryLightBorder,
-    paddingTop: 16,
+    paddingTop: layout.spacing.lg,
   },
   subSectionTitle: {
     color: colors.textLight,
-    marginBottom: 12,
+    marginBottom: layout.spacing.md,
   },
 
   /* Delete confirmation */
@@ -82,8 +82,8 @@ export default StyleSheet.create({
     borderRadius: layout.radii.sm,
     borderWidth: 1,
     borderColor: colors.dangerLight,
-    padding: 12,
-    marginTop: 8,
+    padding: layout.spacing.md,
+    marginTop: layout.spacing.sm,
   },
   deleteConfirmText: {
     color: colors.dangerDeep,
@@ -93,31 +93,31 @@ export default StyleSheet.create({
   sectionLabel: {
     color: colors.textDescDark,
     textTransform: 'uppercase',
-    marginBottom: 10,
-    marginTop: 4,
+    marginBottom: layout.spacing.sm,
+    marginTop: layout.spacing.xxs,
   },
 
   /* Form fields */
   fieldRow: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: 16,
-    marginBottom: 14,
+    gap: layout.spacing.lg,
+    marginBottom: layout.spacing.md,
   },
   fieldGroup: {
     flex: 1,
     minWidth: 140,
-    marginBottom: 14,
+    marginBottom: layout.spacing.md,
   },
   fieldLabel: {
     color: colors.textDescLight,
-    marginBottom: 5,
+    marginBottom: layout.spacing.xs,
   },
   fieldInput: {
     height: buttonTokens.sizes.md.height,
     backgroundColor: colors.secondaryLightBg,
     borderRadius: buttonTokens.sizes.md.borderRadius,
-    paddingHorizontal: 12,
+    paddingHorizontal: layout.spacing.md,
     color: colors.textLight,
     borderWidth: 1,
     borderColor: colors.navItemHoverDark,
@@ -130,8 +130,8 @@ export default StyleSheet.create({
     height: 60,
     backgroundColor: colors.secondaryLightBg,
     borderRadius: buttonTokens.sizes.md.borderRadius,
-    paddingHorizontal: 12,
-    paddingVertical: 10,
+    paddingHorizontal: layout.spacing.md,
+    paddingVertical: layout.spacing.sm,
     color: colors.textLight,
     borderWidth: 1,
     borderColor: colors.navItemHoverDark,
@@ -140,13 +140,13 @@ export default StyleSheet.create({
   },
   errorText: {
     color: colors.accent,
-    marginTop: 2,
+    marginTop: layout.spacing.xxs,
   },
 
   /* Image picker */
   imagePickerRow: {
     flexDirection: 'row',
-    gap: 8,
+    gap: layout.spacing.sm,
     alignItems: 'center',
   },
   imagePickerInput: {
@@ -154,7 +154,7 @@ export default StyleSheet.create({
     height: buttonTokens.sizes.md.height,
     backgroundColor: colors.secondaryLightBg,
     borderRadius: buttonTokens.sizes.md.borderRadius,
-    paddingHorizontal: 12,
+    paddingHorizontal: layout.spacing.md,
     color: colors.textLight,
     borderWidth: 1,
     borderColor: colors.navItemHoverDark,
@@ -162,7 +162,7 @@ export default StyleSheet.create({
   },
   uploadBtn: {
     height: buttonTokens.sizes.md.height,
-    paddingHorizontal: 14,
+    paddingHorizontal: layout.spacing.md,
     backgroundColor: colors.secondaryLightBg,
     borderRadius: buttonTokens.sizes.md.borderRadius,
     borderWidth: 1,
@@ -181,9 +181,9 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     backgroundColor: colors.slateLight,
     borderRadius: layout.radii.sm,
-    paddingHorizontal: 14,
-    paddingVertical: 10,
-    marginBottom: 16,
+    paddingHorizontal: layout.spacing.md,
+    paddingVertical: layout.spacing.sm,
+    marginBottom: layout.spacing.lg,
     borderWidth: 1,
     borderColor: colors.secondaryLightBorder,
   },
@@ -191,8 +191,8 @@ export default StyleSheet.create({
     color: colors.textDescLight,
   },
   categoryTypeBadge: {
-    paddingVertical: 4,
-    paddingHorizontal: 10,
+    paddingVertical: layout.spacing.xxs,
+    paddingHorizontal: layout.spacing.sm,
     borderRadius: layout.radii.xs,
     borderWidth: 1,
   },
@@ -200,16 +200,16 @@ export default StyleSheet.create({
 
   /* Buttons & Footer Grid */
   modalFooterGrid: {
-    paddingHorizontal: 24,
-    paddingBottom: 24,
-    paddingTop: 16,
+    paddingHorizontal: layout.spacing.xl,
+    paddingBottom: layout.spacing.xl,
+    paddingTop: layout.spacing.lg,
     borderTopWidth: 1,
     borderTopColor: colors.borderLightAlt,
-    gap: 12,
+    gap: layout.spacing.md,
   },
   modalFooterRow: {
     flexDirection: 'row',
-    gap: 12,
+    gap: layout.spacing.md,
   },
   addSubcategoryBtn: {
     flex: 1,
@@ -267,5 +267,8 @@ export default StyleSheet.create({
   },
   deleteBtnTextActive: {
     color: colors.textDark,
+  },
+  flex1: {
+    flex: 1,
   },
 });

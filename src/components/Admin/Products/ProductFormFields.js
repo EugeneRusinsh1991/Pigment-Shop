@@ -85,7 +85,7 @@ export const CategoryStockRow = ({ form, onChange }) => {
 export const ImageFields = ({ form, onChange }) => {
   const { t } = useTheme();
   return (
-    <View style={{ gap: layout.spacing.sm, marginBottom: layout.spacing.md }}>
+    <View style={styles.imageFieldsGroup}>
       <FieldInput label={`${t('adminProductsFormImage')} 1 *`} value={form.image1} onChangeText={(v) => onChange('image1', v)} placeholder="https://..." />
       <FieldInput label={`${t('adminProductsFormImage')} 2`} value={form.image2} onChangeText={(v) => onChange('image2', v)} placeholder="https://... (optional)" />
       <FieldInput label={`${t('adminProductsFormImage')} 3`} value={form.image3} onChangeText={(v) => onChange('image3', v)} placeholder="https://... (optional)" />

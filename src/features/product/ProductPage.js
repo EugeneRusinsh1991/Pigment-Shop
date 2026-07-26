@@ -27,7 +27,7 @@ function useProductActions(product) {
 function ProductPageHeader({ showNavigation, gridWidth, isDark, onBack, showBreadcrumbs = true }) {
   if (!showNavigation) return null;
   return (
-    <View style={{ alignSelf: 'center', width: gridWidth, maxWidth: '100%' }}>
+    <View style={[styles.pageHeaderContainer, { width: gridWidth }]}>
       <PageNavigation
         isDark={isDark}
         onBack={onBack}
@@ -44,7 +44,7 @@ import { getAccountName, useReviewsState } from './ProductReviewSubcomponents';
 
 function ProductDetails({ product, isWide, isDark, qty, onDecreaseQty, onIncreaseQty, onAddToCart, isFavorite, onToggleFavorite, reviewsState }) {
   return (
-    <View style={isWide ? styles.wideRow : styles.narrowStack}>
+    <View style={[isWide ? styles.wideRow : styles.narrowStack]}>
       <ProductImagePanel
         product={product}
         isWide={isWide}
@@ -128,17 +128,14 @@ export default function ProductPage({ product: initialProduct, isDark, showNavig
 
   if (!state.product) {
     return (
-      <View style={[styles.root, isDark ? styles.rootDark : styles.rootLight, { padding: 40, alignItems: 'center' }]}>
+      <View style={[styles.root, isDark ? styles.rootDark : styles.rootLight, styles.loadingRoot]}>
         <SkeletonLoader count={4} height={40} width={300} />
       </View>
     );
   }
 
-  const rootStyle = [styles.root, isDark ? styles.rootDark : styles.rootLight];
-  const containerStyle = { alignSelf: 'center', width: state.gridWidth, maxWidth: '100%', paddingBottom: 24 };
-
   return (
-    <View style={rootStyle}>
+    <View style={[styles.root, isDark ? styles.rootDark : styles.rootLight]}>
       <ProductPageHeader
         showNavigation={showNavigation}
         gridWidth={state.gridWidth}
@@ -146,9 +143,9 @@ export default function ProductPage({ product: initialProduct, isDark, showNavig
         onBack={state.handleBackPress}
         showBreadcrumbs={!state.isFromAllProducts}
       />
-      <ScrollView contentContainerStyle={[styles.scroll, { paddingBottom: 0 }]} showsVerticalScrollIndicator={false}>
-        <View style={{ flex: 1 }}>
-          <View style={containerStyle}>
+      <ScrollView contentContainerStyle={[styles.scrollContent]} showsVerticalScrollIndicator={false}>
+        <View style={[styles.flex1]}>
+          <View style={[styles.pageBodyContainer, { width: state.gridWidth }]}>
             <ScrollFadeUp>
               <ProductDetails
                 product={state.product}
@@ -168,7 +165,7 @@ export default function ProductPage({ product: initialProduct, isDark, showNavig
             </ScrollFadeUp>
           </View>
         </View>
-        <View style={{ height: 40 }} />
+        <View style={[styles.bottomSpacer]} />
         <Footer />
       </ScrollView>
     </View>

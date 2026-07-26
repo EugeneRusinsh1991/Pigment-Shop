@@ -76,7 +76,7 @@ export default function AdminPanel({ onBack }) {
         ) : (
           <Button
             title={t('userLogout')}
-            leftIcon={<LogoutIcon color={colors.secondaryLightText} size={14} style={{ marginRight: layout.spacing.xs }} />}
+            leftIcon={<LogoutIcon color={colors.secondaryLightText} size={14} style={styles.logoutIcon} />}
             onPress={handleLogout}
             variant="secondary"
             size="sm"
@@ -87,7 +87,7 @@ export default function AdminPanel({ onBack }) {
       <View>
         <AdminTabBar activeTab={activeTab} onSelect={setActiveTab} />
       </View>
-      <ScrollView style={styles.content} contentContainerStyle={{ paddingBottom: layout.spacing.xxl + layout.spacing.sm }}>
+      <ScrollView style={styles.content} contentContainerStyle={styles.contentContainer}>
         <PageTransition key={activeTab} trigger={activeTab}>
           {renderActiveTab(activeTab)}
         </PageTransition>

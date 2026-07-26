@@ -54,7 +54,7 @@ export function DesktopProductRow({ product, index, label, effectivePrice, highl
       ]}
       onPress={() => onEdit(product)}
     >
-      <DataTableCell style={{ width: 32 }}>
+      <DataTableCell style={styles.colIndex}>
         <Text style={styles.cellText} size={13}>{index + 1}</Text>
       </DataTableCell>
       <DataTableCell style={[styles.colProduct, { paddingRight: layout.spacing.md }]}>
@@ -82,7 +82,7 @@ export function DesktopProductRow({ product, index, label, effectivePrice, highl
       <DataTableCell style={styles.colPrice}>
         <Text style={styles.priceEmphasis}>${effectivePrice.toLocaleString()}</Text>
       </DataTableCell>
-      <DataTableCell style={{ flexDirection: 'row', alignItems: 'center', gap: layout.spacing.xxs }}>
+      <DataTableCell style={styles.rowActionsCompact}>
         <ProductRowActions product={product} onEdit={onEdit} onDelete={onDelete} />
       </DataTableCell>
     </DataTableRow>

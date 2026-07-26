@@ -55,7 +55,7 @@ export const localStyles = StyleSheet.create({
     height: layout.spacing.xxl,
     alignItems: 'center',
     justifyContent: 'center',
-    marginVertical: 1,
+    marginVertical: layout.spacing.none,
   },
   dayButton: {
     width: typography.sizes.xxl,
@@ -80,7 +80,7 @@ export const localStyles = StyleSheet.create({
   },
   dayHighlight: {
     backgroundColor: colors.dangerBgLight,
-    borderRadius: 0,
+    borderRadius: layout.radii.none,
   },
   dayHighlightText: {
     color: colors.accent,

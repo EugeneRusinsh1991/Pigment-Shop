@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors, buttonTokens } from '../../theme/tokens';
+import { colors, buttonTokens, layout } from '../../theme/tokens';
 
 export default StyleSheet.create({
   root: {
@@ -13,21 +13,21 @@ export default StyleSheet.create({
     backgroundColor: colors.backgroundLight,
   },
   scroll: {
-    paddingBottom: 60,
+    paddingBottom: layout.spacing.xxl + 28,
   },
   wideRow: {
     flexDirection: 'row',
-    padding: 32,
-    gap: 32,
+    padding: layout.spacing.xxl,
+    gap: layout.spacing.xxl,
   },
   narrowStack: {
-    paddingHorizontal: 12,
-    paddingTop: 8,
+    paddingHorizontal: layout.spacing.md,
+    paddingTop: layout.spacing.sm,
     paddingBottom: 0,
   },
   imageArea: {
     height: 300,
-    borderRadius: 24,
+    borderRadius: layout.radii.xl,
     overflow: 'hidden',
   },
   imageAreaWide: {
@@ -39,7 +39,7 @@ export default StyleSheet.create({
     height: '100%',
   },
   infoArea: {
-    marginTop: 12,
+    marginTop: layout.spacing.md,
   },
   infoAreaWide: {
     flex: 1,
@@ -47,30 +47,30 @@ export default StyleSheet.create({
   },
   brandText: {
     color: colors.accent,
-    marginBottom: 4,
+    marginBottom: layout.spacing.xxs,
   },
   productName: {
-    marginBottom: 4,
+    marginBottom: layout.spacing.xxs,
   },
   priceText: {
-    marginBottom: 10,
+    marginBottom: layout.spacing.sm + 2,
   },
   description: {
-    marginBottom: 12,
+    marginBottom: layout.spacing.md,
   },
   skuText: {
     color: colors.secondaryDarkText,
-    marginBottom: 4,
+    marginBottom: layout.spacing.xxs,
   },
   stockText: {
     color: colors.successMid,
-    marginBottom: 16,
+    marginBottom: layout.spacing.lg,
   },
   actionRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 12,
-    marginBottom: 12,
+    gap: layout.spacing.md,
+    marginBottom: layout.spacing.md,
   },
   actionRowMobile: {
     flexWrap: 'nowrap',
@@ -81,7 +81,7 @@ export default StyleSheet.create({
     borderRadius: buttonTokens.sizes.lg.borderRadiusPill,
     borderWidth: 1,
     height: buttonTokens.sizes.lg.height,
-    paddingHorizontal: 8,
+    paddingHorizontal: layout.spacing.sm,
   },
   qtyRowDark: {
     borderColor: colors.secondaryDarkBorder,
@@ -113,14 +113,14 @@ export default StyleSheet.create({
   cartBtnMobile: {
     flex: 1,
     minWidth: 0,
-    paddingHorizontal: 20,
+    paddingHorizontal: layout.spacing.lg + 4,
   },
   cartBtnText: {
     color: colors.white,
     flexShrink: 1,
   },
   goToCartLink: {
-    marginTop: 8,
+    marginTop: layout.spacing.sm,
   },
   goToCartText: {
     color: colors.accent,
@@ -132,7 +132,7 @@ export default StyleSheet.create({
     borderWidth: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    marginLeft: 8,
+    marginLeft: layout.spacing.sm,
   },
   favBtnDark: { borderColor: colors.outlineDarkBorder, backgroundColor: colors.dark },
   favBtnLight: { borderColor: colors.secondaryLightBorder, backgroundColor: colors.white },
@@ -142,11 +142,11 @@ export default StyleSheet.create({
   favIconInactiveLight: { color: colors.dark },
   favOverlay: {
     position: 'absolute',
-    top: 12,
-    right: 12,
+    top: layout.spacing.md,
+    right: layout.spacing.md,
     width: 44,
     height: 44,
-    borderRadius: 22,
+    borderRadius: layout.radii.full,
     alignItems: 'center',
     justifyContent: 'center',
     zIndex: 20,
@@ -173,35 +173,35 @@ export default StyleSheet.create({
     marginTop: -22,
     width: 44,
     height: 44,
-    borderRadius: 22,
-    backgroundColor: 'rgba(28, 28, 28, 0.4)',
+    borderRadius: layout.radii.full,
+    backgroundColor: colors.overlayScrim,
     alignItems: 'center',
     justifyContent: 'center',
     zIndex: 10,
   },
   leftArrow: {
-    left: 12,
+    left: layout.spacing.md,
   },
   rightArrow: {
-    right: 12,
+    right: layout.spacing.md,
   },
   arrowText: {
     color: colors.white,
   },
   dotsContainer: {
     position: 'absolute',
-    bottom: 16,
+    bottom: layout.spacing.lg,
     left: 0,
     right: 0,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     zIndex: 10,
-    gap: 8,
+    gap: layout.spacing.sm,
   },
   dot: {
-    height: 8,
-    borderRadius: 4,
+    height: layout.spacing.sm,
+    borderRadius: layout.spacing.xxs,
     backgroundColor: colors.white,
   },
   dotActive: {
@@ -211,5 +211,50 @@ export default StyleSheet.create({
   dotInactive: {
     width: 8,
     opacity: 0.5,
+  },
+  badgesOverlay: {
+    position: 'absolute',
+    top: layout.spacing.md,
+    left: layout.spacing.md,
+    zIndex: layout.zIndices.sticky,
+  },
+  reviewSectionContainer: {
+    marginTop: layout.spacing.xl,
+  },
+  reviewSection: {
+    marginTop: layout.spacing.xl,
+  },
+  priceRowContainer: {
+    flexDirection: 'row',
+    alignItems: 'baseline',
+    gap: layout.spacing.sm,
+  },
+  originalPriceText: {
+    textDecorationLine: 'line-through',
+  },
+  actionFavBtn: {
+    marginLeft: layout.spacing.sm,
+  },
+  flex1: {
+    flex: 1,
+  },
+  pageHeaderContainer: {
+    alignSelf: 'center',
+    maxWidth: '100%',
+  },
+  pageBodyContainer: {
+    alignSelf: 'center',
+    maxWidth: '100%',
+    paddingBottom: layout.spacing.xl,
+  },
+  loadingRoot: {
+    padding: layout.spacing.xxl + layout.spacing.sm,
+    alignItems: 'center',
+  },
+  scrollContent: {
+    paddingBottom: 0,
+  },
+  bottomSpacer: {
+    height: layout.spacing.xxl + layout.spacing.sm,
   },
 });

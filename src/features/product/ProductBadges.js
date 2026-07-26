@@ -2,6 +2,7 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { useTheme } from '../../context/ThemeContext';
 import { Badge } from '../../components/Badge';
+import { layout } from '../../theme/tokens';
 
 function renderNewBadge(isNew, t) {
   if (!isNew) return null;
@@ -42,11 +43,11 @@ export default function ProductBadges({ isNew, isFeatured, discountPercent, cont
 const styles = StyleSheet.create({
   badgeContainer: {
     position: 'absolute',
-    top: 8,
-    left: 8,
+    top: layout.spacing.sm,
+    left: layout.spacing.sm,
     flexDirection: 'column',
     alignItems: 'flex-start',
-    gap: 4,
+    gap: layout.spacing.xxs,
   },
 });
 

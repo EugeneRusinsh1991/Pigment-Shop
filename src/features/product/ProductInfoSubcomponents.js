@@ -47,10 +47,10 @@ export function ProductInfoPrice({ price, discountPercent }) {
   const hasDiscount = (discountPercent || 0) > 0;
 
   return (
-    <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 8 }}>
+    <View style={[styles.priceRowContainer]}>
       <Text variant="h3" weight="700" style={styles.priceText}>${finalPrice.toLocaleString()}</Text>
       {hasDiscount && (
-        <Text variant="body2" color="desc" style={{ textDecorationLine: 'line-through' }}>
+        <Text variant="body2" color="desc" style={[styles.originalPriceText]}>
           ${safePrice.toLocaleString()}
         </Text>
       )}
@@ -98,7 +98,7 @@ export function CartButton({ isInCart, isWide, finalPrice, qty, product, onAddTo
       variant={isInCart ? 'accent' : 'primary'}
       size="lg"
       leftIcon={<CartIcon color={colors.white} size={16} />}
-      style={isWide ? styles.cartBtnWide : { flex: 1 }}
+      style={[isWide ? styles.cartBtnWide : styles.flex1]}
     />
   );
 
@@ -118,11 +118,10 @@ export function ProductActionRow({ product, qty, isDark, isWide, onDecrease, onI
   const finalPrice = calcFinalPrice(getSafePrice(product?.price), product?.discountPercent);
   const heartColor = getHeartColor(isFavorite, isDark);
 
-  const actionRowStyle = [styles.actionRow, !isWide && styles.actionRowMobile];
   const handleToggle = () => onToggleFavorite?.(product);
 
   return (
-    <View style={actionRowStyle}>
+    <View style={[styles.actionRow, !isWide && styles.actionRowMobile]}>
       <QtySelector qty={qty} isDark={isDark} onDecrease={onDecrease} onIncrease={onIncrease} />
       <CartButton
         isInCart={isInCart}
@@ -140,7 +139,7 @@ export function ProductActionRow({ product, qty, isDark, isWide, onDecrease, onI
         size={48}
         variant="outline"
         animated={true}
-        style={{ marginLeft: 8 }}
+        style={[styles.actionFavBtn]}
       />
     </View>
   );

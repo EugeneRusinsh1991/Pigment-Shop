@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { Text } from '../../Text';
 import { AnimatedButton } from '../../Button';
 import { calculateHitSlop } from '../../../theme/buttonCommon';
-import { localStyles } from './DateRangeCalendarStyles';
+import { localStyles as styles } from './DateRangeCalendarStyles';
 import { typography } from '../../../theme/tokens';
 
 const isSameDay = (d1, d2) => {
@@ -34,30 +34,30 @@ function getHighlightedRange(start, end, hover) {
 }
 
 function getCellStyles(isCurrentMonth, isSelected, isRange) {
-  const currentText = isCurrentMonth ? localStyles.dayTextCurrent : localStyles.dayTextOther;
+  const currentText = isCurrentMonth ? styles.dayTextCurrent : styles.dayTextOther;
   
   if (isSelected) {
     return {
-      cellStyle: [localStyles.dayCell],
-      buttonStyle: [localStyles.dayButton, localStyles.daySelected],
-      textStyle: [localStyles.dayText, currentText, localStyles.dayTextSelected],
+      cellStyles: [styles.dayCell],
+      buttonStyles: [styles.dayButton, styles.daySelected],
+      textStyles: [styles.dayText, currentText, styles.dayTextSelected],
       weight: typography.weights.bold,
     };
   }
   
   if (isRange) {
     return {
-      cellStyle: [localStyles.dayCell, localStyles.dayHighlight],
-      buttonStyle: [localStyles.dayButton],
-      textStyle: [localStyles.dayText, currentText, localStyles.dayHighlightText],
+      cellStyles: [styles.dayCell, styles.dayHighlight],
+      buttonStyles: [styles.dayButton],
+      textStyles: [styles.dayText, currentText, styles.dayHighlightText],
       weight: typography.weights.semibold,
     };
   }
 
   return {
-    cellStyle: [localStyles.dayCell],
-    buttonStyle: [localStyles.dayButton],
-    textStyle: [localStyles.dayText, currentText],
+    cellStyles: [styles.dayCell],
+    buttonStyles: [styles.dayButton],
+    textStyles: [styles.dayText, currentText],
     weight: undefined,
   };
 }
@@ -97,7 +97,7 @@ export function CalendarDayCell({
     hoverDate
   );
 
-  const { cellStyle, buttonStyle, textStyle, weight } = getCellStyles(
+  const { cellStyles, buttonStyles, textStyles, weight } = getCellStyles(
     cell.isCurrentMonth,
     isSelected,
     isRange
@@ -106,15 +106,15 @@ export function CalendarDayCell({
   const shouldHover = !!(tempStartDate && !tempEndDate);
 
   return (
-    <View style={cellStyle}>
+    <View style={cellStyles}>
       <AnimatedButton
-        style={buttonStyle}
+        style={buttonStyles}
         onPress={() => handleDayPress(cellDate)}
         onMouseEnter={() => handleHoverEnter(shouldHover, cellDate, setHoverDate)}
         onMouseLeave={() => handleHoverLeave(shouldHover, setHoverDate)}
         hitSlop={calculateHitSlop(32, 32)}
       >
-        <Text variant="body2" weight={weight} style={textStyle}>{cell.dayLabel}</Text>
+        <Text variant="body2" weight={weight} style={textStyles}>{cell.dayLabel}</Text>
       </AnimatedButton>
     </View>
   );

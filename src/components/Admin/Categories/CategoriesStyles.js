@@ -24,7 +24,7 @@ export const CATEGORY_TYPE_COLORS = {
 
 export default StyleSheet.create({
   container: {
-    padding: 24,
+    padding: layout.spacing.xl,
   },
 
   /* Toolbar */
@@ -32,13 +32,13 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     flexWrap: 'wrap',
-    gap: 8,
-    marginBottom: 16,
+    gap: layout.spacing.sm,
+    marginBottom: layout.spacing.lg,
   },
   addBtn: {
     height: buttonTokens.sizes.sm.height,
-    paddingHorizontal: 14,
-    borderRadius: 20,
+    paddingHorizontal: layout.spacing.md,
+    borderRadius: layout.radii.lg,
     borderWidth: 1.5,
     borderColor: colors.textLight,
     backgroundColor: colors.textLight,
@@ -52,14 +52,14 @@ export default StyleSheet.create({
   /* Expand/collapse all controls */
   treeControls: {
     flexDirection: 'row',
-    gap: 8,
-    marginBottom: 10,
+    gap: layout.spacing.sm,
+    marginBottom: layout.spacing.sm,
     alignSelf: 'flex-start',
   },
   treeControlBtn: {
     height: buttonTokens.sizes.sm.height,
-    paddingHorizontal: 14,
-    borderRadius: 20,
+    paddingHorizontal: layout.spacing.md,
+    borderRadius: layout.radii.lg,
     borderWidth: 1.5,
     borderColor: colors.secondaryLightBorder,
     backgroundColor: colors.surfaceLight,
@@ -73,7 +73,7 @@ export default StyleSheet.create({
   /* Table card */
   tableCard: {
     backgroundColor: colors.surfaceLight,
-    borderRadius: 14,
+    borderRadius: layout.radii.iconBtn,
     ...shadow.card(),
     elevation: 2,
     overflow: 'hidden',
@@ -85,8 +85,8 @@ export default StyleSheet.create({
     position: 'relative',
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 16,
-    paddingVertical: 10,
+    paddingHorizontal: layout.spacing.lg,
+    paddingVertical: layout.spacing.sm,
     borderBottomWidth: 1,
     borderBottomColor: colors.secondaryLightBorder,
     borderLeftWidth: 3,
@@ -114,13 +114,13 @@ export default StyleSheet.create({
   /* Cell widths */
   colName: { flex: 2 },
   colImage: { flex: 0.8 },
-  colActions: { flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center', paddingLeft: 8 },
+  colActions: { flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center', paddingLeft: layout.spacing.sm },
 
   /* Name cell */
   nameCell: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 6,
+    gap: layout.spacing.xs,
   },
   toggleBtn: {
     width: 20,
@@ -139,13 +139,13 @@ export default StyleSheet.create({
   },
   categoryId: {
     color: colors.textDescDark,
-    marginTop: 1,
+    marginTop: layout.spacing.xxs,
   },
   typeBadge: {
     alignSelf: 'flex-start',
-    marginTop: 3,
-    paddingHorizontal: 7,
-    paddingVertical: 2,
+    marginTop: layout.spacing.xxs,
+    paddingHorizontal: layout.spacing.sm,
+    paddingVertical: layout.spacing.xxs,
     borderRadius: layout.radii.full,
   },
   typeBadgeText: {
@@ -157,9 +157,9 @@ export default StyleSheet.create({
   },
 
   imageBadge: {
-    borderRadius: 4,
-    paddingHorizontal: 6,
-    paddingVertical: 2,
+    borderRadius: layout.radii.xs,
+    paddingHorizontal: layout.spacing.xs,
+    paddingVertical: layout.spacing.xxs,
     alignSelf: 'flex-start',
   },
   imageBadgeSet: { backgroundColor: colors.successBgAlt },
@@ -178,7 +178,7 @@ export default StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.slateText,
     backgroundColor: colors.surfaceLight,
-    paddingHorizontal: 12,
+    paddingHorizontal: layout.spacing.md,
   },
   actionBtnText: {
     color: colors.slateText,
@@ -191,7 +191,7 @@ export default StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.infoStrong,
     backgroundColor: colors.surfaceLight,
-    paddingHorizontal: 12,
+    paddingHorizontal: layout.spacing.md,
   },
   addChildBtnText: {
     color: colors.infoStrong,
@@ -202,10 +202,10 @@ export default StyleSheet.create({
 
   /* Save Button */
   saveBtn: {
-    marginTop: 20,
+    marginTop: layout.spacing.lg,
     backgroundColor: colors.success,
     borderRadius: layout.radii.sm,
-    paddingVertical: 14,
+    paddingVertical: layout.spacing.md,
     alignItems: 'center',
   },
   saveBtnText: {
@@ -217,8 +217,8 @@ export default StyleSheet.create({
   /* Mobile card layout */
   mobileTreeCard: {
     position: 'relative',
-    paddingHorizontal: 16,
-    paddingVertical: 12,
+    paddingHorizontal: layout.spacing.lg,
+    paddingVertical: layout.spacing.md,
     borderBottomWidth: 1,
     borderBottomColor: colors.secondaryLightBorder,
     borderLeftWidth: 4,

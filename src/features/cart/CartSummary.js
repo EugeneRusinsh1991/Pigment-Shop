@@ -97,7 +97,7 @@ export default function CartSummary({ totalItems, totalPrice, isWide, isDark, no
           title={t('cartCheckoutBtn')}
           variant="primary"
           size="lg"
-          style={{ marginTop: 12 }}
+          style={styles.checkoutBtnSpacing}
         />
       </Link>
     </View>

@@ -1,13 +1,13 @@
 import { StyleSheet } from 'react-native';
-import { colors } from '../../theme/tokens';
+import { colors, layout } from '../../theme/tokens';
 
 export default StyleSheet.create({
 
 
   reviewsSection: {
-    marginTop: 24,
-    paddingHorizontal: 16,
-    paddingTop: 12,
+    marginTop: layout.spacing.xl,
+    paddingHorizontal: layout.spacing.lg,
+    paddingTop: layout.spacing.md,
     width: '100%',
   },
   reviewsSectionDesktop: {
@@ -16,22 +16,22 @@ export default StyleSheet.create({
     alignSelf: 'center',
   },
   sectionTitle: {
-    marginBottom: 6,
+    marginBottom: layout.spacing.xs,
   },
   ratingSummary: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 8,
-    marginBottom: 16,
+    gap: layout.spacing.sm,
+    marginBottom: layout.spacing.lg,
   },
   starDisplay: {
     color: colors.warningMid,
   },
   ratingValueText: {},
   reviewForm: {
-    borderRadius: 16,
-    padding: 16,
-    marginBottom: 16,
+    borderRadius: layout.radii.md,
+    padding: layout.spacing.lg,
+    marginBottom: layout.spacing.lg,
     borderWidth: 1,
   },
   formDark: {
@@ -43,14 +43,14 @@ export default StyleSheet.create({
     borderColor: colors.secondaryLightBorder,
   },
   formTitle: {
-    marginBottom: 8,
+    marginBottom: layout.spacing.sm,
   },
   input: {
-    borderRadius: 8,
+    borderRadius: layout.radii.sm,
     borderWidth: 1,
     height: 40,
-    paddingHorizontal: 12,
-    marginBottom: 8,
+    paddingHorizontal: layout.spacing.md,
+    marginBottom: layout.spacing.sm,
   },
   inputDark: {
     backgroundColor: colors.productCardDark,
@@ -64,16 +64,16 @@ export default StyleSheet.create({
   },
   textArea: {
     height: 80,
-    paddingTop: 8,
+    paddingTop: layout.spacing.sm,
     textAlignVertical: 'top',
   },
   ratingSelector: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 12,
+    marginBottom: layout.spacing.md,
   },
   ratingLabel: {
-    marginRight: 8,
+    marginRight: layout.spacing.sm,
   },
   activeStar: {
     color: colors.warningMid,
@@ -83,7 +83,7 @@ export default StyleSheet.create({
   },
   submitBtn: {
     backgroundColor: colors.accent,
-    borderRadius: 50,
+    borderRadius: layout.radii.full,
     height: 44,
     justifyContent: 'center',
     alignItems: 'center',
@@ -92,11 +92,11 @@ export default StyleSheet.create({
     color: colors.white,
   },
   reviewsList: {
-    gap: 12,
+    gap: layout.spacing.md,
   },
   reviewCard: {
-    borderRadius: 12,
-    padding: 16,
+    borderRadius: layout.radii.sm + 4,
+    padding: layout.spacing.lg,
     borderWidth: 1,
   },
   reviewCardDark: {
@@ -110,16 +110,30 @@ export default StyleSheet.create({
   reviewHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 6,
+    marginBottom: layout.spacing.xs,
   },
   author: {},
   reviewStars: {
     color: colors.warningMid,
   },
   comment: {
-    marginBottom: 4,
+    marginBottom: layout.spacing.xxs,
   },
   dateText: {
     color: colors.secondaryDarkText,
+  },
+  segmentedToggle: {
+    marginBottom: layout.spacing.lg,
+  },
+  registrationPrompt: {
+    alignItems: 'center',
+    gap: layout.spacing.md,
+  },
+  registrationSubmitBtn: {
+    paddingHorizontal: layout.spacing.xl,
+    alignSelf: 'center',
+  },
+  reviewFormSubmitBtn: {
+    marginTop: layout.spacing.md,
   },
 });

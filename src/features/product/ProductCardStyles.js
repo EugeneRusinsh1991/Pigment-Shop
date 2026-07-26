@@ -4,7 +4,7 @@ import { colors, layout } from '../../theme/tokens';
 export default StyleSheet.create({
   prodCard: {
     flex: 1,
-    margin: 8,
+    margin: layout.spacing.sm,
     borderRadius: layout.radii.lg,
     overflow: 'hidden',
   },
@@ -29,8 +29,8 @@ export default StyleSheet.create({
     height: '100%',
   },
   prodInfo: {
-    paddingHorizontal: 8,
-    paddingVertical: 8,
+    paddingHorizontal: layout.spacing.sm,
+    paddingVertical: layout.spacing.sm,
   },
   prodInfoDark: {
   },
@@ -39,25 +39,25 @@ export default StyleSheet.create({
   brandText: {
     color: colors.accent,
     textTransform: 'uppercase',
-    marginBottom: 4,
+    marginBottom: layout.spacing.xxs,
   },
   prodTitle: {
     minHeight: 36,
-    marginBottom: 4,
+    marginBottom: layout.spacing.xxs,
   },
   priceText: {},
   priceRow: {
     flexDirection: 'row',
     alignItems: 'baseline',
-    gap: 6,
+    gap: layout.spacing.xs,
   },
   originalPriceText: {
     textDecorationLine: 'line-through',
   },
   favBtn: {
     position: 'absolute',
-    top: 8,
-    right: 8,
+    top: layout.spacing.sm,
+    right: layout.spacing.sm,
     width: 28,
     height: 28,
     borderRadius: layout.radii.iconBtn,
@@ -73,8 +73,8 @@ export default StyleSheet.create({
   favIconInactiveLight: { color: colors.textLight },
   cartBtn: {
     position: 'absolute',
-    bottom: 8,
-    right: 8,
+    bottom: layout.spacing.sm,
+    right: layout.spacing.sm,
     width: 28,
     height: 28,
     borderRadius: layout.radii.iconBtn,
@@ -85,14 +85,14 @@ export default StyleSheet.create({
   },
   topOverlayWrapper: {
     position: 'absolute',
-    top: 8,
-    right: 8,
+    top: layout.spacing.sm,
+    right: layout.spacing.sm,
     zIndex: 10,
   },
   bottomOverlayWrapper: {
     position: 'absolute',
-    bottom: 8,
-    right: 8,
+    bottom: layout.spacing.sm,
+    right: layout.spacing.sm,
     zIndex: 10,
   },
   cartBtnSolidStyle: {

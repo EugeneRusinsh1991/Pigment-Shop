@@ -55,14 +55,14 @@ export function MobileProductRow({ product, index, label, effectivePrice, highli
     >
       {/* Top: name + badge + price + action */}
       <View style={styles.cardTopRow}>
-        <View style={{ flex: 1 }}>
-          <View style={{ flexDirection: 'row', alignItems: 'center', gap: layout.spacing.xs, flexWrap: 'wrap' }}>
+        <View style={styles.mobileInfoCol}>
+          <View style={styles.mobileNameRow}>
             <Text style={styles.productName} numberOfLines={2}>{label}</Text>
             {product.isNew ? <NewBadge /> : null}
           </View>
           {product.sku ? <Text style={styles.productSku}>{product.sku}</Text> : null}
         </View>
-        <View style={{ flexDirection: 'row', alignItems: 'center', gap: layout.spacing.xxs }}>
+        <View style={styles.mobilePriceRow}>
           <Text style={styles.priceText}>${effectivePrice.toLocaleString()}</Text>
           <ProductRowActions product={product} onEdit={onEdit} onDelete={onDelete} />
         </View>

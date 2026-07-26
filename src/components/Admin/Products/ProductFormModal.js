@@ -79,7 +79,7 @@ export default function ProductFormModal({ visible, product, onSave, onClose, on
         <ImageFields form={form} onChange={handleChange} errors={errors} />
         <FlagsSection form={form} onChange={handleChange} />
         {product && onDelete && (
-          <View style={{ marginTop: layout.spacing.xl, borderTopWidth: 1, borderTopColor: colors.borderLightAlt, paddingTop: layout.spacing.xl }}>
+          <View style={styles.deleteSection}>
             <Button
               title={t('adminProductsActionDelete')}
               onPress={handleDelete}

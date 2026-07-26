@@ -79,6 +79,8 @@ export const colors = {
   infoSoftDarkBg: 'rgba(59, 130, 246, 0.2)',
   infoSoftDarkBorder: 'rgba(59, 130, 246, 0.4)',
   successSoftDarkBg: 'rgba(16, 185, 129, 0.2)',
+  successSoftDarkBgFaint: 'rgba(52, 211, 153, 0.1)',
+  successSoftDarkBgMid: 'rgba(52, 211, 153, 0.16)',
   successSoftDarkBorder: 'rgba(16, 185, 129, 0.4)',
   purpleSoftDarkBg: 'rgba(139, 92, 246, 0.2)',
   purpleSoftDarkBorder: 'rgba(139, 92, 246, 0.4)',
@@ -224,6 +226,8 @@ export const layout = {
     desktop: 1024,
   },
   radii: {
+    none: 0,
+    xxxs: 2,
     xs: 6,
     sm: 8,
     iconBtn: 14,
@@ -249,6 +253,8 @@ export const layout = {
     tooltip: 4000,
   },
   spacing: {
+    none: 0,
+    xxxs: 2,
     xxs: 4,
     xs: 6,
     sm: 8,

@@ -28,19 +28,19 @@ function OrderStatusBadge({ order, t }) {
 
 function MobileOrderHeader({ order, t, lang, isExpanded, getStyle }) {
   return (
-    <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-      <View style={{ flex: 1, flexDirection: 'column', gap: 4 }}>
+    <View style={styles.mobileHeader}>
+      <View style={styles.mobileCol}>
         <Text style={styles.orderNumber}>
           {t('orderNumber')}{getOrderNumber(order)}
         </Text>
         <Text variant="caption" color="muted" style={styles.orderDate}>
           {getFormattedDate(order, lang)}
         </Text>
-        <Text style={[styles.orderTotal, { marginTop: 2 }]}>
+        <Text style={[styles.orderTotal, styles.mobileTotal]}>
           {t('orderTotalLabel')} ${getOrderTotalPrice(order)}
         </Text>
       </View>
-      <View style={{ alignItems: 'flex-end', gap: 8 }}>
+      <View style={styles.mobileRight}>
         <OrderStatusBadge order={order} t={t} />
         <Text style={[styles.toggleText, getStyle(styles.toggleTextDark, styles.toggleTextLight)]}>
           {getToggleText(isExpanded, t)}

@@ -97,6 +97,35 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  svgDonutFallback: {
+    alignItems: 'center',
+  },
+  svgDonutBar: {
+    flexDirection: 'row',
+    overflow: 'hidden',
+    backgroundColor: colors.secondaryLightBg,
+  },
+  donutBarSegment: {
+  },
+  topProductsEmpty: {
+    paddingVertical: layout.spacing.xl,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  topProductsBarContainer: {
+    flexDirection: 'row',
+    height: '100%',
+    borderRadius: layout.spacing.xxs,
+    overflow: 'hidden',
+  },
+  topProductsSegment: {
+  },
+  svgRotate: {
+    transform: 'rotate(-90deg)',
+  },
+  legendList: {
+    marginTop: layout.spacing.lg,
+  },
   legendItem: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -115,6 +144,31 @@ export default StyleSheet.create({
   },
 
   /* SVG area (for revenue line chart) */
+  chartEmpty: {
+    height: 180,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  svgBlock: {
+    display: 'block',
+  },
+  revenueNativeContainer: {
+    flex: 1,
+    justifyContent: 'flex-end',
+  },
+  revenueNativeRow: {
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+  },
+  revenueBarCol: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  revenueBarFill: {
+    width: layout.spacing.xs,
+    backgroundColor: colors.successMid,
+    borderRadius: layout.radii.full,
+  },
   svgWrapper: {
     height: 190,
     width: '100%',
@@ -131,6 +185,10 @@ export default StyleSheet.create({
     marginBottom: layout.spacing.lg + layout.spacing.xxs,
     position: 'relative',
     zIndex: layout.zIndices.modal,
+  },
+  calendarToggleWrapper: {
+    position: 'relative',
+    zIndex: layout.zIndices.toast,
   },
   datePickerPresets: {
     flexDirection: 'row',

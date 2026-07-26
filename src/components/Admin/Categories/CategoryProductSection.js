@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { Text } from '../../Text';
 import { AnimatedButton } from '../../Button';
 import styles from './CategoryFormStyles';
@@ -13,52 +13,97 @@ const getProductLabel = (product, lang) => {
   return label || product.id;
 };
 
-const getProductOptionStyle = (selected) => ({
-  flexDirection: 'row',
-  alignItems: 'center',
-  gap: 8,
-  borderWidth: 1,
-  borderColor: selected ? colors.success : colors.chipLightInactiveBorder,
-  borderRadius: layout.radii.sm,
-  paddingVertical: 8,
-  paddingHorizontal: 10,
-  backgroundColor: selected ? colors.successBgSoft : colors.slateLight,
+const sec_styles = StyleSheet.create({
+  productOptionBase: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: layout.spacing.sm,
+    borderWidth: 1,
+    borderRadius: layout.radii.sm,
+    paddingVertical: layout.spacing.sm,
+    paddingHorizontal: layout.spacing.sm,
+  },
+  productOptionSelected: {
+    borderColor: colors.success,
+    backgroundColor: colors.successBgSoft,
+  },
+  productOptionUnselected: {
+    borderColor: colors.chipLightInactiveBorder,
+    backgroundColor: colors.slateLight,
+  },
+  productCheckBase: {
+    width: 16,
+    height: 16,
+    borderRadius: layout.radii.full,
+    borderWidth: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  productCheckSelected: {
+    borderColor: colors.success,
+    backgroundColor: colors.success,
+  },
+  productCheckUnselected: {
+    borderColor: colors.slateStrong,
+    backgroundColor: colors.white,
+  },
+  checkText: {
+    color: colors.white,
+  },
+  labelText: {
+    color: colors.textLight,
+  },
+  hintText: {
+    color: colors.slateText,
+    marginBottom: layout.spacing.sm,
+  },
+  productGroup: {
+    gap: layout.spacing.xs,
+  },
+  emptyText: {
+    color: colors.slateText,
+  },
+  sectionTop: {
+    marginTop: layout.spacing.sm,
+  },
+  sectionBottom: {
+    marginTop: layout.spacing.lg,
+  },
 });
 
-const getProductCheckStyle = (selected) => ({
-  width: 16,
-  height: 16,
-  borderRadius: layout.radii.full,
-  borderWidth: 1,
-  borderColor: selected ? colors.success : colors.slateStrong,
-  backgroundColor: selected ? colors.success : colors.white,
-  alignItems: 'center',
-  justifyContent: 'center',
-});
+const getProductOptionStyle = (selected) => [
+  sec_styles.productOptionBase,
+  selected ? sec_styles.productOptionSelected : sec_styles.productOptionUnselected,
+];
+
+const getProductCheckStyle = (selected) => [
+  sec_styles.productCheckBase,
+  selected ? sec_styles.productCheckSelected : sec_styles.productCheckUnselected,
+];
 
 const renderProductOption = (product, selected, toggleProduct, lang) => (
   <AnimatedButton
     key={product.id}
     onPress={() => toggleProduct(product.id)}
-    style={getProductOptionStyle(selected)}
+    style={[getProductOptionStyle(selected)]}
     activeOpacity={0.8}
   >
-    <View style={getProductCheckStyle(selected)}>
-      {selected ? <Text variant="caption" weight="bold" style={{ color: colors.white }}>✓</Text> : null}
+    <View style={[getProductCheckStyle(selected)]}>
+      {selected ? <Text variant="caption" weight="bold" style={sec_styles.checkText}>✓</Text> : null}
     </View>
-    <Text variant="body2" style={{ color: colors.textLight }}>{getProductLabel(product, lang)}</Text>
+    <Text variant="body2" style={sec_styles.labelText}>{getProductLabel(product, lang)}</Text>
   </AnimatedButton>
 );
 
 const renderProductGroup = ({ titleKey, hintKey, emptyKey, products, selected, toggleProduct, lang, t }) => (
   <View>
     <Text style={styles.sectionLabel}>{t(titleKey)}</Text>
-    <Text size={12} style={{ color: colors.slateText, marginBottom: 8 }}>
+    <Text size={12} style={sec_styles.hintText}>
       {t(hintKey)}
     </Text>
-    <View style={{ gap: 6 }}>
+    <View style={sec_styles.productGroup}>
       {products.length === 0 ? (
-        <Text size={12} style={{ color: colors.slateText }}>{t(emptyKey)}</Text>
+        <Text size={12} style={sec_styles.emptyText}>{t(emptyKey)}</Text>
       ) : products.map((product) => renderProductOption(product, selected, toggleProduct, lang))}
     </View>
   </View>
@@ -98,7 +143,7 @@ export function useCategoryProducts(categories, categoryId, formProductIds, prod
 
 export function CategoryProductSection({ assignedProducts, unassignedProducts, toggleProduct, lang, t }) {
   return (
-    <View style={{ marginTop: 8 }}>
+    <View style={sec_styles.sectionTop}>
       {renderProductGroup({
         titleKey: 'adminCategoriesFormAssignedProducts',
         hintKey: 'adminCategoriesFormAssignedProductsHint',
@@ -110,7 +155,7 @@ export function CategoryProductSection({ assignedProducts, unassignedProducts, t
         t,
       })}
 
-      <View style={{ marginTop: 16 }}>
+      <View style={sec_styles.sectionBottom}>
         {renderProductGroup({
           titleKey: 'adminCategoriesFormUnassignedProducts',
           hintKey: 'adminCategoriesFormUnassignedProductsHint',

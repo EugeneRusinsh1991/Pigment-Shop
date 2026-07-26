@@ -18,7 +18,7 @@ export function SegmentedToggle({ options, activeValue, onChange, isDark }) {
       value={activeValue}
       onChange={onChange}
       isDark={isDark}
-      style={{ marginBottom: 16 }}
+      style={[styles.segmentedToggle]}
     />
   );
 }
@@ -38,14 +38,14 @@ export function ReviewCard({ rev, isDark }) {
 export function RegistrationPrompt({ isDark }) {
   const { t } = useTheme();
   return (
-    <View style={[styles.reviewForm, isDark ? styles.formDark : styles.formLight, { alignItems: 'center', gap: 12 }]}>
+    <View style={[styles.reviewForm, isDark ? styles.formDark : styles.formLight, styles.registrationPrompt]}>
       <Text variant="body2" align="center" style={styles.comment}>
         {t('reviewsRegisterRequired')}
       </Text>
       <Link href={{ pathname: '/login', params: { isRegister: 'true' } }} asChild>
         <AnimatedButton
           scaleTo={1.03}
-          style={StyleSheet.flatten([styles.submitBtn, { paddingHorizontal: 24, alignSelf: 'center' }])}
+          style={StyleSheet.flatten([styles.submitBtn, styles.registrationSubmitBtn])}
         >
           <Text style={styles.submitBtnText}>{t('reviewsRegisterBtn')}</Text>
         </AnimatedButton>
@@ -145,7 +145,7 @@ export function ReviewForm({
         variant="accent"
         size="lg"
         fullWidth
-        style={{ marginTop: 12 }}
+        style={[styles.reviewFormSubmitBtn]}
         onPress={config.onSubmit}
       />
     </View>

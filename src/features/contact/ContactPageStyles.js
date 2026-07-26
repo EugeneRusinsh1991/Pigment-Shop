@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors, fonts } from '../../theme/tokens';
+import { colors, fonts, buttonTokens, layout } from '../../theme/tokens';
 
 export default StyleSheet.create({
   container: {
@@ -8,19 +8,19 @@ export default StyleSheet.create({
   },
   scrollContent: {
     flexGrow: 1,
-    paddingBottom: 24,
+    paddingBottom: layout.spacing.xl,
   },
   containerDark: { backgroundColor: colors.backgroundDark },
   containerLight: { backgroundColor: colors.backgroundLight },
   content: {
     flex: 1,
-    paddingTop: 16,
-    paddingHorizontal: 0,
-    paddingBottom: 64,
+    paddingTop: layout.spacing.lg,
+    paddingHorizontal: 0, /* tokens. */
+    paddingBottom: layout.spacing.xxl * 2,
   },
   title: {
-    marginBottom: 24,
-    paddingHorizontal: 8,
+    marginBottom: layout.spacing.xl,
+    paddingHorizontal: layout.spacing.sm,
   },
   textDark: { color: colors.white },
   textLight: { color: colors.dark },
@@ -30,18 +30,18 @@ export default StyleSheet.create({
   // Contact sections
   socialRow: {
     flexDirection: 'column',
-    gap: 12,
-    marginBottom: 32,
+    gap: layout.spacing.md,
+    marginBottom: layout.spacing.xxl,
     width: '100%',
   },
   socialItem: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 10,
-    paddingVertical: 12,
-    paddingHorizontal: 20,
-    borderRadius: 50,
+    gap: layout.spacing.sm,
+    paddingVertical: layout.spacing.md,
+    paddingHorizontal: layout.spacing.lg,
+    borderRadius: layout.radii.full,
     borderWidth: 1,
   },
   socialItemDark: {
@@ -60,15 +60,15 @@ export default StyleSheet.create({
     width: '100%',
     maxWidth: 500,
     alignSelf: 'center',
-    marginBottom: 16,
+    marginBottom: layout.spacing.lg,
   },
   questionLabel: {
-    marginBottom: 10,
+    marginBottom: layout.spacing.sm,
   },
   textarea: {
-    borderRadius: 12,
+    borderRadius: layout.radii.md,
     borderWidth: 1,
-    padding: 14,
+    padding: layout.spacing.md,
     minHeight: 120,
     textAlignVertical: 'top',
   },
@@ -83,11 +83,11 @@ export default StyleSheet.create({
     color: colors.dark,
   },
   submitBtn: {
-    height: 48,
-    borderRadius: 50,
+    height: buttonTokens.sizes.lg.height,
+    borderRadius: layout.radii.full,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 16,
+    marginTop: layout.spacing.lg,
   },
   submitBtnEnabled: {
     backgroundColor: colors.accent,
@@ -108,6 +108,27 @@ export default StyleSheet.create({
   submitBtnTextDisabledLight: {
     color: colors.textSubtleLight,
   },
-  textDark: { color: colors.textDark },
-  textLight: { color: colors.textLight },
+  noPaddingBottom: {
+    paddingBottom: 0,
+  },
+  flex1: {
+    flex: 1,
+  },
+  contentPadding: {
+    paddingBottom: layout.spacing.xl,
+  },
+  footerSpacer: {
+    height: 40,
+  },
+  feedbackText: {
+    marginTop: layout.spacing.md,
+    textAlign: 'center',
+  },
+  submitBtnTopMargin: {
+    marginTop: layout.spacing.lg,
+  },
+  svgInline: {
+    display: 'inline-block',
+    verticalAlign: 'middle',
+  },
 });

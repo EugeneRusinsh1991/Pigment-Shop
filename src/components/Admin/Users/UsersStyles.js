@@ -2,34 +2,34 @@
  * UsersStyles.js
  */
 import { StyleSheet } from 'react-native';
-import { colors } from '../../../theme/tokens';
+import { colors, layout } from '../../../theme/tokens';
 import { shadow } from '../../../theme/shadows';
 
 export default StyleSheet.create({
   container: {
-    paddingHorizontal: 24,
-    paddingTop: 24,
+    paddingHorizontal: layout.spacing.xl,
+    paddingTop: layout.spacing.xl,
   },
   headerRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 16,
+    marginBottom: layout.spacing.lg,
   },
   title: {
     color: colors.dark,
   },
   countBadge: {
     backgroundColor: colors.warmNeutralLight,
-    borderRadius: 10,
-    paddingHorizontal: 10,
-    paddingVertical: 4,
+    borderRadius: layout.spacing.sm + 2,
+    paddingHorizontal: layout.spacing.sm + 2,
+    paddingVertical: layout.spacing.xxs,
   },
   countText: {
     color: colors.secondaryDarkText,
   },
   loading: {
-    marginTop: 40,
+    marginTop: layout.spacing.xxl + 8,
     textAlign: 'center',
     color: colors.secondaryDarkText,
   },
@@ -41,13 +41,13 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    gap: 12,
-    marginBottom: 16,
+    gap: layout.spacing.md,
+    marginBottom: layout.spacing.lg,
   },
 
   tableCard: {
     backgroundColor: colors.surfaceLight,
-    borderRadius: 14,
+    borderRadius: layout.radii.iconBtn,
     maxWidth: 960,
     width: '100%',
     alignSelf: 'center',
@@ -60,8 +60,8 @@ export default StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     alignItems: 'center',
-    paddingHorizontal: 16,
-    paddingVertical: 14,
+    paddingHorizontal: layout.spacing.lg,
+    paddingVertical: layout.radii.iconBtn,
     borderBottomWidth: 1,
     borderBottomColor: colors.secondaryLightBorder,
   },
@@ -71,8 +71,8 @@ export default StyleSheet.create({
   rowNum: {
     width: 24,
     color: colors.secondaryDarkText,
-    marginRight: 8,
-    marginTop: 4,
+    marginRight: layout.spacing.sm,
+    marginTop: layout.spacing.xxs,
   },
   userCell: {
     flex: 1,
@@ -98,9 +98,9 @@ export default StyleSheet.create({
 
   ordersBadge: {
     backgroundColor: colors.secondaryLightBg,
-    borderRadius: 8,
-    paddingHorizontal: 8,
-    paddingVertical: 4,
+    borderRadius: layout.spacing.sm,
+    paddingHorizontal: layout.spacing.sm,
+    paddingVertical: layout.spacing.xxs,
   },
   ordersBadgeText: {
     color: colors.secondaryLightText,
@@ -113,26 +113,26 @@ export default StyleSheet.create({
   backBtn: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 16,
-    gap: 8,
+    marginBottom: layout.spacing.lg,
+    gap: layout.spacing.sm,
   },
   backBtnText: {
     color: colors.secondaryLightText,
   },
   clientInfoCard: {
     backgroundColor: colors.surfaceLight,
-    borderRadius: 14,
-    padding: 16,
-    marginBottom: 20,
+    borderRadius: layout.radii.iconBtn,
+    padding: layout.spacing.lg,
+    marginBottom: layout.radii.lg,
     ...shadow.card(),
     elevation: 2,
     flexDirection: 'row',
-    gap: 24,
+    gap: layout.spacing.xl,
     flexWrap: 'wrap',
   },
   infoGroup: {
     flexDirection: 'column',
-    gap: 4,
+    gap: layout.spacing.xxs,
   },
   infoLabel: {
     color: colors.secondaryDarkText,
@@ -144,44 +144,44 @@ export default StyleSheet.create({
   },
   sectionTitle: {
     color: colors.dark,
-    marginBottom: 12,
+    marginBottom: layout.spacing.md,
   },
   ordersList: {
-    gap: 12,
+    gap: layout.spacing.md,
   },
   noteCard: {
     backgroundColor: colors.surfaceLight,
-    borderRadius: 14,
-    padding: 16,
-    marginBottom: 20,
+    borderRadius: layout.radii.iconBtn,
+    padding: layout.spacing.lg,
+    marginBottom: layout.radii.lg,
     ...shadow.card(),
     elevation: 2,
   },
   noteTitle: {
     color: colors.dark,
-    marginBottom: 10,
+    marginBottom: layout.spacing.sm + 2,
   },
   noteInput: {
     minHeight: 80,
     backgroundColor: colors.secondaryLightBg,
-    borderRadius: 8,
-    paddingHorizontal: 12,
-    paddingVertical: 10,
+    borderRadius: layout.spacing.sm,
+    paddingHorizontal: layout.spacing.md,
+    paddingVertical: layout.spacing.sm + 2,
     color: colors.dark,
     borderWidth: 1,
     borderColor: colors.navItemHoverDark,
     textAlignVertical: 'top',
     outlineStyle: 'none',
-    marginBottom: 12,
+    marginBottom: layout.spacing.md,
   },
   noteActions: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
   },
   noteSaveBtn: {
-    paddingVertical: 8,
-    paddingHorizontal: 16,
-    borderRadius: 6,
+    paddingVertical: layout.spacing.sm,
+    paddingHorizontal: layout.spacing.lg,
+    borderRadius: layout.radii.xs,
     backgroundColor: colors.dark,
     alignItems: 'center',
     justifyContent: 'center',
@@ -195,13 +195,13 @@ export default StyleSheet.create({
 
   /* Mobile card layout */
   mobileCard: {
-    paddingHorizontal: 16,
-    paddingVertical: 14,
+    paddingHorizontal: layout.spacing.lg,
+    paddingVertical: layout.radii.iconBtn,
     borderBottomWidth: 1,
     borderBottomColor: colors.secondaryLightBorder,
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 12,
+    gap: layout.spacing.md,
   },
   mobileCardAlt: {
     backgroundColor: colors.surfaceElevatedLight,
@@ -211,13 +211,13 @@ export default StyleSheet.create({
   },
   mobileCardName: {
     color: colors.dark,
-    marginBottom: 4,
+    marginBottom: layout.spacing.xxs,
   },
   mobileCardMeta: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: 6,
-    marginTop: 2,
+    gap: layout.spacing.xs,
+    marginTop: layout.spacing.xxs - 2,
   },
   mobileCardMetaItem: {
     color: colors.slateText,
@@ -227,9 +227,9 @@ export default StyleSheet.create({
   },
   mobileCardBadge: {
     backgroundColor: colors.secondaryLightBg,
-    borderRadius: 8,
-    paddingHorizontal: 8,
-    paddingVertical: 4,
+    borderRadius: layout.spacing.sm,
+    paddingHorizontal: layout.spacing.sm,
+    paddingVertical: layout.spacing.xxs,
     alignItems: 'center',
     justifyContent: 'center',
     minWidth: 32,
@@ -239,5 +239,35 @@ export default StyleSheet.create({
   },
   mobileCardChevron: {
     color: colors.slateStrong,
+  },
+
+  /* Added for tokenization */
+  backBtnStyle: {
+    alignSelf: 'flex-start',
+    marginBottom: layout.spacing.lg,
+  },
+  loadingIndicator: {
+    marginVertical: layout.radii.lg,
+  },
+  loadingIndicatorTop: {
+    marginTop: layout.spacing.xxl + 8,
+  },
+  metaItemRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: layout.spacing.xs,
+  },
+  colOrdersContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    gap: layout.spacing.xs,
+  },
+  colOrdersHeader: {
+    justifyContent: 'flex-end',
+  },
+  searchInput: {
+    flex: 1,
+    height: 44,
   },
 });

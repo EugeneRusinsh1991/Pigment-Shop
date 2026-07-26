@@ -4,6 +4,7 @@ import { Heading } from '../../components/Text';
 import { useFavoritesContext } from '../../context/FavoritesContext';
 import { useRouter } from 'expo-router';
 import { useTheme } from '../../context/ThemeContext';
+import { colors } from '../../theme/tokens';
 import useGridLayout from '../../hooks/useGridLayout';
 import styles from './FavoritesPageStyles';
 import Footer from '../shell/components/Footer';
@@ -18,7 +19,7 @@ function FavoritesEmptyState({ isDark, t }) {
   return (
     <ScrollFadeUp style={styles.emptyState}>
       <EmptyState
-        icon={<HeartIcon color={isDark ? '#6B7280' : '#9CA3AF'} size={48} />}
+        icon={<HeartIcon color={isDark ? colors.textMutedLight : colors.textSubtleLight} size={48} />}
         title={t('favoritesEmpty')}
         description={t('favoritesEmptyDesc')}
       />
@@ -71,11 +72,11 @@ export default function FavoritesPage({ isDark }) {
   return (
     <ScrollView
       style={[styles.container, ic(styles.containerDark, styles.containerLight)]}
-      contentContainerStyle={[styles.scrollContent, { paddingBottom: 0 }]}
+      contentContainerStyle={[styles.scrollContent, styles.noPaddingBottom]}
       showsVerticalScrollIndicator={false}
     >
-      <View style={{ flex: 1 }}>
-        <View style={[styles.content, { alignSelf: 'center', width: gridWidth, maxWidth: '100%', paddingBottom: 24 }]}> 
+      <View style={styles.flex1}>
+        <View style={[styles.content, styles.contentWrapper, { width: gridWidth }]}> 
           <ScrollFadeUp>
             <Heading level={1} style={styles.title} isDark={isDark}>{t('favoritesTitle')}</Heading>
           </ScrollFadeUp>
@@ -86,7 +87,7 @@ export default function FavoritesPage({ isDark }) {
           }
         </View>
       </View>
-      <View style={{ height: 40 }} />
+      <View style={styles.footerSpacer} />
       <Footer />
     </ScrollView>
   );

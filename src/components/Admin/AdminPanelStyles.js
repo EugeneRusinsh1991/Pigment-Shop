@@ -55,5 +55,11 @@ export default StyleSheet.create({
   content: {
     flex: 1,
   },
+  logoutIcon: {
+    marginRight: layout.spacing.xs,
+  },
+  contentContainer: {
+    paddingBottom: layout.spacing.xxl + layout.spacing.sm,
+  },
 });
 

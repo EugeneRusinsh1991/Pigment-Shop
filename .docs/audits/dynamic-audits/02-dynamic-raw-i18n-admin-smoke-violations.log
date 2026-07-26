@@ -2,7 +2,7 @@
 type: dynamic-audit
 auditor: raw-i18n
 scope: admin
-date: 2026-07-26T21:58:20.914Z
+date: 2026-07-26T22:24:14.508Z
 ---
 
 ### URL: http://localhost:8081/admin
@@ -404,3 +404,61 @@ date: 2026-07-26T21:58:20.914Z
   Selector: `div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8`
 - Found hardcoded text without i18n key: "Product 2-2-2-1 EN"
   Selector: `div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8`
+- Found raw camelCase i18n key: "adminProductsEditTitle"
+  Selector: `h1.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-eaezby.r-color-kgv7a8`
+- Found hardcoded text without i18n key: "UA"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-color-1cucpzw`
+- Found hardcoded text without i18n key: "RU"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-color-1cucpzw`
+- Found hardcoded text without i18n key: "EN"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-color-1cucpzw`
+- Found hardcoded text without i18n key: "adminProductsFormName (UA) *"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1dk24ck.r-marginBottom-d0pm55`
+- Found hardcoded text without i18n key: "adminProductsFormDesc (UA)"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1dk24ck.r-marginBottom-d0pm55`
+- Found hardcoded text without i18n key: "Универсальный продукт для Product 1-2-1-1 UK"
+  Selector: `textarea.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-backgroundColor-fj6wrk.r-borderColor-1t4g3vi.r-borderRadius-1xfd6ze.r-borderWidth-rs99b7.r-color-kgv7a8.r-height-wy61xf.r-outlineStyle-1ny4l3l.r-paddingBlock-ytbthy.r-paddingInline-3o4zer.r-verticalAlign-ad9o1y`
+- Found hardcoded text without i18n key: "adminProductsFormPrice (₴) *"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1dk24ck.r-marginBottom-d0pm55`
+- Found raw camelCase i18n key: "adminProductsFormDiscount"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1dk24ck.r-marginBottom-d0pm55`
+- Found raw camelCase i18n key: "adminProductsFormBrand"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1dk24ck.r-marginBottom-d0pm55`
+- Found raw camelCase i18n key: "adminProductsFormSku"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1dk24ck.r-marginBottom-d0pm55`
+- Found raw camelCase i18n key: "adminProductsFormStock"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1dk24ck.r-marginBottom-d0pm55`
+- Found hardcoded text without i18n key: "adminProductsFormImage 1 *"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1dk24ck.r-marginBottom-d0pm55`
+- Found hardcoded text without i18n key: "adminProductsFormImage 2"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1dk24ck.r-marginBottom-d0pm55`
+- Found hardcoded text without i18n key: "adminProductsFormImage 3"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1dk24ck.r-marginBottom-d0pm55`
+- Found raw camelCase i18n key: "adminProductsFormNew"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-color-jwli3a`
+- Found raw camelCase i18n key: "adminProductsFormActive"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-color-1dk24ck`
+- Found raw camelCase i18n key: "adminProductsActionDelete"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-textAlign-q4m81j`
+- Found raw camelCase i18n key: "btnCancelLabel"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-1dk24ck`
+- Found raw camelCase i18n key: "btnSaveLabel"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-jwli3a`
+- Found hardcoded text without i18n key: "UA"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-color-jwli3a`
+- Found hardcoded text without i18n key: "RU"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-color-jwli3a`
+- Found hardcoded text without i18n key: "adminProductsFormName (RU) *"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1dk24ck.r-marginBottom-d0pm55`
+- Found hardcoded text without i18n key: "adminProductsFormDesc (RU)"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1dk24ck.r-marginBottom-d0pm55`
+- Found hardcoded text without i18n key: "Универсальный продукт для Product 1-2-1-1 RU"
+  Selector: `textarea.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-backgroundColor-fj6wrk.r-borderColor-1t4g3vi.r-borderRadius-1xfd6ze.r-borderWidth-rs99b7.r-color-kgv7a8.r-height-wy61xf.r-outlineStyle-1ny4l3l.r-paddingBlock-ytbthy.r-paddingInline-3o4zer.r-verticalAlign-ad9o1y`
+- Found hardcoded text without i18n key: "EN"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-color-jwli3a`
+- Found hardcoded text without i18n key: "adminProductsFormName (EN) *"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1dk24ck.r-marginBottom-d0pm55`
+- Found hardcoded text without i18n key: "adminProductsFormDesc (EN)"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1dk24ck.r-marginBottom-d0pm55`
+- Found hardcoded text without i18n key: "Универсальный продукт для Product 1-2-1-1 EN"
+  Selector: `textarea.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-backgroundColor-fj6wrk.r-borderColor-1t4g3vi.r-borderRadius-1xfd6ze.r-borderWidth-rs99b7.r-color-kgv7a8.r-height-wy61xf.r-outlineStyle-1ny4l3l.r-paddingBlock-ytbthy.r-paddingInline-3o4zer.r-verticalAlign-ad9o1y`

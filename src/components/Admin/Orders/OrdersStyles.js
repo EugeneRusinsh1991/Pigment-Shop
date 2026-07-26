@@ -2,40 +2,40 @@
  * OrdersStyles.js
  */
 import { StyleSheet } from 'react-native';
-import { colors, layout } from '../../../theme/tokens';
+import { colors, layout, buttonTokens } from '../../../theme/tokens';
 import { shadow } from '../../../theme/shadows';
 
 export default StyleSheet.create({
   container: {
-    paddingHorizontal: 24,
-    paddingTop: 24,
-    paddingBottom: 40,
+    paddingHorizontal: layout.spacing.xl,
+    paddingTop: layout.spacing.xl,
+    paddingBottom: layout.spacing.xxl,
     flex: 1,
   },
   headerRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 20,
+    marginBottom: layout.spacing.xl,
   },
   title: {
     color: colors.textLight,
   },
   countBadge: {
     backgroundColor: colors.accent,
-    borderRadius: 12,
-    paddingHorizontal: 12,
-    paddingVertical: 4,
+    borderRadius: layout.radii.sm,
+    paddingHorizontal: layout.spacing.md,
+    paddingVertical: layout.spacing.xxs,
   },
   countText: {
     color: colors.textDark,
   },
   tableCard: {
     backgroundColor: colors.surfaceLight,
-    borderRadius: 12,
-    padding: 16,
+    borderRadius: layout.radii.sm,
+    padding: layout.spacing.lg,
     ...shadow.card(),
-    elevation: 2,
+    elevation: layout.elevation.sm,
     overflow: 'hidden',
   },
 
@@ -48,31 +48,31 @@ export default StyleSheet.create({
   colStatus: { flex: 1.5, alignItems: 'center' },
   // Status filter bar
   statusFilterBarScroll: {
-    marginBottom: 16,
+    marginBottom: layout.spacing.lg,
   },
   statusFilterBar: {
     flexDirection: 'row',
-    gap: 8,
-    paddingRight: 4,
+    gap: layout.spacing.sm,
+    paddingRight: layout.spacing.xxs,
   },
   statusFilterGridMobile: {
-    gap: 8,
-    marginBottom: 16,
+    gap: layout.spacing.sm,
+    marginBottom: layout.spacing.lg,
   },
   statusFilterRowMobile: {
     flexDirection: 'row',
-    gap: 8,
+    gap: layout.spacing.sm,
     width: '100%',
   },
 
   // Row
   row: {
     flexDirection: 'column',
-    paddingHorizontal: 16,
-    paddingVertical: 8,
+    paddingHorizontal: layout.spacing.lg,
+    paddingVertical: layout.spacing.sm,
     borderBottomWidth: 1,
     borderBottomColor: colors.secondaryLightBorder,
-    gap: 6,
+    gap: layout.spacing.xs,
   },
   rowMobile: {
     backgroundColor: colors.surfaceElevatedLight,
@@ -87,15 +87,15 @@ export default StyleSheet.create({
   },
   rowMiddle: {
     flexDirection: 'row',
-    gap: 0,
+    gap: 0, // zero gap
   },
   rowBottom: {
     flexDirection: 'row',
-    gap: 0,
+    gap: 0, // zero gap
     borderTopWidth: 1,
     borderTopColor: colors.secondaryLightBorder,
-    paddingTop: 8,
-    marginTop: 2,
+    paddingTop: layout.spacing.sm,
+    marginTop: layout.elevation.sm,
   },
   customerName: {
     color: colors.textLight,
@@ -106,7 +106,11 @@ export default StyleSheet.create({
   },
   metaLabel: {
     color: colors.secondaryDarkText,
-    marginBottom: 3,
+    marginBottom: layout.elevation.sm,
+    textTransform: 'uppercase',
+  },
+  metaLabelInline: {
+    color: colors.secondaryDarkText,
     textTransform: 'uppercase',
   },
   metaValue: {
@@ -121,12 +125,12 @@ export default StyleSheet.create({
   },
   subText: {
     color: colors.secondaryDarkText,
-    marginTop: 2,
+    marginTop: layout.elevation.sm,
   },
   statusBadge: {
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-    borderRadius: 16,
+    paddingHorizontal: layout.spacing.sm,
+    paddingVertical: layout.spacing.xxs,
+    borderRadius: layout.radii.md,
     alignItems: 'center',
     justifyContent: 'center',
     alignSelf: 'flex-start',
@@ -148,31 +152,31 @@ export default StyleSheet.create({
   backBtn: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 20,
+    marginBottom: layout.spacing.xl,
   },
   backBtnText: {
-    marginLeft: 8,
+    marginLeft: layout.spacing.sm,
     color: colors.textDescLight,
   },
   sectionTitle: {
     color: colors.textLight,
-    marginTop: 12,
-    marginBottom: 6,
+    marginTop: layout.spacing.md,
+    marginBottom: layout.spacing.xs,
   },
   detailCard: {
     backgroundColor: colors.slateLight,
     borderRadius: layout.radii.sm,
-    padding: 12,
+    padding: layout.spacing.md,
     borderWidth: 1,
     borderColor: colors.secondaryLightBorder,
-    marginBottom: 10,
+    marginBottom: layout.spacing.sm,
   },
   detailRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     flexWrap: 'wrap',
-    marginBottom: 6,
-    gap: 4,
+    marginBottom: layout.spacing.xs,
+    gap: layout.spacing.xxs,
   },
   detailLabel: {
     color: colors.slateText,
@@ -188,7 +192,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingVertical: 6,
+    paddingVertical: layout.spacing.xs,
     borderBottomWidth: 1,
     borderBottomColor: colors.secondaryLightBorder,
   },
@@ -220,11 +224,11 @@ export default StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.secondaryLightBorder,
     borderRadius: layout.radii.sm,
-    padding: 12,
-    marginTop: 8,
+    padding: layout.spacing.md,
+    marginTop: layout.spacing.sm,
   },
   statusOption: {
-    paddingVertical: 10,
+    paddingVertical: layout.spacing.sm,
     borderBottomWidth: 1,
     borderBottomColor: colors.slateMid,
   },
@@ -235,17 +239,17 @@ export default StyleSheet.create({
     color: colors.successMid,
   },
   btn: {
-    paddingVertical: 10,
-    paddingHorizontal: 12,
+    paddingVertical: layout.spacing.sm,
+    paddingHorizontal: layout.spacing.md,
     borderRadius: layout.radii.xs,
     alignItems: 'center',
     justifyContent: 'center',
   },
   feedbackBanner: {
-    paddingVertical: 10,
-    paddingHorizontal: 12,
+    paddingVertical: layout.spacing.sm,
+    paddingHorizontal: layout.spacing.md,
     borderRadius: layout.radii.xs,
-    marginBottom: 10,
+    marginBottom: layout.spacing.sm,
     borderWidth: 1,
   },
   feedbackSuccess: {
@@ -266,5 +270,86 @@ export default StyleSheet.create({
   adminNoteInput: {
     backgroundColor: colors.surfaceLight,
     color: colors.textLight,
+  },
+
+  // Helper classes for eliminating inline styles across Orders components
+  guestBanner: {
+    backgroundColor: colors.warningBgLegacy,
+    padding: layout.spacing.md,
+    borderRadius: layout.radii.xs,
+    marginBottom: layout.spacing.md,
+  },
+  guestBannerText: {
+    color: colors.warningDeep,
+  },
+  rowMain: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  rowNotes: {
+    flexDirection: 'row',
+    gap: layout.spacing.xl,
+    marginTop: layout.spacing.xxs,
+  },
+  noteItem: {
+    flexDirection: 'row',
+    flex: 1,
+    gap: layout.spacing.xxs,
+  },
+  loadingIndicator: {
+    marginTop: layout.spacing.xxl,
+  },
+  errorText: {
+    marginTop: layout.spacing.xl,
+  },
+  filterBarContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: layout.spacing.lg,
+    flexWrap: 'wrap',
+    gap: layout.spacing.sm,
+  },
+  dropdownMenuContainer: {
+    position: 'absolute',
+    top: 48,
+    left: 0,
+    right: 0,
+    backgroundColor: colors.surfaceLight,
+    borderWidth: 1,
+    borderColor: colors.secondaryLightBorder,
+    borderRadius: layout.radii.sm,
+    elevation: layout.elevation.md,
+    zIndex: layout.zIndices.dropdown,
+    overflow: 'hidden',
+    ...shadow.dropdown(),
+  },
+  dropdownOption: {
+    paddingVertical: layout.spacing.sm,
+    paddingHorizontal: layout.spacing.md,
+    backgroundColor: colors.surfaceLight,
+  },
+  dropdownOptionBorder: {
+    borderBottomWidth: 1,
+    borderBottomColor: colors.slateMid,
+  },
+  dropdownOptionRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: layout.spacing.sm,
+  },
+  statusDot: {
+    width: layout.spacing.sm,
+    height: layout.spacing.sm,
+    borderRadius: layout.spacing.xxs,
+  },
+  checkmark: {
+    marginLeft: layout.spacing.xxs,
+  },
+  statusSelectorContainer: {
+    zIndex: layout.zIndices.dropdown,
+    position: 'relative',
+    marginBottom: layout.spacing.md,
   },
 });

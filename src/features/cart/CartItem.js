@@ -1,10 +1,12 @@
 import React from 'react';
-import { Platform, StyleSheet, View, Image } from 'react-native';
+import { StyleSheet, View, Image } from 'react-native';
 import { Text } from '../../components/Text';
 import { useTheme } from '../../context/ThemeContext';
 import { CrossIcon } from '@/components/Icons';
 import { IconButton } from '../../components/Button';
 import { getLocalizedValue } from '../../utils/localization';
+import { colors, layout } from '../../theme/tokens';
+import { shadow } from '../../theme/shadows';
 
 export default function CartItem({ item, isDark, onIncrease, onDecrease, onRemove }) {
   const { lang } = useTheme();
@@ -30,11 +32,11 @@ export default function CartItem({ item, isDark, onIncrease, onDecrease, onRemov
             {getLocalizedValue(item.label, lang, item.label)}
           </Text>
           <IconButton
-            icon={<CrossIcon color={isDark ? '#64748b' : '#94a3b8'} size={14} />}
+            icon={<CrossIcon color={isDark ? colors.slateText : colors.secondaryDarkText} size={14} />}
             onPress={onRemove}
             size={24}
             variant="transparent"
-            style={{ marginTop: -4, marginRight: -4 }}
+            style={styles.removeBtn}
           />
         </View>
 
@@ -76,34 +78,24 @@ const styles = StyleSheet.create({
   card: {
     flexDirection: 'row',
     marginHorizontal: 0,
-    marginVertical: 6,
-    borderRadius: 16,
-    padding: 12,
+    marginVertical: layout.spacing.xs,
+    borderRadius: layout.radii.md,
+    padding: layout.spacing.md,
     borderWidth: 1,
-    ...Platform.select({
-      web: {
-        boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.08)',
-      },
-      default: {
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 4 },
-        shadowOpacity: 0.08,
-        shadowRadius: 8,
-      },
-    }),
-    elevation: 2,
+    ...shadow.dropdown(),
+    elevation: layout.elevation.sm,
   },
-  cardDark: { backgroundColor: '#121212', borderColor: '#242424' },
-  cardLight: { backgroundColor: '#ffffff', borderColor: '#e2e8f0' },
+  cardDark: { backgroundColor: colors.surfaceNeutralDark, borderColor: colors.borderDarkAlt },
+  cardLight: { backgroundColor: colors.surfaceLight, borderColor: colors.secondaryLightBorder },
 
   imageWrap: {
     width: 96,
     height: 96,
-    borderRadius: 12,
+    borderRadius: layout.spacing.md,
     overflow: 'hidden',
   },
-  imageWrapDark: { backgroundColor: '#1E1E1E' },
-  imageWrapLight: { backgroundColor: '#e8edf5' },
+  imageWrapDark: { backgroundColor: colors.productCardDark },
+  imageWrapLight: { backgroundColor: colors.navItemHoverDark },
   img: {
     width: '100%',
     height: '100%',
@@ -111,7 +103,7 @@ const styles = StyleSheet.create({
 
   details: {
     flex: 1,
-    marginLeft: 12,
+    marginLeft: layout.spacing.md,
     justifyContent: 'space-between',
   },
 
@@ -120,7 +112,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'flex-start',
   },
-  label: { flex: 1, marginRight: 8 },
+  label: { flex: 1, marginRight: layout.spacing.sm },
+  removeBtn: { marginTop: -layout.spacing.xxs, marginRight: -layout.spacing.xxs },
 
   footerRow: {
     flexDirection: 'row',
@@ -128,11 +121,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   qtyRow: { flexDirection: 'row', alignItems: 'center' },
-  qtyBtn: { width: 28, height: 28, borderRadius: 8, alignItems: 'center', justifyContent: 'center', borderWidth: 1 },
-  qtyBtnDark: { backgroundColor: '#0f172a', borderColor: '#334155' },
-  qtyBtnLight: { backgroundColor: '#f1f5f9', borderColor: '#e2e8f0' },
+  qtyBtn: { width: 28, height: 28, borderRadius: layout.radii.sm, alignItems: 'center', justifyContent: 'center', borderWidth: 1 },
+  qtyBtnDark: { backgroundColor: colors.textStrongDark, borderColor: colors.secondaryDarkBorder },
+  qtyBtnLight: { backgroundColor: colors.slateMid, borderColor: colors.secondaryLightBorder },
   qtyBtnTxt: {},
-  qtyBtnTxtDark: { color: '#f1f5f9' },
-  qtyBtnTxtLight: { color: '#0f172a' },
-  qty: { marginHorizontal: 8, minWidth: 20, textAlign: 'center' },
+  qtyBtnTxtDark: { color: colors.slateMid },
+  qtyBtnTxtLight: { color: colors.textStrongDark },
+  qty: { marginHorizontal: layout.spacing.sm, minWidth: 20, textAlign: 'center' },
 });

@@ -94,8 +94,8 @@ export function ExpandedItemsList({ show, items, getStyle, order }) {
         />
       ))}
       {order.note ? (
-        <View style={{ marginTop: 12, paddingTop: 12, borderTopWidth: 1, borderTopColor: getStyle(colors.neutralDarkFaint, colors.secondaryLightBorder) }}>
-          <Text variant="caption" color="muted" style={[styles.itemLabel, { marginBottom: 4 }]}> 
+        <View style={[styles.noteSection, getStyle(styles.itemBorderDark, styles.itemBorderLight)]}>
+          <Text variant="caption" color="muted" style={[styles.itemLabel, styles.noteTitle]}> 
             {getItemLabel({ en: 'Order Note', ru: 'Комментарий к заказу', uk: 'Коментар до замовлення' }, theme.lang)}
           </Text>
           <Text style={styles.itemLabel}>

@@ -7,6 +7,7 @@ import { COLLECTIONS } from '../../services/collections';
 import styles from './ContactPageStyles';
 import { Button } from '../../components/Button';
 import Card from '../../components/Card/Card';
+import { colors } from '../../theme/tokens';
 
 function buildSupportMessagePayload(questionText, user) {
   const userId = user?.uid || 'guest';
@@ -60,11 +61,11 @@ function useContactQuestionForm(user) {
 function FormFeedbackMessage({ submitStatus, t }) {
   if (!submitStatus) return null;
   const isSuccess = submitStatus === 'success';
-  const color = isSuccess ? '#10B981' : '#EF4444';
+  const color = isSuccess ? colors.successMid : colors.danger;
   const textKey = isSuccess ? 'contactUsSuccess' : 'contactUsError';
 
   return (
-    <Text variant="body" weight="medium" style={{ color, marginTop: 12, textAlign: 'center' }}>
+    <Text variant="body" weight="medium" style={[styles.feedbackText, { color }]}>
       {t(textKey)}
     </Text>
   );
@@ -82,7 +83,7 @@ export default function ContactQuestionForm({ t, ic, isDark, isMobile, contentWi
   ];
 
   return (
-    <Card isDark={isDark} style={cardStyle}>
+    <Card isDark={isDark} style={[styles.questionSection, { alignSelf: 'center', width: '100%', maxWidth: isMobile ? contentWidth : undefined }]}>
       <FieldTextarea
         label={t('contactUsQuestion')}
         styles={{
@@ -102,7 +103,7 @@ export default function ContactQuestionForm({ t, ic, isDark, isMobile, contentWi
         loading={submitting}
         variant="accent"
         size="lg"
-        style={{ marginTop: 16 }}
+        style={styles.submitBtnTopMargin}
       />
       <FormFeedbackMessage submitStatus={submitStatus} t={t} />
     </Card>

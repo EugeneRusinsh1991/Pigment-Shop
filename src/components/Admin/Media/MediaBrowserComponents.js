@@ -20,7 +20,7 @@ export function OutdatedBanner() {
   return (
     <View style={styles.outdatedBanner}>
       <Text style={styles.outdatedBannerTitle} size={13} weight="bold">
-        <AlertIcon color="#DC2626" size={14} style={{ marginRight: 6 }} /> Media index not generated
+        <AlertIcon color={colors.dangerMid} size={14} style={styles.alertIcon} /> Media index not generated
       </Text>
       <Text style={styles.outdatedBannerText} size={12}>
         {'Run '}
@@ -37,7 +37,7 @@ export function BrowserHeader({ onRefresh, onClose }) {
       <Heading level={3} style={styles.title}>Media Library</Heading>
       <Button
         title="Refresh"
-        leftIcon={<RefreshIcon color="#4f46e5" size={12} style={{ marginRight: 4 }} />}
+        leftIcon={<RefreshIcon color={colors.purpleStrong} size={12} style={styles.refreshIcon} />}
         onPress={onRefresh}
         variant="secondary"
         size="sm"

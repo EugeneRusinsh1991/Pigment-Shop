@@ -92,7 +92,7 @@ export default function DateRangePicker({ startDate, endDate, onChange }) {
 
   return (
     <View style={styles.datePickerContainer}>
-      <View style={{ position: 'relative', zIndex: layout.zIndices.toast }}>
+      <View style={styles.calendarToggleWrapper}>
         <Toggle
           options={options}
           value={mode}

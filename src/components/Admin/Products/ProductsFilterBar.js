@@ -10,6 +10,7 @@ import { Button } from '../../Button';
 import { Badge } from '../../Badge';
 import { useTheme } from '../../../context/ThemeContext';
 import { layout } from '../../../theme/tokens';
+import styles from './ProductsStyles';
 
 export default function ProductsFilterBar({
   onlyDiscount,
@@ -20,7 +21,7 @@ export default function ProductsFilterBar({
 }) {
   const { t } = useTheme();
   return (
-    <View style={{ flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', gap: layout.spacing.sm, marginBottom: layout.spacing.lg }}>
+    <View style={styles.filterBar}>
       <Badge
         variant="chip"
         selected={onlyDiscount}

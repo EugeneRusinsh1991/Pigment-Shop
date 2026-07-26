@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors, buttonTokens } from '../../theme/tokens';
+import { colors, buttonTokens, layout } from '../../theme/tokens';
 
 const styles = StyleSheet.create({
   container: {
@@ -10,31 +10,31 @@ const styles = StyleSheet.create({
   containerLight: { backgroundColor: colors.backgroundLight },
   scrollContent: {
     flexGrow: 1,
-    paddingBottom: 24,
+    paddingBottom: layout.spacing.xl,
   },
   pageContent: {
-    paddingHorizontal: 8,
-    paddingVertical: 16,
+    paddingHorizontal: layout.spacing.sm,
+    paddingVertical: layout.spacing.lg,
   },
   title: {
-    marginBottom: 16,
+    marginBottom: layout.spacing.lg,
     textAlign: 'center',
   },
   cardSpecific: {
-    marginBottom: 16,
+    marginBottom: layout.spacing.lg,
     borderWidth: 0,
   },
   label: {
-    marginBottom: 4,
+    marginBottom: layout.spacing.xxs,
   },
   value: {},
   inputGroup: {
-    marginBottom: 8,
+    marginBottom: layout.spacing.sm,
   },
   inputContainer: {
     borderWidth: 1,
-    borderRadius: 8,
-    paddingHorizontal: 12,
+    borderRadius: layout.radii.sm,
+    paddingHorizontal: layout.spacing.md,
     height: 40,
     justifyContent: 'center',
   },
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     borderRadius: buttonTokens.sizes.md.borderRadius,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 6,
+    marginTop: layout.spacing.xs,
   },
   saveBtnDark: {
     backgroundColor: colors.white,
@@ -76,36 +76,36 @@ const styles = StyleSheet.create({
     color: colors.white,
   },
   sectionTitle: {
-    marginBottom: 8,
+    marginBottom: layout.spacing.sm,
   },
   description: {
-    marginBottom: 16,
+    marginBottom: layout.spacing.lg,
   },
   promoSuccess: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: 16,
-    borderRadius: 8,
+    padding: layout.spacing.lg,
+    borderRadius: layout.radii.sm,
   },
-  promoSuccessDark: { backgroundColor: 'rgba(52, 211, 153, 0.1)' },
+  promoSuccessDark: { backgroundColor: colors.successSoftDarkBgFaint },
   promoSuccessLight: { backgroundColor: colors.successBgLight },
   promoText: {},
   promoTextDark: { color: colors.successLight },
   promoTextLight: { color: colors.successDeep },
   promoRemove: {},
   requiredNote: {
-    marginTop: 8,
+    marginTop: layout.spacing.sm,
     textAlign: 'left',
   },
   saveMessage: {
-    marginTop: 8,
-    paddingVertical: 8,
-    paddingHorizontal: 12,
-    borderRadius: 8,
+    marginTop: layout.spacing.sm,
+    paddingVertical: layout.spacing.sm,
+    paddingHorizontal: layout.spacing.md,
+    borderRadius: layout.radii.sm,
   },
   saveMessageDark: {
-    backgroundColor: 'rgba(52, 211, 153, 0.16)',
+    backgroundColor: colors.successSoftDarkBgMid,
   },
   saveMessageLight: {
     backgroundColor: colors.successBgLight,
@@ -121,6 +121,15 @@ const styles = StyleSheet.create({
   subtextLight: { color: colors.textMutedLight },
   textDark: { color: colors.textDark },
   textLight: { color: colors.textLight },
+  saveBtnMargin: {
+    marginTop: layout.spacing.xs,
+  },
+  noPaddingBottom: {
+    paddingBottom: 0,
+  },
+  flex1: {
+    flex: 1,
+  },
 });
 
 export default styles;

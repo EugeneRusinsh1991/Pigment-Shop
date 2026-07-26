@@ -21,7 +21,7 @@ export function StatusFilterBar({ t, activeFilter, onSelectFilter, count, isDark
   }));
 
   return (
-    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: layout.spacing.lg, flexWrap: 'wrap', gap: layout.spacing.sm }}>
+    <View style={styles.filterBarContainer}>
       <Toggle
         options={options}
         value={activeFilter}

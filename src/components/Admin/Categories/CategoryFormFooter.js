@@ -28,10 +28,10 @@ export function CategoryFormFooter({
                 onPress={() => onAddChild(category)}
                 variant="outline"
                 size="md"
-                style={{ flex: 1 }}
+                style={styles.flex1}
               />
             ) : (
-              <View style={{ flex: 1 }} />
+              <View style={styles.flex1} />
             )}
 
             {canDelete ? (
@@ -49,10 +49,10 @@ export function CategoryFormFooter({
                 }}
                 variant="danger"
                 size="md"
-                style={{ flex: 1 }}
+                style={styles.flex1}
               />
             ) : (
-              <View style={{ flex: 1 }} />
+              <View style={styles.flex1} />
             )}
           </View>
         )}
@@ -62,14 +62,14 @@ export function CategoryFormFooter({
             onPress={onClose}
             variant="secondary"
             size="md"
-            style={{ flex: 1 }}
+            style={styles.flex1}
           />
           <Button
             title={t('btnSaveLabel')}
             onPress={onSave}
             variant="success"
             size="md"
-            style={{ flex: 1 }}
+            style={styles.flex1}
           />
         </View>
       </View>

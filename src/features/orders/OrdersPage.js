@@ -67,17 +67,14 @@ export default function OrdersPage({ isDark }) {
     setExpandedOrders((prev) => ({ ...prev, [orderId]: !prev[orderId] }));
   };
 
-  const containerStyle = [styles.container, isDark ? styles.containerDark : styles.containerLight];
-  const contentWrapperStyle = [styles.pageContent, { alignSelf: 'center', width: '100%', maxWidth: isWide ? 580 : gridWidth }];
-
   return (
     <ScrollView 
-      style={containerStyle}
-      contentContainerStyle={[styles.scrollContent, { paddingBottom: 0 }]}
+      style={[styles.container, isDark ? styles.containerDark : styles.containerLight]}
+      contentContainerStyle={styles.scrollContent}
       showsVerticalScrollIndicator={false}
     >
-      <View style={{ flex: 1 }}>
-        <View style={contentWrapperStyle}>
+      <View style={styles.flexOne}>
+        <View style={[styles.pageContent, styles.contentWrapper, { maxWidth: isWide ? 580 : gridWidth }]}>
           <ScrollFadeUp>
             <Heading level={1} style={styles.title} isDark={isDark}>
               {t('ordersTitle')}
@@ -97,7 +94,7 @@ export default function OrdersPage({ isDark }) {
           />
         </View>
       </View>
-      <View style={{ height: 40 }} />
+      <View style={styles.bottomSpacer} />
       <Footer />
     </ScrollView>
   );

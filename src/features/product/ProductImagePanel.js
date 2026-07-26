@@ -80,14 +80,10 @@ function CarouselDots({ banners, currentIndex, handleSwitch }) {
 
 function ProductFavoriteBtn({ isWide, isDark, isFavorite, onToggleFavorite, product }) {
   if (isWide) return null;
-  const overlayStyle = [
-    styles.favOverlay,
-    isDark ? styles.favOverlayDark : styles.favOverlayLight,
-  ];
   const heartColor = isFavorite ? colors.accent : isDark ? colors.white : colors.dark;
   return (
     <AnimatedButton
-      style={overlayStyle}
+      style={[styles.favOverlay, isDark ? styles.favOverlayDark : styles.favOverlayLight]}
       onPress={() => onToggleFavorite && onToggleFavorite(product)}
       scaleTo={1.3}
     >
@@ -119,7 +115,7 @@ export function ProductImagePanel({ product, isWide, isFavorite, onToggleFavorit
           fadeAnim={fadeAnim}
         />
 
-        <ProductBadges isNew={product?.isNew} discountPercent={product?.discountPercent} containerStyle={{ top: 12, left: 12, zIndex: 20 }} />
+        <ProductBadges isNew={product?.isNew} discountPercent={product?.discountPercent} containerStyle={styles.badgesOverlay} />
 
         <CarouselArrows
           show={hasMultiple}

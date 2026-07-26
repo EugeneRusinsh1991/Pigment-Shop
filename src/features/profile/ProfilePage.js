@@ -64,10 +64,10 @@ export default function ProfilePage({ isDark, auth }) {
   return (
     <ScrollView
       style={[styles.container, isDark ? styles.containerDark : styles.containerLight]}
-      contentContainerStyle={[styles.scrollContent, { paddingBottom: 0 }]}
+      contentContainerStyle={[styles.scrollContent, styles.noPaddingBottom]}
       showsVerticalScrollIndicator={false}
     >
-      <View style={{ flex: 1 }}>
+      <View style={styles.flex1}>
         <View
           style={[
             styles.pageContent,

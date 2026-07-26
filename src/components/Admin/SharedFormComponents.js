@@ -1,27 +1,28 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { Text } from '@/components/Text';
-import { colors } from '../../theme/tokens';
+import { colors, layout } from '../../theme/tokens';
 import TextField from '../TextField';
 import { FieldError } from '../Feedback';
 
-
-const DEFAULT_LABEL_ROW_STYLE = { flexDirection: 'row', alignItems: 'center', gap: 6, marginBottom: 4 };
+const defaultStyles = StyleSheet.create({
+  labelRow: { flexDirection: 'row', alignItems: 'center', gap: layout.spacing.xs, marginBottom: layout.spacing.xxs },
+});
 
 function resolveFieldLabelRowStyles(styles) {
   return {
-    row: styles ? styles.labelRow || DEFAULT_LABEL_ROW_STYLE : DEFAULT_LABEL_ROW_STYLE,
+    row: styles && styles.labelRow ? styles.labelRow : defaultStyles.labelRow,
     text: styles ? styles.fieldLabel : undefined,
   };
 }
 
 function FieldLabelRow({ label, labelIcon, styles }) {
   if (!label && !labelIcon) return null;
-  const s = resolveFieldLabelRowStyles(styles);
+  const resolvedStyles = resolveFieldLabelRowStyles(styles);
   return (
-    <View style={s.row}>
+    <View style={resolvedStyles.row}>
       {labelIcon}
-      {label && <Text style={s.text}>{label}</Text>}
+      {label && <Text style={resolvedStyles.text}>{label}</Text>}
     </View>
   );
 }
@@ -77,7 +78,7 @@ export function FieldInput({ label, labelIcon, value, onChangeText, placeholder,
   const [isFocused, setIsFocused] = React.useState(false);
   const sharedInputProps = { isFocused, setIsFocused, value, onChangeText, placeholder, error, keyboardType, styles, inputStyle, ...props };
   return (
-    <View style={styles?.fieldGroup ?? style}>
+    <View style={[styles?.fieldGroup, style]}>
       <FieldLabelRow label={label} labelIcon={labelIcon} styles={styles} />
       <FieldInputCore leftIcon={leftIcon} rightIcon={rightIcon} styles={styles} sharedInputProps={sharedInputProps} />
       <FieldError error={error} />
@@ -88,7 +89,7 @@ export function FieldInput({ label, labelIcon, value, onChangeText, placeholder,
 export function FieldTextarea({ label, labelIcon, value, onChangeText, placeholder, numberOfLines = 2, error, styles, style, inputStyle, ...props }) {
   const [isFocused, setIsFocused] = React.useState(false);
   return (
-    <View style={styles?.fieldGroup || style}>
+    <View style={[styles?.fieldGroup, style]}>
       <FieldLabelRow label={label} labelIcon={labelIcon} styles={styles} />
       <FieldTextInputCore
         isFocused={isFocused}

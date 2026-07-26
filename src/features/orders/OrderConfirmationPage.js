@@ -9,6 +9,7 @@ import { ScrollFadeUp } from '../../components/Motion';
 import { Button } from '../../components/Button';
 import OrderHeader from './OrderHeader';
 import OrderDetailsCard from './OrderDetailsCard';
+import { colors, layout } from '../../theme/tokens';
 
 export default function OrderConfirmationPage({ isDark, params }) {
   const { t, lang } = useTheme();
@@ -29,28 +30,14 @@ export default function OrderConfirmationPage({ isDark, params }) {
 
   const { orderId, items = [], totalPrice = 0 } = params;
 
-  const containerStyle = [
-    styles.container,
-    isDark ? styles.containerDark : styles.containerLight,
-  ];
-
-  const contentWrapperStyle = [
-    styles.pageContent,
-    {
-      alignSelf: 'center',
-      width: '100%',
-      maxWidth: isWide ? 580 : gridWidth,
-    },
-  ];
-
   return (
     <ScrollView
-      style={containerStyle}
+      style={[styles.container, isDark ? styles.containerDark : styles.containerLight]}
       contentContainerStyle={styles.scrollContent}
       showsVerticalScrollIndicator={false}
     >
-      <View style={{ flex: 1 }}>
-        <View style={contentWrapperStyle}>
+      <View style={styles.flexOne}>
+        <View style={[styles.pageContent, styles.contentWrapper, { maxWidth: isWide ? 580 : gridWidth }]}>
           
           {/* Success Checkmark Indicator */}
           <OrderHeader isDark={isDark} t={t} />
@@ -78,7 +65,7 @@ export default function OrderConfirmationPage({ isDark, params }) {
 
         </View>
       </View>
-      <View style={{ height: 40 }} />
+      <View style={styles.bottomSpacer} />
       <Footer />
     </ScrollView>
   );
@@ -89,15 +76,18 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
   },
-  containerDark: { backgroundColor: '#0D0D0D' },
-  containerLight: { backgroundColor: '#FAF8F6' },
+  containerDark: { backgroundColor: colors.backgroundDark },
+  containerLight: { backgroundColor: colors.backgroundLight },
   scrollContent: {
     flexGrow: 1,
-    paddingBottom: 24,
+    paddingBottom: layout.spacing.xl,
   },
   pageContent: {
-    paddingHorizontal: 8,
-    paddingVertical: 16,
+    paddingHorizontal: layout.spacing.sm,
+    paddingVertical: layout.spacing.lg,
   },
+  flexOne: { flex: 1 },
+  contentWrapper: { alignSelf: 'center', width: '100%' },
+  bottomSpacer: { height: 40 },
 });
 

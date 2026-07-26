@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Text, Heading } from '../../components/Text';
 import { ScrollFadeUp } from '../../components/Motion';
+import { colors, layout } from '../../theme/tokens';
 
 export default function OrderHeader({ isDark, t }) {
   return (
@@ -23,25 +24,25 @@ const styles = StyleSheet.create({
   headerSection: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginVertical: 20,
+    marginVertical: layout.spacing.xl,
     textAlign: 'center',
   },
   checkmarkCircle: {
     width: 64,
     height: 64,
-    borderRadius: 32,
+    borderRadius: layout.radii.full,
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 16,
+    marginBottom: layout.spacing.lg,
   },
   checkmarkCircleDark: {
-    backgroundColor: 'rgba(52, 211, 153, 0.1)',
+    backgroundColor: colors.successSoftDarkBg,
   },
   checkmarkCircleLight: {
-    backgroundColor: '#D1FAE5',
+    backgroundColor: colors.successBgMid,
   },
   title: {
-    marginBottom: 8,
+    marginBottom: layout.spacing.sm,
     textAlign: 'center',
   },
   subtitle: {

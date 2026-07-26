@@ -1,41 +1,41 @@
 import { StyleSheet } from 'react-native';
-import { colors } from '../../../theme/tokens';
+import { colors, layout, buttonTokens } from '../../../theme/tokens';
 import { shadow } from '../../../theme/shadows';
 
 export default StyleSheet.create({
   overlay: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.45)',
+    backgroundColor: colors.overlayScrim,
     justifyContent: 'center',
     alignItems: 'center',
   },
   card: {
     backgroundColor: colors.white,
-    borderRadius: 16,
+    borderRadius: layout.radii.md,
     width: 600,
     maxWidth: '95%',
     maxHeight: '80%',
     overflow: 'hidden',
     ...shadow.media(),
-    elevation: 8,
+    elevation: layout.elevation.lg,
   },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 20,
-    paddingVertical: 14,
+    paddingHorizontal: layout.spacing.xl,
+    paddingVertical: layout.spacing.md,
     borderBottomWidth: 1,
     borderBottomColor: colors.slateMid,
-    gap: 8,
+    gap: layout.spacing.sm,
   },
   title: {
     flex: 1,
     color: colors.dark,
   },
   refreshBtn: {
-    paddingVertical: 6,
-    paddingHorizontal: 12,
-    borderRadius: 7,
+    paddingVertical: layout.spacing.xs,
+    paddingHorizontal: layout.spacing.md,
+    borderRadius: layout.radii.sm,
     backgroundColor: colors.slateMid,
     borderWidth: 1,
     borderColor: colors.secondaryLightBorder,
@@ -45,21 +45,21 @@ export default StyleSheet.create({
   },
   closeBtn: {
     color: colors.secondaryDarkText,
-    padding: 4,
+    padding: layout.spacing.xxs,
   },
   outdatedBanner: {
-    marginHorizontal: 16,
-    marginTop: 12,
-    marginBottom: 4,
-    padding: 12,
-    borderRadius: 10,
+    marginHorizontal: layout.spacing.lg,
+    marginTop: layout.spacing.md,
+    marginBottom: layout.spacing.xxs,
+    padding: layout.spacing.md,
+    borderRadius: layout.radii.sm,
     backgroundColor: colors.warningBgLight,
     borderWidth: 1,
     borderColor: colors.warningLight,
   },
   outdatedBannerTitle: {
     color: colors.warningDeeper,
-    marginBottom: 2,
+    marginBottom: layout.elevation.sm,
   },
   outdatedBannerText: {
     color: colors.warningDarkAlt,
@@ -69,16 +69,16 @@ export default StyleSheet.create({
   },
   tabs: {
     flexDirection: 'row',
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    gap: 8,
+    paddingHorizontal: layout.spacing.xl,
+    paddingVertical: layout.spacing.sm,
+    gap: layout.spacing.sm,
     borderBottomWidth: 1,
     borderBottomColor: colors.slateMid,
   },
   tab: {
-    paddingVertical: 6,
-    paddingHorizontal: 16,
-    borderRadius: 8,
+    paddingVertical: layout.spacing.xs,
+    paddingHorizontal: layout.spacing.lg,
+    borderRadius: layout.radii.sm,
     backgroundColor: colors.slateMid,
     borderWidth: 1,
     borderColor: colors.secondaryLightBorder,
@@ -94,17 +94,17 @@ export default StyleSheet.create({
     color: colors.white,
   },
   body: {
-    padding: 16,
+    padding: layout.spacing.lg,
   },
 
   grid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: 10,
+    gap: layout.spacing.sm,
   },
   itemBtn: {
     width: 100,
-    borderRadius: 10,
+    borderRadius: layout.radii.sm,
     borderWidth: 2,
     borderColor: 'transparent',
     overflow: 'hidden',
@@ -113,6 +113,11 @@ export default StyleSheet.create({
   itemBtnSelected: {
     borderColor: colors.dark,
   },
+  itemThumbContainer: {
+    width: '100%',
+    height: 80,
+    overflow: 'hidden',
+  },
   itemThumb: {
     width: '100%',
     height: 70,
@@ -120,9 +125,8 @@ export default StyleSheet.create({
   },
   itemName: {
     color: colors.secondaryLightText,
-    paddingHorizontal: 6,
-    paddingVertical: 4,
-    numberOfLines: 1,
+    paddingHorizontal: layout.spacing.xs,
+    paddingVertical: layout.spacing.xxs,
   },
   videoPlaceholder: {
     width: '100%',
@@ -132,18 +136,23 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   videoIcon: {},
+  removeBtn: {
+    position: 'absolute',
+    top: layout.spacing.xxs,
+    right: layout.spacing.xxs,
+  },
   footer: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
-    gap: 10,
-    padding: 16,
+    gap: layout.spacing.sm,
+    padding: layout.spacing.lg,
     borderTopWidth: 1,
     borderTopColor: colors.slateMid,
   },
   cancelBtn: {
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 8,
+    paddingVertical: layout.spacing.sm,
+    paddingHorizontal: buttonTokens.sizes.md.borderRadiusPill,
+    borderRadius: layout.radii.sm,
     backgroundColor: colors.slateMid,
     borderWidth: 1,
     borderColor: colors.secondaryLightBorder,
@@ -152,9 +161,9 @@ export default StyleSheet.create({
     color: colors.secondaryLightText,
   },
   selectBtn: {
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 8,
+    paddingVertical: layout.spacing.sm,
+    paddingHorizontal: buttonTokens.sizes.md.borderRadiusPill,
+    borderRadius: layout.radii.sm,
     backgroundColor: colors.dark,
   },
   selectBtnText: {
@@ -162,5 +171,11 @@ export default StyleSheet.create({
   },
   selectBtnDisabled: {
     backgroundColor: colors.slateStrong,
+  },
+  alertIcon: {
+    marginRight: layout.spacing.xs,
+  },
+  refreshIcon: {
+    marginRight: layout.spacing.xxs,
   },
 });

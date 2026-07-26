@@ -1,11 +1,11 @@
 # 📦 Unused Exports
 
-*Generated on: 27.07.2026, 01:06:06*
+*Generated on: 27.07.2026, 01:23:49*
 
 Exports that are not imported or consumed by any other active file:
 
 - [appBootstrap.js](file:///D:/Magazine/_PigmentShop/src/bootstrap/appBootstrap.js): `stopAppBootstrap` ([L127](file:///D:/Magazine/_PigmentShop/src/bootstrap/appBootstrap.js#L127)), `resetAppBootstrap` ([L138](file:///D:/Magazine/_PigmentShop/src/bootstrap/appBootstrap.js#L138))
-- [SharedFormComponents.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/SharedFormComponents.js): `FieldTextArea` ([L111](file:///D:/Magazine/_PigmentShop/src/components/Admin/SharedFormComponents.js#L111))
+- [SharedFormComponents.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/SharedFormComponents.js): `FieldTextArea` ([L112](file:///D:/Magazine/_PigmentShop/src/components/Admin/SharedFormComponents.js#L112))
 - [index.js](file:///D:/Magazine/_PigmentShop/src/components/Badge/index.js): `default` ([L1](file:///D:/Magazine/_PigmentShop/src/components/Badge/index.js#L1)), `useBadgeTheme` ([L2](file:///D:/Magazine/_PigmentShop/src/components/Badge/index.js#L2)), `useBadgeAnimation` ([L3](file:///D:/Magazine/_PigmentShop/src/components/Badge/index.js#L3))
 - [useBadgeAnimation.js](file:///D:/Magazine/_PigmentShop/src/components/Badge/useBadgeAnimation.js): `default` ([L75](file:///D:/Magazine/_PigmentShop/src/components/Badge/useBadgeAnimation.js#L75))
 - [index.js](file:///D:/Magazine/_PigmentShop/src/components/Button/index.js): `useButtonTheme` ([L4](file:///D:/Magazine/_PigmentShop/src/components/Button/index.js#L4)), `buttonTokens` ([L5](file:///D:/Magazine/_PigmentShop/src/components/Button/index.js#L5))

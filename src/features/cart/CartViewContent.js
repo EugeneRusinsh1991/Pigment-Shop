@@ -7,11 +7,12 @@ import { CartIcon } from '@/components/Icons';
 import styles from './CartViewStyles';
 import useGridLayout from '../../hooks/useGridLayout';
 import { ScrollFadeUp } from '../../components/Motion';
+import { colors } from '../../theme/tokens';
 
 function EmptyCart({ isDark, t }) {
   return (
     <ScrollFadeUp style={[styles.emptyState, isDark ? styles.containerDark : styles.containerLight]}>
-      <CartIcon color={isDark ? '#FFFFFF' : '#1C1C1C'} size={48} style={{ marginBottom: 12 }} />
+      <CartIcon color={isDark ? colors.white : colors.dark} size={48} style={styles.emptyIcon} />
       <Text variant="body" color="muted">
         {t('cartEmpty')}
       </Text>
@@ -93,16 +94,12 @@ export default function CartViewContent({
       contentContainerStyle={styles.scrollContent}
       showsVerticalScrollIndicator={false}
     >
-      <View style={{ flex: 1 }}>
+      <View style={styles.flexOne}>
         <View
           style={[
             styles.pageContent,
-            !isWide && {
-              alignSelf: 'center',
-              width: gridWidth,
-              maxWidth: '100%',
-              paddingHorizontal: 8,
-            },
+            !isWide && styles.narrowContent,
+            !isWide && { width: gridWidth },
           ]}
         >
           {items.length === 0 ? (
@@ -134,7 +131,7 @@ export default function CartViewContent({
           )}
         </View>
       </View>
-      <View style={{ height: 40 }} />
+      <View style={styles.bottomSpacer} />
       <Footer />
     </ScrollView>
   );

@@ -12,7 +12,7 @@ const TELEGRAM_URL = 'https://t.me';
 function InstagramIcon({ color, size = 20 }) {
   if (Platform.OS === 'web') {
     return (
-      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle' }}>
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={styles.svgInline}>
         <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
         <circle cx="12" cy="12" r="4" />
         <circle cx="17.5" cy="6.5" r="1" fill={color} stroke="none" />
@@ -25,7 +25,7 @@ function InstagramIcon({ color, size = 20 }) {
 function TelegramIcon({ color, size = 20 }) {
   if (Platform.OS === 'web') {
     return (
-      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle' }}>
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={styles.svgInline}>
         <line x1="22" y1="2" x2="11" y2="13" />
         <polygon points="22 2 15 22 11 13 2 9 22 2" />
       </svg>
@@ -52,7 +52,7 @@ export default function SocialButtons({ t, isMobile, contentWidth, ic, isDark })
   };
 
   return (
-    <ScrollFadeUp style={socialRowStyle}>
+    <ScrollFadeUp style={[styles.socialRow, isMobile && { alignSelf: 'center', width: '100%', maxWidth: contentWidth }]}>
       <Button
         title={t('contactUsInstagram')}
         onPress={() => Linking.openURL(INSTAGRAM_URL)}

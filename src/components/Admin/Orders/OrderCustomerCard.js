@@ -25,8 +25,8 @@ export default function OrderCustomerCard({ order }) {
   return (
     <View style={styles.detailCard}>
       {isGuest && (
-        <View style={[styles.detailRow, { backgroundColor: colors.warningBgLegacy, padding: layout.spacing.md, borderRadius: layout.radii.xs, marginBottom: layout.spacing.md }]}>
-          <Text variant="subtitle2" weight="semiBold" style={{ color: colors.warningDeep }}>
+        <View style={[styles.detailRow, styles.guestBanner]}>
+          <Text variant="subtitle2" weight="semiBold" style={styles.guestBannerText}>
             ⚠️ {t('adminOrdersGuestLabel')}
           </Text>
         </View>

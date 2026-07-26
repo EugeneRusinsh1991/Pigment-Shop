@@ -2,7 +2,7 @@
 type: dynamic-audit
 auditor: ui-architecture
 scope: admin
-date: 2026-07-26T21:58:21.782Z
+date: 2026-07-26T22:24:15.193Z
 ---
 
 ### URL: http://localhost:8081/admin
@@ -236,3 +236,63 @@ date: 2026-07-26T21:58:21.782Z
   Selector: `div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8`
 - Design System: Hardcoded spacing/border-radius lacking spatial tokens.
   Selector: `div.css-view-g5y9jx.r-backgroundColor-1ins33t.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-width-13qz1uu.r-borderColor-169eryd`
+- Observability: Clickable element touch target is smaller than 44x44px. Size: 1217x24
+  Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-flexDirection-18u37iz.r-marginBottom-1peese0`
+- Theme/Motion: Custom CSS transition/animation defined outside token system.
+  Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-flexDirection-18u37iz.r-marginBottom-1peese0`
+- Design System: Hardcoded spacing/border-radius lacking spatial tokens.
+  Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-1rf8fdq.r-flexDirection-18u37iz.r-gap-ojf8lh.r-justifyContent-1777fci.r-backgroundColor-14lw9ot.r-borderColor-4s656n`
+- Design System: Raw/hardcoded CSS color in inline style.
+  Selector: `input.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-paddingBlock-1mkv55d.r-backgroundColor-fj6wrk.r-borderColor-1t4g3vi.r-borderRadius-1xfd6ze.r-borderWidth-rs99b7.r-color-kgv7a8.r-height-eu3ka.r-outlineStyle-1ny4l3l.r-paddingInline-3o4zer`
+- Design System: Raw/hardcoded CSS color in inline style.
+  Selector: `textarea.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-backgroundColor-fj6wrk.r-borderColor-1t4g3vi.r-borderRadius-1xfd6ze.r-borderWidth-rs99b7.r-color-kgv7a8.r-height-wy61xf.r-outlineStyle-1ny4l3l.r-paddingBlock-ytbthy.r-paddingInline-3o4zer.r-verticalAlign-ad9o1y`
+- Design System: Raw/hardcoded CSS color in inline style.
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-textAlign-q4m81j`
+- Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.
+  Selector: `input.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-paddingBlock-1mkv55d.r-backgroundColor-fj6wrk.r-borderColor-1t4g3vi.r-borderRadius-1xfd6ze.r-borderWidth-rs99b7.r-color-kgv7a8.r-height-eu3ka.r-outlineStyle-1ny4l3l.r-paddingInline-3o4zer`
+- Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.
+  Selector: `textarea.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-backgroundColor-fj6wrk.r-borderColor-1t4g3vi.r-borderRadius-1xfd6ze.r-borderWidth-rs99b7.r-color-kgv7a8.r-height-wy61xf.r-outlineStyle-1ny4l3l.r-paddingBlock-ytbthy.r-paddingInline-3o4zer.r-verticalAlign-ad9o1y`
+- Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.
+  Selector: `button.css-view-g5y9jx.r-touchAction-1otgn73.r-alignItems-1awozwy.r-cursor-1loqt21.r-flexDirection-18u37iz.r-justifyContent-1777fci.r-borderRadius-y47klf.r-borderWidth-1rf8fdq.r-minHeight-15ysp7h.r-paddingBlock-vuvdlw.r-paddingInline-gu64tb.r-backgroundColor-wt1z2b.r-borderColor-1jl7vqb`
+- Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.
+  Selector: `button.css-view-g5y9jx.r-touchAction-1otgn73.r-alignItems-1awozwy.r-cursor-1loqt21.r-flexDirection-18u37iz.r-justifyContent-1777fci.r-backgroundColor-14lw9ot.r-borderColor-1wr2p1e.r-borderRadius-y47klf.r-borderWidth-1rf8fdq.r-minHeight-15ysp7h.r-paddingBlock-vuvdlw.r-paddingInline-gu64tb`
+- Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.
+  Selector: `button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-paddingInline-3pj75a.r-backgroundColor-11jo552.r-borderColor-en0kqj`
+- Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.
+  Selector: `button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-paddingInline-3pj75a.r-backgroundColor-fj6wrk.r-borderColor-1wr2p1e`
+- Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.
+  Selector: `button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-paddingInline-3pj75a.r-backgroundColor-1bbz6r5.r-borderColor-1fvvsgw`
+- Observability: Clickable element touch target is smaller than 44x44px. Size: 51x40
+  Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-1rf8fdq.r-flexDirection-18u37iz.r-gap-ojf8lh.r-justifyContent-1777fci.r-backgroundColor-14lw9ot.r-borderColor-4s656n`
+- Observability: Clickable element touch target is smaller than 44x44px. Size: 50x40
+  Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-1rf8fdq.r-flexDirection-18u37iz.r-gap-ojf8lh.r-justifyContent-1777fci.r-backgroundColor-14lw9ot.r-borderColor-4s656n`
+- Observability: Clickable element touch target is smaller than 44x44px. Size: 457x38
+  Selector: `button.css-view-g5y9jx.r-touchAction-1otgn73.r-alignItems-1awozwy.r-cursor-1loqt21.r-flexDirection-18u37iz.r-justifyContent-1777fci.r-borderRadius-y47klf.r-borderWidth-1rf8fdq.r-minHeight-15ysp7h.r-paddingBlock-vuvdlw.r-paddingInline-gu64tb.r-backgroundColor-wt1z2b.r-borderColor-1jl7vqb`
+- Observability: Clickable element touch target is smaller than 44x44px. Size: 457x38
+  Selector: `button.css-view-g5y9jx.r-touchAction-1otgn73.r-alignItems-1awozwy.r-cursor-1loqt21.r-flexDirection-18u37iz.r-justifyContent-1777fci.r-backgroundColor-14lw9ot.r-borderColor-1wr2p1e.r-borderRadius-y47klf.r-borderWidth-1rf8fdq.r-minHeight-15ysp7h.r-paddingBlock-vuvdlw.r-paddingInline-gu64tb`
+- Observability: Clickable element touch target is smaller than 44x44px. Size: 457x40
+  Selector: `button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-paddingInline-3pj75a.r-backgroundColor-11jo552.r-borderColor-en0kqj`
+- Observability: Clickable element touch target is smaller than 44x44px. Size: 128x40
+  Selector: `button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-paddingInline-3pj75a.r-backgroundColor-fj6wrk.r-borderColor-1wr2p1e`
+- Observability: Clickable element touch target is smaller than 44x44px. Size: 116x40
+  Selector: `button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-paddingInline-3pj75a.r-backgroundColor-1bbz6r5.r-borderColor-1fvvsgw`
+- Theme/Motion: Custom CSS transition/animation defined outside token system.
+  Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-1rf8fdq.r-flexDirection-18u37iz.r-gap-ojf8lh.r-justifyContent-1777fci.r-backgroundColor-14lw9ot.r-borderColor-4s656n`
+- Theme/Motion: Custom CSS transition/animation defined outside token system.
+  Selector: `button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-paddingInline-3pj75a.r-backgroundColor-11jo552.r-borderColor-en0kqj`
+- Theme/Motion: Custom CSS transition/animation defined outside token system.
+  Selector: `button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-paddingInline-3pj75a.r-backgroundColor-fj6wrk.r-borderColor-1wr2p1e`
+- Theme/Motion: Custom CSS transition/animation defined outside token system.
+  Selector: `button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-paddingInline-3pj75a.r-backgroundColor-1bbz6r5.r-borderColor-1fvvsgw`
+- Design System: Hardcoded spacing/border-radius lacking spatial tokens.
+  Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-1rf8fdq.r-flexDirection-18u37iz.r-gap-ojf8lh.r-justifyContent-1777fci.r-backgroundColor-wt1z2b.r-borderColor-1jl7vqb`
+- Observability: Clickable element touch target is smaller than 44x44px. Size: 51x40
+  Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-1rf8fdq.r-flexDirection-18u37iz.r-gap-ojf8lh.r-justifyContent-1777fci.r-backgroundColor-wt1z2b.r-borderColor-1jl7vqb`
+- Theme/Motion: Custom CSS transition/animation defined outside token system.
+  Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-1rf8fdq.r-flexDirection-18u37iz.r-gap-ojf8lh.r-justifyContent-1777fci.r-backgroundColor-wt1z2b.r-borderColor-1jl7vqb`
+- Observability: Clickable element touch target is smaller than 44x44px. Size: 50x40
+  Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-1rf8fdq.r-flexDirection-18u37iz.r-gap-ojf8lh.r-justifyContent-1777fci.r-backgroundColor-wt1z2b.r-borderColor-1jl7vqb`
+- Design System: Raw/hardcoded CSS color in inline style.
+  Selector: `input.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-paddingBlock-1mkv55d.r-backgroundColor-fj6wrk.r-borderColor-1t4g3vi.r-borderRadius-1xfd6ze.r-color-kgv7a8.r-height-eu3ka.r-outlineStyle-1ny4l3l.r-paddingInline-3o4zer`
+- Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.
+  Selector: `input.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-paddingBlock-1mkv55d.r-backgroundColor-fj6wrk.r-borderColor-1t4g3vi.r-borderRadius-1xfd6ze.r-color-kgv7a8.r-height-eu3ka.r-outlineStyle-1ny4l3l.r-paddingInline-3o4zer`

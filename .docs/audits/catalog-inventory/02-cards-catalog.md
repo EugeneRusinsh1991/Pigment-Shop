@@ -34,7 +34,7 @@
   - Line [17](file:///D:/Magazine/_PigmentShop/src/components/Admin/Users/UserOrdersList.js#L17): `<OrderCard>`
 
 ### File: [src/components/Admin/Users/UsersManager.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Users/UsersManager.js)
-  - Line [100](file:///D:/Magazine/_PigmentShop/src/components/Admin/Users/UsersManager.js#L100): `<MobileUserCard>`
+  - Line [101](file:///D:/Magazine/_PigmentShop/src/components/Admin/Users/UsersManager.js#L101): `<MobileUserCard>`
 
 ### File: [src/components/Card/BaseCard.js](file:///D:/Magazine/_PigmentShop/src/components/Card/BaseCard.js)
   - Line [43](file:///D:/Magazine/_PigmentShop/src/components/Card/BaseCard.js#L43): `<InteractiveCard>`
@@ -62,13 +62,13 @@
   - Line [23](file:///D:/Magazine/_PigmentShop/src/features/catalog/ProductGrid.js#L23): `<ProductCard>`
 
 ### File: [src/features/contact/ContactQuestionForm.js](file:///D:/Magazine/_PigmentShop/src/features/contact/ContactQuestionForm.js)
-  - Line [85](file:///D:/Magazine/_PigmentShop/src/features/contact/ContactQuestionForm.js#L85): `<Card>`
+  - Line [86](file:///D:/Magazine/_PigmentShop/src/features/contact/ContactQuestionForm.js#L86): `<Card>`
 
 ### File: [src/features/favorites/FavoritesPage.js](file:///D:/Magazine/_PigmentShop/src/features/favorites/FavoritesPage.js)
-  - Line [39](file:///D:/Magazine/_PigmentShop/src/features/favorites/FavoritesPage.js#L39): `<PlaceholderCard>`
+  - Line [40](file:///D:/Magazine/_PigmentShop/src/features/favorites/FavoritesPage.js#L40): `<PlaceholderCard>`
 
 ### File: [src/features/orders/OrderConfirmationPage.js](file:///D:/Magazine/_PigmentShop/src/features/orders/OrderConfirmationPage.js)
-  - Line [59](file:///D:/Magazine/_PigmentShop/src/features/orders/OrderConfirmationPage.js#L59): `<OrderDetailsCard>`
+  - Line [46](file:///D:/Magazine/_PigmentShop/src/features/orders/OrderConfirmationPage.js#L46): `<OrderDetailsCard>`
 
 ### File: [src/features/orders/OrderDetailsCard.js](file:///D:/Magazine/_PigmentShop/src/features/orders/OrderDetailsCard.js)
   - Line [34](file:///D:/Magazine/_PigmentShop/src/features/orders/OrderDetailsCard.js#L34): `<Card>`

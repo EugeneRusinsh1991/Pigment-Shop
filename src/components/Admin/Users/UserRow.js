@@ -18,7 +18,7 @@ export function MobileUserCard({ user, index, fullName, onPress }) {
         <Text style={styles.mobileCardName} size={14} weight="bold" numberOfLines={1}>{fullName}</Text>
         <View style={styles.mobileCardMeta}>
           {metaItems.map((item, i) => (
-            <View key={i} style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
+            <View key={i} style={styles.metaItemRow}>
               {i > 0 && <Text style={styles.mobileCardMetaDot} size={12}>·</Text>}
               <Text style={styles.mobileCardMetaItem} size={12} numberOfLines={1}>{item}</Text>
             </View>
@@ -34,8 +34,6 @@ export function MobileUserCard({ user, index, fullName, onPress }) {
 }
 
 export function DesktopUserRow({ user, index, fullName, onPress }) {
-  const cellStyle = (val) => (val ? styles.cellText : styles.cellTextMuted);
-
   return (
     <AnimatedButton
       style={[styles.tableRow, index % 2 === 1 && styles.tableRowAlt]}
@@ -47,15 +45,15 @@ export function DesktopUserRow({ user, index, fullName, onPress }) {
         <Text style={styles.userNameBold} size={14} weight="bold">{fullName}</Text>
       </View>
       <View style={[styles.colEmail, styles.userCell]}>
-        <Text style={cellStyle(user.email)} size={13}>{user.email || '—'}</Text>
+        <Text style={user.email ? styles.cellText : styles.cellTextMuted} size={13}>{user.email || '—'}</Text>
       </View>
       <View style={[styles.colPhone, styles.userCell]}>
-        <Text style={cellStyle(user.phone)} size={13}>{user.phone || '—'}</Text>
+        <Text style={user.phone ? styles.cellText : styles.cellTextMuted} size={13}>{user.phone || '—'}</Text>
       </View>
       <View style={[styles.colPhone, styles.userCell]}>
-        <Text style={cellStyle(user.city)} size={13}>{user.city || '—'}</Text>
+        <Text style={user.city ? styles.cellText : styles.cellTextMuted} size={13}>{user.city || '—'}</Text>
       </View>
-      <View style={[styles.colOrders, { flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', gap: 6 }]}>
+      <View style={[styles.colOrders, styles.colOrdersContent]}>
         <View style={styles.ordersBadge}>
           <Text style={styles.ordersBadgeText} size={12} weight="700">{user.orderCount || 0}</Text>
         </View>

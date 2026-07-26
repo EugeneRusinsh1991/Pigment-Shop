@@ -1,6 +1,7 @@
 import { KeyboardAvoidingView, Platform, ScrollView, TextInput, TouchableOpacity, View } from 'react-native';
 import { Text } from '../../components/Text';
 import { useTheme } from '../../context/ThemeContext';
+import { colors } from '../../theme/tokens';
 import { useLanguage } from '../../context/LanguageContext';
 import { useLoginForm } from '../../hooks/useLoginForm';
 import { MailIcon } from '@/components/Icons';
@@ -14,7 +15,7 @@ import { FieldInput } from '../../components/Admin/SharedFormComponents';
 
 const ic = (isDark, dark, light) => (isDark ? dark : light);
 const KEYBOARD_BEHAVIOR = Platform.OS === 'ios' ? 'padding' : 'height';
-const getPlaceholderColor = (isDark) => (isDark ? '#888' : '#aaa');
+const getPlaceholderColor = (isDark) => (isDark ? colors.textSubtleLight : colors.textMutedDark);
 const getSubmitButtonText = (isRegister, t) => (isRegister ? t('registerSubmitBtn') : t('loginSubmitBtn'));
 
 export default function LoginPage({ isDark: isDarkProp }) {
@@ -41,15 +42,15 @@ export default function LoginPage({ isDark: isDarkProp }) {
   return (
     <KeyboardAvoidingView 
       behavior={KEYBOARD_BEHAVIOR}
-      style={[styles.container, ic(isDark, styles.containerDark, styles.containerLight), { padding: 0 }]}
+      style={[styles.container, ic(isDark, styles.containerDark, styles.containerLight), styles.noPadding]}
     >
       <ScrollView
-        contentContainerStyle={{ flexGrow: 1, width: '100%', paddingTop: 24, paddingBottom: 0 }}
+        contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
-        <View style={{ flex: 1, width: '100%', alignItems: 'center' }}>
+        <View style={styles.centerContainer}>
           <PageTransition key={isRegister} trigger={isRegister}>
-            <View style={[styles.content, { paddingBottom: 32 }]}>
+            <View style={[styles.content, styles.contentPadding]}>
               <LoginHeader isRegister={isRegister} isDark={isDark} />
 
               <View style={[styles.formContainer, ic(isDark, styles.formContainerDark, styles.formContainerLight)]}>
@@ -59,7 +60,7 @@ export default function LoginPage({ isDark: isDarkProp }) {
                   variant="outline"
                   size="md"
                   leftIcon={<Text style={styles.googleIcon}>G</Text>}
-                  style={{ marginBottom: 16 }}
+                  style={styles.marginBottom16}
                 />
 
                 <View style={styles.dividerContainer}>
@@ -85,7 +86,7 @@ export default function LoginPage({ isDark: isDarkProp }) {
                     fieldInput: [styles.input, ic(isDark, styles.textDark, styles.textLight)],
                     inputContainer: [styles.inputContainer, ic(isDark, styles.inputContainerDark, styles.inputContainerLight), { flexDirection: 'row', alignItems: 'center' }],
                   }}
-                  leftIcon={<MailIcon color="#888" size={16} style={{ marginRight: 8 }} />}
+                  leftIcon={<MailIcon color={colors.textSubtleLight} size={16} style={styles.iconMargin} />}
                 />
 
                 <View style={styles.inputGroup}>
@@ -118,7 +119,7 @@ export default function LoginPage({ isDark: isDarkProp }) {
                   onPress={handleAuth}
                   variant="primary"
                   size="lg"
-                  style={{ marginTop: 8 }}
+                  style={styles.marginTop8}
                 />
               </View>
 

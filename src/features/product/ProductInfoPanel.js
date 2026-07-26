@@ -11,7 +11,7 @@ function ProductReviewSection({ isWide, reviewsState, isDark }) {
   if (!isWide || !reviewsState) return null;
 
   return (
-    <View style={{ marginTop: 20 }}>
+    <View style={[styles.reviewSection]}>
       {isAuthenticated ? (
         <ReviewForm isDark={isDark} hideHeading showModeToggle {...reviewsState} />
       ) : (
@@ -33,13 +33,9 @@ export function ProductInfoPanel({
   onToggleFavorite,
   reviewsState,
 }) {
-  const tc = isDark ? styles.textDark : styles.textLight;
-  const dc = isDark ? styles.descDark : styles.descLight;
-  const containerStyle = [styles.infoArea, isWide && styles.infoAreaWide];
-
   return (
-    <View style={containerStyle}>
-      <ProductMetaInfo product={product} isDark={isDark} tc={tc} dc={dc} />
+    <View style={[styles.infoArea, isWide && styles.infoAreaWide]}>
+      <ProductMetaInfo product={product} />
       <ProductActionRow
         product={product}
         qty={qty}

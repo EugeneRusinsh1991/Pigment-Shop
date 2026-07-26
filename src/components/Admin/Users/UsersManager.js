@@ -17,6 +17,7 @@ import { useCrudWorkflow } from '../../../hooks/useCrudWorkflow';
 import UserDetails from './UserDetails';
 import { loadUsers } from '../../../services/adminUsersService';
 import { compareStrings, compareNumbers } from '../../../utils/sorting';
+import { colors } from '../../../theme/tokens';
 import styles from './UsersStyles';
 import DataTable from '../../DataTable/DataTable';
 import { MobileUserCard, DesktopUserRow } from './UserRow';
@@ -54,7 +55,7 @@ function matchUserSearch(user, query) {
 
 function UsersStatus({ loading, error, isEmpty, t }) {
   if (loading) {
-    return <ActivityIndicator color="#E87A8E" style={{ marginTop: 40 }} />;
+    return <ActivityIndicator color={colors.accentPinkLight} style={styles.loadingIndicatorTop} />;
   }
   if (error) {
     return <EmptyState>{error}</EmptyState>;
@@ -71,7 +72,7 @@ function UsersTable({ t, sortField, sortDirection, handleSort, users, onSelectUs
     { key: 'email', label: t('profileEmail'), style: styles.colEmail, sortable: true },
     { key: 'phone', label: t('profilePhone'), style: styles.colPhone, sortable: true },
     { key: 'city', label: t('profileCity'), style: styles.colPhone, sortable: true },
-    { key: 'orderCount', label: t('adminAnalyticsOrders'), style: [styles.colOrders, { justifyContent: 'flex-end' }], sortable: true },
+    { key: 'orderCount', label: t('adminAnalyticsOrders'), style: [styles.colOrders, styles.colOrdersHeader], sortable: true },
   ];
 
   return (
@@ -148,7 +149,7 @@ export default function UsersManager() {
             value={searchQuery}
             onChangeText={setSearchQuery}
             placeholder={t('adminUsersSearchPlaceholder')}
-            style={{ flex: 1, height: 44 }}
+            style={styles.searchInput}
             onClear={() => setSearchQuery('')}
           />
           <View style={styles.countBadge}>

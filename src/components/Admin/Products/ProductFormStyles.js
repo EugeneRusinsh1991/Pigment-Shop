@@ -44,7 +44,7 @@ export default StyleSheet.create({
   },
   modalBody: {
     paddingHorizontal: layout.spacing.xl,
-    paddingVertical: 20,
+    paddingVertical: layout.radii.lg,
   },
   modalFooter: {
     flexDirection: 'row',
@@ -62,7 +62,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     gap: layout.spacing.lg,
-    marginBottom: 14,
+    marginBottom: layout.radii.iconBtn,
   },
   fieldGroup: {
     flex: 1,
@@ -70,7 +70,7 @@ export default StyleSheet.create({
   },
   fieldLabel: {
     color: colors.textDescLight,
-    marginBottom: 5,
+    marginBottom: layout.spacing.xs - 1,
   },
   fieldInput: {
     height: 40,
@@ -90,7 +90,7 @@ export default StyleSheet.create({
     backgroundColor: colors.secondaryLightBg,
     borderRadius: layout.radii.sm,
     paddingHorizontal: layout.spacing.md,
-    paddingVertical: 10,
+    paddingVertical: layout.spacing.sm + 2,
     color: colors.textLight,
     borderWidth: 1,
     borderColor: colors.navItemHoverDark,
@@ -110,8 +110,8 @@ export default StyleSheet.create({
   checkRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 10,
-    marginBottom: 14,
+    gap: layout.spacing.sm + 2,
+    marginBottom: layout.radii.iconBtn,
   },
   checkBox: {
     width: 20,
@@ -139,8 +139,8 @@ export default StyleSheet.create({
 
   /* Buttons */
   cancelBtn: {
-    paddingVertical: 10,
-    paddingHorizontal: 20,
+    paddingVertical: layout.spacing.sm + 2,
+    paddingHorizontal: layout.radii.lg,
     borderRadius: layout.radii.sm,
     backgroundColor: colors.secondaryLightBg,
   },
@@ -148,12 +148,21 @@ export default StyleSheet.create({
     color: colors.textDescLight,
   },
   saveBtn: {
-    paddingVertical: 10,
+    paddingVertical: layout.spacing.sm + 2,
     paddingHorizontal: layout.spacing.xl,
     borderRadius: layout.radii.sm,
     backgroundColor: colors.textLight,
   },
   saveBtnText: {
     color: colors.textDark,
+  },
+
+  /* Added for tokenization */
+  imageFieldsGroup: { gap: layout.spacing.sm, marginBottom: layout.spacing.md },
+  deleteSection: {
+    marginTop: layout.spacing.xl,
+    borderTopWidth: 1,
+    borderTopColor: colors.borderLightAlt,
+    paddingTop: layout.spacing.xl,
   },
 });

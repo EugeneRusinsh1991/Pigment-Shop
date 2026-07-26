@@ -7,6 +7,7 @@ import { ScrollFadeUp } from '../../components/Motion';
 import { getContentGridWidth } from '../../utils/layout';
 import SocialButtons from './SocialButtons';
 import ContactQuestionForm from './ContactQuestionForm';
+import styles from './ContactPageStyles';
 
 export default function ContactPage({ isDark }) {
   const { t, ic } = useTheme();
@@ -17,11 +18,11 @@ export default function ContactPage({ isDark }) {
   return (
     <ScrollView
       style={[commonStyles.container, ic(commonStyles.containerDark, commonStyles.containerLight)]}
-      contentContainerStyle={[commonStyles.scrollContent, { paddingBottom: 0 }]}
+      contentContainerStyle={[commonStyles.scrollContent, styles.noPaddingBottom]}
       showsVerticalScrollIndicator={false}
     >
-      <View style={{ flex: 1 }}>
-        <View style={[commonStyles.content, { paddingBottom: 24 }]}>
+      <View style={styles.flex1}>
+        <View style={[commonStyles.content, styles.contentPadding]}>
           <ScrollFadeUp>
             <Heading level={1} style={commonStyles.title} isDark={isDark}>
               {t('contactUsTitle')}
@@ -33,7 +34,7 @@ export default function ContactPage({ isDark }) {
           <ContactQuestionForm t={t} ic={ic} isDark={isDark} isMobile={isMobile} contentWidth={contentWidth} />
         </View>
       </View>
-      <View style={{ height: 40 }} />
+      <View style={styles.footerSpacer} />
       <Footer />
     </ScrollView>
   );

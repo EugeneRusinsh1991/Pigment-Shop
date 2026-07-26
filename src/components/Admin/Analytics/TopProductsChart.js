@@ -32,7 +32,7 @@ export default function TopProductsChart({ productsData = [] }) {
 
   if (products.length === 0) {
     return (
-      <View style={{ paddingVertical: layout.radii.lg, alignItems: 'center', justifyContent: 'center' }}>
+      <View style={styles.topProductsEmpty}>
         <Text variant="body2" color="secondary" weight="medium">
           No selling products in this period.
         </Text>
@@ -48,15 +48,15 @@ export default function TopProductsChart({ productsData = [] }) {
             {truncateLabel(p.label)}
           </Text>
           <View style={styles.barTrack}>
-            <View style={{ flexDirection: 'row', width: `${(p.value / maxValue) * 100}%`, height: '100%', borderRadius: layout.spacing.xxs, overflow: 'hidden' }}>
+            <View style={[styles.topProductsBarContainer, { width: `${(p.value / maxValue) * 100}%` }]}>
               {p.completed > 0 && (
-                <View style={{ flex: p.completed, backgroundColor: colors.successMid }} />
+                <View style={[styles.topProductsSegment, { flex: p.completed, backgroundColor: colors.successMid }]} />
               )}
               {p.processing > 0 && (
-                <View style={{ flex: p.processing, backgroundColor: colors.warningStrong }} />
+                <View style={[styles.topProductsSegment, { flex: p.processing, backgroundColor: colors.warningStrong }]} />
               )}
               {p.pending > 0 && (
-                <View style={{ flex: p.pending, backgroundColor: colors.infoStrong }} />
+                <View style={[styles.topProductsSegment, { flex: p.pending, backgroundColor: colors.infoStrong }]} />
               )}
             </View>
           </View>

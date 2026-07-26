@@ -22,19 +22,16 @@ function SvgDonut({ data, size = 120, strokeWidth = 20 }) {
 
   if (!isWeb) {
     return (
-      <View style={{ width: size, alignItems: 'center' }}>
+      <View style={[styles.svgDonutFallback, { width: size }]}>
         <View
-          style={{
+          style={[styles.svgDonutBar, {
             width: size,
             height: size / 3,
             borderRadius: size / 6,
-            flexDirection: 'row',
-            overflow: 'hidden',
-            backgroundColor: colors.secondaryLightBg,
-          }}
+          }]}
         >
           {data.map((item, idx) => (
-            <View key={idx} style={{ flex: item.value / total, backgroundColor: item.color }} />
+            <View key={idx} style={[styles.donutBarSegment, { flex: item.value / total, backgroundColor: item.color }]} />
           ))}
         </View>
       </View>
@@ -44,7 +41,7 @@ function SvgDonut({ data, size = 120, strokeWidth = 20 }) {
   let currentOffset = 0;
 
   return (
-    <svg width={size} height={size} style={{ transform: 'rotate(-90deg)' }}>
+    <svg width={size} height={size} style={styles.svgRotate}>
       {data.map((item, idx) => {
         const percent = item.value / total;
         const dashLen = circumference * percent;
@@ -100,7 +97,7 @@ export default function OrderStatusChart({ statusData = [] }) {
   return (
     <View style={styles.donutContainer}>
       <SvgDonut data={displayData} />
-      <View style={{ marginTop: layout.radii.lg }}>
+      <View style={styles.legendList}>
         {formattedData.map((s, idx) => (
           <View key={s.id || s.labelKey || idx} style={styles.legendItem}>
             <View style={[styles.legendDot, { backgroundColor: s.color }]} />

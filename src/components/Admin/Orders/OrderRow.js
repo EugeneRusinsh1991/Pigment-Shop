@@ -90,7 +90,7 @@ export function DesktopOrderRow({ order, onPress }) {
 
   return (
     <DataTableRow style={[styles.row, summary.rowBg, { flexDirection: 'column', alignItems: 'stretch' }]} onPress={onPress}>
-      <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+      <View style={styles.rowMain}>
         <DataTableCell style={[styles.colId, { flexDirection: 'row' }]}>
           <Text style={styles.tdText} size={14} weight="bold">#{summary.orderNum}</Text>
         </DataTableCell>
@@ -109,13 +109,13 @@ export function DesktopOrderRow({ order, onPress }) {
           <Text variant="body2" weight="bold" style={[styles.tdText, { textAlign: 'right' }]}>${summary.formattedTotal}</Text>
         </DataTableCell>
       </View>
-      <View style={{ flexDirection: 'row', gap: layout.spacing.xl, marginTop: layout.spacing.xxs }}>
-        <View style={{ flexDirection: 'row', flex: 1, gap: layout.spacing.xxs }}>
-          <Text style={[styles.metaLabel, { marginBottom: 0 }]} size={10}>{t('adminOrdersCustNote')}: </Text>
+      <View style={styles.rowNotes}>
+        <View style={styles.noteItem}>
+          <Text style={styles.metaLabelInline} size={10}>{t('adminOrdersCustNote')}: </Text>
           <Text variant="body2" style={styles.metaValue} size={13} weight="600" numberOfLines={1}>{order.note || '—'}</Text>
         </View>
-        <View style={{ flexDirection: 'row', flex: 1, gap: layout.spacing.xxs }}>
-          <Text style={[styles.metaLabel, { marginBottom: 0 }]} size={10}>{t('adminOrdersAdminNote')}: </Text>
+        <View style={styles.noteItem}>
+          <Text style={styles.metaLabelInline} size={10}>{t('adminOrdersAdminNote')}: </Text>
           <Text variant="body2" style={styles.metaValue} size={13} weight="600" numberOfLines={1}>{order.adminNote || '—'}</Text>
         </View>
       </View>

@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors, fonts } from '../../theme/tokens';
+import { colors, fonts, layout } from '../../theme/tokens';
 import { shadow } from '../../theme/shadows';
 
 export default StyleSheet.create({
@@ -8,22 +8,22 @@ export default StyleSheet.create({
     width: '100%',
   },
   pageContent: {
-    paddingHorizontal: 12,
+    paddingHorizontal: layout.spacing.md,
   },
   scrollContent: {
     flexGrow: 1,
-    paddingBottom: 24,
+    paddingBottom: layout.spacing.xl,
   },
   inputGroup: {
-    marginBottom: 8,
+    marginBottom: layout.spacing.sm,
   },
   label: {
-    marginBottom: 6,
+    marginBottom: layout.spacing.xs,
   },
   inputContainer: {
     borderWidth: 1,
-    borderRadius: 8,
-    paddingHorizontal: 12,
+    borderRadius: layout.radii.sm,
+    paddingHorizontal: layout.spacing.md,
     height: 44,
     justifyContent: 'center',
   },
@@ -39,20 +39,20 @@ export default StyleSheet.create({
     height: '100%',
   },
   requiredNote: {
-    marginTop: 10,
+    marginTop: layout.spacing.md,
     textAlign: 'left',
   },
   containerDark: { backgroundColor: colors.backgroundDark },
   containerLight: { backgroundColor: colors.backgroundLight },
 
   cartTitle: {
-    marginBottom: 12,
+    marginBottom: layout.spacing.md,
   },
 
   containerRow: {
     flex: 1,
     flexDirection: 'row',
-    gap: 24,
+    gap: layout.spacing.xl,
   },
   wideContainer: {
     justifyContent: 'space-between',
@@ -68,19 +68,19 @@ export default StyleSheet.create({
     flex: 1.2,
   },
 
-  list: { paddingVertical: 12 },
+  list: { paddingVertical: layout.spacing.md },
 
   emptyState: {
     alignItems: 'center',
-    paddingTop: 32,
-    paddingBottom: 16,
+    paddingTop: layout.spacing.xxl,
+    paddingBottom: layout.spacing.lg,
   },
-  emptyIcon: { marginBottom: 12 },
+  emptyIcon: { marginBottom: layout.spacing.md },
 
   // Summary Panel
   summaryPanel: {
-    borderRadius: 24,
-    padding: 24,
+    borderRadius: layout.radii.xl,
+    padding: layout.spacing.xl,
     borderWidth: 1,
   },
   summaryPanelDark: { backgroundColor: colors.surfaceNeutralDark, borderColor: colors.borderDarkAlt },
@@ -88,31 +88,31 @@ export default StyleSheet.create({
 
   summaryPanelMobile: {
     marginHorizontal: 0,
-    marginVertical: 8,
+    marginVertical: layout.spacing.sm,
   },
   summaryPanelWide: {
-    marginTop: 6,
+    marginTop: layout.spacing.xs,
   },
 
   summaryRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginVertical: 8,
+    marginVertical: layout.spacing.sm,
   },
   summaryDivider: {
     height: 1,
     backgroundColor: colors.secondaryDarkBorder,
-    marginVertical: 12,
+    marginVertical: layout.spacing.md,
     opacity: 0.2,
   },
 
   checkoutBtn: {
-    borderRadius: 50,
+    borderRadius: layout.radii.full,
     height: 48,
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 12,
+    marginTop: layout.spacing.md,
   },
   checkoutBtnDark: {
     backgroundColor: colors.warmNeutralMid,
@@ -122,14 +122,15 @@ export default StyleSheet.create({
   },
   checkoutBtnTextDark: { color: colors.dark },
   checkoutBtnTextLight: { color: colors.white },
+  checkoutBtnSpacing: { marginTop: layout.spacing.md },
 
   noteInput: {
-    borderRadius: 12,
+    borderRadius: layout.spacing.md,
     borderWidth: 1,
-    padding: 12,
+    padding: layout.spacing.md,
     minHeight: 80,
-    marginTop: 6,
-    marginBottom: 12,
+    marginTop: layout.spacing.xs,
+    marginBottom: layout.spacing.md,
     textAlignVertical: 'top',
   },
   noteInputDark: {
@@ -143,21 +144,24 @@ export default StyleSheet.create({
     color: colors.textStrongLight,
   },
   noteLabel: {
-    marginBottom: 4,
+    marginBottom: layout.spacing.xxs,
   },
 
   // Footer branding
   footerBranding: {
     alignItems: 'center',
-    marginTop: 32,
-    paddingVertical: 16,
+    marginTop: layout.spacing.xxl,
+    paddingVertical: layout.spacing.lg,
   },
   footerBrandName: {
-    marginBottom: 4,
+    marginBottom: layout.spacing.xxs,
   },
   footerBrandNameDark: { color: colors.white },
   footerBrandNameLight: { color: colors.dark },
   footerBrandSub: {},
   footerBrandSubDark: { color: colors.textMutedDark },
   footerBrandSubLight: { color: colors.secondaryDarkText },
+  flexOne: { flex: 1 },
+  narrowContent: { alignSelf: 'center', maxWidth: '100%', paddingHorizontal: layout.spacing.sm },
+  bottomSpacer: { height: 40 },
 });

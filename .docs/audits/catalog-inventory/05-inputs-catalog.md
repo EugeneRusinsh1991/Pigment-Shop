@@ -33,13 +33,13 @@
   - Line [57](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductsManager.js#L57): `<SearchInput>`
 
 ### File: [src/components/Admin/SharedFormComponents.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/SharedFormComponents.js)
-  - Line [53](file:///D:/Magazine/_PigmentShop/src/components/Admin/SharedFormComponents.js#L53): `<TextField>`
-  - Line [73](file:///D:/Magazine/_PigmentShop/src/components/Admin/SharedFormComponents.js#L73): `<FieldTextInputCore>`
-  - Line [82](file:///D:/Magazine/_PigmentShop/src/components/Admin/SharedFormComponents.js#L82): `<FieldInputCore>`
-  - Line [93](file:///D:/Magazine/_PigmentShop/src/components/Admin/SharedFormComponents.js#L93): `<FieldTextInputCore>`
+  - Line [54](file:///D:/Magazine/_PigmentShop/src/components/Admin/SharedFormComponents.js#L54): `<TextField>`
+  - Line [74](file:///D:/Magazine/_PigmentShop/src/components/Admin/SharedFormComponents.js#L74): `<FieldTextInputCore>`
+  - Line [83](file:///D:/Magazine/_PigmentShop/src/components/Admin/SharedFormComponents.js#L83): `<FieldInputCore>`
+  - Line [94](file:///D:/Magazine/_PigmentShop/src/components/Admin/SharedFormComponents.js#L94): `<FieldTextInputCore>`
 
 ### File: [src/components/Admin/Users/UsersManager.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Users/UsersManager.js)
-  - Line [147](file:///D:/Magazine/_PigmentShop/src/components/Admin/Users/UsersManager.js#L147): `<SearchInput>`
+  - Line [148](file:///D:/Magazine/_PigmentShop/src/components/Admin/Users/UsersManager.js#L148): `<SearchInput>`
 
 ### File: [src/components/Search/AutocompleteSearch.js](file:///D:/Magazine/_PigmentShop/src/components/Search/AutocompleteSearch.js)
   - Line [70](file:///D:/Magazine/_PigmentShop/src/components/Search/AutocompleteSearch.js#L70): `<SearchInput>`
@@ -51,12 +51,12 @@
   - Line [47](file:///D:/Magazine/_PigmentShop/src/components/TextField/TextField.js#L47): `<TextInput>`
 
 ### File: [src/features/auth/LoginPage.js](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPage.js)
-  - Line [73](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPage.js#L73): `<FieldInput>`
-  - Line [96](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPage.js#L96): `<PasswordInputField>`
+  - Line [74](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPage.js#L74): `<FieldInput>`
+  - Line [97](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPage.js#L97): `<PasswordInputField>`
 
 ### File: [src/features/auth/LoginPageComponents.js](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPageComponents.js)
-  - Line [32](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPageComponents.js#L32): `<FieldInput>`
-  - Line [113](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPageComponents.js#L113): `<PasswordInputField>`
+  - Line [33](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPageComponents.js#L33): `<FieldInput>`
+  - Line [114](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPageComponents.js#L114): `<PasswordInputField>`
 
 ### File: [src/features/cart/CartSummary.js](file:///D:/Magazine/_PigmentShop/src/features/cart/CartSummary.js)
   - Line [44](file:///D:/Magazine/_PigmentShop/src/features/cart/CartSummary.js#L44): `<FieldInput>`
@@ -69,7 +69,7 @@
   - Line [49](file:///D:/Magazine/_PigmentShop/src/features/catalog/SidebarUIComponents.js#L49): `<FieldInput>`
 
 ### File: [src/features/product/ProductInfoSubcomponents.js](file:///D:/Magazine/_PigmentShop/src/features/product/ProductInfoSubcomponents.js)
-  - Line [126](file:///D:/Magazine/_PigmentShop/src/features/product/ProductInfoSubcomponents.js#L126): `<QtySelector>`
+  - Line [125](file:///D:/Magazine/_PigmentShop/src/features/product/ProductInfoSubcomponents.js#L125): `<QtySelector>`
 
 ### File: [src/features/profile/ProfileFormCard.js](file:///D:/Magazine/_PigmentShop/src/features/profile/ProfileFormCard.js)
   - Line [25](file:///D:/Magazine/_PigmentShop/src/features/profile/ProfileFormCard.js#L25): `<FieldInput>`

@@ -81,10 +81,10 @@ const ProductCardInner = React.forwardRef(({ item, isDark, depth = 1, isFavorite
       variant="grid"
       isDark={isDark}
       interactive={true}
-      style={getCardStyle(cardHeight, overrideWidth)}
+      style={[getCardStyle(cardHeight, overrideWidth)]}
       {...rest}
     >
-      <View style={themed.imageContainer}>
+      <View style={[themed.imageContainer]}>
         <Image
           source={imageSource}
           style={styles.prodImage}
@@ -114,7 +114,7 @@ const ProductCardInner = React.forwardRef(({ item, isDark, depth = 1, isFavorite
           />
         </View>
       </View>
-      <View style={themed.prodInfo}>
+      <View style={[themed.prodInfo]}>
         <Text variant="overline" color="accent" style={styles.brandText}>{item.brand || t('brandFallback')}</Text>
         <Text variant="subtitle2" style={styles.prodTitle} numberOfLines={2}>{getLocalizedValue(item.label, lang)}</Text>
         <ProductPrice price={item.price} discountPercent={item.discountPercent} />

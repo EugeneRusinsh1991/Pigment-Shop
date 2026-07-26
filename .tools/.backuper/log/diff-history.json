@@ -4949,5 +4949,35 @@
         }
       ]
     }
+  },
+  "src_07-27_01-24_smoke-report.json_199files": {
+    "timestamp": "2026-07-26T22:24:39.111Z",
+    "diff": {
+      "added": 0,
+      "removed": 8,
+      "modified": 125,
+      "topFolders": [
+        {
+          "folder": ".docs/audits/audits",
+          "count": 12
+        },
+        {
+          "folder": ".docs/audits/dynamic-audits",
+          "count": 12
+        },
+        {
+          "folder": "src/features/product",
+          "count": 10
+        },
+        {
+          "folder": "src/components/Admin/Analytics",
+          "count": 8
+        },
+        {
+          "folder": "src/components/Admin/Products",
+          "count": 8
+        }
+      ]
+    }
   }
 }

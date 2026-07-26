@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors } from '../../theme/tokens';
+import { colors, layout } from '../../theme/tokens';
 
 export default StyleSheet.create({
   container: {
@@ -8,26 +8,26 @@ export default StyleSheet.create({
   },
   scrollContent: {
     flexGrow: 1,
-    paddingBottom: 24,
+    paddingBottom: layout.spacing.xl,
   },
   containerDark: { backgroundColor: colors.backgroundDark },
   containerLight: { backgroundColor: colors.backgroundLight },
   content: {
-    paddingTop: 16,
-    paddingHorizontal: 0,
-    paddingBottom: 64,
+    paddingTop: layout.spacing.lg,
+    paddingHorizontal: 0, /* tokens. */
+    paddingBottom: layout.spacing.xxl * 2,
   },
   title: {
-    marginBottom: 16,
-    paddingHorizontal: 8,
+    marginBottom: layout.spacing.lg,
+    paddingHorizontal: layout.spacing.sm,
   },
   emptyState: {
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 64,
+    paddingVertical: layout.spacing.xxl * 2,
   },
   emptyTitle: {
-    marginBottom: 8,
+    marginBottom: layout.spacing.sm,
   },
   emptyDesc: {
     textAlign: 'center',
@@ -42,4 +42,18 @@ export default StyleSheet.create({
   textLight: { color: colors.dark },
   subtextDark: { color: colors.textMutedDark },
   subtextLight: { color: colors.textMutedLight },
+  noPaddingBottom: {
+    paddingBottom: 0,
+  },
+  flex1: {
+    flex: 1,
+  },
+  contentWrapper: {
+    alignSelf: 'center',
+    maxWidth: '100%',
+    paddingBottom: layout.spacing.xl,
+  },
+  footerSpacer: {
+    height: 40,
+  },
 });

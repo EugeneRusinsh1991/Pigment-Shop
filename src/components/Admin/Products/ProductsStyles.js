@@ -24,7 +24,7 @@ export default StyleSheet.create({
   },
   controlBtn: {
     height: buttonTokens.sizes.sm.height,
-    paddingHorizontal: 14,
+    paddingHorizontal: layout.radii.iconBtn,
     borderRadius: layout.radii.lg,
     borderWidth: 1.5,
     borderColor: colors.secondaryLightBorder,
@@ -52,7 +52,7 @@ export default StyleSheet.create({
     gap: layout.spacing.xs,
     backgroundColor: colors.textLight,
     borderRadius: layout.radii.sm,
-    paddingVertical: 11,
+    paddingVertical: layout.spacing.md - 1,
     paddingHorizontal: layout.spacing.lg,
     height: 44,
   },
@@ -62,7 +62,7 @@ export default StyleSheet.create({
   /* Mobile toolbar (stacked) */
   mobileToolbar: {
     flexDirection: 'column',
-    gap: 10,
+    gap: layout.spacing.md - 2,
     marginBottom: layout.spacing.lg,
   },
   mobileAddBtn: {
@@ -116,14 +116,14 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    gap: 10,
+    gap: layout.spacing.md - 2,
     flexWrap: 'wrap',
   },
   desktopBottomRow: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    gap: 10,
+    gap: layout.spacing.md - 2,
   },
   desktopStatusCell: {
     flex: 1,
@@ -151,7 +151,7 @@ export default StyleSheet.create({
   },
   cardMetaBlock: {
     flexDirection: 'column',
-    gap: 2,
+    gap: layout.spacing.xxs - 2,
     minWidth: 70,
   },
   cardMetaLabel: {
@@ -162,7 +162,7 @@ export default StyleSheet.create({
     color: colors.textLight,
   },
   cardEditBtn: {
-    marginTop: 10,
+    marginTop: layout.spacing.md - 2,
     height: 40,
     borderRadius: layout.radii.sm,
     borderWidth: 1,
@@ -188,8 +188,8 @@ export default StyleSheet.create({
   },
   actionBtn: {
     minWidth: 90,
-    paddingVertical: 10,
-    paddingHorizontal: 14,
+    paddingVertical: layout.spacing.md - 2,
+    paddingHorizontal: layout.radii.iconBtn,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: layout.radii.sm,
@@ -197,7 +197,7 @@ export default StyleSheet.create({
   },
   rowActions: {
     flexDirection: 'row',
-    gap: 10,
+    gap: layout.spacing.md - 2,
     flexWrap: 'wrap',
     alignItems: 'center',
   },
@@ -232,13 +232,13 @@ export default StyleSheet.create({
   },
   productSku: {
     color: colors.textDescDark,
-    marginTop: 1,
+    marginTop: layout.spacing.xxs - 3,
   },
   badgeNew: {
     backgroundColor: colors.infoBgMid,
-    borderRadius: 4,
-    paddingHorizontal: 5,
-    paddingVertical: 1,
+    borderRadius: layout.spacing.xxs,
+    paddingHorizontal: layout.spacing.xs - 1,
+    paddingVertical: layout.spacing.xxs - 3,
     marginRight: layout.spacing.xxs,
     alignSelf: 'flex-start',
   },
@@ -247,7 +247,7 @@ export default StyleSheet.create({
   },
   badgesRow: {
     flexDirection: 'row',
-    marginTop: 3,
+    marginTop: layout.spacing.xxs - 1,
   },
 
   /* Cells */
@@ -263,7 +263,7 @@ export default StyleSheet.create({
   statusBadge: {
     borderRadius: layout.radii.xs,
     paddingHorizontal: layout.spacing.sm,
-    paddingVertical: 3,
+    paddingVertical: layout.spacing.xxs - 1,
     alignSelf: 'flex-start',
   },
   statusActive: { backgroundColor: colors.successBgAlt },
@@ -279,10 +279,10 @@ export default StyleSheet.create({
 
   /* Save Button */
   saveBtn: {
-    marginTop: 20,
+    marginTop: layout.radii.lg,
     backgroundColor: colors.success,
     borderRadius: layout.radii.sm,
-    paddingVertical: 14,
+    paddingVertical: layout.radii.iconBtn,
     alignItems: 'center',
   },
   saveBtnText: {
@@ -303,4 +303,17 @@ export default StyleSheet.create({
     color: colors.textDescLight,
   },
 
+  /* Added for tokenization */
+  mobileInfoCol: { flex: 1 },
+  mobileNameRow: { flexDirection: 'row', alignItems: 'center', gap: layout.spacing.xs, flexWrap: 'wrap' },
+  mobilePriceRow: { flexDirection: 'row', alignItems: 'center', gap: layout.spacing.xxs },
+  rowActionsCompact: { flexDirection: 'row', alignItems: 'center', gap: layout.spacing.xxs },
+  colIndex: { width: layout.spacing.xxl },
+  imageFieldsGroup: { gap: layout.spacing.sm, marginBottom: layout.spacing.md },
+  deleteSection: {
+    marginTop: layout.spacing.xl,
+    borderTopWidth: 1,
+    borderTopColor: colors.borderLightAlt,
+    paddingTop: layout.spacing.xl,
+  },
 });
