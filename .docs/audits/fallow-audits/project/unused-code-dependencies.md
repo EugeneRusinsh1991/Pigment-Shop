@@ -1,6 +1,6 @@
 # 📦 Unused Code & Dependencies
 
-*Generated on: 26.07.2026, 21:31:26*
+*Generated on: 26.07.2026, 21:35:14*
 
 ### Dead Files (Unused)
 Files that are not reachable or imported by any other codebase file:
@@ -8,6 +8,8 @@ Files that are not reachable or imported by any other codebase file:
 - [BaseCard.js](file:///D:/Magazine/_PigmentShop/src/components/Card/BaseCard.js) (`src/components/Card/BaseCard.js`)
 - [InteractiveCard.js](file:///D:/Magazine/_PigmentShop/src/components/Card/InteractiveCard.js) (`src/components/Card/InteractiveCard.js`)
 - [StaticCard.js](file:///D:/Magazine/_PigmentShop/src/components/Card/StaticCard.js) (`src/components/Card/StaticCard.js`)
+- [DataTable.styles.js](file:///D:/Magazine/_PigmentShop/src/components/DataTable/DataTable.styles.js) (`src/components/DataTable/DataTable.styles.js`)
+- [index.js](file:///D:/Magazine/_PigmentShop/src/components/DataTable/index.js) (`src/components/DataTable/index.js`)
 - [index.js](file:///D:/Magazine/_PigmentShop/src/components/Media/index.js) (`src/components/Media/index.js`)
 - [useHoverAnimation.js](file:///D:/Magazine/_PigmentShop/src/hooks/useHoverAnimation.js) (`src/hooks/useHoverAnimation.js`)
 - [index.ts](file:///D:/Magazine/_PigmentShop/src/types/index.ts) (`src/types/index.ts`)
@@ -24,6 +26,8 @@ Exports that are not imported or consumed by any other active file:
 - [StaticCard.js](file:///D:/Magazine/_PigmentShop/src/components/Card/StaticCard.js): `default` ([L61](file:///D:/Magazine/_PigmentShop/src/components/Card/StaticCard.js#L61))
 - [index.js](file:///D:/Magazine/_PigmentShop/src/components/Card/index.js): `Card` ([L1](file:///D:/Magazine/_PigmentShop/src/components/Card/index.js#L1)), `useCardTheme` ([L2](file:///D:/Magazine/_PigmentShop/src/components/Card/index.js#L2)), `useCardAnimation` ([L3](file:///D:/Magazine/_PigmentShop/src/components/Card/index.js#L3)), `BaseCard` ([L6](file:///D:/Magazine/_PigmentShop/src/components/Card/index.js#L6)), `InteractiveCard` ([L7](file:///D:/Magazine/_PigmentShop/src/components/Card/index.js#L7)), `StaticCard` ([L8](file:///D:/Magazine/_PigmentShop/src/components/Card/index.js#L8)), `CardShadow` ([L9](file:///D:/Magazine/_PigmentShop/src/components/Card/index.js#L9)), `NavigationCard` ([L10](file:///D:/Magazine/_PigmentShop/src/components/Card/index.js#L10))
 - [useCardAnimation.js](file:///D:/Magazine/_PigmentShop/src/components/Card/useCardAnimation.js): `default` ([L81](file:///D:/Magazine/_PigmentShop/src/components/Card/useCardAnimation.js#L81))
+- [useDataTable.js](file:///D:/Magazine/_PigmentShop/src/components/DataTable/useDataTable.js): `useDataTable` ([L5](file:///D:/Magazine/_PigmentShop/src/components/DataTable/useDataTable.js#L5))
+- [useDataTableTheme.js](file:///D:/Magazine/_PigmentShop/src/components/DataTable/useDataTableTheme.js): `useDataTableTheme` ([L13](file:///D:/Magazine/_PigmentShop/src/components/DataTable/useDataTableTheme.js#L13))
 - [Drawer.js](file:///D:/Magazine/_PigmentShop/src/components/Drawer/Drawer.js): `Drawer` ([L25](file:///D:/Magazine/_PigmentShop/src/components/Drawer/Drawer.js#L25))
 - [index.js](file:///D:/Magazine/_PigmentShop/src/components/Drawer/index.js): `Drawer` ([L7](file:///D:/Magazine/_PigmentShop/src/components/Drawer/index.js#L7)), `DrawerHeader` ([L8](file:///D:/Magazine/_PigmentShop/src/components/Drawer/index.js#L8)), `DrawerFooter` ([L9](file:///D:/Magazine/_PigmentShop/src/components/Drawer/index.js#L9)), `useDrawerTheme` ([L10](file:///D:/Magazine/_PigmentShop/src/components/Drawer/index.js#L10)), `useDrawerAnimation` ([L11](file:///D:/Magazine/_PigmentShop/src/components/Drawer/index.js#L11)), `drawerStyles` ([L12](file:///D:/Magazine/_PigmentShop/src/components/Drawer/index.js#L12)), `getDrawerStyles` ([L13](file:///D:/Magazine/_PigmentShop/src/components/Drawer/index.js#L13))
 - [useDrawerAnimation.js](file:///D:/Magazine/_PigmentShop/src/components/Drawer/useDrawerAnimation.js): `default` ([L92](file:///D:/Magazine/_PigmentShop/src/components/Drawer/useDrawerAnimation.js#L92))

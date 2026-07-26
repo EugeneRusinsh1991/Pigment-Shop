@@ -1,9 +1,9 @@
 ===================================================================
          3. HARDCODED STYLES, COLORS & SPACING REPORT              
-Timestamp: 26.07.2026, 21:31:18
+Timestamp: 26.07.2026, 21:35:05
 ===================================================================
 
-Found 1380 issue(s) across 176 file(s):
+Found 1386 issue(s) across 176 file(s):
 
 File: src\AppStyles.js
   L39    [HARDCODED_SPACING] paddingTop 16px -> paddingTop: 16,
@@ -775,21 +775,27 @@ File: src\components\Card\StaticCard.js
   L55    [INLINE_STYLE] <ScrollFadeUp ref={ref} style={computedStyle} {...rest}>
 
 File: src\components\DataTable\DataTable.js
-  L57    [INLINE_STYLE] style={colStyle}
-  L66    [INLINE_STYLE] <View style={colStyle}>
-  L130   [INLINE_STYLE] <View style={cardStyle}>
-  L137   [INLINE_STYLE] <View style={cardStyle}>
-  L164   [INLINE_STYLE] <AnimatedButton style={rowStyle} onPress={onPress} {...props}>
-  L170   [INLINE_STYLE] return <View style={rowStyle} {...props}>{children}</View>;
-  L183   [INLINE_STYLE] return <View style={cellStyle} {...props}>{children}</View>;
+  L41    [INLINE_STYLE] style={colStyle}
+  L50    [INLINE_STYLE] <View style={colStyle}>
+  L120   [INLINE_STYLE] <View style={cardStyle}>
+  L127   [INLINE_STYLE] <View style={cardStyle}>
+  L151   [INLINE_STYLE] <AnimatedButton style={rowStyle} onPress={onPress} {...props}>
+  L157   [INLINE_STYLE] return <View style={rowStyle} {...props}>{children}</View>;
+  L163   [INLINE_STYLE] return <View style={cellStyle} {...props}>{children}</View>;
 
-File: src\components\DataTable\DataTable.styles.js
-  L9     [HARDCODED_SPACING] marginBottom 20px -> marginBottom: 20,
-  L17    [HARDCODED_SPACING] paddingVertical 12px -> paddingVertical: 12,
-  L18    [HARDCODED_SPACING] paddingHorizontal 16px -> paddingHorizontal: 16,
-  L37    [HARDCODED_SPACING] gap 4px -> gap: 4,
-  L43    [HARDCODED_SPACING] paddingVertical 10px -> paddingVertical: 10,
-  L44    [HARDCODED_SPACING] paddingHorizontal 16px -> paddingHorizontal: 16,
+File: src\components\DataTable\DataTableStyles.js
+  L10    [HARDCODED_SPACING] marginBottom 20px -> marginBottom: 20,
+  L15    [HARDCODED_SPACING] paddingVertical 12px -> paddingVertical: 12,
+  L16    [HARDCODED_SPACING] paddingHorizontal 16px -> paddingHorizontal: 16,
+  L28    [HARDCODED_SPACING] gap 4px -> gap: 4,
+  L34    [HARDCODED_SPACING] paddingVertical 10px -> paddingVertical: 10,
+  L35    [HARDCODED_SPACING] paddingHorizontal 16px -> paddingHorizontal: 16,
+  L77    [HARDCODED_SPACING] marginBottom 20px -> marginBottom: 20,
+  L85    [HARDCODED_SPACING] paddingVertical 12px -> paddingVertical: 12,
+  L86    [HARDCODED_SPACING] paddingHorizontal 16px -> paddingHorizontal: 16,
+  L105   [HARDCODED_SPACING] gap 4px -> gap: 4,
+  L111   [HARDCODED_SPACING] paddingVertical 10px -> paddingVertical: 10,
+  L112   [HARDCODED_SPACING] paddingHorizontal 16px -> paddingHorizontal: 16,
 
 File: src\components\DataTable\EmptyState.js
   L10    [INLINE_STYLE] <GlobalEmptyState style={style}>

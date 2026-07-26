@@ -204,8 +204,8 @@
   - Line [22](file:///D:/Magazine/_PigmentShop/src/components/Card/NavigationCard.js#L22): `<Text>` -> `[Dynamic Content]`
 
 ### File: [src/components/DataTable/DataTable.js](file:///D:/Magazine/_PigmentShop/src/components/DataTable/DataTable.js)
-  - Line [12](file:///D:/Magazine/_PigmentShop/src/components/DataTable/DataTable.js#L12): `<Text>` -> `[Dynamic Content]`
-  - Line [38](file:///D:/Magazine/_PigmentShop/src/components/DataTable/DataTable.js#L38): `<Text>` -> `[Dynamic Content]`
+  - Line [13](file:///D:/Magazine/_PigmentShop/src/components/DataTable/DataTable.js#L13): `<Text>` -> `[Dynamic Content]`
+  - Line [22](file:///D:/Magazine/_PigmentShop/src/components/DataTable/DataTable.js#L22): `<Text>` -> `[Dynamic Content]`
 
 ### File: [src/components/Drawer/Drawer.js](file:///D:/Magazine/_PigmentShop/src/components/Drawer/Drawer.js)
   - Line [11](file:///D:/Magazine/_PigmentShop/src/components/Drawer/Drawer.js#L11): `<Text>` -> `[Dynamic Content]`

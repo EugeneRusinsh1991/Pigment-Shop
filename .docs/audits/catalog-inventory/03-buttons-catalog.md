@@ -127,8 +127,8 @@
   - Line [73](file:///D:/Magazine/_PigmentShop/src/components/Card/InteractiveCard.js#L73): `<TouchableOpacity>`
 
 ### File: [src/components/DataTable/DataTable.js](file:///D:/Magazine/_PigmentShop/src/components/DataTable/DataTable.js)
-  - Line [56](file:///D:/Magazine/_PigmentShop/src/components/DataTable/DataTable.js#L56): `<AnimatedButton>`
-  - Line [164](file:///D:/Magazine/_PigmentShop/src/components/DataTable/DataTable.js#L164): `<AnimatedButton>`
+  - Line [40](file:///D:/Magazine/_PigmentShop/src/components/DataTable/DataTable.js#L40): `<AnimatedButton>`
+  - Line [151](file:///D:/Magazine/_PigmentShop/src/components/DataTable/DataTable.js#L151): `<AnimatedButton>`
 
 ### File: [src/components/Drawer/Drawer.js](file:///D:/Magazine/_PigmentShop/src/components/Drawer/Drawer.js)
   - Line [78](file:///D:/Magazine/_PigmentShop/src/components/Drawer/Drawer.js#L78): `<Pressable>`
