@@ -87,7 +87,7 @@ const CardContent = ({ style, children, ...rest }) => (
 const CardTitle = ({ style, children, numberOfLines = 2, isDark: isDarkProp, ...rest }) => {
   const { titleStyle } = useCardTheme({ isDarkProp });
   return (
-    <Text style={[...titleStyle, style]} numberOfLines={numberOfLines} {...rest}>
+    <Text variant="subtitle2" weight="600" style={[...titleStyle, style]} numberOfLines={numberOfLines} {...rest}>
       {children}
     </Text>
   );

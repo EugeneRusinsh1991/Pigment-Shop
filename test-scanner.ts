@@ -10,9 +10,9 @@ import { ElementScanner } from './.tools/browser-automation/explorer/ElementScan
   console.log('Scanning page...');
   const scanner = new ElementScanner();
   try {
-    const results = await scanner.scanPage(page);
+    const results = await scanner.scanPage(page as any);
     console.log('Results length:', results.length);
-  } catch (err) {
+  } catch (err: any) {
     console.error('--- CAUGHT ERROR ---');
     console.error('Type:', err.name);
     console.error('Message:', err.message);

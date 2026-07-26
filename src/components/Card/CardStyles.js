@@ -69,8 +69,6 @@ export const slotStyles = StyleSheet.create({
     flex: 1,
   },
   title: {
-    fontSize: 14,
-    fontWeight: '600',
     marginBottom: 4,
   },
   titleLight: {

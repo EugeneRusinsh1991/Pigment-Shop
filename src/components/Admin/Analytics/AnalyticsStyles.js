@@ -36,8 +36,8 @@ export default StyleSheet.create({
   statLabel: {
   },
   statIcon: {
-    fontSize: 18,
   },
+
   statValue: {
   },
 
@@ -123,7 +123,6 @@ export default StyleSheet.create({
     display: 'none',
   },
   xLabel: {
-    fontSize: 9,
     color: colors.secondaryDarkText,
   },
 
@@ -154,9 +153,7 @@ export default StyleSheet.create({
     borderColor: colors.accent,
   },
   presetText: {
-    fontSize: 13,
     color: colors.white,
-    fontWeight: '600',
     textAlign: 'center',
   },
   presetTextActive: {
@@ -182,7 +179,6 @@ export default StyleSheet.create({
     backgroundColor: colors.slateLight,
   },
   customDateDash: {
-    fontSize: 16,
     color: colors.secondaryDarkText,
   },
   applyBtn: {
@@ -195,8 +191,6 @@ export default StyleSheet.create({
   },
   applyBtnText: {
     color: colors.white,
-    fontWeight: '600',
-    fontSize: 14,
   },
 
   /* Mobile DateRangePicker */

@@ -1,69 +1,72 @@
-﻿# 🗺️ Roadmap: Service Layer Architecture — Пошаговая реализация
+# 🗺️ Roadmap: Service Layer Architecture — Step-by-Step Implementation
 
 > **Spec**: `.docs/architecture-standards/services/services-module-spec.md`
-> **Scope**: `src/services/` — все сервисы, репозитории, трансформы
-> **Как использовать**: копируй промт из каждого шага и вставляй в чат. Каждый шаг независим — выполняй по очереди.
+> **Scope**: `src/services/` — all services, repositories, transforms
+> **How to use**: copy the prompt from each step and paste it into the chat. Each step is independent — execute in order.
 
 ---
 
-## ✅ СТАТУС ВЫПОЛНЕНИЯ
+## ✅ PROGRESS STATUS
 
-| Шаг | Задача | Статус |
-|-----|--------|--------|
-| 1 | Аудит `serviceContract.js` и `collections.js` | ⬜ |
-| 2 | Аудит репозиториев | ⬜ |
-| 3 | Аудит `adminCatalogService.js` | ⬜ |
-| 4 | Аудит `adminOrdersService.js` | ⬜ |
-| 5 | Аудит `adminUsersService.js` | ⬜ |
-| 6 | Аудит `authService.js` | ⬜ |
-| 7 | Аудит `checkoutService.js` | ⬜ |
-| 8 | Аудит трансформов | ⬜ |
-| 9 | Рефакторинг несоответствий | ⬜ |
-| 10 | Финальная проверка | ⬜ |
+> ⚠️ **Parent Task**: BREAK DOWN INTO SUBTASKS — 20+ files, execute strictly step by step.
+
+| Step | Task | Model | Status |
+|------|------|-------|--------|
+| 1 | Audit `serviceContract.js` and `collections.js` | 🟡 Gemini 3.6 Flash (Medium) - 2 files | ⬜ |
+| 2 | Audit repositories | 🔴 Gemini 3.1 Pro (High) - 6 files | ⬜ |
+| 3 | Audit `adminCatalogService.js` + transforms | 🟠 Gemini 3.6 Flash (High) - 3 files | ⬜ |
+| 4 | Audit `adminOrdersService.js` | 🟡 Gemini 3.6 Flash (Medium) - 1 file | ⬜ |
+| 5 | Audit `adminUsersService.js` | 🟡 Gemini 3.6 Flash (Medium) - 1 file | ⬜ |
+| 6 | Audit `authService.js` | 🟡 Gemini 3.6 Flash (Medium) - 1 file | ⬜ |
+| 7 | Audit `checkoutService.js` | 🟡 Gemini 3.6 Flash (Medium) - 1 file | ⬜ |
+| 8 | Audit transform files + analysis of all services | 🔴 Gemini 3.1 Pro (High) - 8 files | ⬜ |
+| 9 | Refactor identified violations | 🔴 Gemini 3.1 Pro (High) - 6+ files | ⬜ |
+| 10 | Final compliance check | 🔴 Gemini 3.1 Pro (High) - 10+ files | ⬜ |
 
 ---
 
-## ШАГ 1 — Аудит базовой инфраструктуры (`serviceContract.js`, `collections.js`)
+## STEP 1 — Audit Core Infrastructure (`serviceContract.js`, `collections.js`) · 🟡 Gemini 3.6 Flash (Medium)
 
-**Что проверяем:**
-- `serviceContract.js` экспортирует `withServiceContract` HOF
-- `withServiceContract` возвращает `{ success, data, error, code, originalError }`
-- `collections.js` экспортирует объект `COLLECTIONS` с константами для всех коллекций
+**What we check:**
+- `serviceContract.js` exports the `withServiceContract` HOF
+- `withServiceContract` returns `{ success, data, error, code, originalError }`
+- `collections.js` exports a `COLLECTIONS` object with constants for all collections
 
-**📋 ПРОМТ:**
+**📋 PROMPT:**
 
 ```
-Прочитай файлы `src/services/serviceContract.js` и `src/services/collections.js`.
+Read the files `src/services/serviceContract.js` and `src/services/collections.js`.
 
-Проверь соответствие стандарту `.docs/architecture-standards/services/services-module-spec.md`:
+Check compliance with the standard `.docs/architecture-standards/services/services-module-spec.md`:
 
 1. `serviceContract.js`:
-   - Экспортирует функцию `withServiceContract(fn, defaultErrorMessage)`
-   - Возвращаемая функция-обёртка возвращает Promise с объектом `{ success: boolean, data?, error?, code?, originalError? }`
-   - При успехе: `{ success: true, data: <результат fn> }`
-   - При ошибке: `{ success: false, error: <сообщение>, code?, originalError: <оригинальная ошибка> }`
+   - Exports a function `withServiceContract(fn, defaultErrorMessage)`
+   - The returned wrapper function returns a Promise resolving to `{ success: boolean, data?, error?, code?, originalError? }`
+   - On success: `{ success: true, data: <result of fn> }`
+   - On error: `{ success: false, error: <message>, code?, originalError: <original error> }`
+   - Error routing: maps domain error codes (e.g. `NOT_FOUND`, `UNAUTHORIZED`, `VALIDATION_ERROR`) or passes original codes
 
 2. `collections.js`:
-   - Экспортирует константу `COLLECTIONS` с именами всех Firestore-коллекций
-   - Нет хардкоженных строк типа `products` вне этого файла
+   - Exports a `COLLECTIONS` constant with all Firestore collection names
+   - No hardcoded string literals like `products` outside this file
 
-Выведи: список нарушений (если есть) и список соответствий. Если нарушений нет — напиши "✅ Базовая инфраструктура соответствует стандарту".
+Output: list of violations (if any) and list of compliant items. If no violations — write "✅ Core infrastructure complies with the standard".
 ```
 
 ---
 
-## ШАГ 2 — Аудит слоя репозиториев (`src/services/repositories/`)
+## STEP 2 — Audit Repository Layer (`src/services/repositories/`) · 🔴 Gemini 3.1 Pro (High)
 
-**Что проверяем:**
-- Все репозитории — функциональные модули (без классов)
-- Все используют `COLLECTIONS` вместо хардкоженных строк
-- Репозитории бросают исключения (не возвращают `{ success, data }`)
-- Нет бизнес-логики — только Firestore-запросы
+**What we check:**
+- All repositories are functional modules (no classes)
+- All use `COLLECTIONS` instead of hardcoded strings
+- Repositories throw exceptions (do not return `{ success, data }`)
+- No business logic — only Firestore queries
 
-**📋 ПРОМТ:**
+**📋 PROMPT:**
 
 ```
-Прочитай все файлы в `src/services/repositories/`:
+Read all files in `src/services/repositories/`:
 - authRepository.js
 - catalogRepository.js
 - catalogQueryBuilder.js
@@ -71,198 +74,205 @@
 - ordersRepository.js
 - usersRepository.js
 
-Для каждого файла проверь соответствие стандарту `.docs/architecture-standards/services/services-module-spec.md`, секции 4:
+For each file, check compliance with `.docs/architecture-standards/services/services-module-spec.md`, section 4:
 
-1. Нет классов — только экспортируемые функции или объекты с функциями
-2. Нет хардкоженных строк коллекций (`products`, `orders` и т.д.) — должен использоваться `COLLECTIONS` из `../collections.js`
-3. Нет `{ success, data }` в возвращаемых значениях — репозиторий бросает ошибки, не оборачивает их
-4. Нет бизнес-логики — только Firestore SDK (`getDoc`, `getDocs`, `setDoc`, `addDoc`, `writeBatch`, `query`, `where`)
+1. No classes — only exported functions or objects with functions
+2. No hardcoded collection strings (`products`, `orders`, etc.) — must use `COLLECTIONS` from `../collections.js`
+3. No `{ success, data }` in return values — repositories throw errors, they do not wrap them
+4. Error routing — repositories throw typed/standardized errors or pass Firestore error codes intact
+5. No business logic — only Firestore SDK calls (`getDoc`, `getDocs`, `setDoc`, `addDoc`, `writeBatch`, `query`, `where`)
 
-Выведи таблицу: файл | нарушение | строка | что исправить. Если файл чистый — пометь ✅.
+
+Output a table: file | violation | line | what to fix. If the file is clean — mark ✅.
 ```
 
 ---
 
-## ШАГ 3 — Аудит `adminCatalogService.js`
+## STEP 3 — Audit `adminCatalogService.js` · 🟠 Gemini 3.6 Flash (High)
 
-**📋 ПРОМТ:**
+**📋 PROMPT:**
 
 ```
-Прочитай файлы:
+Read the files:
 - `src/services/adminCatalogService.js`
 - `src/services/adminCategoriesTransforms.js`
 - `src/services/adminProductsTransforms.js`
 
-Проверь `adminCatalogService.js` по стандарту `.docs/architecture-standards/services/services-module-spec.md`:
+Check `adminCatalogService.js` against the standard `.docs/architecture-standards/services/services-module-spec.md`:
 
-1. Каждая экспортируемая функция ДОЛЖНА быть обёрнута через `withServiceContract`. Есть ли хоть одна экспортируемая async-функция без обёртки?
-2. В файле НЕ ДОЛЖНО быть прямых импортов из `firebase/firestore`. Все запросы к БД — только через `repositories/`.
-3. Трансформы (`toDTO`, `toEntity`) должны вызываться из `*Transforms.js`, а не быть написаны inline.
+1. Every exported function MUST be wrapped with `withServiceContract`. Is there any exported async function without a wrapper?
+2. Error routing — verifies that errors specify clear error codes/messages for `withServiceContract`
+3. The file MUST NOT have direct imports from `firebase/firestore`. All DB requests must go through `repositories/`.
 
-Для трансформов проверь:
-- `toDTO(docSnap)` — принимает Firestore snapshot, возвращает чистый JS-объект
-- `toEntity(dto)` — убирает UI-поля перед сохранением в БД
+3. Transforms (`toDTO`, `toEntity`) must be called from `*Transforms.js` files, not written inline.
 
-Выведи: список нарушений с указанием строк и конкретных правок.
+For the transform files check:
+- `toDTO(docSnap)` — accepts a Firestore snapshot, returns a clean JS object
+- `toEntity(dto)` — strips UI fields before saving to DB
+
+Output: list of violations with line numbers and specific fixes.
 ```
 
 ---
 
-## ШАГ 4 — Аудит `adminOrdersService.js`
+## STEP 4 — Audit `adminOrdersService.js` · 🟡 Gemini 3.6 Flash (Medium)
 
-**📋 ПРОМТ:**
-
-```
-Прочитай файл `src/services/adminOrdersService.js`.
-
-Проверь соответствие стандарту `.docs/architecture-standards/services/services-module-spec.md`:
-
-1. Все экспортируемые функции обёрнуты через `withServiceContract` — нет голых async-функций в экспорте
-2. Нет прямых импортов из `firebase/firestore` — все запросы через `repositories/ordersRepository.js`
-3. Нет хардкоженных строк коллекций
-4. Если делает маппинг данных inline — это нарушение (нужен `adminOrdersTransforms.js`)
-
-Выведи: список нарушений (файл, строка, описание, что исправить). Если нарушений нет — ✅.
-```
-
----
-
-## ШАГ 5 — Аудит `adminUsersService.js`
-
-**📋 ПРОМТ:**
+**📋 PROMPT:**
 
 ```
-Прочитай файл `src/services/adminUsersService.js`.
+Read the file `src/services/adminOrdersService.js`.
 
-Проверь соответствие стандарту `.docs/architecture-standards/services/services-module-spec.md`:
+Check compliance with `.docs/architecture-standards/services/services-module-spec.md`:
 
-1. Все экспортируемые функции обёрнуты через `withServiceContract`
-2. Нет прямых импортов из `firebase/firestore` — данные через `repositories/usersRepository.js`
-3. Нет хардкоженных строк коллекций
-4. Если делает маппинг данных inline — это нарушение (нужен `adminUsersTransforms.js`)
+1. All exported functions are wrapped with `withServiceContract` — no bare async functions in exports
+2. No direct imports from `firebase/firestore` — all requests go through `repositories/ordersRepository.js`
+3. No hardcoded collection strings
+4. If it performs inline data mapping — that is a violation (requires `adminOrdersTransforms.js`)
 
-Выведи: список нарушений (файл, строка, описание, что исправить). Если нарушений нет — ✅.
+Output: list of violations (file, line, description, what to fix). If no violations — ✅.
 ```
 
 ---
 
-## ШАГ 6 — Аудит `authService.js`
+## STEP 5 — Audit `adminUsersService.js` · 🟡 Gemini 3.6 Flash (Medium)
 
-**📋 ПРОМТ:**
-
-```
-Прочитай файл `src/services/authService.js`.
-
-Проверь соответствие стандарту `.docs/architecture-standards/services/services-module-spec.md`:
-
-1. Все экспортируемые функции обёрнуты через `withServiceContract`
-2. Firebase Auth SDK (`signInWithEmailAndPassword`, `signOut`, `onAuthStateChanged`) — допустимо напрямую.
-   НО Firebase Firestore SDK (`getDoc`, `setDoc` и т.д.) должен проходить через `repositories/authRepository.js`
-3. Нет хардкоженных строк коллекций если есть обращения к Firestore
-
-Выведи: список нарушений (файл, строка, описание, что исправить). Если нарушений нет — ✅.
-```
-
----
-
-## ШАГ 7 — Аудит `checkoutService.js`
-
-**📋 ПРОМТ:**
+**📋 PROMPT:**
 
 ```
-Прочитай файл `src/services/checkoutService.js`.
+Read the file `src/services/adminUsersService.js`.
 
-Проверь соответствие стандарту `.docs/architecture-standards/services/services-module-spec.md`:
+Check compliance with `.docs/architecture-standards/services/services-module-spec.md`:
 
-1. Все экспортируемые функции обёрнуты через `withServiceContract`
-2. Нет прямых импортов из `firebase/firestore` — запросы через `repositories/ordersRepository.js` или `repositories/catalogRepository.js`
-3. Нет хардкоженных строк коллекций
-4. Бизнес-логика checkout (формирование заказа, расчёт итогов) — в сервисе, а не в репозитории
+1. All exported functions are wrapped with `withServiceContract`
+2. No direct imports from `firebase/firestore` — data flows through `repositories/usersRepository.js`
+3. No hardcoded collection strings
+4. If it performs inline data mapping — that is a violation (requires `adminUsersTransforms.js`)
 
-Выведи: список нарушений (файл, строка, описание, что исправить). Если нарушений нет — ✅.
+Output: list of violations (file, line, description, what to fix). If no violations — ✅.
 ```
 
 ---
 
-## ШАГ 8 — Аудит трансформ-файлов
+## STEP 6 — Audit `authService.js` · 🟡 Gemini 3.6 Flash (Medium)
 
-**📋 ПРОМТ:**
+**📋 PROMPT:**
 
 ```
-Прочитай файлы:
+Read the file `src/services/authService.js`.
+
+Check compliance with `.docs/architecture-standards/services/services-module-spec.md`:
+
+1. All exported functions are wrapped with `withServiceContract`
+2. Firebase Auth SDK (`signInWithEmailAndPassword`, `signOut`, `onAuthStateChanged`) — allowed directly.
+   BUT Firebase Firestore SDK (`getDoc`, `setDoc`, etc.) must go through `repositories/authRepository.js`
+3. No hardcoded collection strings when accessing Firestore
+
+Output: list of violations (file, line, description, what to fix). If no violations — ✅.
+```
+
+---
+
+## STEP 7 — Audit `checkoutService.js` · 🟡 Gemini 3.6 Flash (Medium)
+
+**📋 PROMPT:**
+
+```
+Read the file `src/services/checkoutService.js`.
+
+Check compliance with `.docs/architecture-standards/services/services-module-spec.md`:
+
+1. All exported functions are wrapped with `withServiceContract`
+2. No direct imports from `firebase/firestore` — requests go through `repositories/ordersRepository.js` or `repositories/catalogRepository.js`
+3. No hardcoded collection strings
+4. Checkout business logic (order composition, totals calculation) — must be in the service, not the repository
+
+Output: list of violations (file, line, description, what to fix). If no violations — ✅.
+```
+
+---
+
+## STEP 8 — Audit Transform Files · 🔴 Gemini 3.1 Pro (High)
+
+**📋 PROMPT:**
+
+```
+Read the files:
 - `src/services/adminCategoriesTransforms.js`
 - `src/services/adminProductsTransforms.js`
 
-Проверь соответствие стандарту `.docs/architecture-standards/services/services-module-spec.md`, секция 3:
+Check compliance with `.docs/architecture-standards/services/services-module-spec.md`, section 3:
 
-1. Каждый файл экспортирует функции `toDTO` и `toEntity` (или эквивалентные по смыслу)
-2. `toDTO` — принимает Firestore DocumentSnapshot, возвращает чистый JS-объект. Поле `id` — строка.
-3. `toEntity` — принимает DTO, возвращает объект без UI-полей (без `selected`, временных blob-полей, вычисляемых флагов). Готов к `setDoc`/`addDoc`.
-4. Функции должны быть чистыми (pure) — без side effects, без обращений к БД.
+1. Each file exports `toDTO` and `toEntity` functions (or equivalents in purpose)
+2. `toDTO` — accepts a Firestore DocumentSnapshot, returns a clean JS object. The `id` field must be a string.
+3. `toEntity` — accepts a DTO, returns an object without UI fields (no `selected`, temporary blob fields, computed flags). Ready for `setDoc`/`addDoc`.
+4. Functions must be pure — no side effects, no DB calls.
 
-Дополнительно: определи какие сервисы делают маппинг данных inline и нуждаются в новом `*Transforms.js` файле.
+Additionally: identify which services perform inline data mapping and need a new `*Transforms.js` file.
 
-Выведи: список нарушений + список сервисов которым нужны новые трансформ-файлы.
+Output: list of violations + list of services that need new transform files.
 ```
 
 ---
 
-## ШАГ 9 — Рефакторинг выявленных нарушений
+## STEP 9 — Refactor Identified Violations · 🔴 Gemini 3.1 Pro (High)
 
-> ⚠️ Выполняй ПОСЛЕ шагов 1–8. Для каждого файла с нарушениями — отдельный промт.
+> ⚠️ Execute AFTER steps 1–8. For each file with violations — a separate prompt.
 
-**📋 ПРОМТ-ШАБЛОН (подставь имя файла и нарушения):**
+**📋 PROMPT TEMPLATE (substitute file name and violations):**
 
 ```
-Исправь нарушения в файле `src/services/<ИМЯ_ФАЙЛА>.js`.
+Fix the violations in `src/services/<FILE_NAME>.js`.
 
-Нарушения из аудита:
-[вставь сюда список нарушений для этого файла из шагов 1-8]
+Violations from audit:
+[paste the list of violations for this file from steps 1-8]
 
-Правила рефакторинга:
-1. Исправляй ТОЛЬКО строки с нарушениями, не трогай остальной код
-2. Добавление `withServiceContract` — паттерн:
-   async function _myFunction(args) { /* оригинальный код */ }
-   export const myFunction = withServiceContract(_myFunction, 'Описание ошибки');
-3. Вынос трансформаций — создай `src/services/<имя>Transforms.js` с функциями `toDTO` и `toEntity`
-4. Замена хардкоженных строк — используй `COLLECTIONS.<НАЗВАНИЕ>` из `src/services/collections.js`
+Refactoring rules:
+1. Fix ONLY the lines with violations, do not touch other code
+2. Adding `withServiceContract` — pattern:
+   async function _myFunction(args) { /* original code */ }
+   export const myFunction = withServiceContract(_myFunction, 'Error description');
+3. Extracting transforms — create `src/services/<name>Transforms.js` with `toDTO` and `toEntity` functions
+4. Replacing hardcoded strings — use `COLLECTIONS.<NAME>` from `src/services/collections.js`
+5. Delegating to repositories — extract raw Firestore operations to `repositories/`, keeping all business logic (validation, data orchestration) inside the service layer
+6. Error routing — ensure errors thrown in service or repository set appropriate error codes (`code`) for UI/contract handling
 
-После правок: краткий список изменений с указанием строк.
+
+After changes: a brief list of what was changed and at which lines.
 ```
 
 ---
 
-## ШАГ 10 — Финальная проверка всей архитектуры
+## STEP 10 — Final Architecture Compliance Check · 🔴 Gemini 3.1 Pro (High)
 
-**📋 ПРОМТ:**
+**📋 PROMPT:**
 
 ```
-Выполни финальный аудит слоя сервисов на соответствие стандарту `.docs/architecture-standards/services/services-module-spec.md`, секция 6 (Audit & Compliance Rules).
+Perform a final audit of the service layer against `.docs/architecture-standards/services/services-module-spec.md`, section 6 (Audit & Compliance Rules).
 
-Проверь три правила:
+Check three rules:
 
 1. No Untrapped Async Exports
-   Найди в `src/services/` (НЕ в `repositories/`) все файлы с паттерном:
-   - `export async function` — без предшествующего `withServiceContract`
-   - `export const ... = async` — без предшествующего `withServiceContract`
+   In `src/services/` (NOT in `repositories/`) find all files with the pattern:
+   - `export async function` — without a preceding `withServiceContract`
+   - `export const ... = async` — without a preceding `withServiceContract`
 
 2. No Direct Firestore SDK in UI
-   Найди импорты `from 'firebase/firestore'` вне `src/services/` — в `src/components/`, `src/pages/`, `src/hooks/`, `src/store/`.
+   Find `from 'firebase/firestore'` imports outside `src/services/` — in `src/components/`, `src/pages/`, `src/hooks/`, `src/store/`.
 
 3. No Direct Firestore SDK in Services (where Repository exists)
-   Найди сервисы (не репозитории) в `src/services/` которые импортируют из `firebase/firestore`.
+   Find services (not repositories) in `src/services/` that import from `firebase/firestore`.
 
-Выведи финальный отчёт:
-- ✅ Правила которые соблюдены
-- ❌ Правила с нарушениями (файл, строка, описание)
-- 📊 Итог: процент соответствия стандарту
+Output a final report:
+- ✅ Rules that are compliant
+- ❌ Rules with violations (file, line, description)
+- 📊 Summary: percentage of compliance with the standard
 ```
 
 ---
 
-## 📌 Заметки
+## 📌 Notes
 
-- **Шаги 1–8** — только аудит (без изменений кода)
-- **Шаг 9** — рефакторинг (один файл за раз)
-- **Шаг 10** — финальная верификация
-- Обновляй таблицу статусов вверху после каждого выполненного шага
+- **Steps 1–8** — audit only (no code changes)
+- **Step 9** — refactoring (one file at a time)
+- **Step 10** — final verification
+- Update the status table above after each completed step

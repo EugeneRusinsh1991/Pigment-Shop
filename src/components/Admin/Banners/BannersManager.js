@@ -96,7 +96,7 @@ export default function BannersManager() {
               onPress={handleAddBanner}
               activeOpacity={0.8}
             >
-              <Text style={styles.addCardBtnText}>{t('adminBannersAddBtn')}</Text>
+              <Text variant="body2" weight="semiBold" style={styles.addCardBtnText}>{t('adminBannersAddBtn')}</Text>
             </AnimatedButton>
           )}
         </View>
@@ -106,7 +106,7 @@ export default function BannersManager() {
 
           {bannersList.length < 3 && (
             <AnimatedButton style={styles.addBtn} onPress={handleAddBanner} activeOpacity={0.8}>
-              <Text style={styles.addBtnText}>{t('adminBannersAddBtn')}</Text>
+              <Text variant="body2" weight="semiBold" style={styles.addBtnText}>{t('adminBannersAddBtn')}</Text>
             </AnimatedButton>
           )}
         </View>

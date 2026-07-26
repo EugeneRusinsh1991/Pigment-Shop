@@ -6,38 +6,7 @@ Based on [typography-solution-foundation.md](file:///d:/Magazine/_PigmentShop/.t
 
 ---
 
-## Phase 1: Shared UI Primitives Refactoring
-**Recommended Model**: 🔴 Gemini 3.1 Pro (High) - 5 files
 
-### Task 1.1: Refactor `Badge` Component & Styles
-- **Recommended Model**: 🟡 Gemini 3.6 Flash (Medium) - 2 files
-- **Files**:
-  - `src/components/Badge/Badge.js`
-  - `src/components/Badge/BadgeStyles.js`
-- **Actions**:
-  1. Remove `fontSize` properties from `BadgeStyles.js` (`smallText`, `mediumText`, `largeText`).
-  2. In `Badge.js`, map size tokens (`small`, `medium`, `large`) to `<Text size={...}>` props instead of passing `fontSize` via `style`.
-  3. Ensure custom `textStyle` prop does not pass forbidden typography styles directly.
-
-### Task 1.2: Refactor `ChipButton` Component
-- **Recommended Model**: 🟡 Gemini 3.6 Flash (Medium) - 1 file
-- **Files**:
-  - `src/components/Button/ChipButton.js`
-- **Actions**:
-  1. Inspect `ChipButton.js` where `fontSize: sizeToken.fontSize` is passed in `textStyle`.
-  2. Extract `sizeToken.fontSize` and pass it directly as `size={sizeToken.fontSize}` prop to `<Text>`.
-  3. Clean up `textStyle` array passed to `<Text>`.
-
-### Task 1.3: Refactor `Card` Component & Styles
-- **Recommended Model**: 🟡 Gemini 3.6 Flash (Medium) - 2 files
-- **Files**:
-  - `src/components/Card/Card.js`
-  - `src/components/Card/CardStyles.js`
-- **Actions**:
-  1. Remove `fontSize` and `fontWeight` from `CardStyles.js` (`titleStyle`).
-  2. In `Card.js`, pass `size={14}` and `weight="600"` (or `variant`) as props to `<Text>` instead of via `titleStyle`.
-
----
 
 ## Phase 2: Admin Module Styles Refactoring
 **Recommended Model**: 🔴 Gemini 3.1 Pro (High) - 7 files
@@ -49,7 +18,7 @@ Based on [typography-solution-foundation.md](file:///d:/Magazine/_PigmentShop/.t
   - Consuming components (e.g. `AnalyticsDashboard.js`, `AnalyticsOverview.js`)
 - **Actions**:
   1. In `AnalyticsStyles.js`, remove `fontSize` from `statIcon`, `xLabel`, `presetText`, `customDateDash`, `applyBtnText`.
-  2. In consuming JSX components, pass `size` and `weight` props directly on `<Text>` (e.g., `<Text size={13} weight="medium">`).
+  2. In consuming JSX components, use standard typography variants or primitive props on `<Text>` (e.g., `variant="caption"`, `variant="body2"`).
 
 ### Task 2.2: Verify `RevenueChart` SVG Text Usage
 - **Recommended Model**: 🟢 Gemini 3.6 Flash (Low) - 1 file
@@ -66,7 +35,7 @@ Based on [typography-solution-foundation.md](file:///d:/Magazine/_PigmentShop/.t
   - Consuming components (e.g. `BannersManager.js`, `BannerCard.js`)
 - **Actions**:
   1. In `BannersStyles.js`, remove `fontSize` from `addCardBtnText`, `addBtnText`, `saveBtnText`.
-  2. In consuming components, update `<Text>` usages to use standard props (`size={14}`, `size={13}`).
+  2. In consuming components, update `<Text>` usages to use standard typography variants (e.g., `variant="body2"`, `variant="caption"`).
 
 ---
 

@@ -4,6 +4,28 @@ import { Text } from '../Text';
 import { useBadgeTheme } from './useBadgeTheme';
 import { useBadgeAnimation } from './useBadgeAnimation';
 
+const badgeFontSizes = {
+  sm: 10,
+  small: 10,
+  md: 11,
+  medium: 11,
+  lg: 12,
+  large: 12,
+  counter: 10,
+};
+
+function extractFontProps(style) {
+  if (!style) return { cleanedStyle: style, fontProps: {} };
+  const flat = Array.isArray(style) ? Object.assign({}, ...style.flat().filter(Boolean)) : { ...style };
+  const fontProps = {};
+  const cleanedStyle = { ...flat };
+  if (flat.fontSize !== undefined) { fontProps.size = flat.fontSize; delete cleanedStyle.fontSize; }
+  if (flat.fontWeight !== undefined) { fontProps.weight = flat.fontWeight; delete cleanedStyle.fontWeight; }
+  if (flat.lineHeight !== undefined) { fontProps.lineHeight = flat.lineHeight; delete cleanedStyle.lineHeight; }
+  if (flat.fontFamily !== undefined) { fontProps.font = flat.fontFamily; delete cleanedStyle.fontFamily; }
+  return { cleanedStyle, fontProps };
+}
+
 const Badge = React.forwardRef(({
   variant = 'product',
   status = 'pending',
@@ -38,6 +60,8 @@ const Badge = React.forwardRef(({
   });
 
   const displayText = resolveDisplayText({ variant, label, value, count, children });
+  const { cleanedStyle, fontProps } = extractFontProps(textStyleProp);
+  const resolvedSize = fontProps.size ?? badgeFontSizes[size] ?? 11;
 
   const combinedContainerStyle = [
     ...containerStyle,
@@ -56,7 +80,7 @@ const Badge = React.forwardRef(({
           onPressOut={bind.onPressOut}
           {...rest}
         >
-          <Text variant="caption" weight="semiBold" style={[...textStyle, textStyleProp]}>{displayText}</Text>
+          <Text variant="caption" weight="semiBold" {...fontProps} size={resolvedSize} style={[...textStyle, cleanedStyle]}>{displayText}</Text>
         </TouchableOpacity>
       </Animated.View>
     );
@@ -64,7 +88,7 @@ const Badge = React.forwardRef(({
 
   return (
     <Animated.View ref={ref} style={combinedContainerStyle} {...rest}>
-      <Text variant="caption" weight="semiBold" style={[...textStyle, textStyleProp]}>{displayText}</Text>
+      <Text variant="caption" weight="semiBold" {...fontProps} size={resolvedSize} style={[...textStyle, cleanedStyle]}>{displayText}</Text>
     </Animated.View>
   );
 });

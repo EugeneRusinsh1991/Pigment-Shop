@@ -49,6 +49,7 @@ export function ChipButton({
     <Button
       variant="unstyled"
       animated={animated}
+      size={sizeToken.fontSize}
       style={[
         chipStyles.base,
         { height: sizeToken.height, paddingHorizontal: sizeToken.paddingHorizontal },
@@ -56,7 +57,7 @@ export function ChipButton({
         resolvedContainer,
         style,
       ]}
-      textStyle={[chipStyles.textBase, { fontSize: sizeToken.fontSize }, resolvedText, textStyle]}
+      textStyle={[chipStyles.textBase, resolvedText, textStyle]}
       leftIcon={renderChipIcon(leftIcon, iconColor)}
       rightIcon={renderChipIcon(rightIcon, iconColor)}
       title={label}
@@ -76,13 +77,13 @@ const chipStyles = StyleSheet.create({
     gap: 6,
     borderWidth: 1.5,
   },
-  textBase: { fontWeight: '500' },
+  textBase: {},
   baseLightInactive: { backgroundColor: buttonColors.surfaceLight, borderColor: buttonColors.borderLight },
   textLightInactive: { color: buttonColors.textMutedLight },
   baseLightActive: { backgroundColor: buttonColors.textLight, borderColor: buttonColors.textLight },
-  textLightActive: { color: buttonColors.surfaceLight, fontWeight: '600' },
+  textLightActive: { color: buttonColors.surfaceLight },
   baseDarkInactive: { backgroundColor: buttonColors.surfaceDark, borderColor: buttonColors.borderDark },
   textDarkInactive: { color: buttonColors.textMutedDark },
   baseDarkActive: { backgroundColor: buttonColors.surfaceLight, borderColor: buttonColors.surfaceLight },
-  textDarkActive: { color: buttonColors.surfaceDark, fontWeight: '600' },
+  textDarkActive: { color: buttonColors.surfaceDark },
 });

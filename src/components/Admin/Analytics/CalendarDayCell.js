@@ -40,6 +40,7 @@ function getCellStyles(isCurrentMonth, isSelected, isRange) {
       cellStyle: [localStyles.dayCell],
       buttonStyle: [localStyles.dayButton, localStyles.daySelected],
       textStyle: [localStyles.dayText, currentText, localStyles.dayTextSelected],
+      weight: '700',
     };
   }
   
@@ -48,6 +49,7 @@ function getCellStyles(isCurrentMonth, isSelected, isRange) {
       cellStyle: [localStyles.dayCell, localStyles.dayHighlight],
       buttonStyle: [localStyles.dayButton],
       textStyle: [localStyles.dayText, currentText, localStyles.dayHighlightText],
+      weight: '600',
     };
   }
 
@@ -55,6 +57,7 @@ function getCellStyles(isCurrentMonth, isSelected, isRange) {
     cellStyle: [localStyles.dayCell],
     buttonStyle: [localStyles.dayButton],
     textStyle: [localStyles.dayText, currentText],
+    weight: undefined,
   };
 }
 
@@ -93,7 +96,7 @@ export function CalendarDayCell({
     hoverDate
   );
 
-  const { cellStyle, buttonStyle, textStyle } = getCellStyles(
+  const { cellStyle, buttonStyle, textStyle, weight } = getCellStyles(
     cell.isCurrentMonth,
     isSelected,
     isRange
@@ -110,7 +113,7 @@ export function CalendarDayCell({
         onMouseLeave={() => handleHoverLeave(shouldHover, setHoverDate)}
         hitSlop={calculateHitSlop(32, 32)}
       >
-        <Text variant="body2" style={textStyle}>{cell.dayLabel}</Text>
+        <Text variant="body2" weight={weight} style={textStyle}>{cell.dayLabel}</Text>
       </AnimatedButton>
     </View>
   );

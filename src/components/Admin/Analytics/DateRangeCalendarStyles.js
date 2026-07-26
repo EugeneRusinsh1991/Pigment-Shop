@@ -78,7 +78,6 @@ export const localStyles = StyleSheet.create({
   },
   dayTextSelected: {
     color: colors.white,
-    fontWeight: '700',
   },
   dayHighlight: {
     backgroundColor: colors.dangerBgLight,
@@ -86,6 +85,5 @@ export const localStyles = StyleSheet.create({
   },
   dayHighlightText: {
     color: colors.accent,
-    fontWeight: '600',
   },
 });

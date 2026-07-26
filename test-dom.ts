@@ -1,5 +1,5 @@
 import { chromium } from 'playwright';
-import { resolveExecutionContext } from './.tools/browser-automation/execution-context/index.ts';
+import { resolveExecutionContext } from './.tools/browser-automation/execution-context';
 
 (async () => {
   const browser = await chromium.launch();
@@ -20,7 +20,7 @@ import { resolveExecutionContext } from './.tools/browser-automation/execution-c
   };
 
   const ctx = resolveExecutionContext('admin');
-  page = await ctx.prepare(page, config);
+  page = await ctx.prepare(page, config as any);
   
   await page.goto('http://localhost:8081/admin', {waitUntil: 'domcontentloaded'});
   await page.waitForTimeout(2000);

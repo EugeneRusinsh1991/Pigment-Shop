@@ -57,10 +57,10 @@ export default function OrderItemsList({ items, totalPrice }) {
 
       {/* Order total */}
       <View style={[styles.itemRow, { borderTopWidth: 1, borderTopColor: '#E2E8F0', borderBottomWidth: 0, marginTop: 4 }]}>
-        <Text style={styles.itemLabel} size={14} weight="bold" style={{ color: '#1C1C1C' }}>{t('adminOrdersTotal')}</Text>
+        <Text style={[styles.itemLabel, { color: '#1C1C1C' }]} size={14} weight="bold">{t('adminOrdersTotal')}</Text>
         <Text style={styles.itemQty} size={14} />
         <Text style={styles.itemUnitPrice} size={14} />
-        <Text style={styles.itemPrice} size={14} weight="bold" style={{ color: '#1C1C1C' }}>
+        <Text style={[styles.itemPrice, { color: '#1C1C1C' }]} size={14} weight="bold">
           ${(totalPrice || 0).toLocaleString()}
         </Text>
       </View>

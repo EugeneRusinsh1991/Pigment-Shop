@@ -191,8 +191,6 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   addCardBtnText: {
-    fontSize: 14,
-    fontWeight: '600',
     color: colors.secondaryLightText,
   },
   addBtn: {
@@ -206,8 +204,6 @@ export default StyleSheet.create({
     marginTop: 8,
   },
   addBtnText: {
-    fontSize: 13,
-    fontWeight: '600',
     color: colors.neutralDarkStrong,
   },
   saveBtn: {
@@ -221,7 +217,5 @@ export default StyleSheet.create({
   },
   saveBtnText: {
     color: colors.white,
-    fontSize: 13,
-    fontWeight: '700',
   },
 });

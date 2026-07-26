@@ -5,19 +5,31 @@ export const badgeSizes = {
   sm: {
     paddingHorizontal: 6,
     paddingVertical: 2,
-    fontSize: 10,
+    borderRadius: layout.radii.xs,
+  },
+  small: {
+    paddingHorizontal: 6,
+    paddingVertical: 2,
     borderRadius: layout.radii.xs,
   },
   md: {
     paddingHorizontal: 10,
     paddingVertical: 4,
-    fontSize: 11,
+    borderRadius: layout.radii.full,
+  },
+  medium: {
+    paddingHorizontal: 10,
+    paddingVertical: 4,
     borderRadius: layout.radii.full,
   },
   lg: {
     paddingHorizontal: 14,
     paddingVertical: 6,
-    fontSize: 12,
+    borderRadius: layout.radii.full,
+  },
+  large: {
+    paddingHorizontal: 14,
+    paddingVertical: 6,
     borderRadius: layout.radii.full,
   },
   counter: {
@@ -25,7 +37,6 @@ export const badgeSizes = {
     height: 18,
     paddingHorizontal: 4,
     paddingVertical: 0,
-    fontSize: 10,
     borderRadius: layout.radii.full,
   },
 };
