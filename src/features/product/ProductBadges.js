@@ -1,33 +1,26 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { useTheme } from '../../context/ThemeContext';
-import { colors } from '../../theme/tokens';
-import { Flag } from '../../components/Flag';
+import { Badge } from '../../components/Badge';
 
 function renderNewBadge(isNew, t) {
   if (!isNew) return null;
   return (
-    <Flag variant="chip" readOnly colorScheme="new">
-      {t('badgeNew')}
-    </Flag>
+    <Badge variant="new" label={t('badgeNew') || 'NEW'} size="sm" />
   );
 }
 
 function renderFeaturedBadge(isFeatured, t) {
   if (!isFeatured) return null;
   return (
-    <Flag variant="chip" readOnly colorScheme="featured">
-      {t('badgeFeatured') || 'FEATURED'}
-    </Flag>
+    <Badge variant="featured" label={t('badgeFeatured') || 'FEATURED'} size="sm" />
   );
 }
 
 function renderDiscountBadge(discountPercent) {
   if (!(discountPercent > 0)) return null;
   return (
-    <Flag variant="chip" readOnly colorScheme="sale">
-      -{discountPercent}%
-    </Flag>
+    <Badge variant="discount" value={discountPercent} size="sm" />
   );
 }
 
@@ -55,34 +48,5 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     gap: 4,
   },
-  newBadge: {
-    backgroundColor: colors.accent,
-    width: 72,
-    paddingVertical: 4,
-    borderRadius: 6,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  discountBadge: {
-    backgroundColor: colors.white,
-    borderColor: colors.accent,
-    borderWidth: 1,
-    width: 72,
-    paddingVertical: 3,
-    borderRadius: 6,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  badgeText: {
-    color: colors.white,
-    fontSize: 9,
-    fontWeight: 'bold',
-    textTransform: 'uppercase',
-    letterSpacing: 0.5,
-  },
-  discountBadgeText: {
-    color: colors.accent,
-    fontSize: 9,
-    fontWeight: 'bold',
-  },
 });
+

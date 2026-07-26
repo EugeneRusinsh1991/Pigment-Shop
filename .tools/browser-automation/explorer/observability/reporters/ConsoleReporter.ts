@@ -26,69 +26,68 @@ export class ConsoleReporter implements Reporter {
     return formatReportUrl(url);
   }
 
-  private isSemanticElement(el: any): boolean {
-    if (!el) return false;
+  private resolveTagAndRole(el: any): { tag: string; role: string } {
     const tag = el.type ? String(el.type).toLowerCase() : (el.tagName ? String(el.tagName).toLowerCase() : '');
     const role = el.role ? String(el.role).toLowerCase() : '';
+    return { tag, role };
+  }
 
-    const isSemanticType = 
+  private isSemanticType(tag: string, role: string, el: any): boolean {
+    return (
       tag === 'button' || role === 'button' ||
       tag === 'a' || role === 'link' ||
       tag === 'input' ||
       role === 'checkbox' || el.type === 'checkbox' ||
       role === 'tab' ||
       role === 'menuitem' ||
-      Boolean(el.testId) || Boolean(el.ariaLabel);
+      Boolean(el.testId) || Boolean(el.ariaLabel)
+    );
+  }
 
-    if (!isSemanticType) return false;
-
+  private hasIdentifiableContent(el: any): boolean {
     const text = (el.text || '').trim();
-    if (!text && !el.ariaLabel && !el.testId && !el.id && !el.href) return false;
-    if (!text && !el.ariaLabel && !el.testId && !el.id && el.selector && el.selector.startsWith('/')) return false;
+    if (text || el.ariaLabel || el.testId || el.id || el.href) return true;
+    if (el.selector && el.selector.startsWith('/')) return false;
+    return false;
+  }
 
-    return true;
+  private isSemanticElement(el: any): boolean {
+    if (!el) return false;
+    const { tag, role } = this.resolveTagAndRole(el);
+    if (!this.isSemanticType(tag, role, el)) return false;
+    return this.hasIdentifiableContent(el);
+  }
+
+  private resolveSemanticType(tag: string, role: string, el: any): string {
+    if (tag === 'button' || role === 'button') return 'Button';
+    if (tag === 'a' || role === 'link') return 'Link';
+    if (tag === 'input') return 'Input';
+    if (role === 'checkbox' || el.type === 'checkbox') return 'Checkbox';
+    if (role === 'tab') return 'Tab';
+    if (role === 'menuitem') return 'Menu Item';
+    if (el.testId || el.ariaLabel) return 'Interactive';
+    return tag ? tag.charAt(0).toUpperCase() + tag.slice(1) : 'Element';
+  }
+
+  private resolveDescription(el: any): string {
+    if (el.text && el.text.trim()) return `"${el.text.trim()}"`;
+    if (el.ariaLabel) return `[${el.ariaLabel}]`;
+    if (el.testId) return `<${el.testId}>`;
+    if (el.id) return `#${el.id}`;
+    if (el.href) {
+      try { return `-> ${new URL(el.href, 'http://dummy').pathname}`; }
+      catch { return `-> ${el.href}`; }
+    }
+    if (el.selector && !el.selector.includes('/')) return el.selector;
+    return `at ${el.selector || 'Unknown'}`;
   }
 
   private formatElement(el: any): string {
-    let semanticType = 'Element';
     const tag = el.type ? String(el.type).toLowerCase() : '';
     const role = el.role ? String(el.role).toLowerCase() : '';
-    
-    if (tag === 'button' || role === 'button') semanticType = 'Button';
-    else if (tag === 'a' || role === 'link') semanticType = 'Link';
-    else if (tag === 'input') semanticType = 'Input';
-    else if (role === 'checkbox' || el.type === 'checkbox') semanticType = 'Checkbox';
-    else if (role === 'tab') semanticType = 'Tab';
-    else if (role === 'menuitem') semanticType = 'Menu Item';
-    else if (el.testId || el.ariaLabel) semanticType = 'Interactive';
-    else if (tag) semanticType = tag.charAt(0).toUpperCase() + tag.slice(1);
-
-    let description = '';
-    if (el.text && el.text.trim()) {
-      description = `"${el.text.trim()}"`;
-    } else if (el.ariaLabel) {
-      description = `[${el.ariaLabel}]`;
-    } else if (el.testId) {
-      description = `<${el.testId}>`;
-    } else if (el.id) {
-      description = `#${el.id}`;
-    } else if (el.href) {
-      try {
-        const parsed = new URL(el.href, 'http://dummy').pathname;
-        description = `-> ${parsed}`;
-      } catch {
-        description = `-> ${el.href}`;
-      }
-    } else if (el.selector && !el.selector.includes('/')) {
-      description = el.selector;
-    } else {
-      description = `at ${el.selector || 'Unknown'}`;
-    }
-
-    if (description.length > 35) {
-      description = description.substring(0, 32) + '...';
-    }
-
+    const semanticType = this.resolveSemanticType(tag, role, el);
+    let description = this.resolveDescription(el);
+    if (description.length > 35) description = description.substring(0, 32) + '...';
     return `${semanticType} ${description}`.trim();
   }
 
@@ -110,63 +109,57 @@ export class ConsoleReporter implements Reporter {
     return `(${ms}ms)`;
   }
 
+  private handleNavigation(event: any): void {
+    if (event.success) {
+      this.checkNewPage(event.destinationUrl, event.isBack);
+    } else {
+      console.log(`    ${C.r('🔴 ERROR')}   Failed to navigate to ${this.formatUrl(event.destinationUrl)}`);
+    }
+  }
+
+  private handleAction(event: any, timing: string): void {
+    if (!this.isSemanticElement(event.element)) return;
+    if ('pageUrl' in event) this.checkNewPage(event.pageUrl);
+    const name = this.formatElement(event.element);
+    if (event.result === 'SUCCESS') {
+      console.log(`    ${C.w('⚪ CLICK')}   ${name.padEnd(45)} ${timing}`.trimEnd());
+    } else {
+      console.log(`    ${C.r('🔴 FAILED')}  ${name.padEnd(45)} ${event.result}`.trimEnd());
+    }
+  }
+
+  private handlePick(event: any): void {
+    if (!this.isSemanticElement(event.element)) return;
+    if ('pageUrl' in event) this.checkNewPage(event.pageUrl);
+    console.log(`    ${C.w('⚪ PICK')}    ${this.formatElement(event.element).padEnd(45)}`.trimEnd());
+  }
+
+  private handleSummary(event: any): void {
+    const m = Math.floor(event.totalRuntimeMs / 60000);
+    const s = Math.floor((event.totalRuntimeMs % 60000) / 1000);
+    const timeStr = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+    console.log(`\n======================================`);
+    console.log(`Automation Complete`);
+    console.log(`Pages ............ ${event.pagesVisited}`);
+    console.log(`Clicks ........... ${event.clicks}`);
+    console.log(`Navigations ...... ${event.successfulNavigations}`);
+    console.log(`Skips ............ ${event.skipped}`);
+    console.log(`Errors ........... ${event.errors}`);
+    console.log(`Runtime .......... ${timeStr}`);
+    console.log(`======================================\n`);
+  }
+
   report(event: ObservabilityEvent): void {
     const timing = 'durationMs' in event ? this.formatTiming(event.durationMs) : '';
-
     switch (event.type) {
-      case 'NAVIGATION':
-        if (event.success) {
-          this.checkNewPage(event.destinationUrl, event.isBack);
-        } else {
-          console.log(`    ${C.r('🔴 ERROR')}   Failed to navigate to ${this.formatUrl(event.destinationUrl)}`);
-        }
-        break;
-
-      case 'ACTION':
-        if (!this.isSemanticElement(event.element)) break;
-        if ('pageUrl' in event) this.checkNewPage(event.pageUrl);
-        const name = this.formatElement(event.element);
-        if (event.result === 'SUCCESS') {
-          console.log(`    ${C.w('⚪ CLICK')}   ${name.padEnd(45)} ${timing}`.trimEnd());
-        } else {
-          console.log(`    ${C.r('🔴 FAILED')}  ${name.padEnd(45)} ${event.result}`.trimEnd());
-        }
-        break;
-
-      case 'PICK':
-        if (!this.isSemanticElement(event.element)) break;
-        if ('pageUrl' in event) this.checkNewPage(event.pageUrl);
-        console.log(`    ${C.w('⚪ PICK')}    ${this.formatElement(event.element).padEnd(45)}`.trimEnd());
-        break;
-
+      case 'NAVIGATION': this.handleNavigation(event); break;
+      case 'ACTION': this.handleAction(event, timing); break;
+      case 'PICK': this.handlePick(event); break;
       case 'SKIP':
-      case 'SCAN':
-        // Suppressed in console to maintain focus on actual exploration progress.
-        break;
-
-      case 'SUMMARY':
-        const m = Math.floor(event.totalRuntimeMs / 60000);
-        const s = Math.floor((event.totalRuntimeMs % 60000) / 1000);
-        const timeStr = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
-        
-        console.log(`\n======================================`);
-        console.log(`Automation Complete`);
-        console.log(`Pages ............ ${event.pagesVisited}`);
-        console.log(`Clicks ........... ${event.clicks}`);
-        console.log(`Navigations ...... ${event.successfulNavigations}`);
-        console.log(`Skips ............ ${event.skipped}`);
-        console.log(`Errors ........... ${event.errors}`);
-        console.log(`Runtime .......... ${timeStr}`);
-        console.log(`======================================\n`);
-        break;
-
-      case 'ERROR':
-        console.log(`    ${C.r('🔴 ERROR')}   ${event.message}`);
-        break;
-
-      case 'WARNING':
-        console.log(`    ${C.y('🟡 WARN')}    ${event.message}`);
-        break;
+      case 'SCAN': break;
+      case 'SUMMARY': this.handleSummary(event); break;
+      case 'ERROR': console.log(`    ${C.r('🔴 ERROR')}   ${event.message}`); break;
+      case 'WARNING': console.log(`    ${C.y('🟡 WARN')}    ${event.message}`); break;
     }
   }
 }

@@ -146,19 +146,15 @@ function evaluateScanPage(sel: string): { index: number; identifier: string; met
     return getFallbackIdentifier(tagName, role, el);
   }
 
+  const IGNORED_PATTERNS = ['debug', 'manual-browser-inspector', 'page-back-button', 'go-back', 'admin-exit', 'admin-logout'];
+
   function isIgnoredElement(el: Element): boolean {
     const idStr = `${el.id || ''} ${el.getAttribute('data-testid') || ''} ${el.getAttribute('aria-label') || ''}`.toLowerCase();
-    return idStr.includes('debug') || idStr.includes('manual-browser-inspector') || idStr.includes('page-back-button') || idStr.includes('go-back') || idStr.includes('admin-exit') || idStr.includes('admin-logout');
+    return IGNORED_PATTERNS.some((p) => idStr.includes(p));
   }
 
-  const els = Array.from(document.querySelectorAll(sel));
-  const extracted: { index: number; identifier: string; metadata: any }[] = [];
-  
-  els.forEach((el, idx) => {
-    if (!isVisible(el) || isIgnoredElement(el)) return;
-    
-    let identifier = 'detached-element';
-    let metadata = {
+  function buildMetadata(el: Element) {
+    return {
       type: el.tagName.toLowerCase(),
       text: getCleanText(el),
       role: el.getAttribute('role') || '',
@@ -168,16 +164,18 @@ function evaluateScanPage(sel: string): { index: number; identifier: string; met
       id: el.id || undefined,
       href: el.getAttribute('href') || undefined
     };
+  }
 
-    try {
-      identifier = resolveIdentifier(el);
-    } catch {
-      // Fallback to detached if parsing fails
-    }
-    
-    extracted.push({ index: idx, identifier, metadata });
+  const els = Array.from(document.querySelectorAll(sel));
+  const extracted: { index: number; identifier: string; metadata: any }[] = [];
+
+  els.forEach((el, idx) => {
+    if (!isVisible(el) || isIgnoredElement(el)) return;
+    let identifier = 'detached-element';
+    try { identifier = resolveIdentifier(el); } catch { /* Fallback to detached if parsing fails */ }
+    extracted.push({ index: idx, identifier, metadata: buildMetadata(el) });
   });
-  
+
   return extracted;
 }
 

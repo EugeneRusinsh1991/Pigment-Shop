@@ -6,7 +6,7 @@ import { colors } from '../theme/tokens';
 import styles from './OrdersPageStyles';
 import { getLocalizedValue } from '../utils/localization';
 import { formatDateLong } from '../utils/dateFormatting';
-import { resolveStatusKey, resolveStatusDef, createStatusBadgeStyleMap } from '../utils/orderStatus';
+import { resolveStatusKey, resolveStatusDef } from '../utils/orderStatus';
 export { resolveStatusKey };
 
 const JUST_NOW_TRANSLATIONS = {
@@ -70,11 +70,6 @@ const STATUS_STYLE_MAP = {
 
 export function getOrderStatusStyle(order, getStyle) {
   return STATUS_STYLE_MAP[resolveStatusKey(order.status)](getStyle);
-}
-
-export function getOrderStatusBadgeStyle(order) {
-  const badgeMap = createStatusBadgeStyleMap(styles);
-  return badgeMap[resolveStatusKey(order.status)];
 }
 
 export function getOrderTotalPrice(order) {

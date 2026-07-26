@@ -93,19 +93,13 @@ function writeAllReports(reports, subDir) {
   });
 }
 
+const PROJECT_PATH_PREFIXES = ['src/', 'app/', 'media/'];
+const PROJECT_EXACT_FILES = ['package.json', 'app.json', 'app.config.js', 'metro.config.js', 'tsconfig.json'];
+
 function isProjectPath(p) {
   if (!p) return false;
   const n = p.replace(/\\/g, "/");
-  return (
-    n.startsWith("src/") ||
-    n.startsWith("app/") ||
-    n.startsWith("media/") ||
-    n === "package.json" ||
-    n === "app.json" ||
-    n === "app.config.js" ||
-    n === "metro.config.js" ||
-    n === "tsconfig.json"
-  );
+  return PROJECT_PATH_PREFIXES.some((prefix) => n.startsWith(prefix)) || PROJECT_EXACT_FILES.includes(n);
 }
 
 function isOtherPath(p) {
@@ -123,32 +117,39 @@ function splitFindingsArray(arr) {
   return { project, other };
 }
 
+function splitCloneGroups(cloneGroups) {
+  const proj = [], other = [];
+  (cloneGroups || []).forEach(g => {
+    const p = g.instances?.[0]?.file || "";
+    if (isOtherPath(p)) other.push(g);
+    else proj.push(g);
+  });
+  return { proj, other };
+}
+
+function splitCircularDeps(circularDependencies) {
+  const proj = [], other = [];
+  (circularDependencies || []).forEach(circ => {
+    const p = Array.isArray(circ) ? (circ[0] || "") : "";
+    if (isOtherPath(p)) other.push(circ);
+    else proj.push(circ);
+  });
+  return { proj, other };
+}
+
 function splitData(cleaned) {
   const h = cleaned.health || {};
   const c = cleaned.check || {};
   const d = cleaned.dupes || {};
-  
+
   const findings = splitFindingsArray(h.findings);
   const file_scores = splitFindingsArray(h.file_scores);
   const targets = splitFindingsArray(h.targets);
   const small_files = splitFindingsArray(h.small_files);
-  
-  const clone_groups_proj = [], clone_groups_other = [];
-  (d.clone_groups || []).forEach(g => {
-    const p = g.instances?.[0]?.file || "";
-    if (isOtherPath(p)) clone_groups_other.push(g);
-    else clone_groups_proj.push(g);
-  });
-  
+  const { proj: clone_groups_proj, other: clone_groups_other } = splitCloneGroups(d.clone_groups);
   const unused_files = splitFindingsArray(c.unused_files);
   const unused_exports = splitFindingsArray(c.unused_exports);
-  
-  const circ_proj = [], circ_other = [];
-  (c.circular_dependencies || []).forEach(circ => {
-    const p = Array.isArray(circ) ? (circ[0] || "") : "";
-    if (isOtherPath(p)) circ_other.push(circ);
-    else circ_proj.push(circ);
-  });
+  const { proj: circ_proj, other: circ_other } = splitCircularDeps(c.circular_dependencies);
 
   return {
     project: {

@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
 import { Button } from '../../Button';
-import { Flag } from '../../Flag';
+import { Badge } from '../../Badge';
 import styles from './ProductsStyles';
 import { getLocalizedValue } from '../../../utils/localization';
 export { getEffectivePrice } from '../../../utils/pricing';
@@ -31,18 +31,19 @@ export function getHighlightStyle(isNew, discountPercent) {
 export function NewBadge() {
   const { t } = useTheme();
   return (
-    <Flag variant="chip" readOnly colorScheme="new">
-      {t('badgeNew')}
-    </Flag>
+    <Badge variant="new" label={t('badgeNew')} size="sm" />
   );
 }
 
 export function StatusBadge({ active }) {
   const { t } = useTheme();
   return (
-    <Flag variant="chip" readOnly colorScheme={active ? 'active' : 'inactive'}>
-      {active ? t('adminProductsActive') : t('adminProductsInactive')}
-    </Flag>
+    <Badge
+      variant="status"
+      status={active ? 'active' : 'inactive'}
+      label={active ? t('adminProductsActive') : t('adminProductsInactive')}
+      size="sm"
+    />
   );
 }
 
@@ -50,9 +51,12 @@ export function StockBadge({ stock }) {
   const { t } = useTheme();
   const inStock = (stock ?? 0) > 0;
   return (
-    <Flag variant="chip" readOnly colorScheme={inStock ? 'active' : 'inactive'}>
-      {inStock ? (t('productInStock') || 'In Stock') : (t('productOutOfStock') || 'Out of Stock')}
-    </Flag>
+    <Badge
+      variant="status"
+      status={inStock ? 'active' : 'inactive'}
+      label={inStock ? (t('productInStock') || 'In Stock') : (t('productOutOfStock') || 'Out of Stock')}
+      size="sm"
+    />
   );
 }
 

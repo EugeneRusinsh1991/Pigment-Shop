@@ -7,7 +7,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import { Button } from '../../Button';
-import { Flag, FlagGroup } from '../../Flag';
+import { Badge } from '../../Badge';
 import { useTheme } from '../../../context/ThemeContext';
 
 export default function ProductsFilterBar({
@@ -20,22 +20,18 @@ export default function ProductsFilterBar({
   const { t } = useTheme();
   return (
     <View style={{ flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', gap: 8, marginBottom: 16 }}>
-      <FlagGroup>
-        <Flag
-          variant="chip"
-          checked={onlyDiscount}
-          onChange={onToggleDiscount}
-        >
-          {t('adminProductsFilterDiscount')}
-        </Flag>
-        <Flag
-          variant="chip"
-          checked={onlyNew}
-          onChange={onToggleNew}
-        >
-          {t('adminProductsFilterNew')}
-        </Flag>
-      </FlagGroup>
+      <Badge
+        variant="chip"
+        selected={onlyDiscount}
+        onPress={onToggleDiscount}
+        label={t('adminProductsFilterDiscount')}
+      />
+      <Badge
+        variant="chip"
+        selected={onlyNew}
+        onPress={onToggleNew}
+        label={t('adminProductsFilterNew')}
+      />
       <Button
         title={t('adminProductsAddBtn')}
         onPress={onAdd}

@@ -116,12 +116,3 @@ export function resolveStatusKey(rawStatus) {
 export function resolveStatusDef(rawStatus) {
   return ORDER_STATUS_BY_KEY[resolveStatusKey(rawStatus)];
 }
-
-export function createStatusBadgeStyleMap(styles) {
-  return {
-    pending:    { bg: styles.statusNewBg,        text: styles.statusNewText },
-    processing: { bg: styles.statusProcessingBg, text: styles.statusProcessingText },
-    completed:  { bg: styles.statusCompletedBg,  text: styles.statusCompletedText },
-    cancelled:  { bg: styles.statusCancelledBg,  text: styles.statusCancelledText },
-  };
-}

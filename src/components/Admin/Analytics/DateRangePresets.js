@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChipButton } from '../../Button';
+import { Badge } from '../../Badge';
 
 export function calculatePresetDateRange(preset) {
   const end = new Date();
@@ -21,11 +21,11 @@ export function calculatePresetDateRange(preset) {
 export function PresetButton({ mode, preset, label, onPress, style }) {
   const isActive = mode === preset;
   return (
-    <ChipButton
-      label={label}
-      active={isActive}
+    <Badge
+      variant="chip"
+      selected={isActive}
       onPress={() => onPress(preset)}
-      variant="pill"
+      label={label}
       style={style}
     />
   );

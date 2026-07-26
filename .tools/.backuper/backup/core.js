@@ -115,33 +115,40 @@ function getAutoStepLabel(projectRoot) {
 
 const { calculateDiff, saveDiffLog } = require('../utils/diff-tracker');
 
-function createBackup({ stepLabel, name } = {}) {
-  const projectRoot = path.resolve(__dirname, '../../..');
-  const parentDir = path.dirname(projectRoot);
-  
-  // Find latest existing backup for diff calculation
-  let latestBackupDir = null;
+function findLatestBackupDir(parentDir) {
   try {
     const entries = fs.readdirSync(parentDir);
     const backups = entries
       .filter((e) => e.startsWith('src_') && fs.statSync(path.join(parentDir, e)).isDirectory())
       .map((e) => ({ name: e, mtime: fs.statSync(path.join(parentDir, e)).mtimeMs }))
       .sort((a, b) => b.mtime - a.mtime);
-    if (backups.length > 0) {
-      latestBackupDir = path.join(parentDir, backups[0].name);
-    }
-  } catch (e) {}
+    return backups.length > 0 ? path.join(parentDir, backups[0].name) : null;
+  } catch (e) { return null; }
+}
 
-  const finalStepLabel = stepLabel || getAutoStepLabel(projectRoot);
+function resolveBackupName(name, stepLabel) {
+  if (name) return name;
+  const timestamp = getTimestamp(false);
+  const stepSuffix = stepLabel ? `_${stepLabel}` : '';
+  return `src_${timestamp}${stepSuffix}`;
+}
 
-  let backupName;
-  if (name) {
-    backupName = name;
-  } else {
-    const timestamp = getTimestamp(false);
-    const stepSuffix = finalStepLabel ? `_${finalStepLabel}` : '';
-    backupName = `src_${timestamp}${stepSuffix}`;
+function printDiffReport(backupPath, diffData) {
+  console.log(`\n✨ Резервная копия успешно создана!`);
+  console.log(`📂 Путь: ${backupPath}`);
+  console.log(`📝 Дифф изменений: +${diffData.added} добавлено, -${diffData.removed} удалено, ~${diffData.modified} изменено`);
+  if (diffData.topFolders.length > 0) {
+    console.log(`📁 Топ измененных папок:`);
+    diffData.topFolders.forEach((f) => console.log(`   - ${f.folder}: ${f.count} измен.`));
   }
+}
+
+function createBackup({ stepLabel, name } = {}) {
+  const projectRoot = path.resolve(__dirname, '../../..');
+  const parentDir = path.dirname(projectRoot);
+  const latestBackupDir = findLatestBackupDir(parentDir);
+  const finalStepLabel = stepLabel || getAutoStepLabel(projectRoot);
+  const backupName = resolveBackupName(name, finalStepLabel);
   const backupPath = path.join(parentDir, backupName);
 
   console.log('🔄 Создание резервной копии...');
@@ -154,35 +161,18 @@ function createBackup({ stepLabel, name } = {}) {
   }
 
   ensureDirExists(backupPath);
-
   copyBackupItems(projectRoot, backupPath);
 
   const totalFiles = countFiles(backupPath);
-
   const diffData = calculateDiff(latestBackupDir, backupPath);
   saveDiffLog(backupName, diffData);
 
-  console.log(`\n✨ Резервная копия успешно создана!`);
-  console.log(`📂 Путь: ${backupPath}`);
+  printDiffReport(backupPath, diffData);
   console.log(`📊 Статистика элементов: ${totalFiles} файлов`);
-  console.log(`📝 Дифф изменений: +${diffData.added} добавлено, -${diffData.removed} удалено, ~${diffData.modified} изменено`);
-  if (diffData.topFolders.length > 0) {
-    console.log(`📁 Топ измененных папок:`);
-    diffData.topFolders.forEach((f) => console.log(`   - ${f.folder}: ${f.count} измен.`));
-  }
-
-  const createdAt = new Date().toISOString();
-  console.log(`SMARTSAVE_BACKUP: ${backupName} | ${createdAt}`);
+  console.log(`SMARTSAVE_BACKUP: ${backupName} | ${new Date().toISOString()}`);
 
   writeBackupHistoryLog(backupName);
-
-  return {
-    backupName,
-    stepLabel: finalStepLabel,
-    backupPath,
-    totalFiles,
-    diffData
-  };
+  return { backupName, stepLabel: finalStepLabel, backupPath, totalFiles, diffData };
 }
 
 module.exports = {

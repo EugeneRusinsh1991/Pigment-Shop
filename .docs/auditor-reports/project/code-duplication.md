@@ -1,6 +1,6 @@
 # 👥 Significant Code Duplication (≥ 8 lines)
 
-*Generated on: 26.07.2026, 15:53:34*
+*Generated on: 26.07.2026, 16:03:49*
 
 ### Clone Group 1 — 19 lines, 56 tokens · `dup:01d9fda4`
 > 💡 Extract duplicated code (19 lines, 2 instances) into a shared function
@@ -19,5 +19,11 @@
 
 - [useFlagTheme.js:L3–L14](file:///D:/Magazine/_PigmentShop/src/components/Flag/useFlagTheme.js#L3-L14) (`src/components/Flag/useFlagTheme.js`)
 - [useTextFieldTheme.js:L3–L14](file:///D:/Magazine/_PigmentShop/src/components/TextField/useTextFieldTheme.js#L3-L14) (`src/components/TextField/useTextFieldTheme.js`)
+
+### Clone Group 4 — 10 lines, 50 tokens · `dup:d65db32d`
+> 💡 Extract duplicated code (10 lines, 2 instances) into a shared function
+
+- [CategoryRow.js:L46–L55](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryRow.js#L46-L55) (`src/components/Admin/Categories/CategoryRow.js`)
+- [CategoryRow.js:L87–L96](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryRow.js#L87-L96) (`src/components/Admin/Categories/CategoryRow.js`)
 
 

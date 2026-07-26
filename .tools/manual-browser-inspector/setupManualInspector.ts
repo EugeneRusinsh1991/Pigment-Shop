@@ -7,57 +7,42 @@ const { takeCompressedScreenshot } = require('../../scripts/playwright.helpers')
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { cleanOldFiles } = require('../../scripts/cleanOldFiles');
 
-export async function setupManualInspector(page: Page): Promise<void> {
-  if (!page) return;
+const BASE_LOG_DIR = path.join(process.cwd(), '.docs', 'manual-browser-log');
 
-  try {
-    await page.addInitScript(() => {
-      (window as any).__isPlaywright = true;
-    });
-  } catch (err) {
-    // Init script may already be attached
-  }
+function ensureDirs(dirs: string[]): void {
+  dirs.forEach((dir) => {
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+  });
+}
 
-  try {
-    await page.exposeFunction('__playwright_takeScreenshotAndDumpState', async (timestamp: string, stateDump: any, overlayText?: string, hoverInfo?: any) => {
-      const baseDir = path.join(process.cwd(), '.docs', 'manual-browser-log');
-      const screenshotsDir = path.join(baseDir, 'screenshots');
-      const stateDir = path.join(baseDir, 'state');
-      const reportsDir = path.join(baseDir, 'reports');
+function buildFilePaths(timestamp: string) {
+  const screenshotsDir = path.join(BASE_LOG_DIR, 'screenshots');
+  const stateDir = path.join(BASE_LOG_DIR, 'state');
+  const reportsDir = path.join(BASE_LOG_DIR, 'reports');
+  const nameToken = timestamp.startsWith('S_') ? timestamp : `S_${timestamp}`;
+  return {
+    screenshotsDir, stateDir, reportsDir,
+    screenshotPath: path.join(screenshotsDir, `${nameToken}.jpg`),
+    statePath: path.join(stateDir, `state_${nameToken}.json`),
+    reportPath: path.join(reportsDir, `report_${nameToken}.md`),
+    screenshotFilename: `${nameToken}.jpg`,
+  };
+}
 
-      [screenshotsDir, stateDir, reportsDir].forEach((dir) => {
-        if (!fs.existsSync(dir)) {
-          fs.mkdirSync(dir, { recursive: true });
-        }
-      });
+function getCircularReplacer() {
+  const seen = new WeakSet();
+  return (_key: string, value: any) => {
+    if (typeof value === 'object' && value !== null) {
+      if (seen.has(value)) return '[Circular]';
+      seen.add(value);
+    }
+    return value;
+  };
+}
 
-      const nameToken = timestamp.startsWith('S_') ? timestamp : `S_${timestamp}`;
-      const screenshotFilename = `${nameToken}.jpg`;
-      const stateFilename = `state_${nameToken}.json`;
-      const reportFilename = `report_${nameToken}.md`;
-
-      const screenshotPath = path.join(screenshotsDir, screenshotFilename);
-      const statePath = path.join(stateDir, stateFilename);
-      const reportPath = path.join(reportsDir, reportFilename);
-
-      const base64Data = await takeCompressedScreenshot(page, { captureQuality: 70, exportQuality: 0.3, scale: 0.5, overlayText, hoverInfo });
-      fs.writeFileSync(screenshotPath, base64Data);
-
-      const getCircularReplacer = () => {
-        const seen = new WeakSet();
-        return (_key: string, value: any) => {
-          if (typeof value === 'object' && value !== null) {
-            if (seen.has(value)) return '[Circular]';
-            seen.add(value);
-          }
-          return value;
-        };
-      };
-
-      fs.writeFileSync(statePath, JSON.stringify(stateDump, getCircularReplacer(), 2), 'utf8');
-
-      const logsRows = '| N/A | No warnings or errors logged | |';
-      const reportContent = `# AI Debug Report - ${timestamp}
+function buildReport(timestamp: string, stateDump: any, screenshotFilename: string, screenshotPath: string, statePath: string): string {
+  const logsRows = '| N/A | No warnings or errors logged | |';
+  return `# AI Debug Report - ${timestamp}
 
 ## 📊 Environment & Diagnostics
 | Parameter | Value |
@@ -86,20 +71,40 @@ export async function setupManualInspector(page: Page): Promise<void> {
 ${JSON.stringify(stateDump, null, 2)}
 \`\`\`
 `;
+}
 
+function saveLatestFiles(screenshotsDir: string, stateDir: string, reportsDir: string, screenshotPath: string, stateDump: any, reportContent: string): void {
+  fs.writeFileSync(path.join(stateDir, 'state.json'), JSON.stringify(stateDump, null, 2), 'utf8');
+  fs.copyFileSync(screenshotPath, path.join(screenshotsDir, 'screenshot.jpg'));
+  fs.writeFileSync(path.join(reportsDir, 'latest_report.md'), reportContent, 'utf8');
+  cleanOldFiles(screenshotsDir, 10, '.jpg');
+  cleanOldFiles(stateDir, 10, '.json');
+  cleanOldFiles(reportsDir, 10, '.md');
+}
+
+export async function setupManualInspector(page: Page): Promise<void> {
+  if (!page) return;
+
+  try {
+    await page.addInitScript(() => {
+      (window as any).__isPlaywright = true;
+    });
+  } catch (err) {
+    // Init script may already be attached
+  }
+
+  try {
+    await page.exposeFunction('__playwright_takeScreenshotAndDumpState', async (timestamp: string, stateDump: any, overlayText?: string, hoverInfo?: any) => {
+      const { screenshotsDir, stateDir, reportsDir, screenshotPath, statePath, reportPath, screenshotFilename } = buildFilePaths(timestamp);
+      ensureDirs([screenshotsDir, stateDir, reportsDir]);
+
+      const base64Data = await takeCompressedScreenshot(page, { captureQuality: 70, exportQuality: 0.3, scale: 0.5, overlayText, hoverInfo });
+      fs.writeFileSync(screenshotPath, base64Data);
+      fs.writeFileSync(statePath, JSON.stringify(stateDump, getCircularReplacer(), 2), 'utf8');
+
+      const reportContent = buildReport(timestamp, stateDump, screenshotFilename, screenshotPath, statePath);
       fs.writeFileSync(reportPath, reportContent, 'utf8');
-
-      const latestStatePath = path.join(stateDir, 'state.json');
-      const latestScreenshotPath = path.join(screenshotsDir, 'screenshot.jpg');
-      const latestReportPath = path.join(reportsDir, 'latest_report.md');
-
-      fs.writeFileSync(latestStatePath, JSON.stringify(stateDump, null, 2), 'utf8');
-      fs.copyFileSync(screenshotPath, latestScreenshotPath);
-      fs.writeFileSync(latestReportPath, reportContent, 'utf8');
-
-      cleanOldFiles(screenshotsDir, 10, '.jpg');
-      cleanOldFiles(stateDir, 10, '.json');
-      cleanOldFiles(reportsDir, 10, '.md');
+      saveLatestFiles(screenshotsDir, stateDir, reportsDir, screenshotPath, stateDump, reportContent);
 
       console.log(`[PlaywrightDebug] Saved debug report to ${reportPath}`);
       return { success: true };

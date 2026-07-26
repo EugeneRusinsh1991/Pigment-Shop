@@ -4,7 +4,7 @@ import { useTheme } from '../context/ThemeContext';
 import commonStyles from '../theme/commonStyles';
 import Card from './Card';
 import { colors, layout } from '../theme/tokens';
-import { Flag } from './Flag';
+import { Badge } from './Badge';
 import {
     ExpandedItemsList,
     getAdminBgStyle,
@@ -21,11 +21,8 @@ import styles from './OrdersPageStyles';
 
 function OrderStatusBadge({ order, t }) {
   const statusKey = resolveStatusKey(order.status);
-  const scheme = statusKey === 'completed' ? 'completed' : statusKey === 'cancelled' ? 'cancelled' : 'pending';
   return (
-    <Flag variant="chip" readOnly colorScheme={scheme}>
-      {getOrderStatus(order, t)}
-    </Flag>
+    <Badge variant="status" status={statusKey} label={getOrderStatus(order, t)} size="sm" />
   );
 }
 

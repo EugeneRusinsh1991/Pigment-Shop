@@ -2,6 +2,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Link } from 'expo-router';
 import { IconButton } from '@/components/Button';
 import { BagIcon, CurrencyIcon, GlobeIcon, ThemeIcon, UserIcon } from '@/components/Icons';
+import { Badge } from '@/components/Badge';
 import styles from './AppHeaderStyles';
 import LangDropdown from './LangDropdown';
 import CurrencyDropdown from './CurrencyDropdown';
@@ -80,9 +81,12 @@ export default function AppHeaderControls({
             <View style={{ position: 'relative', alignItems: 'center', justifyContent: 'center' }}>
               <BagIcon color={theme.iconColor} size={18} />
               {cartCount > 0 && (
-                <View style={[styles.badge, theme.badgeStyle]}>
-                  <Text style={[styles.badgeText, theme.badgeTextStyle]}>{cartCount}</Text>
-                </View>
+                <Badge
+                  variant="counter"
+                  count={cartCount}
+                  animated
+                  style={{ position: 'absolute', top: -6, right: -10 }}
+                />
               )}
             </View>
           )}

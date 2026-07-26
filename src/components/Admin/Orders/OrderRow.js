@@ -6,10 +6,10 @@ import { Text, View } from 'react-native';
 import { AnimatedButton } from '../../Button';
 import { useTheme } from '../../../context/ThemeContext';
 import { DataTableRow, DataTableCell } from '../../DataTable/DataTable';
-import { Flag } from '../../Flag';
+import { Badge } from '../../Badge';
 import styles from './OrdersStyles';
 import { formatDateShortWithTime } from '../../../utils/dateFormatting';
-import { resolveStatusDef, createStatusBadgeStyleMap } from '../../../utils/orderStatus';
+import { resolveStatusDef } from '../../../utils/orderStatus';
 
 function formatRowDate(createdAt, lang) {
   return formatDateShortWithTime(createdAt, lang);
@@ -17,13 +17,11 @@ function formatRowDate(createdAt, lang) {
 
 function getOrderSummary(order, t, lang) {
   const def = resolveStatusDef(order.status);
-  const badgeStyles = createStatusBadgeStyleMap(styles)[def.key];
   const contact = order.customerPhone || order.customerEmail || '';
 
   return {
     formattedDate: formatRowDate(order.createdAt, lang),
     orderNum: order.id.slice(-5).toUpperCase(),
-    statusDef: { ...badgeStyles, localeKey: def.localeKey, rowBg: { backgroundColor: def.rowBg } },
     statusKey: def.key,
     rowBg: { backgroundColor: def.rowBg },
     statusDisplay: t(def.localeKey) || order.status,
@@ -33,11 +31,8 @@ function getOrderSummary(order, t, lang) {
 }
 
 function StatusBadge({ statusKey, statusDisplay }) {
-  const scheme = statusKey === 'completed' ? 'completed' : statusKey === 'cancelled' ? 'cancelled' : 'pending';
   return (
-    <Flag variant="chip" readOnly colorScheme={scheme}>
-      {statusDisplay}
-    </Flag>
+    <Badge variant="status" status={statusKey} label={statusDisplay} size="sm" />
   );
 }
 

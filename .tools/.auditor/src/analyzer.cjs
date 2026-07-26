@@ -106,17 +106,17 @@ const filterCloneGroups = (cloneGroups) => cloneGroups.filter(isSignificantClone
  * Processes a single file-score entry.
  * Returns a candidate object if the file qualifies, or null otherwise.
  */
+const EXCLUDED_PREFIXES = ['node_modules/', '.tools/', '.git/', 'dist/', 'build/'];
+
+function isExcludedPath(normalized) {
+  return EXCLUDED_PREFIXES.some((prefix) => normalized.startsWith(prefix));
+}
+
 function processScore(score, rootPath) {
   const relPath = score.path;
   if (!relPath) return null;
   const normalized = relPath.replace(/\\/g, "/");
-  if (
-    normalized.startsWith("node_modules/") ||
-    normalized.startsWith(".tools/") ||
-    normalized.startsWith(".git/") ||
-    normalized.startsWith("dist/") ||
-    normalized.startsWith("build/")
-  ) return null;
+  if (isExcludedPath(normalized)) return null;
 
   const absPath = path.resolve(rootPath, relPath);
   if (!fs.existsSync(absPath)) return null;

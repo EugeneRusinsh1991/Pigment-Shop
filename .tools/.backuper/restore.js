@@ -124,42 +124,40 @@ function runInteractiveMenu() {
 
   render();
 
+  function handleEscapeKey() {
+    cleanup();
+    console.clear();
+    console.log('👋 Выход.');
+    process.exit(0);
+  }
+
+  function handleArrowNavigation(direction) {
+    const delta = direction === 'up' ? -1 : 1;
+    do {
+      selectedIndex = (selectedIndex + delta + mainOptions.length) % mainOptions.length;
+    } while (mainOptions[selectedIndex].disabled);
+    render();
+  }
+
+  function handleEnterKey() {
+    const selected = mainOptions[selectedIndex];
+    if (selected.disabled) return;
+    cleanup();
+    console.clear();
+    if (selected.type === 'quick_backup') {
+      createBackup();
+    } else if (selected.type === 'comment_backup') {
+      promptComment((comment) => { createBackup({ stepLabel: comment }); });
+    } else if (selected.type === 'restore_item') {
+      console.log(`🔄 Восстанавливаем бекап: ${selected.backupName}...`);
+      restoreFromBackup(selected.backupPath);
+    }
+  }
+
   function onKeypress(str, key) {
-    if (key.name === 'escape' || (key.ctrl && key.name === 'c')) {
-      cleanup();
-      console.clear();
-      console.log('👋 Выход.');
-      process.exit(0);
-    }
-
-    if (key.name === 'up') {
-      do {
-        selectedIndex = (selectedIndex - 1 + mainOptions.length) % mainOptions.length;
-      } while (mainOptions[selectedIndex].disabled);
-      render();
-    } else if (key.name === 'down') {
-      do {
-        selectedIndex = (selectedIndex + 1) % mainOptions.length;
-      } while (mainOptions[selectedIndex].disabled);
-      render();
-    } else if (key.name === 'return') {
-      const selected = mainOptions[selectedIndex];
-      if (selected.disabled) return;
-
-      cleanup();
-      console.clear();
-
-      if (selected.type === 'quick_backup') {
-        createBackup();
-      } else if (selected.type === 'comment_backup') {
-        promptComment((comment) => {
-          createBackup({ stepLabel: comment });
-        });
-      } else if (selected.type === 'restore_item') {
-        console.log(`🔄 Восстанавливаем бекап: ${selected.backupName}...`);
-        restoreFromBackup(selected.backupPath);
-      }
-    }
+    if (key.name === 'escape' || (key.ctrl && key.name === 'c')) return handleEscapeKey();
+    if (key.name === 'up' || key.name === 'down') return handleArrowNavigation(key.name);
+    if (key.name === 'return') return handleEnterKey();
   }
 
   function cleanup() {
