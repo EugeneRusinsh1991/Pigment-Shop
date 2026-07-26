@@ -7,6 +7,7 @@ const { auditServiceLayer } = require('./service-layer-auditor');
 const { auditUnusedExports } = require('./unused-exports-auditor');
 const { auditLayerImports } = require('./layer-imports-auditor');
 const { auditMagicNumbers } = require('./magic-numbers-auditor');
+const { runFallowAudit } = require('./fallow-auditor/run-audit.cjs');
 
 /**
  * Main Audit Suite Runner
@@ -14,7 +15,7 @@ const { auditMagicNumbers } = require('./magic-numbers-auditor');
  */
 function runAllAudits() {
   console.log('===================================================================');
-  console.log('         RUNNING FULL SYSTEM AUDIT SUITE (.tools/ui-auditor)       ');
+  console.log('         RUNNING FULL SYSTEM AUDIT SUITE (.tools/auditor)          ');
   console.log('===================================================================');
 
   try { auditComponents(); } catch (e) { console.error('Error 01:', e.message); }
@@ -25,6 +26,11 @@ function runAllAudits() {
   try { auditUnusedExports(); } catch (e) { console.error('Error 06:', e.message); }
   try { auditLayerImports(); } catch (e) { console.error('Error 07:', e.message); }
   try { auditMagicNumbers(); } catch (e) { console.error('Error 08:', e.message); }
+
+  console.log('-------------------------------------------------------------------');
+  console.log('         RUNNING CODEBASE FALLOW AUDITOR                           ');
+  console.log('-------------------------------------------------------------------');
+  try { runFallowAudit(); } catch (e) { console.error('Error Fallow Auditor:', e.message); }
 
   console.log('===================================================================');
   console.log('All audit reports generated inside .docs/audits/ directory.');

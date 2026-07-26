@@ -19,8 +19,8 @@ const {
 } = require("./src/analyzer.cjs");
 const { generateReports } = require("./src/reporter.cjs");
 
-const ROOT = path.resolve(__dirname, "../..");
-const REPORTS_DIR = path.resolve(ROOT, ".docs/auditor-reports");
+const ROOT = path.resolve(__dirname, "../../..");
+const REPORTS_DIR = path.resolve(ROOT, ".docs/audits/fallow-audits");
 const RAW_JSON = path.resolve(REPORTS_DIR, "fallow-raw.json");
 
 // Resolve project name dynamically
@@ -193,5 +193,9 @@ function main() {
   cleanupAuditArtifacts(RAW_JSON);
 }
 
-main();
+if (require.main === module) {
+  main();
+}
+
+module.exports = { runFallowAudit: main, main };
 

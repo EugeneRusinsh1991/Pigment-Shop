@@ -1,6 +1,6 @@
 # 📦 Unused Code & Dependencies
 
-*Generated on: 26.07.2026, 19:29:11*
+*Generated on: 26.07.2026, 21:02:17*
 
 ### Dead Files (Unused)
 Files that are not reachable or imported by any other codebase file:
@@ -162,7 +162,7 @@ Exports that are not imported or consumed by any other active file:
 - [DiagnosticConfig.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/plugins/smoke/DiagnosticConfig.ts): `defaultDiagnosticConfig` ([L19](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/plugins/smoke/DiagnosticConfig.ts#L19))
 - [FirestoreDiagnosticAnalyzer.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/plugins/smoke/FirestoreDiagnosticAnalyzer.ts): `FirestoreDiagnosticAnalyzer` ([L57](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/plugins/smoke/FirestoreDiagnosticAnalyzer.ts#L57))
 - [SmokeConfig.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/plugins/smoke/SmokeConfig.ts): `defaultSmokeConfig` ([L10](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/plugins/smoke/SmokeConfig.ts#L10))
-- [SmokeConsoleListener.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/plugins/smoke/SmokeConsoleListener.ts): `SmokeConsoleListener` ([L13](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/plugins/smoke/SmokeConsoleListener.ts#L13))
+- [SmokeConsoleListener.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/plugins/smoke/SmokeConsoleListener.ts): `SmokeConsoleListener` ([L15](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/plugins/smoke/SmokeConsoleListener.ts#L15))
 - [SmokePlugin.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/plugins/smoke/SmokePlugin.ts): `SmokePlugin` ([L22](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/plugins/smoke/SmokePlugin.ts#L22))
 - [SmokeReportPrinter.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/plugins/smoke/SmokeReportPrinter.ts): `SmokeReportPrinter` ([L6](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/plugins/smoke/SmokeReportPrinter.ts#L6))
 - [smoke-automation.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/smoke-automation.ts): `runSmokeAutomation` ([L41](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/smoke-automation.ts#L41))

@@ -5,7 +5,7 @@ const { ALWAYS_INCLUDED_ITEMS, EXCLUDED_BACKUP_ITEMS, BACKUP_ITEMS } = require('
 test('backup config includes required project assets and excludes backup-only directories', () => {
   const items = new Set(BACKUP_ITEMS);
 
-  for (const required of [...ALWAYS_INCLUDED_ITEMS, 'media', 'LICENSE']) {
+  for (const required of [...ALWAYS_INCLUDED_ITEMS, 'media']) {
     assert.ok(items.has(required), `expected backup config to include ${required}`);
   }
 

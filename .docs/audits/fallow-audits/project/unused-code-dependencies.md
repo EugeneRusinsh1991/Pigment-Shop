@@ -1,6 +1,6 @@
 # 📦 Unused Code & Dependencies
 
-*Generated on: 26.07.2026, 19:29:11*
+*Generated on: 26.07.2026, 21:02:17*
 
 ### Dead Files (Unused)
 Files that are not reachable or imported by any other codebase file:
@@ -20,7 +20,7 @@ Exports that are not imported or consumed by any other active file:
 - [DateRangePresets.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Analytics/DateRangePresets.js): `PresetButton` ([L21](file:///D:/Magazine/_PigmentShop/src/components/Admin/Analytics/DateRangePresets.js#L21))
 - [ProductRowComponents.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductRowComponents.js): `StockBadge` ([L52](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductRowComponents.js#L52))
 - [SharedFormComponents.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/SharedFormComponents.js): `FieldTextArea` ([L111](file:///D:/Magazine/_PigmentShop/src/components/Admin/SharedFormComponents.js#L111))
-- [BadgeStyles.js](file:///D:/Magazine/_PigmentShop/src/components/Badge/BadgeStyles.js): `badgeSizes` ([L4](file:///D:/Magazine/_PigmentShop/src/components/Badge/BadgeStyles.js#L4)), `statusColorMap` ([L33](file:///D:/Magazine/_PigmentShop/src/components/Badge/BadgeStyles.js#L33)), `baseBadgeStyles` ([L100](file:///D:/Magazine/_PigmentShop/src/components/Badge/BadgeStyles.js#L100))
+- [BadgeStyles.js](file:///D:/Magazine/_PigmentShop/src/components/Badge/BadgeStyles.js): `badgeSizes` ([L4](file:///D:/Magazine/_PigmentShop/src/components/Badge/BadgeStyles.js#L4)), `statusColorMap` ([L44](file:///D:/Magazine/_PigmentShop/src/components/Badge/BadgeStyles.js#L44)), `baseBadgeStyles` ([L111](file:///D:/Magazine/_PigmentShop/src/components/Badge/BadgeStyles.js#L111))
 - [index.js](file:///D:/Magazine/_PigmentShop/src/components/Badge/index.js): `default` ([L1](file:///D:/Magazine/_PigmentShop/src/components/Badge/index.js#L1)), `useBadgeTheme` ([L2](file:///D:/Magazine/_PigmentShop/src/components/Badge/index.js#L2)), `useBadgeAnimation` ([L3](file:///D:/Magazine/_PigmentShop/src/components/Badge/index.js#L3))
 - [useBadgeAnimation.js](file:///D:/Magazine/_PigmentShop/src/components/Badge/useBadgeAnimation.js): `default` ([L75](file:///D:/Magazine/_PigmentShop/src/components/Badge/useBadgeAnimation.js#L75))
 - [index.js](file:///D:/Magazine/_PigmentShop/src/components/Button/index.js): `useButtonTheme` ([L4](file:///D:/Magazine/_PigmentShop/src/components/Button/index.js#L4)), `buttonTokens` ([L5](file:///D:/Magazine/_PigmentShop/src/components/Button/index.js#L5))
@@ -31,6 +31,7 @@ Exports that are not imported or consumed by any other active file:
 - [useCardAnimation.js](file:///D:/Magazine/_PigmentShop/src/components/Card/useCardAnimation.js): `default` ([L81](file:///D:/Magazine/_PigmentShop/src/components/Card/useCardAnimation.js#L81))
 - [Drawer.js](file:///D:/Magazine/_PigmentShop/src/components/Drawer/Drawer.js): `Drawer` ([L23](file:///D:/Magazine/_PigmentShop/src/components/Drawer/Drawer.js#L23))
 - [index.js](file:///D:/Magazine/_PigmentShop/src/components/Drawer/index.js): `Drawer` ([L3](file:///D:/Magazine/_PigmentShop/src/components/Drawer/index.js#L3)), `DrawerFooter` ([L3](file:///D:/Magazine/_PigmentShop/src/components/Drawer/index.js#L3)), `DrawerHeader` ([L3](file:///D:/Magazine/_PigmentShop/src/components/Drawer/index.js#L3))
+- [useFeedbackTheme.js](file:///D:/Magazine/_PigmentShop/src/components/Feedback/useFeedbackTheme.js): `useFeedbackTheme` ([L16](file:///D:/Magazine/_PigmentShop/src/components/Feedback/useFeedbackTheme.js#L16))
 - [index.js](file:///D:/Magazine/_PigmentShop/src/components/Flag/index.js): `useFlagTheme` ([L3](file:///D:/Magazine/_PigmentShop/src/components/Flag/index.js#L3))
 - [index.js](file:///D:/Magazine/_PigmentShop/src/components/Modal/index.js): `Modal` ([L4](file:///D:/Magazine/_PigmentShop/src/components/Modal/index.js#L4)), `default` ([L5](file:///D:/Magazine/_PigmentShop/src/components/Modal/index.js#L5))
 - [PageTransition.js](file:///D:/Magazine/_PigmentShop/src/components/Motion/PageTransition/PageTransition.js): `PageTransition` ([L5](file:///D:/Magazine/_PigmentShop/src/components/Motion/PageTransition/PageTransition.js#L5))

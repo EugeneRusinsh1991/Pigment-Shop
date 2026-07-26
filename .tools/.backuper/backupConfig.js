@@ -11,6 +11,7 @@ const DEFAULT_EXCLUDED = [
   '.git',
   'dist',
   'build',
+  'web-build',
   '.expo',
   'test-results',
   'playwright-report',
@@ -22,11 +23,29 @@ const DEFAULT_EXCLUDED = [
   '.cache',
   'tmp',
   '.auditor',
-  '.backuper'
+  '.backuper',
+  'fallow-raw.json',
+  'automation-browser-log',
+  'manual-browser-log'
 ];
 
 function getProjectRoot() {
   return path.resolve(__dirname, '../..');
+}
+
+function getExcludedSet() {
+  const projectRoot = getProjectRoot();
+  let customConfig = {};
+  const configPath = path.join(projectRoot, '.backuper.json');
+  if (fs.existsSync(configPath)) {
+    try {
+      customConfig = JSON.parse(fs.readFileSync(configPath, 'utf8'));
+    } catch (e) {}
+  }
+  return new Set([
+    ...DEFAULT_EXCLUDED,
+    ...(customConfig.exclude || [])
+  ]);
 }
 
 function getBackupItems() {
@@ -39,10 +58,7 @@ function getBackupItems() {
     } catch (e) {}
   }
 
-  const excluded = new Set([
-    ...DEFAULT_EXCLUDED,
-    ...(customConfig.exclude || [])
-  ]);
+  const excluded = getExcludedSet();
 
   let items = [];
   if (fs.existsSync(projectRoot)) {
@@ -81,6 +97,7 @@ const REQUIRED_ITEMS = getRequiredItems();
 module.exports = {
   ALWAYS_INCLUDED_ITEMS: ['.tools'],
   EXCLUDED_BACKUP_ITEMS: DEFAULT_EXCLUDED,
+  getExcludedSet,
   BACKUP_ITEMS,
   REQUIRED_ITEMS,
 };

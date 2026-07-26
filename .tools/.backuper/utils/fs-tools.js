@@ -15,7 +15,7 @@ function getTimestamp(includeSeconds = true) {
   return base;
 }
 
-function copyDir(src, dest) {
+function copyDir(src, dest, excludedSet) {
   if (!fs.existsSync(src)) {
     return;
   }
@@ -26,12 +26,17 @@ function copyDir(src, dest) {
 
   const entries = fs.readdirSync(src);
   entries.forEach((entry) => {
+    if (excludedSet) {
+      if (excludedSet.has(entry)) return;
+      if (entry.startsWith('src_') || entry.startsWith('_backup_before_restore_')) return;
+    }
+
     const srcPath = path.join(src, entry);
     const destPath = path.join(dest, entry);
     const stat = fs.statSync(srcPath);
 
     if (stat.isDirectory()) {
-      copyDir(srcPath, destPath);
+      copyDir(srcPath, destPath, excludedSet);
     } else {
       fs.copyFileSync(srcPath, destPath);
     }

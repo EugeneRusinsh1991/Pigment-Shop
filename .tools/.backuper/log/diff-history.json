@@ -4349,5 +4349,35 @@
         }
       ]
     }
+  },
+  "src_07-26_21-04_backupConfig.test.js_51files": {
+    "timestamp": "2026-07-26T18:04:08.308Z",
+    "diff": {
+      "added": 32,
+      "removed": 101,
+      "modified": 13,
+      "topFolders": [
+        {
+          "folder": ".docs/automation-browser-log/screenshots",
+          "count": 20
+        },
+        {
+          "folder": ".docs/manual-browser-log/reports",
+          "count": 11
+        },
+        {
+          "folder": ".docs/manual-browser-log/state",
+          "count": 11
+        },
+        {
+          "folder": ".tools/auditor",
+          "count": 10
+        },
+        {
+          "folder": ".tools/ui-auditor",
+          "count": 10
+        }
+      ]
+    }
   }
 }

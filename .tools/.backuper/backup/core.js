@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-const { BACKUP_ITEMS } = require('../backupConfig');
+const { BACKUP_ITEMS, getExcludedSet } = require('../backupConfig');
 const { ensureDirExists, copyDir, copyFile, removeDir, getTimestamp } = require('../utils/fs-tools');
 
 function countFiles(dir) {
@@ -20,9 +20,14 @@ function countFiles(dir) {
 }
 
 function copyBackupItems(projectRoot, backupPath) {
+  const excludedSet = getExcludedSet();
   BACKUP_ITEMS.forEach((item) => {
     const srcPath = path.join(projectRoot, item);
     if (!fs.existsSync(srcPath)) {
+      return;
+    }
+
+    if (excludedSet.has(item)) {
       return;
     }
 
@@ -30,7 +35,7 @@ function copyBackupItems(projectRoot, backupPath) {
     const stat = fs.statSync(srcPath);
 
     if (stat.isDirectory()) {
-      copyDir(srcPath, destPath);
+      copyDir(srcPath, destPath, excludedSet);
     } else {
       copyFile(srcPath, destPath);
     }
