@@ -7,8 +7,80 @@ const LOG_FILE = path.join(AUDITS_DIR, '01-ui-architecture-violations.log');
 
 const ROOT_FILE_WHITELIST = ['useThemeUtils.js', 'SharedLayoutWrapper.js', 'Icons.js'];
 
+// Minimum meaningful lines of code (non-empty, non-comment, non-import)
+const MIN_MEANINGFUL_LINES = 3;
+
 function scanDirectory(dirPath) {
   return fs.readdirSync(dirPath, { withFileTypes: true });
+}
+
+function readFile(filePath) {
+  try { return fs.readFileSync(filePath, 'utf8'); } catch { return ''; }
+}
+
+/**
+ * GHOST_IMPORT check: architecture file exists but the main component doesn't import it.
+ * Finds the main component file (e.g. Button.js inside Button/) and checks its imports.
+ */
+function checkGhostImports(compName, compDir, files) {
+  const violations = [];
+
+  const stylesFile = files.find(f => f.endsWith('Styles.js'));
+  const themeHookFile = files.find(f => f.startsWith('use') && f.endsWith('Theme.js'));
+
+  // Find the main component file: ComponentName.js or ComponentName.jsx
+  const mainFile = files.find(f => f === `${compName}.js` || f === `${compName}.jsx`);
+  if (!mainFile) return violations;
+
+  const mainContent = readFile(path.join(compDir, mainFile));
+
+  if (stylesFile && !mainContent.includes(stylesFile.replace('.js', ''))) {
+    violations.push({
+      type: 'GHOST_IMPORT',
+      location: `src/components/${compName}/`,
+      details: `${stylesFile} exists but is not imported in ${mainFile}`
+    });
+  }
+
+  if (themeHookFile && !mainContent.includes(themeHookFile.replace('.js', ''))) {
+    violations.push({
+      type: 'GHOST_IMPORT',
+      location: `src/components/${compName}/`,
+      details: `${themeHookFile} exists but is not imported in ${mainFile}`
+    });
+  }
+
+  return violations;
+}
+
+/**
+ * EMPTY_ARCHITECTURE check: architecture file exists but has almost no real content.
+ * Detects stub/placeholder files that were created but never filled in.
+ */
+function checkEmptyArchitecture(compName, compDir, files) {
+  const violations = [];
+
+  const archFiles = files.filter(f =>
+    f.endsWith('Styles.js') || (f.startsWith('use') && f.endsWith('Theme.js'))
+  );
+
+  for (const archFile of archFiles) {
+    const content = readFile(path.join(compDir, archFile));
+    const meaningfulLines = content
+      .split('\n')
+      .map(l => l.trim())
+      .filter(l => l.length > 0 && !l.startsWith('//') && !l.startsWith('*') && !l.startsWith('/*') && !l.startsWith('import') && !l.startsWith('export'));
+
+    if (meaningfulLines.length < MIN_MEANINGFUL_LINES) {
+      violations.push({
+        type: 'EMPTY_ARCHITECTURE',
+        location: `src/components/${compName}/`,
+        details: `${archFile} exists but appears to be a stub (${meaningfulLines.length} meaningful line(s))`
+      });
+    }
+  }
+
+  return violations;
 }
 
 function auditComponents() {
@@ -47,6 +119,12 @@ function auditComponents() {
           location: `src/components/${compName}/`,
           details: `Missing: ${missingModules.join(', ')}`
         });
+      }
+
+      // Only run functional checks when structure is present
+      if (hasStyles || hasThemeHook) {
+        violations.push(...checkGhostImports(compName, compDir, files));
+        violations.push(...checkEmptyArchitecture(compName, compDir, files));
       }
     }
   }

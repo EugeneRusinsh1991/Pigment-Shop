@@ -1,6 +1,6 @@
 # 👥 Significant Code Duplication (≥ 8 lines)
 
-*Generated on: 26.07.2026, 22:17:15*
+*Generated on: 26.07.2026, 22:31:22*
 
 ### Clone Group 1 — 88 lines, 158 tokens · `dup:8e843fc1`
 > 💡 Extract duplicated code (88 lines, 2 instances) into a shared function
@@ -21,19 +21,19 @@
 - [hardcode-text-auditor.js:L18–L85](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-text-auditor.js#L18-L85) (`.tools/auditor/hardcode-text-auditor.js`)
 - [typography-auditor.js:L26–L93](file:///D:/Magazine/_PigmentShop/.tools/auditor/typography-auditor.js#L26-L93) (`.tools/auditor/typography-auditor.js`)
 
-### Clone Group 4 — 52 lines, 142 tokens · `dup:92556a9f`
+### Clone Group 4 — 53 lines, 95 tokens · `dup:f8ec9cca`
+> 💡 Extract duplicated code (53 lines, 2 instances) into a shared function
+
+- [ui-architecture-audit.js:L93–L145](file:///D:/Magazine/_PigmentShop/.tools/auditor/ui-architecture-audit.js#L93-L145) (`.tools/auditor/ui-architecture-audit.js`)
+- [unused-exports-auditor.js:L48–L77](file:///D:/Magazine/_PigmentShop/.tools/auditor/unused-exports-auditor.js#L48-L77) (`.tools/auditor/unused-exports-auditor.js`)
+
+### Clone Group 5 — 52 lines, 142 tokens · `dup:92556a9f`
 > 💡 Extract duplicated code (52 lines, 4 instances) into a shared function
 
 - [hardcode-text-auditor.js:L34–L85](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-text-auditor.js#L34-L85) (`.tools/auditor/hardcode-text-auditor.js`)
 - [magic-numbers-auditor.js:L55–L106](file:///D:/Magazine/_PigmentShop/.tools/auditor/magic-numbers-auditor.js#L55-L106) (`.tools/auditor/magic-numbers-auditor.js`)
 - [service-layer-auditor.js:L24–L75](file:///D:/Magazine/_PigmentShop/.tools/auditor/service-layer-auditor.js#L24-L75) (`.tools/auditor/service-layer-auditor.js`)
 - [typography-auditor.js:L42–L93](file:///D:/Magazine/_PigmentShop/.tools/auditor/typography-auditor.js#L42-L93) (`.tools/auditor/typography-auditor.js`)
-
-### Clone Group 5 — 47 lines, 95 tokens · `dup:ac782286`
-> 💡 Extract duplicated code (47 lines, 2 instances) into a shared function
-
-- [ui-architecture-audit.js:L21–L67](file:///D:/Magazine/_PigmentShop/.tools/auditor/ui-architecture-audit.js#L21-L67) (`.tools/auditor/ui-architecture-audit.js`)
-- [unused-exports-auditor.js:L48–L77](file:///D:/Magazine/_PigmentShop/.tools/auditor/unused-exports-auditor.js#L48-L77) (`.tools/auditor/unused-exports-auditor.js`)
 
 ### Clone Group 6 — 39 lines, 283 tokens · `dup:34c2ca9e`
 > 💡 Extract duplicated code (39 lines, 2 instances) into a shared function
@@ -122,7 +122,7 @@
 > 💡 Extract duplicated code (9 lines, 2 instances) into a shared function
 
 - [hardcode-styles-auditor.js:L113–L121](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-styles-auditor.js#L113-L121) (`.tools/auditor/hardcode-styles-auditor.js`)
-- [ui-architecture-audit.js:L67–L75](file:///D:/Magazine/_PigmentShop/.tools/auditor/ui-architecture-audit.js#L67-L75) (`.tools/auditor/ui-architecture-audit.js`)
+- [ui-architecture-audit.js:L145–L153](file:///D:/Magazine/_PigmentShop/.tools/auditor/ui-architecture-audit.js#L145-L153) (`.tools/auditor/ui-architecture-audit.js`)
 
 ### Clone Group 19 — 9 lines, 73 tokens · `dup:86a32a92`
 > 💡 Extract duplicated code (9 lines, 2 instances) into a shared function

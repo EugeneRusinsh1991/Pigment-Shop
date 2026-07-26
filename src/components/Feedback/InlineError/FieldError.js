@@ -1,9 +1,15 @@
 import React from 'react';
 import { Text } from '../../Text';
-import { styles } from './FieldErrorStyles';
+import { useInlineErrorTheme } from './useInlineErrorTheme';
 
 export default function FieldError({ error, style }) {
+  const { styles, textColor } = useInlineErrorTheme();
+
   if (!error) return null;
 
-  return <Text variant="caption" color="error" style={[styles.errorText, style]}>{error}</Text>;
+  return (
+    <Text variant="caption" style={[{ color: textColor }, styles.errorText, style]}>
+      {error}
+    </Text>
+  );
 }

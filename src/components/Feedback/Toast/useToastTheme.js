@@ -1,5 +1,6 @@
 import { colors } from '../../../theme/tokens';
 import { useTheme } from '../../../context/ThemeContext';
+import { styles } from './ToastStyles';
 
 const TOAST_THEMES = {
   light: {
@@ -17,5 +18,5 @@ const TOAST_THEMES = {
 export function useToastTheme(type) {
   const { isDark } = useTheme();
   const map = isDark ? TOAST_THEMES.dark : TOAST_THEMES.light;
-  return map[type] || map.default;
+  return { ...(map[type] || map.default), styles };
 }

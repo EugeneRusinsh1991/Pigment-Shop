@@ -28,7 +28,7 @@ function animateFadeUp(fadeAnim, translateYAnim) {
   ]).start();
 }
 
-export function useScrollAnimation(ref) {
+export function useMotionAnimation(ref) {
   const fadeAnim = useRef(new Animated.Value(1)).current;
   const translateYAnim = useRef(new Animated.Value(0)).current;
   const viewRef = useRef(null);

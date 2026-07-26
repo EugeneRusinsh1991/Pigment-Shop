@@ -1,6 +1,6 @@
 ===================================================================
                1. UI ARCHITECTURE COMPLIANCE REPORT                
-Timestamp: 26.07.2026, 22:17:00
+Timestamp: 26.07.2026, 22:31:14
 ===================================================================
 
 Found 4 architecture violation(s) across 4 target(s):
@@ -8,12 +8,12 @@ Found 4 architecture violation(s) across 4 target(s):
 Target: src/components/Admin/
   [MISSING_MODULES] Missing: index.js, useAdminTheme.js
 
-Target: src/components/Media/
-  [MISSING_MODULES] Missing: MediaStyles.js, useMediaTheme.js
-
-Target: src/components/Modal/
-  [MISSING_MODULES] Missing: ModalStyles.js, useModalTheme.js
+Target: src/components/Badge/
+  [GHOST_IMPORT] BadgeStyles.js exists but is not imported in Badge.js
 
 Target: src/components/Motion/
   [MISSING_MODULES] Missing: MotionStyles.js, useMotionTheme.js
+
+Target: src/components/Text/
+  [GHOST_IMPORT] TextStyles.js exists but is not imported in Text.js
 

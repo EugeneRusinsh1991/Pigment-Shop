@@ -1,11 +1,14 @@
 # 🧠 Highly Complex Files
 
-*Generated on: 26.07.2026, 22:17:15*
+*Generated on: 26.07.2026, 22:31:22*
 
 ### Highly Complex Files (< 200 lines)
 
 - **[hardcode-styles-auditor.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-styles-auditor.js)** (`.tools/auditor/hardcode-styles-auditor.js`)
   - Lines: 136 | CRAP Max: 306 | Complex Funcs: 3 | Density: 34%
+
+- **[ui-architecture-audit.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/ui-architecture-audit.js)** (`.tools/auditor/ui-architecture-audit.js`)
+  - Lines: 167 | CRAP Max: 182 | Complex Funcs: 3 | Density: 29%
 
 - **[index.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/index.js)** (`.tools/auditor/index.js`)
   - Lines: 50 | CRAP Max: 132 | Complex Funcs: 1 | Density: 22%
@@ -15,9 +18,6 @@
 
 - **[layer-imports-auditor.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/layer-imports-auditor.js)** (`.tools/auditor/layer-imports-auditor.js`)
   - Lines: 126 | CRAP Max: 132 | Complex Funcs: 3 | Density: 26%
-
-- **[ui-architecture-audit.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/ui-architecture-audit.js)** (`.tools/auditor/ui-architecture-audit.js`)
-  - Lines: 89 | CRAP Max: 132 | Complex Funcs: 1 | Density: 22%
 
 - **[typography-auditor.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/typography-auditor.js)** (`.tools/auditor/typography-auditor.js`)
   - Lines: 98 | CRAP Max: 90 | Complex Funcs: 2 | Density: 31%

@@ -1,0 +1,35 @@
+import { StyleSheet } from 'react-native';
+
+export const mediaStyles = StyleSheet.create({
+  nativeContainer: {
+    alignItems: 'center',
+    justify: 'center',
+    overflow: 'hidden',
+  },
+  playOverlay: {
+    width: 48,
+    height: 48,
+    borderRadius: 24,
+    alignItems: 'center',
+    justify: 'center',
+    position: 'absolute',
+  },
+  playTriangle: {
+    width: 0,
+    height: 0,
+    backgroundColor: 'transparent',
+    borderStyle: 'solid',
+    borderLeftWidth: 16,
+    borderRightWidth: 0,
+    borderBottomWidth: 10,
+    borderTopWidth: 10,
+    borderRightColor: 'transparent',
+    borderBottomColor: 'transparent',
+    borderTopColor: 'transparent',
+    marginLeft: 4,
+  },
+  webMedia: {
+    width: '100%',
+    height: '100%',
+  },
+});

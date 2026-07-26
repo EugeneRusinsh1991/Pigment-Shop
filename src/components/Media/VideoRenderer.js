@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { View, Image, StyleSheet } from 'react-native';
-import { colors } from '../../theme/tokens';
+import { useMediaTheme } from './useMediaTheme';
+import { mediaStyles } from './MediaStyles';
 
 let ExpoVideo = null;
 try {
@@ -76,8 +77,7 @@ function WebVideoRenderer({ uri, resizeMode, flatStyle, autoPlay, loop, muted, p
       ref={videoRef}
       src={uri}
       style={{
-        width: '100%',
-        height: '100%',
+        ...mediaStyles.webMedia,
         objectFit: resizeMode === 'cover' ? 'cover' : 'contain',
         ...flatStyle
       }}
@@ -95,6 +95,8 @@ function WebVideoRenderer({ uri, resizeMode, flatStyle, autoPlay, loop, muted, p
  * Renders native video player using expo-av/expo-video with thumbnail fallback.
  */
 function NativeVideoRenderer({ uri, style, resizeMode, autoPlay, loop, muted, onReady, shouldPlay, onProgress }) {
+  const { overlayBg, iconColor, containerBg } = useMediaTheme();
+
   if (ExpoVideo) {
     return (
       <ExpoVideo
@@ -116,10 +118,10 @@ function NativeVideoRenderer({ uri, style, resizeMode, autoPlay, loop, muted, on
   }
 
   return (
-    <View style={[style, styles.nativeContainer]}>
+    <View style={[style, mediaStyles.nativeContainer, { backgroundColor: containerBg }]}>
       <Image source={{ uri }} style={StyleSheet.absoluteFill} resizeMode={resizeMode} />
-      <View style={styles.playOverlay}>
-        <View style={styles.playTriangle} />
+      <View style={[mediaStyles.playOverlay, { backgroundColor: overlayBg }]}>
+        <View style={[mediaStyles.playTriangle, { borderLeftColor: iconColor }]} />
       </View>
     </View>
   );
@@ -161,34 +163,3 @@ export default function VideoRenderer({ isWeb, uri, resizeMode, flatStyle, autoP
   );
 }
 
-const styles = StyleSheet.create({
-  nativeContainer: {
-    backgroundColor: colors.black,
-    alignItems: 'center',
-    justify: 'center',
-    overflow: 'hidden',
-  },
-  playOverlay: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
-    backgroundColor: 'rgba(0, 0, 0, 0.6)',
-    alignItems: 'center',
-    justify: 'center',
-  },
-  playTriangle: {
-    width: 0,
-    height: 0,
-    backgroundColor: 'transparent',
-    borderStyle: 'solid',
-    borderLeftWidth: 16,
-    borderRightWidth: 0,
-    borderBottomWidth: 10,
-    borderTopWidth: 10,
-    borderLeftColor: colors.white,
-    borderRightColor: 'transparent',
-    borderBottomColor: 'transparent',
-    borderTopColor: 'transparent',
-    marginLeft: 4,
-  },
-});

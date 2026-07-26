@@ -2,10 +2,10 @@ import React from 'react';
 import { Animated } from 'react-native';
 import { Text } from '../../Text';
 import { useToastTheme } from './useToastTheme';
-import { styles } from './ToastStyles';
 
 export function ToastView({ toast, fadeAnim }) {
   const theme = useToastTheme(toast?.type);
+  const styles = theme.styles;
 
   if (!toast) return null;
 

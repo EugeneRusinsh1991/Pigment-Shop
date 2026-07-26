@@ -1,20 +1,11 @@
 import React from 'react';
 import { View } from 'react-native';
 import { Text, Heading } from '../../Text';
-import { useTheme } from '../../../context/ThemeContext';
-import { colors } from '../../../theme/tokens';
-import { styles } from './EmptyStateStyles';
+import { useEmptyStateTheme } from './useEmptyStateTheme';
 
 /**
  * Global EmptyState component for empty catalog, cart, favorites, orders, and tables.
  */
-function useEmptyStateColors(isDark) {
-  return {
-    textColor: isDark ? colors.textDark : colors.textLight,
-    mutedColor: isDark ? colors.textMutedDark : colors.textMutedLight,
-  };
-}
-
 function renderChildren(children, descriptionStyle, mutedColor) {
   if (!children) return null;
   if (typeof children === 'string') {
@@ -34,8 +25,7 @@ export default function EmptyState({
   titleStyle,
   descriptionStyle,
 }) {
-  const { isDark } = useTheme();
-  const { textColor, mutedColor } = useEmptyStateColors(isDark);
+  const { mutedColor, styles } = useEmptyStateTheme();
   const bodyText = description || message;
 
   return (

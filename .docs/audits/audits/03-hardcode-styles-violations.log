@@ -1,9 +1,9 @@
 ===================================================================
          3. HARDCODED STYLES, COLORS & SPACING REPORT              
-Timestamp: 26.07.2026, 22:17:00
+Timestamp: 26.07.2026, 22:31:14
 ===================================================================
 
-Found 1385 issue(s) across 175 file(s):
+Found 1385 issue(s) across 177 file(s):
 
 File: src\AppStyles.js
   L39    [HARDCODED_SPACING] paddingTop 16px -> paddingTop: 16,
@@ -808,7 +808,7 @@ File: src\components\Drawer\DrawerStyles.js
   L34    [HARDCODED_SPACING] padding 16px -> padding: 16,
 
 File: src\components\Feedback\EmptyState\EmptyState.js
-  L21    [INLINE_STYLE] return <Text variant="body" color="muted" style={descriptionStyle}>{children}</Text>;
+  L12    [INLINE_STYLE] return <Text variant="body" color="muted" style={descriptionStyle}>{children}</Text>;
 
 File: src\components\Feedback\EmptyState\EmptyStateStyles.js
   L7     [HARDCODED_SPACING] paddingVertical 40px -> paddingVertical: 40,
@@ -822,7 +822,7 @@ File: src\components\Feedback\InlineError\FieldErrorStyles.js
   L7     [HARDCODED_SPACING] marginBottom 8px -> marginBottom: 8,
 
 File: src\components\Feedback\Skeleton\SkeletonLoader.js
-  L58    [INLINE_STYLE] style={style}
+  L57    [INLINE_STYLE] style={style}
 
 File: src\components\Feedback\Skeleton\SkeletonStyles.js
   L5     [HARDCODED_SPACING] gap 12px -> gap: 12,
@@ -945,7 +945,7 @@ File: src\components\icons\ControlIcons.js
   L170   [INLINE_STYLE] return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🗑️</RNText>;
 
 File: src\components\Media\GifRenderer.js
-  L12    [INLINE_STYLE] style={{
+  L13    [INLINE_STYLE] style={{
   L40    [INLINE_STYLE] style={style}
 
 File: src\components\Media\MediaRenderer.js
@@ -953,24 +953,28 @@ File: src\components\Media\MediaRenderer.js
   L53    [INLINE_STYLE] style={style}
   L61    [INLINE_STYLE] style={style}
 
+File: src\components\Media\MediaStyles.js
+  L12    [HARDCODED_SPACING] borderRadius 24px -> borderRadius: 24,
+  L29    [HARDCODED_SPACING] marginLeft 4px -> marginLeft: 4,
+
+File: src\components\Media\useMediaTheme.js
+  L8     [HARDCODED_COLOR] rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6) -> overlayBg: isDark ? 'rgba(0, 0, 0, 0.8)' : 'rgba(0, 0, 0, 0.6)',
+
 File: src\components\Media\VideoRenderer.js
-  L78    [INLINE_STYLE] style={{
-  L102   [INLINE_STYLE] style={style}
-  L120   [INLINE_STYLE] <Image source={{ uri }} style={StyleSheet.absoluteFill} resizeMode={resizeMode} />
-  L152   [INLINE_STYLE] style={style}
-  L174   [HARDCODED_SPACING] borderRadius 24px -> borderRadius: 24,
-  L175   [HARDCODED_COLOR] rgba(0, 0, 0, 0.6) -> backgroundColor: 'rgba(0, 0, 0, 0.6)',
-  L192   [HARDCODED_SPACING] marginLeft 4px -> marginLeft: 4,
+  L79    [INLINE_STYLE] style={{
+  L104   [INLINE_STYLE] style={style}
+  L122   [INLINE_STYLE] <Image source={{ uri }} style={StyleSheet.absoluteFill} resizeMode={resizeMode} />
+  L154   [INLINE_STYLE] style={style}
 
-File: src\components\Modal\ConfirmationModal.js
-  L89    [HARDCODED_SPACING] padding 24px -> padding: 24,
-  L93    [HARDCODED_SPACING] marginBottom 8px -> marginBottom: 8,
-  L96    [HARDCODED_SPACING] marginBottom 24px -> marginBottom: 24,
-  L101   [HARDCODED_SPACING] gap 12px -> gap: 12,
+File: src\components\Modal\ModalStyles.js
+  L9     [HARDCODED_SPACING] padding 20px -> padding: 20,
+  L20    [HARDCODED_SPACING] padding 24px -> padding: 24,
+  L23    [HARDCODED_SPACING] marginBottom 8px -> marginBottom: 8,
+  L26    [HARDCODED_SPACING] marginBottom 24px -> marginBottom: 24,
+  L31    [HARDCODED_SPACING] gap 12px -> gap: 12,
 
-File: src\components\Modal\Modal.js
-  L57    [HARDCODED_COLOR] rgba(0, 0, 0, 0.6) -> backgroundColor: 'rgba(0, 0, 0, 0.6)',
-  L60    [HARDCODED_SPACING] padding 20px -> padding: 20,
+File: src\components\Modal\useModalTheme.js
+  L9     [HARDCODED_COLOR] rgba(0, 0, 0, 0.6) -> overlayBg: 'rgba(0, 0, 0, 0.6)',
 
 File: src\components\Navigation\Breadcrumbs\Breadcrumb.js
   L20    [INLINE_STYLE] <Text style={textStyle} size="sm" weight="medium" numberOfLines={1}>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Image } from 'react-native';
+import { mediaStyles } from './MediaStyles';
 
 /**
  * WebGifRenderer
@@ -10,8 +11,7 @@ function WebGifRenderer({ uri, resizeMode, flatStyle }) {
     <img 
       src={uri}
       style={{
-        width: '100%',
-        height: '100%',
+        ...mediaStyles.webMedia,
         objectFit: resizeMode === 'cover' ? 'cover' : 'contain',
         ...flatStyle
       }}

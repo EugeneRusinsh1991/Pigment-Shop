@@ -1,9 +1,9 @@
 import React from 'react';
 import { Animated } from 'react-native';
-import { useScrollAnimation } from './useScrollAnimation';
+import { useMotionAnimation } from './useMotionAnimation';
 
 export const ScrollFadeUp = React.forwardRef(function ScrollFadeUp({ children, style }, ref) {
-  const { fadeAnim, translateYAnim, setRef } = useScrollAnimation(ref);
+  const { fadeAnim, translateYAnim, setRef } = useMotionAnimation(ref);
 
   return (
     <Animated.View

@@ -1,10 +1,11 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import { Text, Heading } from '../Text';
 import { useTheme } from '../../context/ThemeContext';
-import { colors, layout, shadows } from '../../theme/tokens';
 import { Button } from '../Button';
 import Modal from './Modal';
+import { modalStyles as styles } from './ModalStyles';
+import { useModalTheme } from './useModalTheme';
 
 const VARIANT_MAP = { primary: 'primary', success: 'success' };
 
@@ -20,13 +21,7 @@ function resolveModalTexts(t, confirmText, cancelText, title) {
   };
 }
 
-function resolveModalTheme(isDark) {
-  return {
-    cardBg: isDark ? colors.surfaceDark : colors.surfaceLight,
-    titleColor: isDark ? colors.textDark : colors.textLight,
-    messageColor: isDark ? colors.textMutedDark : colors.textMutedLight,
-  };
-}
+
 
 export default function ConfirmationModal({
   visible,
@@ -40,26 +35,26 @@ export default function ConfirmationModal({
   loading = false,
   ...modalProps
 }) {
-  const { isDark, t } = useTheme();
+  const { t } = useTheme();
+  const { cardBg, titleColor, messageColor, cardShadow } = useModalTheme();
 
   if (!visible) return null;
 
   const { confirmText: resolvedConfirmText, cancelText: resolvedCancelText, title: resolvedTitle } = resolveModalTexts(t, confirmText, cancelText, title);
-  const { cardBg, titleColor, messageColor } = resolveModalTheme(isDark);
   const confirmVariant = VARIANT_MAP[variant] || 'danger';
 
   return (
     <Modal
       visible={visible}
       onClose={onCancel}
-      contentStyle={[styles.card, { backgroundColor: cardBg }]}
+      contentStyle={[styles.card, { backgroundColor: cardBg, ...cardShadow }]}
       {...modalProps}
     >
       {resolvedTitle ? (
-        <Heading level={4} style={styles.title}>{resolvedTitle}</Heading>
+        <Heading level={4} style={[styles.title, { color: titleColor }]}>{resolvedTitle}</Heading>
       ) : null}
       {message ? (
-        <Text variant="body2" color="muted" style={styles.message}>{message}</Text>
+        <Text variant="body2" style={[styles.message, { color: messageColor }]}>{message}</Text>
       ) : null}
       <View style={styles.footer}>
         <Button
@@ -81,23 +76,3 @@ export default function ConfirmationModal({
   );
 }
 
-const styles = StyleSheet.create({
-  card: {
-    width: '100%',
-    maxWidth: 420,
-    borderRadius: layout.radii.md,
-    padding: 24,
-    ...shadows.modalLight.web,
-  },
-  title: {
-    marginBottom: 8,
-  },
-  message: {
-    marginBottom: 24,
-  },
-  footer: {
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-    gap: 12,
-  },
-});

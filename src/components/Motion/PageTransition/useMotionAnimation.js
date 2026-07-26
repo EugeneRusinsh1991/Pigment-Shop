@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react';
 import { Animated, Platform } from 'react-native';
 
-export function useTransitionTheme(trigger) {
+export function useMotionAnimation(trigger) {
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const translateYAnim = useRef(new Animated.Value(6)).current;
 

@@ -1,20 +1,20 @@
 # 🩺 Complexity Health Findings (Critical & High)
 
-*Generated on: 26.07.2026, 22:17:15*
+*Generated on: 26.07.2026, 22:31:22*
 
 ## 🔴 Critical (> 50 lines)
+
+#### 📁 [ui-architecture-audit.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/ui-architecture-audit.js)
+`.tools/auditor/ui-architecture-audit.js`
+
+- 🔴 **`auditComponents`** [L86](file:///D:/Magazine/_PigmentShop/.tools/auditor/ui-architecture-audit.js#L86)
+  - Lines: 77 | Cyclomatic: 13 | Cognitive: 27 | CRAP: 182
 
 #### 📁 [layer-imports-auditor.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/layer-imports-auditor.js)
 `.tools/auditor/layer-imports-auditor.js`
 
 - 🔴 **`auditLayerImports`** [L39](file:///D:/Magazine/_PigmentShop/.tools/auditor/layer-imports-auditor.js#L39)
   - Lines: 84 | Cyclomatic: 11 | Cognitive: 22 | CRAP: 132
-
-#### 📁 [ui-architecture-audit.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/ui-architecture-audit.js)
-`.tools/auditor/ui-architecture-audit.js`
-
-- 🔴 **`auditComponents`** [L14](file:///D:/Magazine/_PigmentShop/.tools/auditor/ui-architecture-audit.js#L14)
-  - Lines: 71 | Cyclomatic: 11 | Cognitive: 23 | CRAP: 132
 
 #### 📁 [unused-exports-auditor.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/unused-exports-auditor.js)
 `.tools/auditor/unused-exports-auditor.js`

@@ -1,6 +1,6 @@
 # 📄 Small & Pass-Through Files Findings
 
-*Generated on: 26.07.2026, 22:17:15*
+*Generated on: 26.07.2026, 22:31:22*
 
 ### Candidate Files for Refactoring/Elimination
 
@@ -44,12 +44,20 @@
   - Lines: 20 | Size: 560 B | Type: **Tiny File**
   > 💡 This file contains very few lines; review if it adds unnecessary system noise.
 
-- **[FeedbackStyles.js](file:///D:/Magazine/_PigmentShop/src/components/Feedback/FeedbackStyles.js)** (`src/components/Feedback/FeedbackStyles.js`)
-  - Lines: 8 | Size: 229 B | Type: **Tiny Component**
+- **[useInlineErrorTheme.js](file:///D:/Magazine/_PigmentShop/src/components/Feedback/InlineError/useInlineErrorTheme.js)** (`src/components/Feedback/InlineError/useInlineErrorTheme.js`)
+  - Lines: 13 | Size: 320 B | Type: **Tiny Component**
   > 💡 This component is very small; consider declaring it inline within its parent component.
 
-- **[FieldError.js](file:///D:/Magazine/_PigmentShop/src/components/Feedback/InlineError/FieldError.js)** (`src/components/Feedback/InlineError/FieldError.js`)
-  - Lines: 10 | Size: 290 B | Type: **Tiny Component**
+- **[useSkeletonTheme.js](file:///D:/Magazine/_PigmentShop/src/components/Feedback/Skeleton/useSkeletonTheme.js)** (`src/components/Feedback/Skeleton/useSkeletonTheme.js`)
+  - Lines: 13 | Size: 335 B | Type: **Tiny Component**
+  > 💡 This component is very small; consider declaring it inline within its parent component.
+
+- **[useMediaTheme.js](file:///D:/Magazine/_PigmentShop/src/components/Media/useMediaTheme.js)** (`src/components/Media/useMediaTheme.js`)
+  - Lines: 13 | Size: 316 B | Type: **Tiny Component**
+  > 💡 This component is very small; consider declaring it inline within its parent component.
+
+- **[useEmptyStateTheme.js](file:///D:/Magazine/_PigmentShop/src/components/Feedback/EmptyState/useEmptyStateTheme.js)** (`src/components/Feedback/EmptyState/useEmptyStateTheme.js`)
+  - Lines: 14 | Size: 386 B | Type: **Tiny Component**
   > 💡 This component is very small; consider declaring it inline within its parent component.
 
 - **[useBreadcrumbTheme.js](file:///D:/Magazine/_PigmentShop/src/components/Navigation/Breadcrumbs/useBreadcrumbTheme.js)** (`src/components/Navigation/Breadcrumbs/useBreadcrumbTheme.js`)
@@ -60,8 +68,16 @@
   - Lines: 14 | Size: 305 B | Type: **Tiny Component**
   > 💡 This component is very small; consider declaring it inline within its parent component.
 
+- **[FeedbackStyles.js](file:///D:/Magazine/_PigmentShop/src/components/Feedback/FeedbackStyles.js)** (`src/components/Feedback/FeedbackStyles.js`)
+  - Lines: 14 | Size: 373 B | Type: **Tiny Component**
+  > 💡 This component is very small; consider declaring it inline within its parent component.
+
 - **[useThemeUtils.js](file:///D:/Magazine/_PigmentShop/src/components/useThemeUtils.js)** (`src/components/useThemeUtils.js`)
   - Lines: 16 | Size: 369 B | Type: **Tiny Component**
+  > 💡 This component is very small; consider declaring it inline within its parent component.
+
+- **[FieldError.js](file:///D:/Magazine/_PigmentShop/src/components/Feedback/InlineError/FieldError.js)** (`src/components/Feedback/InlineError/FieldError.js`)
+  - Lines: 16 | Size: 392 B | Type: **Tiny Component**
   > 💡 This component is very small; consider declaring it inline within its parent component.
 
 - **[EmptyState.js](file:///D:/Magazine/_PigmentShop/src/components/DataTable/EmptyState.js)** (`src/components/DataTable/EmptyState.js`)
@@ -70,6 +86,10 @@
 
 - **[useFlagTheme.js](file:///D:/Magazine/_PigmentShop/src/components/Flag/useFlagTheme.js)** (`src/components/Flag/useFlagTheme.js`)
   - Lines: 17 | Size: 588 B | Type: **Tiny Component**
+  > 💡 This component is very small; consider declaring it inline within its parent component.
+
+- **[useModalTheme.js](file:///D:/Magazine/_PigmentShop/src/components/Modal/useModalTheme.js)** (`src/components/Modal/useModalTheme.js`)
+  - Lines: 18 | Size: 654 B | Type: **Tiny Component**
   > 💡 This component is very small; consider declaring it inline within its parent component.
 
 - **[useSharedLayoutWrapperTheme.js](file:///D:/Magazine/_PigmentShop/src/components/SharedLayoutWrapper/useSharedLayoutWrapperTheme.js)** (`src/components/SharedLayoutWrapper/useSharedLayoutWrapperTheme.js`)
@@ -88,12 +108,12 @@
   - Lines: 21 | Size: 765 B | Type: **Tiny Component**
   > 💡 This component is very small; consider declaring it inline within its parent component.
 
-- **[useToastTheme.js](file:///D:/Magazine/_PigmentShop/src/components/Feedback/Toast/useToastTheme.js)** (`src/components/Feedback/Toast/useToastTheme.js`)
-  - Lines: 22 | Size: 928 B | Type: **Tiny Component**
-  > 💡 This component is very small; consider declaring it inline within its parent component.
-
 - **[useNavigationTheme.js](file:///D:/Magazine/_PigmentShop/src/components/Navigation/useNavigationTheme.js)** (`src/components/Navigation/useNavigationTheme.js`)
   - Lines: 22 | Size: 644 B | Type: **Tiny Component**
+  > 💡 This component is very small; consider declaring it inline within its parent component.
+
+- **[useToastTheme.js](file:///D:/Magazine/_PigmentShop/src/components/Feedback/Toast/useToastTheme.js)** (`src/components/Feedback/Toast/useToastTheme.js`)
+  - Lines: 23 | Size: 985 B | Type: **Tiny Component**
   > 💡 This component is very small; consider declaring it inline within its parent component.
 
 - **[useSearchTheme.js](file:///D:/Magazine/_PigmentShop/src/components/Search/useSearchTheme.js)** (`src/components/Search/useSearchTheme.js`)

@@ -1,11 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import { Animated, View } from 'react-native';
-import { useTheme } from '../../../context/ThemeContext';
-import { colors, layout } from '../../../theme/tokens';
-import { styles } from './SkeletonStyles';
+import { layout } from '../../../theme/tokens';
+import { useSkeletonTheme } from './useSkeletonTheme';
 
 function SkeletonItem({ width = '100%', height = 20, borderRadius = layout.radii.sm, style }) {
-  const { isDark } = useTheme();
+  const { backgroundColor, styles } = useSkeletonTheme();
   const opacity = useRef(new Animated.Value(0.4)).current;
 
   useEffect(() => {
@@ -27,8 +26,6 @@ function SkeletonItem({ width = '100%', height = 20, borderRadius = layout.radii
     return () => pulse.stop();
   }, [opacity]);
 
-  const bg = isDark ? colors.surfaceSubtleDark : colors.neutralLightStrong;
-
   return (
     <Animated.View
       style={[
@@ -37,7 +34,7 @@ function SkeletonItem({ width = '100%', height = 20, borderRadius = layout.radii
           width,
           height,
           borderRadius,
-          backgroundColor: bg,
+          backgroundColor,
           opacity,
         },
         style,
@@ -47,6 +44,8 @@ function SkeletonItem({ width = '100%', height = 20, borderRadius = layout.radii
 }
 
 export default function SkeletonLoader({ count = 3, width, height, borderRadius, style, containerStyle }) {
+  const { styles } = useSkeletonTheme();
+  
   return (
     <View style={[styles.container, containerStyle]}>
       {Array.from({ length: count }).map((_, index) => (

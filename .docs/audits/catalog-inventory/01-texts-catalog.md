@@ -211,11 +211,11 @@
   - Line [11](file:///D:/Magazine/_PigmentShop/src/components/Drawer/Drawer.js#L11): `<Text>` -> `[Dynamic Content]`
 
 ### File: [src/components/Feedback/EmptyState/EmptyState.js](file:///D:/Magazine/_PigmentShop/src/components/Feedback/EmptyState/EmptyState.js)
-  - Line [21](file:///D:/Magazine/_PigmentShop/src/components/Feedback/EmptyState/EmptyState.js#L21): `<Text>` -> `[Dynamic Content]`
-  - Line [50](file:///D:/Magazine/_PigmentShop/src/components/Feedback/EmptyState/EmptyState.js#L50): `<Text>` -> `[Dynamic Content]`
+  - Line [12](file:///D:/Magazine/_PigmentShop/src/components/Feedback/EmptyState/EmptyState.js#L12): `<Text>` -> `[Dynamic Content]`
+  - Line [40](file:///D:/Magazine/_PigmentShop/src/components/Feedback/EmptyState/EmptyState.js#L40): `<Text>` -> `[Dynamic Content]`
 
 ### File: [src/components/Feedback/InlineError/FieldError.js](file:///D:/Magazine/_PigmentShop/src/components/Feedback/InlineError/FieldError.js)
-  - Line [8](file:///D:/Magazine/_PigmentShop/src/components/Feedback/InlineError/FieldError.js#L8): `<Text>` -> `[Dynamic Content]`
+  - Line [11](file:///D:/Magazine/_PigmentShop/src/components/Feedback/InlineError/FieldError.js#L11): `<Text>` -> `[Dynamic Content]`
 
 ### File: [src/components/Feedback/Toast/ToastView.js](file:///D:/Magazine/_PigmentShop/src/components/Feedback/Toast/ToastView.js)
   - Line [32](file:///D:/Magazine/_PigmentShop/src/components/Feedback/Toast/ToastView.js#L32): `<Text>` -> `[Dynamic Content]`
@@ -225,7 +225,7 @@
   - Line [159](file:///D:/Magazine/_PigmentShop/src/components/Flag/Flag.js#L159): `<Text>` -> `✓`
 
 ### File: [src/components/Modal/ConfirmationModal.js](file:///D:/Magazine/_PigmentShop/src/components/Modal/ConfirmationModal.js)
-  - Line [62](file:///D:/Magazine/_PigmentShop/src/components/Modal/ConfirmationModal.js#L62): `<Text>` -> `[Dynamic Content]`
+  - Line [57](file:///D:/Magazine/_PigmentShop/src/components/Modal/ConfirmationModal.js#L57): `<Text>` -> `[Dynamic Content]`
 
 ### File: [src/components/Navigation/Breadcrumbs/Breadcrumb.js](file:///D:/Magazine/_PigmentShop/src/components/Navigation/Breadcrumbs/Breadcrumb.js)
   - Line [20](file:///D:/Magazine/_PigmentShop/src/components/Navigation/Breadcrumbs/Breadcrumb.js#L20): `<Text>` -> `[Dynamic Content]`

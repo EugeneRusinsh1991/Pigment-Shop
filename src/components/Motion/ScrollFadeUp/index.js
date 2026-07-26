@@ -1,2 +1,2 @@
 export { default as ScrollFadeUp } from './ScrollFadeUp';
-export { useScrollAnimation } from './useScrollAnimation';
+export { useMotionAnimation } from './useMotionAnimation';

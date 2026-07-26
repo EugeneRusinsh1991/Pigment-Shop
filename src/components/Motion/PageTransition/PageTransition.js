@@ -1,9 +1,9 @@
 import React from 'react';
 import { Animated, StyleSheet } from 'react-native';
-import { useTransitionTheme } from './useTransitionTheme';
+import { useMotionAnimation } from './useMotionAnimation';
 
 export function PageTransition({ trigger, children, style }) {
-  const { fadeAnim, translateYAnim } = useTransitionTheme(trigger);
+  const { fadeAnim, translateYAnim } = useMotionAnimation(trigger);
 
   return (
     <Animated.View

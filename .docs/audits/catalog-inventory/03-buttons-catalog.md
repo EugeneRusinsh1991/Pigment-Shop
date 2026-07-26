@@ -139,12 +139,12 @@
   - Line [147](file:///D:/Magazine/_PigmentShop/src/components/Flag/Flag.js#L147): `<Pressable>`
 
 ### File: [src/components/Modal/ConfirmationModal.js](file:///D:/Magazine/_PigmentShop/src/components/Modal/ConfirmationModal.js)
-  - Line [65](file:///D:/Magazine/_PigmentShop/src/components/Modal/ConfirmationModal.js#L65): `<Button>`
-  - Line [72](file:///D:/Magazine/_PigmentShop/src/components/Modal/ConfirmationModal.js#L72): `<Button>`
+  - Line [60](file:///D:/Magazine/_PigmentShop/src/components/Modal/ConfirmationModal.js#L60): `<Button>`
+  - Line [67](file:///D:/Magazine/_PigmentShop/src/components/Modal/ConfirmationModal.js#L67): `<Button>`
 
 ### File: [src/components/Modal/Modal.js](file:///D:/Magazine/_PigmentShop/src/components/Modal/Modal.js)
-  - Line [35](file:///D:/Magazine/_PigmentShop/src/components/Modal/Modal.js#L35): `<Pressable>`
-  - Line [39](file:///D:/Magazine/_PigmentShop/src/components/Modal/Modal.js#L39): `<Pressable>`
+  - Line [37](file:///D:/Magazine/_PigmentShop/src/components/Modal/Modal.js#L37): `<Pressable>`
+  - Line [41](file:///D:/Magazine/_PigmentShop/src/components/Modal/Modal.js#L41): `<Pressable>`
 
 ### File: [src/components/Navigation/Breadcrumbs/Breadcrumb.js](file:///D:/Magazine/_PigmentShop/src/components/Navigation/Breadcrumbs/Breadcrumb.js)
   - Line [28](file:///D:/Magazine/_PigmentShop/src/components/Navigation/Breadcrumbs/Breadcrumb.js#L28): `<AnimatedButton>`

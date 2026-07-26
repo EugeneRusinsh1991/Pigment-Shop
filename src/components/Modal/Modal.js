@@ -1,6 +1,7 @@
 import React from 'react';
-import { Modal as RNModal, Pressable, StyleSheet } from 'react-native';
-import { layout } from '../../theme/tokens';
+import { Modal as RNModal, Pressable } from 'react-native';
+import { modalStyles as styles } from './ModalStyles';
+import { useModalTheme } from './useModalTheme';
 
 export default function Modal({
   visible,
@@ -17,6 +18,7 @@ export default function Modal({
   if (!visible) return null;
 
   const handleClose = onClose || onRequestClose;
+  const { overlayBg } = useModalTheme();
 
   const handleBackdropPress = () => {
     if (closeOnBackdropPress && handleClose) {
@@ -33,7 +35,7 @@ export default function Modal({
       {...props}
     >
       <Pressable
-        style={[styles.overlay, overlayStyle]}
+        style={[styles.overlay, { backgroundColor: overlayBg }, overlayStyle]}
         onPress={handleBackdropPress}
       >
         <Pressable
@@ -51,17 +53,3 @@ export default function Modal({
   );
 }
 
-const styles = StyleSheet.create({
-  overlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.6)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
-    zIndex: layout.zIndices.modal,
-  },
-  content: {
-    width: '100%',
-    maxWidth: 420,
-  },
-});
