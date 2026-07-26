@@ -36,7 +36,7 @@ export default function OrderStatusSelector({ currentStatus, updating, onStatusC
     setIsOpen(false);
   };
 
-  const colorScheme = statusObj.value === 'Completed' ? 'completed' : statusObj.value === 'Cancelled' ? 'cancelled' : 'pending';
+  const colorScheme = statusObj.value === 'Completed' ? 'completed' : statusObj.value === 'Cancelled' ? 'cancelled' : statusObj.value === 'New' ? 'new' : 'pending';
 
   return (
     <View style={{ zIndex: 100, position: 'relative', marginBottom: 10 }}>

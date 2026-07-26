@@ -13,7 +13,7 @@ const FieldTextarea = (props) => <SharedFieldTextarea {...props} styles={styles}
 function FieldCheckbox({ label, value, onChange }) {
   return (
     <Flag
-      variant="checkbox"
+      variant="chip"
       checked={!!value}
       onChange={onChange}
     >

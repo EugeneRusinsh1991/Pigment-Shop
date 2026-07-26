@@ -1,7 +1,6 @@
 import { Text, View } from 'react-native';
-import { CheckIcon } from '../../components/Icons';
-import Button, { AnimatedButton } from '../../components/Button';
-import { colors } from '../../theme/tokens';
+import Button from '../../components/Button';
+import { Flag } from '../../components/Flag';
 import styles from './CatalogFilterSidebarStyles';
 import { FieldInput } from '../../components/Admin/SharedFormComponents';
 
@@ -15,20 +14,17 @@ export function SectionTitle({ label, isDark, isPrice }) {
 
 export function Checkbox({ checked, label, onToggle, isDark, testID }) {
   return (
-    <AnimatedButton
-      testID={testID || `filter-checkbox-${label}`}
-      style={styles.checkRow}
-      onPress={onToggle}
-      accessibilityRole="checkbox"
-      accessibilityState={{ checked: !!checked }}
-    >
-      <View style={[styles.checkbox, checked && styles.checkboxActive, { justifyContent: 'center', alignItems: 'center' }]}>
-        {checked && <CheckIcon color={colors.white} size={10} />}
-      </View>
-      <Text style={[styles.checkLabel, isDark ? styles.textDark : styles.textLight]}>
+    <View style={styles.checkRow}>
+      <Flag
+        testID={testID || `filter-checkbox-${label}`}
+        variant="chip"
+        checked={!!checked}
+        onChange={onToggle}
+        isDark={isDark}
+      >
         {label}
-      </Text>
-    </AnimatedButton>
+      </Flag>
+    </View>
   );
 }
 
