@@ -178,7 +178,10 @@ function auditComponents() {
   report += `===================================================================\n\n`;
 
   if (violations.length === 0) {
-    report += `SUCCESS: All UI components comply with architectural standards!\n`;
+    if (fs.existsSync(LOG_FILE)) {
+      try { fs.unlinkSync(LOG_FILE); } catch (_) {}
+    }
+    console.log('[01 UI Architecture Audit] Finished (0 issues) -> Clean');
   } else {
     const grouped = {};
     violations.forEach(v => {
@@ -197,10 +200,10 @@ function auditComponents() {
       });
       report += `\n`;
     });
-  }
 
-  fs.writeFileSync(LOG_FILE, report);
-  console.log(`[01 UI Architecture Audit] Finished (${violations.length} issues) -> .docs/audits/audits/01-ui-architecture-violations.log`);
+    fs.writeFileSync(LOG_FILE, report);
+    console.log(`[01 UI Architecture Audit] Finished (${violations.length} issues) -> .docs/audits/audits/01-ui-architecture-violations.log`);
+  }
 }
 
 module.exports = { auditComponents };

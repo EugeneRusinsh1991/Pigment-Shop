@@ -79,7 +79,10 @@ function auditMagicNumbers() {
   report += `===================================================================\n\n`;
 
   if (violations.length === 0) {
-    report += `SUCCESS: No magic number violations found!\n`;
+    if (fs.existsSync(LOG_FILE)) {
+      try { fs.unlinkSync(LOG_FILE); } catch (_) {}
+    }
+    console.log('[08 Magic Numbers Audit] Finished (0 unique issues) -> Clean');
   } else {
     const grouped = {};
     violations.forEach(v => {
@@ -99,10 +102,10 @@ function auditMagicNumbers() {
       });
       report += `\n`;
     });
-  }
 
-  fs.writeFileSync(LOG_FILE, report);
-  console.log(`[08 Magic Numbers Audit] Finished (${violations.length} unique issues) -> ${path.relative(path.join(__dirname, '../..'), LOG_FILE)}`);
+    fs.writeFileSync(LOG_FILE, report);
+    console.log(`[08 Magic Numbers Audit] Finished (${violations.length} unique issues) -> .docs/audits/audits/08-magic-numbers-violations.log`);
+  }
 }
 
 if (require.main === module) {

@@ -104,7 +104,10 @@ function auditStyles() {
   report += `===================================================================\n\n`;
 
   if (violations.length === 0) {
-    report += `SUCCESS: No hardcoded styles, magic colors, or spacing issues found!\n`;
+    if (fs.existsSync(LOG_FILE)) {
+      try { fs.unlinkSync(LOG_FILE); } catch (_) {}
+    }
+    console.log('[03 Hardcode Styles Audit] Finished (0 unique issues) -> Clean');
   } else {
     const grouped = {};
     violations.forEach(v => {
@@ -124,10 +127,10 @@ function auditStyles() {
       });
       report += `\n`;
     });
-  }
 
-  fs.writeFileSync(LOG_FILE, report);
-  console.log(`[03 Hardcode Styles Audit] Finished (${violations.length} unique issues) -> .docs/audits/audits/03-hardcode-styles-violations.log`);
+    fs.writeFileSync(LOG_FILE, report);
+    console.log(`[03 Hardcode Styles Audit] Finished (${violations.length} unique issues) -> .docs/audits/audits/03-hardcode-styles-violations.log`);
+  }
 }
 
 module.exports = { auditStyles };

@@ -68,7 +68,10 @@ function auditUnusedExports() {
   report += `===================================================================\n\n`;
 
   if (violations.length === 0) {
-    report += `SUCCESS: No unused exports found!\n`;
+    if (fs.existsSync(LOG_FILE)) {
+      try { fs.unlinkSync(LOG_FILE); } catch (_) {}
+    }
+    console.log('[06 Unused Exports Audit] Finished (0 issues) -> Clean');
   } else {
     const grouped = {};
     violations.forEach(v => {
@@ -87,10 +90,10 @@ function auditUnusedExports() {
       });
       report += `\n`;
     });
-  }
 
-  fs.writeFileSync(LOG_FILE, report);
-  console.log(`[06 Unused Exports Audit] Finished (${violations.length} issues) -> .docs/audits/06-unused-exports-violations.log`);
+    fs.writeFileSync(LOG_FILE, report);
+    console.log(`[06 Unused Exports Audit] Finished (${violations.length} issues) -> .docs/audits/audits/06-unused-exports-violations.log`);
+  }
 }
 
 module.exports = { auditUnusedExports };

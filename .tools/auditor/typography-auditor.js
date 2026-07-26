@@ -66,7 +66,10 @@ function auditTypography() {
   report += `===================================================================\n\n`;
 
   if (violations.length === 0) {
-    report += `SUCCESS: All typography follows typography foundation tokens!\n`;
+    if (fs.existsSync(LOG_FILE)) {
+      try { fs.unlinkSync(LOG_FILE); } catch (_) {}
+    }
+    console.log('[04 Typography Audit] Finished (0 unique issues) -> Clean');
   } else {
     const grouped = {};
     violations.forEach(v => {
@@ -86,10 +89,10 @@ function auditTypography() {
       });
       report += `\n`;
     });
-  }
 
-  fs.writeFileSync(LOG_FILE, report);
-  console.log(`[04 Typography Audit] Finished (${violations.length} unique issues) -> .docs/audits/04-typography-violations.log`);
+    fs.writeFileSync(LOG_FILE, report);
+    console.log(`[04 Typography Audit] Finished (${violations.length} unique issues) -> .docs/audits/audits/04-typography-violations.log`);
+  }
 }
 
 module.exports = { auditTypography };

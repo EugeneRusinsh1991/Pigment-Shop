@@ -48,7 +48,10 @@ function auditServiceLayer() {
   report += `===================================================================\n\n`;
 
   if (violations.length === 0) {
-    report += `SUCCESS: No direct database calls inside UI layer detected!\n`;
+    if (fs.existsSync(LOG_FILE)) {
+      try { fs.unlinkSync(LOG_FILE); } catch (_) {}
+    }
+    console.log('[05 Service Layer Audit] Finished (0 issues) -> Clean');
   } else {
     const grouped = {};
     violations.forEach(v => {
@@ -68,10 +71,10 @@ function auditServiceLayer() {
       });
       report += `\n`;
     });
-  }
 
-  fs.writeFileSync(LOG_FILE, report);
-  console.log(`[05 Service Layer Audit] Finished (${violations.length} issues) -> .docs/audits/05-service-layer-violations.log`);
+    fs.writeFileSync(LOG_FILE, report);
+    console.log(`[05 Service Layer Audit] Finished (${violations.length} issues) -> .docs/audits/audits/05-service-layer-violations.log`);
+  }
 }
 
 module.exports = { auditServiceLayer };

@@ -96,7 +96,10 @@ function auditLayerImports() {
   report += `===================================================================\n\n`;
 
   if (violations.length === 0) {
-    report += `SUCCESS: No layer import or circular dependency violations found!\n`;
+    if (fs.existsSync(LOG_FILE)) {
+      try { fs.unlinkSync(LOG_FILE); } catch (_) {}
+    }
+    console.log('[07 Layer Imports Audit] Finished (0 issues) -> Clean');
   } else {
     const grouped = {};
     violations.forEach(v => {
@@ -115,10 +118,10 @@ function auditLayerImports() {
       });
       report += `\n`;
     });
-  }
 
-  fs.writeFileSync(LOG_FILE, report);
-  console.log(`[07 Layer Imports Audit] Finished (${violations.length} issues) -> .docs/audits/07-layer-imports-violations.log`);
+    fs.writeFileSync(LOG_FILE, report);
+    console.log(`[07 Layer Imports Audit] Finished (${violations.length} issues) -> .docs/audits/audits/07-layer-imports-violations.log`);
+  }
 }
 
 module.exports = { auditLayerImports };

@@ -76,29 +76,73 @@ function cleanupAuditArtifacts(rawJsonPath) {
   }
 }
 
-function writeAllReports(reports, subDir) {
+function hasReportFindings(type, data) {
+  const h = data.health || {};
+  const c = data.check || {};
+  const d = data.dupes || {};
+
+  switch (type) {
+    case "complexity":
+      return (h.findings || []).length > 0;
+    case "largeFiles":
+      return (h.file_scores || []).some(f => (f.lines || 0) >= 500);
+    case "highComplexity":
+      return (h.file_scores || []).some(f => (f.lines || 0) < 500 && (f.crap_max || 0) >= 50);
+    case "targets":
+      return (h.targets || []).length > 0;
+    case "duplication":
+      return (d.clone_groups || []).length > 0;
+    case "deadFiles":
+      return (c.unused_files || []).length > 0;
+    case "unusedExports":
+      return (c.unused_exports || []).length > 0;
+    case "dependencyIssues":
+      return (
+        (c.unused_dependencies || []).length > 0 ||
+        (c.unlisted_dependencies || []).length > 0 ||
+        (c.circular_dependencies || []).length > 0
+      );
+    case "smallFiles":
+      return (h.small_files || []).length > 0;
+    default:
+      return false;
+  }
+}
+
+function writeAllReports(reports, subDir, data) {
   const base = subDir ? path.resolve(REPORTS_DIR, subDir) : REPORTS_DIR;
   
-  // Clean up obsolete unified report file if it exists
-  const oldUnusedFile = path.resolve(base, "unused-code-dependencies.md");
-  if (fs.existsSync(oldUnusedFile)) {
-    try { fs.unlinkSync(oldUnusedFile); } catch (_) {}
-  }
+  // Clean up obsolete/main report files if present
+  const obsoleteFiles = [
+    path.resolve(base, "Codebase-Audit-Report.md"),
+    path.resolve(base, "unused-code-dependencies.md"),
+    path.resolve(base, "priority-refactor-targets.md")
+  ];
+  obsoleteFiles.forEach(f => {
+    if (fs.existsSync(f)) {
+      try { fs.unlinkSync(f); } catch (_) {}
+    }
+  });
 
-  const reportFiles = [
-    [path.resolve(base, "Codebase-Audit-Report.md"), reports.main],
-    [path.resolve(base, "complexity-health-findings.md"), reports.complexity],
-    [path.resolve(base, "large-files.md"), reports.largeFiles],
-    [path.resolve(base, "high-complexity-files.md"), reports.highComplexity],
-    [path.resolve(base, "code-duplication.md"), reports.duplication],
-    [path.resolve(base, "dead-files.md"), reports.deadFiles],
-    [path.resolve(base, "unused-exports.md"), reports.unusedExports],
-    [path.resolve(base, "dependency-issues.md"), reports.dependencyIssues],
-    [path.resolve(base, "small-files.md"), reports.smallFiles],
+  const reportMap = [
+    ["complexity", path.resolve(base, "complexity-health-findings.md"), reports.complexity],
+    ["largeFiles", path.resolve(base, "large-files.md"), reports.largeFiles],
+    ["highComplexity", path.resolve(base, "high-complexity-files.md"), reports.highComplexity],
+    ["duplication", path.resolve(base, "code-duplication.md"), reports.duplication],
+    ["deadFiles", path.resolve(base, "dead-files.md"), reports.deadFiles],
+    ["unusedExports", path.resolve(base, "unused-exports.md"), reports.unusedExports],
+    ["dependencyIssues", path.resolve(base, "dependency-issues.md"), reports.dependencyIssues],
+    ["smallFiles", path.resolve(base, "small-files.md"), reports.smallFiles],
   ];
 
-  reportFiles.forEach(([reportPath, content]) => {
-    if (content) writeReportFile(reportPath, content);
+  reportMap.forEach(([key, reportPath, content]) => {
+    if (hasReportFindings(key, data)) {
+      if (content) writeReportFile(reportPath, content);
+    } else {
+      if (fs.existsSync(reportPath)) {
+        try { fs.unlinkSync(reportPath); } catch (_) {}
+      }
+    }
   });
 }
 
@@ -193,10 +237,10 @@ function main() {
   const { project, other } = splitData(cleanedJSON);
 
   const projReports = generateReports(project, ROOT, projectName + " (Project)", "project");
-  writeAllReports(projReports, "project");
+  writeAllReports(projReports, "project", project);
 
   const otherReports = generateReports(other, ROOT, projectName + " (Other/Tools)", "other");
-  writeAllReports(otherReports, "other");
+  writeAllReports(otherReports, "other", other);
 
   printSummary(cleanedJSON);
   cleanupAuditArtifacts(RAW_JSON);
