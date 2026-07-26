@@ -1,6 +1,6 @@
 # 📦 Unused Code & Dependencies
 
-*Generated on: 26.07.2026, 15:20:54*
+*Generated on: 26.07.2026, 15:42:13*
 
 ### Dead Files (Unused)
 Files that are not reachable or imported by any other codebase file:
@@ -66,8 +66,4 @@ Exports that are not imported or consumed by any other active file:
 #### Unlisted Dependencies
 - `expo-av` (imported at: `src/components/Media/VideoRenderer.js:7`)
 - `expo-video` (imported at: `src/components/Media/VideoRenderer.js:10`)
-
-#### Circular Dependencies (⚠️ High Risk)
-- {"files":["src/components/Card/PlaceholderCard.js","src/features/catalog/CategoryCard.js","src/components/Card/index.js"],"length":3,"line":4,"col":7,"edges":[{"path":"src/components/Card/PlaceholderCard.js","line":4,"col":7},{"path":"src/features/catalog/CategoryCard.js","line":7,"col":7},{"path":"src/components/Card/index.js","line":1,"col":0}],"actions":[{"type":"refactor-cycle","auto_fixable":false,"description":"Extract shared logic into a separate module to break the cycle","note":"Circular imports can cause initialization issues and make code harder to reason about"},{"type":"suppress-line","auto_fixable":false,"description":"Suppress with an inline comment above the line","comment":"// fallow-ignore-next-line circular-dependency"}]}
-- {"files":["src/components/Card/PlaceholderCard.js","src/features/product/ProductCard.js","src/components/Card/index.js"],"length":3,"line":5,"col":7,"edges":[{"path":"src/components/Card/PlaceholderCard.js","line":5,"col":7},{"path":"src/features/product/ProductCard.js","line":9,"col":7},{"path":"src/components/Card/index.js","line":1,"col":0}],"actions":[{"type":"refactor-cycle","auto_fixable":false,"description":"Extract shared logic into a separate module to break the cycle","note":"Circular imports can cause initialization issues and make code harder to reason about"},{"type":"suppress-line","auto_fixable":false,"description":"Suppress with an inline comment above the line","comment":"// fallow-ignore-next-line circular-dependency"}]}
 

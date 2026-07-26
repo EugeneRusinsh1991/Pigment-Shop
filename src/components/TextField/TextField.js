@@ -1,8 +1,36 @@
-import React, { useState, forwardRef } from 'react';
+import React, { useState, forwardRef, useCallback } from 'react';
 import { View, Text, TextInput, Animated } from 'react-native';
 import styles, { getTextFieldStyles } from './TextFieldStyles';
 import { useTextFieldTheme } from './useTextFieldTheme';
 import { useTextFieldAnimation } from './useTextFieldAnimation';
+
+function getDisplayHelperText(error, helperText) {
+  if (typeof error === 'string') return error;
+  return helperText;
+}
+
+function renderLabel(label, dynamicStyles, labelStyle) {
+  if (!label) return null;
+  return (
+    <Text style={[dynamicStyles.label, labelStyle]}>
+      {label}
+    </Text>
+  );
+}
+
+function renderIcon(icon, style) {
+  if (!icon) return null;
+  return <View style={style}>{icon}</View>;
+}
+
+function renderHelperText(displayHelperText, dynamicStyles, helperStyle) {
+  if (!displayHelperText) return null;
+  return (
+    <Text style={[dynamicStyles.helperText, helperStyle]}>
+      {displayHelperText}
+    </Text>
+  );
+}
 
 const TextField = forwardRef(function TextField(
   {
@@ -48,8 +76,7 @@ const TextField = forwardRef(function TextField(
     animated,
   });
 
-  const computedErrorText = typeof error === 'string' ? error : null;
-  const displayHelperText = computedErrorText || helperText;
+  const displayHelperText = getDisplayHelperText(error, helperText);
 
   const dynamicStyles = getTextFieldStyles({
     size,
@@ -64,23 +91,19 @@ const TextField = forwardRef(function TextField(
     isDark: theme.isDark,
   });
 
-  const handleFocus = (e) => {
+  const handleFocus = useCallback((e) => {
     setIsFocused(true);
     if (onFocus) onFocus(e);
-  };
+  }, [onFocus]);
 
-  const handleBlur = (e) => {
+  const handleBlur = useCallback((e) => {
     setIsFocused(false);
     if (onBlur) onBlur(e);
-  };
+  }, [onBlur]);
 
   return (
     <View style={[dynamicStyles.container, containerStyle]}>
-      {label ? (
-        <Text style={[dynamicStyles.label, labelStyle]}>
-          {label}
-        </Text>
-      ) : null}
+      {renderLabel(label, dynamicStyles, labelStyle)}
 
       <Animated.View
         style={[
@@ -89,9 +112,7 @@ const TextField = forwardRef(function TextField(
           inputWrapperStyle,
         ]}
       >
-        {leadingIcon ? (
-          <View style={dynamicStyles.leadingIcon}>{leadingIcon}</View>
-        ) : null}
+        {renderIcon(leadingIcon, dynamicStyles.leadingIcon)}
 
         <TextInput
           ref={ref}
@@ -108,16 +129,10 @@ const TextField = forwardRef(function TextField(
           {...restProps}
         />
 
-        {trailingIcon ? (
-          <View style={dynamicStyles.trailingIcon}>{trailingIcon}</View>
-        ) : null}
+        {renderIcon(trailingIcon, dynamicStyles.trailingIcon)}
       </Animated.View>
 
-      {displayHelperText ? (
-        <Text style={[dynamicStyles.helperText, helperStyle]}>
-          {displayHelperText}
-        </Text>
-      ) : null}
+      {renderHelperText(displayHelperText, dynamicStyles, helperStyle)}
     </View>
   );
 });

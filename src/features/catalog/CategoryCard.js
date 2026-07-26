@@ -78,17 +78,50 @@ function getCategoryCardHeight(isBanner, device) {
   return isBanner ? CATEGORY_BANNER_HEIGHTS[device] : CATEGORY_GRID_HEIGHTS[device];
 }
 
+function getDeviceType(width) {
+  if (width >= 1024) return 'desktop';
+  if (width < 768) return 'mobile';
+  return 'tablet';
+}
+
+function getActiveIsBanner(item) {
+  if (!item) return false;
+  return Boolean(item.isBanner || item.isSingleSubcategory);
+}
+
+function getImageSource(item, imgError) {
+  if (!item || !item.image || imgError) return { uri: CATEGORY_PLACEHOLDER };
+  return { uri: item.image };
+}
+
+function getCardStyle(cardHeight, activeIsBanner, style) {
+  return [styles.catCard, { minHeight: cardHeight }, activeIsBanner ? styles.bannerCard : null, style];
+}
+
+function getContentStyle(computedStyles, activeIsBanner) {
+  return [computedStyles.content, activeIsBanner ? styles.bannerContent : null];
+}
+
+function getLabelStyle(computedStyles, activeIsBanner) {
+  return [computedStyles.label, activeIsBanner ? styles.bannerLabel : null];
+}
+
+function getDescStyle(computedStyles, activeIsBanner) {
+  return [computedStyles.desc, activeIsBanner ? styles.bannerDesc : null];
+}
+
 const CategoryCardInner = React.forwardRef(({ item, isDark, depth = 1, isBanner = false, style, ...rest }, ref) => {
   const [imgError, setImgError] = React.useState(false);
   const { lang } = useTheme();
   const { width: windowWidth } = useWindowDimensions();
+  
   const isMobile = windowWidth < 768;
-  const device = windowWidth >= 1024 ? 'desktop' : isMobile ? 'mobile' : 'tablet';
+  const device = getDeviceType(windowWidth);
   const { desc, label } = useCategoryContent(item, lang);
   const computedStyles = getCategoryCardStyles(isDark, isMobile);
-  const activeIsBanner = Boolean(item?.isBanner || item?.isSingleSubcategory);
-
+  const activeIsBanner = getActiveIsBanner(item);
   const cardHeight = getCategoryCardHeight(activeIsBanner, device);
+  const imageSource = getImageSource(item, imgError);
 
   return (
     <Card
@@ -96,20 +129,20 @@ const CategoryCardInner = React.forwardRef(({ item, isDark, depth = 1, isBanner 
       variant="compact"
       isDark={isDark}
       interactive={true}
-      style={[styles.catCard, { minHeight: cardHeight }, activeIsBanner && styles.bannerCard, style]}
+      style={getCardStyle(cardHeight, activeIsBanner, style)}
       {...rest}
     >
       <View style={{ ...StyleSheet.absoluteFillObject, borderRadius: layout.radii.lg, overflow: 'hidden' }}>
         <Image
-          source={{ uri: (!item?.image || imgError) ? CATEGORY_PLACEHOLDER : item.image }}
+          source={imageSource}
           style={styles.catImage}
           resizeMode="cover"
           onError={() => setImgError(true)}
         />
         <View style={[styles.overlay, computedStyles.overlay]} />
-        <View style={[computedStyles.content, activeIsBanner && styles.bannerContent]}>
-          <Text style={[computedStyles.label, activeIsBanner && styles.bannerLabel]} numberOfLines={2}>{label}</Text>
-          <Text style={[computedStyles.desc, activeIsBanner && styles.bannerDesc]} numberOfLines={2}>{desc}</Text>
+        <View style={getContentStyle(computedStyles, activeIsBanner)}>
+          <Text style={getLabelStyle(computedStyles, activeIsBanner)} numberOfLines={2}>{label}</Text>
+          <Text style={getDescStyle(computedStyles, activeIsBanner)} numberOfLines={2}>{desc}</Text>
         </View>
       </View>
     </Card>

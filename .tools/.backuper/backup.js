@@ -44,8 +44,8 @@ try {
 
   console.log('\n✅ Backup completed and sent to Git!');
 
-  console.log('⏳ Завершение через 10 секунд...');
-  const stopAt = Date.now() + 10000;
+  console.log('⏳ Завершение через 3 секунды...');
+  const stopAt = Date.now() + 3000;
   while (Date.now() < stopAt) {
     // Synchronous delay to preserve terminal window before auto-close
   }

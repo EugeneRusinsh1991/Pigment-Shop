@@ -1,21 +1,27 @@
 import { useTheme } from '../../context/ThemeContext';
 
-export function useToggleTheme({ isDarkProp, styleMap } = {}) {
-  let isDarkContext = false;
+function getIsDarkContext() {
   try {
     const themeCtx = useTheme();
-    isDarkContext = themeCtx?.isDark ?? false;
+    return themeCtx?.isDark ?? false;
   } catch (e) {
-    isDarkContext = false;
+    return false;
   }
+}
 
-  const isDark = isDarkProp ?? isDarkContext;
+function getStyle(styleMap, isDark, key) {
+  if (!styleMap) return undefined;
+  return isDark ? styleMap[key] : null;
+}
+
+export function useToggleTheme({ isDarkProp, styleMap } = {}) {
+  const isDark = isDarkProp ?? getIsDarkContext();
 
   return {
     isDark,
-    container: isDark ? styleMap?.containerDark : null,
-    activeOption: isDark ? styleMap?.activeOptionDark : null,
-    text: isDark ? styleMap?.textBaseDark : null,
-    activeText: isDark ? styleMap?.activeTextDark : null,
+    container: getStyle(styleMap, isDark, 'containerDark'),
+    activeOption: getStyle(styleMap, isDark, 'activeOptionDark'),
+    text: getStyle(styleMap, isDark, 'textBaseDark'),
+    activeText: getStyle(styleMap, isDark, 'activeTextDark'),
   };
 }

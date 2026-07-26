@@ -97,6 +97,54 @@ const styles = StyleSheet.create({
   },
 });
 
+function getContainerStyles(fullWidth, width) {
+  return [
+    styles.container,
+    fullWidth ? { width: '100%' } : null,
+    width ? { width } : null,
+  ];
+}
+
+function getLabelStyles(isDark) {
+  return [
+    styles.label,
+    isDark ? styles.labelDark : null,
+  ];
+}
+
+function getInputWrapperStyles(sizeTokens, computedHeight, multiline, isDark, focused, error, disabled) {
+  return [
+    styles.inputWrapper,
+    {
+      height: computedHeight,
+      paddingHorizontal: sizeTokens.paddingHorizontal,
+      borderRadius: sizeTokens.borderRadius,
+      alignItems: multiline ? 'flex-start' : 'center',
+    },
+    isDark ? styles.inputWrapperDark : null,
+    focused ? styles.inputWrapperFocused : null,
+    error ? styles.inputWrapperError : null,
+    disabled ? styles.inputWrapperDisabled : null,
+  ];
+}
+
+function getInputStyles(sizeTokens, multiline, isDark) {
+  return [
+    styles.input,
+    { fontSize: sizeTokens.fontSize },
+    multiline ? styles.inputMultiline : null,
+    isDark ? styles.inputDark : null,
+  ];
+}
+
+function getHelperTextStyles(isDark, error) {
+  return [
+    styles.helperText,
+    isDark ? styles.helperTextDark : null,
+    error ? styles.errorText : null,
+  ];
+}
+
 /**
  * Dynamic style resolver for TextField component based on state and props.
  */
@@ -118,41 +166,13 @@ export function getTextFieldStyles({
     : height || sizeTokens.height;
 
   return {
-    container: [
-      styles.container,
-      fullWidth ? { width: '100%' } : null,
-      width ? { width } : null,
-    ],
-    label: [
-      styles.label,
-      isDark ? styles.labelDark : null,
-    ],
-    inputWrapper: [
-      styles.inputWrapper,
-      {
-        height: computedHeight,
-        paddingHorizontal: sizeTokens.paddingHorizontal,
-        borderRadius: sizeTokens.borderRadius,
-        alignItems: multiline ? 'flex-start' : 'center',
-      },
-      isDark ? styles.inputWrapperDark : null,
-      focused ? styles.inputWrapperFocused : null,
-      error ? styles.inputWrapperError : null,
-      disabled ? styles.inputWrapperDisabled : null,
-    ],
-    input: [
-      styles.input,
-      { fontSize: sizeTokens.fontSize },
-      multiline ? styles.inputMultiline : null,
-      isDark ? styles.inputDark : null,
-    ],
+    container: getContainerStyles(fullWidth, width),
+    label: getLabelStyles(isDark),
+    inputWrapper: getInputWrapperStyles(sizeTokens, computedHeight, multiline, isDark, focused, error, disabled),
+    input: getInputStyles(sizeTokens, multiline, isDark),
     leadingIcon: styles.leadingIconContainer,
     trailingIcon: styles.trailingIconContainer,
-    helperText: [
-      styles.helperText,
-      isDark ? styles.helperTextDark : null,
-      error ? styles.errorText : null,
-    ],
+    helperText: getHelperTextStyles(isDark, error),
     sizeTokens,
   };
 }

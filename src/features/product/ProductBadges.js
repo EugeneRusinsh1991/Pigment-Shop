@@ -4,26 +4,44 @@ import { useTheme } from '../../context/ThemeContext';
 import { colors } from '../../theme/tokens';
 import { Flag } from '../../components/Flag';
 
+function renderNewBadge(isNew, t) {
+  if (!isNew) return null;
+  return (
+    <Flag variant="chip" readOnly colorScheme="new">
+      {t('badgeNew')}
+    </Flag>
+  );
+}
+
+function renderFeaturedBadge(isFeatured, t) {
+  if (!isFeatured) return null;
+  return (
+    <Flag variant="chip" readOnly colorScheme="featured">
+      {t('badgeFeatured') || 'FEATURED'}
+    </Flag>
+  );
+}
+
+function renderDiscountBadge(discountPercent) {
+  if (!(discountPercent > 0)) return null;
+  return (
+    <Flag variant="chip" readOnly colorScheme="sale">
+      -{discountPercent}%
+    </Flag>
+  );
+}
+
 export default function ProductBadges({ isNew, isFeatured, discountPercent, containerStyle }) {
   const { t } = useTheme();
-  if (!isNew && !isFeatured && !(discountPercent > 0)) return null;
+  
+  const hasBadges = isNew || isFeatured || discountPercent > 0;
+  if (!hasBadges) return null;
+
   return (
     <View style={[styles.badgeContainer, containerStyle]}>
-      {isNew ? (
-        <Flag variant="chip" readOnly colorScheme="new">
-          {t('badgeNew')}
-        </Flag>
-      ) : null}
-      {isFeatured ? (
-        <Flag variant="chip" readOnly colorScheme="featured">
-          {t('badgeFeatured') || 'FEATURED'}
-        </Flag>
-      ) : null}
-      {discountPercent > 0 ? (
-        <Flag variant="chip" readOnly colorScheme="sale">
-          -{discountPercent}%
-        </Flag>
-      ) : null}
+      {renderNewBadge(isNew, t)}
+      {renderFeaturedBadge(isFeatured, t)}
+      {renderDiscountBadge(discountPercent)}
     </View>
   );
 }

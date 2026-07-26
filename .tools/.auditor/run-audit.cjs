@@ -190,6 +190,12 @@ function main() {
 
   printSummary(cleanedJSON);
   cleanupAuditArtifacts(RAW_JSON);
+
+  console.log('\n⏳ Завершение через 3 секунды...');
+  const stopAt = Date.now() + 3000;
+  while (Date.now() < stopAt) {
+    // Synchronous delay to preserve terminal window before auto-close
+  }
 }
 
 main();

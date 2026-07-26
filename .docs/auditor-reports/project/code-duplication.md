@@ -1,6 +1,6 @@
 # 👥 Significant Code Duplication (≥ 8 lines)
 
-*Generated on: 26.07.2026, 15:20:54*
+*Generated on: 26.07.2026, 15:42:13*
 
 ### Clone Group 1 — 19 lines, 56 tokens · `dup:01d9fda4`
 > 💡 Extract duplicated code (19 lines, 2 instances) into a shared function
@@ -14,10 +14,10 @@
 - [ProductRowVariants.js:L119–L134](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductRowVariants.js#L119-L134) (`src/components/Admin/Products/ProductRowVariants.js`)
 - [ProductRowVariants.js:L179–L194](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductRowVariants.js#L179-L194) (`src/components/Admin/Products/ProductRowVariants.js`)
 
-### Clone Group 3 — 14 lines, 55 tokens · `dup:c61aa91d`
-> 💡 Extract duplicated code (14 lines, 2 instances) into a shared function
+### Clone Group 3 — 12 lines, 63 tokens · `dup:fe362c83`
+> 💡 Extract duplicated code (12 lines, 2 instances) into a shared function
 
-- [useFlagTheme.js:L6–L19](file:///D:/Magazine/_PigmentShop/src/components/Flag/useFlagTheme.js#L6-L19) (`src/components/Flag/useFlagTheme.js`)
-- [useToggleTheme.js:L3–L16](file:///D:/Magazine/_PigmentShop/src/components/Toggle/useToggleTheme.js#L3-L16) (`src/components/Toggle/useToggleTheme.js`)
+- [useFlagTheme.js:L3–L14](file:///D:/Magazine/_PigmentShop/src/components/Flag/useFlagTheme.js#L3-L14) (`src/components/Flag/useFlagTheme.js`)
+- [useTextFieldTheme.js:L3–L14](file:///D:/Magazine/_PigmentShop/src/components/TextField/useTextFieldTheme.js#L3-L14) (`src/components/TextField/useTextFieldTheme.js`)
 
 

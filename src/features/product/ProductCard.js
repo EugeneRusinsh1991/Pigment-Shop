@@ -42,6 +42,20 @@ const ProductPrice = React.memo(function ProductPrice({ price, discountPercent, 
   return <Text style={pStyle}>${price.toLocaleString()}</Text>;
 });
 
+function safeStopPropagation(e) {
+  if (e && e.preventDefault) e.preventDefault();
+  if (e && e.stopPropagation) e.stopPropagation();
+}
+
+function getImageSource(item, imgError) {
+  if (!item || !item.image || imgError) return { uri: PRODUCT_PLACEHOLDER };
+  return { uri: item.image };
+}
+
+function getCardStyle(cardHeight, overrideWidth) {
+  return [{ minHeight: cardHeight }, overrideWidth ? { width: overrideWidth } : null];
+}
+
 const ProductCardInner = React.forwardRef(({ item, isDark, depth = 1, isFavorite, onToggleFavorite, overrideWidth, ...rest }, ref) => {
   const [imgError, setImgError] = React.useState(false);
   const { t, lang } = useTheme();
@@ -50,16 +64,15 @@ const ProductCardInner = React.forwardRef(({ item, isDark, depth = 1, isFavorite
 
   const themed = useMemo(() => getThemedStyles(isDark, imgContainerHeight), [isDark, imgContainerHeight]);
   const heartColor = isFavorite ? colors.accentPinkLight : themed.heartColor;
+  const imageSource = getImageSource(item, imgError);
 
   const handleFavPress = useCallback((e) => {
-    e?.preventDefault?.();
-    e?.stopPropagation?.();
-    onToggleFavorite?.(item);
+    safeStopPropagation(e);
+    if (onToggleFavorite) onToggleFavorite(item);
   }, [onToggleFavorite, item]);
 
   const handleCartPress = useCallback((e) => {
-    e?.preventDefault?.();
-    e?.stopPropagation?.();
+    safeStopPropagation(e);
     const effectivePrice = getEffectivePrice(item.price, item.discountPercent);
     addItem(item, effectivePrice, 1);
   }, [addItem, item]);
@@ -70,12 +83,12 @@ const ProductCardInner = React.forwardRef(({ item, isDark, depth = 1, isFavorite
       variant="grid"
       isDark={isDark}
       interactive={true}
-      style={[{ minHeight: cardHeight }, overrideWidth ? { width: overrideWidth } : null]}
+      style={getCardStyle(cardHeight, overrideWidth)}
       {...rest}
     >
       <View style={themed.imageContainer}>
         <Image
-          source={{ uri: (!item?.image || imgError) ? PRODUCT_PLACEHOLDER : item.image }}
+          source={imageSource}
           style={styles.prodImage}
           resizeMode="cover"
           onError={() => setImgError(true)}

@@ -10,6 +10,34 @@ function getOptionDimensions(size) {
   return { width: 0, height };
 }
 
+function getOptionValue(opt) {
+  if (typeof opt === 'object' && opt !== null) return opt.value;
+  return opt;
+}
+
+function getOptionLabel(opt) {
+  if (typeof opt === 'object' && opt !== null) return opt.label ?? String(opt.value);
+  return String(opt);
+}
+
+function getOptionStyle(isActive, animated, theme, activeOptionStyle, optionStyle) {
+  return [
+    styles.option,
+    isActive && !animated ? [styles.activeOption, theme?.activeOption, activeOptionStyle] : null,
+    optionStyle,
+  ];
+}
+
+function getOptionTextStyle(isActive, textSizeStyle, theme, textStyle, activeTextStyle) {
+  return [
+    styles.textBase,
+    textSizeStyle,
+    theme?.text,
+    textStyle,
+    isActive ? [styles.activeText, theme?.activeText, activeTextStyle] : null,
+  ];
+}
+
 export default function Toggle({
   options = [],
   value,
@@ -44,7 +72,7 @@ export default function Toggle({
 
   return (
     <View style={[styles.container, sizeStyle, theme?.container, style]} {...props}>
-      {animated && animation?.indicatorStyle ? (
+      {animated && animation?.indicatorStyle && (
         <Animated.View
           style={[
             styles.activeIndicator,
@@ -52,41 +80,28 @@ export default function Toggle({
             animation.indicatorStyle,
           ]}
         />
-      ) : null}
+      )}
       {options.map((opt, index) => {
-        const optionValue = typeof opt === 'object' && opt !== null ? opt.value : opt;
-        const optionLabel = typeof opt === 'object' && opt !== null ? (opt.label ?? String(opt.value)) : String(opt);
+        const optionValue = getOptionValue(opt);
+        const optionLabel = getOptionLabel(opt);
         const isActive = optionValue === value;
+        const key = optionValue ?? index;
 
         return (
           <TouchableOpacity
-            key={optionValue ?? index}
+            key={key}
             onLayout={(e) => animation?.setOptionLayout && animation.setOptionLayout(optionValue, e.nativeEvent.layout)}
-            style={[
-              styles.option,
-              isActive && !animated && [styles.activeOption, theme?.activeOption, activeOptionStyle],
-              optionStyle,
-            ]}
+            style={getOptionStyle(isActive, animated, theme, activeOptionStyle, optionStyle)}
             hitSlop={computedHitSlop}
             disabled={disabled}
             activeOpacity={0.7}
             onPress={() => {
-              if (!isActive && onChange) {
-                onChange(optionValue);
-              }
+              if (!isActive && onChange) onChange(optionValue);
             }}
             accessibilityRole="tab"
             accessibilityState={{ selected: isActive }}
           >
-            <Text
-              style={[
-                styles.textBase,
-                textSizeStyle,
-                theme?.text,
-                textStyle,
-                isActive && [styles.activeText, theme?.activeText, activeTextStyle],
-              ]}
-            >
+            <Text style={getOptionTextStyle(isActive, textSizeStyle, theme, textStyle, activeTextStyle)}>
               {optionLabel}
             </Text>
           </TouchableOpacity>

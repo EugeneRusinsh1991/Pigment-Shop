@@ -27,6 +27,19 @@ function resolveStatus(currentStatus) {
   return STATUSES.find((s) => s.value === canonical) || STATUSES[0];
 }
 
+function getColorScheme(statusValue) {
+  if (statusValue === 'Completed') return 'completed';
+  if (statusValue === 'Cancelled') return 'cancelled';
+  if (statusValue === 'New') return 'new';
+  return 'pending';
+}
+
+function getLabel(t, localeKey, currentStatus, isOpen) {
+  const text = t(localeKey) || currentStatus;
+  const icon = isOpen ? '▲' : '▼';
+  return `${text} ${icon}`;
+}
+
 export default function OrderStatusSelector({ currentStatus, updating, onStatusChange, t }) {
   const [isOpen, setIsOpen] = useState(false);
   const statusObj = resolveStatus(currentStatus);
@@ -36,8 +49,6 @@ export default function OrderStatusSelector({ currentStatus, updating, onStatusC
     setIsOpen(false);
   };
 
-  const colorScheme = statusObj.value === 'Completed' ? 'completed' : statusObj.value === 'Cancelled' ? 'cancelled' : statusObj.value === 'New' ? 'new' : 'pending';
-
   return (
     <View style={{ zIndex: 100, position: 'relative', marginBottom: 10 }}>
       <Flag
@@ -45,9 +56,9 @@ export default function OrderStatusSelector({ currentStatus, updating, onStatusC
         checked={isOpen}
         onChange={() => setIsOpen(!isOpen)}
         disabled={updating}
-        colorScheme={colorScheme}
+        colorScheme={getColorScheme(statusObj.value)}
       >
-        {(t(statusObj.localeKey) || currentStatus)} {isOpen ? '▲' : '▼'}
+        {getLabel(t, statusObj.localeKey, currentStatus, isOpen)}
       </Flag>
 
       {isOpen && (

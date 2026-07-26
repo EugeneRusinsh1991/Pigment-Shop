@@ -1,6 +1,6 @@
 # 🧠 Highly Complex Files
 
-*Generated on: 26.07.2026, 15:20:54*
+*Generated on: 26.07.2026, 15:42:13*
 
 ### Highly Complex Files (< 200 lines)
 
@@ -30,9 +30,6 @@
 
 - **[analyzer.cjs](file:///D:/Magazine/_PigmentShop/.tools/.auditor/src/analyzer.cjs)** (`.tools/.auditor/src/analyzer.cjs`)
   - Lines: 197 | CRAP Max: 110 | Complex Funcs: 1 | Density: 21%
-
-- **[run-audit.cjs](file:///D:/Magazine/_PigmentShop/.tools/.auditor/run-audit.cjs)** (`.tools/.auditor/run-audit.cjs`)
-  - Lines: 196 | CRAP Max: 90 | Complex Funcs: 2 | Density: 27%
 
 - **[core.js](file:///D:/Magazine/_PigmentShop/.tools/.backuper/backup/core.js)** (`.tools/.backuper/backup/core.js`)
   - Lines: 191 | CRAP Max: 72 | Complex Funcs: 2 | Density: 24%
