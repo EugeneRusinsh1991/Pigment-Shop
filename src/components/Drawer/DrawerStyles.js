@@ -36,6 +36,9 @@ export const getDrawerStyles = (position = 'left') => {
       borderTopColor: colors.secondaryLightBorder,
       marginTop: 'auto',
     },
+    dismissPressable: {
+      flex: 1,
+    },
   });
 };
 

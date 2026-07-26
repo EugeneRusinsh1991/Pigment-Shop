@@ -31,6 +31,10 @@ export const createBreadcrumbStyles = (isDark) => StyleSheet.create({
   crumbCurrent: {
     color: isDark ? colors.textDescDark : colors.textSubtleDark,
   },
+  homeButton: {
+    paddingVertical: layout.spacing.xxs,
+    paddingHorizontal: layout.spacing.xs,
+  },
 });
 
 export const createPaginationStyles = (isDark) => StyleSheet.create({
@@ -62,7 +66,7 @@ export const createPaginationStyles = (isDark) => StyleSheet.create({
     color: colors.accent,
   },
   breadcrumbWrapper: {
-    paddingVertical: 2,
+    paddingVertical: layout.spacing.xxs / 2,
     flex: 1,
     minHeight: 24,
     minWidth: 0,

@@ -1,9 +1,9 @@
 ===================================================================
                FILES WITH ISSUES REPORT                            
-Timestamp: 27.07.2026, 00:33:34
+Timestamp: 27.07.2026, 00:40:27
 ===================================================================
 
-Found 1082 issue(s) across 153 target(s):
+Found 1067 issue(s) across 152 target(s):
 
 - src\AppStyles.js (1 issues)
 - src\components\Admin\AdminPanel.js (1 issues)
@@ -57,9 +57,8 @@ Found 1082 issue(s) across 153 target(s):
 - src\components\Card\NavigationCard.js (1 issues)
 - src\components\Card\StaticCard.js (1 issues)
 - src\components\DataTable\DataTable.js (7 issues)
-- src\components\DataTable\DataTableStyles.js (12 issues)
 - src\components\DataTable\EmptyState.js (1 issues)
-- src\components\Drawer\Drawer.js (2 issues)
+- src\components\Drawer\Drawer.js (1 issues)
 - src\components\Feedback\EmptyState\EmptyState.js (1 issues)
 - src\components\Feedback\EmptyState\EmptyStateStyles.js (2 issues)
 - src\components\Feedback\Skeleton\SkeletonLoader.js (1 issues)
@@ -75,8 +74,8 @@ Found 1082 issue(s) across 153 target(s):
 - src\components\Media\MediaStyles.js (2 issues)
 - src\components\Media\useMediaTheme.js (1 issues)
 - src\components\Media\VideoRenderer.js (4 issues)
-- src\components\Navigation\Breadcrumbs\Breadcrumb.js (3 issues)
-- src\components\Navigation\NavigationStyles.js (2 issues)
+- src\components\Navigation\Breadcrumbs\Breadcrumb.js (2 issues)
+- src\components\Navigation\NavigationStyles.js (1 issues)
 - src\components\Search\AutocompleteSearch.js (1 issues)
 - src\components\Search\SearchDropdown.js (7 issues)
 - src\components\Search\SearchInput.js (1 issues)

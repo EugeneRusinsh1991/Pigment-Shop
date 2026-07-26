@@ -10,11 +10,11 @@ function WebGifRenderer({ uri, resizeMode, flatStyle }) {
   return (
     <img 
       src={uri}
-      style={{
-        ...mediaStyles.webMedia,
-        objectFit: resizeMode === 'cover' ? 'cover' : 'contain',
-        ...flatStyle
-      }}
+      style={[
+        mediaStyles.webMedia,
+        { objectFit: resizeMode === 'cover' ? 'cover' : 'contain' },
+        flatStyle
+      ]}
       alt="media"
     />
   );

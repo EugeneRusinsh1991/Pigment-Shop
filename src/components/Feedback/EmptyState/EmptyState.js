@@ -9,7 +9,7 @@ import { useEmptyStateTheme } from './useEmptyStateTheme';
 function renderChildren(children, descriptionStyle, mutedColor) {
   if (!children) return null;
   if (typeof children === 'string') {
-    return <Text variant="body" color="muted" style={descriptionStyle}>{children}</Text>;
+    return <Text variant="body" color="muted" style={[descriptionStyle]}>{children}</Text>;
   }
   return children;
 }

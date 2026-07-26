@@ -54,7 +54,7 @@ export default function SkeletonLoader({ count = 3, width, height, borderRadius,
           width={width}
           height={height}
           borderRadius={borderRadius}
-          style={style}
+          style={[style]}
         />
       ))}
     </View>

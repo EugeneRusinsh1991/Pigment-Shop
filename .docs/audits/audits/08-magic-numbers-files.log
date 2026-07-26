@@ -1,9 +1,9 @@
 ===================================================================
                FILES WITH ISSUES REPORT                            
-Timestamp: 27.07.2026, 00:33:35
+Timestamp: 27.07.2026, 00:40:28
 ===================================================================
 
-Found 127 issue(s) across 37 target(s):
+Found 125 issue(s) across 36 target(s):
 
 - src\components\Admin\Analytics\DateRangeCalendarStyles.js (1 issues)
 - src\components\Admin\Banners\BannersStyles.js (2 issues)
@@ -21,7 +21,6 @@ Found 127 issue(s) across 37 target(s):
 - src\components\Admin\Users\UserRow.js (2 issues)
 - src\components\Admin\Users\UsersStyles.js (6 issues)
 - src\components\Badge\BadgeStyles.js (4 issues)
-- src\components\DataTable\DataTableStyles.js (2 issues)
 - src\components\Flag\FlagStyles.js (1 issues)
 - src\components\Search\SearchDropdown.js (3 issues)
 - src\features\auth\LoginPageStyles.js (1 issues)

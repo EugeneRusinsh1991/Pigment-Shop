@@ -128,10 +128,10 @@
 
 ### File: [src/components/DataTable/DataTable.js](file:///D:/Magazine/_PigmentShop/src/components/DataTable/DataTable.js)
   - Line [40](file:///D:/Magazine/_PigmentShop/src/components/DataTable/DataTable.js#L40): `<AnimatedButton>`
-  - Line [151](file:///D:/Magazine/_PigmentShop/src/components/DataTable/DataTable.js#L151): `<AnimatedButton>`
+  - Line [150](file:///D:/Magazine/_PigmentShop/src/components/DataTable/DataTable.js#L150): `<AnimatedButton>`
 
 ### File: [src/components/Drawer/Drawer.js](file:///D:/Magazine/_PigmentShop/src/components/Drawer/Drawer.js)
-  - Line [79](file:///D:/Magazine/_PigmentShop/src/components/Drawer/Drawer.js#L79): `<Pressable>`
+  - Line [78](file:///D:/Magazine/_PigmentShop/src/components/Drawer/Drawer.js#L78): `<Pressable>`
 
 ### File: [src/components/Flag/Flag.js](file:///D:/Magazine/_PigmentShop/src/components/Flag/Flag.js)
   - Line [111](file:///D:/Magazine/_PigmentShop/src/components/Flag/Flag.js#L111): `<Pressable>`

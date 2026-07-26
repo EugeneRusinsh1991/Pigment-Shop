@@ -58,7 +58,7 @@ export function Breadcrumb({ isDark: isDarkProps }) {
     >
       {/* "Home" crumb */}
       <Link href="/" asChild testID="breadcrumb-home">
-        <AnimatedButton style={{ paddingVertical: layout.spacing.xxs, paddingHorizontal: layout.spacing.xs }} hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}>
+        <AnimatedButton style={styles.homeButton} hitSlop={{ top: layout.spacing.xs + 2, bottom: layout.spacing.xs + 2, left: layout.spacing.xs + 2, right: layout.spacing.xs + 2 }}>
           <HomeIcon color={colors.accent} size={14} />
         </AnimatedButton>
       </Link>

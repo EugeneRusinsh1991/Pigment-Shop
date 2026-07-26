@@ -9,7 +9,7 @@ export const mediaStyles = StyleSheet.create({
   playOverlay: {
     width: 48,
     height: 48,
-    borderRadius: 24,
+    borderRadius: layout.radii.xl,
     alignItems: 'center',
     justify: 'center',
     position: 'absolute',
@@ -26,7 +26,7 @@ export const mediaStyles = StyleSheet.create({
     borderRightColor: 'transparent',
     borderBottomColor: 'transparent',
     borderTopColor: 'transparent',
-    marginLeft: 4,
+    marginLeft: layout.spacing.xxs,
   },
   webMedia: {
     width: '100%',

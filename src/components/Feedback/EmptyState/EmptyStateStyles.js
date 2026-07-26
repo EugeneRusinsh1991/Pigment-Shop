@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 40,
+    paddingVertical: layout.spacing.xl * 2 - 8,
     paddingHorizontal: layout.spacing.xl,
   },
   iconWrapper: {
@@ -20,6 +20,6 @@ export const styles = StyleSheet.create({
     maxWidth: 360,
   },
   actionWrapper: {
-    marginTop: 20,
+    marginTop: layout.spacing.lg + 4,
   },
 });

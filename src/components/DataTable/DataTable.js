@@ -10,7 +10,7 @@ import useDataTable from './useDataTable';
 
 function SortIndicator({ isActive, direction, style }) {
   return (
-    <Text variant="overline" style={[style, !isActive && { color: colors.slateStrong }]}>
+    <Text variant="overline" style={[style, !isActive && styles.sortIndicatorInactive]}>
       {isActive ? (direction === 'asc' ? ' ▲' : ' ▼') : ' ↕'}
     </Text>
   );
@@ -60,7 +60,6 @@ function renderDataTableHeader(columns, sortField, sortDirection, onSort, isDark
         <HeaderCell
           key={col.key || idx}
           col={col}
-          idx={idx}
           sortField={sortField}
           sortDirection={sortDirection}
           onSort={onSort}

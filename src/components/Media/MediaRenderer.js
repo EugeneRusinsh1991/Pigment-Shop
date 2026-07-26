@@ -35,7 +35,7 @@ export default function MediaRenderer({ uri, style, resizeMode = 'cover', autoPl
         loop={loop}
         muted={muted}
         preload={preload}
-        style={style}
+        style={[style]}
         onReady={onReady}
         shouldPlay={isActive}
         onProgress={onProgress}
@@ -50,7 +50,7 @@ export default function MediaRenderer({ uri, style, resizeMode = 'cover', autoPl
         uri={uri}
         resizeMode={resizeMode}
         flatStyle={flatStyle}
-        style={style}
+        style={[style]}
       />
     );
   }
@@ -58,7 +58,7 @@ export default function MediaRenderer({ uri, style, resizeMode = 'cover', autoPl
   return (
     <Image
       source={{ uri }}
-      style={style}
+      style={[style]}
       resizeMode={resizeMode}
     />
   );

@@ -76,11 +76,11 @@ function WebVideoRenderer({ uri, resizeMode, flatStyle, autoPlay, loop, muted, p
     <video
       ref={videoRef}
       src={uri}
-      style={{
-        ...mediaStyles.webMedia,
-        objectFit: resizeMode === 'cover' ? 'cover' : 'contain',
-        ...flatStyle
-      }}
+      style={[
+        mediaStyles.webMedia,
+        { objectFit: resizeMode === 'cover' ? 'cover' : 'contain' },
+        flatStyle
+      ]}
       autoPlay={shouldPlay && autoPlay}
       loop={loop}
       muted={muted}
@@ -101,7 +101,7 @@ function NativeVideoRenderer({ uri, style, resizeMode, autoPlay, loop, muted, on
     return (
       <ExpoVideo
         source={{ uri }}
-        style={style}
+        style={[style]}
         resizeMode={resizeMode === 'cover' ? 'cover' : 'contain'}
         shouldPlay={shouldPlay && autoPlay}
         isLooping={loop}
@@ -119,7 +119,7 @@ function NativeVideoRenderer({ uri, style, resizeMode, autoPlay, loop, muted, on
 
   return (
     <View style={[style, mediaStyles.nativeContainer, { backgroundColor: containerBg }]}>
-      <Image source={{ uri }} style={StyleSheet.absoluteFill} resizeMode={resizeMode} />
+      <Image source={{ uri }} style={[StyleSheet.absoluteFill]} resizeMode={resizeMode} />
       <View style={[mediaStyles.playOverlay, { backgroundColor: overlayBg }]}>
         <View style={[mediaStyles.playTriangle, { borderLeftColor: iconColor }]} />
       </View>
@@ -151,7 +151,7 @@ export default function VideoRenderer({ isWeb, uri, resizeMode, flatStyle, autoP
   return (
     <NativeVideoRenderer
       uri={uri}
-      style={style}
+      style={[style]}
       resizeMode={resizeMode}
       autoPlay={autoPlay}
       loop={loop}

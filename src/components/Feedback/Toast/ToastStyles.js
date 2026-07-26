@@ -4,9 +4,9 @@ import { layout, shadows } from '../../../theme/tokens';
 export const styles = StyleSheet.create({
   container: {
     position: 'absolute',
-    top: 20,
+    top: layout.spacing.xl - 4,
     alignSelf: 'center',
-    paddingHorizontal: 20,
+    paddingHorizontal: layout.spacing.lg + 4,
     paddingVertical: layout.spacing.md,
     borderRadius: layout.radii.md,
     borderWidth: 1,
