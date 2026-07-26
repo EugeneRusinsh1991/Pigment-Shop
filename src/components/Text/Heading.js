@@ -38,6 +38,7 @@ export function Heading({
       lineHeight={lineHeight}
       isDark={isDark}
       style={style}
+      accessibilityRole="header"
       {...rest}
     >
       {children}

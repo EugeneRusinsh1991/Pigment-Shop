@@ -1,17 +1,17 @@
 import { StyleSheet } from 'react-native';
-import { colors, fonts } from '../../theme/tokens';
+import { colors, fonts, typography } from '../../theme/tokens';
 
 export const VARIANTS = {
-  h1: { fontSize: 32, lineHeight: 38, fontWeight: '700', fontFamily: fonts.serif },
-  h2: { fontSize: 24, lineHeight: 30, fontWeight: '600', fontFamily: fonts.serif },
-  h3: { fontSize: 20, lineHeight: 26, fontWeight: '600', fontFamily: fonts.sans },
-  h4: { fontSize: 18, lineHeight: 24, fontWeight: '600', fontFamily: fonts.sans },
-  subtitle1: { fontSize: 16, lineHeight: 22, fontWeight: '500', fontFamily: fonts.sans },
-  subtitle2: { fontSize: 14, lineHeight: 20, fontWeight: '500', fontFamily: fonts.sans },
-  body1: { fontSize: 16, lineHeight: 24, fontWeight: '400', fontFamily: fonts.sans },
-  body2: { fontSize: 14, lineHeight: 20, fontWeight: '400', fontFamily: fonts.sans },
-  caption: { fontSize: 12, lineHeight: 16, fontWeight: '400', fontFamily: fonts.sans },
-  overline: { fontSize: 10, lineHeight: 14, fontWeight: '600', letterSpacing: 1, textTransform: 'uppercase', fontFamily: fonts.sans },
+  h1: { fontSize: typography.sizes.xxl, lineHeight: 34, fontWeight: typography.weights.bold, fontFamily: fonts.serif },
+  h2: { fontSize: typography.sizes.xl, lineHeight: 30, fontWeight: typography.weights.bold, fontFamily: fonts.serif },
+  h3: { fontSize: typography.sizes.lg, lineHeight: 26, fontWeight: typography.weights.semibold, fontFamily: fonts.sans },
+  h4: { fontSize: typography.sizes.md, lineHeight: 22, fontWeight: typography.weights.semibold, fontFamily: fonts.sans },
+  subtitle1: { fontSize: typography.sizes.md, lineHeight: 22, fontWeight: typography.weights.medium, fontFamily: fonts.sans },
+  subtitle2: { fontSize: typography.sizes.sm, lineHeight: 18, fontWeight: typography.weights.medium, fontFamily: fonts.sans },
+  body1: { fontSize: typography.sizes.md, lineHeight: 24, fontWeight: typography.weights.regular, fontFamily: fonts.sans },
+  body2: { fontSize: typography.sizes.sm, lineHeight: 20, fontWeight: typography.weights.regular, fontFamily: fonts.sans },
+  caption: { fontSize: typography.sizes.xs, lineHeight: 16, fontWeight: typography.weights.regular, fontFamily: fonts.sans },
+  overline: { fontSize: typography.sizes.xxs, lineHeight: 14, fontWeight: typography.weights.bold, letterSpacing: 1, textTransform: 'uppercase', fontFamily: fonts.sans },
 };
 
 const colorPresetMap = {
@@ -22,8 +22,10 @@ const colorPresetMap = {
   strong:    (isDark) => isDark ? colors.textStrongDark : colors.textStrongLight,
   accent:    () => colors.accent,
   danger:    () => colors.danger,
+  error:     () => colors.danger,
   success:   () => colors.success,
   warning:   (isDark) => isDark ? colors.warningMid : colors.warningDark,
+  inverse:   (isDark) => isDark ? colors.textLight : colors.textDark,
   white:     () => colors.white,
   black:     () => colors.black,
   primary:   (isDark) => isDark ? colors.textDark : colors.textLight,

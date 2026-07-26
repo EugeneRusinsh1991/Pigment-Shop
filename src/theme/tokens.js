@@ -185,6 +185,25 @@ export const fonts = {
   serif: '"Cormorant Garamond", "Playfair Display", Georgia, serif',
 };
 
+export const typography = {
+  sizes: {
+    xxs: 10,
+    xs: 12,
+    sm: 14,
+    md: 16,
+    lg: 20,
+    xl: 24,
+    xxl: 28,
+  },
+  weights: {
+    regular: '400',
+    medium: '500',
+    semibold: '600',
+    bold: '700',
+  },
+  fonts,
+};
+
 export const layout = {
   breakpoints: {
     sm: 640,
