@@ -12,7 +12,7 @@
   - Line [77](file:///D:/Magazine/_PigmentShop/src/components/Admin/AdminPanel.js#L77): `<Button>`
 
 ### File: [src/components/Admin/Analytics/CalendarDayCell.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Analytics/CalendarDayCell.js)
-  - Line [110](file:///D:/Magazine/_PigmentShop/src/components/Admin/Analytics/CalendarDayCell.js#L110): `<AnimatedButton>`
+  - Line [77](file:///D:/Magazine/_PigmentShop/src/components/Admin/Analytics/CalendarDayCell.js#L77): `<AnimatedButton>`
 
 ### File: [src/components/Admin/Analytics/DateRangeCalendar.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Analytics/DateRangeCalendar.js)
   - Line [80](file:///D:/Magazine/_PigmentShop/src/components/Admin/Analytics/DateRangeCalendar.js#L80): `<TouchableOpacity>`
@@ -219,10 +219,10 @@
   - Line [25](file:///D:/Magazine/_PigmentShop/src/features/home/components/HeroCarousel.js#L25): `<AnimatedButton>`
 
 ### File: [src/features/home/components/HeroCarousel/CarouselDots.js](file:///D:/Magazine/_PigmentShop/src/features/home/components/HeroCarousel/CarouselDots.js)
-  - Line [53](file:///D:/Magazine/_PigmentShop/src/features/home/components/HeroCarousel/CarouselDots.js#L53): `<AnimatedButton>`
+  - Line [49](file:///D:/Magazine/_PigmentShop/src/features/home/components/HeroCarousel/CarouselDots.js#L49): `<AnimatedButton>`
 
 ### File: [src/features/orders/OrderConfirmationPage.js](file:///D:/Magazine/_PigmentShop/src/features/orders/OrderConfirmationPage.js)
-  - Line [58](file:///D:/Magazine/_PigmentShop/src/features/orders/OrderConfirmationPage.js#L58): `<Button>`
+  - Line [49](file:///D:/Magazine/_PigmentShop/src/features/orders/OrderConfirmationPage.js#L49): `<Button>`
 
 ### File: [src/features/orders/components/OrderCard.js](file:///D:/Magazine/_PigmentShop/src/features/orders/components/OrderCard.js)
   - Line [105](file:///D:/Magazine/_PigmentShop/src/features/orders/components/OrderCard.js#L105): `<AnimatedButton>`

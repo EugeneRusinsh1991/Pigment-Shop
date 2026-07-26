@@ -7,10 +7,10 @@ All follow the same pattern: `style={getSvgStyle(style)}`.
 
 ---
 
-- [ ] L26 `[INLINE_STYLE]` SVG — `style={getSvgStyle(style)}`
-- [ ] L39 `[INLINE_STYLE]` SVG — `style={getSvgStyle(style)}`
-- [ ] L55 `[INLINE_STYLE]` SVG — `style={getSvgStyle(style)}`
-- [ ] L68 `[INLINE_STYLE]` SVG — `style={getSvgStyle(style)}`
-- [ ] L80 `[INLINE_STYLE]` SVG — `style={getSvgStyle(style)}`
+- [x] L26 `[INLINE_STYLE]` SVG — `style={getSvgStyle(style)}`
+- [x] L39 `[INLINE_STYLE]` SVG — `style={getSvgStyle(style)}`
+- [x] L55 `[INLINE_STYLE]` SVG — `style={getSvgStyle(style)}`
+- [x] L68 `[INLINE_STYLE]` SVG — `style={getSvgStyle(style)}`
+- [x] L80 `[INLINE_STYLE]` SVG — `style={getSvgStyle(style)}`
 
 **Refactor goal:** Confirm `getSvgStyle` uses design tokens; no raw values inside the helper.

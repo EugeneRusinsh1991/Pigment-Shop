@@ -1,9 +1,9 @@
 ===================================================================
                7. LAYER IMPORTS & CYCLIC REPORT                    
-Timestamp: 27.07.2026, 01:59:39
+Timestamp: 27.07.2026, 02:47:16
 ===================================================================
 
-Found 19 layer import issue(s) across 13 file(s):
+Found 20 layer import issue(s) across 14 file(s):
 
 File: src/components/Admin/AdminPanel.js
   - ../../services/adminDomain
@@ -46,6 +46,9 @@ File: src/components/Admin/Users/UserOrdersList.js
 
 File: src/components/Admin/Users/UsersManager.js
   - ../../../services/adminUsersService
+
+File: src/components/PageScrollLayout/PageScrollLayout.js
+  - ../../features/shell/components/Footer
 
 File: src/components/SharedLayoutWrapper/SharedLayoutWrapper.js
   - ../../features/shell/components/Footer

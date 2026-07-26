@@ -1,9 +1,9 @@
 ===================================================================
                10. STATE & PERFORMANCE REPORT                      
-Timestamp: 27.07.2026, 01:59:40
+Timestamp: 27.07.2026, 02:47:16
 ===================================================================
 
-Found 29 performance issue(s) across 13 file(s):
+Found 30 performance issue(s) across 14 file(s):
 
 File: src/bootstrap/BootstrapGate.js
   L23    const decision = useMemo(() => resolveBootstrapDec...
@@ -59,4 +59,7 @@ File: src/features/product/ProductCard.js
 File: src/features/product/ProductPage.js
   L105   const decreaseQty = useCallback(() => setQty((q) =...
   L106   const increaseQty = useCallback(() => setQty((q) =...
+
+File: src/features/shell/StoreSearchHeader.js
+  L16    const searchInnerStyle = useMemo(() => [styles.sea...
 

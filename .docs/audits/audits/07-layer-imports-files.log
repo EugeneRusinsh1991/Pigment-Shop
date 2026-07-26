@@ -1,9 +1,9 @@
 ===================================================================
                FILES WITH ISSUES REPORT                            
-Timestamp: 27.07.2026, 01:59:39
+Timestamp: 27.07.2026, 02:47:16
 ===================================================================
 
-Found 19 issue(s) across 13 target(s):
+Found 20 issue(s) across 14 target(s):
 
 - src/components/Admin/AdminPanel.js (1 issues)
 - src/components/Admin/Analytics/AnalyticsDashboard.js (3 issues)
@@ -17,4 +17,5 @@ Found 19 issue(s) across 13 target(s):
 - src/components/Admin/Users/UserDetails.js (1 issues)
 - src/components/Admin/Users/UserOrdersList.js (1 issues)
 - src/components/Admin/Users/UsersManager.js (1 issues)
+- src/components/PageScrollLayout/PageScrollLayout.js (1 issues)
 - src/components/SharedLayoutWrapper/SharedLayoutWrapper.js (1 issues)

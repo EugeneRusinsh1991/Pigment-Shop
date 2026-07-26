@@ -12,7 +12,7 @@ function CategoryTreeNode({ node, filters, toggleCategory, depth, isDark }) {
   return (
     <View>
       <View style={[styles.categoryRow, { paddingLeft: indent }]}>
-        <View style={{ flex: 1 }}>
+        <View style={styles.categoryCheckboxWrapper}>
           <Checkbox
             testID={`category-checkbox-${node.id}`}
             checked={isChecked}

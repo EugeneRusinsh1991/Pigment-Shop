@@ -1,6 +1,6 @@
 # 🩺 Complexity Health Findings (Critical & High)
 
-*Generated on: 27.07.2026, 01:59:47*
+*Generated on: 27.07.2026, 02:47:25*
 
 ## 🔴 Critical (≤ 50 lines)
 
@@ -40,11 +40,17 @@
 
 ## 🟠 High (≤ 50 lines)
 
-#### 📁 [IconsStyles.js](file:///D:/Magazine/_PigmentShop/src/components/icons/IconsStyles.js)
-`src/components/icons/IconsStyles.js`
+#### 📁 [IconsStyles.js](file:///D:/Magazine/_PigmentShop/src/components/Icons/IconsStyles.js)
+`src/components/Icons/IconsStyles.js`
 
-- 🟠 **`getIconColor`** [L26](file:///D:/Magazine/_PigmentShop/src/components/icons/IconsStyles.js#L26)
+- 🟠 **`getIconColor`** [L26](file:///D:/Magazine/_PigmentShop/src/components/Icons/IconsStyles.js#L26)
   - Lines: 10 | Cyclomatic: 9 | Cognitive: 7 | CRAP: 90
+
+#### 📁 [CalendarDayCell.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Analytics/CalendarDayCell.js)
+`src/components/Admin/Analytics/CalendarDayCell.js`
+
+- 🟠 **`CalendarDayCell`** [L55](file:///D:/Magazine/_PigmentShop/src/components/Admin/Analytics/CalendarDayCell.js#L55)
+  - Lines: 45 | Cyclomatic: 9 | Cognitive: 11 | CRAP: 90
 
 #### 📁 [UserRow.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Users/UserRow.js)
 `src/components/Admin/Users/UserRow.js`

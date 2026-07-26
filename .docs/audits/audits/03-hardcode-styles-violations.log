@@ -1,14 +1,9 @@
 ===================================================================
          3. HARDCODED STYLES, COLORS & SPACING REPORT              
-Timestamp: 27.07.2026, 01:59:39
+Timestamp: 27.07.2026, 02:47:15
 ===================================================================
 
-Found 161 issue(s) across 55 file(s):
-
-File: src\components\Admin\Analytics\CalendarDayCell.js
-  L109   [INLINE_STYLE] <View style={cellStyles}>
-  L111   [INLINE_STYLE] style={buttonStyles}
-  L117   [INLINE_STYLE] <Text variant="body2" weight={weight} style={textStyles}>{cell.dayLabel}</Text>
+Found 152 issue(s) across 49 file(s):
 
 File: src\components\Admin\SharedFormComponents.js
   L23    [INLINE_STYLE] <View style={resolvedStyles.row}>
@@ -37,7 +32,7 @@ File: src\components\Card\NavigationCard.js
   L15    [INLINE_STYLE] style={style}
 
 File: src\components\Card\StaticCard.js
-  L55    [INLINE_STYLE] <ScrollFadeUp ref={ref} style={computedStyle} {...rest}>
+  L61    [INLINE_STYLE] <ScrollFadeUp ref={ref} style={computedStyle} {...rest}>
 
 File: src\components\DataTable\EmptyState.js
   L10    [INLINE_STYLE] <GlobalEmptyState style={style}>
@@ -45,7 +40,7 @@ File: src\components\DataTable\EmptyState.js
 File: src\components\Drawer\Drawer.js
   L11    [INLINE_STYLE] {title ? <Text variant="h4" style={titleStyle}>{title}</Text> : null}
 
-File: src\components\icons\AppIcons.js
+File: src\components\Icons\AppIcons.js
   L26    [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={appIconStyles.getSvg(style)} {...props}>
   L39    [INLINE_STYLE] return <RNText style={appIconStyles.getText(color, size, style)} {...props}>☀️</RNText>;
   L45    [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={appIconStyles.getSvg(style)} {...props}>
@@ -73,14 +68,14 @@ File: src\components\icons\AppIcons.js
   L188   [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={appIconStyles.getSvg(style)} {...props}>
   L194   [INLINE_STYLE] return <RNText style={appIconStyles.getText(color, size, style)} {...props}>$</RNText>;
 
-File: src\components\icons\CategoryIcons.js
+File: src\components\Icons\CategoryIcons.js
   L26    [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={getSvgStyle(style)} {...props}>
   L39    [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={getSvgStyle(style)} {...props}>
   L55    [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={getSvgStyle(style)} {...props}>
   L68    [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={getSvgStyle(style)} {...props}>
   L80    [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={getSvgStyle(style)} {...props}>
 
-File: src\components\icons\ControlIcons.js
+File: src\components\Icons\ControlIcons.js
   L29    [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={getSvgStyle(style)} {...props}>
   L34    [INLINE_STYLE] return <RNText style={getTextStyle(color, size, style)} {...props}>✓</RNText>;
   L40    [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={getSvgStyle(style)} {...props}>
@@ -115,7 +110,7 @@ File: src\components\Media\GifRenderer.js
   L40    [INLINE_STYLE] style={style}
 
 File: src\components\Media\VideoRenderer.js
-  L79    [INLINE_STYLE] style={StyleSheet.flatten([
+  L79    [INLINE_STYLE] style={StyleSheet.flatten([mediaStyles.webMedia, { objectFit: resizeMode === 'cover' ? 'cover' : 'contain' }, flatStyle])}
 
 File: src\components\Navigation\Breadcrumbs\Breadcrumb.js
   L20    [INLINE_STYLE] <Text style={textStyle} size="sm" weight="medium" numberOfLines={1}>
@@ -123,6 +118,10 @@ File: src\components\Navigation\Breadcrumbs\Breadcrumb.js
 
 File: src\components\Navigation\NavigationStyles.js
   L12    [HARDCODED_SPACING] paddingHorizontal 0px -> paddingHorizontal: 0,
+
+File: src\components\PageScrollLayout\PageScrollLayout.js
+  L14    [INLINE_STYLE] <View style={commonStyles.flex1}>
+  L19    [INLINE_STYLE] <View style={commonStyles.bottomSpacer} />
 
 File: src\components\Search\AutocompleteSearch.js
   L69    [INLINE_STYLE] <View style={SearchStyles.autocompleteContainer}>
@@ -154,19 +153,6 @@ File: src\features\auth\LoginPageStyles.js
   L139   [HARDCODED_SPACING] padding 0px -> padding: 0,
   L148   [HARDCODED_SPACING] paddingBottom 0px -> paddingBottom: 0,
 
-File: src\features\cart\CartItem.js
-  L80    [HARDCODED_SPACING] marginHorizontal 0px -> marginHorizontal: 0,
-
-File: src\features\cart\CartViewStyles.js
-  L90    [HARDCODED_SPACING] marginHorizontal 0px -> marginHorizontal: 0,
-
-File: src\features\catalog\CatalogListFooter.js
-  L37    [INLINE_STYLE] <View style={{ height: layout.spacing.xxl }} />
-
-File: src\features\catalog\CatalogPage.js
-  L67    [HARDCODED_SPACING] padding 0px -> <View style={[styles.main, isNarrow && { padding: 0, alignItems: 'center' }]}>
-  L76    [INLINE_STYLE] <View style={{ flex: 1, minHeight: 0 }}>
-
 File: src\features\catalog\CatalogView.js
   L139   [INLINE_STYLE] style={layoutStyles.listContainer}
   L149   [INLINE_STYLE] style={layoutStyles.listContainer}
@@ -177,9 +163,6 @@ File: src\features\catalog\CategoryCard.js
   L144   [INLINE_STYLE] <View style={getContentStyle(computedStyles, activeIsBanner)}>
   L145   [INLINE_STYLE] <Heading level={3} style={getLabelStyle(computedStyles, activeIsBanner)} numberOfLines={2} isDark={isDark}>{label}</Heading>
   L146   [INLINE_STYLE] <Text style={getDescStyle(computedStyles, activeIsBanner)} numberOfLines={2} isDark={isDark}>{desc}</Text>
-
-File: src\features\catalog\CategoryFilterList.js
-  L15    [INLINE_STYLE] <View style={{ flex: 1 }}>
 
 File: src\features\catalog\components\NewArrivalsFooter.js
   L40    [INLINE_STYLE] <View style={{ paddingVertical: 32, alignItems: 'center' }}>
@@ -223,11 +206,10 @@ File: src\features\home\components\FeaturedSections.js
   L144   [HARDCODED_SPACING] paddingVertical 3px -> paddingVertical: 3,
 
 File: src\features\home\components\HeroCarousel\CarouselDots.js
-  L35    [INLINE_STYLE] style={{
-  L47    [INLINE_STYLE] <View style={localStyles.dotsContainer}>
+  L43    [INLINE_STYLE] <View style={localStyles.dotsContainer}>
 
 File: src\features\home\components\HeroCarousel\CarouselLayers.js
-  L16    [INLINE_STYLE] style={localStyles.imageFill}
+  L17    [INLINE_STYLE] style={localStyles.imageFill}
 
 File: src\features\home\components\HeroCarousel.js
   L37    [HARDCODED_SPACING] borderRadius 0px -> return { width: windowWidth, alignSelf: 'center', borderRadius: 0 };
@@ -247,7 +229,7 @@ File: src\features\product\ProductPageStyles.js
   L255   [HARDCODED_SPACING] paddingBottom 0px -> paddingBottom: 0,
 
 File: src\features\profile\ProfilePageStyles.js
-  L128   [HARDCODED_SPACING] paddingBottom 0px -> paddingBottom: 0,
+  L120   [HARDCODED_SPACING] paddingBottom 0px -> paddingBottom: 0,
 
 File: src\features\shell\AppHeader\AppHeaderControls.js
   L82    [INLINE_STYLE] <View style={localStyles.bagIconWrapper}>
@@ -258,9 +240,6 @@ File: src\features\shell\AppHeader\AppHeaderLogo.js
 
 File: src\features\shell\AppHeader\HeaderDropdown.js
   L35    [INLINE_STYLE] style={{ marginVertical: layout.spacing.xxs / 2, width: '100%' }}
-
-File: src\features\shell\AppHeader\UserDropdown.js
-  L87    [INLINE_STYLE] <View style={{ paddingVertical: layout.spacing.sm, paddingHorizontal: layout.spacing.md, borderBottomWidth: 1, borderBottomColor: dStyles.borderBottomColor, marginBottom: layout.spacing.xxs }}>
 
 File: src\features\shell\NavMenu\CategoryTreeNodeButtons.js
   L26    [INLINE_STYLE] style={StyleSheet.flatten([
@@ -274,5 +253,5 @@ File: src\features\shell\NavMenu\LanguageSelector.js
   L52    [INLINE_STYLE] <View style={getThemeIconStyles(isDark).container}>
 
 File: src\features\shell\StoreSearchHeader.js
-  L28    [INLINE_STYLE] <View style={{ width: '100%', maxWidth: contentWidth, minWidth: 0, overflow: 'visible', paddingHorizontal: layout.spacing.sm }}>
+  L29    [INLINE_STYLE] <View style={searchInnerStyle}>
 

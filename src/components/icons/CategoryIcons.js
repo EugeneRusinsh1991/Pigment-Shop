@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
 
 const getThemeColor = (color) => color || colors.textLight;
 const getSvgStyle = (style) => {
-  const base = { display: 'inline-block', verticalAlign: 'middle' };
+  const base = styles.svg;
   if (!style) return base;
   if (Array.isArray(style)) {
     return Object.assign({}, base, ...style.filter(Boolean));

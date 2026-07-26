@@ -63,6 +63,13 @@
 ### File: [src/components/Card/NavigationCard.js](file:///D:/Magazine/_PigmentShop/src/components/Card/NavigationCard.js)
   - Line [20](file:///D:/Magazine/_PigmentShop/src/components/Card/NavigationCard.js#L20): `<ForwardArrowIcon>` (Icon: `[Unknown]`)
 
+### File: [src/components/Icons/AdminIcons.js](file:///D:/Magazine/_PigmentShop/src/components/Icons/AdminIcons.js)
+  - Line [109](file:///D:/Magazine/_PigmentShop/src/components/Icons/AdminIcons.js#L109): `<CurrencyIcon>` (Icon: `[Unknown]`)
+
+### File: [src/components/Icons/AppIcons.js](file:///D:/Magazine/_PigmentShop/src/components/Icons/AppIcons.js)
+  - Line [55](file:///D:/Magazine/_PigmentShop/src/components/Icons/AppIcons.js#L55): `<ThemeSunIcon>` (Icon: `[Unknown]`)
+  - Line [57](file:///D:/Magazine/_PigmentShop/src/components/Icons/AppIcons.js#L57): `<ThemeMoonIcon>` (Icon: `[Unknown]`)
+
 ### File: [src/components/Navigation/Breadcrumbs/Breadcrumb.js](file:///D:/Magazine/_PigmentShop/src/components/Navigation/Breadcrumbs/Breadcrumb.js)
   - Line [62](file:///D:/Magazine/_PigmentShop/src/components/Navigation/Breadcrumbs/Breadcrumb.js#L62): `<HomeIcon>` (Icon: `[Unknown]`)
 
@@ -70,13 +77,6 @@
   - Line [34](file:///D:/Magazine/_PigmentShop/src/components/Search/SearchInput.js#L34): `<SearchIcon>` (Icon: `[Unknown]`)
   - Line [38](file:///D:/Magazine/_PigmentShop/src/components/Search/SearchInput.js#L38): `<IconButton>` (Icon: `[Unknown]`)
   - Line [42](file:///D:/Magazine/_PigmentShop/src/components/Search/SearchInput.js#L42): `<CrossIcon>` (Icon: `[Unknown]`)
-
-### File: [src/components/icons/AdminIcons.js](file:///D:/Magazine/_PigmentShop/src/components/icons/AdminIcons.js)
-  - Line [109](file:///D:/Magazine/_PigmentShop/src/components/icons/AdminIcons.js#L109): `<CurrencyIcon>` (Icon: `[Unknown]`)
-
-### File: [src/components/icons/AppIcons.js](file:///D:/Magazine/_PigmentShop/src/components/icons/AppIcons.js)
-  - Line [55](file:///D:/Magazine/_PigmentShop/src/components/icons/AppIcons.js#L55): `<ThemeSunIcon>` (Icon: `[Unknown]`)
-  - Line [57](file:///D:/Magazine/_PigmentShop/src/components/icons/AppIcons.js#L57): `<ThemeMoonIcon>` (Icon: `[Unknown]`)
 
 ### File: [src/features/auth/LoginPage.js](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPage.js)
   - Line [89](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPage.js#L89): `<MailIcon>` (Icon: `[Unknown]`)

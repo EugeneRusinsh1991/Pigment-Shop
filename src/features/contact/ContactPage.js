@@ -24,7 +24,7 @@ export default function ContactPage({ isDark }) {
       <View style={styles.flex1}>
         <View style={[commonStyles.content, styles.contentPadding]}>
           <ScrollFadeUp>
-            <Heading level={1} style={commonStyles.title} isDark={isDark}>
+            <Heading level={1} style={styles.title} isDark={isDark}>
               {t('contactUsTitle')}
             </Heading>
           </ScrollFadeUp>

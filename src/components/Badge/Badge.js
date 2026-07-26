@@ -26,6 +26,12 @@ function extractFontProps(style) {
   return { cleanedStyle, fontProps };
 }
 
+function BadgeContent({ textStyle, cleanedStyle, fontProps, resolvedSize, displayText }) {
+  return (
+    <Text variant="caption" weight="semiBold" {...fontProps} size={resolvedSize} style={[...textStyle, cleanedStyle]}>{displayText}</Text>
+  );
+}
+
 const Badge = React.forwardRef(({
   variant = 'product',
   status = 'pending',
@@ -53,19 +59,22 @@ const Badge = React.forwardRef(({
     customColor,
   });
 
+  const isInteractive = interactive || Boolean(onPress);
   const { animatedStyle, bind } = useBadgeAnimation({
     animated,
     count: variant === 'counter' ? count : undefined,
-    interactive: interactive || Boolean(onPress),
+    interactive: isInteractive,
   });
 
   const displayText = resolveDisplayText({ variant, label, value, count, children });
   const { cleanedStyle, fontProps } = extractFontProps(textStyleProp);
   const resolvedSize = fontProps.size ?? badgeFontSizes[size] ?? 11;
+  const mergedContainerStyle = [...containerStyle, animatedStyle, style].filter(Boolean);
+  const contentProps = { textStyle, cleanedStyle, fontProps, resolvedSize, displayText };
 
-  if (interactive || onPress) {
+  if (isInteractive) {
     return (
-      <Animated.View style={[...containerStyle, animatedStyle, style].filter(Boolean)}>
+      <Animated.View style={mergedContainerStyle}>
         <TouchableOpacity
           ref={ref}
           onPress={onPress}
@@ -74,15 +83,15 @@ const Badge = React.forwardRef(({
           onPressOut={bind.onPressOut}
           {...rest}
         >
-          <Text variant="caption" weight="semiBold" {...fontProps} size={resolvedSize} style={[...textStyle, cleanedStyle]}>{displayText}</Text>
+          <BadgeContent {...contentProps} />
         </TouchableOpacity>
       </Animated.View>
     );
   }
 
   return (
-    <Animated.View ref={ref} style={[...containerStyle, animatedStyle, style].filter(Boolean)} {...rest}>
-      <Text variant="caption" weight="semiBold" {...fontProps} size={resolvedSize} style={[...textStyle, cleanedStyle]}>{displayText}</Text>
+    <Animated.View ref={ref} style={mergedContainerStyle} {...rest}>
+      <BadgeContent {...contentProps} />
     </Animated.View>
   );
 });

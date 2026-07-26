@@ -1,9 +1,9 @@
 ===================================================================
                1. UI ARCHITECTURE COMPLIANCE REPORT                
-Timestamp: 27.07.2026, 01:59:38
+Timestamp: 27.07.2026, 02:47:15
 ===================================================================
 
-Found 6 architecture violation(s) across 6 target(s):
+Found 7 architecture violation(s) across 7 target(s):
 
 Target: src/components/Admin/
   [MISSING_MODULES] Missing: index.js, useAdminTheme.js
@@ -16,6 +16,9 @@ Target: src/components/Button/
 
 Target: src/components/Motion/
   [MISSING_MODULES] Missing: MotionStyles.js, useMotionTheme.js
+
+Target: src/components/PageScrollLayout/
+  [MISSING_MODULES] Missing: PageScrollLayoutStyles.js, usePageScrollLayoutTheme.js
 
 Target: src/components/Search/
   [HOOK_RETURNS_EMPTY] useSearchTheme.js returns empty object/null or has no return statement

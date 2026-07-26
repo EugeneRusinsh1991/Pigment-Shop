@@ -1,9 +1,9 @@
 ===================================================================
                FILES WITH ISSUES REPORT                            
-Timestamp: 27.07.2026, 01:59:40
+Timestamp: 27.07.2026, 02:47:16
 ===================================================================
 
-Found 29 issue(s) across 13 target(s):
+Found 30 issue(s) across 14 target(s):
 
 - src/bootstrap/BootstrapGate.js (1 issues)
 - src/components/Admin/Analytics/AnalyticsDashboard.js (4 issues)
@@ -18,3 +18,4 @@ Found 29 issue(s) across 13 target(s):
 - src/features/home/components/DiscountsSection.js (1 issues)
 - src/features/product/ProductCard.js (1 issues)
 - src/features/product/ProductPage.js (2 issues)
+- src/features/shell/StoreSearchHeader.js (1 issues)

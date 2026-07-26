@@ -1,11 +1,10 @@
 ===================================================================
                FILES WITH ISSUES REPORT                            
-Timestamp: 27.07.2026, 01:59:39
+Timestamp: 27.07.2026, 02:47:15
 ===================================================================
 
-Found 161 issue(s) across 55 target(s):
+Found 152 issue(s) across 49 target(s):
 
-- src\components\Admin\Analytics\CalendarDayCell.js (3 issues)
 - src\components\Admin\SharedFormComponents.js (2 issues)
 - src\components\Button\Button.js (2 issues)
 - src\components\Button\IconButton.js (1 issues)
@@ -15,13 +14,14 @@ Found 161 issue(s) across 55 target(s):
 - src\components\Card\StaticCard.js (1 issues)
 - src\components\DataTable\EmptyState.js (1 issues)
 - src\components\Drawer\Drawer.js (1 issues)
-- src\components\icons\AppIcons.js (26 issues)
-- src\components\icons\CategoryIcons.js (5 issues)
-- src\components\icons\ControlIcons.js (28 issues)
+- src\components\Icons\AppIcons.js (26 issues)
+- src\components\Icons\CategoryIcons.js (5 issues)
+- src\components\Icons\ControlIcons.js (28 issues)
 - src\components\Media\GifRenderer.js (2 issues)
 - src\components\Media\VideoRenderer.js (1 issues)
 - src\components\Navigation\Breadcrumbs\Breadcrumb.js (2 issues)
 - src\components\Navigation\NavigationStyles.js (1 issues)
+- src\components\PageScrollLayout\PageScrollLayout.js (2 issues)
 - src\components\Search\AutocompleteSearch.js (1 issues)
 - src\components\Search\SearchDropdown.js (4 issues)
 - src\components\Search\SearchInput.js (1 issues)
@@ -30,13 +30,8 @@ Found 161 issue(s) across 55 target(s):
 - src\components\Text\Heading.js (1 issues)
 - src\components\Toggle\Toggle.js (2 issues)
 - src\features\auth\LoginPageStyles.js (2 issues)
-- src\features\cart\CartItem.js (1 issues)
-- src\features\cart\CartViewStyles.js (1 issues)
-- src\features\catalog\CatalogListFooter.js (1 issues)
-- src\features\catalog\CatalogPage.js (2 issues)
 - src\features\catalog\CatalogView.js (3 issues)
 - src\features\catalog\CategoryCard.js (4 issues)
-- src\features\catalog\CategoryFilterList.js (1 issues)
 - src\features\catalog\components\NewArrivalsFooter.js (3 issues)
 - src\features\catalog\GridHeaderFooter.js (7 issues)
 - src\features\catalog\PlaceholderCard.js (1 issues)
@@ -46,7 +41,7 @@ Found 161 issue(s) across 55 target(s):
 - src\features\favorites\FavoritesPageStyles.js (1 issues)
 - src\features\home\components\DiscountsSection.js (3 issues)
 - src\features\home\components\FeaturedSections.js (3 issues)
-- src\features\home\components\HeroCarousel\CarouselDots.js (2 issues)
+- src\features\home\components\HeroCarousel\CarouselDots.js (1 issues)
 - src\features\home\components\HeroCarousel\CarouselLayers.js (1 issues)
 - src\features\home\components\HeroCarousel.js (4 issues)
 - src\features\orders\OrderRows.js (1 issues)
@@ -56,7 +51,6 @@ Found 161 issue(s) across 55 target(s):
 - src\features\shell\AppHeader\AppHeaderControls.js (2 issues)
 - src\features\shell\AppHeader\AppHeaderLogo.js (1 issues)
 - src\features\shell\AppHeader\HeaderDropdown.js (1 issues)
-- src\features\shell\AppHeader\UserDropdown.js (1 issues)
 - src\features\shell\NavMenu\CategoryTreeNodeButtons.js (2 issues)
 - src\features\shell\NavMenu\LanguageSelector.js (5 issues)
 - src\features\shell\StoreSearchHeader.js (1 issues)

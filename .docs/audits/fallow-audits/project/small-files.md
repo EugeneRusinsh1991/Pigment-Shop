@@ -1,6 +1,6 @@
 # 📄 Small & Pass-Through Files Findings
 
-*Generated on: 27.07.2026, 01:59:47*
+*Generated on: 27.07.2026, 02:47:25*
 
 ### Candidate Files for Refactoring/Elimination
 
@@ -114,6 +114,10 @@
 
 - **[useToastTheme.js](file:///D:/Magazine/_PigmentShop/src/components/Feedback/Toast/useToastTheme.js)** (`src/components/Feedback/Toast/useToastTheme.js`)
   - Lines: 23 | Size: 985 B | Type: **Tiny Component**
+  > 💡 This component is very small; consider declaring it inline within its parent component.
+
+- **[PageScrollLayout.js](file:///D:/Magazine/_PigmentShop/src/components/PageScrollLayout/PageScrollLayout.js)** (`src/components/PageScrollLayout/PageScrollLayout.js`)
+  - Lines: 24 | Size: 850 B | Type: **Tiny Component**
   > 💡 This component is very small; consider declaring it inline within its parent component.
 
 - **[useFeedbackTheme.js](file:///D:/Magazine/_PigmentShop/src/components/Feedback/useFeedbackTheme.js)** (`src/components/Feedback/useFeedbackTheme.js`)

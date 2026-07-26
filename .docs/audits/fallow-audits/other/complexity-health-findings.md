@@ -1,14 +1,8 @@
 # 🩺 Complexity Health Findings (Critical & High)
 
-*Generated on: 27.07.2026, 01:59:47*
+*Generated on: 27.07.2026, 02:47:25*
 
 ## 🔴 Critical (> 50 lines)
-
-#### 📁 [ui-architecture-audit.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/ui-architecture-audit.js)
-`.tools/auditor/ui-architecture-audit.js`
-
-- 🔴 **`auditComponents`** [L127](file:///D:/Magazine/_PigmentShop/.tools/auditor/ui-architecture-audit.js#L127)
-  - Lines: 100 | Cyclomatic: 18 | Cognitive: 42 | CRAP: 342
 
 #### 📁 [layer-imports-auditor.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/layer-imports-auditor.js)
 `.tools/auditor/layer-imports-auditor.js`
@@ -142,6 +136,12 @@
 - 🟠 **`auditTypography`** [L57](file:///D:/Magazine/_PigmentShop/.tools/auditor/typography-auditor.js#L57)
   - Lines: 59 | Cyclomatic: 8 | Cognitive: 18 | CRAP: 72
 
+#### 📁 [ui-architecture-audit.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/ui-architecture-audit.js)
+`.tools/auditor/ui-architecture-audit.js`
+
+- 🟠 **`writeAuditReport`** [L172](file:///D:/Magazine/_PigmentShop/.tools/auditor/ui-architecture-audit.js#L172)
+  - Lines: 53 | Cyclomatic: 7 | Cognitive: 13 | CRAP: 56
+
 
 ## 🟠 High (≤ 50 lines)
 
@@ -164,6 +164,12 @@
 
 - 🟠 **`walkDir`** [L56](file:///D:/Magazine/_PigmentShop/.tools/auditor/magic-numbers-auditor.js#L56)
   - Lines: 13 | Cyclomatic: 9 | Cognitive: 7 | CRAP: 90
+
+#### 📁 [ui-architecture-audit.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/ui-architecture-audit.js)
+`.tools/auditor/ui-architecture-audit.js`
+
+- 🟠 **`auditComponentEntry`** [L127](file:///D:/Magazine/_PigmentShop/.tools/auditor/ui-architecture-audit.js#L127)
+  - Lines: 44 | Cyclomatic: 9 | Cognitive: 9 | CRAP: 90
 
 #### 📁 [hardcode-text-auditor.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-text-auditor.js)
 `.tools/auditor/hardcode-text-auditor.js`

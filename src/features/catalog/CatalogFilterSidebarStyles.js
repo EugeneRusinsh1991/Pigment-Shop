@@ -54,6 +54,7 @@ const styles = StyleSheet.create({
 
   /** Category tree node row */
   categoryRow: { flexDirection: 'row', alignItems: 'center', minHeight: 44 },
+  categoryCheckboxWrapper: { flex: 1 },
   expandBtn: { width: 36, height: 44, alignItems: 'center', justifyContent: 'center' },
   expandBtnPlaceholder: { width: 36 },
   expandChevron: {},

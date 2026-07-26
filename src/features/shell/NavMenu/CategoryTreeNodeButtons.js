@@ -23,12 +23,13 @@ export function CategoryLabelButton({ isDark, node, iconColor, onClose, isSelect
     <Button
       variant="unstyled"
       isDark={isDark}
-      style={StyleSheet.flatten([
+      style={[
         styles.itemRow,
         isDark ? styles.itemRowDark : styles.itemRowLight,
         selectedStyle,
-        { flex: 1, paddingVertical: 10, paddingLeft: layout.spacing.lg + indent, minHeight: 44 }
-      ])}
+        localStyles.categoryButton,
+        { paddingLeft: layout.spacing.lg + indent },
+      ]}
       onPress={handlePress}
       activeOpacity={0.7}
     >
@@ -54,3 +55,12 @@ export function CategoryExpandButton({ isDark, arrowColor, isExpanded, onPress, 
     />
   );
 }
+
+const localStyles = StyleSheet.create({
+  categoryButton: {
+    flex: 1,
+    paddingVertical: layout.spacing.sm,
+    minHeight: 44,
+  },
+});
+

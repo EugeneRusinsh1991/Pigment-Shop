@@ -68,13 +68,13 @@
   - Line [40](file:///D:/Magazine/_PigmentShop/src/features/favorites/FavoritesPage.js#L40): `<PlaceholderCard>`
 
 ### File: [src/features/orders/OrderConfirmationPage.js](file:///D:/Magazine/_PigmentShop/src/features/orders/OrderConfirmationPage.js)
-  - Line [46](file:///D:/Magazine/_PigmentShop/src/features/orders/OrderConfirmationPage.js#L46): `<OrderDetailsCard>`
+  - Line [37](file:///D:/Magazine/_PigmentShop/src/features/orders/OrderConfirmationPage.js#L37): `<OrderDetailsCard>`
 
 ### File: [src/features/orders/OrderDetailsCard.js](file:///D:/Magazine/_PigmentShop/src/features/orders/OrderDetailsCard.js)
   - Line [34](file:///D:/Magazine/_PigmentShop/src/features/orders/OrderDetailsCard.js#L34): `<Card>`
 
 ### File: [src/features/orders/OrdersPage.js](file:///D:/Magazine/_PigmentShop/src/features/orders/OrdersPage.js)
-  - Line [32](file:///D:/Magazine/_PigmentShop/src/features/orders/OrdersPage.js#L32): `<OrderCard>`
+  - Line [31](file:///D:/Magazine/_PigmentShop/src/features/orders/OrdersPage.js#L31): `<OrderCard>`
 
 ### File: [src/features/orders/components/OrderCard.js](file:///D:/Magazine/_PigmentShop/src/features/orders/components/OrderCard.js)
   - Line [96](file:///D:/Magazine/_PigmentShop/src/features/orders/components/OrderCard.js#L96): `<Card>`

@@ -124,54 +124,52 @@ function checkHookReturnsEmpty(compName, compDir, files) {
   return violations;
 }
 
-function auditComponents() {
-  if (!fs.existsSync(COMPONENTS_DIR)) return;
-  if (!fs.existsSync(AUDITS_DIR)) fs.mkdirSync(AUDITS_DIR, { recursive: true });
-
-  const entries = scanDirectory(COMPONENTS_DIR);
-  const violations = [];
-
-  for (const entry of entries) {
-    if (!entry.isDirectory()) {
-      if (!ROOT_FILE_WHITELIST.includes(entry.name)) {
-        violations.push({
-          type: 'DOMAIN_RELOCATION',
-          location: `src/components/${entry.name}`,
-          details: 'Root level component file should be moved into src/features/ or encapsulated in a component folder.'
-        });
-      }
-    } else {
-      const compName = entry.name;
-      const compDir = path.join(COMPONENTS_DIR, compName);
-      const files = scanDirectory(compDir).map(f => f.name);
-
-      const hasIndex = files.includes('index.js');
-      const hasStyles = files.some(f => f.endsWith('Styles.js'));
-      const hasThemeHook = files.some(f => f.startsWith('use') && f.endsWith('Theme.js'));
-
-      const missingModules = [];
-      if (!hasIndex) missingModules.push('index.js');
-      if (!hasStyles) missingModules.push(`${compName}Styles.js`);
-      if (!hasThemeHook) missingModules.push(`use${compName}Theme.js`);
-
-      if (missingModules.length > 0) {
-        violations.push({
-          type: 'MISSING_MODULES',
-          location: `src/components/${compName}/`,
-          details: `Missing: ${missingModules.join(', ')}`
-        });
-      }
-
-      if (hasStyles || hasThemeHook) {
-        violations.push(...checkGhostImports(compName, compDir, files));
-        violations.push(...checkEmptyArchitecture(compName, compDir, files));
-      }
-
-      violations.push(...checkBadIndexExport(compName, compDir, files));
-      violations.push(...checkHookReturnsEmpty(compName, compDir, files));
+function auditComponentEntry(entry) {
+  if (!entry.isDirectory()) {
+    if (!ROOT_FILE_WHITELIST.includes(entry.name)) {
+      return [{
+        type: 'DOMAIN_RELOCATION',
+        location: `src/components/${entry.name}`,
+        details: 'Root level component file should be moved into src/features/ or encapsulated in a component folder.'
+      }];
     }
+    return [];
   }
 
+  const compName = entry.name;
+  const compDir = path.join(COMPONENTS_DIR, compName);
+  const files = scanDirectory(compDir).map(f => f.name);
+
+  const hasIndex = files.includes('index.js');
+  const hasStyles = files.some(f => f.endsWith('Styles.js'));
+  const hasThemeHook = files.some(f => f.startsWith('use') && f.endsWith('Theme.js'));
+
+  const violations = [];
+  const missingModules = [];
+  if (!hasIndex) missingModules.push('index.js');
+  if (!hasStyles) missingModules.push(`${compName}Styles.js`);
+  if (!hasThemeHook) missingModules.push(`use${compName}Theme.js`);
+
+  if (missingModules.length > 0) {
+    violations.push({
+      type: 'MISSING_MODULES',
+      location: `src/components/${compName}/`,
+      details: `Missing: ${missingModules.join(', ')}`
+    });
+  }
+
+  if (hasStyles || hasThemeHook) {
+    violations.push(...checkGhostImports(compName, compDir, files));
+    violations.push(...checkEmptyArchitecture(compName, compDir, files));
+  }
+
+  violations.push(...checkBadIndexExport(compName, compDir, files));
+  violations.push(...checkHookReturnsEmpty(compName, compDir, files));
+
+  return violations;
+}
+
+function writeAuditReport(violations) {
   const timestamp = new Date().toLocaleString('ru-RU');
   let report = `===================================================================\n`;
   report += `               1. UI ARCHITECTURE COMPLIANCE REPORT                \n`;
@@ -183,46 +181,60 @@ function auditComponents() {
       try { fs.unlinkSync(LOG_FILE); } catch (_) {}
     }
     console.log('[01 UI Architecture Audit] Finished (0 issues) -> Clean');
-  } else {
-    const grouped = {};
-    violations.forEach(v => {
-      const filePath = v.location;
-      if (!grouped[filePath]) grouped[filePath] = [];
-      grouped[filePath].push({ type: v.type, details: v.details });
-    });
-
-    const fileCount = Object.keys(grouped).length;
-    report += `Found ${violations.length} architecture violation(s) across ${fileCount} target(s):\n\n`;
-
-    Object.entries(grouped).forEach(([filePath, items]) => {
-      report += `Target: ${filePath}\n`;
-      items.forEach((item) => {
-        report += `  [${item.type}] ${item.details}\n`;
-      });
-      report += `\n`;
-    });
-
-    
-    if (fileCount > 10) {
-      let filesReport = "===================================================================\n";
-      filesReport += "               FILES WITH ISSUES REPORT                            \n";
-      filesReport += "Timestamp: " + timestamp + "\n";
-      filesReport += "===================================================================\n\n";
-      filesReport += "Found " + violations.length + " issue(s) across " + fileCount + " target(s):\n\n";
-      
-      Object.keys(grouped).forEach(filePath => {
-        filesReport += "- " + filePath + " (" + grouped[filePath].length + " issues)\n";
-      });
-      
-      fs.writeFileSync(FILES_LOG_FILE, filesReport);
-      console.log("  -> Also generated compact file list: " + path.basename(FILES_LOG_FILE));
-    } else {
-      if (fs.existsSync(FILES_LOG_FILE)) { try { fs.unlinkSync(FILES_LOG_FILE); } catch (_) {} }
-    }
-    
-    fs.writeFileSync(LOG_FILE, report);
-    console.log(`[01 UI Architecture Audit] Finished (${violations.length} issues) -> .docs/audits/audits/01-ui-architecture-violations.log`);
+    return;
   }
+
+  const grouped = {};
+  violations.forEach(v => {
+    const filePath = v.location;
+    if (!grouped[filePath]) grouped[filePath] = [];
+    grouped[filePath].push({ type: v.type, details: v.details });
+  });
+
+  const fileCount = Object.keys(grouped).length;
+  report += `Found ${violations.length} architecture violation(s) across ${fileCount} target(s):\n\n`;
+
+  Object.entries(grouped).forEach(([filePath, items]) => {
+    report += `Target: ${filePath}\n`;
+    items.forEach((item) => {
+      report += `  [${item.type}] ${item.details}\n`;
+    });
+    report += `\n`;
+  });
+
+  if (fileCount > 10) {
+    let filesReport = "===================================================================\n";
+    filesReport += "               FILES WITH ISSUES REPORT                            \n";
+    filesReport += "Timestamp: " + timestamp + "\n";
+    filesReport += "===================================================================\n\n";
+    filesReport += "Found " + violations.length + " issue(s) across " + fileCount + " target(s):\n\n";
+
+    Object.keys(grouped).forEach(filePath => {
+      filesReport += "- " + filePath + " (" + grouped[filePath].length + " issues)\n";
+    });
+
+    fs.writeFileSync(FILES_LOG_FILE, filesReport);
+    console.log("  -> Also generated compact file list: " + path.basename(FILES_LOG_FILE));
+  } else {
+    if (fs.existsSync(FILES_LOG_FILE)) { try { fs.unlinkSync(FILES_LOG_FILE); } catch (_) {} }
+  }
+
+  fs.writeFileSync(LOG_FILE, report);
+  console.log(`[01 UI Architecture Audit] Finished (${violations.length} issues) -> .docs/audits/audits/01-ui-architecture-violations.log`);
+}
+
+function auditComponents() {
+  if (!fs.existsSync(COMPONENTS_DIR)) return;
+  if (!fs.existsSync(AUDITS_DIR)) fs.mkdirSync(AUDITS_DIR, { recursive: true });
+
+  const entries = scanDirectory(COMPONENTS_DIR);
+  const violations = [];
+
+  for (const entry of entries) {
+    violations.push(...auditComponentEntry(entry));
+  }
+
+  writeAuditReport(violations);
 }
 
 module.exports = { auditComponents };
