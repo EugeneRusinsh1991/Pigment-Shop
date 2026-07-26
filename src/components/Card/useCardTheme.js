@@ -18,12 +18,15 @@ export function useCardTheme({ isDarkProp, variant = 'grid', elevated = false } 
   const baseContainerStyle = isDark ? styleMap.containerDark : styleMap.containerLight;
   const variantStyle = variantStyles[variant] || variantStyles.grid;
   const shadowStyle = getShadowStyle(isDark, elevated);
+  const titleStyle = [slotStyles.title, isDark ? slotStyles.titleDark : slotStyles.titleLight];
+  const skeletonStyle = [slotStyles.skeleton, isDark ? slotStyles.skeletonDark : null];
+  const cardBgColor = isDark ? styleMap.cardBgDark : styleMap.cardBgLight;
 
   return {
     isDark,
     containerStyle: [baseContainerStyle, variantStyle, shadowStyle],
-    titleStyle: [slotStyles.title, isDark ? slotStyles.titleDark : slotStyles.titleLight],
-    skeletonStyle: [slotStyles.skeleton, isDark ? slotStyles.skeletonDark : null],
-    cardBgColor: isDark ? styleMap.cardBgDark : styleMap.cardBgLight,
+    titleStyle,
+    skeletonStyle,
+    cardBgColor,
   };
 }

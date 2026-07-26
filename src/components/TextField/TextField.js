@@ -78,28 +78,11 @@ const TextField = forwardRef(function TextField(
 
   const displayHelperText = getDisplayHelperText(error, helperText);
 
-  const dynamicStyles = getTextFieldStyles({
-    size,
-    multiline,
-    numberOfLines,
-    fullWidth,
-    width,
-    height,
-    disabled,
-    error: !!error,
-    focused: isFocused,
-    isDark: theme.isDark,
-  });
+  const styleParams = { size, multiline, numberOfLines, fullWidth, width, height, disabled, error: !!error, focused: isFocused, isDark: theme.isDark };
+  const dynamicStyles = getTextFieldStyles(styleParams);
 
-  const handleFocus = useCallback((e) => {
-    setIsFocused(true);
-    if (onFocus) onFocus(e);
-  }, [onFocus]);
-
-  const handleBlur = useCallback((e) => {
-    setIsFocused(false);
-    if (onBlur) onBlur(e);
-  }, [onBlur]);
+  const handleFocus = useCallback((e) => { setIsFocused(true); if (onFocus) onFocus(e); }, [onFocus]);
+  const handleBlur = useCallback((e) => { setIsFocused(false); if (onBlur) onBlur(e); }, [onBlur]);
 
   return (
     <View style={[dynamicStyles.container, containerStyle]}>

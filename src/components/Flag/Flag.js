@@ -5,28 +5,19 @@ import { useFlagTheme } from './useFlagTheme';
 
 function getChipContainerStyle(isDark, checked, disabled, readOnly, colorScheme, style) {
   const schemeStyles = colorScheme ? colorSchemes[colorScheme] : null;
-  const schemeContainer = schemeStyles ? (isDark ? schemeStyles.containerDark : schemeStyles.container) : null;
-  return [
-    styles.baseContainer,
-    styles.chipContainer,
-    isDark ? styles.chipContainerDark : null,
-    checked ? (isDark ? styles.chipActiveDark : styles.chipActive) : null,
-    schemeContainer,
-    (disabled || readOnly) ? { opacity: readOnly ? 1 : 0.5 } : null,
-    style,
-  ];
+  const schemeContainer = schemeStyles && (isDark ? schemeStyles.containerDark : schemeStyles.container);
+  const darkStyle = isDark ? styles.chipContainerDark : null;
+  const checkedStyle = checked ? (isDark ? styles.chipActiveDark : styles.chipActive) : null;
+  const opacityStyle = (disabled && !readOnly) ? { opacity: 0.5 } : null;
+  return [styles.baseContainer, styles.chipContainer, darkStyle, checkedStyle, schemeContainer, opacityStyle, style];
 }
 
 function getChipLabelStyle(isDark, checked, colorScheme, textStyle) {
   const schemeStyles = colorScheme ? colorSchemes[colorScheme] : null;
-  const schemeText = schemeStyles ? (isDark ? schemeStyles.textDark : schemeStyles.text) : null;
-  return [
-    styles.chipText,
-    isDark ? styles.chipTextDark : null,
-    checked ? (isDark ? styles.chipActiveTextDark : styles.chipActiveText) : null,
-    schemeText,
-    textStyle,
-  ];
+  const schemeText = schemeStyles && (isDark ? schemeStyles.textDark : schemeStyles.text);
+  const darkStyle = isDark ? styles.chipTextDark : null;
+  const checkedStyle = checked ? (isDark ? styles.chipActiveTextDark : styles.chipActiveText) : null;
+  return [styles.chipText, darkStyle, checkedStyle, schemeText, textStyle];
 }
 
 function getSwitchTrackStyle(isDark, checked) {

@@ -38,6 +38,33 @@ function getOptionTextStyle(isActive, textSizeStyle, theme, textStyle, activeTex
   ];
 }
 
+function renderToggleOption(opt, index, ctx) {
+  const optionValue = getOptionValue(opt);
+  const optionLabel = getOptionLabel(opt);
+  const isActive = optionValue === ctx.value;
+  const key = optionValue ?? index;
+  const handleLayout = (e) => ctx.animation?.setOptionLayout && ctx.animation.setOptionLayout(optionValue, e.nativeEvent.layout);
+  const handlePress = () => { if (!isActive && ctx.onChange) ctx.onChange(optionValue); };
+
+  return (
+    <TouchableOpacity
+      key={key}
+      onLayout={handleLayout}
+      style={getOptionStyle(isActive, ctx.animated, ctx.theme, ctx.activeOptionStyle, ctx.optionStyle)}
+      hitSlop={ctx.computedHitSlop}
+      disabled={ctx.disabled}
+      activeOpacity={0.7}
+      onPress={handlePress}
+      accessibilityRole="tab"
+      accessibilityState={{ selected: isActive }}
+    >
+      <Text style={getOptionTextStyle(isActive, ctx.textSizeStyle, ctx.theme, ctx.textStyle, ctx.activeTextStyle)}>
+        {optionLabel}
+      </Text>
+    </TouchableOpacity>
+  );
+}
+
 export default function Toggle({
   options = [],
   value,
@@ -54,59 +81,21 @@ export default function Toggle({
   animated = true,
   ...props
 }) {
-  const theme = useToggleTheme({
-    isDarkProp,
-    styleMap: styles,
-  });
-
-  const animation = useToggleAnimation({
-    animated,
-    options,
-    value,
-  });
+  const theme = useToggleTheme({ isDarkProp, styleMap: styles });
+  const animation = useToggleAnimation({ animated, options, value });
 
   const sizeStyle = styles[size] || styles.md;
   const textSizeStyle = styles[`text_${size}`] || styles.text_md;
   const { height, width } = getOptionDimensions(size);
   const computedHitSlop = hitSlop !== undefined ? hitSlop : calculateHitSlop(width, height);
+  const ctx = { value, onChange, animated, theme, optionStyle, activeOptionStyle, textStyle, activeTextStyle, computedHitSlop, disabled, textSizeStyle, animation };
 
   return (
     <View style={[styles.container, sizeStyle, theme?.container, style]} {...props}>
       {animated && animation?.indicatorStyle && (
-        <Animated.View
-          style={[
-            styles.activeIndicator,
-            theme?.activeOption,
-            animation.indicatorStyle,
-          ]}
-        />
+        <Animated.View style={[styles.activeIndicator, theme?.activeOption, animation.indicatorStyle]} />
       )}
-      {options.map((opt, index) => {
-        const optionValue = getOptionValue(opt);
-        const optionLabel = getOptionLabel(opt);
-        const isActive = optionValue === value;
-        const key = optionValue ?? index;
-
-        return (
-          <TouchableOpacity
-            key={key}
-            onLayout={(e) => animation?.setOptionLayout && animation.setOptionLayout(optionValue, e.nativeEvent.layout)}
-            style={getOptionStyle(isActive, animated, theme, activeOptionStyle, optionStyle)}
-            hitSlop={computedHitSlop}
-            disabled={disabled}
-            activeOpacity={0.7}
-            onPress={() => {
-              if (!isActive && onChange) onChange(optionValue);
-            }}
-            accessibilityRole="tab"
-            accessibilityState={{ selected: isActive }}
-          >
-            <Text style={getOptionTextStyle(isActive, textSizeStyle, theme, textStyle, activeTextStyle)}>
-              {optionLabel}
-            </Text>
-          </TouchableOpacity>
-        );
-      })}
+      {options.map((opt, index) => renderToggleOption(opt, index, ctx))}
     </View>
   );
 }
