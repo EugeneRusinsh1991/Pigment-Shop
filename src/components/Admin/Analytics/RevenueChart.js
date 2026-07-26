@@ -6,6 +6,7 @@
  */
 import { Platform, View } from 'react-native';
 import { Text } from '../../Text';
+import { useLanguage } from '../../../context/LanguageContext';
 import styles from './AnalyticsStyles';
 
 const isWeb = Platform.OS === 'web';
@@ -55,10 +56,12 @@ function toPlotX(index, total) {
 }
 
 export default function RevenueChart({ revenueData = [] }) {
+  const { t } = useLanguage();
+
   if (revenueData.length === 0) {
     return (
       <View style={{ height: 180, justifyContent: 'center', alignItems: 'center' }}>
-        <Text variant="body2" color="secondary">No data</Text>
+        <Text variant="body2" color="secondary">{t.adminAnalyticsNoData}</Text>
       </View>
     );
   }

@@ -4207,5 +4207,65 @@
         }
       ]
     }
+  },
+  "src_07-26_20-23_01-ui-architecture-violations.log_61files": {
+    "timestamp": "2026-07-26T17:23:43.786Z",
+    "diff": {
+      "added": 57,
+      "removed": 20,
+      "modified": 4,
+      "topFolders": [
+        {
+          "folder": ".docs/automation-browser-log/screenshots",
+          "count": 40
+        },
+        {
+          "folder": ".docs/architecture-standards/ui",
+          "count": 8
+        },
+        {
+          "folder": ".tools/ui-auditor",
+          "count": 6
+        },
+        {
+          "folder": ".docs/audits",
+          "count": 5
+        },
+        {
+          "folder": ".todos/ui-standards/drawer",
+          "count": 2
+        }
+      ]
+    }
+  },
+  "src_07-26_20-32_05-service-layer-violations.log_30files": {
+    "timestamp": "2026-07-26T17:32:21.988Z",
+    "diff": {
+      "added": 12,
+      "removed": 13,
+      "modified": 18,
+      "topFolders": [
+        {
+          "folder": ".docs/automation-browser-log/screenshots",
+          "count": 24
+        },
+        {
+          "folder": ".docs/audits",
+          "count": 5
+        },
+        {
+          "folder": ".tools/ui-auditor",
+          "count": 4
+        },
+        {
+          "folder": ".tools/.backuper/log",
+          "count": 2
+        },
+        {
+          "folder": ".tools",
+          "count": 2
+        }
+      ]
+    }
   }
 }

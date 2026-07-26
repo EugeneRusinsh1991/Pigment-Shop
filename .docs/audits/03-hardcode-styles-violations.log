@@ -1,0 +1,3143 @@
+===================================================================
+         3. HARDCODED STYLES, COLORS & SPACING REPORT (UNIQUE)    
+Timestamp: 26.07.2026, 20:31:36
+===================================================================
+
+Found 1392 unique violation(s) across 176 file(s):
+
+File: src\AppStyles.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 39)
+     Raw numeric spacing for paddingTop (16px): paddingTop: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 40)
+     Raw numeric spacing for paddingBottom (12px): paddingBottom: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 48)
+     Raw numeric spacing for paddingHorizontal (8px): paddingHorizontal: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 49)
+     Raw numeric spacing for paddingVertical (8px): paddingVertical: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 62)
+     Raw numeric spacing for paddingHorizontal (8px): paddingHorizontal: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 63)
+     Raw numeric spacing for paddingTop (4px): paddingTop: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 64)
+     Raw numeric spacing for paddingBottom (12px): paddingBottom: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 65)
+     Raw numeric spacing for gap (12px): gap: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 91)
+     Raw numeric spacing for paddingHorizontal (32px): paddingHorizontal: 32,
+   • [HARDCODED_SPACING_VIOLATION] (Line 92)
+     Raw numeric spacing for paddingVertical (14px): paddingVertical: 14,
+   • [HARDCODED_SPACING_VIOLATION] (Line 103)
+     Raw numeric spacing for paddingHorizontal (8px): paddingHorizontal: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 104)
+     Raw numeric spacing for marginTop (12px): marginTop: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 105)
+     Raw numeric spacing for marginBottom (6px): marginBottom: 6,
+   • [HARDCODED_SPACING_VIOLATION] (Line 113)
+     Raw numeric spacing for paddingBottom (32px): paddingBottom: 32,
+   • [HARDCODED_SPACING_VIOLATION] (Line 114)
+     Raw numeric spacing for paddingHorizontal (0px): paddingHorizontal: 0,
+   • [HARDCODED_SPACING_VIOLATION] (Line 118)
+     Raw numeric spacing for marginTop (8px): marginTop: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 121)
+     Raw numeric spacing for marginBottom (12px): marginBottom: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 122)
+     Raw numeric spacing for paddingHorizontal (8px): paddingHorizontal: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 134)
+     Raw numeric spacing for paddingVertical (4px): paddingVertical: 4,
+
+File: src\components\Admin\AdminPanel.js
+   • [INLINE_STYLE_HARDCODE] (Line 79)
+     Inline style detected in JSX: leftIcon={<LogoutIcon color={colors.secondaryLightText} size={14} style={{ marginRight: 6 }} />}
+   • [HARDCODED_SPACING_VIOLATION] (Line 79)
+     Raw numeric spacing for marginRight (6px): leftIcon={<LogoutIcon color={colors.secondaryLightText} size={14} style={{ marginRight: 6 }} />}
+   • [HARDCODED_SPACING_VIOLATION] (Line 90)
+     Raw numeric spacing for paddingBottom (40px): <ScrollView style={styles.content} contentContainerStyle={{ paddingBottom: 40 }}>
+
+File: src\components\Admin\AdminPanelStyles.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 17)
+     Raw numeric spacing for paddingHorizontal (24px): paddingHorizontal: 24,
+   • [HARDCODED_SPACING_VIOLATION] (Line 25)
+     Raw numeric spacing for gap (10px): gap: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 28)
+     Raw numeric spacing for padding (6px): padding: 6,
+   • [HARDCODED_SPACING_VIOLATION] (Line 39)
+     Raw numeric spacing for gap (6px): gap: 6,
+   • [HARDCODED_SPACING_VIOLATION] (Line 40)
+     Raw numeric spacing for paddingVertical (8px): paddingVertical: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 41)
+     Raw numeric spacing for paddingHorizontal (14px): paddingHorizontal: 14,
+   • [HARDCODED_SPACING_VIOLATION] (Line 43)
+     Raw numeric spacing for borderRadius (8px): borderRadius: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 53)
+     Raw numeric spacing for paddingHorizontal (24px): paddingHorizontal: 24,
+
+File: src\components\Admin\AdminTabBar.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 29)
+     Raw numeric spacing for paddingRight (24px): contentContainerStyle={{ paddingRight: 24, paddingVertical: 8, alignItems: 'center' }}
+
+File: src\components\Admin\Analytics\AnalyticsDashboard.js
+   • [HARDCODED_COLOR_VIOLATION] (Line 36)
+     Hardcoded color(s) #10B981: <StatCard label={t('adminAnalyticsRevenue')} value={formatCurrency(stats.revenue)} icon={<DollarIcon color="#10B981" size={18} />} />
+   • [HARDCODED_COLOR_VIOLATION] (Line 37)
+     Hardcoded color(s) #3B82F6: <StatCard label={t('adminAnalyticsOrders')} value={String(stats.orders)} icon={<ClipboardIcon color="#3B82F6" size={18} />} />
+   • [HARDCODED_COLOR_VIOLATION] (Line 38)
+     Hardcoded color(s) #EC4899: <StatCard label={t('adminAnalyticsAvgOrder')} value={formatCurrency(stats.avgOrder)} icon={<TrendIcon color="#EC4899" size={18} />} />
+   • [HARDCODED_COLOR_VIOLATION] (Line 39)
+     Hardcoded color(s) #8B5CF6: <StatCard label={t('adminAnalyticsTotalSold')} value={String(stats.totalSold)} icon={<BoxIcon color="#8B5CF6" size={18} />} />
+   • [INLINE_STYLE_HARDCODE] (Line 128)
+     Inline style detected in JSX: <ActivityIndicator size="large" color="#1C1C1C" style={{ marginVertical: 40 }} />
+   • [HARDCODED_COLOR_VIOLATION] (Line 128)
+     Hardcoded color(s) #1C1C1C: <ActivityIndicator size="large" color="#1C1C1C" style={{ marginVertical: 40 }} />
+   • [HARDCODED_SPACING_VIOLATION] (Line 128)
+     Raw numeric spacing for marginVertical (40px): <ActivityIndicator size="large" color="#1C1C1C" style={{ marginVertical: 40 }} />
+
+File: src\components\Admin\Analytics\AnalyticsStyles.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 10)
+     Raw numeric spacing for paddingHorizontal (24px): paddingHorizontal: 24,
+   • [HARDCODED_SPACING_VIOLATION] (Line 11)
+     Raw numeric spacing for paddingTop (24px): paddingTop: 24,
+   • [HARDCODED_SPACING_VIOLATION] (Line 18)
+     Raw numeric spacing for gap (12px): gap: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 19)
+     Raw numeric spacing for marginBottom (24px): marginBottom: 24,
+   • [HARDCODED_SPACING_VIOLATION] (Line 25)
+     Raw numeric spacing for borderRadius (14px): borderRadius: 14,
+   • [HARDCODED_SPACING_VIOLATION] (Line 26)
+     Raw numeric spacing for padding (18px): padding: 18,
+   • [HARDCODED_SPACING_VIOLATION] (Line 34)
+     Raw numeric spacing for marginBottom (10px): marginBottom: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 47)
+     Raw numeric spacing for borderRadius (14px): borderRadius: 14,
+   • [HARDCODED_SPACING_VIOLATION] (Line 48)
+     Raw numeric spacing for padding (20px): padding: 20,
+   • [HARDCODED_SPACING_VIOLATION] (Line 49)
+     Raw numeric spacing for marginBottom (16px): marginBottom: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 54)
+     Raw numeric spacing for marginBottom (16px): marginBottom: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 58)
+     Raw numeric spacing for gap (16px): gap: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 70)
+     Raw numeric spacing for marginBottom (10px): marginBottom: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 74)
+     Raw numeric spacing for marginRight (10px): marginRight: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 81)
+     Raw numeric spacing for borderRadius (4px): borderRadius: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 87)
+     Raw numeric spacing for borderRadius (4px): borderRadius: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 90)
+     Raw numeric spacing for marginLeft (8px): marginLeft: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 103)
+     Raw numeric spacing for marginBottom (6px): marginBottom: 6,
+   • [HARDCODED_SPACING_VIOLATION] (Line 108)
+     Raw numeric spacing for borderRadius (5px): borderRadius: 5,
+   • [HARDCODED_SPACING_VIOLATION] (Line 109)
+     Raw numeric spacing for marginRight (8px): marginRight: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 114)
+     Raw numeric spacing for marginLeft (4px): marginLeft: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 131)
+     Raw numeric spacing for marginBottom (20px): marginBottom: 20,
+   • [HARDCODED_SPACING_VIOLATION] (Line 138)
+     Raw numeric spacing for gap (8px): gap: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 142)
+     Raw numeric spacing for paddingVertical (10px): paddingVertical: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 143)
+     Raw numeric spacing for paddingHorizontal (16px): paddingHorizontal: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 144)
+     Raw numeric spacing for borderRadius (20px): borderRadius: 20,
+   • [HARDCODED_SPACING_VIOLATION] (Line 166)
+     Raw numeric spacing for gap (8px): gap: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 167)
+     Raw numeric spacing for marginTop (8px): marginTop: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 175)
+     Raw numeric spacing for borderRadius (8px): borderRadius: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 176)
+     Raw numeric spacing for paddingHorizontal (12px): paddingHorizontal: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 189)
+     Raw numeric spacing for paddingHorizontal (16px): paddingHorizontal: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 190)
+     Raw numeric spacing for borderRadius (8px): borderRadius: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 198)
+     Raw numeric spacing for marginBottom (20px): marginBottom: 20,
+   • [HARDCODED_SPACING_VIOLATION] (Line 201)
+     Raw numeric spacing for gap (8px): gap: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 205)
+     Raw numeric spacing for gap (8px): gap: 8,
+
+File: src\components\Admin\Analytics\CalendarDayCell.js
+   • [INLINE_STYLE_HARDCODE] (Line 108)
+     Inline style detected in JSX: <View style={cellStyle}>
+   • [INLINE_STYLE_HARDCODE] (Line 110)
+     Inline style detected in JSX: style={buttonStyle}
+   • [INLINE_STYLE_HARDCODE] (Line 116)
+     Inline style detected in JSX: <Text variant="body2" weight={weight} style={textStyle}>{cell.dayLabel}</Text>
+
+File: src\components\Admin\Analytics\DateRangeCalendar.js
+   • [INLINE_STYLE_HARDCODE] (Line 78)
+     Inline style detected in JSX: <View style={localStyles.calendarPopup}>
+   • [INLINE_STYLE_HARDCODE] (Line 79)
+     Inline style detected in JSX: <View style={localStyles.calendarHeader}>
+   • [INLINE_STYLE_HARDCODE] (Line 81)
+     Inline style detected in JSX: style={localStyles.arrowBtn}
+   • [INLINE_STYLE_HARDCODE] (Line 85)
+     Inline style detected in JSX: <Text style={localStyles.arrowText}>‹</Text>
+   • [INLINE_STYLE_HARDCODE] (Line 87)
+     Inline style detected in JSX: <Text variant="subtitle1" weight="bold" style={localStyles.monthTitle}>
+   • [INLINE_STYLE_HARDCODE] (Line 91)
+     Inline style detected in JSX: style={localStyles.arrowBtn}
+   • [INLINE_STYLE_HARDCODE] (Line 95)
+     Inline style detected in JSX: <Text style={localStyles.arrowText}>›</Text>
+   • [INLINE_STYLE_HARDCODE] (Line 99)
+     Inline style detected in JSX: <View style={localStyles.weekdaysRow}>
+   • [INLINE_STYLE_HARDCODE] (Line 101)
+     Inline style detected in JSX: <View key={idx} style={localStyles.weekdayCell}>
+   • [INLINE_STYLE_HARDCODE] (Line 102)
+     Inline style detected in JSX: <Text variant="caption" weight="semibold" color="secondary" style={localStyles.weekdayText}>{label}</Text>
+   • [INLINE_STYLE_HARDCODE] (Line 107)
+     Inline style detected in JSX: <View style={localStyles.daysGrid}>
+
+File: src\components\Admin\Analytics\DateRangeCalendarStyles.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 13)
+     Raw numeric spacing for borderRadius (12px): borderRadius: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 14)
+     Raw numeric spacing for padding (12px): padding: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 24)
+     Raw numeric spacing for marginBottom (12px): marginBottom: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 33)
+     Raw numeric spacing for borderRadius (6px): borderRadius: 6,
+   • [HARDCODED_SPACING_VIOLATION] (Line 42)
+     Raw numeric spacing for marginBottom (6px): marginBottom: 6,
+   • [HARDCODED_SPACING_VIOLATION] (Line 59)
+     Raw numeric spacing for marginVertical (1px): marginVertical: 1,
+   • [HARDCODED_SPACING_VIOLATION] (Line 66)
+     Raw numeric spacing for borderRadius (14px): borderRadius: 14,
+   • [HARDCODED_SPACING_VIOLATION] (Line 84)
+     Raw numeric spacing for borderRadius (0px): borderRadius: 0,
+
+File: src\components\Admin\Analytics\DateRangePicker.js
+   • [INLINE_STYLE_HARDCODE] (Line 94)
+     Inline style detected in JSX: <View style={{ position: 'relative', zIndex: 3000 }}>
+
+File: src\components\Admin\Analytics\DateRangePresets.js
+   • [INLINE_STYLE_HARDCODE] (Line 29)
+     Inline style detected in JSX: style={style}
+
+File: src\components\Admin\Analytics\OrderStatusChart.js
+   • [INLINE_STYLE_HARDCODE] (Line 24)
+     Inline style detected in JSX: <View style={{ width: size, alignItems: 'center' }}>
+   • [INLINE_STYLE_HARDCODE] (Line 26)
+     Inline style detected in JSX: style={{
+   • [HARDCODED_COLOR_VIOLATION] (Line 32)
+     Hardcoded color(s) #F5F7FA: backgroundColor: '#F5F7FA',
+   • [INLINE_STYLE_HARDCODE] (Line 36)
+     Inline style detected in JSX: <View key={idx} style={{ flex: item.value / total, backgroundColor: item.color }} />
+   • [INLINE_STYLE_HARDCODE] (Line 46)
+     Inline style detected in JSX: <svg width={size} height={size} style={{ transform: 'rotate(-90deg)' }}>
+   • [HARDCODED_COLOR_VIOLATION] (Line 73)
+     Hardcoded color(s) #3B82F6: pending: { labelKey: 'orderStatusPending', color: '#3B82F6' },
+   • [HARDCODED_COLOR_VIOLATION] (Line 74)
+     Hardcoded color(s) #D97706: processing: { labelKey: 'orderStatusProcessing', color: '#D97706' },
+   • [HARDCODED_COLOR_VIOLATION] (Line 75)
+     Hardcoded color(s) #10B981: completed: { labelKey: 'orderStatusCompleted', color: '#10B981' },
+   • [HARDCODED_COLOR_VIOLATION] (Line 76)
+     Hardcoded color(s) #EF4444: cancelled: { labelKey: 'orderStatusCancelled', color: '#EF4444' },
+   • [HARDCODED_COLOR_VIOLATION] (Line 85)
+     Hardcoded color(s) #3B82F6: color: item.color || '#3B82F6',
+   • [HARDCODED_COLOR_VIOLATION] (Line 97)
+     Hardcoded color(s) #E2E8F0: : [{ labelKey: null, value: 1, color: '#E2E8F0' }];
+   • [INLINE_STYLE_HARDCODE] (Line 102)
+     Inline style detected in JSX: <View style={{ marginTop: 20 }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 102)
+     Raw numeric spacing for marginTop (20px): <View style={{ marginTop: 20 }}>
+
+File: src\components\Admin\Analytics\RevenueChart.js
+   • [INLINE_STYLE_HARDCODE] (Line 63)
+     Inline style detected in JSX: <View style={{ height: 180, justifyContent: 'center', alignItems: 'center' }}>
+   • [INLINE_STYLE_HARDCODE] (Line 102)
+     Inline style detected in JSX: style={{ display: 'block' }}
+   • [HARDCODED_COLOR_VIOLATION] (Line 106)
+     Hardcoded color(s) #10B981: <stop offset="0%" stopColor="#10B981" stopOpacity="0.15" />
+   • [HARDCODED_COLOR_VIOLATION] (Line 107)
+     Hardcoded color(s) #10B981: <stop offset="100%" stopColor="#10B981" stopOpacity="0" />
+   • [HARDCODED_COLOR_VIOLATION] (Line 117)
+     Hardcoded color(s) #CBD5E1, #E2E8F0: stroke={value === 0 ? '#CBD5E1' : '#E2E8F0'}
+   • [HARDCODED_COLOR_VIOLATION] (Line 123)
+     Hardcoded color(s) #94a3b8: fontSize="9" fill="#94a3b8" textAnchor="end"
+   • [HARDCODED_COLOR_VIOLATION] (Line 136)
+     Hardcoded color(s) #F1F5F9: stroke="#F1F5F9" strokeWidth="1"
+   • [HARDCODED_COLOR_VIOLATION] (Line 144)
+     Hardcoded color(s) #10B981: <path d={linePath} fill="none" stroke="#10B981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+   • [HARDCODED_COLOR_VIOLATION] (Line 148)
+     Hardcoded color(s) #10B981: <circle key={i} cx={p.x.toFixed(1)} cy={p.y.toFixed(1)} r="2.5" fill="#10B981" />
+   • [HARDCODED_COLOR_VIOLATION] (Line 159)
+     Hardcoded color(s) #94a3b8: fill="#94a3b8"
+   • [INLINE_STYLE_HARDCODE] (Line 168)
+     Inline style detected in JSX: <View style={{ flex: 1, justifyContent: 'flex-end' }}>
+   • [INLINE_STYLE_HARDCODE] (Line 169)
+     Inline style detected in JSX: <View style={{ flexDirection: 'row', alignItems: 'flex-end', height: PLOT_H }}>
+   • [INLINE_STYLE_HARDCODE] (Line 173)
+     Inline style detected in JSX: <View key={i} style={{ flex: 1, marginLeft: i === 0 ? 0 : 2, alignItems: 'center' }}>
+   • [INLINE_STYLE_HARDCODE] (Line 174)
+     Inline style detected in JSX: <View style={{ width: 6, height: barH, backgroundColor: '#10B981', borderRadius: 3 }} />
+   • [HARDCODED_COLOR_VIOLATION] (Line 174)
+     Hardcoded color(s) #10B981: <View style={{ width: 6, height: barH, backgroundColor: '#10B981', borderRadius: 3 }} />
+   • [HARDCODED_SPACING_VIOLATION] (Line 174)
+     Raw numeric spacing for borderRadius (3px): <View style={{ width: 6, height: barH, backgroundColor: '#10B981', borderRadius: 3 }} />
+
+File: src\components\Admin\Analytics\TopProductsChart.js
+   • [INLINE_STYLE_HARDCODE] (Line 34)
+     Inline style detected in JSX: <View style={{ paddingVertical: 20, alignItems: 'center', justifyContent: 'center' }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 34)
+     Raw numeric spacing for paddingVertical (20px): <View style={{ paddingVertical: 20, alignItems: 'center', justifyContent: 'center' }}>
+   • [INLINE_STYLE_HARDCODE] (Line 50)
+     Inline style detected in JSX: <View style={{ flexDirection: 'row', width: `${(p.value / maxValue) * 100}%`, height: '100%', borderRadius: 4, overflow: 'hidden' }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 50)
+     Raw numeric spacing for borderRadius (4px): <View style={{ flexDirection: 'row', width: `${(p.value / maxValue) * 100}%`, height: '100%', borderRadius: 4, overflow: 'hidden' }}>
+   • [INLINE_STYLE_HARDCODE] (Line 52)
+     Inline style detected in JSX: <View style={{ flex: p.completed, backgroundColor: '#10B981' }} />
+   • [HARDCODED_COLOR_VIOLATION] (Line 52)
+     Hardcoded color(s) #10B981: <View style={{ flex: p.completed, backgroundColor: '#10B981' }} />
+   • [INLINE_STYLE_HARDCODE] (Line 55)
+     Inline style detected in JSX: <View style={{ flex: p.processing, backgroundColor: '#F59E0B' }} />
+   • [HARDCODED_COLOR_VIOLATION] (Line 55)
+     Hardcoded color(s) #F59E0B: <View style={{ flex: p.processing, backgroundColor: '#F59E0B' }} />
+   • [INLINE_STYLE_HARDCODE] (Line 58)
+     Inline style detected in JSX: <View style={{ flex: p.pending, backgroundColor: '#3B82F6' }} />
+   • [HARDCODED_COLOR_VIOLATION] (Line 58)
+     Hardcoded color(s) #3B82F6: <View style={{ flex: p.pending, backgroundColor: '#3B82F6' }} />
+
+File: src\components\Admin\Banners\BannersStyles.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 7)
+     Raw numeric spacing for padding (24px): padding: 24,
+   • [HARDCODED_SPACING_VIOLATION] (Line 12)
+     Raw numeric spacing for marginBottom (16px): marginBottom: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 13)
+     Raw numeric spacing for gap (12px): gap: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 23)
+     Raw numeric spacing for paddingHorizontal (16px): paddingHorizontal: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 24)
+     Raw numeric spacing for borderRadius (10px): borderRadius: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 34)
+     Raw numeric spacing for borderRadius (14px): borderRadius: 14,
+   • [HARDCODED_SPACING_VIOLATION] (Line 35)
+     Raw numeric spacing for padding (20px): padding: 20,
+   • [HARDCODED_SPACING_VIOLATION] (Line 38)
+     Raw numeric spacing for marginBottom (24px): marginBottom: 24,
+   • [HARDCODED_SPACING_VIOLATION] (Line 39)
+     Raw numeric spacing for gap (20px): gap: 20,
+   • [HARDCODED_SPACING_VIOLATION] (Line 44)
+     Raw numeric spacing for gap (16px): gap: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 45)
+     Raw numeric spacing for paddingBottom (16px): paddingBottom: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 52)
+     Raw numeric spacing for borderRadius (8px): borderRadius: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 76)
+     Raw numeric spacing for gap (10px): gap: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 80)
+     Raw numeric spacing for paddingHorizontal (16px): paddingHorizontal: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 81)
+     Raw numeric spacing for borderRadius (8px): borderRadius: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 91)
+     Raw numeric spacing for paddingHorizontal (16px): paddingHorizontal: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 92)
+     Raw numeric spacing for borderRadius (8px): borderRadius: 8,
+   • [HARDCODED_COLOR_VIOLATION] (Line 104)
+     Hardcoded color(s) rgba(0, 0, 0, 0.6): backgroundColor: 'rgba(0, 0, 0, 0.6)',
+   • [HARDCODED_SPACING_VIOLATION] (Line 113)
+     Raw numeric spacing for borderRadius (14px): borderRadius: 14,
+   • [HARDCODED_SPACING_VIOLATION] (Line 114)
+     Raw numeric spacing for padding (24px): padding: 24,
+   • [HARDCODED_SPACING_VIOLATION] (Line 120)
+     Raw numeric spacing for marginBottom (8px): marginBottom: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 124)
+     Raw numeric spacing for marginBottom (20px): marginBottom: 20,
+   • [HARDCODED_SPACING_VIOLATION] (Line 128)
+     Raw numeric spacing for gap (12px): gap: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 133)
+     Raw numeric spacing for borderRadius (8px): borderRadius: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 146)
+     Raw numeric spacing for borderRadius (8px): borderRadius: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 158)
+     Raw numeric spacing for gap (16px): gap: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 159)
+     Raw numeric spacing for marginBottom (24px): marginBottom: 24,
+   • [HARDCODED_SPACING_VIOLATION] (Line 164)
+     Raw numeric spacing for borderRadius (14px): borderRadius: 14,
+   • [HARDCODED_SPACING_VIOLATION] (Line 165)
+     Raw numeric spacing for padding (16px): padding: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 168)
+     Raw numeric spacing for gap (14px): gap: 14,
+   • [HARDCODED_SPACING_VIOLATION] (Line 175)
+     Raw numeric spacing for borderRadius (8px): borderRadius: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 185)
+     Raw numeric spacing for borderRadius (14px): borderRadius: 14,
+   • [HARDCODED_SPACING_VIOLATION] (Line 186)
+     Raw numeric spacing for padding (16px): padding: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 198)
+     Raw numeric spacing for borderRadius (10px): borderRadius: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 204)
+     Raw numeric spacing for marginTop (8px): marginTop: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 211)
+     Raw numeric spacing for paddingHorizontal (24px): paddingHorizontal: 24,
+   • [HARDCODED_SPACING_VIOLATION] (Line 212)
+     Raw numeric spacing for borderRadius (8px): borderRadius: 8,
+
+File: src\components\Admin\Categories\CategoriesStyles.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 27)
+     Raw numeric spacing for padding (24px): padding: 24,
+   • [HARDCODED_SPACING_VIOLATION] (Line 35)
+     Raw numeric spacing for gap (8px): gap: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 36)
+     Raw numeric spacing for marginBottom (16px): marginBottom: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 40)
+     Raw numeric spacing for paddingHorizontal (14px): paddingHorizontal: 14,
+   • [HARDCODED_SPACING_VIOLATION] (Line 41)
+     Raw numeric spacing for borderRadius (20px): borderRadius: 20,
+   • [HARDCODED_SPACING_VIOLATION] (Line 55)
+     Raw numeric spacing for gap (8px): gap: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 56)
+     Raw numeric spacing for marginBottom (10px): marginBottom: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 61)
+     Raw numeric spacing for paddingHorizontal (14px): paddingHorizontal: 14,
+   • [HARDCODED_SPACING_VIOLATION] (Line 62)
+     Raw numeric spacing for borderRadius (20px): borderRadius: 20,
+   • [HARDCODED_SPACING_VIOLATION] (Line 76)
+     Raw numeric spacing for borderRadius (14px): borderRadius: 14,
+   • [HARDCODED_SPACING_VIOLATION] (Line 88)
+     Raw numeric spacing for paddingHorizontal (16px): paddingHorizontal: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 89)
+     Raw numeric spacing for paddingVertical (10px): paddingVertical: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 117)
+     Raw numeric spacing for paddingLeft (8px): colActions: { flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center', paddingLeft: 8 },
+   • [HARDCODED_SPACING_VIOLATION] (Line 123)
+     Raw numeric spacing for gap (6px): gap: 6,
+   • [HARDCODED_SPACING_VIOLATION] (Line 142)
+     Raw numeric spacing for marginTop (1px): marginTop: 1,
+   • [HARDCODED_SPACING_VIOLATION] (Line 146)
+     Raw numeric spacing for marginTop (3px): marginTop: 3,
+   • [HARDCODED_SPACING_VIOLATION] (Line 147)
+     Raw numeric spacing for paddingHorizontal (7px): paddingHorizontal: 7,
+   • [HARDCODED_SPACING_VIOLATION] (Line 148)
+     Raw numeric spacing for paddingVertical (2px): paddingVertical: 2,
+   • [HARDCODED_SPACING_VIOLATION] (Line 161)
+     Raw numeric spacing for borderRadius (4px): borderRadius: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 162)
+     Raw numeric spacing for paddingHorizontal (6px): paddingHorizontal: 6,
+   • [HARDCODED_SPACING_VIOLATION] (Line 163)
+     Raw numeric spacing for paddingVertical (2px): paddingVertical: 2,
+   • [HARDCODED_SPACING_VIOLATION] (Line 182)
+     Raw numeric spacing for paddingHorizontal (12px): paddingHorizontal: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 195)
+     Raw numeric spacing for paddingHorizontal (12px): paddingHorizontal: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 206)
+     Raw numeric spacing for marginTop (20px): marginTop: 20,
+   • [HARDCODED_SPACING_VIOLATION] (Line 209)
+     Raw numeric spacing for paddingVertical (14px): paddingVertical: 14,
+   • [HARDCODED_SPACING_VIOLATION] (Line 221)
+     Raw numeric spacing for paddingHorizontal (16px): paddingHorizontal: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 222)
+     Raw numeric spacing for paddingVertical (12px): paddingVertical: 12,
+
+File: src\components\Admin\Categories\CategoryFormContent.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 33)
+     Raw numeric spacing for marginBottom (12px): {!!errors.type && <Text style={[styles.errorText, { marginBottom: 12 }]}>{errors.type}</Text>}
+
+File: src\components\Admin\Categories\CategoryFormFields.js
+   • [HARDCODED_COLOR_VIOLATION] (Line 63)
+     Hardcoded color(s) #64748B: <Text style={[styles.errorText, { color: '#64748B', marginTop: 4 }]}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 63)
+     Raw numeric spacing for marginTop (4px): <Text style={[styles.errorText, { color: '#64748B', marginTop: 4 }]}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 93)
+     Raw numeric spacing for gap (4px): <AnimatedButton style={[styles.uploadBtn, { flexDirection: 'row', alignItems: 'center', gap: 4 }]} onPress={() => triggerFileInput('cat-image-file-input', onChange)} activeOpacity={0.8}>
+   • [HARDCODED_COLOR_VIOLATION] (Line 94)
+     Hardcoded color(s) #FFFFFF: <UploadIcon color="#FFFFFF" size={12} />
+   • [HARDCODED_SPACING_VIOLATION] (Line 97)
+     Raw numeric spacing for gap (4px): <AnimatedButton style={[styles.uploadBtn, { flexDirection: 'row', alignItems: 'center', gap: 4 }]} onPress={() => setBrowserOpen(true)} activeOpacity={0.8}>
+   • [HARDCODED_COLOR_VIOLATION] (Line 98)
+     Hardcoded color(s) #FFFFFF: <ImageIcon color="#FFFFFF" size={12} />
+
+File: src\components\Admin\Categories\CategoryFormFooter.js
+   • [INLINE_STYLE_HARDCODE] (Line 31)
+     Inline style detected in JSX: style={{ flex: 1 }}
+   • [INLINE_STYLE_HARDCODE] (Line 34)
+     Inline style detected in JSX: <View style={{ flex: 1 }} />
+   • [INLINE_STYLE_HARDCODE] (Line 52)
+     Inline style detected in JSX: style={{ flex: 1 }}
+   • [INLINE_STYLE_HARDCODE] (Line 55)
+     Inline style detected in JSX: <View style={{ flex: 1 }} />
+   • [INLINE_STYLE_HARDCODE] (Line 65)
+     Inline style detected in JSX: style={{ flex: 1 }}
+   • [INLINE_STYLE_HARDCODE] (Line 72)
+     Inline style detected in JSX: style={{ flex: 1 }}
+
+File: src\components\Admin\Categories\CategoryFormStyles.js
+   • [HARDCODED_COLOR_VIOLATION] (Line 15)
+     Hardcoded color(s) rgba(0, 0, 0, 0.6): backgroundColor: 'rgba(0, 0, 0, 0.6)',
+   • [HARDCODED_SPACING_VIOLATION] (Line 33)
+     Raw numeric spacing for paddingHorizontal (24px): paddingHorizontal: 24,
+   • [HARDCODED_SPACING_VIOLATION] (Line 34)
+     Raw numeric spacing for paddingTop (24px): paddingTop: 24,
+   • [HARDCODED_SPACING_VIOLATION] (Line 35)
+     Raw numeric spacing for paddingBottom (16px): paddingBottom: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 44)
+     Raw numeric spacing for padding (4px): padding: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 47)
+     Raw numeric spacing for paddingHorizontal (24px): paddingHorizontal: 24,
+   • [HARDCODED_SPACING_VIOLATION] (Line 48)
+     Raw numeric spacing for paddingVertical (20px): paddingVertical: 20,
+   • [HARDCODED_SPACING_VIOLATION] (Line 54)
+     Raw numeric spacing for gap (12px): gap: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 55)
+     Raw numeric spacing for paddingHorizontal (24px): paddingHorizontal: 24,
+   • [HARDCODED_SPACING_VIOLATION] (Line 56)
+     Raw numeric spacing for paddingBottom (24px): paddingBottom: 24,
+   • [HARDCODED_SPACING_VIOLATION] (Line 57)
+     Raw numeric spacing for paddingTop (12px): paddingTop: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 63)
+     Raw numeric spacing for gap (12px): gap: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 68)
+     Raw numeric spacing for marginTop (20px): marginTop: 20,
+   • [HARDCODED_SPACING_VIOLATION] (Line 69)
+     Raw numeric spacing for marginBottom (16px): marginBottom: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 72)
+     Raw numeric spacing for paddingTop (16px): paddingTop: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 76)
+     Raw numeric spacing for marginBottom (12px): marginBottom: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 85)
+     Raw numeric spacing for padding (12px): padding: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 86)
+     Raw numeric spacing for marginTop (8px): marginTop: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 97)
+     Raw numeric spacing for marginBottom (10px): marginBottom: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 98)
+     Raw numeric spacing for marginTop (4px): marginTop: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 105)
+     Raw numeric spacing for gap (16px): gap: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 106)
+     Raw numeric spacing for marginBottom (14px): marginBottom: 14,
+   • [HARDCODED_SPACING_VIOLATION] (Line 111)
+     Raw numeric spacing for marginBottom (14px): marginBottom: 14,
+   • [HARDCODED_SPACING_VIOLATION] (Line 115)
+     Raw numeric spacing for marginBottom (5px): marginBottom: 5,
+   • [HARDCODED_SPACING_VIOLATION] (Line 122)
+     Raw numeric spacing for paddingHorizontal (12px): paddingHorizontal: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 135)
+     Raw numeric spacing for paddingHorizontal (12px): paddingHorizontal: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 136)
+     Raw numeric spacing for paddingVertical (10px): paddingVertical: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 145)
+     Raw numeric spacing for marginTop (2px): marginTop: 2,
+   • [HARDCODED_SPACING_VIOLATION] (Line 151)
+     Raw numeric spacing for gap (8px): gap: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 159)
+     Raw numeric spacing for paddingHorizontal (12px): paddingHorizontal: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 167)
+     Raw numeric spacing for paddingHorizontal (14px): paddingHorizontal: 14,
+   • [HARDCODED_SPACING_VIOLATION] (Line 186)
+     Raw numeric spacing for paddingHorizontal (14px): paddingHorizontal: 14,
+   • [HARDCODED_SPACING_VIOLATION] (Line 187)
+     Raw numeric spacing for paddingVertical (10px): paddingVertical: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 188)
+     Raw numeric spacing for marginBottom (16px): marginBottom: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 196)
+     Raw numeric spacing for paddingVertical (4px): paddingVertical: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 197)
+     Raw numeric spacing for paddingHorizontal (10px): paddingHorizontal: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 205)
+     Raw numeric spacing for paddingHorizontal (24px): paddingHorizontal: 24,
+   • [HARDCODED_SPACING_VIOLATION] (Line 206)
+     Raw numeric spacing for paddingBottom (24px): paddingBottom: 24,
+   • [HARDCODED_SPACING_VIOLATION] (Line 207)
+     Raw numeric spacing for paddingTop (16px): paddingTop: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 210)
+     Raw numeric spacing for gap (12px): gap: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 214)
+     Raw numeric spacing for gap (12px): gap: 12,
+
+File: src\components\Admin\Categories\CategoryProductSection.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 18)
+     Raw numeric spacing for gap (8px): gap: 8,
+   • [HARDCODED_COLOR_VIOLATION] (Line 20)
+     Hardcoded color(s) #16A34A, #E2E8F0: borderColor: selected ? '#16A34A' : '#E2E8F0',
+   • [HARDCODED_SPACING_VIOLATION] (Line 21)
+     Raw numeric spacing for borderRadius (8px): borderRadius: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 22)
+     Raw numeric spacing for paddingVertical (8px): paddingVertical: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 23)
+     Raw numeric spacing for paddingHorizontal (10px): paddingHorizontal: 10,
+   • [HARDCODED_COLOR_VIOLATION] (Line 24)
+     Hardcoded color(s) #ECFDF5, #F8FAFC: backgroundColor: selected ? '#ECFDF5' : '#F8FAFC',
+   • [HARDCODED_SPACING_VIOLATION] (Line 30)
+     Raw numeric spacing for borderRadius (999px): borderRadius: 999,
+   • [HARDCODED_COLOR_VIOLATION] (Line 32)
+     Hardcoded color(s) #16A34A, #CBD5E1: borderColor: selected ? '#16A34A' : '#CBD5E1',
+   • [HARDCODED_COLOR_VIOLATION] (Line 33)
+     Hardcoded color(s) #16A34A, #FFFFFF: backgroundColor: selected ? '#16A34A' : '#FFFFFF',
+   • [INLINE_STYLE_HARDCODE] (Line 42)
+     Inline style detected in JSX: style={getProductOptionStyle(selected)}
+   • [INLINE_STYLE_HARDCODE] (Line 45)
+     Inline style detected in JSX: <View style={getProductCheckStyle(selected)}>
+   • [INLINE_STYLE_HARDCODE] (Line 46)
+     Inline style detected in JSX: {selected ? <Text variant="caption" weight="bold" style={{ color: '#FFFFFF' }}>✓</Text> : null}
+   • [HARDCODED_COLOR_VIOLATION] (Line 46)
+     Hardcoded color(s) #FFFFFF: {selected ? <Text variant="caption" weight="bold" style={{ color: '#FFFFFF' }}>✓</Text> : null}
+   • [INLINE_STYLE_HARDCODE] (Line 48)
+     Inline style detected in JSX: <Text variant="body2" style={{ color: '#1F2937' }}>{getProductLabel(product, lang)}</Text>
+   • [HARDCODED_COLOR_VIOLATION] (Line 48)
+     Hardcoded color(s) #1F2937: <Text variant="body2" style={{ color: '#1F2937' }}>{getProductLabel(product, lang)}</Text>
+   • [INLINE_STYLE_HARDCODE] (Line 55)
+     Inline style detected in JSX: <Text size={12} style={{ color: '#64748B', marginBottom: 8 }}>
+   • [HARDCODED_COLOR_VIOLATION] (Line 55)
+     Hardcoded color(s) #64748B: <Text size={12} style={{ color: '#64748B', marginBottom: 8 }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 55)
+     Raw numeric spacing for marginBottom (8px): <Text size={12} style={{ color: '#64748B', marginBottom: 8 }}>
+   • [INLINE_STYLE_HARDCODE] (Line 58)
+     Inline style detected in JSX: <View style={{ gap: 6 }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 58)
+     Raw numeric spacing for gap (6px): <View style={{ gap: 6 }}>
+   • [INLINE_STYLE_HARDCODE] (Line 60)
+     Inline style detected in JSX: <Text size={12} style={{ color: '#64748B' }}>{t(emptyKey)}</Text>
+   • [HARDCODED_COLOR_VIOLATION] (Line 60)
+     Hardcoded color(s) #64748B: <Text size={12} style={{ color: '#64748B' }}>{t(emptyKey)}</Text>
+   • [INLINE_STYLE_HARDCODE] (Line 100)
+     Inline style detected in JSX: <View style={{ marginTop: 8 }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 100)
+     Raw numeric spacing for marginTop (8px): <View style={{ marginTop: 8 }}>
+   • [INLINE_STYLE_HARDCODE] (Line 112)
+     Inline style detected in JSX: <View style={{ marginTop: 16 }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 112)
+     Raw numeric spacing for marginTop (16px): <View style={{ marginTop: 16 }}>
+
+File: src\components\Admin\Categories\CategoryRow.js
+   • [INLINE_STYLE_HARDCODE] (Line 29)
+     Inline style detected in JSX: <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 2 }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 29)
+     Raw numeric spacing for gap (6px): <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 2 }}>
+   • [INLINE_STYLE_HARDCODE] (Line 61)
+     Inline style detected in JSX: <View style={{ flex: 1 }}>
+   • [INLINE_STYLE_HARDCODE] (Line 91)
+     Inline style detected in JSX: <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, paddingLeft: safeDepth * INDENT_PER_LEVEL + (safeDepth > 0 ? 10 : 0) }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 91)
+     Raw numeric spacing for gap (8px): <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, paddingLeft: safeDepth * INDENT_PER_LEVEL + (safeDepth > 0 ? 10 : 0) }}>
+   • [INLINE_STYLE_HARDCODE] (Line 94)
+     Inline style detected in JSX: <View style={{ flex: 1 }}>
+
+File: src\components\Admin\Categories\CategoryRowElements.js
+   • [HARDCODED_COLOR_VIOLATION] (Line 21)
+     Hardcoded color(s) #475569, #475569: icon={isCollapsed ? <ChevronRightIcon color="#475569" size={12} /> : <ChevronDownIcon color="#475569" size={12} />}
+   • [INLINE_STYLE_HARDCODE] (Line 38)
+     Inline style detected in JSX: <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+   • [HARDCODED_COLOR_VIOLATION] (Line 40)
+     Hardcoded color(s) #16A34A: ? <CheckIcon color="#16A34A" size={12} />
+   • [HARDCODED_COLOR_VIOLATION] (Line 41)
+     Hardcoded color(s) #DC2626: : <CrossIcon color="#DC2626" size={12} />}
+   • [HARDCODED_SPACING_VIOLATION] (Line 42)
+     Raw numeric spacing for marginLeft (4px): <Text style={[styles.imageBadgeText, has ? styles.imageBadgeSetText : styles.imageBadgeNoneText, { marginLeft: 4 }]}>
+   • [INLINE_STYLE_HARDCODE] (Line 63)
+     Inline style detected in JSX: <View style={{ position: 'absolute', top: 0, bottom: 0, left: 0, pointerEvents: 'none' }}>
+   • [INLINE_STYLE_HARDCODE] (Line 67)
+     Inline style detected in JSX: style={{
+   • [HARDCODED_COLOR_VIOLATION] (Line 73)
+     Hardcoded color(s) #CBD5E1, #E8ECF0: backgroundColor: i === depth - 1 ? '#CBD5E1' : '#E8ECF0',
+
+File: src\components\Admin\FormModalLayout.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 28)
+     Raw numeric spacing for gap (12px): <View style={styles.modalFooterRight ?? { flexDirection: 'row', gap: 12, alignItems: 'center' }}>
+
+File: src\components\Admin\LanguageTabs.js
+   • [INLINE_STYLE_HARDCODE] (Line 13)
+     Inline style detected in JSX: <View style={{ flexDirection: 'row', gap: 8, marginBottom: 16 }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 13)
+     Raw numeric spacing for gap (8px): <View style={{ flexDirection: 'row', gap: 8, marginBottom: 16 }}>
+
+File: src\components\Admin\Media\MediaBrowserComponents.js
+   • [INLINE_STYLE_HARDCODE] (Line 23)
+     Inline style detected in JSX: <AlertIcon color="#DC2626" size={14} style={{ marginRight: 6 }} /> Media index not generated
+   • [HARDCODED_COLOR_VIOLATION] (Line 23)
+     Hardcoded color(s) #DC2626: <AlertIcon color="#DC2626" size={14} style={{ marginRight: 6 }} /> Media index not generated
+   • [HARDCODED_SPACING_VIOLATION] (Line 23)
+     Raw numeric spacing for marginRight (6px): <AlertIcon color="#DC2626" size={14} style={{ marginRight: 6 }} /> Media index not generated
+   • [INLINE_STYLE_HARDCODE] (Line 40)
+     Inline style detected in JSX: leftIcon={<RefreshIcon color="#4f46e5" size={12} style={{ marginRight: 4 }} />}
+   • [HARDCODED_COLOR_VIOLATION] (Line 40)
+     Hardcoded color(s) #4f46e5: leftIcon={<RefreshIcon color="#4f46e5" size={12} style={{ marginRight: 4 }} />}
+   • [HARDCODED_SPACING_VIOLATION] (Line 40)
+     Raw numeric spacing for marginRight (4px): leftIcon={<RefreshIcon color="#4f46e5" size={12} style={{ marginRight: 4 }} />}
+
+File: src\components\Admin\Media\MediaBrowserItem.js
+   • [INLINE_STYLE_HARDCODE] (Line 22)
+     Inline style detected in JSX: <View style={{ width: '100%', height: 80, overflow: 'hidden' }}>
+
+File: src\components\Admin\Media\MediaBrowserStyles.js
+   • [HARDCODED_COLOR_VIOLATION] (Line 8)
+     Hardcoded color(s) rgba(0,0,0,0.45): backgroundColor: 'rgba(0,0,0,0.45)',
+   • [HARDCODED_SPACING_VIOLATION] (Line 14)
+     Raw numeric spacing for borderRadius (16px): borderRadius: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 25)
+     Raw numeric spacing for paddingHorizontal (20px): paddingHorizontal: 20,
+   • [HARDCODED_SPACING_VIOLATION] (Line 26)
+     Raw numeric spacing for paddingVertical (14px): paddingVertical: 14,
+   • [HARDCODED_SPACING_VIOLATION] (Line 29)
+     Raw numeric spacing for gap (8px): gap: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 36)
+     Raw numeric spacing for paddingVertical (6px): paddingVertical: 6,
+   • [HARDCODED_SPACING_VIOLATION] (Line 37)
+     Raw numeric spacing for paddingHorizontal (12px): paddingHorizontal: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 38)
+     Raw numeric spacing for borderRadius (7px): borderRadius: 7,
+   • [HARDCODED_SPACING_VIOLATION] (Line 48)
+     Raw numeric spacing for padding (4px): padding: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 51)
+     Raw numeric spacing for marginHorizontal (16px): marginHorizontal: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 52)
+     Raw numeric spacing for marginTop (12px): marginTop: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 53)
+     Raw numeric spacing for marginBottom (4px): marginBottom: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 54)
+     Raw numeric spacing for padding (12px): padding: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 55)
+     Raw numeric spacing for borderRadius (10px): borderRadius: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 62)
+     Raw numeric spacing for marginBottom (2px): marginBottom: 2,
+   • [HARDCODED_SPACING_VIOLATION] (Line 72)
+     Raw numeric spacing for paddingHorizontal (20px): paddingHorizontal: 20,
+   • [HARDCODED_SPACING_VIOLATION] (Line 73)
+     Raw numeric spacing for paddingVertical (10px): paddingVertical: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 74)
+     Raw numeric spacing for gap (8px): gap: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 79)
+     Raw numeric spacing for paddingVertical (6px): paddingVertical: 6,
+   • [HARDCODED_SPACING_VIOLATION] (Line 80)
+     Raw numeric spacing for paddingHorizontal (16px): paddingHorizontal: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 81)
+     Raw numeric spacing for borderRadius (8px): borderRadius: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 97)
+     Raw numeric spacing for padding (16px): padding: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 103)
+     Raw numeric spacing for gap (10px): gap: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 107)
+     Raw numeric spacing for borderRadius (10px): borderRadius: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 123)
+     Raw numeric spacing for paddingHorizontal (6px): paddingHorizontal: 6,
+   • [HARDCODED_SPACING_VIOLATION] (Line 124)
+     Raw numeric spacing for paddingVertical (4px): paddingVertical: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 138)
+     Raw numeric spacing for gap (10px): gap: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 139)
+     Raw numeric spacing for padding (16px): padding: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 144)
+     Raw numeric spacing for paddingVertical (10px): paddingVertical: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 145)
+     Raw numeric spacing for paddingHorizontal (20px): paddingHorizontal: 20,
+   • [HARDCODED_SPACING_VIOLATION] (Line 146)
+     Raw numeric spacing for borderRadius (8px): borderRadius: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 155)
+     Raw numeric spacing for paddingVertical (10px): paddingVertical: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 156)
+     Raw numeric spacing for paddingHorizontal (20px): paddingHorizontal: 20,
+   • [HARDCODED_SPACING_VIOLATION] (Line 157)
+     Raw numeric spacing for borderRadius (8px): borderRadius: 8,
+
+File: src\components\Admin\Orders\AdminNoteSection.js
+   • [HARDCODED_COLOR_VIOLATION] (Line 19)
+     Hardcoded color(s) #94a3b8: placeholderTextColor="#94a3b8"
+   • [HARDCODED_COLOR_VIOLATION] (Line 24)
+     Hardcoded color(s) #e2e8f0: borderColor: '#e2e8f0',
+   • [HARDCODED_SPACING_VIOLATION] (Line 26)
+     Raw numeric spacing for borderRadius (6px): borderRadius: 6,
+   • [HARDCODED_SPACING_VIOLATION] (Line 27)
+     Raw numeric spacing for padding (12px): padding: 12,
+
+File: src\components\Admin\Orders\OrderCustomerCard.js
+   • [HARDCODED_COLOR_VIOLATION] (Line 27)
+     Hardcoded color(s) #fff3cd: <View style={[styles.detailRow, { backgroundColor: '#fff3cd', padding: 12, borderRadius: 6, marginBottom: 12 }]}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 27)
+     Raw numeric spacing for padding (12px): <View style={[styles.detailRow, { backgroundColor: '#fff3cd', padding: 12, borderRadius: 6, marginBottom: 12 }]}>
+   • [INLINE_STYLE_HARDCODE] (Line 28)
+     Inline style detected in JSX: <Text variant="subtitle2" weight="semiBold" style={{ color: '#856404' }}>
+   • [HARDCODED_COLOR_VIOLATION] (Line 28)
+     Hardcoded color(s) #856404: <Text variant="subtitle2" weight="semiBold" style={{ color: '#856404' }}>
+
+File: src\components\Admin\Orders\OrderDetails.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 79)
+     Raw numeric spacing for paddingBottom (40px): <ScrollView contentContainerStyle={{ paddingBottom: 40 }}>
+
+File: src\components\Admin\Orders\OrderItemsList.js
+   • [HARDCODED_COLOR_VIOLATION] (Line 41)
+     Hardcoded color(s) #E2E8F0: <View style={[styles.itemRow, { borderBottomWidth: 1, borderBottomColor: '#E2E8F0', paddingBottom: 8 }]}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 41)
+     Raw numeric spacing for paddingBottom (8px): <View style={[styles.itemRow, { borderBottomWidth: 1, borderBottomColor: '#E2E8F0', paddingBottom: 8 }]}>
+   • [HARDCODED_COLOR_VIOLATION] (Line 59)
+     Hardcoded color(s) #E2E8F0: <View style={[styles.itemRow, { borderTopWidth: 1, borderTopColor: '#E2E8F0', borderBottomWidth: 0, marginTop: 4 }]}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 59)
+     Raw numeric spacing for marginTop (4px): <View style={[styles.itemRow, { borderTopWidth: 1, borderTopColor: '#E2E8F0', borderBottomWidth: 0, marginTop: 4 }]}>
+   • [HARDCODED_COLOR_VIOLATION] (Line 60)
+     Hardcoded color(s) #1C1C1C: <Text style={[styles.itemLabel, { color: '#1C1C1C' }]} size={14} weight="bold">{t('adminOrdersTotal')}</Text>
+   • [HARDCODED_COLOR_VIOLATION] (Line 63)
+     Hardcoded color(s) #1C1C1C: <Text style={[styles.itemPrice, { color: '#1C1C1C' }]} size={14} weight="bold">
+
+File: src\components\Admin\Orders\OrderRow.js
+   • [INLINE_STYLE_HARDCODE] (Line 92)
+     Inline style detected in JSX: <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+   • [INLINE_STYLE_HARDCODE] (Line 111)
+     Inline style detected in JSX: <View style={{ flexDirection: 'row', gap: 24, marginTop: 4 }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 111)
+     Raw numeric spacing for gap (24px): <View style={{ flexDirection: 'row', gap: 24, marginTop: 4 }}>
+   • [INLINE_STYLE_HARDCODE] (Line 112)
+     Inline style detected in JSX: <View style={{ flexDirection: 'row', flex: 1, gap: 4 }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 112)
+     Raw numeric spacing for gap (4px): <View style={{ flexDirection: 'row', flex: 1, gap: 4 }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 113)
+     Raw numeric spacing for marginBottom (0px): <Text style={[styles.metaLabel, { marginBottom: 0 }]} size={10}>{t('adminOrdersCustNote')}: </Text>
+   • [INLINE_STYLE_HARDCODE] (Line 116)
+     Inline style detected in JSX: <View style={{ flexDirection: 'row', flex: 1, gap: 4 }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 116)
+     Raw numeric spacing for gap (4px): <View style={{ flexDirection: 'row', flex: 1, gap: 4 }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 117)
+     Raw numeric spacing for marginBottom (0px): <Text style={[styles.metaLabel, { marginBottom: 0 }]} size={10}>{t('adminOrdersAdminNote')}: </Text>
+
+File: src\components\Admin\Orders\OrdersStyles.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 10)
+     Raw numeric spacing for paddingHorizontal (24px): paddingHorizontal: 24,
+   • [HARDCODED_SPACING_VIOLATION] (Line 11)
+     Raw numeric spacing for paddingTop (24px): paddingTop: 24,
+   • [HARDCODED_SPACING_VIOLATION] (Line 12)
+     Raw numeric spacing for paddingBottom (40px): paddingBottom: 40,
+   • [HARDCODED_SPACING_VIOLATION] (Line 19)
+     Raw numeric spacing for marginBottom (20px): marginBottom: 20,
+   • [HARDCODED_SPACING_VIOLATION] (Line 26)
+     Raw numeric spacing for borderRadius (12px): borderRadius: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 27)
+     Raw numeric spacing for paddingHorizontal (12px): paddingHorizontal: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 28)
+     Raw numeric spacing for paddingVertical (4px): paddingVertical: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 35)
+     Raw numeric spacing for borderRadius (12px): borderRadius: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 36)
+     Raw numeric spacing for padding (16px): padding: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 51)
+     Raw numeric spacing for marginBottom (16px): marginBottom: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 55)
+     Raw numeric spacing for gap (8px): gap: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 56)
+     Raw numeric spacing for paddingRight (4px): paddingRight: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 59)
+     Raw numeric spacing for gap (8px): gap: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 60)
+     Raw numeric spacing for marginBottom (16px): marginBottom: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 64)
+     Raw numeric spacing for gap (8px): gap: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 71)
+     Raw numeric spacing for paddingHorizontal (16px): paddingHorizontal: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 72)
+     Raw numeric spacing for paddingVertical (8px): paddingVertical: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 75)
+     Raw numeric spacing for gap (6px): gap: 6,
+   • [HARDCODED_SPACING_VIOLATION] (Line 90)
+     Raw numeric spacing for gap (0px): gap: 0,
+   • [HARDCODED_SPACING_VIOLATION] (Line 94)
+     Raw numeric spacing for gap (0px): gap: 0,
+   • [HARDCODED_SPACING_VIOLATION] (Line 97)
+     Raw numeric spacing for paddingTop (8px): paddingTop: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 98)
+     Raw numeric spacing for marginTop (2px): marginTop: 2,
+   • [HARDCODED_SPACING_VIOLATION] (Line 109)
+     Raw numeric spacing for marginBottom (3px): marginBottom: 3,
+   • [HARDCODED_SPACING_VIOLATION] (Line 125)
+     Raw numeric spacing for marginTop (2px): marginTop: 2,
+   • [HARDCODED_SPACING_VIOLATION] (Line 128)
+     Raw numeric spacing for paddingHorizontal (8px): paddingHorizontal: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 129)
+     Raw numeric spacing for paddingVertical (4px): paddingVertical: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 130)
+     Raw numeric spacing for borderRadius (16px): borderRadius: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 152)
+     Raw numeric spacing for marginBottom (20px): marginBottom: 20,
+   • [HARDCODED_SPACING_VIOLATION] (Line 155)
+     Raw numeric spacing for marginLeft (8px): marginLeft: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 160)
+     Raw numeric spacing for marginTop (12px): marginTop: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 161)
+     Raw numeric spacing for marginBottom (6px): marginBottom: 6,
+   • [HARDCODED_SPACING_VIOLATION] (Line 166)
+     Raw numeric spacing for padding (12px): padding: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 169)
+     Raw numeric spacing for marginBottom (10px): marginBottom: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 175)
+     Raw numeric spacing for marginBottom (6px): marginBottom: 6,
+   • [HARDCODED_SPACING_VIOLATION] (Line 176)
+     Raw numeric spacing for gap (4px): gap: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 192)
+     Raw numeric spacing for paddingVertical (6px): paddingVertical: 6,
+   • [HARDCODED_SPACING_VIOLATION] (Line 225)
+     Raw numeric spacing for padding (12px): padding: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 226)
+     Raw numeric spacing for marginTop (8px): marginTop: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 229)
+     Raw numeric spacing for paddingVertical (10px): paddingVertical: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 240)
+     Raw numeric spacing for paddingVertical (10px): paddingVertical: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 241)
+     Raw numeric spacing for paddingHorizontal (12px): paddingHorizontal: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 247)
+     Raw numeric spacing for paddingVertical (10px): paddingVertical: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 248)
+     Raw numeric spacing for paddingHorizontal (12px): paddingHorizontal: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 250)
+     Raw numeric spacing for marginBottom (10px): marginBottom: 10,
+
+File: src\components\Admin\Orders\OrdersTable.js
+   • [INLINE_STYLE_HARDCODE] (Line 45)
+     Inline style detected in JSX: if (loading) return <ActivityIndicator size="large" color="#1C1C1C" style={{ marginTop: 40 }} />;
+   • [HARDCODED_COLOR_VIOLATION] (Line 45)
+     Hardcoded color(s) #1C1C1C: if (loading) return <ActivityIndicator size="large" color="#1C1C1C" style={{ marginTop: 40 }} />;
+   • [HARDCODED_SPACING_VIOLATION] (Line 45)
+     Raw numeric spacing for marginTop (40px): if (loading) return <ActivityIndicator size="large" color="#1C1C1C" style={{ marginTop: 40 }} />;
+   • [INLINE_STYLE_HARDCODE] (Line 46)
+     Inline style detected in JSX: if (error) return <Text style={{ color: '#E87A8E', marginTop: 20 }}>{error}</Text>;
+   • [HARDCODED_COLOR_VIOLATION] (Line 46)
+     Hardcoded color(s) #E87A8E: if (error) return <Text style={{ color: '#E87A8E', marginTop: 20 }}>{error}</Text>;
+   • [HARDCODED_SPACING_VIOLATION] (Line 46)
+     Raw numeric spacing for marginTop (20px): if (error) return <Text style={{ color: '#E87A8E', marginTop: 20 }}>{error}</Text>;
+
+File: src\components\Admin\Orders\OrdersTableControls.js
+   • [INLINE_STYLE_HARDCODE] (Line 23)
+     Inline style detected in JSX: <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16, flexWrap: 'wrap', gap: 8 }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 23)
+     Raw numeric spacing for marginBottom (16px): <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16, flexWrap: 'wrap', gap: 8 }}>
+
+File: src\components\Admin\Orders\OrderStatusDropdownMenu.js
+   • [INLINE_STYLE_HARDCODE] (Line 18)
+     Inline style detected in JSX: style={{
+   • [HARDCODED_SPACING_VIOLATION] (Line 21)
+     Raw numeric spacing for borderRadius (8px): borderRadius: 8, elevation: 3, zIndex: 100, overflow: 'hidden',
+   • [HARDCODED_SPACING_VIOLATION] (Line 33)
+     Raw numeric spacing for paddingVertical (10px): paddingVertical: 10, paddingHorizontal: 12,
+   • [INLINE_STYLE_HARDCODE] (Line 42)
+     Inline style detected in JSX: <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 42)
+     Raw numeric spacing for gap (8px): <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+   • [INLINE_STYLE_HARDCODE] (Line 43)
+     Inline style detected in JSX: <View style={{ width: 8, height: 8, borderRadius: 4, backgroundColor: status.color }} />
+   • [HARDCODED_SPACING_VIOLATION] (Line 43)
+     Raw numeric spacing for borderRadius (4px): <View style={{ width: 8, height: 8, borderRadius: 4, backgroundColor: status.color }} />
+   • [INLINE_STYLE_HARDCODE] (Line 47)
+     Inline style detected in JSX: {isSelected && <Text style={{ color: status.color }} size={12}>✓</Text>}
+
+File: src\components\Admin\Orders\OrderStatusSelector.js
+   • [HARDCODED_COLOR_VIOLATION] (Line 11)
+     Hardcoded color(s) #3B82F6, #DBEAFE: { value: 'New',        localeKey: 'orderStatusPending',    color: '#3B82F6', bg: '#DBEAFE' },
+   • [HARDCODED_COLOR_VIOLATION] (Line 12)
+     Hardcoded color(s) #D97706, #FEF3C7: { value: 'Processing', localeKey: 'orderStatusProcessing', color: '#D97706', bg: '#FEF3C7' },
+   • [HARDCODED_COLOR_VIOLATION] (Line 13)
+     Hardcoded color(s) #10B981, #D1FAE5: { value: 'Completed',  localeKey: 'orderStatusCompleted',  color: '#10B981', bg: '#D1FAE5' },
+   • [HARDCODED_COLOR_VIOLATION] (Line 14)
+     Hardcoded color(s) #EF4444, #FEE2E2: { value: 'Cancelled',  localeKey: 'orderStatusCancelled',  color: '#EF4444', bg: '#FEE2E2' },
+   • [INLINE_STYLE_HARDCODE] (Line 53)
+     Inline style detected in JSX: <View style={{ zIndex: 100, position: 'relative', marginBottom: 10 }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 53)
+     Raw numeric spacing for marginBottom (10px): <View style={{ zIndex: 100, position: 'relative', marginBottom: 10 }}>
+
+File: src\components\Admin\Products\MobileProductRow.js
+   • [INLINE_STYLE_HARDCODE] (Line 57)
+     Inline style detected in JSX: <View style={{ flex: 1 }}>
+   • [INLINE_STYLE_HARDCODE] (Line 58)
+     Inline style detected in JSX: <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, flexWrap: 'wrap' }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 58)
+     Raw numeric spacing for gap (6px): <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, flexWrap: 'wrap' }}>
+   • [INLINE_STYLE_HARDCODE] (Line 64)
+     Inline style detected in JSX: <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 64)
+     Raw numeric spacing for gap (4px): <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
+
+File: src\components\Admin\Products\ProductFormFields.js
+   • [INLINE_STYLE_HARDCODE] (Line 87)
+     Inline style detected in JSX: <View style={{ gap: 8, marginBottom: 12 }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 87)
+     Raw numeric spacing for gap (8px): <View style={{ gap: 8, marginBottom: 12 }}>
+
+File: src\components\Admin\Products\ProductFormModal.js
+   • [INLINE_STYLE_HARDCODE] (Line 82)
+     Inline style detected in JSX: <View style={{ marginTop: 20, borderTopWidth: 1, borderTopColor: colors.secondaryLightBorder, paddingTop: 20 }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 82)
+     Raw numeric spacing for marginTop (20px): <View style={{ marginTop: 20, borderTopWidth: 1, borderTopColor: colors.secondaryLightBorder, paddingTop: 20 }}>
+
+File: src\components\Admin\Products\ProductFormStyles.js
+   • [HARDCODED_COLOR_VIOLATION] (Line 14)
+     Hardcoded color(s) rgba(0, 0, 0, 0.6): backgroundColor: 'rgba(0, 0, 0, 0.6)',
+   • [HARDCODED_SPACING_VIOLATION] (Line 32)
+     Raw numeric spacing for paddingHorizontal (24px): paddingHorizontal: 24,
+   • [HARDCODED_SPACING_VIOLATION] (Line 33)
+     Raw numeric spacing for paddingTop (24px): paddingTop: 24,
+   • [HARDCODED_SPACING_VIOLATION] (Line 34)
+     Raw numeric spacing for paddingBottom (16px): paddingBottom: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 43)
+     Raw numeric spacing for padding (4px): padding: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 46)
+     Raw numeric spacing for paddingHorizontal (24px): paddingHorizontal: 24,
+   • [HARDCODED_SPACING_VIOLATION] (Line 47)
+     Raw numeric spacing for paddingVertical (20px): paddingVertical: 20,
+   • [HARDCODED_SPACING_VIOLATION] (Line 52)
+     Raw numeric spacing for gap (12px): gap: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 53)
+     Raw numeric spacing for paddingHorizontal (24px): paddingHorizontal: 24,
+   • [HARDCODED_SPACING_VIOLATION] (Line 54)
+     Raw numeric spacing for paddingBottom (24px): paddingBottom: 24,
+   • [HARDCODED_SPACING_VIOLATION] (Line 55)
+     Raw numeric spacing for paddingTop (12px): paddingTop: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 64)
+     Raw numeric spacing for gap (16px): gap: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 65)
+     Raw numeric spacing for marginBottom (14px): marginBottom: 14,
+   • [HARDCODED_SPACING_VIOLATION] (Line 73)
+     Raw numeric spacing for marginBottom (5px): marginBottom: 5,
+   • [HARDCODED_SPACING_VIOLATION] (Line 80)
+     Raw numeric spacing for paddingHorizontal (12px): paddingHorizontal: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 93)
+     Raw numeric spacing for paddingHorizontal (12px): paddingHorizontal: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 94)
+     Raw numeric spacing for paddingVertical (10px): paddingVertical: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 105)
+     Raw numeric spacing for paddingHorizontal (12px): paddingHorizontal: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 114)
+     Raw numeric spacing for gap (10px): gap: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 115)
+     Raw numeric spacing for marginBottom (14px): marginBottom: 14,
+   • [HARDCODED_SPACING_VIOLATION] (Line 120)
+     Raw numeric spacing for borderRadius (5px): borderRadius: 5,
+   • [HARDCODED_SPACING_VIOLATION] (Line 138)
+     Raw numeric spacing for marginTop (2px): marginTop: 2,
+   • [HARDCODED_SPACING_VIOLATION] (Line 143)
+     Raw numeric spacing for paddingVertical (10px): paddingVertical: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 144)
+     Raw numeric spacing for paddingHorizontal (20px): paddingHorizontal: 20,
+   • [HARDCODED_SPACING_VIOLATION] (Line 152)
+     Raw numeric spacing for paddingVertical (10px): paddingVertical: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 153)
+     Raw numeric spacing for paddingHorizontal (24px): paddingHorizontal: 24,
+
+File: src\components\Admin\Products\ProductRowComponents.js
+   • [HARDCODED_COLOR_VIOLATION] (Line 27)
+     Hardcoded color(s) #F0FDFA: if (isNew && discountPercent > 0) return { backgroundColor: '#F0FDFA' };
+   • [HARDCODED_COLOR_VIOLATION] (Line 28)
+     Hardcoded color(s) #EFF6FF: if (isNew) return { backgroundColor: '#EFF6FF' };
+   • [HARDCODED_COLOR_VIOLATION] (Line 29)
+     Hardcoded color(s) #F0FDF4: if (discountPercent > 0) return { backgroundColor: '#F0FDF4' };
+   • [INLINE_STYLE_HARDCODE] (Line 75)
+     Inline style detected in JSX: <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 75)
+     Raw numeric spacing for gap (4px): <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
+
+File: src\components\Admin\Products\ProductRowVariants.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 51)
+     Raw numeric spacing for paddingVertical (8px): { paddingVertical: 8 },
+   • [INLINE_STYLE_HARDCODE] (Line 56)
+     Inline style detected in JSX: <DataTableCell style={{ width: 32 }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 59)
+     Raw numeric spacing for paddingRight (12px): <DataTableCell style={[styles.colProduct, { paddingRight: 12 }]}>
+   • [INLINE_STYLE_HARDCODE] (Line 84)
+     Inline style detected in JSX: <DataTableCell style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 84)
+     Raw numeric spacing for gap (4px): <DataTableCell style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
+
+File: src\components\Admin\Products\ProductsFilterBar.js
+   • [INLINE_STYLE_HARDCODE] (Line 22)
+     Inline style detected in JSX: <View style={{ flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', gap: 8, marginBottom: 16 }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 22)
+     Raw numeric spacing for gap (8px): <View style={{ flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', gap: 8, marginBottom: 16 }}>
+
+File: src\components\Admin\Products\ProductsStyles.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 10)
+     Raw numeric spacing for padding (24px): padding: 24,
+   • [HARDCODED_SPACING_VIOLATION] (Line 15)
+     Raw numeric spacing for marginBottom (12px): marginBottom: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 22)
+     Raw numeric spacing for gap (8px): gap: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 23)
+     Raw numeric spacing for marginBottom (16px): marginBottom: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 27)
+     Raw numeric spacing for paddingHorizontal (14px): paddingHorizontal: 14,
+   • [HARDCODED_SPACING_VIOLATION] (Line 28)
+     Raw numeric spacing for borderRadius (20px): borderRadius: 20,
+   • [HARDCODED_SPACING_VIOLATION] (Line 52)
+     Raw numeric spacing for gap (6px): gap: 6,
+   • [HARDCODED_SPACING_VIOLATION] (Line 55)
+     Raw numeric spacing for paddingVertical (11px): paddingVertical: 11,
+   • [HARDCODED_SPACING_VIOLATION] (Line 56)
+     Raw numeric spacing for paddingHorizontal (18px): paddingHorizontal: 18,
+   • [HARDCODED_SPACING_VIOLATION] (Line 65)
+     Raw numeric spacing for gap (10px): gap: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 66)
+     Raw numeric spacing for marginBottom (16px): marginBottom: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 72)
+     Raw numeric spacing for gap (6px): gap: 6,
+   • [HARDCODED_SPACING_VIOLATION] (Line 75)
+     Raw numeric spacing for paddingVertical (12px): paddingVertical: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 82)
+     Raw numeric spacing for borderRadius (14px): borderRadius: 14,
+   • [HARDCODED_SPACING_VIOLATION] (Line 94)
+     Raw numeric spacing for paddingHorizontal (16px): paddingHorizontal: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 95)
+     Raw numeric spacing for paddingVertical (16px): paddingVertical: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 98)
+     Raw numeric spacing for gap (12px): gap: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 102)
+     Raw numeric spacing for paddingHorizontal (16px): paddingHorizontal: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 103)
+     Raw numeric spacing for paddingVertical (6px): paddingVertical: 6,
+   • [HARDCODED_SPACING_VIOLATION] (Line 106)
+     Raw numeric spacing for gap (4px): gap: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 114)
+     Raw numeric spacing for marginRight (8px): marginRight: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 120)
+     Raw numeric spacing for gap (10px): gap: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 127)
+     Raw numeric spacing for gap (10px): gap: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 145)
+     Raw numeric spacing for gap (8px): gap: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 150)
+     Raw numeric spacing for gap (12px): gap: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 151)
+     Raw numeric spacing for marginTop (8px): marginTop: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 155)
+     Raw numeric spacing for gap (2px): gap: 2,
+   • [HARDCODED_SPACING_VIOLATION] (Line 167)
+     Raw numeric spacing for marginTop (10px): marginTop: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 193)
+     Raw numeric spacing for paddingVertical (10px): paddingVertical: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 194)
+     Raw numeric spacing for paddingHorizontal (14px): paddingHorizontal: 14,
+   • [HARDCODED_SPACING_VIOLATION] (Line 202)
+     Raw numeric spacing for gap (10px): gap: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 229)
+     Raw numeric spacing for gap (8px): colActions: { flex: 0.6, flexDirection: 'row', gap: 8, justifyContent: 'flex-end' },
+   • [HARDCODED_SPACING_VIOLATION] (Line 237)
+     Raw numeric spacing for marginTop (1px): marginTop: 1,
+   • [HARDCODED_SPACING_VIOLATION] (Line 241)
+     Raw numeric spacing for borderRadius (4px): borderRadius: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 242)
+     Raw numeric spacing for paddingHorizontal (5px): paddingHorizontal: 5,
+   • [HARDCODED_SPACING_VIOLATION] (Line 243)
+     Raw numeric spacing for paddingVertical (1px): paddingVertical: 1,
+   • [HARDCODED_SPACING_VIOLATION] (Line 244)
+     Raw numeric spacing for marginRight (4px): marginRight: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 252)
+     Raw numeric spacing for marginTop (3px): marginTop: 3,
+   • [HARDCODED_SPACING_VIOLATION] (Line 267)
+     Raw numeric spacing for paddingHorizontal (8px): paddingHorizontal: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 268)
+     Raw numeric spacing for paddingVertical (3px): paddingVertical: 3,
+   • [HARDCODED_SPACING_VIOLATION] (Line 284)
+     Raw numeric spacing for marginTop (20px): marginTop: 20,
+   • [HARDCODED_SPACING_VIOLATION] (Line 287)
+     Raw numeric spacing for paddingVertical (14px): paddingVertical: 14,
+   • [HARDCODED_SPACING_VIOLATION] (Line 296)
+     Raw numeric spacing for paddingHorizontal (12px): paddingHorizontal: 12,
+
+File: src\components\Admin\shared\AdminSaveFooter.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 54)
+     Raw numeric spacing for padding (16px): padding: 16,
+
+File: src\components\Admin\SharedFormComponents.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 9)
+     Raw numeric spacing for gap (6px): const DEFAULT_LABEL_ROW_STYLE = { flexDirection: 'row', alignItems: 'center', gap: 6, marginBottom: 4 };
+   • [INLINE_STYLE_HARDCODE] (Line 22)
+     Inline style detected in JSX: <View style={s.row}>
+   • [INLINE_STYLE_HARDCODE] (Line 24)
+     Inline style detected in JSX: {label && <Text style={s.text}>{label}</Text>}
+   • [INLINE_STYLE_HARDCODE] (Line 80)
+     Inline style detected in JSX: <View style={styles?.fieldGroup ?? style}>
+   • [INLINE_STYLE_HARDCODE] (Line 91)
+     Inline style detected in JSX: <View style={styles?.fieldGroup || style}>
+
+File: src\components\Admin\Users\UserDetails.js
+   • [INLINE_STYLE_HARDCODE] (Line 57)
+     Inline style detected in JSX: style={{ alignSelf: 'flex-start', marginBottom: 16 }}
+   • [HARDCODED_SPACING_VIOLATION] (Line 57)
+     Raw numeric spacing for marginBottom (16px): style={{ alignSelf: 'flex-start', marginBottom: 16 }}
+
+File: src\components\Admin\Users\UserNoteSection.js
+   • [INLINE_STYLE_HARDCODE] (Line 14)
+     Inline style detected in JSX: <ActivityIndicator color="#E87A8E" style={{ marginVertical: 20 }} />
+   • [HARDCODED_COLOR_VIOLATION] (Line 14)
+     Hardcoded color(s) #E87A8E: <ActivityIndicator color="#E87A8E" style={{ marginVertical: 20 }} />
+   • [HARDCODED_SPACING_VIOLATION] (Line 14)
+     Raw numeric spacing for marginVertical (20px): <ActivityIndicator color="#E87A8E" style={{ marginVertical: 20 }} />
+   • [HARDCODED_COLOR_VIOLATION] (Line 20)
+     Hardcoded color(s) #CBD5E1: placeholderTextColor="#CBD5E1"
+
+File: src\components\Admin\Users\UserRow.js
+   • [INLINE_STYLE_HARDCODE] (Line 21)
+     Inline style detected in JSX: <View key={i} style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 21)
+     Raw numeric spacing for gap (6px): <View key={i} style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
+   • [INLINE_STYLE_HARDCODE] (Line 50)
+     Inline style detected in JSX: <Text style={cellStyle(user.email)} size={13}>{user.email || '—'}</Text>
+   • [INLINE_STYLE_HARDCODE] (Line 53)
+     Inline style detected in JSX: <Text style={cellStyle(user.phone)} size={13}>{user.phone || '—'}</Text>
+   • [INLINE_STYLE_HARDCODE] (Line 56)
+     Inline style detected in JSX: <Text style={cellStyle(user.city)} size={13}>{user.city || '—'}</Text>
+   • [HARDCODED_SPACING_VIOLATION] (Line 58)
+     Raw numeric spacing for gap (6px): <View style={[styles.colOrders, { flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', gap: 6 }]}>
+
+File: src\components\Admin\Users\UsersManager.js
+   • [INLINE_STYLE_HARDCODE] (Line 57)
+     Inline style detected in JSX: return <ActivityIndicator color="#E87A8E" style={{ marginTop: 40 }} />;
+   • [HARDCODED_COLOR_VIOLATION] (Line 57)
+     Hardcoded color(s) #E87A8E: return <ActivityIndicator color="#E87A8E" style={{ marginTop: 40 }} />;
+   • [HARDCODED_SPACING_VIOLATION] (Line 57)
+     Raw numeric spacing for marginTop (40px): return <ActivityIndicator color="#E87A8E" style={{ marginTop: 40 }} />;
+   • [INLINE_STYLE_HARDCODE] (Line 151)
+     Inline style detected in JSX: style={{ flex: 1, height: 44 }}
+
+File: src\components\Admin\Users\UsersStyles.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 10)
+     Raw numeric spacing for paddingHorizontal (24px): paddingHorizontal: 24,
+   • [HARDCODED_SPACING_VIOLATION] (Line 11)
+     Raw numeric spacing for paddingTop (24px): paddingTop: 24,
+   • [HARDCODED_SPACING_VIOLATION] (Line 17)
+     Raw numeric spacing for marginBottom (16px): marginBottom: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 24)
+     Raw numeric spacing for borderRadius (10px): borderRadius: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 25)
+     Raw numeric spacing for paddingHorizontal (10px): paddingHorizontal: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 26)
+     Raw numeric spacing for paddingVertical (4px): paddingVertical: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 32)
+     Raw numeric spacing for marginTop (40px): marginTop: 40,
+   • [HARDCODED_SPACING_VIOLATION] (Line 44)
+     Raw numeric spacing for gap (12px): gap: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 45)
+     Raw numeric spacing for marginBottom (16px): marginBottom: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 50)
+     Raw numeric spacing for borderRadius (14px): borderRadius: 14,
+   • [HARDCODED_SPACING_VIOLATION] (Line 63)
+     Raw numeric spacing for paddingHorizontal (16px): paddingHorizontal: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 64)
+     Raw numeric spacing for paddingVertical (14px): paddingVertical: 14,
+   • [HARDCODED_SPACING_VIOLATION] (Line 74)
+     Raw numeric spacing for marginRight (8px): marginRight: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 75)
+     Raw numeric spacing for marginTop (4px): marginTop: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 101)
+     Raw numeric spacing for borderRadius (8px): borderRadius: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 102)
+     Raw numeric spacing for paddingHorizontal (8px): paddingHorizontal: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 103)
+     Raw numeric spacing for paddingVertical (4px): paddingVertical: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 116)
+     Raw numeric spacing for marginBottom (16px): marginBottom: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 117)
+     Raw numeric spacing for gap (8px): gap: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 124)
+     Raw numeric spacing for borderRadius (14px): borderRadius: 14,
+   • [HARDCODED_SPACING_VIOLATION] (Line 125)
+     Raw numeric spacing for padding (16px): padding: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 126)
+     Raw numeric spacing for marginBottom (20px): marginBottom: 20,
+   • [HARDCODED_SPACING_VIOLATION] (Line 130)
+     Raw numeric spacing for gap (24px): gap: 24,
+   • [HARDCODED_SPACING_VIOLATION] (Line 135)
+     Raw numeric spacing for gap (4px): gap: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 148)
+     Raw numeric spacing for marginBottom (12px): marginBottom: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 151)
+     Raw numeric spacing for gap (12px): gap: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 155)
+     Raw numeric spacing for borderRadius (14px): borderRadius: 14,
+   • [HARDCODED_SPACING_VIOLATION] (Line 156)
+     Raw numeric spacing for padding (16px): padding: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 157)
+     Raw numeric spacing for marginBottom (20px): marginBottom: 20,
+   • [HARDCODED_SPACING_VIOLATION] (Line 163)
+     Raw numeric spacing for marginBottom (10px): marginBottom: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 168)
+     Raw numeric spacing for borderRadius (8px): borderRadius: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 169)
+     Raw numeric spacing for paddingHorizontal (12px): paddingHorizontal: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 170)
+     Raw numeric spacing for paddingVertical (10px): paddingVertical: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 176)
+     Raw numeric spacing for marginBottom (12px): marginBottom: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 183)
+     Raw numeric spacing for paddingVertical (8px): paddingVertical: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 184)
+     Raw numeric spacing for paddingHorizontal (16px): paddingHorizontal: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 185)
+     Raw numeric spacing for borderRadius (6px): borderRadius: 6,
+   • [HARDCODED_SPACING_VIOLATION] (Line 199)
+     Raw numeric spacing for paddingHorizontal (16px): paddingHorizontal: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 200)
+     Raw numeric spacing for paddingVertical (14px): paddingVertical: 14,
+   • [HARDCODED_SPACING_VIOLATION] (Line 205)
+     Raw numeric spacing for gap (12px): gap: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 215)
+     Raw numeric spacing for marginBottom (4px): marginBottom: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 220)
+     Raw numeric spacing for gap (6px): gap: 6,
+   • [HARDCODED_SPACING_VIOLATION] (Line 221)
+     Raw numeric spacing for marginTop (2px): marginTop: 2,
+   • [HARDCODED_SPACING_VIOLATION] (Line 231)
+     Raw numeric spacing for borderRadius (8px): borderRadius: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 232)
+     Raw numeric spacing for paddingHorizontal (8px): paddingHorizontal: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 233)
+     Raw numeric spacing for paddingVertical (4px): paddingVertical: 4,
+
+File: src\components\Badge\Badge.js
+   • [INLINE_STYLE_HARDCODE] (Line 74)
+     Inline style detected in JSX: <Animated.View style={combinedContainerStyle}>
+   • [INLINE_STYLE_HARDCODE] (Line 90)
+     Inline style detected in JSX: <Animated.View ref={ref} style={combinedContainerStyle} {...rest}>
+
+File: src\components\Badge\BadgeStyles.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 6)
+     Raw numeric spacing for paddingHorizontal (6px): paddingHorizontal: 6,
+   • [HARDCODED_SPACING_VIOLATION] (Line 7)
+     Raw numeric spacing for paddingVertical (2px): paddingVertical: 2,
+   • [HARDCODED_SPACING_VIOLATION] (Line 11)
+     Raw numeric spacing for paddingHorizontal (6px): paddingHorizontal: 6,
+   • [HARDCODED_SPACING_VIOLATION] (Line 12)
+     Raw numeric spacing for paddingVertical (2px): paddingVertical: 2,
+   • [HARDCODED_SPACING_VIOLATION] (Line 16)
+     Raw numeric spacing for paddingHorizontal (10px): paddingHorizontal: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 17)
+     Raw numeric spacing for paddingVertical (4px): paddingVertical: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 21)
+     Raw numeric spacing for paddingHorizontal (10px): paddingHorizontal: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 22)
+     Raw numeric spacing for paddingVertical (4px): paddingVertical: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 26)
+     Raw numeric spacing for paddingHorizontal (14px): paddingHorizontal: 14,
+   • [HARDCODED_SPACING_VIOLATION] (Line 27)
+     Raw numeric spacing for paddingVertical (6px): paddingVertical: 6,
+   • [HARDCODED_SPACING_VIOLATION] (Line 31)
+     Raw numeric spacing for paddingHorizontal (14px): paddingHorizontal: 14,
+   • [HARDCODED_SPACING_VIOLATION] (Line 32)
+     Raw numeric spacing for paddingVertical (6px): paddingVertical: 6,
+   • [HARDCODED_SPACING_VIOLATION] (Line 38)
+     Raw numeric spacing for paddingHorizontal (4px): paddingHorizontal: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 39)
+     Raw numeric spacing for paddingVertical (0px): paddingVertical: 0,
+   • [HARDCODED_COLOR_VIOLATION] (Line 49)
+     Hardcoded color(s) rgba(245, 158, 11, 0.2): bgDark: 'rgba(245, 158, 11, 0.2)',
+   • [HARDCODED_COLOR_VIOLATION] (Line 51)
+     Hardcoded color(s) rgba(245, 158, 11, 0.4): borderDark: 'rgba(245, 158, 11, 0.4)',
+   • [HARDCODED_COLOR_VIOLATION] (Line 57)
+     Hardcoded color(s) rgba(59, 130, 246, 0.2): bgDark: 'rgba(59, 130, 246, 0.2)',
+   • [HARDCODED_COLOR_VIOLATION] (Line 59)
+     Hardcoded color(s) rgba(59, 130, 246, 0.4): borderDark: 'rgba(59, 130, 246, 0.4)',
+   • [HARDCODED_COLOR_VIOLATION] (Line 65)
+     Hardcoded color(s) rgba(16, 185, 129, 0.2): bgDark: 'rgba(16, 185, 129, 0.2)',
+   • [HARDCODED_COLOR_VIOLATION] (Line 67)
+     Hardcoded color(s) rgba(16, 185, 129, 0.4): borderDark: 'rgba(16, 185, 129, 0.4)',
+   • [HARDCODED_COLOR_VIOLATION] (Line 73)
+     Hardcoded color(s) rgba(239, 68, 68, 0.2): bgDark: 'rgba(239, 68, 68, 0.2)',
+   • [HARDCODED_COLOR_VIOLATION] (Line 75)
+     Hardcoded color(s) rgba(239, 68, 68, 0.4): borderDark: 'rgba(239, 68, 68, 0.4)',
+   • [HARDCODED_COLOR_VIOLATION] (Line 81)
+     Hardcoded color(s) rgba(16, 185, 129, 0.2): bgDark: 'rgba(16, 185, 129, 0.2)',
+   • [HARDCODED_COLOR_VIOLATION] (Line 83)
+     Hardcoded color(s) rgba(16, 185, 129, 0.4): borderDark: 'rgba(16, 185, 129, 0.4)',
+   • [HARDCODED_COLOR_VIOLATION] (Line 97)
+     Hardcoded color(s) rgba(139, 92, 246, 0.2): bgDark: 'rgba(139, 92, 246, 0.2)',
+   • [HARDCODED_COLOR_VIOLATION] (Line 99)
+     Hardcoded color(s) rgba(139, 92, 246, 0.4): borderDark: 'rgba(139, 92, 246, 0.4)',
+   • [HARDCODED_COLOR_VIOLATION] (Line 105)
+     Hardcoded color(s) rgba(37, 99, 235, 0.2): bgDark: 'rgba(37, 99, 235, 0.2)',
+   • [HARDCODED_COLOR_VIOLATION] (Line 107)
+     Hardcoded color(s) rgba(37, 99, 235, 0.4): borderDark: 'rgba(37, 99, 235, 0.4)',
+
+File: src\components\Button\Button.js
+   • [INLINE_STYLE_HARDCODE] (Line 50)
+     Inline style detected in JSX: : title ? <Text style={textCombinedStyle} size={size} weight="semiBold">{title}</Text> : null}
+   • [INLINE_STYLE_HARDCODE] (Line 60)
+     Inline style detected in JSX: style={containerStyle}
+
+File: src\components\Button\ButtonStyles.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 46)
+     Raw numeric spacing for gap (8px): gap: 8,
+
+File: src\components\Button\ChipButton.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 77)
+     Raw numeric spacing for gap (6px): gap: 6,
+
+File: src\components\Button\IconButton.js
+   • [INLINE_STYLE_HARDCODE] (Line 56)
+     Inline style detected in JSX: style={combinedStyle}
+
+File: src\components\Card\BaseCard.js
+   • [INLINE_STYLE_HARDCODE] (Line 53)
+     Inline style detected in JSX: style={style}
+   • [INLINE_STYLE_HARDCODE] (Line 72)
+     Inline style detected in JSX: style={style}
+
+File: src\components\Card\Card.js
+   • [INLINE_STYLE_HARDCODE] (Line 47)
+     Inline style detected in JSX: <Animated.View style={combinedStyle}>
+   • [INLINE_STYLE_HARDCODE] (Line 52)
+     Inline style detected in JSX: style={touchableStyle}
+   • [INLINE_STYLE_HARDCODE] (Line 66)
+     Inline style detected in JSX: <View ref={ref} style={combinedStyle} {...rest}>
+   • [INLINE_STYLE_HARDCODE] (Line 75)
+     Inline style detected in JSX: <View style={slotStyles.imageContainer}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 103)
+     Raw numeric spacing for marginTop (4px): <Text variant="subtitle2" weight="bold" style={[{ marginTop: 4 }, style]} {...rest}>
+
+File: src\components\Card\CardStyles.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 67)
+     Raw numeric spacing for padding (12px): padding: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 72)
+     Raw numeric spacing for marginBottom (4px): marginBottom: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 82)
+     Raw numeric spacing for marginBottom (6px): marginBottom: 6,
+   • [HARDCODED_SPACING_VIOLATION] (Line 88)
+     Raw numeric spacing for paddingHorizontal (12px): paddingHorizontal: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 89)
+     Raw numeric spacing for paddingBottom (12px): paddingBottom: 12,
+
+File: src\components\Card\InteractiveCard.js
+   • [INLINE_STYLE_HARDCODE] (Line 71)
+     Inline style detected in JSX: <ScrollFadeUp ref={ref} style={computedOuterStyle}>
+   • [INLINE_STYLE_HARDCODE] (Line 72)
+     Inline style detected in JSX: <Animated.View style={innerStyle}>
+   • [INLINE_STYLE_HARDCODE] (Line 75)
+     Inline style detected in JSX: style={{ flex: 1, width: '100%', height: '100%' }}
+   • [INLINE_STYLE_HARDCODE] (Line 82)
+     Inline style detected in JSX: <View style={{
+   • [INLINE_STYLE_HARDCODE] (Line 91)
+     Inline style detected in JSX: <CardShadow hoverAnim={hoverAnim} isDark={isDark} lightBgColor={defaultLightBg} style={{ width: cardWidth, height: cardHeight, borderRadius }} />
+
+File: src\components\Card\NavigationCard.js
+   • [INLINE_STYLE_HARDCODE] (Line 15)
+     Inline style detected in JSX: style={style}
+   • [HARDCODED_SPACING_VIOLATION] (Line 36)
+     Raw numeric spacing for gap (12px): gap: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 41)
+     Raw numeric spacing for borderRadius (24px): borderRadius: 24,
+
+File: src\components\Card\StaticCard.js
+   • [INLINE_STYLE_HARDCODE] (Line 55)
+     Inline style detected in JSX: <ScrollFadeUp ref={ref} style={computedStyle} {...rest}>
+
+File: src\components\DataTable\DataTable.js
+   • [INLINE_STYLE_HARDCODE] (Line 57)
+     Inline style detected in JSX: style={colStyle}
+   • [INLINE_STYLE_HARDCODE] (Line 66)
+     Inline style detected in JSX: <View style={colStyle}>
+   • [INLINE_STYLE_HARDCODE] (Line 130)
+     Inline style detected in JSX: <View style={cardStyle}>
+   • [INLINE_STYLE_HARDCODE] (Line 137)
+     Inline style detected in JSX: <View style={cardStyle}>
+   • [INLINE_STYLE_HARDCODE] (Line 164)
+     Inline style detected in JSX: <AnimatedButton style={rowStyle} onPress={onPress} {...props}>
+   • [INLINE_STYLE_HARDCODE] (Line 170)
+     Inline style detected in JSX: return <View style={rowStyle} {...props}>{children}</View>;
+   • [INLINE_STYLE_HARDCODE] (Line 183)
+     Inline style detected in JSX: return <View style={cellStyle} {...props}>{children}</View>;
+
+File: src\components\DataTable\DataTable.styles.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 9)
+     Raw numeric spacing for marginBottom (20px): marginBottom: 20,
+   • [HARDCODED_SPACING_VIOLATION] (Line 17)
+     Raw numeric spacing for paddingVertical (12px): paddingVertical: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 18)
+     Raw numeric spacing for paddingHorizontal (16px): paddingHorizontal: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 37)
+     Raw numeric spacing for gap (4px): gap: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 43)
+     Raw numeric spacing for paddingVertical (10px): paddingVertical: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 44)
+     Raw numeric spacing for paddingHorizontal (16px): paddingHorizontal: 16,
+
+File: src\components\DataTable\EmptyState.js
+   • [INLINE_STYLE_HARDCODE] (Line 10)
+     Inline style detected in JSX: <GlobalEmptyState style={style}>
+
+File: src\components\Drawer\Drawer.js
+   • [INLINE_STYLE_HARDCODE] (Line 56)
+     Inline style detected in JSX: <Pressable style={{ flex: 1 }} onPress={onClose} accessibilityRole="button" accessibilityLabel="Close drawer" />
+   • [HARDCODED_SPACING_VIOLATION] (Line 82)
+     Raw numeric spacing for padding (16px): padding: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 94)
+     Raw numeric spacing for padding (16px): padding: 16,
+
+File: src\components\Feedback\EmptyState\EmptyState.js
+   • [INLINE_STYLE_HARDCODE] (Line 21)
+     Inline style detected in JSX: return <Text variant="body" color="muted" style={descriptionStyle}>{children}</Text>;
+   • [INLINE_STYLE_HARDCODE] (Line 45)
+     Inline style detected in JSX: <Heading level={3} style={titleStyle}>
+   • [INLINE_STYLE_HARDCODE] (Line 50)
+     Inline style detected in JSX: <Text variant="body" color="muted" style={descriptionStyle}>
+
+File: src\components\Feedback\EmptyState\EmptyStateStyles.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 7)
+     Raw numeric spacing for paddingVertical (40px): paddingVertical: 40,
+   • [HARDCODED_SPACING_VIOLATION] (Line 8)
+     Raw numeric spacing for paddingHorizontal (24px): paddingHorizontal: 24,
+   • [HARDCODED_SPACING_VIOLATION] (Line 11)
+     Raw numeric spacing for marginBottom (16px): marginBottom: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 17)
+     Raw numeric spacing for marginBottom (8px): marginBottom: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 26)
+     Raw numeric spacing for marginTop (20px): marginTop: 20,
+
+File: src\components\Feedback\InlineError\FieldErrorStyles.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 6)
+     Raw numeric spacing for marginTop (4px): marginTop: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 7)
+     Raw numeric spacing for marginBottom (8px): marginBottom: 8,
+
+File: src\components\Feedback\Skeleton\SkeletonLoader.js
+   • [INLINE_STYLE_HARDCODE] (Line 58)
+     Inline style detected in JSX: style={style}
+
+File: src\components\Feedback\Skeleton\SkeletonStyles.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 5)
+     Raw numeric spacing for gap (12px): gap: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 6)
+     Raw numeric spacing for paddingVertical (12px): paddingVertical: 12,
+
+File: src\components\Feedback\Toast\ToastStyles.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 9)
+     Raw numeric spacing for paddingHorizontal (20px): paddingHorizontal: 20,
+   • [HARDCODED_SPACING_VIOLATION] (Line 10)
+     Raw numeric spacing for paddingVertical (12px): paddingVertical: 12,
+
+File: src\components\Flag\Flag.js
+   • [INLINE_STYLE_HARDCODE] (Line 105)
+     Inline style detected in JSX: return <Text style={labelStyle} size={size} weight={weight}>{content}</Text>;
+   • [INLINE_STYLE_HARDCODE] (Line 118)
+     Inline style detected in JSX: style={getChipContainerStyle(isDark, checked, disabled, readOnly, colorScheme, style)}
+   • [INLINE_STYLE_HARDCODE] (Line 137)
+     Inline style detected in JSX: <View style={getSwitchTrackStyle(isDark, checked)}>
+   • [INLINE_STYLE_HARDCODE] (Line 138)
+     Inline style detected in JSX: <View style={getSwitchThumbStyle(checked)} />
+   • [INLINE_STYLE_HARDCODE] (Line 157)
+     Inline style detected in JSX: <View style={getCheckboxBoxStyle(isDark, checked)}>
+   • [INLINE_STYLE_HARDCODE] (Line 159)
+     Inline style detected in JSX: <Text variant="caption" weight="bold" style={{ color: '#FFFFFF' }}>✓</Text>
+   • [HARDCODED_COLOR_VIOLATION] (Line 159)
+     Hardcoded color(s) #FFFFFF: <Text variant="caption" weight="bold" style={{ color: '#FFFFFF' }}>✓</Text>
+
+File: src\components\Flag\FlagStyles.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 68)
+     Raw numeric spacing for paddingHorizontal (14px): paddingHorizontal: 14,
+   • [HARDCODED_SPACING_VIOLATION] (Line 69)
+     Raw numeric spacing for paddingVertical (6px): paddingVertical: 6,
+   • [HARDCODED_SPACING_VIOLATION] (Line 71)
+     Raw numeric spacing for borderRadius (20px): borderRadius: 20,
+   • [HARDCODED_SPACING_VIOLATION] (Line 105)
+     Raw numeric spacing for borderRadius (12px): borderRadius: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 106)
+     Raw numeric spacing for padding (2px): padding: 2,
+   • [HARDCODED_SPACING_VIOLATION] (Line 122)
+     Raw numeric spacing for borderRadius (10px): borderRadius: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 133)
+     Raw numeric spacing for marginLeft (8px): marginLeft: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 137)
+     Raw numeric spacing for marginLeft (8px): marginLeft: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 165)
+     Raw numeric spacing for marginLeft (8px): marginLeft: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 169)
+     Raw numeric spacing for marginLeft (8px): marginLeft: 8,
+
+File: src\components\icons\AdminIcons.js
+   • [INLINE_STYLE_HARDCODE] (Line 11)
+     Inline style detected in JSX: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
+   • [INLINE_STYLE_HARDCODE] (Line 17)
+     Inline style detected in JSX: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>⚙</RNText>;
+   • [INLINE_STYLE_HARDCODE] (Line 23)
+     Inline style detected in JSX: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
+   • [INLINE_STYLE_HARDCODE] (Line 30)
+     Inline style detected in JSX: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📊</RNText>;
+   • [INLINE_STYLE_HARDCODE] (Line 36)
+     Inline style detected in JSX: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
+   • [INLINE_STYLE_HARDCODE] (Line 43)
+     Inline style detected in JSX: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📦</RNText>;
+   • [INLINE_STYLE_HARDCODE] (Line 49)
+     Inline style detected in JSX: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
+   • [INLINE_STYLE_HARDCODE] (Line 54)
+     Inline style detected in JSX: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📂</RNText>;
+   • [INLINE_STYLE_HARDCODE] (Line 60)
+     Inline style detected in JSX: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
+   • [INLINE_STYLE_HARDCODE] (Line 67)
+     Inline style detected in JSX: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🖼️</RNText>;
+   • [INLINE_STYLE_HARDCODE] (Line 74)
+     Inline style detected in JSX: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
+   • [INLINE_STYLE_HARDCODE] (Line 80)
+     Inline style detected in JSX: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📋</RNText>;
+   • [INLINE_STYLE_HARDCODE] (Line 87)
+     Inline style detected in JSX: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
+   • [INLINE_STYLE_HARDCODE] (Line 94)
+     Inline style detected in JSX: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🚪</RNText>;
+   • [INLINE_STYLE_HARDCODE] (Line 100)
+     Inline style detected in JSX: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
+   • [INLINE_STYLE_HARDCODE] (Line 107)
+     Inline style detected in JSX: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🚪</RNText>;
+   • [INLINE_STYLE_HARDCODE] (Line 114)
+     Inline style detected in JSX: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
+   • [INLINE_STYLE_HARDCODE] (Line 120)
+     Inline style detected in JSX: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🔒</RNText>;
+   • [INLINE_STYLE_HARDCODE] (Line 126)
+     Inline style detected in JSX: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
+   • [INLINE_STYLE_HARDCODE] (Line 134)
+     Inline style detected in JSX: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>👥</RNText>;
+   • [INLINE_STYLE_HARDCODE] (Line 138)
+     Inline style detected in JSX: return <CurrencyIcon color={color} size={size} style={style} {...props} />;
+   • [INLINE_STYLE_HARDCODE] (Line 144)
+     Inline style detected in JSX: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
+   • [INLINE_STYLE_HARDCODE] (Line 150)
+     Inline style detected in JSX: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📈</RNText>;
+
+File: src\components\icons\AppIcons.js
+   • [INLINE_STYLE_HARDCODE] (Line 10)
+     Inline style detected in JSX: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
+   • [INLINE_STYLE_HARDCODE] (Line 23)
+     Inline style detected in JSX: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>☀️</RNText>;
+   • [INLINE_STYLE_HARDCODE] (Line 29)
+     Inline style detected in JSX: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
+   • [INLINE_STYLE_HARDCODE] (Line 34)
+     Inline style detected in JSX: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🌙</RNText>;
+   • [INLINE_STYLE_HARDCODE] (Line 39)
+     Inline style detected in JSX: return <ThemeSunIcon color={color} size={size} style={style} {...props} />;
+   • [INLINE_STYLE_HARDCODE] (Line 41)
+     Inline style detected in JSX: return <ThemeMoonIcon color={color} size={size} style={style} {...props} />;
+   • [INLINE_STYLE_HARDCODE] (Line 48)
+     Inline style detected in JSX: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
+   • [INLINE_STYLE_HARDCODE] (Line 55)
+     Inline style detected in JSX: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🌐</RNText>;
+   • [INLINE_STYLE_HARDCODE] (Line 61)
+     Inline style detected in JSX: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
+   • [INLINE_STYLE_HARDCODE] (Line 68)
+     Inline style detected in JSX: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>👜</RNText>;
+   • [INLINE_STYLE_HARDCODE] (Line 74)
+     Inline style detected in JSX: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
+   • [INLINE_STYLE_HARDCODE] (Line 80)
+     Inline style detected in JSX: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>👤</RNText>;
+   • [INLINE_STYLE_HARDCODE] (Line 86)
+     Inline style detected in JSX: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
+   • [INLINE_STYLE_HARDCODE] (Line 93)
+     Inline style detected in JSX: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🛒</RNText>;
+   • [INLINE_STYLE_HARDCODE] (Line 99)
+     Inline style detected in JSX: <svg width={size} height={size} viewBox="0 0 24 24" fill={filled ? getThemeColor(color) : 'none'} stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
+   • [INLINE_STYLE_HARDCODE] (Line 104)
+     Inline style detected in JSX: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>{filled ? '❤️' : '♡'}</RNText>;
+   • [INLINE_STYLE_HARDCODE] (Line 110)
+     Inline style detected in JSX: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
+   • [INLINE_STYLE_HARDCODE] (Line 116)
+     Inline style detected in JSX: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>✉</RNText>;
+   • [INLINE_STYLE_HARDCODE] (Line 122)
+     Inline style detected in JSX: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
+   • [INLINE_STYLE_HARDCODE] (Line 128)
+     Inline style detected in JSX: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🏷️</RNText>;
+   • [INLINE_STYLE_HARDCODE] (Line 134)
+     Inline style detected in JSX: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
+   • [INLINE_STYLE_HARDCODE] (Line 140)
+     Inline style detected in JSX: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🔍</RNText>;
+   • [INLINE_STYLE_HARDCODE] (Line 146)
+     Inline style detected in JSX: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
+   • [INLINE_STYLE_HARDCODE] (Line 152)
+     Inline style detected in JSX: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🏠</RNText>;
+   • [INLINE_STYLE_HARDCODE] (Line 158)
+     Inline style detected in JSX: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
+   • [INLINE_STYLE_HARDCODE] (Line 163)
+     Inline style detected in JSX: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>★</RNText>;
+   • [INLINE_STYLE_HARDCODE] (Line 169)
+     Inline style detected in JSX: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
+   • [INLINE_STYLE_HARDCODE] (Line 177)
+     Inline style detected in JSX: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🗂️</RNText>;
+   • [INLINE_STYLE_HARDCODE] (Line 183)
+     Inline style detected in JSX: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
+   • [INLINE_STYLE_HARDCODE] (Line 189)
+     Inline style detected in JSX: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>$</RNText>;
+
+File: src\components\icons\CategoryIcons.js
+   • [INLINE_STYLE_HARDCODE] (Line 10)
+     Inline style detected in JSX: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
+   • [INLINE_STYLE_HARDCODE] (Line 17)
+     Inline style detected in JSX: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>✨</RNText>;
+   • [INLINE_STYLE_HARDCODE] (Line 23)
+     Inline style detected in JSX: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
+   • [INLINE_STYLE_HARDCODE] (Line 33)
+     Inline style detected in JSX: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>👁️</RNText>;
+   • [INLINE_STYLE_HARDCODE] (Line 39)
+     Inline style detected in JSX: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
+   • [INLINE_STYLE_HARDCODE] (Line 46)
+     Inline style detected in JSX: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🖌️</RNText>;
+   • [INLINE_STYLE_HARDCODE] (Line 52)
+     Inline style detected in JSX: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
+   • [INLINE_STYLE_HARDCODE] (Line 58)
+     Inline style detected in JSX: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>👄</RNText>;
+   • [INLINE_STYLE_HARDCODE] (Line 64)
+     Inline style detected in JSX: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
+   • [INLINE_STYLE_HARDCODE] (Line 71)
+     Inline style detected in JSX: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📍</RNText>;
+
+File: src\components\icons\ControlIcons.js
+   • [INLINE_STYLE_HARDCODE] (Line 10)
+     Inline style detected in JSX: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
+   • [INLINE_STYLE_HARDCODE] (Line 15)
+     Inline style detected in JSX: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>✓</RNText>;
+   • [INLINE_STYLE_HARDCODE] (Line 21)
+     Inline style detected in JSX: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
+   • [INLINE_STYLE_HARDCODE] (Line 27)
+     Inline style detected in JSX: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>✗</RNText>;
+   • [INLINE_STYLE_HARDCODE] (Line 34)
+     Inline style detected in JSX: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
+   • [INLINE_STYLE_HARDCODE] (Line 40)
+     Inline style detected in JSX: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>←</RNText>;
+   • [INLINE_STYLE_HARDCODE] (Line 46)
+     Inline style detected in JSX: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
+   • [INLINE_STYLE_HARDCODE] (Line 52)
+     Inline style detected in JSX: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>→</RNText>;
+   • [INLINE_STYLE_HARDCODE] (Line 58)
+     Inline style detected in JSX: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
+   • [INLINE_STYLE_HARDCODE] (Line 63)
+     Inline style detected in JSX: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>◀</RNText>;
+   • [INLINE_STYLE_HARDCODE] (Line 69)
+     Inline style detected in JSX: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
+   • [INLINE_STYLE_HARDCODE] (Line 74)
+     Inline style detected in JSX: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>▶</RNText>;
+   • [INLINE_STYLE_HARDCODE] (Line 80)
+     Inline style detected in JSX: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
+   • [INLINE_STYLE_HARDCODE] (Line 85)
+     Inline style detected in JSX: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>▼</RNText>;
+   • [INLINE_STYLE_HARDCODE] (Line 91)
+     Inline style detected in JSX: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
+   • [INLINE_STYLE_HARDCODE] (Line 97)
+     Inline style detected in JSX: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>👁️</RNText>;
+   • [INLINE_STYLE_HARDCODE] (Line 103)
+     Inline style detected in JSX: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
+   • [INLINE_STYLE_HARDCODE] (Line 109)
+     Inline style detected in JSX: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🙈</RNText>;
+   • [INLINE_STYLE_HARDCODE] (Line 115)
+     Inline style detected in JSX: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
+   • [INLINE_STYLE_HARDCODE] (Line 120)
+     Inline style detected in JSX: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🔄</RNText>;
+   • [INLINE_STYLE_HARDCODE] (Line 126)
+     Inline style detected in JSX: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
+   • [INLINE_STYLE_HARDCODE] (Line 133)
+     Inline style detected in JSX: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📁</RNText>;
+   • [INLINE_STYLE_HARDCODE] (Line 139)
+     Inline style detected in JSX: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
+   • [INLINE_STYLE_HARDCODE] (Line 146)
+     Inline style detected in JSX: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>⚠️</RNText>;
+   • [INLINE_STYLE_HARDCODE] (Line 152)
+     Inline style detected in JSX: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
+   • [INLINE_STYLE_HARDCODE] (Line 158)
+     Inline style detected in JSX: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>✏️</RNText>;
+   • [INLINE_STYLE_HARDCODE] (Line 164)
+     Inline style detected in JSX: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
+   • [INLINE_STYLE_HARDCODE] (Line 170)
+     Inline style detected in JSX: return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🗑️</RNText>;
+
+File: src\components\Media\GifRenderer.js
+   • [INLINE_STYLE_HARDCODE] (Line 12)
+     Inline style detected in JSX: style={{
+   • [INLINE_STYLE_HARDCODE] (Line 40)
+     Inline style detected in JSX: style={style}
+
+File: src\components\Media\MediaRenderer.js
+   • [INLINE_STYLE_HARDCODE] (Line 38)
+     Inline style detected in JSX: style={style}
+   • [INLINE_STYLE_HARDCODE] (Line 53)
+     Inline style detected in JSX: style={style}
+   • [INLINE_STYLE_HARDCODE] (Line 61)
+     Inline style detected in JSX: style={style}
+
+File: src\components\Media\VideoRenderer.js
+   • [INLINE_STYLE_HARDCODE] (Line 78)
+     Inline style detected in JSX: style={{
+   • [INLINE_STYLE_HARDCODE] (Line 102)
+     Inline style detected in JSX: style={style}
+   • [INLINE_STYLE_HARDCODE] (Line 120)
+     Inline style detected in JSX: <Image source={{ uri }} style={StyleSheet.absoluteFill} resizeMode={resizeMode} />
+   • [INLINE_STYLE_HARDCODE] (Line 152)
+     Inline style detected in JSX: style={style}
+   • [HARDCODED_SPACING_VIOLATION] (Line 174)
+     Raw numeric spacing for borderRadius (24px): borderRadius: 24,
+   • [HARDCODED_COLOR_VIOLATION] (Line 175)
+     Hardcoded color(s) rgba(0, 0, 0, 0.6): backgroundColor: 'rgba(0, 0, 0, 0.6)',
+   • [HARDCODED_SPACING_VIOLATION] (Line 192)
+     Raw numeric spacing for marginLeft (4px): marginLeft: 4,
+
+File: src\components\Modal\ConfirmationModal.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 89)
+     Raw numeric spacing for padding (24px): padding: 24,
+   • [HARDCODED_SPACING_VIOLATION] (Line 93)
+     Raw numeric spacing for marginBottom (8px): marginBottom: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 96)
+     Raw numeric spacing for marginBottom (24px): marginBottom: 24,
+   • [HARDCODED_SPACING_VIOLATION] (Line 101)
+     Raw numeric spacing for gap (12px): gap: 12,
+
+File: src\components\Modal\Modal.js
+   • [HARDCODED_COLOR_VIOLATION] (Line 57)
+     Hardcoded color(s) rgba(0, 0, 0, 0.6): backgroundColor: 'rgba(0, 0, 0, 0.6)',
+   • [HARDCODED_SPACING_VIOLATION] (Line 60)
+     Raw numeric spacing for padding (20px): padding: 20,
+
+File: src\components\Navigation\Breadcrumbs\Breadcrumb.js
+   • [INLINE_STYLE_HARDCODE] (Line 20)
+     Inline style detected in JSX: <Text style={textStyle} size="sm" weight="medium" numberOfLines={1}>
+   • [INLINE_STYLE_HARDCODE] (Line 29)
+     Inline style detected in JSX: <Text style={textStyle} size="sm" weight="medium" numberOfLines={1}>
+   • [INLINE_STYLE_HARDCODE] (Line 61)
+     Inline style detected in JSX: <AnimatedButton style={{ paddingVertical: 4, paddingHorizontal: 6 }} hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 61)
+     Raw numeric spacing for paddingVertical (4px): <AnimatedButton style={{ paddingVertical: 4, paddingHorizontal: 6 }} hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}>
+
+File: src\components\Navigation\Breadcrumbs\BreadcrumbStyles.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 12)
+     Raw numeric spacing for paddingHorizontal (0px): paddingHorizontal: 0,
+   • [HARDCODED_SPACING_VIOLATION] (Line 13)
+     Raw numeric spacing for paddingVertical (4px): paddingVertical: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 22)
+     Raw numeric spacing for marginHorizontal (6px): marginHorizontal: 6,
+
+File: src\components\Navigation\Pagination\PaginationStyles.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 9)
+     Raw numeric spacing for paddingHorizontal (8px): paddingHorizontal: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 10)
+     Raw numeric spacing for paddingVertical (4px): paddingVertical: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 23)
+     Raw numeric spacing for paddingVertical (4px): paddingVertical: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 27)
+     Raw numeric spacing for marginRight (16px): marginRight: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 33)
+     Raw numeric spacing for paddingVertical (2px): paddingVertical: 2,
+
+File: src\components\Search\AutocompleteSearch.js
+   • [INLINE_STYLE_HARDCODE] (Line 68)
+     Inline style detected in JSX: <View style={{ position: 'relative', width: '100%', zIndex: 100 }}>
+
+File: src\components\Search\SearchDropdown.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 23)
+     Raw numeric spacing for paddingHorizontal (12px): style={[SearchStyles.resultRow, { minHeight: 44, flexDirection: 'row', alignItems: 'center', paddingHorizontal: 12, gap: 10 }]}
+   • [INLINE_STYLE_HARDCODE] (Line 28)
+     Inline style detected in JSX: <Image source={{ uri: item.image }} style={{ width: 24, height: 24, borderRadius: 4 }} />
+   • [HARDCODED_SPACING_VIOLATION] (Line 28)
+     Raw numeric spacing for borderRadius (4px): <Image source={{ uri: item.image }} style={{ width: 24, height: 24, borderRadius: 4 }} />
+   • [INLINE_STYLE_HARDCODE] (Line 45)
+     Inline style detected in JSX: <View style={SearchStyles.dropdownOverlay}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 46)
+     Raw numeric spacing for padding (14px): <Text variant="body" size={14} style={[{ padding: 14, textAlign: 'center' }, SearchStyles[`text_${isDark ? 'defaultDark' : 'defaultLight'}`]]}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 57)
+     Raw numeric spacing for padding (10px): <Text variant="caption" color="muted" size={12} style={[{ padding: 10, textAlign: 'center' }, SearchStyles[`text_${isDark ? 'defaultDark' : 'defaultLight'}`]]}>
+   • [INLINE_STYLE_HARDCODE] (Line 74)
+     Inline style detected in JSX: <View style={SearchStyles.dropdownOverlay}>
+   • [INLINE_STYLE_HARDCODE] (Line 75)
+     Inline style detected in JSX: <ScrollView keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false} style={{ maxHeight: 300 }}>
+
+File: src\components\Search\SearchInput.js
+   • [INLINE_STYLE_HARDCODE] (Line 41)
+     Inline style detected in JSX: style={SearchStyles.clearButton}
+
+File: src\components\Search\SearchStyles.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 50)
+     Raw numeric spacing for paddingHorizontal (12px): paddingHorizontal: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 58)
+     Raw numeric spacing for paddingVertical (0px): paddingVertical: 0,
+   • [HARDCODED_SPACING_VIOLATION] (Line 59)
+     Raw numeric spacing for paddingHorizontal (8px): paddingHorizontal: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 66)
+     Raw numeric spacing for padding (4px): padding: 4,
+
+File: src\components\Search\useSearchTheme.js
+   • [HARDCODED_COLOR_VIOLATION] (Line 20)
+     Hardcoded color(s) #9CA3AF, #6B7280: const placeholderColor = isDark ? '#9CA3AF' : '#6B7280';
+
+File: src\components\SharedLayoutWrapper.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 51)
+     Raw numeric spacing for paddingTop (16px): paddingTop: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 52)
+     Raw numeric spacing for paddingBottom (12px): paddingBottom: 12,
+
+File: src\components\Text\Heading.js
+   • [INLINE_STYLE_HARDCODE] (Line 40)
+     Inline style detected in JSX: style={style}
+
+File: src\components\TextField\TextField.js
+   • [INLINE_STYLE_HARDCODE] (Line 46)
+     Inline style detected in JSX: {leadingIcon ? <View style={dynamicStyles.leadingIcon}>{leadingIcon}</View> : null}
+   • [INLINE_STYLE_HARDCODE] (Line 61)
+     Inline style detected in JSX: {trailingIcon ? <View style={dynamicStyles.trailingIcon}>{trailingIcon}</View> : null}
+
+File: src\components\TextField\TextFieldStyles.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 7)
+     Raw numeric spacing for paddingHorizontal (10px): paddingHorizontal: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 14)
+     Raw numeric spacing for paddingHorizontal (12px): paddingHorizontal: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 21)
+     Raw numeric spacing for paddingHorizontal (16px): paddingHorizontal: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 31)
+     Raw numeric spacing for marginVertical (4px): marginVertical: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 35)
+     Raw numeric spacing for marginBottom (6px): marginBottom: 6,
+   • [HARDCODED_SPACING_VIOLATION] (Line 65)
+     Raw numeric spacing for paddingVertical (0px): paddingVertical: 0,
+   • [HARDCODED_SPACING_VIOLATION] (Line 66)
+     Raw numeric spacing for margin (0px): margin: 0,
+   • [HARDCODED_SPACING_VIOLATION] (Line 73)
+     Raw numeric spacing for paddingVertical (10px): paddingVertical: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 78)
+     Raw numeric spacing for marginRight (8px): marginRight: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 83)
+     Raw numeric spacing for marginLeft (8px): marginLeft: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 86)
+     Raw numeric spacing for marginTop (4px): marginTop: 4,
+
+File: src\components\TextField\useTextFieldTheme.js
+   • [HARDCODED_COLOR_VIOLATION] (Line 31)
+     Hardcoded color(s) #9CA3AF, #6B7280: placeholderColor: isDark ? '#9CA3AF' : '#6B7280',
+   • [HARDCODED_COLOR_VIOLATION] (Line 32)
+     Hardcoded color(s) #9CA3AF, #6B7280: iconColor: isDark ? '#9CA3AF' : '#6B7280',
+
+File: src\components\Toggle\Toggle.js
+   • [INLINE_STYLE_HARDCODE] (Line 54)
+     Inline style detected in JSX: style={getOptionStyle(isActive, ctx.animated, ctx.theme, ctx.activeOptionStyle, ctx.optionStyle)}
+   • [INLINE_STYLE_HARDCODE] (Line 66)
+     Inline style detected in JSX: style={getOptionTextStyle(isActive, ctx.textSizeStyle, ctx.theme, ctx.textStyle, ctx.activeTextStyle)}
+
+File: src\components\Toggle\ToggleStyles.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 9)
+     Raw numeric spacing for padding (2px): padding: 2,
+
+File: src\features\auth\LoginPage.js
+   • [HARDCODED_COLOR_VIOLATION] (Line 17)
+     Hardcoded color(s) #888, #aaa: const getPlaceholderColor = (isDark) => (isDark ? '#888' : '#aaa');
+   • [HARDCODED_SPACING_VIOLATION] (Line 44)
+     Raw numeric spacing for padding (0px): style={[styles.container, ic(isDark, styles.containerDark, styles.containerLight), { padding: 0 }]}
+   • [HARDCODED_SPACING_VIOLATION] (Line 47)
+     Raw numeric spacing for paddingTop (24px): contentContainerStyle={{ flexGrow: 1, width: '100%', paddingTop: 24, paddingBottom: 0 }}
+   • [INLINE_STYLE_HARDCODE] (Line 50)
+     Inline style detected in JSX: <View style={{ flex: 1, width: '100%', alignItems: 'center' }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 52)
+     Raw numeric spacing for paddingBottom (32px): <View style={[styles.content, { paddingBottom: 32 }]}>
+   • [INLINE_STYLE_HARDCODE] (Line 62)
+     Inline style detected in JSX: style={{ marginBottom: 16 }}
+   • [HARDCODED_SPACING_VIOLATION] (Line 62)
+     Raw numeric spacing for marginBottom (16px): style={{ marginBottom: 16 }}
+   • [INLINE_STYLE_HARDCODE] (Line 88)
+     Inline style detected in JSX: leftIcon={<MailIcon color="#888" size={16} style={{ marginRight: 8 }} />}
+   • [HARDCODED_COLOR_VIOLATION] (Line 88)
+     Hardcoded color(s) #888: leftIcon={<MailIcon color="#888" size={16} style={{ marginRight: 8 }} />}
+   • [HARDCODED_SPACING_VIOLATION] (Line 88)
+     Raw numeric spacing for marginRight (8px): leftIcon={<MailIcon color="#888" size={16} style={{ marginRight: 8 }} />}
+   • [INLINE_STYLE_HARDCODE] (Line 121)
+     Inline style detected in JSX: style={{ marginTop: 8 }}
+   • [HARDCODED_SPACING_VIOLATION] (Line 121)
+     Raw numeric spacing for marginTop (8px): style={{ marginTop: 8 }}
+
+File: src\features\auth\LoginPageComponents.js
+   • [HARDCODED_COLOR_VIOLATION] (Line 18)
+     Hardcoded color(s) #FFFFFF, #1C1C1C: <ForwardArrowIcon color={isDark ? '#FFFFFF' : '#1C1C1C'} size={18} />
+   • [INLINE_STYLE_HARDCODE] (Line 39)
+     Inline style detected in JSX: style={{ flex: 1 }}
+   • [INLINE_STYLE_HARDCODE] (Line 44)
+     Inline style detected in JSX: leftIcon={<LockIcon color="#888" size={16} style={{ marginRight: 8 }} />}
+   • [HARDCODED_COLOR_VIOLATION] (Line 44)
+     Hardcoded color(s) #888: leftIcon={<LockIcon color="#888" size={16} style={{ marginRight: 8 }} />}
+   • [HARDCODED_SPACING_VIOLATION] (Line 44)
+     Raw numeric spacing for marginRight (8px): leftIcon={<LockIcon color="#888" size={16} style={{ marginRight: 8 }} />}
+   • [HARDCODED_COLOR_VIOLATION] (Line 47)
+     Hardcoded color(s) #888, #666, #888, #666: icon={showPassword ? <EyeOffIcon color={isDark ? '#888' : '#666'} size={16} /> : <EyeIcon color={isDark ? '#888' : '#666'} size={16} />}
+
+File: src\features\auth\LoginPageStyles.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 11)
+     Raw numeric spacing for padding (24px): padding: 24,
+   • [HARDCODED_SPACING_VIOLATION] (Line 20)
+     Raw numeric spacing for marginBottom (12px): marginBottom: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 25)
+     Raw numeric spacing for borderRadius (12px): borderRadius: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 28)
+     Raw numeric spacing for marginBottom (12px): marginBottom: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 36)
+     Raw numeric spacing for marginBottom (6px): marginBottom: 6,
+   • [HARDCODED_SPACING_VIOLATION] (Line 41)
+     Raw numeric spacing for borderRadius (16px): borderRadius: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 42)
+     Raw numeric spacing for paddingHorizontal (24px): paddingHorizontal: 24,
+   • [HARDCODED_SPACING_VIOLATION] (Line 43)
+     Raw numeric spacing for paddingVertical (16px): paddingVertical: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 46)
+     Raw numeric spacing for marginBottom (16px): marginBottom: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 58)
+     Raw numeric spacing for marginBottom (16px): marginBottom: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 63)
+     Raw numeric spacing for marginRight (8px): marginRight: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 70)
+     Raw numeric spacing for marginBottom (16px): marginBottom: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 79)
+     Raw numeric spacing for marginHorizontal (12px): marginHorizontal: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 82)
+     Raw numeric spacing for marginBottom (12px): marginBottom: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 90)
+     Raw numeric spacing for marginBottom (4px): marginBottom: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 97)
+     Raw numeric spacing for borderRadius (8px): borderRadius: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 98)
+     Raw numeric spacing for paddingHorizontal (12px): paddingHorizontal: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 104)
+     Raw numeric spacing for marginRight (8px): marginRight: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 117)
+     Raw numeric spacing for marginTop (8px): marginTop: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 126)
+     Raw numeric spacing for marginBottom (12px): marginBottom: 12,
+
+File: src\features\cart\CartItem.js
+   • [HARDCODED_COLOR_VIOLATION] (Line 33)
+     Hardcoded color(s) #64748b, #94a3b8: icon={<CrossIcon color={isDark ? '#64748b' : '#94a3b8'} size={14} />}
+   • [INLINE_STYLE_HARDCODE] (Line 37)
+     Inline style detected in JSX: style={{ marginTop: -4, marginRight: -4 }}
+   • [HARDCODED_SPACING_VIOLATION] (Line 78)
+     Raw numeric spacing for marginHorizontal (0px): marginHorizontal: 0,
+   • [HARDCODED_SPACING_VIOLATION] (Line 79)
+     Raw numeric spacing for marginVertical (6px): marginVertical: 6,
+   • [HARDCODED_SPACING_VIOLATION] (Line 80)
+     Raw numeric spacing for borderRadius (16px): borderRadius: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 81)
+     Raw numeric spacing for padding (12px): padding: 12,
+   • [HARDCODED_COLOR_VIOLATION] (Line 85)
+     Hardcoded color(s) rgba(0, 0, 0, 0.08): boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.08)',
+   • [HARDCODED_COLOR_VIOLATION] (Line 88)
+     Hardcoded color(s) #000: shadowColor: '#000',
+   • [HARDCODED_COLOR_VIOLATION] (Line 96)
+     Hardcoded color(s) #121212, #242424: cardDark: { backgroundColor: '#121212', borderColor: '#242424' },
+   • [HARDCODED_COLOR_VIOLATION] (Line 97)
+     Hardcoded color(s) #ffffff, #e2e8f0: cardLight: { backgroundColor: '#ffffff', borderColor: '#e2e8f0' },
+   • [HARDCODED_SPACING_VIOLATION] (Line 102)
+     Raw numeric spacing for borderRadius (12px): borderRadius: 12,
+   • [HARDCODED_COLOR_VIOLATION] (Line 105)
+     Hardcoded color(s) #1E1E1E: imageWrapDark: { backgroundColor: '#1E1E1E' },
+   • [HARDCODED_COLOR_VIOLATION] (Line 106)
+     Hardcoded color(s) #e8edf5: imageWrapLight: { backgroundColor: '#e8edf5' },
+   • [HARDCODED_SPACING_VIOLATION] (Line 114)
+     Raw numeric spacing for marginLeft (12px): marginLeft: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 123)
+     Raw numeric spacing for marginRight (8px): label: { flex: 1, marginRight: 8 },
+   • [HARDCODED_SPACING_VIOLATION] (Line 131)
+     Raw numeric spacing for borderRadius (8px): qtyBtn: { width: 28, height: 28, borderRadius: 8, alignItems: 'center', justifyContent: 'center', borderWidth: 1 },
+   • [HARDCODED_COLOR_VIOLATION] (Line 132)
+     Hardcoded color(s) #0f172a, #334155: qtyBtnDark: { backgroundColor: '#0f172a', borderColor: '#334155' },
+   • [HARDCODED_COLOR_VIOLATION] (Line 133)
+     Hardcoded color(s) #f1f5f9, #e2e8f0: qtyBtnLight: { backgroundColor: '#f1f5f9', borderColor: '#e2e8f0' },
+   • [HARDCODED_COLOR_VIOLATION] (Line 135)
+     Hardcoded color(s) #f1f5f9: qtyBtnTxtDark: { color: '#f1f5f9' },
+   • [HARDCODED_COLOR_VIOLATION] (Line 136)
+     Hardcoded color(s) #0f172a: qtyBtnTxtLight: { color: '#0f172a' },
+   • [HARDCODED_SPACING_VIOLATION] (Line 137)
+     Raw numeric spacing for marginHorizontal (8px): qty: { marginHorizontal: 8, minWidth: 20, textAlign: 'center' },
+
+File: src\features\cart\CartSummary.js
+   • [INLINE_STYLE_HARDCODE] (Line 100)
+     Inline style detected in JSX: style={{ marginTop: 12 }}
+   • [HARDCODED_SPACING_VIOLATION] (Line 100)
+     Raw numeric spacing for marginTop (12px): style={{ marginTop: 12 }}
+
+File: src\features\cart\CartViewContent.js
+   • [INLINE_STYLE_HARDCODE] (Line 14)
+     Inline style detected in JSX: <CartIcon color={isDark ? '#FFFFFF' : '#1C1C1C'} size={48} style={{ marginBottom: 12 }} />
+   • [HARDCODED_COLOR_VIOLATION] (Line 14)
+     Hardcoded color(s) #FFFFFF, #1C1C1C: <CartIcon color={isDark ? '#FFFFFF' : '#1C1C1C'} size={48} style={{ marginBottom: 12 }} />
+   • [HARDCODED_SPACING_VIOLATION] (Line 14)
+     Raw numeric spacing for marginBottom (12px): <CartIcon color={isDark ? '#FFFFFF' : '#1C1C1C'} size={48} style={{ marginBottom: 12 }} />
+   • [INLINE_STYLE_HARDCODE] (Line 96)
+     Inline style detected in JSX: <View style={{ flex: 1 }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 104)
+     Raw numeric spacing for paddingHorizontal (8px): paddingHorizontal: 8,
+   • [INLINE_STYLE_HARDCODE] (Line 137)
+     Inline style detected in JSX: <View style={{ height: 40 }} />
+
+File: src\features\cart\CartViewStyles.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 11)
+     Raw numeric spacing for paddingHorizontal (12px): paddingHorizontal: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 15)
+     Raw numeric spacing for paddingBottom (24px): paddingBottom: 24,
+   • [HARDCODED_SPACING_VIOLATION] (Line 18)
+     Raw numeric spacing for marginBottom (8px): marginBottom: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 21)
+     Raw numeric spacing for marginBottom (6px): marginBottom: 6,
+   • [HARDCODED_SPACING_VIOLATION] (Line 25)
+     Raw numeric spacing for borderRadius (8px): borderRadius: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 26)
+     Raw numeric spacing for paddingHorizontal (12px): paddingHorizontal: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 42)
+     Raw numeric spacing for marginTop (10px): marginTop: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 49)
+     Raw numeric spacing for marginBottom (12px): marginBottom: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 55)
+     Raw numeric spacing for gap (24px): gap: 24,
+   • [HARDCODED_SPACING_VIOLATION] (Line 71)
+     Raw numeric spacing for paddingVertical (12px): list: { paddingVertical: 12 },
+   • [HARDCODED_SPACING_VIOLATION] (Line 75)
+     Raw numeric spacing for paddingTop (32px): paddingTop: 32,
+   • [HARDCODED_SPACING_VIOLATION] (Line 76)
+     Raw numeric spacing for paddingBottom (16px): paddingBottom: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 78)
+     Raw numeric spacing for marginBottom (12px): emptyIcon: { marginBottom: 12 },
+   • [HARDCODED_SPACING_VIOLATION] (Line 82)
+     Raw numeric spacing for borderRadius (24px): borderRadius: 24,
+   • [HARDCODED_SPACING_VIOLATION] (Line 83)
+     Raw numeric spacing for padding (24px): padding: 24,
+   • [HARDCODED_SPACING_VIOLATION] (Line 90)
+     Raw numeric spacing for marginHorizontal (0px): marginHorizontal: 0,
+   • [HARDCODED_SPACING_VIOLATION] (Line 91)
+     Raw numeric spacing for marginVertical (8px): marginVertical: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 94)
+     Raw numeric spacing for marginTop (6px): marginTop: 6,
+   • [HARDCODED_SPACING_VIOLATION] (Line 101)
+     Raw numeric spacing for marginVertical (8px): marginVertical: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 106)
+     Raw numeric spacing for marginVertical (12px): marginVertical: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 111)
+     Raw numeric spacing for borderRadius (50px): borderRadius: 50,
+   • [HARDCODED_SPACING_VIOLATION] (Line 115)
+     Raw numeric spacing for marginTop (12px): marginTop: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 127)
+     Raw numeric spacing for borderRadius (12px): borderRadius: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 129)
+     Raw numeric spacing for padding (12px): padding: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 131)
+     Raw numeric spacing for marginTop (6px): marginTop: 6,
+   • [HARDCODED_SPACING_VIOLATION] (Line 132)
+     Raw numeric spacing for marginBottom (12px): marginBottom: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 146)
+     Raw numeric spacing for marginBottom (4px): marginBottom: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 152)
+     Raw numeric spacing for marginTop (32px): marginTop: 32,
+   • [HARDCODED_SPACING_VIOLATION] (Line 153)
+     Raw numeric spacing for paddingVertical (16px): paddingVertical: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 156)
+     Raw numeric spacing for marginBottom (4px): marginBottom: 4,
+
+File: src\features\catalog\CatalogFilterSidebarStyles.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 9)
+     Raw numeric spacing for padding (16px): content: { padding: 16, gap: 14 },
+   • [HARDCODED_SPACING_VIOLATION] (Line 12)
+     Raw numeric spacing for marginBottom (16px): marginBottom: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 15)
+     Raw numeric spacing for marginTop (12px): marginTop: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 16)
+     Raw numeric spacing for marginBottom (8px): marginBottom: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 19)
+     Raw numeric spacing for marginTop (0px): marginTop: 0,
+   • [HARDCODED_SPACING_VIOLATION] (Line 20)
+     Raw numeric spacing for marginBottom (6px): marginBottom: 6,
+   • [HARDCODED_SPACING_VIOLATION] (Line 23)
+     Raw numeric spacing for gap (12px): priceSection: { gap: 12 },
+   • [HARDCODED_SPACING_VIOLATION] (Line 24)
+     Raw numeric spacing for gap (4px): filterSection: { gap: 4 },
+   • [HARDCODED_SPACING_VIOLATION] (Line 25)
+     Raw numeric spacing for gap (2px): optionsGroup: { gap: 2 },
+   • [HARDCODED_SPACING_VIOLATION] (Line 30)
+     Raw numeric spacing for gap (8px): priceColumn: { flexDirection: 'column', gap: 8, marginTop: 8 },
+   • [HARDCODED_SPACING_VIOLATION] (Line 31)
+     Raw numeric spacing for gap (8px): priceFieldRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
+   • [HARDCODED_SPACING_VIOLATION] (Line 39)
+     Raw numeric spacing for paddingHorizontal (8px): paddingHorizontal: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 40)
+     Raw numeric spacing for paddingVertical (6px): paddingVertical: 6,
+   • [HARDCODED_SPACING_VIOLATION] (Line 45)
+     Raw numeric spacing for gap (8px): checkRow: { flexDirection: 'row', alignItems: 'center', gap: 8, paddingVertical: 10, minHeight: 44 },
+   • [HARDCODED_SPACING_VIOLATION] (Line 47)
+     Raw numeric spacing for borderRadius (4px): width: 18, height: 18, borderRadius: 4, borderWidth: 1.5, borderColor: colors.accent,
+   • [HARDCODED_SPACING_VIOLATION] (Line 61)
+     Raw numeric spacing for marginVertical (16px): divider: { height: 1, marginVertical: 16 },
+   • [HARDCODED_SPACING_VIOLATION] (Line 71)
+     Raw numeric spacing for marginTop (12px): marginTop: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 82)
+     Raw numeric spacing for marginTop (12px): marginTop: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 83)
+     Raw numeric spacing for marginBottom (4px): marginBottom: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 85)
+     Raw numeric spacing for paddingHorizontal (16px): paddingHorizontal: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 98)
+     Raw numeric spacing for gap (12px): gap: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 99)
+     Raw numeric spacing for marginTop (12px): marginTop: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 100)
+     Raw numeric spacing for marginBottom (4px): marginBottom: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 101)
+     Raw numeric spacing for marginHorizontal (16px): marginHorizontal: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 123)
+     Raw numeric spacing for paddingVertical (4px): paddingVertical: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 139)
+     Raw numeric spacing for paddingHorizontal (12px): paddingHorizontal: 12,
+   • [HARDCODED_COLOR_VIOLATION] (Line 152)
+     Hardcoded color(s) rgba(0,0,0,0.45): backgroundColor: 'rgba(0,0,0,0.45)',
+   • [HARDCODED_SPACING_VIOLATION] (Line 169)
+     Raw numeric spacing for paddingHorizontal (16px): paddingHorizontal: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 192)
+     Raw numeric spacing for marginTop (16px): marginTop: 16,
+
+File: src\features\catalog\CatalogHeader.js
+   • [HARDCODED_COLOR_VIOLATION] (Line 15)
+     Hardcoded color(s) #1F2937, #E5E7EB: <View style={[styles.heroRight, isWide ? styles.heroRightWide : styles.heroRightMobile, { backgroundColor: isDark ? '#1F2937' : '#E5E7EB' }]} />
+
+File: src\features\catalog\CatalogListFooter.js
+   • [INLINE_STYLE_HARDCODE] (Line 36)
+     Inline style detected in JSX: <View style={{ height: 40 }} />
+
+File: src\features\catalog\CatalogPage.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 67)
+     Raw numeric spacing for padding (0px): <View style={[styles.main, isNarrow && { padding: 0, alignItems: 'center' }]}>
+   • [INLINE_STYLE_HARDCODE] (Line 76)
+     Inline style detected in JSX: <View style={{ flex: 1, minHeight: 0 }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 193)
+     Raw numeric spacing for paddingHorizontal (8px): row: { flex: 1, minHeight: 0, flexDirection: 'row', width: '100%', maxWidth: 1330, alignSelf: 'center', paddingHorizontal: 8 },
+   • [HARDCODED_SPACING_VIOLATION] (Line 194)
+     Raw numeric spacing for padding (16px): main: { flex: 1, minHeight: 0, padding: 16 },
+
+File: src\features\catalog\CatalogPagination.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 92)
+     Raw numeric spacing for paddingVertical (16px): paddingVertical: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 93)
+     Raw numeric spacing for marginTop (16px): marginTop: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 98)
+     Raw numeric spacing for borderRadius (8px): borderRadius: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 121)
+     Raw numeric spacing for marginHorizontal (12px): marginHorizontal: 12,
+
+File: src\features\catalog\CatalogSortBar.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 45)
+     Raw numeric spacing for gap (8px): gap: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 46)
+     Raw numeric spacing for marginBottom (16px): marginBottom: 16,
+
+File: src\features\catalog\CatalogView.js
+   • [INLINE_STYLE_HARDCODE] (Line 23)
+     Inline style detected in JSX: <View style={{ width: itemWidth, alignSelf: 'stretch' }}>
+   • [INLINE_STYLE_HARDCODE] (Line 90)
+     Inline style detected in JSX: <View style={{ alignSelf: 'center', width: gridWidth, maxWidth: '100%' }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 121)
+     Raw numeric spacing for paddingBottom (0px): contentContainerStyle={[styles.list, { alignSelf: 'center', width: gridWidth, paddingBottom: 0, flexGrow: 1, minHeight: '100%' }]}
+   • [INLINE_STYLE_HARDCODE] (Line 135)
+     Inline style detected in JSX: style={layoutStyles.listContainer}
+   • [HARDCODED_SPACING_VIOLATION] (Line 143)
+     Raw numeric spacing for paddingBottom (0px): contentContainerStyle={[styles.list, { alignSelf: 'center', width: gridWidth, paddingBottom: 0, flexGrow: 1 }]}
+   • [INLINE_STYLE_HARDCODE] (Line 145)
+     Inline style detected in JSX: style={layoutStyles.listContainer}
+   • [INLINE_STYLE_HARDCODE] (Line 159)
+     Inline style detected in JSX: <View style={{ flex: 1, justifyContent: 'flex-end' }}>
+
+File: src\features\catalog\CategoryCard.js
+   • [HARDCODED_COLOR_VIOLATION] (Line 58)
+     Hardcoded color(s) rgba(0, 0, 0, 0.85): textShadow: { textShadowColor: 'rgba(0, 0, 0, 0.85)', textShadowOffset: { width: 0, height: 1 }, textShadowRadius: 5 },
+   • [HARDCODED_COLOR_VIOLATION] (Line 59)
+     Hardcoded color(s) rgba(0, 0, 0, 0.4): overlay: { backgroundColor: 'rgba(0, 0, 0, 0.4)' },
+   • [HARDCODED_COLOR_VIOLATION] (Line 60)
+     Hardcoded color(s) #F3F3F3: descColor: '#F3F3F3',
+   • [INLINE_STYLE_HARDCODE] (Line 133)
+     Inline style detected in JSX: style={getCardStyle(cardHeight, activeIsBanner, style)}
+   • [INLINE_STYLE_HARDCODE] (Line 136)
+     Inline style detected in JSX: <View style={{ ...StyleSheet.absoluteFillObject, borderRadius: layout.radii.lg, overflow: 'hidden' }}>
+   • [INLINE_STYLE_HARDCODE] (Line 144)
+     Inline style detected in JSX: <View style={getContentStyle(computedStyles, activeIsBanner)}>
+   • [INLINE_STYLE_HARDCODE] (Line 145)
+     Inline style detected in JSX: <Heading level={3} style={getLabelStyle(computedStyles, activeIsBanner)} numberOfLines={2} isDark={isDark}>{label}</Heading>
+   • [INLINE_STYLE_HARDCODE] (Line 146)
+     Inline style detected in JSX: <Text style={getDescStyle(computedStyles, activeIsBanner)} numberOfLines={2} isDark={isDark}>{desc}</Text>
+
+File: src\features\catalog\categoryCardStyles.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 7)
+     Raw numeric spacing for borderRadius (20px): borderRadius: 20,
+   • [HARDCODED_SPACING_VIOLATION] (Line 8)
+     Raw numeric spacing for margin (8px): margin: 8,
+   • [HARDCODED_COLOR_VIOLATION] (Line 23)
+     Hardcoded color(s) rgba(0, 0, 0, 0.25): backgroundColor: 'rgba(0, 0, 0, 0.25)',
+   • [HARDCODED_SPACING_VIOLATION] (Line 32)
+     Raw numeric spacing for marginBottom (4px): marginBottom: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 41)
+     Raw numeric spacing for borderRadius (19px): borderRadius: 19,
+   • [HARDCODED_SPACING_VIOLATION] (Line 51)
+     Raw numeric spacing for marginHorizontal (0px): marginHorizontal: 0,
+   • [HARDCODED_SPACING_VIOLATION] (Line 52)
+     Raw numeric spacing for marginVertical (8px): marginVertical: 8,
+
+File: src\features\catalog\CategoryFilterList.js
+   • [INLINE_STYLE_HARDCODE] (Line 15)
+     Inline style detected in JSX: <View style={{ flex: 1 }}>
+
+File: src\features\catalog\components\NewArrivalsFooter.js
+   • [INLINE_STYLE_HARDCODE] (Line 42)
+     Inline style detected in JSX: <View style={{ paddingVertical: 32, alignItems: 'center' }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 42)
+     Raw numeric spacing for paddingVertical (32px): <View style={{ paddingVertical: 32, alignItems: 'center' }}>
+   • [INLINE_STYLE_HARDCODE] (Line 43)
+     Inline style detected in JSX: <Text variant="body" color="muted" style={{ fontStyle: 'italic', textAlign: 'center' }}>
+
+File: src\features\catalog\GridHeaderFooter.js
+   • [INLINE_STYLE_HARDCODE] (Line 43)
+     Inline style detected in JSX: style={itemStyle}
+   • [INLINE_STYLE_HARDCODE] (Line 49)
+     Inline style detected in JSX: <Text style={textStyle}>
+   • [INLINE_STYLE_HARDCODE] (Line 58)
+     Inline style detected in JSX: <View style={getSortDropdownStyles(isDark)}>
+   • [INLINE_STYLE_HARDCODE] (Line 80)
+     Inline style detected in JSX: <View style={{ zIndex: 1000, position: 'relative' }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 81)
+     Raw numeric spacing for marginHorizontal (4px): <View style={[sidebarStyles.mobileButtonsRow, { marginHorizontal: 4, gap: 8 }]}>
+   • [INLINE_STYLE_HARDCODE] (Line 83)
+     Inline style detected in JSX: style={buttonStyle}
+   • [INLINE_STYLE_HARDCODE] (Line 86)
+     Inline style detected in JSX: <Text style={textStyle}>
+   • [INLINE_STYLE_HARDCODE] (Line 92)
+     Inline style detected in JSX: style={buttonStyle}
+   • [INLINE_STYLE_HARDCODE] (Line 95)
+     Inline style detected in JSX: <Text style={textStyle}>
+
+File: src\features\catalog\PlaceholderCard.js
+   • [INLINE_STYLE_HARDCODE] (Line 45)
+     Inline style detected in JSX: <View style={{ flexDirection: 'row', flexWrap: 'wrap' }} key={`${gridKey}-${cols}`}>
+   • [INLINE_STYLE_HARDCODE] (Line 47)
+     Inline style detected in JSX: <View key={item.id} style={{ width: itemWidth }}>
+
+File: src\features\catalog\PriceRangeSlider.js
+   • [HARDCODED_COLOR_VIOLATION] (Line 55)
+     Hardcoded color(s) #1C1C1C, #FFFFFF: const bg = isDark ? '#1C1C1C' : '#FFFFFF';
+   • [HARDCODED_COLOR_VIOLATION] (Line 126)
+     Hardcoded color(s) #E31B23: const activeColor = '#E31B23';
+   • [HARDCODED_COLOR_VIOLATION] (Line 127)
+     Hardcoded color(s) #242424, #e5d8d3: const inactiveColor = isDark ? '#242424' : '#e5d8d3';
+   • [HARDCODED_SPACING_VIOLATION] (Line 153)
+     Raw numeric spacing for marginVertical (8px): marginVertical: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 154)
+     Raw numeric spacing for paddingHorizontal (10px): paddingHorizontal: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 159)
+     Raw numeric spacing for borderRadius (2px): borderRadius: 2,
+   • [HARDCODED_SPACING_VIOLATION] (Line 165)
+     Raw numeric spacing for borderRadius (2px): borderRadius: 2,
+   • [HARDCODED_SPACING_VIOLATION] (Line 171)
+     Raw numeric spacing for borderRadius (10px): borderRadius: 10,
+
+File: src\features\catalog\ProductGrid.js
+   • [INLINE_STYLE_HARDCODE] (Line 20)
+     Inline style detected in JSX: <View style={{ width: itemWidth, alignSelf: 'stretch' }}>
+   • [INLINE_STYLE_HARDCODE] (Line 41)
+     Inline style detected in JSX: style={isNarrow ? { alignSelf: 'center', width: gridWidth || '100%', minHeight: '100%' } : { width: '100%', minHeight: '100%' }}
+   • [HARDCODED_SPACING_VIOLATION] (Line 58)
+     Raw numeric spacing for paddingBottom (0px): grid: { paddingBottom: 0 },
+   • [HARDCODED_SPACING_VIOLATION] (Line 59)
+     Raw numeric spacing for paddingVertical (48px): empty: { paddingVertical: 48, alignItems: 'center' },
+
+File: src\features\catalog\SidebarUIComponents.js
+   • [INLINE_STYLE_HARDCODE] (Line 75)
+     Inline style detected in JSX: style={{ marginTop: 12, width: '100%' }}
+   • [HARDCODED_SPACING_VIOLATION] (Line 75)
+     Raw numeric spacing for marginTop (12px): style={{ marginTop: 12, width: '100%' }}
+   • [INLINE_STYLE_HARDCODE] (Line 87)
+     Inline style detected in JSX: style={{ marginTop: 16, width: '100%' }}
+   • [HARDCODED_SPACING_VIOLATION] (Line 87)
+     Raw numeric spacing for marginTop (16px): style={{ marginTop: 16, width: '100%' }}
+
+File: src\features\contact\ContactPage.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 20)
+     Raw numeric spacing for paddingBottom (0px): contentContainerStyle={[commonStyles.scrollContent, { paddingBottom: 0 }]}
+   • [INLINE_STYLE_HARDCODE] (Line 23)
+     Inline style detected in JSX: <View style={{ flex: 1 }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 24)
+     Raw numeric spacing for paddingBottom (24px): <View style={[commonStyles.content, { paddingBottom: 24 }]}>
+   • [INLINE_STYLE_HARDCODE] (Line 26)
+     Inline style detected in JSX: <Heading level={1} style={commonStyles.title} isDark={isDark}>
+   • [INLINE_STYLE_HARDCODE] (Line 36)
+     Inline style detected in JSX: <View style={{ height: 40 }} />
+
+File: src\features\contact\ContactPageStyles.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 11)
+     Raw numeric spacing for paddingBottom (24px): paddingBottom: 24,
+   • [HARDCODED_SPACING_VIOLATION] (Line 17)
+     Raw numeric spacing for paddingTop (16px): paddingTop: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 18)
+     Raw numeric spacing for paddingHorizontal (0px): paddingHorizontal: 0,
+   • [HARDCODED_SPACING_VIOLATION] (Line 19)
+     Raw numeric spacing for paddingBottom (64px): paddingBottom: 64,
+   • [HARDCODED_SPACING_VIOLATION] (Line 22)
+     Raw numeric spacing for marginBottom (24px): marginBottom: 24,
+   • [HARDCODED_SPACING_VIOLATION] (Line 23)
+     Raw numeric spacing for paddingHorizontal (8px): paddingHorizontal: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 33)
+     Raw numeric spacing for gap (12px): gap: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 34)
+     Raw numeric spacing for marginBottom (32px): marginBottom: 32,
+   • [HARDCODED_SPACING_VIOLATION] (Line 41)
+     Raw numeric spacing for gap (10px): gap: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 42)
+     Raw numeric spacing for paddingVertical (12px): paddingVertical: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 43)
+     Raw numeric spacing for paddingHorizontal (20px): paddingHorizontal: 20,
+   • [HARDCODED_SPACING_VIOLATION] (Line 44)
+     Raw numeric spacing for borderRadius (50px): borderRadius: 50,
+   • [HARDCODED_SPACING_VIOLATION] (Line 63)
+     Raw numeric spacing for marginBottom (16px): marginBottom: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 66)
+     Raw numeric spacing for marginBottom (10px): marginBottom: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 69)
+     Raw numeric spacing for borderRadius (12px): borderRadius: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 71)
+     Raw numeric spacing for padding (14px): padding: 14,
+   • [HARDCODED_SPACING_VIOLATION] (Line 87)
+     Raw numeric spacing for borderRadius (50px): borderRadius: 50,
+   • [HARDCODED_SPACING_VIOLATION] (Line 90)
+     Raw numeric spacing for marginTop (16px): marginTop: 16,
+
+File: src\features\contact\ContactQuestionForm.js
+   • [HARDCODED_COLOR_VIOLATION] (Line 63)
+     Hardcoded color(s) #10B981, #EF4444: const color = isSuccess ? '#10B981' : '#EF4444';
+   • [INLINE_STYLE_HARDCODE] (Line 67)
+     Inline style detected in JSX: <Text variant="body" weight="medium" style={{ color, marginTop: 12, textAlign: 'center' }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 67)
+     Raw numeric spacing for marginTop (12px): <Text variant="body" weight="medium" style={{ color, marginTop: 12, textAlign: 'center' }}>
+   • [INLINE_STYLE_HARDCODE] (Line 85)
+     Inline style detected in JSX: <Card isDark={isDark} style={cardStyle}>
+   • [INLINE_STYLE_HARDCODE] (Line 105)
+     Inline style detected in JSX: style={{ marginTop: 16 }}
+   • [HARDCODED_SPACING_VIOLATION] (Line 105)
+     Raw numeric spacing for marginTop (16px): style={{ marginTop: 16 }}
+
+File: src\features\contact\SocialButtons.js
+   • [INLINE_STYLE_HARDCODE] (Line 15)
+     Inline style detected in JSX: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle' }}>
+   • [INLINE_STYLE_HARDCODE] (Line 28)
+     Inline style detected in JSX: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle' }}>
+   • [INLINE_STYLE_HARDCODE] (Line 55)
+     Inline style detected in JSX: <ScrollFadeUp style={socialRowStyle}>
+
+File: src\features\favorites\FavoritesPage.js
+   • [HARDCODED_COLOR_VIOLATION] (Line 21)
+     Hardcoded color(s) #6B7280, #9CA3AF: icon={<HeartIcon color={isDark ? '#6B7280' : '#9CA3AF'} size={48} />}
+   • [HARDCODED_SPACING_VIOLATION] (Line 74)
+     Raw numeric spacing for paddingBottom (0px): contentContainerStyle={[styles.scrollContent, { paddingBottom: 0 }]}
+   • [INLINE_STYLE_HARDCODE] (Line 77)
+     Inline style detected in JSX: <View style={{ flex: 1 }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 78)
+     Raw numeric spacing for paddingBottom (24px): <View style={[styles.content, { alignSelf: 'center', width: gridWidth, maxWidth: '100%', paddingBottom: 24 }]}>
+   • [INLINE_STYLE_HARDCODE] (Line 89)
+     Inline style detected in JSX: <View style={{ height: 40 }} />
+
+File: src\features\favorites\FavoritesPageStyles.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 11)
+     Raw numeric spacing for paddingBottom (24px): paddingBottom: 24,
+   • [HARDCODED_SPACING_VIOLATION] (Line 16)
+     Raw numeric spacing for paddingTop (16px): paddingTop: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 17)
+     Raw numeric spacing for paddingHorizontal (0px): paddingHorizontal: 0,
+   • [HARDCODED_SPACING_VIOLATION] (Line 18)
+     Raw numeric spacing for paddingBottom (64px): paddingBottom: 64,
+   • [HARDCODED_SPACING_VIOLATION] (Line 21)
+     Raw numeric spacing for marginBottom (16px): marginBottom: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 22)
+     Raw numeric spacing for paddingHorizontal (8px): paddingHorizontal: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 27)
+     Raw numeric spacing for paddingVertical (64px): paddingVertical: 64,
+   • [HARDCODED_SPACING_VIOLATION] (Line 30)
+     Raw numeric spacing for marginBottom (8px): marginBottom: 8,
+
+File: src\features\home\components\DiscountsSection.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 17)
+     Raw numeric spacing for paddingHorizontal (8px): paddingHorizontal: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 18)
+     Raw numeric spacing for marginBottom (16px): marginBottom: 16,
+   • [INLINE_STYLE_HARDCODE] (Line 22)
+     Inline style detected in JSX: <ScrollFadeUp style={headerStyle}>
+   • [INLINE_STYLE_HARDCODE] (Line 67)
+     Inline style detected in JSX: <View style={{ paddingVertical: 32, alignItems: 'center' }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 67)
+     Raw numeric spacing for paddingVertical (32px): <View style={{ paddingVertical: 32, alignItems: 'center' }}>
+   • [INLINE_STYLE_HARDCODE] (Line 68)
+     Inline style detected in JSX: <Text variant="body" color="muted" style={{ fontStyle: 'italic', textAlign: 'center' }}>
+
+File: src\features\home\components\FeaturedSections.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 97)
+     Raw numeric spacing for marginRight (6px): marginRight: 6,
+   • [HARDCODED_SPACING_VIOLATION] (Line 110)
+     Raw numeric spacing for marginHorizontal (16px): marginHorizontal: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 111)
+     Raw numeric spacing for marginVertical (8px): marginVertical: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 112)
+     Raw numeric spacing for padding (18px): padding: 18,
+   • [HARDCODED_SPACING_VIOLATION] (Line 113)
+     Raw numeric spacing for borderRadius (16px): borderRadius: 16,
+   • [HARDCODED_COLOR_VIOLATION] (Line 117)
+     Hardcoded color(s) rgba(0, 0, 0, 0.06): boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.06)',
+   • [HARDCODED_COLOR_VIOLATION] (Line 120)
+     Hardcoded color(s) #000: shadowColor: '#000',
+   • [HARDCODED_SPACING_VIOLATION] (Line 135)
+     Raw numeric spacing for marginTop (4px): subtitle: { marginTop: 4, marginRight: 24 },
+   • [HARDCODED_SPACING_VIOLATION] (Line 143)
+     Raw numeric spacing for paddingHorizontal (8px): paddingHorizontal: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 144)
+     Raw numeric spacing for paddingVertical (3px): paddingVertical: 3,
+   • [HARDCODED_SPACING_VIOLATION] (Line 145)
+     Raw numeric spacing for borderRadius (8px): borderRadius: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 146)
+     Raw numeric spacing for marginRight (10px): marginRight: 10,
+
+File: src\features\home\components\HeroCarousel\CarouselDots.js
+   • [INLINE_STYLE_HARDCODE] (Line 35)
+     Inline style detected in JSX: style={{
+   • [INLINE_STYLE_HARDCODE] (Line 47)
+     Inline style detected in JSX: <View style={localStyles.dotsContainer}>
+   • [HARDCODED_COLOR_VIOLATION] (Line 58)
+     Hardcoded color(s) rgba(255,255,255,0.3): isActive && { backgroundColor: 'rgba(255,255,255,0.3)', overflow: 'hidden' }
+
+File: src\features\home\components\HeroCarousel\CarouselLayers.js
+   • [INLINE_STYLE_HARDCODE] (Line 16)
+     Inline style detected in JSX: style={localStyles.imageFill}
+
+File: src\features\home\components\HeroCarousel\carouselStyles.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 25)
+     Raw numeric spacing for borderRadius (22px): borderRadius: 22,
+   • [HARDCODED_COLOR_VIOLATION] (Line 26)
+     Hardcoded color(s) rgba(28, 28, 28, 0.4): backgroundColor: 'rgba(28, 28, 28, 0.4)',
+   • [HARDCODED_SPACING_VIOLATION] (Line 49)
+     Raw numeric spacing for gap (8px): gap: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 53)
+     Raw numeric spacing for borderRadius (4px): borderRadius: 4,
+
+File: src\features\home\components\HeroCarousel.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 37)
+     Raw numeric spacing for borderRadius (0px): return { width: windowWidth, alignSelf: 'center', borderRadius: 0 };
+   • [INLINE_STYLE_HARDCODE] (Line 64)
+     Inline style detected in JSX: return <View style={placeholderStyle} />;
+   • [INLINE_STYLE_HARDCODE] (Line 71)
+     Inline style detected in JSX: <View style={baseStyle}>
+   • [INLINE_STYLE_HARDCODE] (Line 72)
+     Inline style detected in JSX: <View style={localStyles.carouselContainer}>
+
+File: src\features\orders\components\OrderCard.helpers.js
+   • [INLINE_STYLE_HARDCODE] (Line 97)
+     Inline style detected in JSX: <View style={{ marginTop: 12, paddingTop: 12, borderTopWidth: 1, borderTopColor: getStyle(colors.neutralDarkFaint, colors.secondaryLightBorder) }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 97)
+     Raw numeric spacing for marginTop (12px): <View style={{ marginTop: 12, paddingTop: 12, borderTopWidth: 1, borderTopColor: getStyle(colors.neutralDarkFaint, colors.secondaryLightBorder) }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 98)
+     Raw numeric spacing for marginBottom (4px): <Text variant="caption" color="muted" style={[styles.itemLabel, { marginBottom: 4 }]}>
+
+File: src\features\orders\components\OrderCard.js
+   • [INLINE_STYLE_HARDCODE] (Line 31)
+     Inline style detected in JSX: <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+   • [INLINE_STYLE_HARDCODE] (Line 32)
+     Inline style detected in JSX: <View style={{ flex: 1, flexDirection: 'column', gap: 4 }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 32)
+     Raw numeric spacing for gap (4px): <View style={{ flex: 1, flexDirection: 'column', gap: 4 }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 39)
+     Raw numeric spacing for marginTop (2px): <Text style={[styles.orderTotal, { marginTop: 2 }]}>
+   • [INLINE_STYLE_HARDCODE] (Line 43)
+     Inline style detected in JSX: <View style={{ alignItems: 'flex-end', gap: 8 }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 43)
+     Raw numeric spacing for gap (8px): <View style={{ alignItems: 'flex-end', gap: 8 }}>
+
+File: src\features\orders\OrderConfirmationPage.js
+   • [INLINE_STYLE_HARDCODE] (Line 48)
+     Inline style detected in JSX: style={containerStyle}
+   • [INLINE_STYLE_HARDCODE] (Line 52)
+     Inline style detected in JSX: <View style={{ flex: 1 }}>
+   • [INLINE_STYLE_HARDCODE] (Line 53)
+     Inline style detected in JSX: <View style={contentWrapperStyle}>
+   • [INLINE_STYLE_HARDCODE] (Line 81)
+     Inline style detected in JSX: <View style={{ height: 40 }} />
+   • [HARDCODED_COLOR_VIOLATION] (Line 92)
+     Hardcoded color(s) #0D0D0D: containerDark: { backgroundColor: '#0D0D0D' },
+   • [HARDCODED_COLOR_VIOLATION] (Line 93)
+     Hardcoded color(s) #FAF8F6: containerLight: { backgroundColor: '#FAF8F6' },
+   • [HARDCODED_SPACING_VIOLATION] (Line 96)
+     Raw numeric spacing for paddingBottom (24px): paddingBottom: 24,
+   • [HARDCODED_SPACING_VIOLATION] (Line 99)
+     Raw numeric spacing for paddingHorizontal (8px): paddingHorizontal: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 100)
+     Raw numeric spacing for paddingVertical (16px): paddingVertical: 16,
+
+File: src\features\orders\OrderDetailsCard.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 12)
+     Raw numeric spacing for marginTop (24px): <View style={[styles.itemsHeader, isDark ? styles.borderDark : styles.borderLight, { marginTop: 24 }]}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 81)
+     Raw numeric spacing for marginBottom (20px): marginBottom: 20,
+   • [HARDCODED_SPACING_VIOLATION] (Line 85)
+     Raw numeric spacing for paddingBottom (8px): paddingBottom: 8,
+
+File: src\features\orders\OrderHeader.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 26)
+     Raw numeric spacing for marginVertical (20px): marginVertical: 20,
+   • [HARDCODED_SPACING_VIOLATION] (Line 32)
+     Raw numeric spacing for borderRadius (32px): borderRadius: 32,
+   • [HARDCODED_SPACING_VIOLATION] (Line 35)
+     Raw numeric spacing for marginBottom (16px): marginBottom: 16,
+   • [HARDCODED_COLOR_VIOLATION] (Line 38)
+     Hardcoded color(s) rgba(52, 211, 153, 0.1): backgroundColor: 'rgba(52, 211, 153, 0.1)',
+   • [HARDCODED_COLOR_VIOLATION] (Line 41)
+     Hardcoded color(s) #D1FAE5: backgroundColor: '#D1FAE5',
+   • [HARDCODED_SPACING_VIOLATION] (Line 44)
+     Raw numeric spacing for marginBottom (8px): marginBottom: 8,
+
+File: src\features\orders\OrderRows.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 15)
+     Raw numeric spacing for paddingBottom (0px): <View style={[styles.metaRow, borderStyle, isLast && { borderBottomWidth: 0, paddingBottom: 0 }]}>
+   • [INLINE_STYLE_HARDCODE] (Line 16)
+     Inline style detected in JSX: <Text variant="body" color="muted" style={subtextStyle}>{label}</Text>
+   • [INLINE_STYLE_HARDCODE] (Line 17)
+     Inline style detected in JSX: <Text variant={isPrice ? 'title' : 'body'} weight={isPrice ? 'heavy' : 'medium'} style={textStyle}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 31)
+     Raw numeric spacing for paddingBottom (0px): <View style={[styles.itemRow, borderStyle, isLast && { borderBottomWidth: 0, paddingBottom: 0 }]}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 53)
+     Raw numeric spacing for paddingVertical (12px): paddingVertical: 12,
+   • [HARDCODED_COLOR_VIOLATION] (Line 57)
+     Hardcoded color(s) #2A2A2A: borderBottomColor: '#2A2A2A',
+   • [HARDCODED_COLOR_VIOLATION] (Line 60)
+     Hardcoded color(s) #F1F5F9: borderBottomColor: '#F1F5F9',
+   • [HARDCODED_SPACING_VIOLATION] (Line 65)
+     Raw numeric spacing for paddingVertical (12px): paddingVertical: 12,
+
+File: src\features\orders\OrdersPage.js
+   • [INLINE_STYLE_HARDCODE] (Line 75)
+     Inline style detected in JSX: style={containerStyle}
+   • [HARDCODED_SPACING_VIOLATION] (Line 76)
+     Raw numeric spacing for paddingBottom (0px): contentContainerStyle={[styles.scrollContent, { paddingBottom: 0 }]}
+   • [INLINE_STYLE_HARDCODE] (Line 79)
+     Inline style detected in JSX: <View style={{ flex: 1 }}>
+   • [INLINE_STYLE_HARDCODE] (Line 80)
+     Inline style detected in JSX: <View style={contentWrapperStyle}>
+   • [INLINE_STYLE_HARDCODE] (Line 100)
+     Inline style detected in JSX: <View style={{ height: 40 }} />
+
+File: src\features\orders\OrdersPageStyles.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 13)
+     Raw numeric spacing for paddingBottom (24px): paddingBottom: 24,
+   • [HARDCODED_SPACING_VIOLATION] (Line 16)
+     Raw numeric spacing for paddingHorizontal (8px): paddingHorizontal: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 17)
+     Raw numeric spacing for paddingVertical (16px): paddingVertical: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 20)
+     Raw numeric spacing for marginBottom (16px): marginBottom: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 24)
+     Raw numeric spacing for marginTop (12px): marginTop: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 30)
+     Raw numeric spacing for marginBottom (12px): marginBottom: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 36)
+     Raw numeric spacing for marginBottom (8px): marginBottom: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 42)
+     Raw numeric spacing for paddingVertical (4px): paddingVertical: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 43)
+     Raw numeric spacing for paddingHorizontal (8px): paddingHorizontal: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 44)
+     Raw numeric spacing for borderRadius (16px): borderRadius: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 78)
+     Raw numeric spacing for marginTop (12px): marginTop: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 79)
+     Raw numeric spacing for borderRadius (8px): borderRadius: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 80)
+     Raw numeric spacing for padding (12px): padding: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 92)
+     Raw numeric spacing for paddingVertical (6px): paddingVertical: 6,
+   • [HARDCODED_SPACING_VIOLATION] (Line 104)
+     Raw numeric spacing for marginRight (8px): marginRight: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 108)
+     Raw numeric spacing for marginTop (2px): marginTop: 2,
+   • [HARDCODED_SPACING_VIOLATION] (Line 128)
+     Raw numeric spacing for paddingVertical (8px): paddingVertical: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 129)
+     Raw numeric spacing for paddingHorizontal (16px): paddingHorizontal: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 130)
+     Raw numeric spacing for marginBottom (6px): marginBottom: 6,
+   • [HARDCODED_SPACING_VIOLATION] (Line 131)
+     Raw numeric spacing for borderRadius (12px): borderRadius: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 134)
+     Raw numeric spacing for marginBottom (4px): marginBottom: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 137)
+     Raw numeric spacing for marginBottom (4px): marginBottom: 4,
+
+File: src\features\product\ProductBadges.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 49)
+     Raw numeric spacing for gap (4px): gap: 4,
+
+File: src\features\product\ProductCard.js
+   • [INLINE_STYLE_HARDCODE] (Line 84)
+     Inline style detected in JSX: style={getCardStyle(cardHeight, overrideWidth)}
+   • [INLINE_STYLE_HARDCODE] (Line 87)
+     Inline style detected in JSX: <View style={themed.imageContainer}>
+   • [INLINE_STYLE_HARDCODE] (Line 117)
+     Inline style detected in JSX: <View style={themed.prodInfo}>
+
+File: src\features\product\ProductCardStyles.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 7)
+     Raw numeric spacing for margin (8px): margin: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 32)
+     Raw numeric spacing for paddingHorizontal (8px): paddingHorizontal: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 33)
+     Raw numeric spacing for paddingVertical (8px): paddingVertical: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 43)
+     Raw numeric spacing for marginBottom (4px): marginBottom: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 47)
+     Raw numeric spacing for marginBottom (4px): marginBottom: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 53)
+     Raw numeric spacing for gap (6px): gap: 6,
+
+File: src\features\product\ProductImagePanel.js
+   • [INLINE_STYLE_HARDCODE] (Line 90)
+     Inline style detected in JSX: style={overlayStyle}
+
+File: src\features\product\ProductInfoPanel.js
+   • [INLINE_STYLE_HARDCODE] (Line 14)
+     Inline style detected in JSX: <View style={{ marginTop: 20 }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 14)
+     Raw numeric spacing for marginTop (20px): <View style={{ marginTop: 20 }}>
+   • [INLINE_STYLE_HARDCODE] (Line 41)
+     Inline style detected in JSX: <View style={containerStyle}>
+
+File: src\features\product\ProductInfoSubcomponents.js
+   • [INLINE_STYLE_HARDCODE] (Line 50)
+     Inline style detected in JSX: <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 8 }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 50)
+     Raw numeric spacing for gap (8px): <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 8 }}>
+   • [INLINE_STYLE_HARDCODE] (Line 53)
+     Inline style detected in JSX: <Text variant="body2" color="desc" style={{ textDecorationLine: 'line-through' }}>
+   • [HARDCODED_COLOR_VIOLATION] (Line 100)
+     Hardcoded color(s) #FFFFFF: leftIcon={<CartIcon color="#FFFFFF" size={16} />}
+   • [INLINE_STYLE_HARDCODE] (Line 125)
+     Inline style detected in JSX: <View style={actionRowStyle}>
+   • [INLINE_STYLE_HARDCODE] (Line 143)
+     Inline style detected in JSX: style={{ marginLeft: 8 }}
+   • [HARDCODED_SPACING_VIOLATION] (Line 143)
+     Raw numeric spacing for marginLeft (8px): style={{ marginLeft: 8 }}
+
+File: src\features\product\ProductPage.js
+   • [INLINE_STYLE_HARDCODE] (Line 30)
+     Inline style detected in JSX: <View style={{ alignSelf: 'center', width: gridWidth, maxWidth: '100%' }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 131)
+     Raw numeric spacing for padding (40px): <View style={[styles.root, isDark ? styles.rootDark : styles.rootLight, { padding: 40, alignItems: 'center' }]}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 138)
+     Raw numeric spacing for paddingBottom (24px): const containerStyle = { alignSelf: 'center', width: state.gridWidth, maxWidth: '100%', paddingBottom: 24 };
+   • [INLINE_STYLE_HARDCODE] (Line 141)
+     Inline style detected in JSX: <View style={rootStyle}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 149)
+     Raw numeric spacing for paddingBottom (0px): <ScrollView contentContainerStyle={[styles.scroll, { paddingBottom: 0 }]} showsVerticalScrollIndicator={false}>
+   • [INLINE_STYLE_HARDCODE] (Line 150)
+     Inline style detected in JSX: <View style={{ flex: 1 }}>
+   • [INLINE_STYLE_HARDCODE] (Line 151)
+     Inline style detected in JSX: <View style={containerStyle}>
+   • [INLINE_STYLE_HARDCODE] (Line 171)
+     Inline style detected in JSX: <View style={{ height: 40 }} />
+
+File: src\features\product\ProductPageStyles.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 16)
+     Raw numeric spacing for paddingBottom (60px): paddingBottom: 60,
+   • [HARDCODED_SPACING_VIOLATION] (Line 20)
+     Raw numeric spacing for padding (32px): padding: 32,
+   • [HARDCODED_SPACING_VIOLATION] (Line 21)
+     Raw numeric spacing for gap (32px): gap: 32,
+   • [HARDCODED_SPACING_VIOLATION] (Line 24)
+     Raw numeric spacing for paddingHorizontal (12px): paddingHorizontal: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 25)
+     Raw numeric spacing for paddingTop (8px): paddingTop: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 26)
+     Raw numeric spacing for paddingBottom (0px): paddingBottom: 0,
+   • [HARDCODED_SPACING_VIOLATION] (Line 30)
+     Raw numeric spacing for borderRadius (24px): borderRadius: 24,
+   • [HARDCODED_SPACING_VIOLATION] (Line 42)
+     Raw numeric spacing for marginTop (12px): marginTop: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 46)
+     Raw numeric spacing for marginTop (0px): marginTop: 0,
+   • [HARDCODED_SPACING_VIOLATION] (Line 51)
+     Raw numeric spacing for marginBottom (4px): marginBottom: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 54)
+     Raw numeric spacing for marginBottom (4px): marginBottom: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 57)
+     Raw numeric spacing for marginBottom (10px): marginBottom: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 60)
+     Raw numeric spacing for marginBottom (12px): marginBottom: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 64)
+     Raw numeric spacing for marginBottom (4px): marginBottom: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 68)
+     Raw numeric spacing for marginBottom (16px): marginBottom: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 73)
+     Raw numeric spacing for gap (12px): gap: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 74)
+     Raw numeric spacing for marginBottom (12px): marginBottom: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 85)
+     Raw numeric spacing for paddingHorizontal (8px): paddingHorizontal: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 117)
+     Raw numeric spacing for paddingHorizontal (20px): paddingHorizontal: 20,
+   • [HARDCODED_SPACING_VIOLATION] (Line 124)
+     Raw numeric spacing for marginTop (8px): marginTop: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 136)
+     Raw numeric spacing for marginLeft (8px): marginLeft: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 150)
+     Raw numeric spacing for borderRadius (22px): borderRadius: 22,
+   • [HARDCODED_SPACING_VIOLATION] (Line 177)
+     Raw numeric spacing for borderRadius (22px): borderRadius: 22,
+   • [HARDCODED_COLOR_VIOLATION] (Line 178)
+     Hardcoded color(s) rgba(28, 28, 28, 0.4): backgroundColor: 'rgba(28, 28, 28, 0.4)',
+   • [HARDCODED_SPACING_VIOLATION] (Line 201)
+     Raw numeric spacing for gap (8px): gap: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 205)
+     Raw numeric spacing for borderRadius (4px): borderRadius: 4,
+
+File: src\features\product\ProductReviewsStyles.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 8)
+     Raw numeric spacing for marginTop (24px): marginTop: 24,
+   • [HARDCODED_SPACING_VIOLATION] (Line 9)
+     Raw numeric spacing for paddingHorizontal (16px): paddingHorizontal: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 10)
+     Raw numeric spacing for paddingTop (12px): paddingTop: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 19)
+     Raw numeric spacing for marginBottom (6px): marginBottom: 6,
+   • [HARDCODED_SPACING_VIOLATION] (Line 24)
+     Raw numeric spacing for gap (8px): gap: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 25)
+     Raw numeric spacing for marginBottom (16px): marginBottom: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 32)
+     Raw numeric spacing for borderRadius (16px): borderRadius: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 33)
+     Raw numeric spacing for padding (16px): padding: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 34)
+     Raw numeric spacing for marginBottom (16px): marginBottom: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 46)
+     Raw numeric spacing for marginBottom (8px): marginBottom: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 49)
+     Raw numeric spacing for borderRadius (8px): borderRadius: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 52)
+     Raw numeric spacing for paddingHorizontal (12px): paddingHorizontal: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 53)
+     Raw numeric spacing for marginBottom (8px): marginBottom: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 67)
+     Raw numeric spacing for paddingTop (8px): paddingTop: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 73)
+     Raw numeric spacing for marginBottom (12px): marginBottom: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 76)
+     Raw numeric spacing for marginRight (8px): marginRight: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 86)
+     Raw numeric spacing for borderRadius (50px): borderRadius: 50,
+   • [HARDCODED_SPACING_VIOLATION] (Line 95)
+     Raw numeric spacing for gap (12px): gap: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 98)
+     Raw numeric spacing for borderRadius (12px): borderRadius: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 99)
+     Raw numeric spacing for padding (16px): padding: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 113)
+     Raw numeric spacing for marginBottom (6px): marginBottom: 6,
+   • [HARDCODED_SPACING_VIOLATION] (Line 120)
+     Raw numeric spacing for marginBottom (4px): marginBottom: 4,
+
+File: src\features\product\ProductReviewSubcomponents.js
+   • [INLINE_STYLE_HARDCODE] (Line 21)
+     Inline style detected in JSX: style={{ marginBottom: 16 }}
+   • [HARDCODED_SPACING_VIOLATION] (Line 21)
+     Raw numeric spacing for marginBottom (16px): style={{ marginBottom: 16 }}
+   • [HARDCODED_SPACING_VIOLATION] (Line 41)
+     Raw numeric spacing for gap (12px): <View style={[styles.reviewForm, isDark ? styles.formDark : styles.formLight, { alignItems: 'center', gap: 12 }]}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 48)
+     Raw numeric spacing for paddingHorizontal (24px): style={StyleSheet.flatten([styles.submitBtn, { paddingHorizontal: 24, alignSelf: 'center' }])}
+   • [INLINE_STYLE_HARDCODE] (Line 148)
+     Inline style detected in JSX: style={{ marginTop: 12 }}
+   • [HARDCODED_SPACING_VIOLATION] (Line 148)
+     Raw numeric spacing for marginTop (12px): style={{ marginTop: 12 }}
+
+File: src\features\profile\ProfileFormCard.js
+   • [INLINE_STYLE_HARDCODE] (Line 52)
+     Inline style detected in JSX: style={{ marginTop: 6 }}
+   • [HARDCODED_SPACING_VIOLATION] (Line 52)
+     Raw numeric spacing for marginTop (6px): style={{ marginTop: 6 }}
+
+File: src\features\profile\ProfilePage.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 67)
+     Raw numeric spacing for paddingBottom (0px): contentContainerStyle={[styles.scrollContent, { paddingBottom: 0 }]}
+   • [INLINE_STYLE_HARDCODE] (Line 70)
+     Inline style detected in JSX: <View style={{ flex: 1 }}>
+
+File: src\features\profile\ProfilePageStyles.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 13)
+     Raw numeric spacing for paddingBottom (24px): paddingBottom: 24,
+   • [HARDCODED_SPACING_VIOLATION] (Line 16)
+     Raw numeric spacing for paddingHorizontal (8px): paddingHorizontal: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 17)
+     Raw numeric spacing for paddingVertical (16px): paddingVertical: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 20)
+     Raw numeric spacing for marginBottom (16px): marginBottom: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 24)
+     Raw numeric spacing for marginBottom (16px): marginBottom: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 28)
+     Raw numeric spacing for marginBottom (4px): marginBottom: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 32)
+     Raw numeric spacing for marginBottom (8px): marginBottom: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 36)
+     Raw numeric spacing for borderRadius (8px): borderRadius: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 37)
+     Raw numeric spacing for paddingHorizontal (12px): paddingHorizontal: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 60)
+     Raw numeric spacing for marginTop (6px): marginTop: 6,
+   • [HARDCODED_SPACING_VIOLATION] (Line 79)
+     Raw numeric spacing for marginBottom (8px): marginBottom: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 82)
+     Raw numeric spacing for marginBottom (16px): marginBottom: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 88)
+     Raw numeric spacing for padding (16px): padding: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 89)
+     Raw numeric spacing for borderRadius (8px): borderRadius: 8,
+   • [HARDCODED_COLOR_VIOLATION] (Line 91)
+     Hardcoded color(s) rgba(52, 211, 153, 0.1): promoSuccessDark: { backgroundColor: 'rgba(52, 211, 153, 0.1)' },
+   • [HARDCODED_SPACING_VIOLATION] (Line 98)
+     Raw numeric spacing for marginTop (8px): marginTop: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 102)
+     Raw numeric spacing for marginTop (8px): marginTop: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 103)
+     Raw numeric spacing for paddingVertical (8px): paddingVertical: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 104)
+     Raw numeric spacing for paddingHorizontal (12px): paddingHorizontal: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 105)
+     Raw numeric spacing for borderRadius (8px): borderRadius: 8,
+   • [HARDCODED_COLOR_VIOLATION] (Line 108)
+     Hardcoded color(s) rgba(52, 211, 153, 0.16): backgroundColor: 'rgba(52, 211, 153, 0.16)',
+
+File: src\features\shell\AppHeader\AppHeaderControls.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 31)
+     Raw numeric spacing for gap (8px): <View style={[styles.rightSec, isMobile && { gap: 8 }]}>
+   • [INLINE_STYLE_HARDCODE] (Line 81)
+     Inline style detected in JSX: <View style={{ position: 'relative', alignItems: 'center', justifyContent: 'center' }}>
+   • [INLINE_STYLE_HARDCODE] (Line 88)
+     Inline style detected in JSX: style={{ position: 'absolute', top: -6, right: -10 }}
+
+File: src\features\shell\AppHeader\AppHeaderLogo.js
+   • [INLINE_STYLE_HARDCODE] (Line 32)
+     Inline style detected in JSX: <View style={computedStyles.leftSec}>
+
+File: src\features\shell\AppHeader\AppHeaderStyles.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 26)
+     Raw numeric spacing for gap (16px): gap: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 31)
+     Raw numeric spacing for paddingRight (4px): paddingRight: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 37)
+     Raw numeric spacing for paddingRight (8px): paddingRight: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 46)
+     Raw numeric spacing for gap (24px): gap: 24,
+   • [HARDCODED_SPACING_VIOLATION] (Line 54)
+     Raw numeric spacing for gap (16px): gap: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 73)
+     Raw numeric spacing for borderRadius (12px): borderRadius: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 74)
+     Raw numeric spacing for padding (6px): padding: 6,
+   • [HARDCODED_SPACING_VIOLATION] (Line 90)
+     Raw numeric spacing for paddingVertical (8px): paddingVertical: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 91)
+     Raw numeric spacing for paddingHorizontal (12px): paddingHorizontal: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 92)
+     Raw numeric spacing for borderRadius (8px): borderRadius: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 114)
+     Raw numeric spacing for borderRadius (8px): borderRadius: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 136)
+     Raw numeric spacing for paddingVertical (6px): paddingVertical: 6,
+   • [HARDCODED_SPACING_VIOLATION] (Line 137)
+     Raw numeric spacing for paddingHorizontal (10px): paddingHorizontal: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 138)
+     Raw numeric spacing for borderRadius (8px): borderRadius: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 166)
+     Raw numeric spacing for paddingHorizontal (10px): paddingHorizontal: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 167)
+     Raw numeric spacing for paddingVertical (4px): paddingVertical: 4,
+   • [HARDCODED_SPACING_VIOLATION] (Line 168)
+     Raw numeric spacing for borderRadius (10px): borderRadius: 10,
+
+File: src\features\shell\AppHeader\HeaderDropdown.js
+   • [INLINE_STYLE_HARDCODE] (Line 34)
+     Inline style detected in JSX: style={{ marginVertical: 2, width: '100%' }}
+   • [HARDCODED_SPACING_VIOLATION] (Line 34)
+     Raw numeric spacing for marginVertical (2px): style={{ marginVertical: 2, width: '100%' }}
+
+File: src\features\shell\AppHeader\UserDropdown.js
+   • [INLINE_STYLE_HARDCODE] (Line 87)
+     Inline style detected in JSX: <View style={{ paddingVertical: 8, paddingHorizontal: 12, borderBottomWidth: 1, borderBottomColor: dStyles.borderBottomColor, marginBottom: 4 }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 87)
+     Raw numeric spacing for paddingVertical (8px): <View style={{ paddingVertical: 8, paddingHorizontal: 12, borderBottomWidth: 1, borderBottomColor: dStyles.borderBottomColor, marginBottom: 4 }}>
+
+File: src\features\shell\AppHeader.js
+   • [HARDCODED_COLOR_VIOLATION] (Line 12)
+     Hardcoded color(s) #FFFFFF: iconColor: '#FFFFFF',
+   • [HARDCODED_COLOR_VIOLATION] (Line 22)
+     Hardcoded color(s) #1C1C1C: iconColor: '#1C1C1C',
+   • [INLINE_STYLE_HARDCODE] (Line 52)
+     Inline style detected in JSX: <View style={{ width: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', maxWidth: props.contentWidth, minWidth: 0, paddingHorizontal: 8 }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 52)
+     Raw numeric spacing for paddingHorizontal (8px): <View style={{ width: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', maxWidth: props.contentWidth, minWidth: 0, paddingHorizontal: 8 }}>
+
+File: src\features\shell\components\Footer.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 29)
+     Raw numeric spacing for paddingTop (5px): paddingTop: 5,
+   • [HARDCODED_SPACING_VIOLATION] (Line 30)
+     Raw numeric spacing for paddingBottom (3px): paddingBottom: 3,
+   • [HARDCODED_SPACING_VIOLATION] (Line 31)
+     Raw numeric spacing for paddingHorizontal (16px): paddingHorizontal: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 67)
+     Raw numeric spacing for marginHorizontal (2px): marginHorizontal: 2,
+
+File: src\features\shell\NavMenu\CatalogMenuContent.js
+   • [INLINE_STYLE_HARDCODE] (Line 15)
+     Inline style detected in JSX: <View style={{ paddingVertical: 8 }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 15)
+     Raw numeric spacing for paddingVertical (8px): <View style={{ paddingVertical: 8 }}>
+
+File: src\features\shell\NavMenu\CategoryTreeNode.js
+   • [HARDCODED_COLOR_VIOLATION] (Line 55)
+     Hardcoded color(s) #f1f5f9, #0f172a: iconColor: isDark ? '#f1f5f9' : '#0f172a',
+   • [HARDCODED_COLOR_VIOLATION] (Line 56)
+     Hardcoded color(s) #475569, #94a3b8: arrowColor: isDark ? '#475569' : '#94a3b8',
+   • [INLINE_STYLE_HARDCODE] (Line 64)
+     Inline style detected in JSX: <View style={{ flexDirection: 'row', alignItems: 'stretch' }}>
+   • [INLINE_STYLE_HARDCODE] (Line 106)
+     Inline style detected in JSX: <View style={{ width: '100%' }}>
+
+File: src\features\shell\NavMenu\CategoryTreeNodeButtons.js
+   • [INLINE_STYLE_HARDCODE] (Line 25)
+     Inline style detected in JSX: style={StyleSheet.flatten([
+   • [HARDCODED_SPACING_VIOLATION] (Line 29)
+     Raw numeric spacing for paddingVertical (10px): { flex: 1, paddingVertical: 10, paddingLeft: 16 + indent, minHeight: 44 }
+
+File: src\features\shell\NavMenu\constants.js
+   • [HARDCODED_COLOR_VIOLATION] (Line 1)
+     Hardcoded color(s) #E31B23: export const ACCENT_COLOR = '#E31B23';
+
+File: src\features\shell\NavMenu\LanguageSelector.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 18)
+     Raw numeric spacing for paddingVertical (10px): paddingVertical: 10,
+   • [HARDCODED_SPACING_VIOLATION] (Line 19)
+     Raw numeric spacing for paddingHorizontal (8px): paddingHorizontal: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 21)
+     Raw numeric spacing for borderRadius (8px): borderRadius: 8,
+   • [HARDCODED_COLOR_VIOLATION] (Line 23)
+     Hardcoded color(s) #242424, #e8edf5: borderColor: isDark ? '#242424' : '#e8edf5',
+   • [HARDCODED_COLOR_VIOLATION] (Line 24)
+     Hardcoded color(s) rgba(255,255,255,0.03), rgba(15,23,42,0.03): backgroundColor: isDark ? 'rgba(255,255,255,0.03)' : 'rgba(15,23,42,0.03)',
+   • [HARDCODED_SPACING_VIOLATION] (Line 25)
+     Raw numeric spacing for marginBottom (12px): marginBottom: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 31)
+     Raw numeric spacing for marginRight (10px): container: { marginRight: 10 },
+   • [HARDCODED_COLOR_VIOLATION] (Line 32)
+     Hardcoded color(s) #FFFFFF, #1C1C1C: icon: { isDark, color: isDark ? '#FFFFFF' : '#1C1C1C', size: 16 },
+   • [INLINE_STYLE_HARDCODE] (Line 48)
+     Inline style detected in JSX: style={getThemeToggleStyle(isDark)}
+   • [INLINE_STYLE_HARDCODE] (Line 51)
+     Inline style detected in JSX: <View style={getThemeIconStyles(isDark).container}>
+   • [INLINE_STYLE_HARDCODE] (Line 61)
+     Inline style detected in JSX: <View style={{ flexDirection: 'row', gap: 10 }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 61)
+     Raw numeric spacing for gap (10px): <View style={{ flexDirection: 'row', gap: 10 }}>
+   • [INLINE_STYLE_HARDCODE] (Line 63)
+     Inline style detected in JSX: <View style={{ flex: 1, flexDirection: 'column', gap: 8 }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 63)
+     Raw numeric spacing for gap (8px): <View style={{ flex: 1, flexDirection: 'column', gap: 8 }}>
+   • [INLINE_STYLE_HARDCODE] (Line 72)
+     Inline style detected in JSX: style={{ width: '100%' }}
+   • [INLINE_STYLE_HARDCODE] (Line 78)
+     Inline style detected in JSX: <View style={{ flex: 1, flexDirection: 'column', gap: 8 }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 78)
+     Raw numeric spacing for gap (8px): <View style={{ flex: 1, flexDirection: 'column', gap: 8 }}>
+   • [INLINE_STYLE_HARDCODE] (Line 87)
+     Inline style detected in JSX: style={{ width: '100%' }}
+
+File: src\features\shell\NavMenu\MainMenuContent.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 32)
+     Raw numeric spacing for paddingVertical (12px): style={StyleSheet.flatten([styles.itemRow, isDark ? styles.itemRowDark : styles.itemRowLight, { paddingVertical: 12, minHeight: 44 }, style])}
+   • [INLINE_STYLE_HARDCODE] (Line 39)
+     Inline style detected in JSX: <Text variant="body2" weight="700" color="accent" style={{ flex: 1, marginLeft: 12 }} numberOfLines={1}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 39)
+     Raw numeric spacing for marginLeft (12px): <Text variant="body2" weight="700" color="accent" style={{ flex: 1, marginLeft: 12 }} numberOfLines={1}>
+   • [INLINE_STYLE_HARDCODE] (Line 56)
+     Inline style detected in JSX: <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+   • [INLINE_STYLE_HARDCODE] (Line 63)
+     Inline style detected in JSX: style={{ flex: 1 }}
+   • [HARDCODED_COLOR_VIOLATION] (Line 112)
+     Hardcoded color(s) #f1f5f9, #0f172a: const iconColor = isDark ? '#f1f5f9' : '#0f172a';
+   • [HARDCODED_COLOR_VIOLATION] (Line 113)
+     Hardcoded color(s) #475569, #94a3b8: const arrowColor = isDark ? '#475569' : '#94a3b8';
+   • [INLINE_STYLE_HARDCODE] (Line 122)
+     Inline style detected in JSX: <View style={{ paddingVertical: 8 }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 122)
+     Raw numeric spacing for paddingVertical (8px): <View style={{ paddingVertical: 8 }}>
+
+File: src\features\shell\NavMenu\NavItemList.js
+   • [HARDCODED_COLOR_VIOLATION] (Line 69)
+     Hardcoded color(s) #f1f5f9, #0f172a: const iconColor = isDark ? '#f1f5f9' : '#0f172a';
+   • [HARDCODED_COLOR_VIOLATION] (Line 70)
+     Hardcoded color(s) #475569, #94a3b8: const chevronColor = isDark ? '#475569' : '#94a3b8';
+
+File: src\features\shell\NavMenu\NavMenuHeader.js
+   • [HARDCODED_COLOR_VIOLATION] (Line 24)
+     Hardcoded color(s) #f1f5f9, #0f172a: icon={<BackArrowIcon color={isDark ? '#f1f5f9' : '#0f172a'} size={18} />}
+
+File: src\features\shell\NavMenu\NavMenuStyles.js
+   • [HARDCODED_COLOR_VIOLATION] (Line 8)
+     Hardcoded color(s) rgba(0,0,0,0.45): backgroundColor: 'rgba(0,0,0,0.45)',
+   • [HARDCODED_SPACING_VIOLATION] (Line 25)
+     Raw numeric spacing for paddingHorizontal (16px): paddingHorizontal: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 41)
+     Raw numeric spacing for padding (6px): padding: 6,
+   • [HARDCODED_SPACING_VIOLATION] (Line 46)
+     Raw numeric spacing for padding (6px): padding: 6,
+   • [HARDCODED_SPACING_VIOLATION] (Line 59)
+     Raw numeric spacing for paddingHorizontal (16px): paddingHorizontal: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 60)
+     Raw numeric spacing for paddingVertical (13px): paddingVertical: 13,
+   • [HARDCODED_SPACING_VIOLATION] (Line 65)
+     Raw numeric spacing for marginLeft (10px): utilLabel: { flex: 1, marginLeft: 10 },
+   • [HARDCODED_SPACING_VIOLATION] (Line 70)
+     Raw numeric spacing for marginHorizontal (16px): divider: { height: 1, marginHorizontal: 16, marginVertical: 4 },
+   • [HARDCODED_SPACING_VIOLATION] (Line 71)
+     Raw numeric spacing for marginHorizontal (16px): sectionSeparator: { height: 1, marginHorizontal: 16, marginVertical: 12 },
+   • [HARDCODED_SPACING_VIOLATION] (Line 73)
+     Raw numeric spacing for paddingHorizontal (16px): paddingHorizontal: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 74)
+     Raw numeric spacing for paddingVertical (8px): paddingVertical: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 84)
+     Raw numeric spacing for paddingHorizontal (16px): paddingHorizontal: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 85)
+     Raw numeric spacing for paddingVertical (12px): paddingVertical: 12,
+   • [HARDCODED_COLOR_VIOLATION] (Line 89)
+     Hardcoded color(s) rgba(227, 27, 35, 0.12): selectedRowDark: { backgroundColor: 'rgba(227, 27, 35, 0.12)' },
+   • [HARDCODED_COLOR_VIOLATION] (Line 90)
+     Hardcoded color(s) rgba(227, 27, 35, 0.05): selectedRowLight: { backgroundColor: 'rgba(227, 27, 35, 0.05)' },
+   • [HARDCODED_SPACING_VIOLATION] (Line 99)
+     Raw numeric spacing for marginLeft (12px): marginLeft: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 105)
+     Raw numeric spacing for paddingHorizontal (16px): paddingHorizontal: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 106)
+     Raw numeric spacing for paddingTop (16px): paddingTop: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 107)
+     Raw numeric spacing for paddingBottom (28px): paddingBottom: 28,
+
+File: src\features\shell\StoreSearchHeader.js
+   • [INLINE_STYLE_HARDCODE] (Line 27)
+     Inline style detected in JSX: <View style={{ width: '100%', maxWidth: contentWidth, minWidth: 0, overflow: 'visible', paddingHorizontal: 8 }}>
+   • [HARDCODED_SPACING_VIOLATION] (Line 27)
+     Raw numeric spacing for paddingHorizontal (8px): <View style={{ width: '100%', maxWidth: contentWidth, minWidth: 0, overflow: 'visible', paddingHorizontal: 8 }}>
+
+File: src\theme\commonStyles.js
+   • [HARDCODED_SPACING_VIOLATION] (Line 22)
+     Raw numeric spacing for paddingHorizontal (8px): paddingHorizontal: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 23)
+     Raw numeric spacing for paddingVertical (8px): paddingVertical: 8,
+   • [HARDCODED_SPACING_VIOLATION] (Line 30)
+     Raw numeric spacing for paddingBottom (16px): paddingBottom: 16,
+   • [HARDCODED_SPACING_VIOLATION] (Line 34)
+     Raw numeric spacing for marginBottom (12px): marginBottom: 12,
+   • [HARDCODED_SPACING_VIOLATION] (Line 39)
+     Raw numeric spacing for padding (24px): padding: 24,
+
+File: src\theme\shadows.js
+   • [HARDCODED_COLOR_VIOLATION] (Line 15)
+     Hardcoded color(s) rgba(0,0,0,0.05): card:          () => makeShadow('0px 2px 8px rgba(0,0,0,0.05)', 2, 0.05, 8),
+   • [HARDCODED_COLOR_VIOLATION] (Line 17)
+     Hardcoded color(s) rgba(0,0,0,0.08): dropdown:      () => makeShadow('0px 2px 4px rgba(0,0,0,0.08)', 2, 0.08, 4),
+   • [HARDCODED_COLOR_VIOLATION] (Line 19)
+     Hardcoded color(s) rgba(0,0,0,0.10): chip:          () => makeShadow('0px 2px 4px rgba(0,0,0,0.10)', 2, 0.10, 4),
+   • [HARDCODED_COLOR_VIOLATION] (Line 21)
+     Hardcoded color(s) rgba(0,0,0,0.05): panel:         () => makeShadow('0px 4px 12px rgba(0,0,0,0.05)', 4, 0.05, 12),
+   • [HARDCODED_COLOR_VIOLATION] (Line 23)
+     Hardcoded color(s) rgba(0,0,0,0.12): media:         () => makeShadow('0px 4px 16px rgba(0,0,0,0.12)', 4, 0.12, 16),
+   • [HARDCODED_COLOR_VIOLATION] (Line 25)
+     Hardcoded color(s) rgba(0,0,0,0.10): header:        () => makeShadow('0px 6px 12px rgba(0,0,0,0.10)', 6, 0.10, 12),
+   • [HARDCODED_COLOR_VIOLATION] (Line 27)
+     Hardcoded color(s) rgba(0,0,0,0.18): search:        () => makeShadow('0px 6px 12px rgba(0,0,0,0.18)', 6, 0.18, 12),
+   • [HARDCODED_COLOR_VIOLATION] (Line 29)
+     Hardcoded color(s) rgba(0,0,0,0.15): modal:         () => makeShadow('0px 16px 40px rgba(0,0,0,0.15)', 16, 0.15, 40),
+   • [HARDCODED_COLOR_VIOLATION] (Line 31)
+     Hardcoded color(s) rgba(0,0,0,0.25): drawer:        () => makeShadow('4px 0px 12px rgba(0,0,0,0.25)', 0, 0.25, 12, 4),
+   • [HARDCODED_COLOR_VIOLATION] (Line 33)
+     Hardcoded color(s) rgba(0,0,0,0.20): thumb:         () => makeShadow('0px 1px 1.5px rgba(0,0,0,0.20)', 1, 0.20, 1.5),
+

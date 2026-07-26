@@ -40,6 +40,11 @@
     "args": "Tools: Run All Automations"
   },
   {
+    "key": "alt+3",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Tools: UI Audit"
+  },
+  {
     "key": "ctrl+shift+alt+w",
     "command": "workbench.action.tasks.runTask",
     "args": "Run Dev"

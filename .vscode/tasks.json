@@ -79,6 +79,16 @@
             "problemMatcher": []
         },
         {
+            "label": "Tools: UI Audit",
+            "type": "shell",
+            "command": "npm run audit:ui",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
             "label": "Tools: Clean Cache & Artifacts",
             "type": "shell",
             "command": "npm run clean",

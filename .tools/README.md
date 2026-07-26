@@ -85,6 +85,15 @@ Enables on-demand UI state snapshotting and diagnostics directly from the browse
 
 ---
 
+### 8. `ui-auditor` — Full UI System Audit Suite
+Runs UI architecture, typography, styling, service layer, and text literal audits across the codebase.
+
+- **Commands**:
+  - `npm run audit:ui` (или `node .tools/ui-auditor/index.js`) — Runs the full UI system audit suite and generates logs in `.docs/audits/`.
+
+---
+
+
 ## How to Port `.tools` to Another Project
 
 1. Copy the `.tools` directory to the root of the target project.
