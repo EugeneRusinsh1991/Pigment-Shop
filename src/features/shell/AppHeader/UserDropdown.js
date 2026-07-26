@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Animated, StyleSheet, Text, View } from 'react-native';
+import { Animated, StyleSheet, View } from 'react-native';
+import { Text } from '@/components/Text';
 import { Link } from 'expo-router';
 import { useDropdownAnimation } from '@/hooks/useDropdownAnimation';
 import { useAuth } from '@/context/AuthContext';
@@ -84,7 +85,7 @@ export default function UserDropdown({
       {isAuthenticated ? (
         <>
           <View style={{ paddingVertical: 8, paddingHorizontal: 12, borderBottomWidth: 1, borderBottomColor: dStyles.borderBottomColor, marginBottom: 4 }}>
-            <Text style={dStyles.subtextText} numberOfLines={1} ellipsizeMode="tail">
+            <Text variant="caption" color="secondary" weight="500" size={11} numberOfLines={1} ellipsizeMode="tail">
               {getUserDisplayName(user, profile)}
             </Text>
           </View>

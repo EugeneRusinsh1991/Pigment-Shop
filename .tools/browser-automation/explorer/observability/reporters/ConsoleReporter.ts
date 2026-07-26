@@ -10,6 +10,11 @@ const C = {
   r: (s: string) => `\x1b[31m${s}\x1b[0m`
 };
 
+const TAG_TYPE_MAP: Record<string, string> = { button: 'Button', a: 'Link', input: 'Input' };
+const ROLE_TYPE_MAP: Record<string, string> = { button: 'Button', link: 'Link', checkbox: 'Checkbox', tab: 'Tab', menuitem: 'Menu Item' };
+const SEMANTIC_TAGS = new Set(['button', 'a', 'input']);
+const SEMANTIC_ROLES = new Set(['button', 'link', 'checkbox', 'tab', 'menuitem']);
+
 export function formatReportUrl(url: string): string {
   try {
     const parsed = new URL(url);
@@ -33,22 +38,13 @@ export class ConsoleReporter implements Reporter {
   }
 
   private isSemanticType(tag: string, role: string, el: any): boolean {
-    return (
-      tag === 'button' || role === 'button' ||
-      tag === 'a' || role === 'link' ||
-      tag === 'input' ||
-      role === 'checkbox' || el.type === 'checkbox' ||
-      role === 'tab' ||
-      role === 'menuitem' ||
-      Boolean(el.testId) || Boolean(el.ariaLabel)
-    );
+    return SEMANTIC_TAGS.has(tag) || SEMANTIC_ROLES.has(role) || el.type === 'checkbox' || Boolean(el.testId) || Boolean(el.ariaLabel);
   }
 
   private hasIdentifiableContent(el: any): boolean {
     const text = (el.text || '').trim();
     if (text || el.ariaLabel || el.testId || el.id || el.href) return true;
-    if (el.selector && el.selector.startsWith('/')) return false;
-    return false;
+    return Boolean(el.selector && !el.selector.startsWith('/'));
   }
 
   private isSemanticElement(el: any): boolean {
@@ -59,12 +55,9 @@ export class ConsoleReporter implements Reporter {
   }
 
   private resolveSemanticType(tag: string, role: string, el: any): string {
-    if (tag === 'button' || role === 'button') return 'Button';
-    if (tag === 'a' || role === 'link') return 'Link';
-    if (tag === 'input') return 'Input';
-    if (role === 'checkbox' || el.type === 'checkbox') return 'Checkbox';
-    if (role === 'tab') return 'Tab';
-    if (role === 'menuitem') return 'Menu Item';
+    if (TAG_TYPE_MAP[tag]) return TAG_TYPE_MAP[tag];
+    if (ROLE_TYPE_MAP[role]) return ROLE_TYPE_MAP[role];
+    if (el.type === 'checkbox') return 'Checkbox';
     if (el.testId || el.ariaLabel) return 'Interactive';
     return tag ? tag.charAt(0).toUpperCase() + tag.slice(1) : 'Element';
   }

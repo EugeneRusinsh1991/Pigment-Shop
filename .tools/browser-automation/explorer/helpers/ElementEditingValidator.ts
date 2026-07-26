@@ -8,6 +8,23 @@ export interface FormValidationResult {
 }
 
 export class ElementEditingValidator {
+  private static async readValue(locator: any): Promise<string> {
+    return locator.evaluate((el: any) => el.value ?? el.innerText ?? '');
+  }
+
+  private static async submitEdit(locator: any, submitLocator: any, page: IWebPage): Promise<void> {
+    await locator.fill(await ElementEditingValidator.readValue(locator));
+    await submitLocator.click();
+    await page.waitForTimeout(1000);
+  }
+
+  private static async applyAndRead(inputLocator: any, submitLocator: any, page: IWebPage, value: string): Promise<string> {
+    await inputLocator.fill(value);
+    await submitLocator.click();
+    await page.waitForTimeout(1000);
+    return ElementEditingValidator.readValue(inputLocator);
+  }
+
   static async validateFieldEditing(
     page: IWebPage,
     inputSelector: string,
@@ -21,40 +38,17 @@ export class ElementEditingValidator {
         return { success: false, error: `Selectors not visible: ${inputSelector} or ${submitSelector}` };
       }
 
-      // 1. Snapshot original value
-      const originalValue: string = await inputLocator.evaluate((el: any) => el.value ?? el.innerText ?? '');
+      const originalValue = await ElementEditingValidator.readValue(inputLocator);
       const testValue = `${originalValue}_TEST_${Date.now()}`;
 
-      // 2. Fill test string & click submit
-      await inputLocator.fill(testValue);
-      await submitLocator.click();
-      await page.waitForTimeout(1000);
-
-      // 3. Assert mutated value
-      const updatedValue: string = await inputLocator.evaluate((el: any) => el.value ?? el.innerText ?? '');
+      const updatedValue = await ElementEditingValidator.applyAndRead(inputLocator, submitLocator, page, testValue);
       if (updatedValue !== testValue) {
-        return {
-          success: false,
-          error: `Mutated value check failed. Expected "${testValue}", got "${updatedValue}"`,
-          originalValue,
-          updatedValue
-        };
+        return { success: false, error: `Mutated value check failed. Expected "${testValue}", got "${updatedValue}"`, originalValue, updatedValue };
       }
 
-      // 4. Restore original value & click submit
-      await inputLocator.fill(originalValue);
-      await submitLocator.click();
-      await page.waitForTimeout(1000);
-
-      // 5. Assert restored value
-      const restoredValue: string = await inputLocator.evaluate((el: any) => el.value ?? el.innerText ?? '');
+      const restoredValue = await ElementEditingValidator.applyAndRead(inputLocator, submitLocator, page, originalValue);
       if (restoredValue !== originalValue) {
-        return {
-          success: false,
-          error: `Restored value check failed. Expected "${originalValue}", got "${restoredValue}"`,
-          originalValue,
-          updatedValue: restoredValue
-        };
+        return { success: false, error: `Restored value check failed. Expected "${originalValue}", got "${restoredValue}"`, originalValue, updatedValue: restoredValue };
       }
 
       return { success: true, originalValue, updatedValue };

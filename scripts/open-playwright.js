@@ -21,45 +21,42 @@ function killExistingPlaywrightSessions() {
 
 killExistingPlaywrightSessions();
 
-(async () => {
-  console.log('Launching Playwright Chrome with persistent profile & viewport auto-resize (viewport: null)...');
+async function openBrowserContext() {
   const userDataDir = path.resolve(__dirname, '../.playwright/user-data');
-
   const context = await chromium.launchPersistentContext(userDataDir, {
-    headless: false,
-    viewport: null,
-    args: ['--start-maximized']
+    headless: false, viewport: null, args: ['--start-maximized']
   });
-  
   const page = context.pages().length > 0 ? context.pages()[0] : await context.newPage();
+  return { context, page };
+}
 
-  let setupManualInspector;
+async function loadInspector(page) {
   try {
     const inspectorPath = path.join(__dirname, '../.tools/manual-browser-inspector/setupManualInspector.js');
     if (fs.existsSync(inspectorPath)) {
-      setupManualInspector = require(inspectorPath).setupManualInspector;
+      const { setupManualInspector } = require(inspectorPath);
+      await setupManualInspector(page);
     }
   } catch (err) {
     // Optional manual inspector component
   }
-  if (setupManualInspector) {
-    await setupManualInspector(page);
-  }
+}
 
-
-  const url = process.argv[2] || 'http://localhost:8081';
+async function navigateTo(page, url) {
   console.log(`Navigating to ${url}...`);
-  
   try {
     await page.goto(url);
   } catch (error) {
     console.error('Navigation error:', error.message);
   }
-  
-  // Keep the process alive while the browser is open
-  context.on('close', () => {
-    console.log('Browser closed. Exiting.');
-    process.exit(0);
-  });
+}
+
+(async () => {
+  console.log('Launching Playwright Chrome with persistent profile & viewport auto-resize (viewport: null)...');
+  const { context, page } = await openBrowserContext();
+  await loadInspector(page);
+  await navigateTo(page, process.argv[2] || 'http://localhost:8081');
+  context.on('close', () => { console.log('Browser closed. Exiting.'); process.exit(0); });
 })();
+
 

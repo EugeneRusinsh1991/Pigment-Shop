@@ -68,16 +68,8 @@ export interface DIFactoryOverrides {
 
 import { AutomationScreenshotListener } from '../observability/AutomationScreenshotListener';
 
-export function createDefaultContainer(
-  emitter: ExplorerEventEmitter, 
-  partialConfig: Partial<ExplorerConfig> = {},
-  overrides: DIFactoryOverrides = {}
-): DIContainer {
-  const config = { ...defaultConfig, ...partialConfig };
-  
-  new AutomationScreenshotListener(emitter);
-
-  const context: ExplorerContext = {
+function createExplorerContext(): ExplorerContext {
+  return {
     currentScreen: '',
     navigationHistory: [],
     currentDepth: 0,
@@ -87,7 +79,14 @@ export function createDefaultContainer(
     elementDepths: new BoundedMap<string, number>(10000),
     startTime: Date.now()
   };
+}
 
+function createCoreServices(
+  emitter: ExplorerEventEmitter,
+  context: ExplorerContext,
+  config: ExplorerConfig,
+  overrides: DIFactoryOverrides
+) {
   const tracker = overrides.tracker ?? new NavigationTracker(context);
   const scanner = overrides.scanner ?? new ElementScanner();
   const interactor = overrides.interactor ?? new ElementInteractor(config);
@@ -95,41 +94,47 @@ export function createDefaultContainer(
   const actionTracker = overrides.actionTracker ?? new ActionDepthTracker();
   const readiness = overrides.readiness ?? new ReadinessManager(config);
   const stateGraph = overrides.stateGraph ?? new ExecutionStateGraph();
-  
   const watchdog = overrides.watchdog ?? new ExecutionWatchdog(emitter, context, config);
   const cacheManager = overrides.cacheManager ?? new StateCacheManager(scanner, stateGraph);
-  
-  const navHandler = overrides.navHandler ?? new NavigationHandler(
-    emitter, context, readiness, stateGraph, cacheManager
-  );
-  
-  const recoveryManager = overrides.recoveryManager ?? new StateRecoveryManager(
-    emitter, context, stateGraph, watchdog, interactor, cacheManager
-  );
-  
-  const interactionProcessor = overrides.interactionProcessor ?? (
-    overrides.createInteractionProcessor
-      ? overrides.createInteractionProcessor(emitter, context, tracker, actionTracker, interactor, watchdog, recoveryManager, cacheManager, config.maxInteractions, navHandler)
-      : new InteractionProcessor(
-          emitter, context, tracker, actionTracker, interactor, watchdog, recoveryManager, cacheManager, config.maxInteractions, navHandler
-        )
-  );
+  const navHandler = overrides.navHandler ?? new NavigationHandler(emitter, context, readiness, stateGraph, cacheManager);
+  const recoveryManager = overrides.recoveryManager ?? new StateRecoveryManager(emitter, context, stateGraph, watchdog, interactor, cacheManager);
+  return { tracker, scanner, interactor, policyEngine, actionTracker, readiness, stateGraph, watchdog, cacheManager, navHandler, recoveryManager };
+}
 
-  const observability = overrides.observability ?? (() => {
-    const obs = new ObservabilityManager(emitter);
-    obs.addReporter(new ConsoleReporter());
-    
-    if (config.executionMode === 'deep-diagnostics') {
-      obs.addReporter(new JsonReporter());
-    }
-    
-    obs.addReporter(new MarkdownReporter());
-    return obs;
-  })();
+function createInteractionProcessorInstance(
+  emitter: ExplorerEventEmitter,
+  context: ExplorerContext,
+  config: ExplorerConfig,
+  overrides: DIFactoryOverrides,
+  services: ReturnType<typeof createCoreServices>
+): InteractionProcessor {
+  const { tracker, actionTracker, interactor, watchdog, recoveryManager, cacheManager, navHandler } = services;
+  if (overrides.interactionProcessor) return overrides.interactionProcessor;
+  if (overrides.createInteractionProcessor) {
+    return overrides.createInteractionProcessor(emitter, context, tracker, actionTracker, interactor, watchdog, recoveryManager, cacheManager, config.maxInteractions, navHandler);
+  }
+  return new InteractionProcessor(emitter, context, tracker, actionTracker, interactor, watchdog, recoveryManager, cacheManager, config.maxInteractions, navHandler);
+}
 
-  return {
-    config, emitter, context, tracker, scanner, interactor, policyEngine, 
-    actionTracker, readiness, stateGraph, watchdog, cacheManager, navHandler, 
-    recoveryManager, interactionProcessor, observability
-  };
+function createObservability(emitter: ExplorerEventEmitter, config: ExplorerConfig, override?: ObservabilityManager): ObservabilityManager {
+  if (override) return override;
+  const obs = new ObservabilityManager(emitter);
+  obs.addReporter(new ConsoleReporter());
+  if (config.executionMode === 'deep-diagnostics') obs.addReporter(new JsonReporter());
+  obs.addReporter(new MarkdownReporter());
+  return obs;
+}
+
+export function createDefaultContainer(
+  emitter: ExplorerEventEmitter,
+  partialConfig: Partial<ExplorerConfig> = {},
+  overrides: DIFactoryOverrides = {}
+): DIContainer {
+  const config = { ...defaultConfig, ...partialConfig };
+  new AutomationScreenshotListener(emitter);
+  const context = createExplorerContext();
+  const services = createCoreServices(emitter, context, config, overrides);
+  const interactionProcessor = createInteractionProcessorInstance(emitter, context, config, overrides, services);
+  const observability = createObservability(emitter, config, overrides.observability);
+  return { config, emitter, context, ...services, interactionProcessor, observability };
 }

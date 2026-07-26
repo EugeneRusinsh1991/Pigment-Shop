@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
+import { Text } from '@/components/Text';
 import { AnimatedButton, ChipButton } from '@/components/Button';
 import { ThemeIcon } from '@/components/Icons';
 import styles from './NavMenuStyles';
@@ -32,16 +33,7 @@ function getThemeIconStyles(isDark) {
   };
 }
 
-function getThemeLabelStyles(isDark) {
-  return [
-    isDark ? styles.textDark : styles.textLight,
-    {
-      fontFamily: 'System, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-      fontSize: 13,
-      fontWeight: '600',
-    },
-  ];
-}
+
 
 export default function LanguageSelector({ isDark, lang, onSelectLanguage, onToggleTheme }) {
   const [selectedCurrency, setSelectedCurrency] = useState('UAH');
@@ -59,7 +51,7 @@ export default function LanguageSelector({ isDark, lang, onSelectLanguage, onTog
           <View style={getThemeIconStyles(isDark).container}>
             <ThemeIcon {...getThemeIconStyles(isDark).icon} />
           </View>
-          <Text style={getThemeLabelStyles(isDark)}>
+          <Text variant="body2" weight="600" size={13}>
             {themeToggleLabel}
           </Text>
         </AnimatedButton>

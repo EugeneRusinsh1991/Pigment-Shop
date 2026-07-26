@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react';
-import { Platform, UIManager, LayoutAnimation, Text, View, StyleSheet } from 'react-native';
+import { Platform, UIManager, LayoutAnimation, View, StyleSheet } from 'react-native';
+import { Text } from '@/components/Text';
 import { useRouter } from 'expo-router';
 
 import Button, { IconButton } from '../../../components/Button';
@@ -35,7 +36,7 @@ function MenuRowItem({ isDark, item, iconColor, onPress, style, href, onClose })
       <View style={styles.iconWrapper}>
         {getNavItemIcon(item, iconColor)}
       </View>
-      <Text style={[styles.itemLabel, isDark ? styles.textDark : styles.textLight, styles.mainNavLabel, { fontWeight: '700' }]} numberOfLines={1}>
+      <Text variant="body2" weight="700" color="accent" style={{ flex: 1, marginLeft: 12 }} numberOfLines={1}>
         {item.label}
       </Text>
     </Button>

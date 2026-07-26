@@ -40,12 +40,20 @@ export default function ManualBrowserInspector() {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, [isPlaywright]);
 
+  const resolveClassName = (el) => {
+    if (typeof el.className !== 'string' || !el.className.trim()) return '';
+    return `.${el.className.trim().split(/\s+/).join('.')}`;
+  };
+
+  const resolveText = (el) =>
+    (el.innerText || el.getAttribute('placeholder') || el.getAttribute('aria-label') || '').slice(0, 40).trim();
+
   const buildTargetInfo = (el) => {
     const rect = el.getBoundingClientRect();
     const tag = el.tagName ? el.tagName.toUpperCase() : '';
     const id = el.id ? `#${el.id}` : '';
-    const className = typeof el.className === 'string' && el.className.trim() ? `.${el.className.trim().split(/\s+/).join('.')}` : '';
-    const text = (el.innerText || el.getAttribute('placeholder') || el.getAttribute('aria-label') || '').slice(0, 40).trim();
+    const className = resolveClassName(el);
+    const text = resolveText(el);
     const testId = el.getAttribute('data-testid');
     return {
       tag, id, className, text, testId,

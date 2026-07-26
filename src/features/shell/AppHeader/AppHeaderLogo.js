@@ -1,5 +1,6 @@
-import { Image, Text, View } from 'react-native';
+import { Image, View } from 'react-native';
 import { Link } from 'expo-router';
+import { Text } from '@/components/Text';
 import Button, { IconButton } from '@/components/Button';
 import { calculateHitSlop } from '@/theme/buttonCommon';
 import styles from './AppHeaderStyles';
@@ -33,7 +34,7 @@ export default function AppHeaderLogo({ isDark, appName, isMobile, onMenuPress, 
     <View style={computedStyles.leftSec}>
       {isMobile && (
         <IconButton
-          icon={<Text style={[computedStyles.menuText, theme.textColor]}>☰</Text>}
+          icon={<Text size={24} lineHeight={24}>☰</Text>}
           onPress={onMenuPress}
           size={44}
           variant="transparent"

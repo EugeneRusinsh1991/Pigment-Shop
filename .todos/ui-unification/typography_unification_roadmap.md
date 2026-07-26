@@ -25,9 +25,9 @@ Based on [text-module-spec.md](file:///d:/Magazine/_PigmentShop/.docs/architectu
 ### Task 2.1: Migrate Shell & Header Components
 > 💡 **Task Recommendation**: 🔴 **Gemini 3.1 Pro (High)** (6 files total). Can be executed as 2 sub-tasks:
 
-- [ ] **Task 2.1a: Header Elements (`AppHeaderStyles.js`, `UserDropdown.js`, `AppHeaderLogo.js`)**
+- [x] **Task 2.1a: Header Elements (`AppHeaderStyles.js`, `UserDropdown.js`, `AppHeaderLogo.js`)**
   - *Complexity*: Low (3 files) | 🟡 **Gemini 3.6 Flash (Medium)**
-- [ ] **Task 2.1b: Navigation & Menu (`LanguageSelector.js`, `NavMenuStyles.js`, `MainMenuContent.js`)**
+- [x] **Task 2.1b: Navigation & Menu (`LanguageSelector.js`, `NavMenuStyles.js`, `MainMenuContent.js`)**
   - *Complexity*: Low (3 files) | 🟡 **Gemini 3.6 Flash (Medium)**
 
 ---

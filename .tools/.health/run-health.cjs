@@ -73,52 +73,48 @@ function checkEnvVariables() {
   }
 }
 
+const SCAN_EXTENSIONS = /\.(js|jsx|ts|tsx|cjs|mjs)$/;
+const IMPORT_EXTENSIONS = ["", ".js", ".ts", ".jsx", ".tsx", ".cjs", "/index.js", "/index.ts"];
+const SKIP_DIRS = new Set(["node_modules", ".git", ".tools", "dist", "build", ".expo"]);
+
+function checkFileImports(fullPath, counters) {
+  counters.checked++;
+  const content = fs.readFileSync(fullPath, "utf-8");
+  const importRegex = /(?:import|require)\(['"](\.[^'"]+)['"]\)/g;
+  const resolvedDir = path.dirname(fullPath);
+  let match;
+  while ((match = importRegex.exec(content)) !== null) {
+    const targetBase = path.resolve(resolvedDir, match[1]);
+    if (!IMPORT_EXTENSIONS.some((ext) => fs.existsSync(targetBase + ext))) {
+      counters.broken++;
+      console.warn(`  ⚠️  Broken import '${match[1]}' in ${path.relative(ROOT, fullPath)}`);
+    }
+  }
+}
+
 function checkBrokenImports() {
   console.log("\n🔍 Scanning relative imports integrity...");
-  let checked = 0;
-  let broken = 0;
+  const counters = { checked: 0, broken: 0 };
 
   function scan(dir) {
     if (!fs.existsSync(dir)) return;
     let entries = [];
-    try {
-      entries = fs.readdirSync(dir);
-    } catch (e) { return; }
+    try { entries = fs.readdirSync(dir); } catch (e) { return; }
 
     entries.forEach((entry) => {
-      if (["node_modules", ".git", ".tools", "dist", "build", ".expo"].includes(entry)) return;
+      if (SKIP_DIRS.has(entry)) return;
       const fullPath = path.join(dir, entry);
       let stat;
       try { stat = fs.statSync(fullPath); } catch (e) { return; }
-
-      if (stat.isDirectory()) {
-        scan(fullPath);
-      } else if (/\.(js|jsx|ts|tsx|cjs|mjs)$/.test(entry)) {
-        checked++;
-        const content = fs.readFileSync(fullPath, "utf-8");
-        const importRegex = /(?:import|require)\(['"](\.[^'"]+)['"]\)/g;
-        let match;
-        while ((match = importRegex.exec(content)) !== null) {
-          const relImport = match[1];
-          const resolvedDir = path.dirname(fullPath);
-          const targetBase = path.resolve(resolvedDir, relImport);
-          
-          const extensions = ["", ".js", ".ts", ".jsx", ".tsx", ".cjs", "/index.js", "/index.ts"];
-          const exists = extensions.some((ext) => fs.existsSync(targetBase + ext));
-          
-          if (!exists) {
-            broken++;
-            const fileRel = path.relative(ROOT, fullPath);
-            console.warn(`  ⚠️  Broken import '${relImport}' in ${fileRel}`);
-          }
-        }
-      }
+      if (stat.isDirectory()) scan(fullPath);
+      else if (SCAN_EXTENSIONS.test(entry)) checkFileImports(fullPath, counters);
     });
   }
 
   scan(ROOT);
-  console.log(`  📊 Scanned ${checked} JS/TS files. Found ${broken} broken relative import(s).`);
+  console.log(`  📊 Scanned ${counters.checked} JS/TS files. Found ${counters.broken} broken relative import(s).`);
 }
+
 
 function runHealthCheck() {
   console.log("=========================================");
