@@ -2,32 +2,22 @@
   "summary": {
     "visitedScreens": 0,
     "visitedInteractions": 0,
-    "successfulInteractions": 2,
-    "failedInteractions": 1,
+    "successfulInteractions": 70,
+    "failedInteractions": 0,
     "warnings": 1,
-    "errors": 1,
+    "errors": 0,
     "executionDurationMs": 0
   },
-  "failures": [
-    {
-      "screen": "http://localhost:8081/admin",
-      "interaction": "Click",
-      "elementIdentifier": "btn|all",
-      "event": "AfterInteraction",
-      "timestamp": 1785075264427,
-      "errorType": "Health Check Evaluation Failed",
-      "errorMessage": "[Application Bug] page.evaluate: Target page, context or browser has been closed"
-    }
-  ],
+  "failures": [],
   "warnings": [
     {
       "screen": "http://localhost:8081/admin",
-      "interaction": "Initial Load",
-      "elementIdentifier": "None",
+      "interaction": "Click",
+      "elementIdentifier": "btn|Browse",
       "event": "Runtime",
-      "timestamp": 1785075260742,
+      "timestamp": 1785076258396,
       "errorType": "Console Warning",
-      "errorMessage": "\"shadow*\" style props are deprecated. Use \"boxShadow\"."
+      "errorMessage": "props.pointerEvents is deprecated. Use style.pointerEvents"
     }
   ]
 }

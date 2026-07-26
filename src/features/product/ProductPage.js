@@ -121,7 +121,7 @@ function useProductPageState({ initialProduct, onBack, isFromAllProductsProp }) 
   };
 }
 
-import SkeletonLoader from '../../components/SkeletonLoader';
+import { SkeletonLoader } from '../../components/Feedback';
 
 export default function ProductPage({ product: initialProduct, isDark, showNavigation = true, onBack, isFromAllProducts: isFromAllProductsProp }) {
   const state = useProductPageState({ initialProduct, onBack, isFromAllProductsProp });

@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { Text } from '@/components/Text';
 import { colors } from '../../theme/tokens';
 import TextField from '../TextField';
-import FieldError from '../FieldError';
+import { FieldError } from '../Feedback';
 
 
 const DEFAULT_LABEL_ROW_STYLE = { flexDirection: 'row', alignItems: 'center', gap: 6, marginBottom: 4 };

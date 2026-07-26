@@ -12,7 +12,7 @@ import PlaceholderCard, { PlaceholderGrid } from '../catalog/PlaceholderCard';
 import ScrollFadeUp from '../../components/ScrollFadeUp';
 
 
-import EmptyState from '../../components/EmptyState';
+import { EmptyState } from '../../components/Feedback';
 
 function FavoritesEmptyState({ isDark, t }) {
   return (

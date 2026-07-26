@@ -1,5 +1,5 @@
 import React from 'react';
-import GlobalEmptyState from '../EmptyState';
+import { EmptyState as GlobalEmptyState } from '../Feedback';
 
 /**
  * Shared EmptyState primitive for tables and lists.

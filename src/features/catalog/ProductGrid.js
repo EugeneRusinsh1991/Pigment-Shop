@@ -3,7 +3,7 @@ import { FlatList, StyleSheet, View } from 'react-native';
 import { Link } from 'expo-router';
 import ProductCard from '../product/ProductCard';
 
-import GlobalEmptyState from '../../components/EmptyState';
+import { EmptyState as GlobalEmptyState } from '../../components/Feedback';
 
 function EmptyCatalogState({ isDark, label }) {
   return (
