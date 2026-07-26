@@ -1,28 +1,28 @@
 ---
 name: model-recommender
-description: Evaluates task complexity and recommends the appropriate AI model (Gemini 3.6 Flash Low/Medium/High, Gemini 3.1 Pro High).
+description: Evaluates task complexity and recommends the appropriate AI model (Gemini 3.6 Flash Low/Medium/High, Gemini 3.1 Pro High) considering edit files, directories, and read context.
 ---
 
-## Initial Call & Model Escalation Rules (+20% Complexity Buffer)
-- **Complexity Buffer (+20%)**: Agent MUST add +20% buffer to assessed complexity to account for unexpected side effects, extra tests, and hidden dependencies.
-- **Default Entry Point Model**: 🟢 **3.6 Flash (Low)** (for simple/trivial tasks).
-- **MANDATORY MODEL ESCALATION RULES**:
-  - **Trivial/Simple (1/5)** -> 🟢 **3.6 Flash (Low)**
-    - *Examples*: Typo fixes, color/spacing CSS tweaks, single-file text edits, simple comments.
-  - **Low (2/5) or >2 files** -> 🟡 **3.6 Flash (Medium)**
-    - *Examples*: Refactoring an isolated component, fixing single-file bug, adding props.
-  - **Medium (3/5) or >4 files** -> 🟠 **3.6 Flash (High)**
-    - *Examples*: Multi-file component refactoring, modifying shared hooks/state, 3-4 file edits.
-  - **High / Complex (4-5/5) or >5 files / Global Primitives** -> 🔴 **3.1 Pro (High)**
-    - *Examples*: Global UI primitive redesign, breaking architectural changes, complex state rewrites, repository audits.
+## Model Recommendation Matrix (Total Impact Score)
+- **Total Impact Score** = `f` (target edit files) + `d` (affected directories) + `ctx` (read-only dependencies, global theme/contexts).
+- **MANDATORY ESCALATION RULES**:
+  - **Score 1-3** -> 🟢 **G 3.6 F (L)**
+  - **Score 4-6** -> 🟡 **G 3.6 F (M)**
+  - **Score 7-10** -> 🟠 **G 3.6 F (H)**
+  - **Score >10** -> 🔴 **G 3.1 P (H)**
 
 ## Parent Task & Subtask Recommendation Guidelines
-- **Parent Task (Whole Execution)**: ALWAYS calculate and state the recommended model for executing the ENTIRE parent task in a single session (aggregating all files and scope across subtasks).
-- **Subtasks (Itemized Execution)**: ALWAYS calculate and state the recommended model for EACH individual subtask so the user can select the appropriate model whether executing the parent task all at once or subtask by subtask.
-- **Output Format (Concise)**: Print recommendations strictly in a ultra-concise format:
-  `<emoji> <Model Name> (<Tier>) - <N> files`
-  Example: `🟠 Gemini 3.6 Flash (High) - 3 files`
-  Do NOT output complexity scores, buffers (+20%), or extra text.
-- **Decomposition Recommendation (Over-Complex Tasks)**: If post-buffer task complexity reaches 5/5, involves >10 files, or carries extreme architectural risk even for 🔴 **3.1 Pro (High)**, the agent MUST explicitly output:
-  - ⚠️ **Action: BREAK DOWN INTO SUBTASKS** before execution.
-  - Detail explicit boundaries and subtask split strategy.
+- **Parent Task**: Calculate recommended model for executing the ENTIRE parent task in a single session.
+- **Subtasks**: Calculate recommended model for EACH subtask.
+- **Output Format (Ultra-Compact)**:
+  `<emoji> <Abbreviated Model> — <N>d | <M>f | +<K>ctx`
+  - `d` = directories affected
+  - `f` = target edit files
+  - `ctx` = read-only context/dependencies (e.g. `src/theme/`, shared hooks)
+  - Examples:
+    - `🟢 G 3.6 F (L) — 1d | 1f | +0ctx`
+    - `🟡 G 3.6 F (M) — 1d | 3f | +1ctx`
+    - `🟠 G 3.6 F (H) — 2d | 5f | +2ctx`
+    - `🔴 G 3.1 P (H) — 4d | 10f | +5ctx`
+- **Decomposition Recommendation**: If Total Impact Score > 15 or target edit files > 10, explicitly add:
+  `⚠️ Action: BREAK DOWN INTO SUBTASKS`
