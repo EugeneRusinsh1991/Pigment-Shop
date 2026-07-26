@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
+import { Text } from '../../Text';
 import { AnimatedButton } from '../../Button';
 import { calculateHitSlop } from '../../../theme/buttonCommon';
 import { localStyles } from './DateRangeCalendarStyles';
@@ -109,7 +110,7 @@ export function CalendarDayCell({
         onMouseLeave={() => handleHoverLeave(shouldHover, setHoverDate)}
         hitSlop={calculateHitSlop(32, 32)}
       >
-        <Text style={textStyle}>{cell.dayLabel}</Text>
+        <Text variant="body2" style={textStyle}>{cell.dayLabel}</Text>
       </AnimatedButton>
     </View>
   );

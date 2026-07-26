@@ -4,7 +4,8 @@
  * Revenue line chart with horizontal/vertical grid lines and Y-axis labels.
  * Uses a fixed viewBox without preserveAspectRatio distortion.
  */
-import { Platform, Text, View } from 'react-native';
+import { Platform, View } from 'react-native';
+import { Text } from '../../Text';
 import styles from './AnalyticsStyles';
 
 const isWeb = Platform.OS === 'web';
@@ -57,7 +58,7 @@ export default function RevenueChart({ revenueData = [] }) {
   if (revenueData.length === 0) {
     return (
       <View style={{ height: 180, justifyContent: 'center', alignItems: 'center' }}>
-        <Text style={{ color: '#94a3b8' }}>No data</Text>
+        <Text variant="body2" color="secondary">No data</Text>
       </View>
     );
   }

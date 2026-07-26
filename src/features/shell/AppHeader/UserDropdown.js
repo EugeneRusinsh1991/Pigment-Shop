@@ -44,7 +44,7 @@ const getDropdownStyles = (isDark) => {
   const ic = (dark, light) => isDark ? dark : light;
   return {
     dropdown: [styles.dropdown, ic(styles.dropdownDark, styles.dropdownLight), { width: 180 }],
-    subtextText: [styles.dropdownText, ic(styles.subtextDark, styles.subtextLight), { fontSize: 11 }],
+    subtextText: [styles.dropdownText, ic(styles.subtextDark, styles.subtextLight)],
     itemText: [styles.dropdownText, ic(styles.textDark, styles.textLight)],
     borderBottomColor: isDark ? colors.borderDark : colors.secondaryLightBorder,
     iconColor: isDark ? colors.white : colors.dark

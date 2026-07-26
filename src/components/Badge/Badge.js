@@ -1,5 +1,6 @@
 import React from 'react';
-import { Text, Animated, TouchableOpacity } from 'react-native';
+import { Animated, TouchableOpacity } from 'react-native';
+import { Text } from '../Text';
 import { useBadgeTheme } from './useBadgeTheme';
 import { useBadgeAnimation } from './useBadgeAnimation';
 

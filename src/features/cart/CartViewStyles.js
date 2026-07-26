@@ -40,7 +40,6 @@ export default StyleSheet.create({
     height: '100%',
   },
   requiredNote: {
-    fontSize: 12,
     marginTop: 10,
     textAlign: 'left',
   },
@@ -77,7 +76,7 @@ export default StyleSheet.create({
     paddingTop: 32,
     paddingBottom: 16,
   },
-  emptyIcon: { fontSize: 48, marginBottom: 12 },
+  emptyIcon: { marginBottom: 12 },
 
   // Summary Panel
   summaryPanel: {
@@ -144,7 +143,7 @@ export default StyleSheet.create({
   noteInputLight: {
     backgroundColor: colors.slateLight,
     borderColor: colors.secondaryLightBorder,
-    color: colors.navTextDark,
+    color: colors.textStrongLight,
   },
   noteLabel: {
     marginBottom: 4,
@@ -157,18 +156,13 @@ export default StyleSheet.create({
     paddingVertical: 16,
   },
   footerBrandName: {
-    fontFamily: fonts.serif,
-    fontSize: 18,
-    fontWeight: 'bold',
     marginBottom: 4,
   },
   footerBrandNameDark: { color: colors.white },
   footerBrandNameLight: { color: colors.dark },
   footerBrandSub: {
-    fontFamily: fonts.sans,
-    fontSize: 10,
     letterSpacing: 0.5,
   },
-  footerBrandSubDark: { color: colors.slateText },
+  footerBrandSubDark: { color: colors.textMutedDark },
   footerBrandSubLight: { color: colors.secondaryDarkText },
 });

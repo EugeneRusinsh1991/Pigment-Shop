@@ -24,9 +24,6 @@ export const localStyles = StyleSheet.create({
     marginBottom: 12,
   },
   monthTitle: {
-    fontSize: 14,
-    fontWeight: '700',
-    color: colors.dark,
   },
   arrowBtn: {
     width: 32,
@@ -37,9 +34,6 @@ export const localStyles = StyleSheet.create({
     backgroundColor: colors.slateMid,
   },
   arrowText: {
-    fontSize: 18,
-    fontWeight: '600',
-    color: colors.secondaryLightText,
     lineHeight: 20,
   },
   weekdaysRow: {
@@ -52,9 +46,6 @@ export const localStyles = StyleSheet.create({
     alignItems: 'center',
   },
   weekdayText: {
-    fontSize: 11,
-    fontWeight: '600',
-    color: colors.secondaryDarkText,
   },
   daysGrid: {
     flexDirection: 'row',
@@ -75,8 +66,6 @@ export const localStyles = StyleSheet.create({
     borderRadius: 14,
   },
   dayText: {
-    fontSize: 13,
-    fontWeight: '500',
   },
   dayTextCurrent: {
     color: colors.dark,

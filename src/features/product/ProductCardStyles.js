@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors, fonts, layout } from '../../theme/tokens';
+import { colors, layout } from '../../theme/tokens';
 
 export default StyleSheet.create({
   prodCard: {
@@ -37,36 +37,22 @@ export default StyleSheet.create({
   prodInfoLight: {
   },
   brandText: {
-    fontFamily: fonts.sans,
-    fontSize: 10,
-    fontWeight: 'bold',
     color: colors.accent,
     letterSpacing: 1.2,
     textTransform: 'uppercase',
     marginBottom: 4,
   },
   prodTitle: {
-    fontFamily: fonts.sans,
-    fontSize: 14,
-    fontWeight: '500',
-    lineHeight: 18,
     minHeight: 36,
     marginBottom: 4,
   },
-  priceText: {
-    fontFamily: fonts.serif,
-    fontSize: 16,
-    fontWeight: '600',
-  },
+  priceText: {},
   priceRow: {
     flexDirection: 'row',
     alignItems: 'baseline',
     gap: 6,
   },
   originalPriceText: {
-    fontFamily: fonts.serif,
-    fontSize: 12,
-    color: colors.textDescDark,
     textDecorationLine: 'line-through',
   },
   favBtn: {
@@ -82,7 +68,7 @@ export default StyleSheet.create({
   },
   favBtnDark: { backgroundColor: colors.overlayDark },
   favBtnLight: { backgroundColor: colors.overlayLight },
-  favIcon: { fontSize: 16 },
+  favIcon: {},
   favIconActive: { color: colors.accent },
   favIconInactiveDark: { color: colors.white },
   favIconInactiveLight: { color: colors.textLight },

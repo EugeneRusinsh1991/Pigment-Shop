@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors, fonts, buttonTokens } from '../../theme/tokens';
+import { colors, buttonTokens } from '../../theme/tokens';
 
 const styles = StyleSheet.create({
   container: {
@@ -17,10 +17,6 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
   },
   title: {
-    fontFamily: fonts.serif,
-    fontSize: 24,
-    lineHeight: 28,
-    fontWeight: '500',
     marginBottom: 16,
     textAlign: 'center',
   },
@@ -29,13 +25,9 @@ const styles = StyleSheet.create({
     borderWidth: 0,
   },
   label: {
-    fontSize: 14,
     marginBottom: 4,
   },
-  value: {
-    fontSize: 16,
-    fontWeight: '400',
-  },
+  value: {},
   inputGroup: {
     marginBottom: 8,
   },
@@ -78,7 +70,6 @@ const styles = StyleSheet.create({
     opacity: 0.5,
   },
   saveBtnText: {
-    fontSize: 16,
     fontWeight: '600',
   },
   saveBtnTextDark: {
@@ -88,12 +79,9 @@ const styles = StyleSheet.create({
     color: colors.white,
   },
   sectionTitle: {
-    fontSize: 18,
-    fontWeight: '500',
     marginBottom: 8,
   },
   description: {
-    fontSize: 13,
     marginBottom: 16,
   },
   promoSuccess: {
@@ -105,12 +93,11 @@ const styles = StyleSheet.create({
   },
   promoSuccessDark: { backgroundColor: 'rgba(52, 211, 153, 0.1)' },
   promoSuccessLight: { backgroundColor: colors.successBgLight },
-  promoText: { fontSize: 14, fontWeight: '500' },
+  promoText: {},
   promoTextDark: { color: colors.successLight },
   promoTextLight: { color: colors.successDeep },
-  promoRemove: { fontSize: 12, fontWeight: '500' },
+  promoRemove: {},
   requiredNote: {
-    fontSize: 12,
     marginTop: 8,
     textAlign: 'left',
   },
@@ -126,10 +113,7 @@ const styles = StyleSheet.create({
   saveMessageLight: {
     backgroundColor: colors.successBgLight,
   },
-  saveMessageText: {
-    fontSize: 14,
-    fontWeight: '500',
-  },
+  saveMessageText: {},
   saveMessageTextDark: {
     color: colors.successLight,
   },

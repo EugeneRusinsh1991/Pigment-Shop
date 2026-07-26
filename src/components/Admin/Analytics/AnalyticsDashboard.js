@@ -1,5 +1,6 @@
 import React, { useMemo, useState, useEffect } from 'react';
-import { Text, View, ActivityIndicator } from 'react-native';
+import { View, ActivityIndicator } from 'react-native';
+import { Text, Heading } from '../../Text';
 import { db } from '../../../services/firebase';
 import { collection, getDocs } from 'firebase/firestore';
 import { getSummaryStats, getTopProducts, getRevenueChartData, getOrderStatuses } from '../../../data/adminAnalytics';
@@ -16,10 +17,10 @@ function StatCard({ label, value, icon }) {
   return (
     <View style={styles.statCard}>
       <View style={styles.statHeader}>
-        <Text style={styles.statLabel}>{label}</Text>
+        <Text variant="caption" color="secondary" style={styles.statLabel}>{label}</Text>
         <View>{icon}</View>
       </View>
-      <Text style={styles.statValue}>{value}</Text>
+      <Heading level={3} style={styles.statValue}>{value}</Heading>
     </View>
   );
 }
@@ -44,7 +45,7 @@ function RevenuePanel({ revenueData }) {
   const { t } = useTheme();
   return (
     <View style={styles.chartPanel}>
-      <Text style={styles.chartTitle}>{t('adminAnalyticsRevenue14Days')}</Text>
+      <Heading level={4} style={styles.chartTitle}>{t('adminAnalyticsRevenue14Days')}</Heading>
       <RevenueChart revenueData={revenueData} />
     </View>
   );
@@ -55,11 +56,11 @@ function BottomChartsRow({ topProducts, orderStatuses }) {
   return (
     <View style={styles.chartsRow}>
       <View style={[styles.chartPanel, styles.chartHalf]}>
-        <Text style={styles.chartTitle}>{t('adminAnalyticsTopProducts')}</Text>
+        <Heading level={4} style={styles.chartTitle}>{t('adminAnalyticsTopProducts')}</Heading>
         <TopProductsChart productsData={topProducts} />
       </View>
       <View style={[styles.chartPanel, styles.chartHalf]}>
-        <Text style={styles.chartTitle}>{t('adminAnalyticsOrderStatuses')}</Text>
+        <Heading level={4} style={styles.chartTitle}>{t('adminAnalyticsOrderStatuses')}</Heading>
         <OrderStatusChart statusData={orderStatuses} />
       </View>
     </View>

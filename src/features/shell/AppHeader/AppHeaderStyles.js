@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors, fonts } from '../../../theme/tokens';
+import { colors } from '../../../theme/tokens';
 import { shadow } from '../../../theme/shadows';
 
 export default StyleSheet.create({
@@ -32,22 +32,12 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  menuBtnText: {
-    fontSize: 22,
-    lineHeight: 24,
-  },
+  menuBtnText: {},
   backBtn: {
     paddingRight: 8,
   },
-  backText: {
-    fontFamily: fonts.sans,
-    fontSize: 14,
-    fontWeight: '500',
-  },
+  backText: {},
   logo: {
-    fontFamily: fonts.serif,
-    fontSize: 22,
-    fontWeight: '600',
     color: colors.accent,
   },
   centerSec: {
@@ -57,11 +47,7 @@ export default StyleSheet.create({
     flexShrink: 0,
   },
   navLink: {},
-  navLinkText: {
-    fontFamily: fonts.sans,
-    fontSize: 12,
-    fontWeight: '500',
-  },
+  navLinkText: {},
   rightSec: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -75,9 +61,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  iconText: {
-    fontSize: 18,
-  },
+  iconText: {},
   langContainer: {
     position: 'relative',
   },
@@ -113,11 +97,7 @@ export default StyleSheet.create({
   dropdownItemActiveLight: {
     backgroundColor: colors.backgroundLight,
   },
-  dropdownText: {
-    fontFamily: fonts.sans,
-    fontSize: 13,
-    fontWeight: '500',
-  },
+  dropdownText: {},
   cartBtn: {
     width: 36,
     height: 36,
@@ -141,10 +121,7 @@ export default StyleSheet.create({
   badgeLight: {
     backgroundColor: colors.dark,
   },
-  badgeText: {
-    fontSize: 9,
-    fontWeight: 'bold',
-  },
+  badgeText: {},
   badgeTextDark: {
     color: colors.dark,
   },
@@ -171,8 +148,6 @@ export default StyleSheet.create({
     borderColor: colors.secondaryLightBorder,
   },
   adminBtnText: {
-    fontSize: 12,
-    fontWeight: '700',
     letterSpacing: 0.3,
   },
   logoWrapper: {
@@ -202,12 +177,7 @@ export default StyleSheet.create({
     backgroundColor: colors.dangerSoftLightBg,
     borderColor: colors.dangerBgLight,
   },
-  betaText: {
-    fontFamily: fonts.sans,
-    fontSize: 13,
-    fontWeight: '700',
-    lineHeight: 14,
-  },
+  betaText: {},
   betaTextDark: {
     color: colors.accent,
   },

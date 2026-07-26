@@ -1,5 +1,6 @@
 import { AlertIcon, CrossIcon, RefreshIcon } from '@/components/Icons';
-import { ScrollView, Text, View } from 'react-native';
+import { ScrollView, View } from 'react-native';
+import { Text, Heading } from '../../Text';
 import { MEDIA_CATEGORY } from '../../../media';
 import EmptyState from '../../DataTable/EmptyState';
 import MediaBrowserItem from './MediaBrowserItem';
@@ -33,7 +34,7 @@ export function OutdatedBanner() {
 export function BrowserHeader({ onRefresh, onClose }) {
   return (
     <View style={styles.header}>
-      <Text style={styles.title}>Media Library</Text>
+      <Heading level={3} style={styles.title}>Media Library</Heading>
       <Button
         title="Refresh"
         leftIcon={<RefreshIcon color="#4f46e5" size={12} style={{ marginRight: 4 }} />}

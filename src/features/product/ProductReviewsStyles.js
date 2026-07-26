@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors, fonts } from '../../theme/tokens';
+import { colors } from '../../theme/tokens';
 
 export default StyleSheet.create({
 
@@ -16,10 +16,6 @@ export default StyleSheet.create({
     alignSelf: 'center',
   },
   sectionTitle: {
-    fontFamily: fonts.serif,
-    fontSize: 18,
-    lineHeight: 22,
-    fontWeight: '600',
     marginBottom: 6,
   },
   ratingSummary: {
@@ -32,9 +28,7 @@ export default StyleSheet.create({
     color: colors.warningMid,
     fontSize: 18,
   },
-  ratingValueText: {
-    fontSize: 14,
-  },
+  ratingValueText: {},
   reviewForm: {
     borderRadius: 16,
     padding: 16,
@@ -50,8 +44,6 @@ export default StyleSheet.create({
     borderColor: colors.secondaryLightBorder,
   },
   formTitle: {
-    fontSize: 16,
-    fontWeight: 'bold',
     marginBottom: 8,
   },
   input: {
@@ -83,7 +75,6 @@ export default StyleSheet.create({
     marginBottom: 12,
   },
   ratingLabel: {
-    fontSize: 14,
     marginRight: 8,
   },
   activeStar: {
@@ -126,21 +117,15 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     marginBottom: 6,
   },
-  author: {
-    fontWeight: 'bold',
-    fontSize: 14,
-  },
+  author: {},
   reviewStars: {
     color: colors.warningMid,
     fontSize: 14,
   },
   comment: {
-    fontSize: 13,
-    lineHeight: 18,
     marginBottom: 4,
   },
   dateText: {
-    fontSize: 11,
     color: colors.secondaryDarkText,
   },
 });

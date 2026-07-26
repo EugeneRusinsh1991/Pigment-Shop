@@ -4,7 +4,8 @@
  * Horizontal bar chart showing products by units sold.
  */
 import React, { useMemo } from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
+import { Text } from '../../Text';
 import styles from './AnalyticsStyles';
 import { useTheme } from '../../../context/ThemeContext';
 import { getLocalizedValue } from '../../../utils/localization';
@@ -31,7 +32,7 @@ export default function TopProductsChart({ productsData = [] }) {
   if (products.length === 0) {
     return (
       <View style={{ paddingVertical: 20, alignItems: 'center', justifyContent: 'center' }}>
-        <Text style={{ color: '#94a3b8', fontSize: 14, fontWeight: '500' }}>
+        <Text variant="body2" color="secondary" weight="medium">
           No selling products in this period.
         </Text>
       </View>
@@ -42,7 +43,7 @@ export default function TopProductsChart({ productsData = [] }) {
     <View>
       {products.map((p, i) => (
         <View key={p.label + i} style={styles.barRow}>
-          <Text style={styles.barLabel} numberOfLines={2}>
+          <Text variant="caption" color="secondary" style={styles.barLabel} numberOfLines={2}>
             {truncateLabel(p.label)}
           </Text>
           <View style={styles.barTrack}>
@@ -58,7 +59,7 @@ export default function TopProductsChart({ productsData = [] }) {
               )}
             </View>
           </View>
-          <Text style={styles.barValue}>{p.value}</Text>
+          <Text variant="caption" color="secondary" style={styles.barValue}>{p.value}</Text>
         </View>
       ))}
     </View>

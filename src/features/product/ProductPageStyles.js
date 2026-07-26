@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors, fonts, buttonTokens } from '../../theme/tokens';
+import { colors, buttonTokens } from '../../theme/tokens';
 
 export default StyleSheet.create({
   root: {
@@ -46,42 +46,24 @@ export default StyleSheet.create({
     marginTop: 0,
   },
   brandText: {
-    fontFamily: fonts.sans,
-    fontSize: 12,
-    fontWeight: 'bold',
     color: colors.accent,
     letterSpacing: 1.5,
     marginBottom: 4,
   },
   productName: {
-    fontFamily: fonts.serif,
-    fontSize: 22,
-    lineHeight: 26,
-    fontWeight: '600',
     marginBottom: 4,
   },
   priceText: {
-    fontFamily: fonts.serif,
-    fontSize: 24,
-    fontWeight: '600',
     marginBottom: 10,
   },
   description: {
-    fontFamily: fonts.sans,
-    fontSize: 14,
-    lineHeight: 22,
     marginBottom: 12,
   },
   skuText: {
-    fontFamily: fonts.sans,
-    fontSize: 12,
     color: colors.secondaryDarkText,
     marginBottom: 4,
   },
   stockText: {
-    fontFamily: fonts.sans,
-    fontSize: 12,
-    fontWeight: 'bold',
     color: colors.successMid,
     marginBottom: 16,
   },
@@ -114,14 +96,8 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  qtyBtnText: {
-    fontSize: 18,
-    fontWeight: '500',
-  },
+  qtyBtnText: {},
   qtyVal: {
-    fontFamily: fonts.sans,
-    fontSize: 14,
-    fontWeight: 'bold',
     minWidth: 30,
     textAlign: 'center',
   },
@@ -142,8 +118,6 @@ export default StyleSheet.create({
   },
   cartBtnText: {
     color: colors.white,
-    fontWeight: 'bold',
-    fontSize: 14,
     flexShrink: 1,
   },
   goToCartLink: {
@@ -151,8 +125,6 @@ export default StyleSheet.create({
   },
   goToCartText: {
     color: colors.accent,
-    fontWeight: '600',
-    fontSize: 14,
   },
   favBtn: {
     width: buttonTokens.sizes.lg.height,
@@ -165,7 +137,7 @@ export default StyleSheet.create({
   },
   favBtnDark: { borderColor: colors.outlineDarkBorder, backgroundColor: colors.dark },
   favBtnLight: { borderColor: colors.secondaryLightBorder, backgroundColor: colors.white },
-  favIcon: { fontSize: 20 },
+  favIcon: {},
   favIconActive: { color: colors.accent },
   favIconInactiveDark: { color: colors.white },
   favIconInactiveLight: { color: colors.dark },
@@ -216,9 +188,6 @@ export default StyleSheet.create({
   },
   arrowText: {
     color: colors.white,
-    fontSize: 24,
-    fontWeight: '300',
-    lineHeight: 28,
   },
   dotsContainer: {
     position: 'absolute',

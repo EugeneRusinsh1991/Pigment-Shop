@@ -31,9 +31,7 @@ export default StyleSheet.create({
   catLabel: {
     marginBottom: 4,
   },
-  catDesc: {
-    lineHeight: 16,
-  },
+  catDesc: {},
   arrowCircle: {
     position: 'absolute',
     bottom: 24,
@@ -46,8 +44,6 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   arrowCircleText: {
-    fontSize: 16,
-    fontWeight: 'bold',
     color: colors.black,
   },
   bannerCard: {
@@ -60,10 +56,6 @@ export default StyleSheet.create({
     left: 20,
     right: 20,
   },
-  bannerLabel: {
-    lineHeight: 28,
-  },
-  bannerDesc: {
-    lineHeight: 18,
-  },
+  bannerLabel: {},
+  bannerDesc: {},
 });

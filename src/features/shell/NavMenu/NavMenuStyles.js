@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors, fonts } from '../../../theme/tokens';
+import { colors } from '../../../theme/tokens';
 import { shadow } from '../../../theme/shadows';
 
 export default StyleSheet.create({
@@ -30,9 +30,6 @@ export default StyleSheet.create({
   panelHeaderLight: { borderBottomColor: colors.navItemHoverDark },
 
   panelTitle: {
-    fontFamily: fonts.sans,
-    fontSize: 16,
-    fontWeight: '700',
     letterSpacing: 0.3,
   },
   textDark: { color: colors.slateMid },
@@ -48,7 +45,7 @@ export default StyleSheet.create({
     right: 16,
     padding: 6,
   },
-  closeIcon: { fontSize: 16, fontWeight: '600' },
+  closeIcon: {},
   logoImage: {
     width: 140,
     height: 32,
@@ -64,8 +61,8 @@ export default StyleSheet.create({
   },
   utilRowDark: { backgroundColor: colors.navSurfaceDark },
   utilRowLight: { backgroundColor: colors.white },
-  utilIcon: { fontSize: 20, width: 28, textAlign: 'center' },
-  utilLabel: { flex: 1, fontSize: 14, fontWeight: '600', marginLeft: 10 },
+  utilIcon: { width: 28, textAlign: 'center' },
+  utilLabel: { flex: 1, marginLeft: 10 },
   accentDark: { color: colors.accent },
   accentLight: { color: colors.accent },
   mainNavLabel: { color: colors.accent },
@@ -73,11 +70,8 @@ export default StyleSheet.create({
   divider: { height: 1, marginHorizontal: 16, marginVertical: 4 },
   sectionSeparator: { height: 1, marginHorizontal: 16, marginVertical: 12 },
   sectionHeading: {
-    fontFamily: fonts.sans,
     paddingHorizontal: 16,
     paddingVertical: 8,
-    fontSize: 12,
-    fontWeight: '700',
     textTransform: 'uppercase',
     letterSpacing: 0.8,
   },
@@ -94,20 +88,17 @@ export default StyleSheet.create({
   itemRowLight: { backgroundColor: colors.white },
   selectedRowDark: { backgroundColor: 'rgba(227, 27, 35, 0.12)' },
   selectedRowLight: { backgroundColor: 'rgba(227, 27, 35, 0.05)' },
-  itemIcon: { fontSize: 20, width: 28, textAlign: 'center' },
+  itemIcon: { width: 28, textAlign: 'center' },
   iconWrapper: {
     width: 24,
     alignItems: 'center',
     justifyContent: 'center',
   },
   itemLabel: {
-    fontFamily: fonts.sans,
     flex: 1,
-    fontSize: 14,
-    fontWeight: '500',
     marginLeft: 12,
   },
-  chevron: { fontSize: 20, fontWeight: '300' },
+  chevron: {},
   mutedDark: { color: colors.secondaryLightText },
   mutedLight: { color: colors.secondaryDarkText },
   menuFooter: {

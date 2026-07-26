@@ -4,7 +4,8 @@
  * Donut chart for order status distribution using inline SVG.
  * statusData: array of { labelKey, value, color } — raw counts, always 4 items.
  */
-import { Platform, Text, View } from 'react-native';
+import { Platform, View } from 'react-native';
+import { Text } from '../../Text';
 import { useTheme } from '../../../context/ThemeContext';
 import styles from './AnalyticsStyles';
 
@@ -102,8 +103,8 @@ export default function OrderStatusChart({ statusData = [] }) {
         {formattedData.map((s, idx) => (
           <View key={s.id || s.labelKey || idx} style={styles.legendItem}>
             <View style={[styles.legendDot, { backgroundColor: s.color }]} />
-            <Text style={styles.legendText}>{t(s.labelKey)}:</Text>
-            <Text style={styles.legendValue}>{s.value}</Text>
+            <Text variant="body2" color="secondary" style={styles.legendText}>{t(s.labelKey)}:</Text>
+            <Text variant="subtitle2" style={styles.legendValue}>{s.value}</Text>
           </View>
         ))}
       </View>

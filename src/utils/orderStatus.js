@@ -12,6 +12,8 @@
 // Canonical status definitions
 // ---------------------------------------------------------------------------
 
+import { colors } from '../theme/tokens';
+
 /**
  * All four canonical order statuses with their display locale keys,
  * badge colors, and background colors.
@@ -19,10 +21,10 @@
  * @type {Array<{key: string, localeKey: string, color: string, bg: string, rowBg: string}>}
  */
 const ORDER_STATUSES = [
-  { key: 'pending',    localeKey: 'orderStatusPending',    color: '#3B82F6', bg: '#DBEAFE', rowBg: '#EFF6FF' },
-  { key: 'processing', localeKey: 'orderStatusProcessing', color: '#D97706', bg: '#FEF3C7', rowBg: '#FFFBEB' },
-  { key: 'completed',  localeKey: 'orderStatusCompleted',  color: '#10B981', bg: '#D1FAE5', rowBg: '#ECFDF5' },
-  { key: 'cancelled',  localeKey: 'orderStatusCancelled',  color: '#EF4444', bg: '#FEE2E2', rowBg: '#FEF2F2' },
+  { key: 'pending',    localeKey: 'orderStatusPending',    color: colors.infoStrong,  bg: colors.infoBgMid,    rowBg: colors.infoBgLight },
+  { key: 'processing', localeKey: 'orderStatusProcessing', color: colors.warningDark, bg: colors.warningBgMid, rowBg: colors.warningBgStrong },
+  { key: 'completed',  localeKey: 'orderStatusCompleted',  color: colors.successMid,  bg: colors.successBgMid, rowBg: colors.successBgSoft },
+  { key: 'cancelled',  localeKey: 'orderStatusCancelled',  color: colors.danger,      bg: colors.dangerBgLight, rowBg: colors.dangerSoftLightBg },
 ];
 
 /** Quick lookup: canonical key → status definition. */

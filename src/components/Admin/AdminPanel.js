@@ -4,7 +4,8 @@
  * Main admin panel layout with header + tab bar.
  */
 import { useState, useEffect } from 'react';
-import { ScrollView, Text, TouchableOpacity, View, useWindowDimensions } from 'react-native';
+import { ScrollView, View, useWindowDimensions } from 'react-native';
+import { Heading } from '../Text';
 import { useTheme } from '../../context/ThemeContext';
 import { useAdminAuth, useAdminDrafts } from '../../services/adminDomain';
 import { BackArrowIcon, LogoutIcon } from '@/components/Icons';
@@ -62,7 +63,7 @@ export default function AdminPanel({ onBack }) {
             size="sm"
             testID="admin-exit-control"
           />
-          {!isMobile && <Text style={styles.headerTitle}>{t('adminTitle')}</Text>}
+          {!isMobile && <Heading level={2} style={styles.headerTitle}>{t('adminTitle')}</Heading>}
         </View>
         {isMobile ? (
           <IconButton

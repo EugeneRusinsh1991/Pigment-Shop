@@ -34,17 +34,11 @@ export default StyleSheet.create({
     marginBottom: 10,
   },
   statLabel: {
-    fontSize: 12,
-    color: colors.secondaryDarkText,
-    fontWeight: '500',
   },
   statIcon: {
     fontSize: 18,
   },
   statValue: {
-    fontSize: 24,
-    fontWeight: '700',
-    color: colors.dark,
   },
 
   /* Chart Panels */
@@ -57,9 +51,6 @@ export default StyleSheet.create({
     elevation: 2,
   },
   chartTitle: {
-    fontSize: 15,
-    fontWeight: '700',
-    color: colors.dark,
     marginBottom: 16,
   },
   chartsRow: {
@@ -79,8 +70,6 @@ export default StyleSheet.create({
     marginBottom: 10,
   },
   barLabel: {
-    fontSize: 11,
-    color: colors.secondaryLightText,
     width: 140,
     marginRight: 10,
     flexShrink: 1,
@@ -98,8 +87,6 @@ export default StyleSheet.create({
     borderRadius: 4,
   },
   barValue: {
-    fontSize: 11,
-    color: colors.secondaryLightText,
     marginLeft: 8,
     width: 24,
     textAlign: 'right',
@@ -122,13 +109,8 @@ export default StyleSheet.create({
     marginRight: 8,
   },
   legendText: {
-    fontSize: 12,
-    color: colors.secondaryLightText,
   },
   legendValue: {
-    fontSize: 12,
-    fontWeight: '700',
-    color: colors.dark,
     marginLeft: 4,
   },
 

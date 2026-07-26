@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
+import { Text } from '../../Text';
 import { useTheme } from '../../../context/ThemeContext';
 import { localStyles } from './DateRangeCalendarStyles';
 import { CalendarDayCell } from './CalendarDayCell';
@@ -83,7 +84,7 @@ export function DateRangeCalendar({
         >
           <Text style={localStyles.arrowText}>‹</Text>
         </TouchableOpacity>
-        <Text style={localStyles.monthTitle}>
+        <Text variant="subtitle1" weight="bold" style={localStyles.monthTitle}>
           {monthNames[month]} {year}
         </Text>
         <TouchableOpacity 
@@ -98,7 +99,7 @@ export function DateRangeCalendar({
       <View style={localStyles.weekdaysRow}>
         {weekdayLabels.map((label, idx) => (
           <View key={idx} style={localStyles.weekdayCell}>
-            <Text style={localStyles.weekdayText}>{label}</Text>
+            <Text variant="caption" weight="semibold" color="secondary" style={localStyles.weekdayText}>{label}</Text>
           </View>
         ))}
       </View>

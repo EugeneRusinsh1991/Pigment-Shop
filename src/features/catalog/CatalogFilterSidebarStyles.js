@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     alignItems: 'center', justifyContent: 'center',
   },
   checkboxActive: { backgroundColor: colors.accent },
-  checkMark: { color: colors.white, fontSize: 11, fontWeight: '700' },
+  checkMark: { color: colors.white },
   checkLabel: {
   },
 
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
   categoryRow: { flexDirection: 'row', alignItems: 'center', minHeight: 44 },
   expandBtn: { width: 36, height: 44, alignItems: 'center', justifyContent: 'center' },
   expandBtnPlaceholder: { width: 36 },
-  expandChevron: { fontSize: 11, lineHeight: 18 },
+  expandChevron: {},
 
   divider: { height: 1, marginVertical: 16 },
   dividerDark: { backgroundColor: colors.borderDarkAlt },
