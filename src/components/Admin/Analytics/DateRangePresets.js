@@ -1,6 +1,3 @@
-import React from 'react';
-import { Badge } from '../../Badge';
-
 export function calculatePresetDateRange(preset) {
   const end = new Date();
   end.setHours(23, 59, 59, 999);
@@ -16,18 +13,5 @@ export function calculatePresetDateRange(preset) {
     start.setDate(1);
   }
   return { start, end };
-}
-
-export function PresetButton({ mode, preset, label, onPress, style }) {
-  const isActive = mode === preset;
-  return (
-    <Badge
-      variant="chip"
-      selected={isActive}
-      onPress={() => onPress(preset)}
-      label={label}
-      style={style}
-    />
-  );
 }
 

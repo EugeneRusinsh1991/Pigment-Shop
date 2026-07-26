@@ -42,12 +42,12 @@ export default function EmptyState({
     <View style={[styles.container, style]}>
       {icon && <View style={styles.iconWrapper}>{icon}</View>}
       {title && (
-        <Heading level={3} style={titleStyle}>
+        <Heading level={4} style={[styles.title, titleStyle]}>
           {title}
         </Heading>
       )}
       {bodyText && (
-        <Text variant="body" color="muted" style={descriptionStyle}>
+        <Text variant="body2" color="muted" style={[styles.description, descriptionStyle]}>
           {bodyText}
         </Text>
       )}

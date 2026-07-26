@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { colors, fonts, layout } from '../../theme/tokens';
 
-export const badgeSizes = {
+const badgeSizes = {
   sm: {
     paddingHorizontal: 6,
     paddingVertical: 2,
@@ -41,7 +41,7 @@ export const badgeSizes = {
   },
 };
 
-export const statusColorMap = {
+const statusColorMap = {
   pending: {
     bgLight: colors.warningBgMid,
     textLight: colors.warningDarkAlt,
@@ -108,7 +108,7 @@ export const statusColorMap = {
   },
 };
 
-export const baseBadgeStyles = StyleSheet.create({
+const baseBadgeStyles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',

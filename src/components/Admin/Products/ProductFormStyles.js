@@ -71,7 +71,6 @@ export default StyleSheet.create({
   fieldLabel: {
     color: colors.textDescLight,
     marginBottom: 5,
-    letterSpacing: 0.3,
   },
   fieldInput: {
     height: 40,

@@ -2,41 +2,22 @@
   "summary": {
     "visitedScreens": 0,
     "visitedInteractions": 0,
-    "successfulInteractions": 20,
+    "successfulInteractions": 9,
     "failedInteractions": 0,
-    "warnings": 2,
+    "warnings": 0,
     "errors": 1,
     "executionDurationMs": 0
   },
   "failures": [
     {
-      "screen": "http://localhost:8081/products",
+      "screen": "http://localhost:8081/admin",
       "interaction": "Click",
-      "elementIdentifier": "link|/product/prod-2-2-1-1|CHEYENNEProduct 2-...",
+      "elementIdentifier": "btn|adminOrdersCustome...",
       "event": "AfterInteraction",
-      "timestamp": 1785088775168,
+      "timestamp": 1785089544449,
       "errorType": "Health Check Evaluation Failed",
       "errorMessage": "[Application Bug] page.evaluate: Target page, context or browser has been closed"
     }
   ],
-  "warnings": [
-    {
-      "screen": "http://localhost:8081/",
-      "interaction": "Initial Load",
-      "elementIdentifier": "None",
-      "event": "Runtime",
-      "timestamp": 1785088756790,
-      "errorType": "Console Warning",
-      "errorMessage": "props.pointerEvents is deprecated. Use style.pointerEvents"
-    },
-    {
-      "screen": "http://localhost:8081/products",
-      "interaction": "Click",
-      "elementIdentifier": "link|/product/prod-1-2-1-1|badgeNew-30%BARBAR...",
-      "event": "Runtime",
-      "timestamp": 1785088773328,
-      "errorType": "Console Warning",
-      "errorMessage": "Animated: `useNativeDriver` is not supported because the native animated module is missing. Falling back to JS-based animation. To resolve this, add `RCTAnimation` module to this app, or remove `useNativeDriver`. Make sure to run `bundle exec pod install` first. Read more about autolinking: https://github.com/react-native-community/cli/blob/master/docs/autolinking.md"
-    }
-  ]
+  "warnings": []
 }

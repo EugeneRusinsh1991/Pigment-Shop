@@ -1,6 +1,6 @@
 # 📄 Small & Pass-Through Files Findings
 
-*Generated on: 26.07.2026, 21:02:17*
+*Generated on: 26.07.2026, 21:16:52*
 
 ### Candidate Files for Refactoring/Elimination
 
@@ -70,6 +70,10 @@
 
 - **[useFlagTheme.js](file:///D:/Magazine/_PigmentShop/src/components/Flag/useFlagTheme.js)** (`src/components/Flag/useFlagTheme.js`)
   - Lines: 17 | Size: 588 B | Type: **Tiny Component**
+  > 💡 This component is very small; consider declaring it inline within its parent component.
+
+- **[DateRangePresets.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Analytics/DateRangePresets.js)** (`src/components/Admin/Analytics/DateRangePresets.js`)
+  - Lines: 18 | Size: 400 B | Type: **Tiny Component**
   > 💡 This component is very small; consider declaring it inline within its parent component.
 
 - **[CardShadow.js](file:///D:/Magazine/_PigmentShop/src/components/Card/CardShadow.js)** (`src/components/Card/CardShadow.js`)

@@ -49,20 +49,6 @@ export function StatusBadge({ active }) {
   );
 }
 
-export function StockBadge({ stock }) {
-  const { t } = useTheme();
-  const inStock = (stock ?? 0) > 0;
-  return (
-    <Badge
-      variant="status"
-      status={inStock ? 'active' : 'inactive'}
-      label={inStock ? (t('productInStock') || 'In Stock') : (t('productOutOfStock') || 'Out of Stock')}
-      size="sm"
-    />
-  );
-}
-
-
 export function DiscountCell({ discountPercent }) {
   if (discountPercent > 0) {
     return <Text style={[styles.discountText, styles.colDiscount]}>-{discountPercent}%</Text>;

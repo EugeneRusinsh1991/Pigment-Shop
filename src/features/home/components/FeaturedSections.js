@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
   cardLight: { backgroundColor: colors.surfaceLight, borderColor: colors.secondaryLightBorder },
   cardHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
   titleWrap: { flexDirection: 'row', alignItems: 'center', flex: 1 },
-  title: { letterSpacing: 0.3 },
+  title: {},
   titleDark: { color: colors.slateMid },
   titleLight: { color: colors.textStrongDark },
   subtitle: { marginTop: 4, marginRight: 24 },

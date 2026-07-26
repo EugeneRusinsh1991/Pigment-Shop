@@ -29,9 +29,7 @@ export default StyleSheet.create({
   panelHeaderDark: { borderBottomColor: colors.borderDarkAlt },
   panelHeaderLight: { borderBottomColor: colors.navItemHoverDark },
 
-  panelTitle: {
-    letterSpacing: 0.3,
-  },
+  panelTitle: {},
   textDark: { color: colors.slateMid },
   textLight: { color: colors.navTextDark },
 
@@ -73,7 +71,6 @@ export default StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 8,
     textTransform: 'uppercase',
-    letterSpacing: 0.8,
   },
   dividerDark: { backgroundColor: colors.borderDarkAlt },
   dividerLight: { backgroundColor: colors.navItemHoverDark },

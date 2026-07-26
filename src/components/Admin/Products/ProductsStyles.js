@@ -86,7 +86,6 @@ export default StyleSheet.create({
   },
   thText: {
     color: colors.textDescDark,
-    letterSpacing: 0.8,
     textTransform: 'uppercase',
   },
   tableRow: {
@@ -158,7 +157,6 @@ export default StyleSheet.create({
   cardMetaLabel: {
     color: colors.secondaryDarkText,
     textTransform: 'uppercase',
-    letterSpacing: 0.4,
   },
   cardMetaValue: {
     color: colors.textLight,

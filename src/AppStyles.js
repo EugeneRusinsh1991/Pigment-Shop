@@ -82,7 +82,6 @@ export default StyleSheet.create({
   },
   heroBadge: {
     color: colors.accent,
-    letterSpacing: 1.5,
     textAlign: 'center',
   },
   heroBtn: {

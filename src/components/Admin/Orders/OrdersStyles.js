@@ -108,7 +108,6 @@ export default StyleSheet.create({
     color: colors.secondaryDarkText,
     marginBottom: 3,
     textTransform: 'uppercase',
-    letterSpacing: 0.3,
   },
   metaValue: {
     color: colors.textLight,
@@ -215,7 +214,6 @@ export default StyleSheet.create({
   itemColHeader: {
     color: colors.textDescDark,
     textTransform: 'uppercase',
-    letterSpacing: 0.5,
   },
   statusDropdown: {
     backgroundColor: colors.surfaceLight,

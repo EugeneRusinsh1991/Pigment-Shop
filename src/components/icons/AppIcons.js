@@ -151,18 +151,6 @@ export const HomeIcon = ({ color, size = 18, style, ...props }) => {
   }
   return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🏠</RNText>;
 };
-
-export const StarIcon = ({ color, size = 16, style, ...props }) => {
-  if (Platform.OS === 'web') {
-    return (
-      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
-        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-      </svg>
-    );
-  }
-  return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>★</RNText>;
-};
-
 export const GridIcon = ({ color, size = 18, style, ...props }) => {
   if (Platform.OS === 'web') {
     return (

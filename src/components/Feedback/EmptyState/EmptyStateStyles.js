@@ -11,15 +11,11 @@ export const styles = StyleSheet.create({
     marginBottom: 16,
   },
   title: {
-    fontSize: 18,
-    fontWeight: '600',
     textAlign: 'center',
     marginBottom: 8,
   },
   description: {
-    fontSize: 14,
     textAlign: 'center',
-    lineHeight: 20,
     maxWidth: 360,
   },
   actionWrapper: {

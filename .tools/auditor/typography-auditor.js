@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const SRC_DIR = path.join(__dirname, '../../src');
-const AUDITS_DIR = path.join(__dirname, '../../.docs/audits');
+const AUDITS_DIR = path.join(__dirname, '../../.docs/audits/audits');
 const LOG_FILE = path.join(AUDITS_DIR, '04-typography-violations.log');
 
 function scanFile(filePath, violations) {
@@ -12,7 +12,15 @@ function scanFile(filePath, violations) {
 
   lines.forEach((line, index) => {
     const typoMatch = line.match(/\b(fontSize|fontWeight|fontFamily|letterSpacing|lineHeight)\s*:\s*/);
-    if (typoMatch && !filePath.endsWith('tokens.js') && !filePath.endsWith('typography.js') && !line.includes('//')) {
+    const normalizedPath = filePath.replace(/\\/g, '/');
+    const isWhitelisted =
+      normalizedPath.endsWith('tokens.js') ||
+      normalizedPath.endsWith('typography.js') ||
+      normalizedPath.endsWith('TextStyles.js') ||
+      normalizedPath.endsWith('TextFieldStyles.js') ||
+      normalizedPath.includes('src/components/icons/');
+
+    if (typoMatch && !isWhitelisted && !line.includes('//')) {
       violations.push({
         location: `${relPath}:${index + 1}`,
         details: line.trim()

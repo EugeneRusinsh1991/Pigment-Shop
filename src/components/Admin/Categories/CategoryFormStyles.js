@@ -92,7 +92,6 @@ export default StyleSheet.create({
   /* Section heading */
   sectionLabel: {
     color: colors.textDescDark,
-    letterSpacing: 0.8,
     textTransform: 'uppercase',
     marginBottom: 10,
     marginTop: 4,
@@ -113,7 +112,6 @@ export default StyleSheet.create({
   fieldLabel: {
     color: colors.textDescLight,
     marginBottom: 5,
-    letterSpacing: 0.3,
   },
   fieldInput: {
     height: buttonTokens.sizes.md.height,

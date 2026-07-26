@@ -3,7 +3,7 @@ const path = require('path');
 
 const UI_DIR = path.join(__dirname, '../../src/components');
 const FEATURES_DIR = path.join(__dirname, '../../src/features');
-const AUDITS_DIR = path.join(__dirname, '../../.docs/audits');
+const AUDITS_DIR = path.join(__dirname, '../../.docs/audits/audits');
 const LOG_FILE = path.join(AUDITS_DIR, '05-service-layer-violations.log');
 
 function scanFile(filePath, violations) {

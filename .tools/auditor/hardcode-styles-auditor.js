@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const SRC_DIR = path.join(__dirname, '../../src');
-const AUDITS_DIR = path.join(__dirname, '../../.docs/audits');
+const AUDITS_DIR = path.join(__dirname, '../../.docs/audits/audits');
 const LOG_FILE = path.join(AUDITS_DIR, '03-hardcode-styles-violations.log');
 
 function scanFile(filePath, violations, isFixMode = false) {
@@ -127,7 +127,7 @@ function auditStyles() {
   }
 
   fs.writeFileSync(LOG_FILE, report);
-  console.log(`[03 Hardcode Styles Audit] Finished (${violations.length} unique issues) -> .docs/audits/03-hardcode-styles-violations.log`);
+  console.log(`[03 Hardcode Styles Audit] Finished (${violations.length} unique issues) -> .docs/audits/audits/03-hardcode-styles-violations.log`);
 }
 
 module.exports = { auditStyles };

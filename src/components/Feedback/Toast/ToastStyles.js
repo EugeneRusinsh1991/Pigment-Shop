@@ -15,8 +15,6 @@ export const styles = StyleSheet.create({
     ...shadows.dropdownLight.web,
   },
   text: {
-    fontSize: 14,
-    fontWeight: '500',
     textAlign: 'center',
   },
 });

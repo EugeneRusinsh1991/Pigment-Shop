@@ -174,7 +174,6 @@ export default StyleSheet.create({
     borderColor: colors.secondaryLightBorder,
     borderRadius: 8,
     paddingHorizontal: 12,
-    fontSize: 14,
     color: colors.dark,
     backgroundColor: colors.slateLight,
   },

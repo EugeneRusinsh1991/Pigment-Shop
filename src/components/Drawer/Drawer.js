@@ -6,7 +6,7 @@ import { colors, layout, shadows } from '../../theme/tokens';
 export function DrawerHeader({ title, onClose, children, style, titleStyle }) {
   return (
     <View style={[styles.header, style]}>
-      {title ? <Text style={[styles.headerTitle, titleStyle]}>{title}</Text> : null}
+      {title ? <Text variant="h4" style={titleStyle}>{title}</Text> : null}
       {children}
     </View>
   );
@@ -85,10 +85,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-  },
-  headerTitle: {
-    fontSize: 18,
-    fontWeight: '600',
   },
   footer: {
     padding: 16,

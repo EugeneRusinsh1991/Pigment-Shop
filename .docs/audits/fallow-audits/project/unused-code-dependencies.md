@@ -1,6 +1,6 @@
 # 📦 Unused Code & Dependencies
 
-*Generated on: 26.07.2026, 21:02:17*
+*Generated on: 26.07.2026, 21:16:52*
 
 ### Dead Files (Unused)
 Files that are not reachable or imported by any other codebase file:
@@ -16,15 +16,10 @@ Files that are not reachable or imported by any other codebase file:
 Exports that are not imported or consumed by any other active file:
 
 - [appBootstrap.js](file:///D:/Magazine/_PigmentShop/src/bootstrap/appBootstrap.js): `stopAppBootstrap` ([L127](file:///D:/Magazine/_PigmentShop/src/bootstrap/appBootstrap.js#L127)), `resetAppBootstrap` ([L138](file:///D:/Magazine/_PigmentShop/src/bootstrap/appBootstrap.js#L138))
-- [AdminTabBar.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/AdminTabBar.js): `ADMIN_TABS` ([L7](file:///D:/Magazine/_PigmentShop/src/components/Admin/AdminTabBar.js#L7))
-- [DateRangePresets.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Analytics/DateRangePresets.js): `PresetButton` ([L21](file:///D:/Magazine/_PigmentShop/src/components/Admin/Analytics/DateRangePresets.js#L21))
-- [ProductRowComponents.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductRowComponents.js): `StockBadge` ([L52](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/ProductRowComponents.js#L52))
 - [SharedFormComponents.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/SharedFormComponents.js): `FieldTextArea` ([L111](file:///D:/Magazine/_PigmentShop/src/components/Admin/SharedFormComponents.js#L111))
-- [BadgeStyles.js](file:///D:/Magazine/_PigmentShop/src/components/Badge/BadgeStyles.js): `badgeSizes` ([L4](file:///D:/Magazine/_PigmentShop/src/components/Badge/BadgeStyles.js#L4)), `statusColorMap` ([L44](file:///D:/Magazine/_PigmentShop/src/components/Badge/BadgeStyles.js#L44)), `baseBadgeStyles` ([L111](file:///D:/Magazine/_PigmentShop/src/components/Badge/BadgeStyles.js#L111))
 - [index.js](file:///D:/Magazine/_PigmentShop/src/components/Badge/index.js): `default` ([L1](file:///D:/Magazine/_PigmentShop/src/components/Badge/index.js#L1)), `useBadgeTheme` ([L2](file:///D:/Magazine/_PigmentShop/src/components/Badge/index.js#L2)), `useBadgeAnimation` ([L3](file:///D:/Magazine/_PigmentShop/src/components/Badge/index.js#L3))
 - [useBadgeAnimation.js](file:///D:/Magazine/_PigmentShop/src/components/Badge/useBadgeAnimation.js): `default` ([L75](file:///D:/Magazine/_PigmentShop/src/components/Badge/useBadgeAnimation.js#L75))
 - [index.js](file:///D:/Magazine/_PigmentShop/src/components/Button/index.js): `useButtonTheme` ([L4](file:///D:/Magazine/_PigmentShop/src/components/Button/index.js#L4)), `buttonTokens` ([L5](file:///D:/Magazine/_PigmentShop/src/components/Button/index.js#L5))
-- [CardStyles.js](file:///D:/Magazine/_PigmentShop/src/components/Card/CardStyles.js): `cardDimensionsContract` ([L4](file:///D:/Magazine/_PigmentShop/src/components/Card/CardStyles.js#L4))
 - [InteractiveCard.js](file:///D:/Magazine/_PigmentShop/src/components/Card/InteractiveCard.js): `default` ([L99](file:///D:/Magazine/_PigmentShop/src/components/Card/InteractiveCard.js#L99))
 - [StaticCard.js](file:///D:/Magazine/_PigmentShop/src/components/Card/StaticCard.js): `default` ([L61](file:///D:/Magazine/_PigmentShop/src/components/Card/StaticCard.js#L61))
 - [index.js](file:///D:/Magazine/_PigmentShop/src/components/Card/index.js): `Card` ([L1](file:///D:/Magazine/_PigmentShop/src/components/Card/index.js#L1)), `useCardTheme` ([L2](file:///D:/Magazine/_PigmentShop/src/components/Card/index.js#L2)), `useCardAnimation` ([L3](file:///D:/Magazine/_PigmentShop/src/components/Card/index.js#L3)), `BaseCard` ([L6](file:///D:/Magazine/_PigmentShop/src/components/Card/index.js#L6)), `InteractiveCard` ([L7](file:///D:/Magazine/_PigmentShop/src/components/Card/index.js#L7)), `StaticCard` ([L8](file:///D:/Magazine/_PigmentShop/src/components/Card/index.js#L8)), `CardShadow` ([L9](file:///D:/Magazine/_PigmentShop/src/components/Card/index.js#L9)), `NavigationCard` ([L10](file:///D:/Magazine/_PigmentShop/src/components/Card/index.js#L10))
@@ -46,8 +41,6 @@ Exports that are not imported or consumed by any other active file:
 - [TextFieldStyles.js](file:///D:/Magazine/_PigmentShop/src/components/TextField/TextFieldStyles.js): `SIZES` ([L4](file:///D:/Magazine/_PigmentShop/src/components/TextField/TextFieldStyles.js#L4))
 - [index.js](file:///D:/Magazine/_PigmentShop/src/components/TextField/index.js): `TextField` ([L1](file:///D:/Magazine/_PigmentShop/src/components/TextField/index.js#L1)), `useTextFieldTheme` ([L2](file:///D:/Magazine/_PigmentShop/src/components/TextField/index.js#L2)), `useTextFieldAnimation` ([L3](file:///D:/Magazine/_PigmentShop/src/components/TextField/index.js#L3)), `SIZES` ([L4](file:///D:/Magazine/_PigmentShop/src/components/TextField/index.js#L4)), `getTextFieldStyles` ([L4](file:///D:/Magazine/_PigmentShop/src/components/TextField/index.js#L4)), `styles` ([L4](file:///D:/Magazine/_PigmentShop/src/components/TextField/index.js#L4))
 - [index.js](file:///D:/Magazine/_PigmentShop/src/components/Toggle/index.js): `Toggle` ([L1](file:///D:/Magazine/_PigmentShop/src/components/Toggle/index.js#L1)), `useToggleTheme` ([L2](file:///D:/Magazine/_PigmentShop/src/components/Toggle/index.js#L2)), `useToggleAnimation` ([L3](file:///D:/Magazine/_PigmentShop/src/components/Toggle/index.js#L3))
-- [AdminIcons.js](file:///D:/Magazine/_PigmentShop/src/components/icons/AdminIcons.js): `AnalyticsIcon` ([L20](file:///D:/Magazine/_PigmentShop/src/components/icons/AdminIcons.js#L20)), `FolderIcon` ([L46](file:///D:/Magazine/_PigmentShop/src/components/icons/AdminIcons.js#L46)), `UsersIcon` ([L123](file:///D:/Magazine/_PigmentShop/src/components/icons/AdminIcons.js#L123))
-- [AppIcons.js](file:///D:/Magazine/_PigmentShop/src/components/icons/AppIcons.js): `StarIcon` ([L155](file:///D:/Magazine/_PigmentShop/src/components/icons/AppIcons.js#L155))
 - [AppProviders.js](file:///D:/Magazine/_PigmentShop/src/context/AppProviders.js): `CoreInfrastructureProviders` ([L24](file:///D:/Magazine/_PigmentShop/src/context/AppProviders.js#L24)), `SessionAndCatalogProviders` ([L39](file:///D:/Magazine/_PigmentShop/src/context/AppProviders.js#L39)), `UserFeatureProviders` ([L54](file:///D:/Magazine/_PigmentShop/src/context/AppProviders.js#L54))
 - [FavoritesContext.js](file:///D:/Magazine/_PigmentShop/src/context/FavoritesContext.js): `useFavorites` ([L17](file:///D:/Magazine/_PigmentShop/src/context/FavoritesContext.js#L17))
 - [catalogEntityContract.ts](file:///D:/Magazine/_PigmentShop/src/domain/catalogEntityContract.ts): `emptyLocalizedString` ([L45](file:///D:/Magazine/_PigmentShop/src/domain/catalogEntityContract.ts#L45)), `getLocale` ([L61](file:///D:/Magazine/_PigmentShop/src/domain/catalogEntityContract.ts#L61)), `makeSortState` ([L80](file:///D:/Magazine/_PigmentShop/src/domain/catalogEntityContract.ts#L80)), `toggleSortState` ([L84](file:///D:/Magazine/_PigmentShop/src/domain/catalogEntityContract.ts#L84))
@@ -75,6 +68,8 @@ Exports that are not imported or consumed by any other active file:
 ### Dependency Issues
 
 #### Unlisted Dependencies
+- `@babel/parser` (imported at: `.tools/auditor/catalog-generator.js:3`)
+- `@babel/traverse` (imported at: `.tools/auditor/catalog-generator.js:4`)
 - `expo-av` (imported at: `src/components/Media/VideoRenderer.js:7`)
 - `expo-video` (imported at: `src/components/Media/VideoRenderer.js:10`)
 

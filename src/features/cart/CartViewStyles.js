@@ -157,9 +157,7 @@ export default StyleSheet.create({
   },
   footerBrandNameDark: { color: colors.white },
   footerBrandNameLight: { color: colors.dark },
-  footerBrandSub: {
-    letterSpacing: 0.5,
-  },
+  footerBrandSub: {},
   footerBrandSubDark: { color: colors.textMutedDark },
   footerBrandSubLight: { color: colors.secondaryDarkText },
 });

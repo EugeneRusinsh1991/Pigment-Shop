@@ -28,6 +28,11 @@ function runAllAudits() {
   try { auditMagicNumbers(); } catch (e) { console.error('Error 08:', e.message); }
 
   console.log('-------------------------------------------------------------------');
+  console.log('         RUNNING CODEBASE CATALOG GENERATOR                        ');
+  console.log('-------------------------------------------------------------------');
+  try { const { runCatalogGenerator } = require('./catalog-generator'); runCatalogGenerator(); } catch (e) { console.error('Error Catalog Generator:', e.message); }
+
+  console.log('-------------------------------------------------------------------');
   console.log('         RUNNING CODEBASE FALLOW AUDITOR                           ');
   console.log('-------------------------------------------------------------------');
   try { runFallowAudit(); } catch (e) { console.error('Error Fallow Auditor:', e.message); }

@@ -1,0 +1,93 @@
+# 02. Cards & Containers Catalog
+
+> Catalog of structural layout cards, containers, modal sheets, and wrappers.
+
+**Total items found:** 35
+
+---
+
+### File: [src/components/Admin/Analytics/AnalyticsDashboard.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Analytics/AnalyticsDashboard.js)
+  - Line [36](file:///D:/Magazine/_PigmentShop/src/components/Admin/Analytics/AnalyticsDashboard.js#L36): `<StatCard>`
+  - Line [37](file:///D:/Magazine/_PigmentShop/src/components/Admin/Analytics/AnalyticsDashboard.js#L37): `<StatCard>`
+  - Line [38](file:///D:/Magazine/_PigmentShop/src/components/Admin/Analytics/AnalyticsDashboard.js#L38): `<StatCard>`
+  - Line [39](file:///D:/Magazine/_PigmentShop/src/components/Admin/Analytics/AnalyticsDashboard.js#L39): `<StatCard>`
+
+### File: [src/components/Admin/Categories/CategoryTree.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryTree.js)
+  - Line [112](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryTree.js#L112): `<MobileCategoryCard>`
+
+### File: [src/components/Admin/Orders/OrderDetails.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Orders/OrderDetails.js)
+  - Line [93](file:///D:/Magazine/_PigmentShop/src/components/Admin/Orders/OrderDetails.js#L93): `<OrderCustomerCard>`
+
+### File: [src/components/Admin/Products/MobileProductRow.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/MobileProductRow.js)
+  - Line [28](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/MobileProductRow.js#L28): `<CardMetaBlock>`
+  - Line [32](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/MobileProductRow.js#L32): `<CardMetaBlock>`
+  - Line [37](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/MobileProductRow.js#L37): `<CardMetaBlock>`
+  - Line [40](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/MobileProductRow.js#L40): `<CardMetaBlock>`
+
+### File: [src/components/Admin/Users/UserDetails.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Users/UserDetails.js)
+  - Line [60](file:///D:/Magazine/_PigmentShop/src/components/Admin/Users/UserDetails.js#L60): `<UserInfoCard>`
+
+### File: [src/components/Admin/Users/UserInfoCard.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Users/UserInfoCard.js)
+  - Line [21](file:///D:/Magazine/_PigmentShop/src/components/Admin/Users/UserInfoCard.js#L21): `<Card>`
+
+### File: [src/components/Admin/Users/UserOrdersList.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Users/UserOrdersList.js)
+  - Line [17](file:///D:/Magazine/_PigmentShop/src/components/Admin/Users/UserOrdersList.js#L17): `<OrderCard>`
+
+### File: [src/components/Admin/Users/UsersManager.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Users/UsersManager.js)
+  - Line [100](file:///D:/Magazine/_PigmentShop/src/components/Admin/Users/UsersManager.js#L100): `<MobileUserCard>`
+
+### File: [src/components/Card/BaseCard.js](file:///D:/Magazine/_PigmentShop/src/components/Card/BaseCard.js)
+  - Line [43](file:///D:/Magazine/_PigmentShop/src/components/Card/BaseCard.js#L43): `<InteractiveCard>`
+  - Line [64](file:///D:/Magazine/_PigmentShop/src/components/Card/BaseCard.js#L64): `<StaticCard>`
+
+### File: [src/components/Card/InteractiveCard.js](file:///D:/Magazine/_PigmentShop/src/components/Card/InteractiveCard.js)
+  - Line [91](file:///D:/Magazine/_PigmentShop/src/components/Card/InteractiveCard.js#L91): `<CardShadow>`
+
+### File: [src/components/Card/NavigationCard.js](file:///D:/Magazine/_PigmentShop/src/components/Card/NavigationCard.js)
+  - Line [10](file:///D:/Magazine/_PigmentShop/src/components/Card/NavigationCard.js#L10): `<Card>`
+
+### File: [src/features/catalog/CatalogView.js](file:///D:/Magazine/_PigmentShop/src/features/catalog/CatalogView.js)
+  - Line [24](file:///D:/Magazine/_PigmentShop/src/features/catalog/CatalogView.js#L24): `<PlaceholderCard>`
+
+### File: [src/features/catalog/CategoryCard.js](file:///D:/Magazine/_PigmentShop/src/features/catalog/CategoryCard.js)
+  - Line [128](file:///D:/Magazine/_PigmentShop/src/features/catalog/CategoryCard.js#L128): `<Card>`
+
+### File: [src/features/catalog/PlaceholderCard.js](file:///D:/Magazine/_PigmentShop/src/features/catalog/PlaceholderCard.js)
+  - Line [16](file:///D:/Magazine/_PigmentShop/src/features/catalog/PlaceholderCard.js#L16): `<NavigationCard>`
+  - Line [24](file:///D:/Magazine/_PigmentShop/src/features/catalog/PlaceholderCard.js#L24): `<ProductCard>`
+  - Line [26](file:///D:/Magazine/_PigmentShop/src/features/catalog/PlaceholderCard.js#L26): `<CategoryCard>`
+  - Line [48](file:///D:/Magazine/_PigmentShop/src/features/catalog/PlaceholderCard.js#L48): `<PlaceholderCard>`
+
+### File: [src/features/catalog/ProductGrid.js](file:///D:/Magazine/_PigmentShop/src/features/catalog/ProductGrid.js)
+  - Line [22](file:///D:/Magazine/_PigmentShop/src/features/catalog/ProductGrid.js#L22): `<ProductCard>`
+
+### File: [src/features/contact/ContactQuestionForm.js](file:///D:/Magazine/_PigmentShop/src/features/contact/ContactQuestionForm.js)
+  - Line [85](file:///D:/Magazine/_PigmentShop/src/features/contact/ContactQuestionForm.js#L85): `<Card>`
+
+### File: [src/features/favorites/FavoritesPage.js](file:///D:/Magazine/_PigmentShop/src/features/favorites/FavoritesPage.js)
+  - Line [39](file:///D:/Magazine/_PigmentShop/src/features/favorites/FavoritesPage.js#L39): `<PlaceholderCard>`
+
+### File: [src/features/orders/OrderConfirmationPage.js](file:///D:/Magazine/_PigmentShop/src/features/orders/OrderConfirmationPage.js)
+  - Line [59](file:///D:/Magazine/_PigmentShop/src/features/orders/OrderConfirmationPage.js#L59): `<OrderDetailsCard>`
+
+### File: [src/features/orders/OrderDetailsCard.js](file:///D:/Magazine/_PigmentShop/src/features/orders/OrderDetailsCard.js)
+  - Line [34](file:///D:/Magazine/_PigmentShop/src/features/orders/OrderDetailsCard.js#L34): `<Card>`
+
+### File: [src/features/orders/OrdersPage.js](file:///D:/Magazine/_PigmentShop/src/features/orders/OrdersPage.js)
+  - Line [32](file:///D:/Magazine/_PigmentShop/src/features/orders/OrdersPage.js#L32): `<OrderCard>`
+
+### File: [src/features/orders/components/OrderCard.js](file:///D:/Magazine/_PigmentShop/src/features/orders/components/OrderCard.js)
+  - Line [96](file:///D:/Magazine/_PigmentShop/src/features/orders/components/OrderCard.js#L96): `<Card>`
+
+### File: [src/features/product/ProductCard.js](file:///D:/Magazine/_PigmentShop/src/features/product/ProductCard.js)
+  - Line [79](file:///D:/Magazine/_PigmentShop/src/features/product/ProductCard.js#L79): `<Card>`
+
+### File: [src/features/product/ProductReviews.js](file:///D:/Magazine/_PigmentShop/src/features/product/ProductReviews.js)
+  - Line [77](file:///D:/Magazine/_PigmentShop/src/features/product/ProductReviews.js#L77): `<ReviewCard>`
+
+### File: [src/features/profile/ProfileFormCard.js](file:///D:/Magazine/_PigmentShop/src/features/profile/ProfileFormCard.js)
+  - Line [82](file:///D:/Magazine/_PigmentShop/src/features/profile/ProfileFormCard.js#L82): `<Card>`
+
+### File: [src/features/profile/ProfilePage.js](file:///D:/Magazine/_PigmentShop/src/features/profile/ProfilePage.js)
+  - Line [88](file:///D:/Magazine/_PigmentShop/src/features/profile/ProfilePage.js#L88): `<ProfileFormCard>`
+

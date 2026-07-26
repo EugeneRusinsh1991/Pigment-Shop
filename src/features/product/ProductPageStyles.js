@@ -47,7 +47,6 @@ export default StyleSheet.create({
   },
   brandText: {
     color: colors.accent,
-    letterSpacing: 1.5,
     marginBottom: 4,
   },
   productName: {

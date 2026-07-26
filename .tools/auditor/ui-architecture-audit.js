@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const COMPONENTS_DIR = path.join(__dirname, '../../src/components');
-const AUDITS_DIR = path.join(__dirname, '../../.docs/audits');
+const AUDITS_DIR = path.join(__dirname, '../../.docs/audits/audits');
 const LOG_FILE = path.join(AUDITS_DIR, '01-ui-architecture-violations.log');
 
 const ROOT_FILE_WHITELIST = ['useThemeUtils.js', 'SharedLayoutWrapper.js', 'Icons.js'];
@@ -80,7 +80,7 @@ function auditComponents() {
   }
 
   fs.writeFileSync(LOG_FILE, report);
-  console.log(`[01 UI Architecture Audit] Finished (${violations.length} issues) -> .docs/audits/01-ui-architecture-violations.log`);
+  console.log(`[01 UI Architecture Audit] Finished (${violations.length} issues) -> .docs/audits/audits/01-ui-architecture-violations.log`);
 }
 
 module.exports = { auditComponents };

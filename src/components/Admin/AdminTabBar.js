@@ -4,7 +4,7 @@ import styles from './AdminPanelStyles';
 import { useTheme } from '../../context/ThemeContext';
 import Toggle from '../Toggle';
 
-export const ADMIN_TABS = [
+const ADMIN_TABS = [
   { id: 'analytics', labelKey: 'adminTabAnalytics' },
   { id: 'orders', labelKey: 'adminTabOrders' },
   { id: 'products', labelKey: 'adminTabProducts' },

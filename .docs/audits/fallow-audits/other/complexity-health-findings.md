@@ -1,6 +1,6 @@
 # 🩺 Complexity Health Findings (Critical & High)
 
-*Generated on: 26.07.2026, 21:02:17*
+*Generated on: 26.07.2026, 21:16:52*
 
 ## 🔴 Critical (> 50 lines)
 
@@ -25,6 +25,12 @@
 
 ## 🔴 Critical (≤ 50 lines)
 
+#### 📁 [catalog-generator.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/catalog-generator.js)
+`.tools/auditor/catalog-generator.js`
+
+- 🔴 **`JSXElement`** [L64](file:///D:/Magazine/_PigmentShop/.tools/auditor/catalog-generator.js#L64)
+  - Lines: 42 | Cyclomatic: 21 | Cognitive: 17 | CRAP: 462
+
 #### 📁 [hardcode-styles-auditor.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-styles-auditor.js)
 `.tools/auditor/hardcode-styles-auditor.js`
 
@@ -35,7 +41,7 @@
 `.tools/auditor/index.js`
 
 - 🔴 **`runAllAudits`** [L16](file:///D:/Magazine/_PigmentShop/.tools/auditor/index.js#L16)
-  - Lines: 23 | Cyclomatic: 10 | Cognitive: 9 | CRAP: 110
+  - Lines: 28 | Cyclomatic: 11 | Cognitive: 10 | CRAP: 132
 
 
 ## 🟠 High (> 50 lines)
@@ -70,8 +76,10 @@
 #### 📁 [typography-auditor.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/typography-auditor.js)
 `.tools/auditor/typography-auditor.js`
 
-- 🟠 **`walkDir`** [L34](file:///D:/Magazine/_PigmentShop/.tools/auditor/typography-auditor.js#L34)
+- 🟠 **`walkDir`** [L42](file:///D:/Magazine/_PigmentShop/.tools/auditor/typography-auditor.js#L42)
   - Lines: 13 | Cyclomatic: 9 | Cognitive: 7 | CRAP: 90
+- 🟠 **`<arrow>`** [L13](file:///D:/Magazine/_PigmentShop/.tools/auditor/typography-auditor.js#L13)
+  - Lines: 17 | Cyclomatic: 8 | Cognitive: 3 | CRAP: 72
 
 #### 📁 [magic-numbers-auditor.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/magic-numbers-auditor.js)
 `.tools/auditor/magic-numbers-auditor.js`

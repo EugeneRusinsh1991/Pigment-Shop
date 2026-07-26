@@ -1,0 +1,52 @@
+===================================================================
+               7. LAYER IMPORTS & CYCLIC REPORT                    
+Timestamp: 26.07.2026, 21:16:44
+===================================================================
+
+Found 19 layer import issue(s) across 13 file(s):
+
+File: src/components/Admin/AdminPanel.js
+  - Shared UI component imports from higher layer: ../../services/adminDomain
+
+File: src/components/Admin/Analytics/AnalyticsDashboard.js
+  - Shared UI component imports from higher layer: ../../../services/firebase
+  - Shared UI component imports from higher layer: ../../../data/adminAnalytics
+  - Shared UI component imports from higher layer: ../../../services/collections
+
+File: src/components/Admin/Banners/useBannersWorkflow.js
+  - Shared UI component imports from higher layer: ../../../services/adminDomain
+  - Shared UI component imports from higher layer: ../../../data/catalogState
+
+File: src/components/Admin/Categories/categoryFormLogic.js
+  - Shared UI component imports from higher layer: ../../../services/adminCategoriesTransforms
+
+File: src/components/Admin/Categories/useCategoriesWorkflow.js
+  - Shared UI component imports from higher layer: ../../../services/adminDomain
+  - Shared UI component imports from higher layer: ../../../services/adminCategoriesTransforms
+
+File: src/components/Admin/Orders/OrderDetails.js
+  - Shared UI component imports from higher layer: ../../../services/adminOrdersService
+
+File: src/components/Admin/Orders/OrdersManager.js
+  - Shared UI component imports from higher layer: ../../../services/adminOrdersService
+
+File: src/components/Admin/Products/useProductsWorkflow.js
+  - Shared UI component imports from higher layer: ../../../services/adminDomain
+  - Shared UI component imports from higher layer: ../../../services/adminProductsTransforms
+
+File: src/components/Admin/shared/adminSharedService.js
+  - Shared UI component imports from higher layer: ../../../services/firebase
+  - Shared UI component imports from higher layer: ../../../services/collections
+
+File: src/components/Admin/Users/UserDetails.js
+  - Shared UI component imports from higher layer: ../../../services/adminUsersService
+
+File: src/components/Admin/Users/UserOrdersList.js
+  - Shared UI component imports from higher layer: ../../../features/orders/components/OrderCard
+
+File: src/components/Admin/Users/UsersManager.js
+  - Shared UI component imports from higher layer: ../../../services/adminUsersService
+
+File: src/components/SharedLayoutWrapper.js
+  - Shared UI component imports from higher layer: ../features/shell/components/Footer
+

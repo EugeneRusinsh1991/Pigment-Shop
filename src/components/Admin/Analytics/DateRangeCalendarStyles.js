@@ -34,7 +34,6 @@ export const localStyles = StyleSheet.create({
     backgroundColor: colors.slateMid,
   },
   arrowText: {
-    lineHeight: 20,
   },
   weekdaysRow: {
     flexDirection: 'row',

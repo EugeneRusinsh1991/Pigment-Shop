@@ -17,19 +17,6 @@ export const AdminIcon = ({ color, size = 16, style, ...props }) => {
   return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>⚙</RNText>;
 };
 
-export const AnalyticsIcon = ({ color, size = 16, style, ...props }) => {
-  if (Platform.OS === 'web') {
-    return (
-      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
-        <line x1="18" y1="20" x2="18" y2="10" />
-        <line x1="12" y1="20" x2="12" y2="4" />
-        <line x1="6" y1="20" x2="6" y2="14" />
-      </svg>
-    );
-  }
-  return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📊</RNText>;
-};
-
 export const BoxIcon = ({ color, size = 16, style, ...props }) => {
   if (Platform.OS === 'web') {
     return (
@@ -41,17 +28,6 @@ export const BoxIcon = ({ color, size = 16, style, ...props }) => {
     );
   }
   return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📦</RNText>;
-};
-
-export const FolderIcon = ({ color, size = 16, style, ...props }) => {
-  if (Platform.OS === 'web') {
-    return (
-      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
-        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
-      </svg>
-    );
-  }
-  return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📂</RNText>;
 };
 
 export const ImageIcon = ({ color, size = 16, style, ...props }) => {
@@ -118,20 +94,6 @@ export const LockIcon = ({ color, size = 18, style, ...props }) => {
     );
   }
   return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🔒</RNText>;
-};
-
-export const UsersIcon = ({ color, size = 16, style, ...props }) => {
-  if (Platform.OS === 'web') {
-    return (
-      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', ...style }} {...props}>
-        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-        <circle cx="9" cy="7" r="4" />
-        <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-      </svg>
-    );
-  }
-  return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>👥</RNText>;
 };
 
 export const DollarIcon = ({ color, size = 16, style, ...props }) => {

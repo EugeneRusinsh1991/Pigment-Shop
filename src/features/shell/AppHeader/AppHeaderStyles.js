@@ -147,9 +147,7 @@ export default StyleSheet.create({
   adminBtnLight: {
     borderColor: colors.secondaryLightBorder,
   },
-  adminBtnText: {
-    letterSpacing: 0.3,
-  },
+  adminBtnText: {},
   logoWrapper: {
     flexDirection: 'row',
     alignItems: 'center',

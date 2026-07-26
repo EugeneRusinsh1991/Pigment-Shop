@@ -98,9 +98,7 @@ export default StyleSheet.create({
   submitBtnDisabledLight: {
     backgroundColor: colors.inputBorderLight,
   },
-  submitBtnText: {
-    letterSpacing: 0.3,
-  },
+  submitBtnText: {},
   submitBtnTextEnabled: {
     color: colors.white,
   },

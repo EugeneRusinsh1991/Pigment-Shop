@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const SRC_DIR = path.join(__dirname, '../../src');
-const AUDITS_DIR = path.join(__dirname, '../../.docs/audits');
+const AUDITS_DIR = path.join(__dirname, '../../.docs/audits/audits');
 const LOG_FILE = path.join(AUDITS_DIR, '08-magic-numbers-violations.log');
 
 const ALLOWED_FILES = ['tokens.js', 'theme.js', 'constants.js', 'spacing.js'];

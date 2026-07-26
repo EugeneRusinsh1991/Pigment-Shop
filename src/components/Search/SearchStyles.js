@@ -54,7 +54,6 @@ function createSearchStyles() {
     },
     inputBase: {
       flex: 1,
-      fontSize: 14,
       paddingVertical: 0,
       paddingHorizontal: 8,
     },

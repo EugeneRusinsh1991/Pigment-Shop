@@ -1,0 +1,28 @@
+===================================================================
+               5. SERVICE LAYER ARCHITECTURE REPORT                
+Timestamp: 26.07.2026, 21:16:44
+===================================================================
+
+Found 13 service layer issue(s) across 4 file(s):
+
+File: src\components\Admin\Analytics\AnalyticsDashboard.js
+  L5     import { collection, getDocs } from 'firebase/firestore';
+  L94    const snap = await getDocs(collection(db, COLLECTIONS.ORDERS));
+
+File: src\components\Admin\shared\adminSharedService.js
+  L1     import { collection, getDocs } from 'firebase/firestore';
+  L13    getDocs(collection(db, COLLECTIONS.USERS)),
+  L14    getDocs(collection(db, COLLECTIONS.ORDERS))
+
+File: src\features\contact\ContactQuestionForm.js
+  L4     import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
+  L39    await addDoc(collection(db, COLLECTIONS.SUPPORT_MESSAGES), payload);
+
+File: src\features\product\useReviewsState.js
+  L3     import { addDoc, collection, onSnapshot } from 'firebase/firestore';
+  L32    function useFirestoreSubcollection(productId, subcollectionName, fallbackData, setter) {
+  L39    const ref = collection(db, COLLECTIONS.PRODUCTS, productId, subcollectionName);
+  L67    const ref = collection(db, COLLECTIONS.PRODUCTS, productId, subcollectionName);
+  L93    useFirestoreSubcollection(productId, 'reviews', initialReviews, setReviewsList);
+  L94    useFirestoreSubcollection(productId, 'questions', initialQuestions, setQuestionsList);
+

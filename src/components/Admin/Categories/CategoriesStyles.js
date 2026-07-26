@@ -149,7 +149,6 @@ export default StyleSheet.create({
     borderRadius: layout.radii.full,
   },
   typeBadgeText: {
-    letterSpacing: 0.2,
     textTransform: 'uppercase',
   },
 
