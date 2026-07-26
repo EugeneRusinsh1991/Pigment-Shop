@@ -2,19 +2,19 @@
   "summary": {
     "visitedScreens": 0,
     "visitedInteractions": 0,
-    "successfulInteractions": 15,
-    "failedInteractions": 0,
+    "successfulInteractions": 24,
+    "failedInteractions": 1,
     "warnings": 2,
     "errors": 1,
     "executionDurationMs": 0
   },
   "failures": [
     {
-      "screen": "http://localhost:8081/catalog/cat-root-1",
+      "screen": "http://localhost:8081/products",
       "interaction": "Click",
-      "elementIdentifier": "link|/catalog/cat-root-1-sub-1|Subcategory 2-2 EN...",
+      "elementIdentifier": "testid|filter-price-max",
       "event": "AfterInteraction",
-      "timestamp": 1785084777311,
+      "timestamp": 1785085527886,
       "errorType": "Health Check Evaluation Failed",
       "errorMessage": "[Application Bug] page.evaluate: Target page, context or browser has been closed"
     }
@@ -25,18 +25,18 @@
       "interaction": "Initial Load",
       "elementIdentifier": "None",
       "event": "Runtime",
-      "timestamp": 1785084764374,
+      "timestamp": 1785085504962,
       "errorType": "Console Warning",
       "errorMessage": "props.pointerEvents is deprecated. Use style.pointerEvents"
     },
     {
-      "screen": "http://localhost:8081/catalog",
+      "screen": "http://localhost:8081/products",
       "interaction": "Click",
-      "elementIdentifier": "testid|breadcrumb-item-0",
+      "elementIdentifier": "link|/product/prod-1-2-1-1|badgeNew-30%BARBAR...",
       "event": "Runtime",
-      "timestamp": 1785084775908,
+      "timestamp": 1785085521172,
       "errorType": "Console Warning",
-      "errorMessage": "Disconnected from Metro (1006)\nTo reconnect:\n- Ensure that Metro is running and available on the same network\n- Reload this app (will trigger further help if Metro cannot be connected to)"
+      "errorMessage": "Animated: `useNativeDriver` is not supported because the native animated module is missing. Falling back to JS-based animation. To resolve this, add `RCTAnimation` module to this app, or remove `useNativeDriver`. Make sure to run `bundle exec pod install` first. Read more about autolinking: https://github.com/react-native-community/cli/blob/master/docs/autolinking.md"
     }
   ]
 }

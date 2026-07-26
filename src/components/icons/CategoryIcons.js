@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Platform } from 'react-native';
+import { Text as RNText, Platform } from 'react-native';
 import { colors } from '../../theme/tokens';
 
 const getThemeColor = (color) => color || colors.textLight;
@@ -14,7 +14,7 @@ export const SparkleIcon = ({ color, size = 18, style, ...props }) => {
       </svg>
     );
   }
-  return <Text style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>✨</Text>;
+  return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>✨</RNText>;
 };
 
 export const LashIcon = ({ color, size = 18, style, ...props }) => {
@@ -30,7 +30,7 @@ export const LashIcon = ({ color, size = 18, style, ...props }) => {
       </svg>
     );
   }
-  return <Text style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>👁️</Text>;
+  return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>👁️</RNText>;
 };
 
 export const BrowIcon = ({ color, size = 18, style, ...props }) => {
@@ -43,7 +43,7 @@ export const BrowIcon = ({ color, size = 18, style, ...props }) => {
       </svg>
     );
   }
-  return <Text style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🖌️</Text>;
+  return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🖌️</RNText>;
 };
 
 export const LipIcon = ({ color, size = 18, style, ...props }) => {
@@ -55,7 +55,7 @@ export const LipIcon = ({ color, size = 18, style, ...props }) => {
       </svg>
     );
   }
-  return <Text style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>👄</Text>;
+  return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>👄</RNText>;
 };
 
 export const NeedleIcon = ({ color, size = 18, style, ...props }) => {
@@ -68,5 +68,5 @@ export const NeedleIcon = ({ color, size = 18, style, ...props }) => {
       </svg>
     );
   }
-  return <Text style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📍</Text>;
+  return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📍</RNText>;
 };

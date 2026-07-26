@@ -56,10 +56,10 @@ export default function ConfirmationModal({
       {...modalProps}
     >
       {resolvedTitle ? (
-        <Heading level={3} style={styles.title}>{resolvedTitle}</Heading>
+        <Heading level={3} size={18} weight="600" style={styles.title}>{resolvedTitle}</Heading>
       ) : null}
       {message ? (
-        <Text variant="body" color="muted" style={styles.message}>{message}</Text>
+        <Text variant="body1" color="muted" lineHeight={20} style={styles.message}>{message}</Text>
       ) : null}
       <View style={styles.footer}>
         <Button
@@ -90,13 +90,9 @@ const styles = StyleSheet.create({
     ...shadows.modalLight.web,
   },
   title: {
-    fontSize: 18,
-    fontWeight: '600',
     marginBottom: 8,
   },
   message: {
-    fontSize: 14,
-    lineHeight: 20,
     marginBottom: 24,
   },
   footer: {

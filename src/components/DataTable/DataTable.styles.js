@@ -25,8 +25,6 @@ export const styles = StyleSheet.create({
     backgroundColor: colors.surfaceNeutralDark,
   },
   thText: {
-    fontSize: 12,
-    fontWeight: '600',
     color: colors.slateText,
     textTransform: 'uppercase',
   },
@@ -38,9 +36,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 4,
   },
-  sortArrow: {
-    fontSize: 10,
-  },
+  sortArrow: {},
   rowBase: {
     flexDirection: 'row',
     alignItems: 'center',

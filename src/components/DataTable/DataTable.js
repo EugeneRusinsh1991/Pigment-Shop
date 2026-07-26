@@ -9,7 +9,7 @@ import { styles } from './DataTable.styles';
 
 function SortIndicator({ isActive, direction, style }) {
   return (
-    <Text style={[style, !isActive && { color: colors.slateStrong }]}>
+    <Text size={10} style={[style, !isActive && { color: colors.slateStrong }]}>
       {isActive ? (direction === 'asc' ? ' ▲' : ' ▼') : ' ↕'}
     </Text>
   );
@@ -35,7 +35,7 @@ function getHeaderColStyle(col) {
 function HeaderCellContent({ col, sortField, sortDirection, isDark, isSortable }) {
   return (
     <>
-      <Text style={[styles.thText, isDark ? styles.thTextDark : null]}>{col.label}</Text>
+      <Text size={12} weight="600" style={[styles.thText, isDark ? styles.thTextDark : null]}>{col.label}</Text>
       {isSortable ? (
         <SortIndicator 
           isActive={sortField === col.key} 

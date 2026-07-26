@@ -1,6 +1,8 @@
+import * as fs from 'fs';
+import * as path from 'path';
 import { IWebPage } from '../../explorer/driver/DriverInterfaces';
-import { SmokeConfig } from './SmokeConfig';
 import { FirestoreDiagnosticAnalyzer } from './FirestoreDiagnosticAnalyzer';
+import { SmokeConfig } from './SmokeConfig';
 
 import { DiagnosticConfig, defaultDiagnosticConfig } from './DiagnosticConfig';
 
@@ -11,6 +13,21 @@ export interface ConsoleListenerCallbacks {
 }
 
 export class SmokeConsoleListener {
+  private static logTypographyWarning(text: string) {
+    if (!text.includes('[Typography Warning]')) return;
+    try {
+      const logPath = path.resolve(process.cwd(), '.docs', 'typography-warnings.log');
+      const dir = path.dirname(logPath);
+      if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir, { recursive: true });
+      }
+      const existing = fs.existsSync(logPath) ? fs.readFileSync(logPath, 'utf8') : '';
+      if (!existing.includes(text)) {
+        fs.appendFileSync(logPath, `[${new Date().toISOString()}] ${text}\n`, 'utf8');
+      }
+    } catch (e) { }
+  }
+
   private static handleFirestoreMessage(text: string, screen: string, currentElement: string, callbacks: ConsoleListenerCallbacks, config: DiagnosticConfig): boolean {
     if (!text.includes('Firestore index missing') && !text.includes('The query requires an index')) {
       return false;
@@ -25,8 +42,8 @@ export class SmokeConsoleListener {
 
   private static handleConsoleErrorMessage(text: string, screen: string, config: SmokeConfig, callbacks: ConsoleListenerCallbacks) {
     const isDevServerAssetError = text.includes('Failed to load resource: the server responded with a status of 400') ||
-                                 text.includes('Failed to load resource: the server responded with a status of 404') ||
-                                 text.includes('net::ERR_CONNECTION_REFUSED');
+      text.includes('Failed to load resource: the server responded with a status of 404') ||
+      text.includes('net::ERR_CONNECTION_REFUSED');
     if (config.failOnConsoleError && !isDevServerAssetError) {
       callbacks.recordFailure(screen, 'Console Error', text);
     } else {
@@ -35,6 +52,7 @@ export class SmokeConsoleListener {
   }
 
   private static handleConsoleWarningMessage(text: string, screen: string, config: SmokeConfig, callbacks: ConsoleListenerCallbacks) {
+    SmokeConsoleListener.logTypographyWarning(text);
     if (config.failOnConsoleWarn) {
       callbacks.recordFailure(screen, 'Console Warning', text);
     } else {

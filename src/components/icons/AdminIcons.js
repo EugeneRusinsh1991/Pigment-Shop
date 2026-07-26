@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Platform, Text } from 'react-native';
+import { Platform, Text as RNText } from 'react-native';
 import { colors } from '../../theme/tokens';
 import { CurrencyIcon } from './AppIcons';
 
@@ -14,7 +14,7 @@ export const AdminIcon = ({ color, size = 16, style, ...props }) => {
       </svg>
     );
   }
-  return <Text style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>⚙</Text>;
+  return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>⚙</RNText>;
 };
 
 export const AnalyticsIcon = ({ color, size = 16, style, ...props }) => {
@@ -27,7 +27,7 @@ export const AnalyticsIcon = ({ color, size = 16, style, ...props }) => {
       </svg>
     );
   }
-  return <Text style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📊</Text>;
+  return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📊</RNText>;
 };
 
 export const BoxIcon = ({ color, size = 16, style, ...props }) => {
@@ -40,7 +40,7 @@ export const BoxIcon = ({ color, size = 16, style, ...props }) => {
       </svg>
     );
   }
-  return <Text style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📦</Text>;
+  return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📦</RNText>;
 };
 
 export const FolderIcon = ({ color, size = 16, style, ...props }) => {
@@ -51,7 +51,7 @@ export const FolderIcon = ({ color, size = 16, style, ...props }) => {
       </svg>
     );
   }
-  return <Text style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📂</Text>;
+  return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📂</RNText>;
 };
 
 export const ImageIcon = ({ color, size = 16, style, ...props }) => {
@@ -64,7 +64,7 @@ export const ImageIcon = ({ color, size = 16, style, ...props }) => {
       </svg>
     );
   }
-  return <Text style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🖼️</Text>;
+  return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🖼️</RNText>;
 };
 
 
@@ -77,7 +77,7 @@ export const ClipboardIcon = ({ color, size = 20, style, ...props }) => {
       </svg>
     );
   }
-  return <Text style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📋</Text>;
+  return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📋</RNText>;
 };
 
 
@@ -91,7 +91,7 @@ export const LogoutIcon = ({ color, size = 16, style, ...props }) => {
       </svg>
     );
   }
-  return <Text style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🚪</Text>;
+  return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🚪</RNText>;
 };
 
 export const LoginIcon = ({ color, size = 16, style, ...props }) => {
@@ -104,7 +104,7 @@ export const LoginIcon = ({ color, size = 16, style, ...props }) => {
       </svg>
     );
   }
-  return <Text style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🚪</Text>;
+  return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🚪</RNText>;
 };
 
 
@@ -117,7 +117,7 @@ export const LockIcon = ({ color, size = 18, style, ...props }) => {
       </svg>
     );
   }
-  return <Text style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🔒</Text>;
+  return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>🔒</RNText>;
 };
 
 export const UsersIcon = ({ color, size = 16, style, ...props }) => {
@@ -131,7 +131,7 @@ export const UsersIcon = ({ color, size = 16, style, ...props }) => {
       </svg>
     );
   }
-  return <Text style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>👥</Text>;
+  return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>👥</RNText>;
 };
 
 export const DollarIcon = ({ color, size = 16, style, ...props }) => {
@@ -147,6 +147,6 @@ export const TrendIcon = ({ color, size = 16, style, ...props }) => {
       </svg>
     );
   }
-  return <Text style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📈</Text>;
+  return <RNText style={{ color: getThemeColor(color), fontSize: size, ...style }} {...props}>📈</RNText>;
 };
 

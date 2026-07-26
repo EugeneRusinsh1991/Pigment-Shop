@@ -45,6 +45,21 @@ export async function runUIExplorer(
     activePage = await context.newPage();
   }
 
+  activePage.on('console', (msg) => {
+    const text = msg.text();
+    if (text.includes('[Typography Warning]')) {
+      const fs = require('fs');
+      const path = require('path');
+      const logDir = path.join(process.cwd(), '.docs');
+      if (!fs.existsSync(logDir)) fs.mkdirSync(logDir, { recursive: true });
+      const logFile = path.join(logDir, 'typography-warnings.log');
+      const existingContent = fs.existsSync(logFile) ? fs.readFileSync(logFile, 'utf8') : '';
+      if (!existingContent.includes(text)) {
+        fs.appendFileSync(logFile, `[${new Date().toISOString()}] ${text}\n`);
+      }
+    }
+  });
+
   // Execute Preparation Context
   try {
     const executionContext = resolveExecutionContext(explorerConfig.context);
