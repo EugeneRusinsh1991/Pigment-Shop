@@ -7,6 +7,7 @@
  */
 import React, { useState, useRef } from 'react';
 import { Platform, View, PanResponder, StyleSheet } from 'react-native';
+import { colors } from '../../theme/tokens';
 
 function useSliderPanResponders(minLimit, maxLimit, trackWidthRef, minRef, maxRef, startVal, onChange) {
   const minPanRef = useRef(null);
@@ -52,7 +53,7 @@ function useSliderPanResponders(minLimit, maxLimit, trackWidthRef, minRef, maxRe
 
 function SliderTrackContent({ trackWidth, minPercent, maxPercent, activeColor, isDark, handleMinPan, handleMaxPan }) {
   if (trackWidth <= 0) return null;
-  const bg = isDark ? '#1C1C1C' : '#FFFFFF';
+  const bg = isDark ? colors.dark : colors.white;
 
   return (
     <>
@@ -123,8 +124,8 @@ export default function PriceRangeSlider({
     onChange
   );
 
-  const activeColor = '#E31B23';
-  const inactiveColor = isDark ? '#242424' : '#e5d8d3';
+  const activeColor = colors.accent;
+  const inactiveColor = isDark ? colors.borderDarkAlt : colors.warmNeutralSoft;
 
   return (
     <View style={styles.container}>

@@ -5,6 +5,7 @@ import { Link } from 'expo-router';
 import HeroCarousel from '../home/components/HeroCarousel';
 import Button from '../../components/Button';
 import { ScrollFadeUp } from '../../components/Motion';
+import { colors } from '../../theme/tokens';
 
 function HeroBanner({ isDark, isWide, t, isTransitionReady }) {
   return (
@@ -12,7 +13,7 @@ function HeroBanner({ isDark, isWide, t, isTransitionReady }) {
       {isTransitionReady ? (
         <HeroCarousel isDark={isDark} isWide={isWide} />
       ) : (
-        <View style={[styles.heroRight, isWide ? styles.heroRightWide : styles.heroRightMobile, { backgroundColor: isDark ? '#1F2937' : '#E5E7EB' }]} />
+        <View style={[styles.heroRight, isWide ? styles.heroRightWide : styles.heroRightMobile, { backgroundColor: isDark ? colors.textDimDark : colors.borderSlateLight }]} />
       )}
       <Link href="/catalog" asChild>
         <Button

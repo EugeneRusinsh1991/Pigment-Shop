@@ -9,7 +9,7 @@ import { SORT_OPTIONS } from './useCatalogFilters';
 import { Text } from '../../components/Text';
 import { useTheme } from '../../context/ThemeContext';
 import Toggle from '../../components/Toggle';
-import { colors } from '../../theme/tokens';
+import { colors, layout } from '../../theme/tokens';
 
 export default function CatalogSortBar({ sortKey, onSortChange, resultCount, isDark }) {
   const { t } = useTheme();
@@ -42,8 +42,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     flexWrap: 'wrap',
-    gap: 8,
-    marginBottom: 16,
+    gap: layout.spacing.sm,
+    marginBottom: layout.spacing.lg,
   },
   count: {},
 });

@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors } from '@/theme/tokens';
+import { colors, layout } from '@/theme/tokens';
 
 export const localStyles = StyleSheet.create({
   carouselContainer: {
@@ -22,35 +22,35 @@ export const localStyles = StyleSheet.create({
     marginTop: -22,
     width: 44,
     height: 44,
-    borderRadius: 22,
-    backgroundColor: 'rgba(28, 28, 28, 0.4)',
+    borderRadius: layout.radii.lg,
+    backgroundColor: colors.overlayDark,
     alignItems: 'center',
     justifyContent: 'center',
-    zIndex: 10,
+    zIndex: layout.zIndices.dropdown,
   },
   leftArrow: {
-    left: 12,
+    left: layout.spacing.md,
   },
   rightArrow: {
-    right: 12,
+    right: layout.spacing.md,
   },
   arrowText: {
     color: colors.white,
   },
   dotsContainer: {
     position: 'absolute',
-    bottom: 16,
+    bottom: layout.spacing.lg,
     left: 0,
     right: 0,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    zIndex: 10,
-    gap: 8,
+    zIndex: layout.zIndices.dropdown,
+    gap: layout.spacing.sm,
   },
   dot: {
-    height: 8,
-    borderRadius: 4,
+    height: layout.spacing.sm,
+    borderRadius: layout.radii.xs,
     backgroundColor: colors.white,
     transition: 'width 0.3s ease, opacity 0.3s ease',
   },
@@ -59,7 +59,7 @@ export const localStyles = StyleSheet.create({
     opacity: 1,
   },
   dotInactive: {
-    width: 8,
+    width: layout.spacing.sm,
     opacity: 0.5,
   },
 });

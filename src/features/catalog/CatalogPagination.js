@@ -2,7 +2,7 @@ import { ActivityIndicator, StyleSheet, View } from 'react-native';
 import { Text } from '../../components/Text';
 import { useTheme } from '../../context/ThemeContext';
 import { AnimatedButton } from '../../components/Button';
-import { colors } from '../../theme/tokens';
+import { colors, layout } from '../../theme/tokens';
 
 function PaginationButton({ label, onPress, isDisabled, isDark }) {
   return (
@@ -89,13 +89,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    paddingVertical: 16,
-    marginTop: 16,
+    paddingVertical: layout.spacing.lg,
+    marginTop: layout.spacing.lg,
   },
   button: {
     width: 120,
     height: 44,
-    borderRadius: 8,
+    borderRadius: layout.radii.sm,
     borderWidth: 1,
     alignItems: 'center',
     justifyContent: 'center',
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
     opacity: 0.5,
   },
   pageInfo: {
-    marginHorizontal: 12,
+    marginHorizontal: layout.spacing.md,
     minWidth: 110,
     alignItems: 'center',
   },

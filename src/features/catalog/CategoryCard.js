@@ -49,15 +49,15 @@ function useCategoryContent(item, lang) {
 
 function getMobileStyleOverrides(isMobile) {
   if (!isMobile) return { bottom: undefined, logo: undefined, desc: undefined };
-  return { bottom: { bottom: 12, left: 12, right: 12 }, logo: undefined, desc: undefined };
+  return { bottom: { bottom: layout.spacing.md, left: layout.spacing.md, right: layout.spacing.md }, logo: undefined, desc: undefined };
 }
 
 function getNativePlatformStyles(isWeb) {
   if (isWeb) return { textShadow: undefined, overlay: undefined, descColor: undefined };
   return {
-    textShadow: { textShadowColor: 'rgba(0, 0, 0, 0.85)', textShadowOffset: { width: 0, height: 1 }, textShadowRadius: 5 },
-    overlay: { backgroundColor: 'rgba(0, 0, 0, 0.4)' },
-    descColor: '#F3F3F3',
+    textShadow: { textShadowColor: colors.overlayDark, textShadowOffset: { width: 0, height: 1 }, textShadowRadius: 5 },
+    overlay: { backgroundColor: colors.overlayScrim },
+    descColor: colors.white,
   };
 }
 

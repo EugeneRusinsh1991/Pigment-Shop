@@ -1,9 +1,9 @@
 ===================================================================
          3. HARDCODED STYLES, COLORS & SPACING REPORT              
-Timestamp: 27.07.2026, 00:55:17
+Timestamp: 27.07.2026, 01:05:56
 ===================================================================
 
-Found 980 issue(s) across 137 file(s):
+Found 933 issue(s) across 132 file(s):
 
 File: src\AppStyles.js
   L113   [HARDCODED_SPACING] paddingHorizontal 0px -> paddingHorizontal: 0,
@@ -630,7 +630,11 @@ File: src\components\icons\ControlIcons.js
   L172   [INLINE_STYLE] return <RNText style={getTextStyle(color, size, style)} {...props}>🗑️</RNText>;
 
 File: src\components\Media\GifRenderer.js
+  L13    [INLINE_STYLE] style={StyleSheet.flatten([
   L40    [INLINE_STYLE] style={style}
+
+File: src\components\Media\VideoRenderer.js
+  L79    [INLINE_STYLE] style={StyleSheet.flatten([
 
 File: src\components\Navigation\Breadcrumbs\Breadcrumb.js
   L20    [INLINE_STYLE] <Text style={textStyle} size="sm" weight="medium" numberOfLines={1}>
@@ -803,31 +807,15 @@ File: src\features\catalog\CatalogFilterSidebarStyles.js
   L101   [HARDCODED_SPACING] marginHorizontal 16px -> marginHorizontal: 16,
   L123   [HARDCODED_SPACING] paddingVertical 4px -> paddingVertical: 4,
   L139   [HARDCODED_SPACING] paddingHorizontal 12px -> paddingHorizontal: 12,
-  L152   [HARDCODED_COLOR] rgba(0,0,0,0.45) -> backgroundColor: 'rgba(0,0,0,0.45)',
   L169   [HARDCODED_SPACING] paddingHorizontal 16px -> paddingHorizontal: 16,
   L192   [HARDCODED_SPACING] marginTop 16px -> marginTop: 16,
 
-File: src\features\catalog\CatalogHeader.js
-  L15    [HARDCODED_COLOR] #1F2937, #E5E7EB -> <View style={[styles.heroRight, isWide ? styles.heroRightWide : styles.heroRightMobile, { backgroundColor: isDark ? '#1F2937' : '#E5E7EB' }]} />
-
 File: src\features\catalog\CatalogListFooter.js
-  L36    [INLINE_STYLE] <View style={{ height: 40 }} />
+  L37    [INLINE_STYLE] <View style={{ height: layout.spacing.xxl }} />
 
 File: src\features\catalog\CatalogPage.js
   L67    [HARDCODED_SPACING] padding 0px -> <View style={[styles.main, isNarrow && { padding: 0, alignItems: 'center' }]}>
   L76    [INLINE_STYLE] <View style={{ flex: 1, minHeight: 0 }}>
-  L193   [HARDCODED_SPACING] paddingHorizontal 8px -> row: { flex: 1, minHeight: 0, flexDirection: 'row', width: '100%', maxWidth: 1330, alignSelf: 'center', paddingHorizontal: 8 },
-  L194   [HARDCODED_SPACING] padding 16px -> main: { flex: 1, minHeight: 0, padding: 16 },
-
-File: src\features\catalog\CatalogPagination.js
-  L92    [HARDCODED_SPACING] paddingVertical 16px -> paddingVertical: 16,
-  L93    [HARDCODED_SPACING] marginTop 16px -> marginTop: 16,
-  L98    [HARDCODED_SPACING] borderRadius 8px -> borderRadius: 8,
-  L121   [HARDCODED_SPACING] marginHorizontal 12px -> marginHorizontal: 12,
-
-File: src\features\catalog\CatalogSortBar.js
-  L45    [HARDCODED_SPACING] gap 8px -> gap: 8,
-  L46    [HARDCODED_SPACING] marginBottom 16px -> marginBottom: 16,
 
 File: src\features\catalog\CatalogView.js
   L23    [INLINE_STYLE] <View style={{ width: itemWidth, alignSelf: 'stretch' }}>
@@ -839,9 +827,6 @@ File: src\features\catalog\CatalogView.js
   L159   [INLINE_STYLE] <View style={{ flex: 1, justifyContent: 'flex-end' }}>
 
 File: src\features\catalog\CategoryCard.js
-  L58    [HARDCODED_COLOR] rgba(0, 0, 0, 0.85) -> textShadow: { textShadowColor: 'rgba(0, 0, 0, 0.85)', textShadowOffset: { width: 0, height: 1 }, textShadowRadius: 5 },
-  L59    [HARDCODED_COLOR] rgba(0, 0, 0, 0.4) -> overlay: { backgroundColor: 'rgba(0, 0, 0, 0.4)' },
-  L60    [HARDCODED_COLOR] #F3F3F3 -> descColor: '#F3F3F3',
   L133   [INLINE_STYLE] style={getCardStyle(cardHeight, activeIsBanner, style)}
   L136   [INLINE_STYLE] <View style={{ ...StyleSheet.absoluteFillObject, borderRadius: layout.radii.lg, overflow: 'hidden' }}>
   L144   [INLINE_STYLE] <View style={getContentStyle(computedStyles, activeIsBanner)}>
@@ -849,58 +834,41 @@ File: src\features\catalog\CategoryCard.js
   L146   [INLINE_STYLE] <Text style={getDescStyle(computedStyles, activeIsBanner)} numberOfLines={2} isDark={isDark}>{desc}</Text>
 
 File: src\features\catalog\categoryCardStyles.js
-  L7     [HARDCODED_SPACING] borderRadius 20px -> borderRadius: 20,
-  L8     [HARDCODED_SPACING] margin 8px -> margin: 8,
-  L23    [HARDCODED_COLOR] rgba(0, 0, 0, 0.25) -> backgroundColor: 'rgba(0, 0, 0, 0.25)',
-  L32    [HARDCODED_SPACING] marginBottom 4px -> marginBottom: 4,
   L41    [HARDCODED_SPACING] borderRadius 19px -> borderRadius: 19,
   L51    [HARDCODED_SPACING] marginHorizontal 0px -> marginHorizontal: 0,
-  L52    [HARDCODED_SPACING] marginVertical 8px -> marginVertical: 8,
 
 File: src\features\catalog\CategoryFilterList.js
   L15    [INLINE_STYLE] <View style={{ flex: 1 }}>
 
 File: src\features\catalog\components\NewArrivalsFooter.js
-  L42    [INLINE_STYLE] <View style={{ paddingVertical: 32, alignItems: 'center' }}>
-  L42    [HARDCODED_SPACING] paddingVertical 32px -> <View style={{ paddingVertical: 32, alignItems: 'center' }}>
-  L43    [INLINE_STYLE] <Text variant="body" color="muted" style={{ fontStyle: 'italic', textAlign: 'center' }}>
+  L40    [INLINE_STYLE] <View style={{ paddingVertical: 32, alignItems: 'center' }}>
+  L40    [HARDCODED_SPACING] paddingVertical 32px -> <View style={{ paddingVertical: 32, alignItems: 'center' }}>
+  L41    [INLINE_STYLE] <Text variant="body" color="muted" style={{ fontStyle: 'italic', textAlign: 'center' }}>
 
 File: src\features\catalog\GridHeaderFooter.js
-  L43    [INLINE_STYLE] style={itemStyle}
-  L49    [INLINE_STYLE] <Text style={textStyle}>
-  L58    [INLINE_STYLE] <View style={getSortDropdownStyles(isDark)}>
-  L80    [INLINE_STYLE] <View style={{ zIndex: 1000, position: 'relative' }}>
-  L81    [HARDCODED_SPACING] marginHorizontal 4px -> <View style={[sidebarStyles.mobileButtonsRow, { marginHorizontal: 4, gap: 8 }]}>
-  L83    [INLINE_STYLE] style={buttonStyle}
-  L86    [INLINE_STYLE] <Text style={textStyle}>
-  L92    [INLINE_STYLE] style={buttonStyle}
-  L95    [INLINE_STYLE] <Text style={textStyle}>
+  L44    [INLINE_STYLE] style={itemStyle}
+  L50    [INLINE_STYLE] <Text style={textStyle}>
+  L59    [INLINE_STYLE] <View style={getSortDropdownStyles(isDark)}>
+  L81    [INLINE_STYLE] <View style={{ zIndex: layout.zIndices.drawer, position: 'relative' }}>
+  L84    [INLINE_STYLE] style={buttonStyle}
+  L87    [INLINE_STYLE] <Text style={textStyle}>
+  L93    [INLINE_STYLE] style={buttonStyle}
+  L96    [INLINE_STYLE] <Text style={textStyle}>
 
 File: src\features\catalog\PlaceholderCard.js
-  L45    [INLINE_STYLE] <View style={{ flexDirection: 'row', flexWrap: 'wrap' }} key={`${gridKey}-${cols}`}>
   L47    [INLINE_STYLE] <View key={item.id} style={{ width: itemWidth }}>
 
 File: src\features\catalog\PriceRangeSlider.js
-  L55    [HARDCODED_COLOR] #1C1C1C, #FFFFFF -> const bg = isDark ? '#1C1C1C' : '#FFFFFF';
-  L126   [HARDCODED_COLOR] #E31B23 -> const activeColor = '#E31B23';
-  L127   [HARDCODED_COLOR] #242424, #e5d8d3 -> const inactiveColor = isDark ? '#242424' : '#e5d8d3';
-  L153   [HARDCODED_SPACING] marginVertical 8px -> marginVertical: 8,
-  L154   [HARDCODED_SPACING] paddingHorizontal 10px -> paddingHorizontal: 10,
-  L159   [HARDCODED_SPACING] borderRadius 2px -> borderRadius: 2,
-  L165   [HARDCODED_SPACING] borderRadius 2px -> borderRadius: 2,
-  L171   [HARDCODED_SPACING] borderRadius 10px -> borderRadius: 10,
+  L154   [HARDCODED_SPACING] marginVertical 8px -> marginVertical: 8,
+  L155   [HARDCODED_SPACING] paddingHorizontal 10px -> paddingHorizontal: 10,
+  L160   [HARDCODED_SPACING] borderRadius 2px -> borderRadius: 2,
+  L166   [HARDCODED_SPACING] borderRadius 2px -> borderRadius: 2,
+  L172   [HARDCODED_SPACING] borderRadius 10px -> borderRadius: 10,
 
 File: src\features\catalog\ProductGrid.js
-  L20    [INLINE_STYLE] <View style={{ width: itemWidth, alignSelf: 'stretch' }}>
-  L41    [INLINE_STYLE] style={isNarrow ? { alignSelf: 'center', width: gridWidth || '100%', minHeight: '100%' } : { width: '100%', minHeight: '100%' }}
-  L58    [HARDCODED_SPACING] paddingBottom 0px -> grid: { paddingBottom: 0 },
-  L59    [HARDCODED_SPACING] paddingVertical 48px -> empty: { paddingVertical: 48, alignItems: 'center' },
-
-File: src\features\catalog\SidebarUIComponents.js
-  L75    [INLINE_STYLE] style={{ marginTop: 12, width: '100%' }}
-  L75    [HARDCODED_SPACING] marginTop 12px -> style={{ marginTop: 12, width: '100%' }}
-  L87    [INLINE_STYLE] style={{ marginTop: 16, width: '100%' }}
-  L87    [HARDCODED_SPACING] marginTop 16px -> style={{ marginTop: 16, width: '100%' }}
+  L21    [INLINE_STYLE] <View style={{ width: itemWidth, alignSelf: 'stretch' }}>
+  L42    [INLINE_STYLE] style={isNarrow ? { alignSelf: 'center', width: gridWidth || '100%', minHeight: '100%' } : { width: '100%', minHeight: '100%' }}
+  L59    [HARDCODED_SPACING] paddingBottom 0px -> grid: { paddingBottom: 0 },
 
 File: src\features\contact\ContactPage.js
   L20    [HARDCODED_SPACING] paddingBottom 0px -> contentContainerStyle={[commonStyles.scrollContent, { paddingBottom: 0 }]}
@@ -960,39 +928,21 @@ File: src\features\favorites\FavoritesPageStyles.js
   L30    [HARDCODED_SPACING] marginBottom 8px -> marginBottom: 8,
 
 File: src\features\home\components\DiscountsSection.js
-  L17    [HARDCODED_SPACING] paddingHorizontal 8px -> paddingHorizontal: 8,
-  L18    [HARDCODED_SPACING] marginBottom 16px -> marginBottom: 16,
-  L22    [INLINE_STYLE] <ScrollFadeUp style={headerStyle}>
-  L67    [INLINE_STYLE] <View style={{ paddingVertical: 32, alignItems: 'center' }}>
-  L67    [HARDCODED_SPACING] paddingVertical 32px -> <View style={{ paddingVertical: 32, alignItems: 'center' }}>
-  L68    [INLINE_STYLE] <Text variant="body" color="muted" style={{ fontStyle: 'italic', textAlign: 'center' }}>
+  L23    [INLINE_STYLE] <ScrollFadeUp style={headerStyle}>
+  L68    [INLINE_STYLE] <View style={{ paddingVertical: layout.spacing.xxl, alignItems: 'center' }}>
+  L69    [INLINE_STYLE] <Text variant="body" color="muted" style={{ fontStyle: 'italic', textAlign: 'center' }}>
 
 File: src\features\home\components\FeaturedSections.js
-  L97    [HARDCODED_SPACING] marginRight 6px -> marginRight: 6,
-  L110   [HARDCODED_SPACING] marginHorizontal 16px -> marginHorizontal: 16,
-  L111   [HARDCODED_SPACING] marginVertical 8px -> marginVertical: 8,
   L112   [HARDCODED_SPACING] padding 18px -> padding: 18,
-  L113   [HARDCODED_SPACING] borderRadius 16px -> borderRadius: 16,
   L117   [HARDCODED_COLOR] rgba(0, 0, 0, 0.06) -> boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.06)',
-  L135   [HARDCODED_SPACING] marginTop 4px -> subtitle: { marginTop: 4, marginRight: 24 },
-  L143   [HARDCODED_SPACING] paddingHorizontal 8px -> paddingHorizontal: 8,
   L144   [HARDCODED_SPACING] paddingVertical 3px -> paddingVertical: 3,
-  L145   [HARDCODED_SPACING] borderRadius 8px -> borderRadius: 8,
-  L146   [HARDCODED_SPACING] marginRight 10px -> marginRight: 10,
 
 File: src\features\home\components\HeroCarousel\CarouselDots.js
   L35    [INLINE_STYLE] style={{
   L47    [INLINE_STYLE] <View style={localStyles.dotsContainer}>
-  L58    [HARDCODED_COLOR] rgba(255,255,255,0.3) -> isActive && { backgroundColor: 'rgba(255,255,255,0.3)', overflow: 'hidden' }
 
 File: src\features\home\components\HeroCarousel\CarouselLayers.js
   L16    [INLINE_STYLE] style={localStyles.imageFill}
-
-File: src\features\home\components\HeroCarousel\carouselStyles.js
-  L25    [HARDCODED_SPACING] borderRadius 22px -> borderRadius: 22,
-  L26    [HARDCODED_COLOR] rgba(28, 28, 28, 0.4) -> backgroundColor: 'rgba(28, 28, 28, 0.4)',
-  L49    [HARDCODED_SPACING] gap 8px -> gap: 8,
-  L53    [HARDCODED_SPACING] borderRadius 4px -> borderRadius: 4,
 
 File: src\features\home\components\HeroCarousel.js
   L37    [HARDCODED_SPACING] borderRadius 0px -> return { width: windowWidth, alignSelf: 'center', borderRadius: 0 };
@@ -1230,12 +1180,6 @@ File: src\features\shell\AppHeader\UserDropdown.js
 File: src\features\shell\AppHeader.js
   L53    [INLINE_STYLE] <View style={{ width: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', maxWidth: props.contentWidth, minWidth: 0, paddingHorizontal: layout.spacing.sm }}>
 
-File: src\features\shell\components\Footer.js
-  L29    [HARDCODED_SPACING] paddingTop 5px -> paddingTop: 5,
-  L30    [HARDCODED_SPACING] paddingBottom 3px -> paddingBottom: 3,
-  L31    [HARDCODED_SPACING] paddingHorizontal 16px -> paddingHorizontal: 16,
-  L67    [HARDCODED_SPACING] marginHorizontal 2px -> marginHorizontal: 2,
-
 File: src\features\shell\NavMenu\CategoryTreeNodeButtons.js
   L26    [INLINE_STYLE] style={StyleSheet.flatten([
   L30    [HARDCODED_SPACING] paddingVertical 10px -> { flex: 1, paddingVertical: 10, paddingLeft: layout.spacing.lg + indent, minHeight: 44 }
@@ -1256,6 +1200,5 @@ File: src\features\shell\NavMenu\NavMenuStyles.js
   L120   [HARDCODED_SPACING] gap 10px -> langRow: { flexDirection: 'row', gap: 10 },
 
 File: src\features\shell\StoreSearchHeader.js
-  L27    [INLINE_STYLE] <View style={{ width: '100%', maxWidth: contentWidth, minWidth: 0, overflow: 'visible', paddingHorizontal: 8 }}>
-  L27    [HARDCODED_SPACING] paddingHorizontal 8px -> <View style={{ width: '100%', maxWidth: contentWidth, minWidth: 0, overflow: 'visible', paddingHorizontal: 8 }}>
+  L28    [INLINE_STYLE] <View style={{ width: '100%', maxWidth: contentWidth, minWidth: 0, overflow: 'visible', paddingHorizontal: layout.spacing.sm }}>
 

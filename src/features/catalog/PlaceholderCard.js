@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { Link } from 'expo-router';
 import CategoryCard from './CategoryCard';
 import ProductCard from '../product/ProductCard';
@@ -42,7 +42,7 @@ export default PlaceholderCard;
 export const PlaceholderGrid = React.memo(function PlaceholderGrid({ data, cols, gridKey, isDark, favs }) {
   const itemWidth = `${(100 / cols).toFixed(4)}%`;
   return (
-    <View style={{ flexDirection: 'row', flexWrap: 'wrap' }} key={`${gridKey}-${cols}`}>
+    <View style={styles.gridRow} key={`${gridKey}-${cols}`}>
       {data.map((item) => (
         <View key={item.id} style={{ width: itemWidth }}>
           <PlaceholderCard
@@ -56,4 +56,11 @@ export const PlaceholderGrid = React.memo(function PlaceholderGrid({ data, cols,
       ))}
     </View>
   );
+});
+
+const styles = StyleSheet.create({
+  gridRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  },
 });

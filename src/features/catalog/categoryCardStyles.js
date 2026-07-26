@@ -1,11 +1,11 @@
 import { StyleSheet } from 'react-native';
-import { colors } from '../../theme/tokens';
+import { colors, layout } from '../../theme/tokens';
 
 export default StyleSheet.create({
   catCard: {
     flex: 1,
-    borderRadius: 20,
-    margin: 8,
+    borderRadius: layout.radii.lg,
+    margin: layout.spacing.sm,
     overflow: 'hidden',
     position: 'relative',
   },
@@ -20,22 +20,22 @@ export default StyleSheet.create({
   },
   overlay: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: 'rgba(0, 0, 0, 0.25)',
+    backgroundColor: colors.overlayScrim,
   },
   catContent: {
     position: 'absolute',
-    bottom: 24,
-    left: 24,
-    right: 24,
+    bottom: layout.spacing.xl,
+    left: layout.spacing.xl,
+    right: layout.spacing.xl,
   },
   catLabel: {
-    marginBottom: 4,
+    marginBottom: layout.spacing.xxs,
   },
   catDesc: {},
   arrowCircle: {
     position: 'absolute',
-    bottom: 24,
-    right: 24,
+    bottom: layout.spacing.xl,
+    right: layout.spacing.xl,
     width: 38,
     height: 38,
     borderRadius: 19,
@@ -49,7 +49,7 @@ export default StyleSheet.create({
   bannerCard: {
     width: '100%',
     marginHorizontal: 0,
-    marginVertical: 8,
+    marginVertical: layout.spacing.sm,
   },
   bannerContent: {
     bottom: 20,

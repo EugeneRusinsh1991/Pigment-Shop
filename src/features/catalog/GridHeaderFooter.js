@@ -4,6 +4,7 @@ import sidebarStyles from './CatalogFilterSidebarStyles';
 import { SORT_OPTIONS } from './useCatalogFilters';
 import CatalogPagination from './CatalogPagination';
 import { AnimatedButton } from '../../components/Button';
+import { layout } from '../../theme/tokens';
 
 const getSortItemStyles = (isSelected, isDark) => {
   const itemStyle = [
@@ -20,7 +21,7 @@ const getSortItemStyles = (isSelected, isDark) => {
 const getSortDropdownStyles = (isDark) => [
   sidebarStyles.sortDropdown,
   isDark ? sidebarStyles.sortDropdownDark : sidebarStyles.sortDropdownLight,
-  { top: 54, right: 4, width: 165 },
+  { top: 54, right: layout.spacing.xxs, width: 165 },
 ];
 
 const getGridHeaderStyles = (isDark) => {
@@ -77,8 +78,8 @@ export function GridHeader({ isNarrow, isDark, onMobileToggle, sortDropdownVisib
   const { buttonStyle, textStyle } = getGridHeaderStyles(isDark);
 
   return (
-    <View style={{ zIndex: 1000, position: 'relative' }}>
-      <View style={[sidebarStyles.mobileButtonsRow, { marginHorizontal: 4, gap: 8 }]}>
+    <View style={{ zIndex: layout.zIndices.drawer, position: 'relative' }}>
+      <View style={[sidebarStyles.mobileButtonsRow, { marginHorizontal: layout.spacing.xxs, gap: layout.spacing.sm }]}>
         <AnimatedButton
           style={buttonStyle}
           onPress={onMobileToggle}

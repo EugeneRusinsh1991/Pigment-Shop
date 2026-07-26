@@ -334,7 +334,7 @@
   - Line [15](file:///D:/Magazine/_PigmentShop/src/features/cart/CartViewContent.js#L15): `<Text>` -> `[Dynamic Content]`
 
 ### File: [src/features/catalog/CatalogHeader.js](file:///D:/Magazine/_PigmentShop/src/features/catalog/CatalogHeader.js)
-  - Line [34](file:///D:/Magazine/_PigmentShop/src/features/catalog/CatalogHeader.js#L34): `<Text>` -> `[Dynamic Content]`
+  - Line [35](file:///D:/Magazine/_PigmentShop/src/features/catalog/CatalogHeader.js#L35): `<Text>` -> `[Dynamic Content]`
 
 ### File: [src/features/catalog/CatalogPagination.js](file:///D:/Magazine/_PigmentShop/src/features/catalog/CatalogPagination.js)
   - Line [18](file:///D:/Magazine/_PigmentShop/src/features/catalog/CatalogPagination.js#L18): `<Text>` -> `[Dynamic Content]`
@@ -347,12 +347,12 @@
   - Line [146](file:///D:/Magazine/_PigmentShop/src/features/catalog/CategoryCard.js#L146): `<Text>` -> `[Dynamic Content]`
 
 ### File: [src/features/catalog/GridHeaderFooter.js](file:///D:/Magazine/_PigmentShop/src/features/catalog/GridHeaderFooter.js)
-  - Line [49](file:///D:/Magazine/_PigmentShop/src/features/catalog/GridHeaderFooter.js#L49): `<Text>` -> `[Dynamic Content]`
-  - Line [86](file:///D:/Magazine/_PigmentShop/src/features/catalog/GridHeaderFooter.js#L86): `<Text>` -> `[Dynamic Content]`
-  - Line [95](file:///D:/Magazine/_PigmentShop/src/features/catalog/GridHeaderFooter.js#L95): `<Text>` -> `[Dynamic Content]`
+  - Line [50](file:///D:/Magazine/_PigmentShop/src/features/catalog/GridHeaderFooter.js#L50): `<Text>` -> `[Dynamic Content]`
+  - Line [87](file:///D:/Magazine/_PigmentShop/src/features/catalog/GridHeaderFooter.js#L87): `<Text>` -> `[Dynamic Content]`
+  - Line [96](file:///D:/Magazine/_PigmentShop/src/features/catalog/GridHeaderFooter.js#L96): `<Text>` -> `[Dynamic Content]`
 
 ### File: [src/features/catalog/components/NewArrivalsFooter.js](file:///D:/Magazine/_PigmentShop/src/features/catalog/components/NewArrivalsFooter.js)
-  - Line [43](file:///D:/Magazine/_PigmentShop/src/features/catalog/components/NewArrivalsFooter.js#L43): `<Text>` -> `[Dynamic Content]`
+  - Line [41](file:///D:/Magazine/_PigmentShop/src/features/catalog/components/NewArrivalsFooter.js#L41): `<Text>` -> `[Dynamic Content]`
 
 ### File: [src/features/contact/ContactQuestionForm.js](file:///D:/Magazine/_PigmentShop/src/features/contact/ContactQuestionForm.js)
   - Line [67](file:///D:/Magazine/_PigmentShop/src/features/contact/ContactQuestionForm.js#L67): `<Text>` -> `[Dynamic Content]`
@@ -362,7 +362,7 @@
   - Line [34](file:///D:/Magazine/_PigmentShop/src/features/contact/SocialButtons.js#L34): `<Text>` -> `✈️`
 
 ### File: [src/features/home/components/DiscountsSection.js](file:///D:/Magazine/_PigmentShop/src/features/home/components/DiscountsSection.js)
-  - Line [68](file:///D:/Magazine/_PigmentShop/src/features/home/components/DiscountsSection.js#L68): `<Text>` -> `[Dynamic Content]`
+  - Line [69](file:///D:/Magazine/_PigmentShop/src/features/home/components/DiscountsSection.js#L69): `<Text>` -> `[Dynamic Content]`
 
 ### File: [src/features/home/components/FeaturedSections.js](file:///D:/Magazine/_PigmentShop/src/features/home/components/FeaturedSections.js)
   - Line [57](file:///D:/Magazine/_PigmentShop/src/features/home/components/FeaturedSections.js#L57): `<Text>` -> `:`

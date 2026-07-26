@@ -2,6 +2,7 @@ import React, { useCallback } from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
 import { Link } from 'expo-router';
 import ProductCard from '../product/ProductCard';
+import { layout } from '../../theme/tokens';
 
 import { EmptyState as GlobalEmptyState } from '../../components/Feedback';
 
@@ -42,7 +43,7 @@ export default function ProductGrid({ products, cols, cardWidth, isDark, onCardP
       renderItem={renderItem}
       contentContainerStyle={[styles.grid, { flexGrow: 1, minHeight: '100%' }]}
       ListHeaderComponent={listHeader}
-      ListHeaderComponentStyle={isNarrow ? { zIndex: 1000, elevation: 1000, position: 'relative' } : undefined}
+      ListHeaderComponentStyle={isNarrow ? { zIndex: layout.zIndices.drawer, elevation: layout.zIndices.drawer, position: 'relative' } : undefined}
       ListFooterComponent={listFooter}
       ListEmptyComponent={<EmptyCatalogState isDark={isDark} label={emptyLabel} />}
       showsVerticalScrollIndicator={!isNarrow}
@@ -56,5 +57,5 @@ export default function ProductGrid({ products, cols, cardWidth, isDark, onCardP
 
 const styles = StyleSheet.create({
   grid: { paddingBottom: 0 },
-  empty: { paddingVertical: 48, alignItems: 'center' },
+  empty: { paddingVertical: layout.spacing.xxl, alignItems: 'center' },
 });

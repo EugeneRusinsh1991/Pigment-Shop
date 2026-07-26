@@ -8,15 +8,16 @@ import { getDeviceTier } from '@/utils/layout';
 import { useRouter } from 'expo-router';
 import styles from '@/AppStyles';
 import { ScrollFadeUp } from '@/components/Motion';
+import { layout } from '@/theme/tokens';
 
 function DiscountsHeader({ isWide, isDark, title }) {
   const headerStyle = {
     flexDirection: isWide ? 'row' : 'column',
     justifyContent: 'space-between',
     alignItems: isWide ? 'center' : 'flex-start',
-    paddingHorizontal: 8,
-    marginBottom: 16,
-    gap: isWide ? 0 : 8,
+    paddingHorizontal: layout.spacing.sm,
+    marginBottom: layout.spacing.lg,
+    gap: isWide ? 0 : layout.spacing.sm,
   };
   return (
     <ScrollFadeUp style={headerStyle}>
@@ -64,7 +65,7 @@ export default function DiscountsSection({ isDark, isWide, t, onCardPress, favs 
     <View style={styles.footerProductsSection}>
       <DiscountsHeader isWide={isWide} isDark={isDark} title={t.discounts} />
       {discountedProducts.length === 0 ? (
-        <View style={{ paddingVertical: 32, alignItems: 'center' }}>
+        <View style={{ paddingVertical: layout.spacing.xxl, alignItems: 'center' }}>
           <Text variant="body" color="muted" style={{ fontStyle: 'italic', textAlign: 'center' }}>
             {t.emptyDiscounts}
           </Text>

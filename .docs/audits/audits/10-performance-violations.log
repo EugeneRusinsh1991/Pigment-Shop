@@ -1,6 +1,6 @@
 ===================================================================
                10. STATE & PERFORMANCE REPORT                      
-Timestamp: 27.07.2026, 00:55:18
+Timestamp: 27.07.2026, 01:05:57
 ===================================================================
 
 Found 29 performance issue(s) across 13 file(s):
@@ -48,10 +48,10 @@ File: src/context/ThemeContext.js
   L17    const value = useMemo(() => ({ theme, isDark, togg...
 
 File: src/features/catalog/components/NewArrivalsFooter.js
-  L56    const newArrivals = useMemo(() => flatList.filter(...
+  L54    const newArrivals = useMemo(() => flatList.filter(...
 
 File: src/features/home/components/DiscountsSection.js
-  L44    const discountedProducts = useMemo(() => flatList....
+  L45    const discountedProducts = useMemo(() => flatList....
 
 File: src/features/product/ProductCard.js
   L63    const themed = useMemo(() => getThemedStyles(isDar...

@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import { Platform, StyleSheet, View } from 'react-native';
 import { Text } from '@/components/Text';
 import { useTheme } from '@/context/ThemeContext';
-import { colors } from '@/theme/tokens';
+import { colors, layout } from '@/theme/tokens';
 
 const setElementText = (ref, text) => {
   if (!ref.current) return;
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   compactTimerLabel: {
-    marginRight: 6,
+    marginRight: layout.spacing.xs,
   },
   compactTimerLabelDark: { color: colors.textDescDark },
   compactTimerLabelLight: { color: colors.textSubtleDark },
@@ -107,10 +107,10 @@ const styles = StyleSheet.create({
 
   // Card Styles
   card: {
-    marginHorizontal: 16,
-    marginVertical: 8,
+    marginHorizontal: layout.spacing.lg,
+    marginVertical: layout.spacing.sm,
     padding: 18,
-    borderRadius: 16,
+    borderRadius: layout.radii.md,
     borderWidth: 1,
     ...Platform.select({
       web: {
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
         shadowRadius: 8,
       },
     }),
-    elevation: 2,
+    elevation: layout.elevation.sm,
   },
   cardDark: { backgroundColor: colors.secondaryDarkBg, borderColor: colors.secondaryDarkBorder },
   cardLight: { backgroundColor: colors.surfaceLight, borderColor: colors.secondaryLightBorder },
@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
   title: {},
   titleDark: { color: colors.slateMid },
   titleLight: { color: colors.textStrongDark },
-  subtitle: { marginTop: 4, marginRight: 24 },
+  subtitle: { marginTop: layout.spacing.xxs, marginRight: layout.spacing.xl },
   subtitleDark: { color: colors.textDescDark },
   subtitleLight: { color: colors.textSubtleDark },
   arrow: {},
@@ -140,10 +140,10 @@ const styles = StyleSheet.create({
   arrowLight: { color: colors.purpleMid },
 
   badge: {
-    paddingHorizontal: 8,
+    paddingHorizontal: layout.spacing.sm,
     paddingVertical: 3,
-    borderRadius: 8,
-    marginRight: 10,
+    borderRadius: layout.radii.sm,
+    marginRight: layout.spacing.md,
   },
   badgeText: { color: colors.white },
   accentBlue: { backgroundColor: colors.infoMid },

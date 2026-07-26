@@ -7,7 +7,6 @@ import { getDeviceTier } from '@/utils/layout';
 import { useRouter } from 'expo-router';
 import styles from '@/AppStyles';
 import { ScrollFadeUp } from '@/components/Motion';
-import { colors } from '@/theme/tokens';
 
 function getColsAndLimit(tier) {
   if (tier === 'desktop') {
@@ -37,7 +36,6 @@ function getDisplayData(newArrivals, limit, viewAllNewText, onNavPress) {
 }
 
 function EmptyArrivalsMessage({ isDark, text }) {
-  const textColor = isDark ? colors.textDescDark : colors.textSubtleDark;
   return (
     <View style={{ paddingVertical: 32, alignItems: 'center' }}>
       <Text variant="body" color="muted" style={{ fontStyle: 'italic', textAlign: 'center' }}>

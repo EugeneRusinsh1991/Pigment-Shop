@@ -1,9 +1,9 @@
 ===================================================================
                8. MAGIC NUMBERS REPORT                             
-Timestamp: 27.07.2026, 00:55:17
+Timestamp: 27.07.2026, 01:05:57
 ===================================================================
 
-Found 116 magic number issue(s) across 34 file(s):
+Found 112 magic number issue(s) across 33 file(s):
 
 File: src\components\Admin\Analytics\DateRangeCalendarStyles.js
   L58    Off-grid marginVertical: 1px
@@ -138,7 +138,7 @@ File: src\features\catalog\CatalogFilterSidebarStyles.js
   L40    Off-grid paddingVertical: 6px
 
 File: src\features\catalog\PriceRangeSlider.js
-  L154   Off-grid paddingHorizontal: 10px
+  L155   Off-grid paddingHorizontal: 10px
 
 File: src\features\contact\ContactPageStyles.js
   L41    Off-grid gap: 10px
@@ -146,10 +146,8 @@ File: src\features\contact\ContactPageStyles.js
   L71    Off-grid padding: 14px
 
 File: src\features\home\components\FeaturedSections.js
-  L97    Off-grid marginRight: 6px
   L112   Off-grid padding: 18px
   L144   Off-grid paddingVertical: 3px
-  L146   Off-grid marginRight: 10px
 
 File: src\features\orders\OrdersPageStyles.js
   L92    Off-grid paddingVertical: 6px
@@ -171,10 +169,6 @@ File: src\features\profile\ProfileFormCard.js
 
 File: src\features\profile\ProfilePageStyles.js
   L60    Off-grid marginTop: 6px
-
-File: src\features\shell\components\Footer.js
-  L29    Off-grid paddingTop: 5px
-  L30    Off-grid paddingBottom: 3px
 
 File: src\features\shell\NavMenu\CategoryTreeNodeButtons.js
   L30    Off-grid paddingVertical: 10px

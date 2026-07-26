@@ -1,9 +1,9 @@
 ===================================================================
                FILES WITH ISSUES REPORT                            
-Timestamp: 27.07.2026, 00:55:17
+Timestamp: 27.07.2026, 01:05:57
 ===================================================================
 
-Found 116 issue(s) across 34 target(s):
+Found 112 issue(s) across 33 target(s):
 
 - src\components\Admin\Analytics\DateRangeCalendarStyles.js (1 issues)
 - src\components\Admin\Banners\BannersStyles.js (2 issues)
@@ -28,14 +28,13 @@ Found 116 issue(s) across 34 target(s):
 - src\features\catalog\CatalogFilterSidebarStyles.js (2 issues)
 - src\features\catalog\PriceRangeSlider.js (1 issues)
 - src\features\contact\ContactPageStyles.js (3 issues)
-- src\features\home\components\FeaturedSections.js (4 issues)
+- src\features\home\components\FeaturedSections.js (2 issues)
 - src\features\orders\OrdersPageStyles.js (2 issues)
 - src\features\product\ProductCardStyles.js (1 issues)
 - src\features\product\ProductPageStyles.js (2 issues)
 - src\features\product\ProductReviewsStyles.js (2 issues)
 - src\features\profile\ProfileFormCard.js (1 issues)
 - src\features\profile\ProfilePageStyles.js (1 issues)
-- src\features\shell\components\Footer.js (2 issues)
 - src\features\shell\NavMenu\CategoryTreeNodeButtons.js (1 issues)
 - src\features\shell\NavMenu\LanguageSelector.js (2 issues)
 - src\features\shell\NavMenu\NavMenuStyles.js (4 issues)

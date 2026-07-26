@@ -3,7 +3,7 @@ import { View, Animated } from 'react-native';
 import { localStyles } from './carouselStyles';
 import { getMediaType } from '@/media/MediaTypeDetector';
 import { AnimatedButton } from '@/components/Button';
-import { colors } from '@/theme/tokens';
+import { colors, layout } from '@/theme/tokens';
 
 function ActiveDotProgress({ isVideo, videoProgress }) {
   const progressAnim = useRef(new Animated.Value(0)).current;
@@ -55,10 +55,10 @@ export function CarouselDots({ banners, currentIndex, handleSwitch, videoProgres
             style={[
               localStyles.dot,
               isActive ? localStyles.dotActive : localStyles.dotInactive,
-              isActive && { backgroundColor: 'rgba(255,255,255,0.3)', overflow: 'hidden' }
+              isActive && { backgroundColor: colors.overlayScrim, overflow: 'hidden' }
             ]}
             onPress={() => handleSwitch(index)}
-            hitSlop={{ top: 18, bottom: 18, left: 12, right: 12 }}
+            hitSlop={{ top: layout.spacing.lg, bottom: layout.spacing.lg, left: layout.spacing.md, right: layout.spacing.md }}
           >
             {isActive && (
               <ActiveDotProgress isVideo={isVideo} videoProgress={videoProgress} />

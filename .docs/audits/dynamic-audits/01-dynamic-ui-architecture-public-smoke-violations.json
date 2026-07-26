@@ -345,6 +345,51 @@
         "url": "http://localhost:8081/",
         "message": "Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.",
         "selector": "button.css-view-g5y9jx.r-cursor-1loqt21.r-touchAction-1otgn73.r-flex-13awgt0"
+      },
+      {
+        "url": "http://localhost:8081/",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-opacity-6dt33c.r-width-rwqe4o"
+      },
+      {
+        "url": "http://localhost:8081/",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 48x8",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-opacity-6dt33c.r-width-rwqe4o"
+      },
+      {
+        "url": "http://localhost:8081/",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 8x8",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-backgroundColor-14lw9ot.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-opacity-icoktb.r-width-1jg9483"
+      },
+      {
+        "url": "http://localhost:8081/",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-backgroundColor-9vfp0p.r-borderRadius-y47klf.r-height-1ugchlj.r-justifyContent-1777fci.r-marginTop-m93i5p.r-position-u8s1d.r-top-1v2oles.r-width-usgzl9.r-zIndex-1s3egr7.r-left-161ttwi"
+      },
+      {
+        "url": "http://localhost:8081/",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-backgroundColor-9vfp0p.r-borderRadius-y47klf.r-height-1ugchlj.r-justifyContent-1777fci.r-marginTop-m93i5p.r-position-u8s1d.r-top-1v2oles.r-width-usgzl9.r-zIndex-1s3egr7.r-right-1pgswnq"
+      },
+      {
+        "url": "http://localhost:8081/",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-opacity-6dt33c.r-width-rwqe4o"
+      },
+      {
+        "url": "http://localhost:8081/",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-backgroundColor-14lw9ot.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-opacity-icoktb.r-width-1jg9483"
+      },
+      {
+        "url": "http://localhost:8081/",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 9x8",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-backgroundColor-14lw9ot.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-opacity-icoktb.r-width-1jg9483"
+      },
+      {
+        "url": "http://localhost:8081/",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 47x8",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-opacity-6dt33c.r-width-rwqe4o"
       }
     ],
     "http://localhost:8081/catalog": [
@@ -591,6 +636,46 @@
       {
         "url": "http://localhost:8081/catalog",
         "message": "i18n: Potential hardcoded text string found: \"Subcategory 1-2 EN\" without data-i18n tracking.",
+        "selector": "h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-eaezby.r-marginBottom-15zivkp"
+      },
+      {
+        "url": "http://localhost:8081/catalog",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-opacity-6dt33c.r-width-rwqe4o"
+      },
+      {
+        "url": "http://localhost:8081/catalog",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-backgroundColor-9vfp0p.r-borderRadius-y47klf.r-height-1ugchlj.r-justifyContent-1777fci.r-marginTop-m93i5p.r-position-u8s1d.r-top-1v2oles.r-width-usgzl9.r-zIndex-1s3egr7.r-left-161ttwi"
+      },
+      {
+        "url": "http://localhost:8081/catalog",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-backgroundColor-9vfp0p.r-borderRadius-y47klf.r-height-1ugchlj.r-justifyContent-1777fci.r-marginTop-m93i5p.r-position-u8s1d.r-top-1v2oles.r-width-usgzl9.r-zIndex-1s3egr7.r-right-1pgswnq"
+      },
+      {
+        "url": "http://localhost:8081/catalog",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-opacity-6dt33c.r-width-rwqe4o"
+      },
+      {
+        "url": "http://localhost:8081/catalog",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-backgroundColor-14lw9ot.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-opacity-icoktb.r-width-1jg9483"
+      },
+      {
+        "url": "http://localhost:8081/catalog",
+        "message": "i18n: Potential hardcoded text string found: \"Category 2 RU\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/catalog",
+        "message": "i18n: Potential hardcoded text string found: \"Subcategory 2-1 EN\" without data-i18n tracking.",
+        "selector": "h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-eaezby.r-marginBottom-15zivkp"
+      },
+      {
+        "url": "http://localhost:8081/catalog",
+        "message": "i18n: Potential hardcoded text string found: \"Subcategory 2-2 EN\" without data-i18n tracking.",
         "selector": "h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-eaezby.r-marginBottom-15zivkp"
       }
     ],
@@ -849,6 +934,31 @@
         "url": "http://localhost:8081/catalog/cat-root-0",
         "message": "i18n: Potential hardcoded text string found: \"Subcategory 1-2 EN\" without data-i18n tracking.",
         "selector": "h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-eaezby.r-marginBottom-15zivkp"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-opacity-6dt33c.r-width-rwqe4o"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-backgroundColor-9vfp0p.r-borderRadius-y47klf.r-height-1ugchlj.r-justifyContent-1777fci.r-marginTop-m93i5p.r-position-u8s1d.r-top-1v2oles.r-width-usgzl9.r-zIndex-1s3egr7.r-left-161ttwi"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-backgroundColor-9vfp0p.r-borderRadius-y47klf.r-height-1ugchlj.r-justifyContent-1777fci.r-marginTop-m93i5p.r-position-u8s1d.r-top-1v2oles.r-width-usgzl9.r-zIndex-1s3egr7.r-right-1pgswnq"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-backgroundColor-14lw9ot.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-opacity-icoktb.r-width-1jg9483"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-opacity-6dt33c.r-width-rwqe4o"
       }
     ],
     "http://localhost:8081/catalog/cat-root-0-sub-0": [
@@ -1131,6 +1241,31 @@
         "url": "http://localhost:8081/catalog/cat-root-0-sub-0",
         "message": "i18n: Potential hardcoded text string found: \"Group 1-1-2 EN\" without data-i18n tracking.",
         "selector": "h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-eaezby.r-marginBottom-15zivkp"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0-sub-0",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-opacity-6dt33c.r-width-rwqe4o"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0-sub-0",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-backgroundColor-9vfp0p.r-borderRadius-y47klf.r-height-1ugchlj.r-justifyContent-1777fci.r-marginTop-m93i5p.r-position-u8s1d.r-top-1v2oles.r-width-usgzl9.r-zIndex-1s3egr7.r-left-161ttwi"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0-sub-0",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-backgroundColor-9vfp0p.r-borderRadius-y47klf.r-height-1ugchlj.r-justifyContent-1777fci.r-marginTop-m93i5p.r-position-u8s1d.r-top-1v2oles.r-width-usgzl9.r-zIndex-1s3egr7.r-right-1pgswnq"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0-sub-0",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-backgroundColor-14lw9ot.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-opacity-icoktb.r-width-1jg9483"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0-sub-0",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-opacity-6dt33c.r-width-rwqe4o"
       }
     ],
     "http://localhost:8081/catalog/cat-root-0-sub-1": [
@@ -1418,6 +1553,31 @@
         "url": "http://localhost:8081/catalog/cat-root-0-sub-1",
         "message": "i18n: Potential hardcoded text string found: \"Group 1-2-2 EN\" without data-i18n tracking.",
         "selector": "h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-eaezby.r-marginBottom-15zivkp"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0-sub-1",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-opacity-6dt33c.r-width-rwqe4o"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0-sub-1",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-backgroundColor-9vfp0p.r-borderRadius-y47klf.r-height-1ugchlj.r-justifyContent-1777fci.r-marginTop-m93i5p.r-position-u8s1d.r-top-1v2oles.r-width-usgzl9.r-zIndex-1s3egr7.r-left-161ttwi"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0-sub-1",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-backgroundColor-9vfp0p.r-borderRadius-y47klf.r-height-1ugchlj.r-justifyContent-1777fci.r-marginTop-m93i5p.r-position-u8s1d.r-top-1v2oles.r-width-usgzl9.r-zIndex-1s3egr7.r-right-1pgswnq"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0-sub-1",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-backgroundColor-14lw9ot.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-opacity-icoktb.r-width-1jg9483"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0-sub-1",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-opacity-6dt33c.r-width-rwqe4o"
       }
     ],
     "http://localhost:8081/catalog/cat-root-1": [
@@ -1675,6 +1835,907 @@
         "url": "http://localhost:8081/catalog/cat-root-1",
         "message": "i18n: Potential hardcoded text string found: \"Subcategory 2-2 EN\" without data-i18n tracking.",
         "selector": "h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-eaezby.r-marginBottom-15zivkp"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-opacity-6dt33c.r-width-rwqe4o"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-backgroundColor-9vfp0p.r-borderRadius-y47klf.r-height-1ugchlj.r-justifyContent-1777fci.r-marginTop-m93i5p.r-position-u8s1d.r-top-1v2oles.r-width-usgzl9.r-zIndex-1s3egr7.r-left-161ttwi"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-backgroundColor-9vfp0p.r-borderRadius-y47klf.r-height-1ugchlj.r-justifyContent-1777fci.r-marginTop-m93i5p.r-position-u8s1d.r-top-1v2oles.r-width-usgzl9.r-zIndex-1s3egr7.r-right-1pgswnq"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-opacity-6dt33c.r-width-rwqe4o"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-backgroundColor-14lw9ot.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-opacity-icoktb.r-width-1jg9483"
+      }
+    ],
+    "http://localhost:8081/catalog/cat-root-1-sub-0": [
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Design System: Hardcoded spacing/border-radius lacking spatial tokens.",
+        "selector": "div.css-view-g5y9jx"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Design System: Hardcoded spacing/border-radius lacking spatial tokens.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-justifyContent-1777fci.r-backgroundColor-1niwhzg"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Design System: Hardcoded spacing/border-radius lacking spatial tokens.",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-justifyContent-1777fci.r-backgroundColor-1niwhzg"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "div.css-view-g5y9jx.r-flex-13awgt0.r-bottom-1p0dtai.r-left-1d2f490.r-position-u8s1d.r-right-zchlnj.r-top-ipm5af"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "div.css-view-g5y9jx.r-flex-13awgt0"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Design System: Hardcoded spacing/border-radius lacking spatial tokens.",
+        "selector": "div.css-view-g5y9jx.r-paddingInline-1e084wi"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-opacity-6dt33c.r-width-rwqe4o"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "div.css-view-g5y9jx"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "div.css-view-g5y9jx.r-borderRadius-1867qdf.r-flexDirection-eqz5dr.r-overflow-1udh08x.r-position-bnwqim"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "div.css-view-g5y9jx.r-alignItems-1awozwy.r-alignSelf-k200y.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-justifyContent-1777fci"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Design System: Hardcoded spacing/border-radius lacking spatial tokens.",
+        "selector": "div.css-view-g5y9jx.r-alignItems-1awozwy.r-alignSelf-k200y.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-justifyContent-1777fci"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-1qxivpv.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Design System: Hardcoded spacing/border-radius lacking spatial tokens.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-justifyContent-1777fci.r-backgroundColor-n7aj9u"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Design System: Hardcoded spacing/border-radius lacking spatial tokens.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-justifyContent-1777fci.r-backgroundColor-wt1z2b"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Design System: Hardcoded spacing/border-radius lacking spatial tokens.",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "div.css-view-g5y9jx.r-flexDirection-eqz5dr.r-borderRadius-y47klf.r-flex-13awgt0.r-margin-hwh8t1.r-overflow-1udh08x.r-position-bnwqim"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Design System: Hardcoded spacing/border-radius lacking spatial tokens.",
+        "selector": "div"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Architecture: Raw `<img>` element used without MediaRenderer/Icon wrapper.",
+        "selector": "img.css-accessibilityImage-9pa8cd"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 116x32",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 40x40",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-justifyContent-1777fci.r-backgroundColor-1niwhzg"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 77x32",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 75x32",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 98x32",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 86x32",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 26x22",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 98x24",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 89x24",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 80x17",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-justifyContent-1777fci.r-backgroundColor-1niwhzg"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-justifyContent-1777fci.r-backgroundColor-1niwhzg"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-backgroundColor-9vfp0p.r-borderRadius-y47klf.r-height-1ugchlj.r-justifyContent-1777fci.r-marginTop-m93i5p.r-position-u8s1d.r-top-1v2oles.r-width-usgzl9.r-zIndex-1s3egr7.r-left-161ttwi"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-backgroundColor-9vfp0p.r-borderRadius-y47klf.r-height-1ugchlj.r-justifyContent-1777fci.r-marginTop-m93i5p.r-position-u8s1d.r-top-1v2oles.r-width-usgzl9.r-zIndex-1s3egr7.r-right-1pgswnq"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-opacity-6dt33c.r-width-rwqe4o"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-backgroundColor-14lw9ot.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-opacity-icoktb.r-width-1jg9483"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1867qdf.r-height-h3s6tt.r-paddingInline-cxgwc0.r-backgroundColor-a865k2.r-borderColor-169eryd"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-height-1pi2tsx.r-position-bnwqim.r-width-13qz1uu"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-justifyContent-1777fci.r-backgroundColor-n7aj9u"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-justifyContent-1777fci.r-backgroundColor-wt1z2b"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-flexShrink-1q142lx.r-justifyContent-1777fci.r-marginRight-88pszg.r-minHeight-peo1c.r-paddingBlock-cnw61z"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-backgroundColor-1gzzd1q.r-borderColor-1wq0cks.r-borderRadius-1fuqb1j.r-borderWidth-rs99b7.r-boxShadow-118c6o3.r-height-h3s6tt.r-justifyContent-1777fci.r-width-rwqe4o"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "i18n: Potential hardcoded text string found: \"Product 2-1-1-1 RU\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "i18n: Potential hardcoded text string found: \"Product 1-1-2-1 RU11111\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "i18n: Potential hardcoded text string found: \"Made by Noren Vox ©\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-color-1cucpzw.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-1cwl3u0"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "i18n: Potential hardcoded text string found: \"Category 1 EN\" without data-i18n tracking.",
+        "selector": "h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-eaezby.r-marginBottom-15zivkp"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "i18n: Potential hardcoded text string found: \"Category 2 EN\" without data-i18n tracking.",
+        "selector": "h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-eaezby.r-marginBottom-15zivkp"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "i18n: Potential hardcoded text string found: \"Category 2 EN\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-1s7ct43"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "i18n: Potential hardcoded text string found: \"Category 2 RU\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "i18n: Potential hardcoded text string found: \"Subcategory 2-1 EN\" without data-i18n tracking.",
+        "selector": "h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-eaezby.r-marginBottom-15zivkp"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "i18n: Potential hardcoded text string found: \"Subcategory 2-2 EN\" without data-i18n tracking.",
+        "selector": "h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-eaezby.r-marginBottom-15zivkp"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "i18n: Potential hardcoded text string found: \"Category 2 EN\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-12zy4o2"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "i18n: Potential hardcoded text string found: \"Subcategory 2-1 EN\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-1s7ct43"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "i18n: Potential hardcoded text string found: \"Subcategory 2-1 RU\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "i18n: Potential hardcoded text string found: \"Group 2-1-1 EN\" without data-i18n tracking.",
+        "selector": "h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-eaezby.r-marginBottom-15zivkp"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "i18n: Potential hardcoded text string found: \"Group 2-1-2 EN\" without data-i18n tracking.",
+        "selector": "h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-eaezby.r-marginBottom-15zivkp"
+      }
+    ],
+    "http://localhost:8081/catalog/cat-root-1-sub-1": [
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "Design System: Hardcoded spacing/border-radius lacking spatial tokens.",
+        "selector": "div.css-view-g5y9jx"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "Design System: Hardcoded spacing/border-radius lacking spatial tokens.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-justifyContent-1777fci.r-backgroundColor-1niwhzg"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "Design System: Hardcoded spacing/border-radius lacking spatial tokens.",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-justifyContent-1777fci.r-backgroundColor-1niwhzg"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "div.css-view-g5y9jx.r-flex-13awgt0.r-bottom-1p0dtai.r-left-1d2f490.r-position-u8s1d.r-right-zchlnj.r-top-ipm5af"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "div.css-view-g5y9jx.r-flex-13awgt0"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "Design System: Hardcoded spacing/border-radius lacking spatial tokens.",
+        "selector": "div.css-view-g5y9jx.r-paddingInline-1e084wi"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-opacity-6dt33c.r-width-rwqe4o"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "div.css-view-g5y9jx"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "div.css-view-g5y9jx.r-borderRadius-1867qdf.r-flexDirection-eqz5dr.r-overflow-1udh08x.r-position-bnwqim"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "div.css-view-g5y9jx.r-alignItems-1awozwy.r-alignSelf-k200y.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-justifyContent-1777fci"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "Design System: Hardcoded spacing/border-radius lacking spatial tokens.",
+        "selector": "div.css-view-g5y9jx.r-alignItems-1awozwy.r-alignSelf-k200y.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-justifyContent-1777fci"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-1qxivpv.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "Design System: Hardcoded spacing/border-radius lacking spatial tokens.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-justifyContent-1777fci.r-backgroundColor-n7aj9u"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "Design System: Hardcoded spacing/border-radius lacking spatial tokens.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-justifyContent-1777fci.r-backgroundColor-wt1z2b"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "Design System: Hardcoded spacing/border-radius lacking spatial tokens.",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "div.css-view-g5y9jx.r-flexDirection-eqz5dr.r-borderRadius-y47klf.r-flex-13awgt0.r-margin-hwh8t1.r-overflow-1udh08x.r-position-bnwqim"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "Design System: Hardcoded spacing/border-radius lacking spatial tokens.",
+        "selector": "div"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "Architecture: Raw `<img>` element used without MediaRenderer/Icon wrapper.",
+        "selector": "img.css-accessibilityImage-9pa8cd"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 116x32",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 40x40",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-justifyContent-1777fci.r-backgroundColor-1niwhzg"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 77x32",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 75x32",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 98x32",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 86x32",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 26x22",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 98x24",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 89x24",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 80x17",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-justifyContent-1777fci.r-backgroundColor-1niwhzg"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-justifyContent-1777fci.r-backgroundColor-1niwhzg"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-backgroundColor-9vfp0p.r-borderRadius-y47klf.r-height-1ugchlj.r-justifyContent-1777fci.r-marginTop-m93i5p.r-position-u8s1d.r-top-1v2oles.r-width-usgzl9.r-zIndex-1s3egr7.r-left-161ttwi"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-backgroundColor-9vfp0p.r-borderRadius-y47klf.r-height-1ugchlj.r-justifyContent-1777fci.r-marginTop-m93i5p.r-position-u8s1d.r-top-1v2oles.r-width-usgzl9.r-zIndex-1s3egr7.r-right-1pgswnq"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-opacity-6dt33c.r-width-rwqe4o"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-backgroundColor-14lw9ot.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-opacity-icoktb.r-width-1jg9483"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1867qdf.r-height-h3s6tt.r-paddingInline-cxgwc0.r-backgroundColor-a865k2.r-borderColor-169eryd"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-height-1pi2tsx.r-position-bnwqim.r-width-13qz1uu"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-justifyContent-1777fci.r-backgroundColor-n7aj9u"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-justifyContent-1777fci.r-backgroundColor-wt1z2b"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-flexShrink-1q142lx.r-justifyContent-1777fci.r-marginRight-88pszg.r-minHeight-peo1c.r-paddingBlock-cnw61z"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-backgroundColor-1gzzd1q.r-borderColor-1wq0cks.r-borderRadius-1fuqb1j.r-borderWidth-rs99b7.r-boxShadow-118c6o3.r-height-h3s6tt.r-justifyContent-1777fci.r-width-rwqe4o"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "i18n: Potential hardcoded text string found: \"Product 2-1-1-1 RU\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "i18n: Potential hardcoded text string found: \"Product 1-1-2-1 RU11111\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "i18n: Potential hardcoded text string found: \"Made by Noren Vox ©\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-color-1cucpzw.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-1cwl3u0"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "i18n: Potential hardcoded text string found: \"Category 1 EN\" without data-i18n tracking.",
+        "selector": "h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-eaezby.r-marginBottom-15zivkp"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "i18n: Potential hardcoded text string found: \"Category 2 EN\" without data-i18n tracking.",
+        "selector": "h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-eaezby.r-marginBottom-15zivkp"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "i18n: Potential hardcoded text string found: \"Category 2 EN\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-1s7ct43"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "i18n: Potential hardcoded text string found: \"Category 2 RU\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "i18n: Potential hardcoded text string found: \"Subcategory 2-1 EN\" without data-i18n tracking.",
+        "selector": "h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-eaezby.r-marginBottom-15zivkp"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "i18n: Potential hardcoded text string found: \"Subcategory 2-2 EN\" without data-i18n tracking.",
+        "selector": "h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-eaezby.r-marginBottom-15zivkp"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "i18n: Potential hardcoded text string found: \"Category 2 EN\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-12zy4o2"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "i18n: Potential hardcoded text string found: \"Subcategory 2-2 EN\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-1s7ct43"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "i18n: Potential hardcoded text string found: \"Subcategory 2-2 RU\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "i18n: Potential hardcoded text string found: \"Group 2-2-1 EN\" without data-i18n tracking.",
+        "selector": "h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-eaezby.r-marginBottom-15zivkp"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "i18n: Potential hardcoded text string found: \"Group 2-2-2 EN\" without data-i18n tracking.",
+        "selector": "h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-eaezby.r-marginBottom-15zivkp"
+      }
+    ],
+    "http://localhost:8081/products": [
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Design System: Hardcoded spacing/border-radius lacking spatial tokens.",
+        "selector": "div.css-view-g5y9jx"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Design System: Hardcoded spacing/border-radius lacking spatial tokens.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-justifyContent-1777fci.r-backgroundColor-1niwhzg"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Design System: Hardcoded spacing/border-radius lacking spatial tokens.",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-justifyContent-1777fci.r-backgroundColor-1niwhzg"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "div.css-view-g5y9jx.r-flex-13awgt0.r-bottom-1p0dtai.r-left-1d2f490.r-position-u8s1d.r-right-zchlnj.r-top-ipm5af"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "div.css-view-g5y9jx.r-flex-13awgt0"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Design System: Hardcoded spacing/border-radius lacking spatial tokens.",
+        "selector": "div.css-view-g5y9jx.r-paddingInline-1e084wi"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-opacity-6dt33c.r-width-rwqe4o"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "div.css-view-g5y9jx"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "div.css-view-g5y9jx.r-borderRadius-1867qdf.r-flexDirection-eqz5dr.r-overflow-1udh08x.r-position-bnwqim"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "div.css-view-g5y9jx.r-alignItems-1awozwy.r-alignSelf-k200y.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-justifyContent-1777fci"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Design System: Hardcoded spacing/border-radius lacking spatial tokens.",
+        "selector": "div.css-view-g5y9jx.r-alignItems-1awozwy.r-alignSelf-k200y.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-justifyContent-1777fci"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-1qxivpv.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Design System: Hardcoded spacing/border-radius lacking spatial tokens.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-justifyContent-1777fci.r-backgroundColor-n7aj9u"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Design System: Hardcoded spacing/border-radius lacking spatial tokens.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-justifyContent-1777fci.r-backgroundColor-wt1z2b"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "div.css-view-g5y9jx.r-borderRadius-1jkafct.r-height-hdaws3.r-justifyContent-1777fci.r-position-bnwqim"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "div.css-view-g5y9jx.r-borderRadius-1jkafct.r-height-hdaws3.r-position-u8s1d"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "div.css-view-g5y9jx.r-borderRadius-1dzdj1l.r-borderWidth-d045u9.r-cursor-1loqt21.r-height-z80fyv.r-position-u8s1d.r-top-1wghi3f.r-width-19wmn03"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Design System: Hardcoded spacing/border-radius lacking spatial tokens.",
+        "selector": "div.css-view-g5y9jx.r-backgroundColor-1ins33t.r-borderColor-1w15a45.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-width-13qz1uu"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "input.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-borderRadius-kdyh1x.r-borderWidth-rs99b7.r-paddingBlock-vuvdlw.r-paddingInline-is05cd.r-width-19554kt.r-backgroundColor-14lw9ot.r-borderColor-zj8kiy.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Design System: Hardcoded spacing/border-radius lacking spatial tokens.",
+        "selector": "div.css-view-g5y9jx.r-alignItems-1awozwy.r-flexDirection-18u37iz.r-minHeight-peo1c"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Design System: Hardcoded spacing/border-radius lacking spatial tokens.",
+        "selector": "div"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.",
+        "selector": "input.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-borderRadius-kdyh1x.r-borderWidth-rs99b7.r-paddingBlock-vuvdlw.r-paddingInline-is05cd.r-width-19554kt.r-backgroundColor-14lw9ot.r-borderColor-zj8kiy.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.",
+        "selector": "button.css-view-g5y9jx.r-touchAction-1otgn73.r-alignItems-1awozwy.r-cursor-1loqt21.r-flexDirection-18u37iz.r-justifyContent-1777fci.r-backgroundColor-14lw9ot.r-borderColor-1wr2p1e.r-borderRadius-y47klf.r-borderWidth-1rf8fdq.r-minHeight-15ysp7h.r-paddingBlock-vuvdlw.r-paddingInline-gu64tb"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-paddingInline-3pj75a.r-borderColor-1jl7vqb.r-alignItems-1awozwy.r-backgroundColor-wt1z2b.r-borderRadius-1xfd6ze.r-height-eu3ka.r-justifyContent-1777fci.r-marginTop-1s2bzr4.r-width-13qz1uu"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderRadius-kdyh1x.r-flex-13awgt0.r-height-1pi2tsx.r-justifyContent-1777fci.r-paddingInline-3o4zer.r-zIndex-184en5c"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Architecture: Raw `<img>` element used without MediaRenderer/Icon wrapper.",
+        "selector": "img.css-accessibilityImage-9pa8cd"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 116x32",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 40x40",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-justifyContent-1777fci.r-backgroundColor-1niwhzg"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 77x32",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 75x32",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 98x32",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 86x32",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 120x38",
+        "selector": "button.css-view-g5y9jx.r-touchAction-1otgn73.r-alignItems-1awozwy.r-cursor-1loqt21.r-flexDirection-18u37iz.r-justifyContent-1777fci.r-backgroundColor-14lw9ot.r-borderColor-1wr2p1e.r-borderRadius-y47klf.r-borderWidth-1rf8fdq.r-minHeight-15ysp7h.r-paddingBlock-vuvdlw.r-paddingInline-gu64tb"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 147x38",
+        "selector": "button.css-view-g5y9jx.r-touchAction-1otgn73.r-alignItems-1awozwy.r-cursor-1loqt21.r-flexDirection-18u37iz.r-justifyContent-1777fci.r-backgroundColor-14lw9ot.r-borderColor-1wr2p1e.r-borderRadius-y47klf.r-borderWidth-1rf8fdq.r-minHeight-15ysp7h.r-paddingBlock-vuvdlw.r-paddingInline-gu64tb"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 119x38",
+        "selector": "button.css-view-g5y9jx.r-touchAction-1otgn73.r-alignItems-1awozwy.r-cursor-1loqt21.r-flexDirection-18u37iz.r-justifyContent-1777fci.r-backgroundColor-14lw9ot.r-borderColor-1wr2p1e.r-borderRadius-y47klf.r-borderWidth-1rf8fdq.r-minHeight-15ysp7h.r-paddingBlock-vuvdlw.r-paddingInline-gu64tb"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 113x38",
+        "selector": "button.css-view-g5y9jx.r-touchAction-1otgn73.r-alignItems-1awozwy.r-cursor-1loqt21.r-flexDirection-18u37iz.r-justifyContent-1777fci.r-backgroundColor-14lw9ot.r-borderColor-1wr2p1e.r-borderRadius-y47klf.r-borderWidth-1rf8fdq.r-minHeight-15ysp7h.r-paddingBlock-vuvdlw.r-paddingInline-gu64tb"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 192x40",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-paddingInline-3pj75a.r-borderColor-1jl7vqb.r-alignItems-1awozwy.r-backgroundColor-wt1z2b.r-borderRadius-1xfd6ze.r-height-eu3ka.r-justifyContent-1777fci.r-marginTop-1s2bzr4.r-width-13qz1uu"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 155x28",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderRadius-kdyh1x.r-flex-13awgt0.r-height-1pi2tsx.r-justifyContent-1777fci.r-paddingInline-3o4zer.r-zIndex-184en5c"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 80x17",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-justifyContent-1777fci.r-backgroundColor-1niwhzg"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-justifyContent-1777fci.r-backgroundColor-1niwhzg"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-backgroundColor-9vfp0p.r-borderRadius-y47klf.r-height-1ugchlj.r-justifyContent-1777fci.r-marginTop-m93i5p.r-position-u8s1d.r-top-1v2oles.r-width-usgzl9.r-zIndex-1s3egr7.r-left-161ttwi"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-backgroundColor-9vfp0p.r-borderRadius-y47klf.r-height-1ugchlj.r-justifyContent-1777fci.r-marginTop-m93i5p.r-position-u8s1d.r-top-1v2oles.r-width-usgzl9.r-zIndex-1s3egr7.r-right-1pgswnq"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-backgroundColor-14lw9ot.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-opacity-icoktb.r-width-1jg9483"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-opacity-6dt33c.r-width-rwqe4o"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1867qdf.r-height-h3s6tt.r-paddingInline-cxgwc0.r-backgroundColor-a865k2.r-borderColor-169eryd"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-height-1pi2tsx.r-position-bnwqim.r-width-13qz1uu"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-justifyContent-1777fci.r-backgroundColor-n7aj9u"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-justifyContent-1777fci.r-backgroundColor-wt1z2b"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-paddingInline-3pj75a.r-borderColor-1jl7vqb.r-alignItems-1awozwy.r-backgroundColor-wt1z2b.r-borderRadius-1xfd6ze.r-height-eu3ka.r-justifyContent-1777fci.r-marginTop-1s2bzr4.r-width-13qz1uu"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderRadius-kdyh1x.r-flex-13awgt0.r-height-1pi2tsx.r-justifyContent-1777fci.r-paddingInline-3o4zer.r-zIndex-184en5c"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-backgroundColor-1gzzd1q.r-borderColor-1wq0cks.r-borderRadius-1fuqb1j.r-borderWidth-rs99b7.r-boxShadow-118c6o3.r-height-h3s6tt.r-justifyContent-1777fci.r-width-rwqe4o"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "i18n: Potential hardcoded text string found: \"Product 2-1-1-1 RU\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "i18n: Potential hardcoded text string found: \"Product 1-1-2-1 RU11111\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "i18n: Potential hardcoded text string found: \"Made by Noren Vox ©\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-color-1cucpzw.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-1cwl3u0"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "i18n: Potential hardcoded text string found: \"Category 1 RU\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-color-1dk24ck"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "i18n: Potential hardcoded text string found: \"Category 2 RU\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-color-1dk24ck"
       }
     ]
   },
@@ -1684,6 +2745,9 @@
     "http://localhost:8081/catalog/cat-root-0",
     "http://localhost:8081/catalog/cat-root-0-sub-0",
     "http://localhost:8081/catalog/cat-root-0-sub-1",
-    "http://localhost:8081/catalog/cat-root-1"
+    "http://localhost:8081/catalog/cat-root-1",
+    "http://localhost:8081/catalog/cat-root-1-sub-0",
+    "http://localhost:8081/catalog/cat-root-1-sub-1",
+    "http://localhost:8081/products"
   ]
 }

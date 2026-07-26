@@ -72,7 +72,7 @@ export function ResetButton({ onReset, label }) {
       onPress={onReset}
       variant="primary"
       size="md"
-      style={{ marginTop: 12, width: '100%' }}
+      style={styles.resetBtn}
     />
   );
 }
@@ -84,7 +84,7 @@ export function ApplyButton({ onApply, label }) {
       onPress={onApply}
       variant="accent"
       size="md"
-      style={{ marginTop: 16, width: '100%' }}
+      style={styles.applyBtn}
     />
   );
 }

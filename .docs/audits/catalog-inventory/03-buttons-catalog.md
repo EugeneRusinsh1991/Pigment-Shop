@@ -184,7 +184,7 @@
   - Line [27](file:///D:/Magazine/_PigmentShop/src/features/catalog/CatalogFilterSidebar.js#L27): `<AnimatedButton>`
 
 ### File: [src/features/catalog/CatalogHeader.js](file:///D:/Magazine/_PigmentShop/src/features/catalog/CatalogHeader.js)
-  - Line [18](file:///D:/Magazine/_PigmentShop/src/features/catalog/CatalogHeader.js#L18): `<Button>`
+  - Line [19](file:///D:/Magazine/_PigmentShop/src/features/catalog/CatalogHeader.js#L19): `<Button>`
 
 ### File: [src/features/catalog/CatalogPagination.js](file:///D:/Magazine/_PigmentShop/src/features/catalog/CatalogPagination.js)
   - Line [9](file:///D:/Magazine/_PigmentShop/src/features/catalog/CatalogPagination.js#L9): `<AnimatedButton>`
@@ -192,9 +192,9 @@
   - Line [77](file:///D:/Magazine/_PigmentShop/src/features/catalog/CatalogPagination.js#L77): `<PaginationButton>`
 
 ### File: [src/features/catalog/GridHeaderFooter.js](file:///D:/Magazine/_PigmentShop/src/features/catalog/GridHeaderFooter.js)
-  - Line [42](file:///D:/Magazine/_PigmentShop/src/features/catalog/GridHeaderFooter.js#L42): `<AnimatedButton>`
-  - Line [82](file:///D:/Magazine/_PigmentShop/src/features/catalog/GridHeaderFooter.js#L82): `<AnimatedButton>`
-  - Line [91](file:///D:/Magazine/_PigmentShop/src/features/catalog/GridHeaderFooter.js#L91): `<AnimatedButton>`
+  - Line [43](file:///D:/Magazine/_PigmentShop/src/features/catalog/GridHeaderFooter.js#L43): `<AnimatedButton>`
+  - Line [83](file:///D:/Magazine/_PigmentShop/src/features/catalog/GridHeaderFooter.js#L83): `<AnimatedButton>`
+  - Line [92](file:///D:/Magazine/_PigmentShop/src/features/catalog/GridHeaderFooter.js#L92): `<AnimatedButton>`
 
 ### File: [src/features/catalog/SidebarContent.js](file:///D:/Magazine/_PigmentShop/src/features/catalog/SidebarContent.js)
   - Line [109](file:///D:/Magazine/_PigmentShop/src/features/catalog/SidebarContent.js#L109): `<ApplyButton>`
