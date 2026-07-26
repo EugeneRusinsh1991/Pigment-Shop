@@ -7,7 +7,7 @@
  */
 import React, { useState, useRef } from 'react';
 import { Platform, View, PanResponder, StyleSheet } from 'react-native';
-import { colors } from '../../theme/tokens';
+import { colors, layout } from '../../theme/tokens';
 
 function useSliderPanResponders(minLimit, maxLimit, trackWidthRef, minRef, maxRef, startVal, onChange) {
   const minPanRef = useRef(null);
@@ -151,25 +151,25 @@ const styles = StyleSheet.create({
   container: {
     height: 30,
     justifyContent: 'center',
-    marginVertical: 8,
-    paddingHorizontal: 10,
+    marginVertical: layout.spacing.sm,
+    paddingHorizontal: layout.spacing.xs,
     width: '100%',
   },
   track: {
     height: 4,
-    borderRadius: 2,
+    borderRadius: layout.radii.xxxs,
     position: 'relative',
     justifyContent: 'center',
   },
   activeRange: {
     height: 4,
-    borderRadius: 2,
+    borderRadius: layout.radii.xxxs,
     position: 'absolute',
   },
   handle: {
     width: 20,
     height: 20,
-    borderRadius: 10,
+    borderRadius: layout.radii.full,
     borderWidth: 2,
     position: 'absolute',
     top: -8,

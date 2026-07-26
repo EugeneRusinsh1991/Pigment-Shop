@@ -1,17 +1,27 @@
 import React from 'react';
-import { Text as RNText, Platform } from 'react-native';
+import { StyleSheet, Text as RNText, Platform } from 'react-native';
 import { colors } from '../../theme/tokens';
 
 const getThemeColor = (color) => color || colors.textLight;
+const SVG_BASE_STYLE = { display: 'inline-block', verticalAlign: 'middle' };
+
 const getSvgStyle = (style) => {
-  const base = { display: 'inline-block', verticalAlign: 'middle' };
-  if (!style) return base;
+  if (!style) return SVG_BASE_STYLE;
   if (Array.isArray(style)) {
-    return Object.assign({}, base, ...style.filter(Boolean));
+    return Object.assign({}, SVG_BASE_STYLE, ...style.filter(Boolean));
   }
-  return typeof style === 'object' ? { ...base, ...style } : base;
+  return typeof style === 'object' ? { ...SVG_BASE_STYLE, ...style } : SVG_BASE_STYLE;
 };
-const getTextStyle = (color, size, style) => [{ color: getThemeColor(color), fontSize: size }, style];
+
+const getTextStyle = (color, size, style) => [
+  iconStyles.base,
+  { color: getThemeColor(color), fontSize: size },
+  style,
+];
+
+const iconStyles = StyleSheet.create({
+  base: {},
+});
 
 export const CheckIcon = ({ color, size = 16, style, ...props }) => {
   if (Platform.OS === 'web') {
@@ -178,5 +188,3 @@ export const TrashIcon = ({ color, size = 16, style, ...props }) => {
   }
   return <RNText style={getTextStyle(color, size, style)} {...props}>🗑️</RNText>;
 };
-
-

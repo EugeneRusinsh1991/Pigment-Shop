@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
 import { FlatList, ScrollView, StyleSheet, View } from 'react-native';
+import { layout } from '../../theme/tokens';
 import styles from '../../AppStyles';
 import { useFavoritesContext } from '../../context/FavoritesContext';
 import { useRouter } from 'expo-router';
@@ -20,7 +21,7 @@ function renderCatalogItem({ item, isDark, depth, favs, cols }) {
   const isBanner = Boolean(item?.isBanner || item?.isSingleSubcategory);
   const itemWidth = isBanner ? '100%' : `${(100 / cols).toFixed(4)}%`;
   return (
-    <View style={{ width: itemWidth, alignSelf: 'stretch' }}>
+    <View style={[layoutStyles.itemWrapper, { width: itemWidth }]}>
       <PlaceholderCard
         item={item}
         isDark={isDark}
@@ -84,10 +85,13 @@ export default function CatalogView({
     [isDark, depth, favs, cols]
   );
 
+  const gridContentStyle = [styles.list, layoutStyles.gridContent, { width: gridWidth }];
+  const scrollContentStyle = [styles.list, layoutStyles.scrollContent, { width: gridWidth }];
+
   return (
     <View style={[layoutStyles.catalogContainer, isDark ? styles.containerDark : styles.containerLight]}>
       {showNavigation && (
-        <View style={{ alignSelf: 'center', width: gridWidth, maxWidth: '100%' }}>
+        <View style={[layoutStyles.navWrapper, { width: gridWidth }]}>
           <PageNavigation
             isDark={isDark}
             crumbs={crumbs}
@@ -118,9 +122,9 @@ export default function CatalogView({
           numColumns={cols}
           key={`grid-${cols}`}
           renderItem={renderItem}
-          contentContainerStyle={[styles.list, { alignSelf: 'center', width: gridWidth, paddingBottom: 0, flexGrow: 1, minHeight: '100%' }]}
+          contentContainerStyle={gridContentStyle}
           showsVerticalScrollIndicator={false}
-          ListFooterComponentStyle={{ flex: 1, justifyContent: 'flex-end' }}
+          ListFooterComponentStyle={layoutStyles.footerWrapper}
           ListFooterComponent={
             <CatalogListFooter
               showPromotionalSections={showPromotionalSections}
@@ -140,7 +144,7 @@ export default function CatalogView({
         />
       ) : (
         <ScrollView
-          contentContainerStyle={[styles.list, { alignSelf: 'center', width: gridWidth, paddingBottom: 0, flexGrow: 1 }]}
+          contentContainerStyle={scrollContentStyle}
           showsVerticalScrollIndicator={false}
           style={layoutStyles.listContainer}
         >
@@ -156,7 +160,7 @@ export default function CatalogView({
             showHeroBanner={showHeroBanner}
             isTransitionReady={isTransitionReady}
           />
-          <View style={{ flex: 1, justifyContent: 'flex-end' }}>
+          <View style={layoutStyles.footerWrapper}>
             <CatalogListFooter
               showPromotionalSections={showPromotionalSections}
               isTransitionReady={isTransitionReady}
@@ -181,5 +185,27 @@ const layoutStyles = StyleSheet.create({
   listContainer: {
     flex: 1,
     minHeight: '100%',
+  },
+  itemWrapper: {
+    alignSelf: 'stretch',
+  },
+  navWrapper: {
+    alignSelf: 'center',
+    maxWidth: '100%',
+  },
+  gridContent: {
+    alignSelf: 'center',
+    paddingBottom: layout.spacing.none,
+    flexGrow: 1,
+    minHeight: '100%',
+  },
+  scrollContent: {
+    alignSelf: 'center',
+    paddingBottom: layout.spacing.none,
+    flexGrow: 1,
+  },
+  footerWrapper: {
+    flex: 1,
+    justifyContent: 'flex-end',
   },
 });

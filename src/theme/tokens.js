@@ -46,6 +46,8 @@ export const colors = {
   overlayLight: 'rgba(255, 255, 255, 0.8)',
   overlayDark: 'rgba(28, 28, 28, 0.7)',
   overlayScrim: 'rgba(0, 0, 0, 0.45)',
+  accentOverlayDark: 'rgba(227, 27, 35, 0.12)',
+  accentOverlayLight: 'rgba(227, 27, 35, 0.05)',
 
   // Standard UI States
   danger: '#EF4444',

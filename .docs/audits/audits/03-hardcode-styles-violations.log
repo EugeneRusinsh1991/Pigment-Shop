@@ -1,9 +1,9 @@
 ===================================================================
          3. HARDCODED STYLES, COLORS & SPACING REPORT              
-Timestamp: 27.07.2026, 01:31:14
+Timestamp: 27.07.2026, 01:42:36
 ===================================================================
 
-Found 210 issue(s) across 63 file(s):
+Found 168 issue(s) across 60 file(s):
 
 File: src\AppStyles.js
   L113   [HARDCODED_SPACING] paddingHorizontal 0px -> paddingHorizontal: 0,
@@ -57,62 +57,69 @@ File: src\components\Drawer\Drawer.js
   L11    [INLINE_STYLE] {title ? <Text variant="h4" style={titleStyle}>{title}</Text> : null}
 
 File: src\components\icons\AppIcons.js
-  L16    [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={appIconStyles.getSvg(style)} {...props}>
-  L29    [INLINE_STYLE] return <RNText style={appIconStyles.getText(color, size, style)} {...props}>☀️</RNText>;
-  L35    [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={appIconStyles.getSvg(style)} {...props}>
-  L40    [INLINE_STYLE] return <RNText style={appIconStyles.getText(color, size, style)} {...props}>🌙</RNText>;
-  L54    [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={appIconStyles.getSvg(style)} {...props}>
-  L61    [INLINE_STYLE] return <RNText style={appIconStyles.getText(color, size, style)} {...props}>🌐</RNText>;
-  L67    [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={appIconStyles.getSvg(style)} {...props}>
-  L74    [INLINE_STYLE] return <RNText style={appIconStyles.getText(color, size, style)} {...props}>👜</RNText>;
-  L80    [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={appIconStyles.getSvg(style)} {...props}>
-  L86    [INLINE_STYLE] return <RNText style={appIconStyles.getText(color, size, style)} {...props}>👤</RNText>;
-  L92    [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={appIconStyles.getSvg(style)} {...props}>
-  L99    [INLINE_STYLE] return <RNText style={appIconStyles.getText(color, size, style)} {...props}>🛒</RNText>;
-  L105   [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill={filled ? getThemeColor(color) : 'none'} stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={appIconStyles.getSvg(style)} {...props}>
-  L110   [INLINE_STYLE] return <RNText style={appIconStyles.getText(color, size, style)} {...props}>{filled ? '❤️' : '♡'}</RNText>;
-  L116   [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={appIconStyles.getSvg(style)} {...props}>
-  L122   [INLINE_STYLE] return <RNText style={appIconStyles.getText(color, size, style)} {...props}>✉</RNText>;
-  L128   [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={appIconStyles.getSvg(style)} {...props}>
-  L134   [INLINE_STYLE] return <RNText style={appIconStyles.getText(color, size, style)} {...props}>🏷️</RNText>;
-  L140   [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={appIconStyles.getSvg(style)} {...props}>
-  L146   [INLINE_STYLE] return <RNText style={appIconStyles.getText(color, size, style)} {...props}>🔍</RNText>;
-  L152   [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={appIconStyles.getSvg(style)} {...props}>
-  L158   [INLINE_STYLE] return <RNText style={appIconStyles.getText(color, size, style)} {...props}>🏠</RNText>;
-  L164   [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={appIconStyles.getSvg(style)} {...props}>
-  L172   [INLINE_STYLE] return <RNText style={appIconStyles.getText(color, size, style)} {...props}>🗂️</RNText>;
-  L178   [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={appIconStyles.getSvg(style)} {...props}>
-  L184   [INLINE_STYLE] return <RNText style={appIconStyles.getText(color, size, style)} {...props}>$</RNText>;
+  L23    [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={appIconStyles.getSvg(style)} {...props}>
+  L36    [INLINE_STYLE] return <RNText style={appIconStyles.getText(color, size, style)} {...props}>☀️</RNText>;
+  L42    [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={appIconStyles.getSvg(style)} {...props}>
+  L47    [INLINE_STYLE] return <RNText style={appIconStyles.getText(color, size, style)} {...props}>🌙</RNText>;
+  L61    [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={appIconStyles.getSvg(style)} {...props}>
+  L68    [INLINE_STYLE] return <RNText style={appIconStyles.getText(color, size, style)} {...props}>🌐</RNText>;
+  L74    [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={appIconStyles.getSvg(style)} {...props}>
+  L81    [INLINE_STYLE] return <RNText style={appIconStyles.getText(color, size, style)} {...props}>👜</RNText>;
+  L87    [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={appIconStyles.getSvg(style)} {...props}>
+  L93    [INLINE_STYLE] return <RNText style={appIconStyles.getText(color, size, style)} {...props}>👤</RNText>;
+  L99    [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={appIconStyles.getSvg(style)} {...props}>
+  L106   [INLINE_STYLE] return <RNText style={appIconStyles.getText(color, size, style)} {...props}>🛒</RNText>;
+  L112   [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill={filled ? getThemeColor(color) : 'none'} stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={appIconStyles.getSvg(style)} {...props}>
+  L117   [INLINE_STYLE] return <RNText style={appIconStyles.getText(color, size, style)} {...props}>{filled ? '❤️' : '♡'}</RNText>;
+  L123   [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={appIconStyles.getSvg(style)} {...props}>
+  L129   [INLINE_STYLE] return <RNText style={appIconStyles.getText(color, size, style)} {...props}>✉</RNText>;
+  L135   [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={appIconStyles.getSvg(style)} {...props}>
+  L141   [INLINE_STYLE] return <RNText style={appIconStyles.getText(color, size, style)} {...props}>🏷️</RNText>;
+  L147   [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={appIconStyles.getSvg(style)} {...props}>
+  L153   [INLINE_STYLE] return <RNText style={appIconStyles.getText(color, size, style)} {...props}>🔍</RNText>;
+  L159   [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={appIconStyles.getSvg(style)} {...props}>
+  L165   [INLINE_STYLE] return <RNText style={appIconStyles.getText(color, size, style)} {...props}>🏠</RNText>;
+  L171   [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={appIconStyles.getSvg(style)} {...props}>
+  L179   [INLINE_STYLE] return <RNText style={appIconStyles.getText(color, size, style)} {...props}>🗂️</RNText>;
+  L185   [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={appIconStyles.getSvg(style)} {...props}>
+  L191   [INLINE_STYLE] return <RNText style={appIconStyles.getText(color, size, style)} {...props}>$</RNText>;
+
+File: src\components\icons\CategoryIcons.js
+  L26    [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={getSvgStyle(style)} {...props}>
+  L39    [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={getSvgStyle(style)} {...props}>
+  L55    [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={getSvgStyle(style)} {...props}>
+  L68    [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={getSvgStyle(style)} {...props}>
+  L80    [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={getSvgStyle(style)} {...props}>
 
 File: src\components\icons\ControlIcons.js
-  L12    [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={getSvgStyle(style)} {...props}>
-  L17    [INLINE_STYLE] return <RNText style={getTextStyle(color, size, style)} {...props}>✓</RNText>;
-  L23    [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={getSvgStyle(style)} {...props}>
-  L29    [INLINE_STYLE] return <RNText style={getTextStyle(color, size, style)} {...props}>✗</RNText>;
-  L36    [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={getSvgStyle(style)} {...props}>
-  L42    [INLINE_STYLE] return <RNText style={getTextStyle(color, size, style)} {...props}>←</RNText>;
-  L48    [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={getSvgStyle(style)} {...props}>
-  L54    [INLINE_STYLE] return <RNText style={getTextStyle(color, size, style)} {...props}>→</RNText>;
-  L60    [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={getSvgStyle(style)} {...props}>
-  L65    [INLINE_STYLE] return <RNText style={getTextStyle(color, size, style)} {...props}>◀</RNText>;
-  L71    [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={getSvgStyle(style)} {...props}>
-  L76    [INLINE_STYLE] return <RNText style={getTextStyle(color, size, style)} {...props}>▶</RNText>;
-  L82    [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={getSvgStyle(style)} {...props}>
-  L87    [INLINE_STYLE] return <RNText style={getTextStyle(color, size, style)} {...props}>▼</RNText>;
-  L93    [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={getSvgStyle(style)} {...props}>
-  L99    [INLINE_STYLE] return <RNText style={getTextStyle(color, size, style)} {...props}>👁️</RNText>;
-  L105   [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={getSvgStyle(style)} {...props}>
-  L111   [INLINE_STYLE] return <RNText style={getTextStyle(color, size, style)} {...props}>🙈</RNText>;
-  L117   [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={getSvgStyle(style)} {...props}>
-  L122   [INLINE_STYLE] return <RNText style={getTextStyle(color, size, style)} {...props}>🔄</RNText>;
-  L128   [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={getSvgStyle(style)} {...props}>
-  L135   [INLINE_STYLE] return <RNText style={getTextStyle(color, size, style)} {...props}>📁</RNText>;
-  L141   [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={getSvgStyle(style)} {...props}>
-  L148   [INLINE_STYLE] return <RNText style={getTextStyle(color, size, style)} {...props}>⚠️</RNText>;
-  L154   [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={getSvgStyle(style)} {...props}>
-  L160   [INLINE_STYLE] return <RNText style={getTextStyle(color, size, style)} {...props}>✏️</RNText>;
-  L166   [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={getSvgStyle(style)} {...props}>
-  L172   [INLINE_STYLE] return <RNText style={getTextStyle(color, size, style)} {...props}>🗑️</RNText>;
+  L29    [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={getSvgStyle(style)} {...props}>
+  L34    [INLINE_STYLE] return <RNText style={getTextStyle(color, size, style)} {...props}>✓</RNText>;
+  L40    [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={getSvgStyle(style)} {...props}>
+  L46    [INLINE_STYLE] return <RNText style={getTextStyle(color, size, style)} {...props}>✗</RNText>;
+  L53    [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={getSvgStyle(style)} {...props}>
+  L59    [INLINE_STYLE] return <RNText style={getTextStyle(color, size, style)} {...props}>←</RNText>;
+  L65    [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={getSvgStyle(style)} {...props}>
+  L71    [INLINE_STYLE] return <RNText style={getTextStyle(color, size, style)} {...props}>→</RNText>;
+  L77    [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={getSvgStyle(style)} {...props}>
+  L82    [INLINE_STYLE] return <RNText style={getTextStyle(color, size, style)} {...props}>◀</RNText>;
+  L88    [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={getSvgStyle(style)} {...props}>
+  L93    [INLINE_STYLE] return <RNText style={getTextStyle(color, size, style)} {...props}>▶</RNText>;
+  L99    [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={getSvgStyle(style)} {...props}>
+  L104   [INLINE_STYLE] return <RNText style={getTextStyle(color, size, style)} {...props}>▼</RNText>;
+  L110   [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={getSvgStyle(style)} {...props}>
+  L116   [INLINE_STYLE] return <RNText style={getTextStyle(color, size, style)} {...props}>👁️</RNText>;
+  L122   [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={getSvgStyle(style)} {...props}>
+  L128   [INLINE_STYLE] return <RNText style={getTextStyle(color, size, style)} {...props}>🙈</RNText>;
+  L134   [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={getSvgStyle(style)} {...props}>
+  L139   [INLINE_STYLE] return <RNText style={getTextStyle(color, size, style)} {...props}>🔄</RNText>;
+  L145   [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={getSvgStyle(style)} {...props}>
+  L152   [INLINE_STYLE] return <RNText style={getTextStyle(color, size, style)} {...props}>📁</RNText>;
+  L158   [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={getSvgStyle(style)} {...props}>
+  L165   [INLINE_STYLE] return <RNText style={getTextStyle(color, size, style)} {...props}>⚠️</RNText>;
+  L171   [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={getSvgStyle(style)} {...props}>
+  L177   [INLINE_STYLE] return <RNText style={getTextStyle(color, size, style)} {...props}>✏️</RNText>;
+  L183   [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={getSvgStyle(style)} {...props}>
+  L189   [INLINE_STYLE] return <RNText style={getTextStyle(color, size, style)} {...props}>🗑️</RNText>;
 
 File: src\components\Media\GifRenderer.js
   L13    [INLINE_STYLE] style={StyleSheet.flatten([
@@ -164,36 +171,6 @@ File: src\features\cart\CartItem.js
 File: src\features\cart\CartViewStyles.js
   L90    [HARDCODED_SPACING] marginHorizontal 0px -> marginHorizontal: 0,
 
-File: src\features\catalog\CatalogFilterSidebarStyles.js
-  L9     [HARDCODED_SPACING] padding 16px -> content: { padding: 16, gap: 14 },
-  L12    [HARDCODED_SPACING] marginBottom 16px -> marginBottom: 16,
-  L15    [HARDCODED_SPACING] marginTop 12px -> marginTop: 12,
-  L16    [HARDCODED_SPACING] marginBottom 8px -> marginBottom: 8,
-  L19    [HARDCODED_SPACING] marginTop 0px -> marginTop: 0,
-  L20    [HARDCODED_SPACING] marginBottom 6px -> marginBottom: 6,
-  L23    [HARDCODED_SPACING] gap 12px -> priceSection: { gap: 12 },
-  L24    [HARDCODED_SPACING] gap 4px -> filterSection: { gap: 4 },
-  L25    [HARDCODED_SPACING] gap 2px -> optionsGroup: { gap: 2 },
-  L30    [HARDCODED_SPACING] gap 8px -> priceColumn: { flexDirection: 'column', gap: 8, marginTop: 8 },
-  L31    [HARDCODED_SPACING] gap 8px -> priceFieldRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
-  L39    [HARDCODED_SPACING] paddingHorizontal 8px -> paddingHorizontal: 8,
-  L40    [HARDCODED_SPACING] paddingVertical 6px -> paddingVertical: 6,
-  L45    [HARDCODED_SPACING] gap 8px -> checkRow: { flexDirection: 'row', alignItems: 'center', gap: 8, paddingVertical: 10, minHeight: 44 },
-  L47    [HARDCODED_SPACING] borderRadius 4px -> width: 18, height: 18, borderRadius: 4, borderWidth: 1.5, borderColor: colors.accent,
-  L61    [HARDCODED_SPACING] marginVertical 16px -> divider: { height: 1, marginVertical: 16 },
-  L71    [HARDCODED_SPACING] marginTop 12px -> marginTop: 12,
-  L82    [HARDCODED_SPACING] marginTop 12px -> marginTop: 12,
-  L83    [HARDCODED_SPACING] marginBottom 4px -> marginBottom: 4,
-  L85    [HARDCODED_SPACING] paddingHorizontal 16px -> paddingHorizontal: 16,
-  L98    [HARDCODED_SPACING] gap 12px -> gap: 12,
-  L99    [HARDCODED_SPACING] marginTop 12px -> marginTop: 12,
-  L100   [HARDCODED_SPACING] marginBottom 4px -> marginBottom: 4,
-  L101   [HARDCODED_SPACING] marginHorizontal 16px -> marginHorizontal: 16,
-  L123   [HARDCODED_SPACING] paddingVertical 4px -> paddingVertical: 4,
-  L139   [HARDCODED_SPACING] paddingHorizontal 12px -> paddingHorizontal: 12,
-  L169   [HARDCODED_SPACING] paddingHorizontal 16px -> paddingHorizontal: 16,
-  L192   [HARDCODED_SPACING] marginTop 16px -> marginTop: 16,
-
 File: src\features\catalog\CatalogListFooter.js
   L37    [INLINE_STYLE] <View style={{ height: layout.spacing.xxl }} />
 
@@ -202,24 +179,15 @@ File: src\features\catalog\CatalogPage.js
   L76    [INLINE_STYLE] <View style={{ flex: 1, minHeight: 0 }}>
 
 File: src\features\catalog\CatalogView.js
-  L23    [INLINE_STYLE] <View style={{ width: itemWidth, alignSelf: 'stretch' }}>
-  L90    [INLINE_STYLE] <View style={{ alignSelf: 'center', width: gridWidth, maxWidth: '100%' }}>
-  L121   [HARDCODED_SPACING] paddingBottom 0px -> contentContainerStyle={[styles.list, { alignSelf: 'center', width: gridWidth, paddingBottom: 0, flexGrow: 1, minHeight: '100%' }]}
-  L135   [INLINE_STYLE] style={layoutStyles.listContainer}
-  L143   [HARDCODED_SPACING] paddingBottom 0px -> contentContainerStyle={[styles.list, { alignSelf: 'center', width: gridWidth, paddingBottom: 0, flexGrow: 1 }]}
-  L145   [INLINE_STYLE] style={layoutStyles.listContainer}
-  L159   [INLINE_STYLE] <View style={{ flex: 1, justifyContent: 'flex-end' }}>
+  L139   [INLINE_STYLE] style={layoutStyles.listContainer}
+  L149   [INLINE_STYLE] style={layoutStyles.listContainer}
+  L163   [INLINE_STYLE] <View style={layoutStyles.footerWrapper}>
 
 File: src\features\catalog\CategoryCard.js
   L133   [INLINE_STYLE] style={getCardStyle(cardHeight, activeIsBanner, style)}
-  L136   [INLINE_STYLE] <View style={{ ...StyleSheet.absoluteFillObject, borderRadius: layout.radii.lg, overflow: 'hidden' }}>
   L144   [INLINE_STYLE] <View style={getContentStyle(computedStyles, activeIsBanner)}>
   L145   [INLINE_STYLE] <Heading level={3} style={getLabelStyle(computedStyles, activeIsBanner)} numberOfLines={2} isDark={isDark}>{label}</Heading>
   L146   [INLINE_STYLE] <Text style={getDescStyle(computedStyles, activeIsBanner)} numberOfLines={2} isDark={isDark}>{desc}</Text>
-
-File: src\features\catalog\categoryCardStyles.js
-  L41    [HARDCODED_SPACING] borderRadius 19px -> borderRadius: 19,
-  L51    [HARDCODED_SPACING] marginHorizontal 0px -> marginHorizontal: 0,
 
 File: src\features\catalog\CategoryFilterList.js
   L15    [INLINE_STYLE] <View style={{ flex: 1 }}>
@@ -233,7 +201,6 @@ File: src\features\catalog\GridHeaderFooter.js
   L44    [INLINE_STYLE] style={itemStyle}
   L50    [INLINE_STYLE] <Text style={textStyle}>
   L59    [INLINE_STYLE] <View style={getSortDropdownStyles(isDark)}>
-  L81    [INLINE_STYLE] <View style={{ zIndex: layout.zIndices.drawer, position: 'relative' }}>
   L84    [INLINE_STYLE] style={buttonStyle}
   L87    [INLINE_STYLE] <Text style={textStyle}>
   L93    [INLINE_STYLE] style={buttonStyle}
@@ -241,13 +208,6 @@ File: src\features\catalog\GridHeaderFooter.js
 
 File: src\features\catalog\PlaceholderCard.js
   L47    [INLINE_STYLE] <View key={item.id} style={{ width: itemWidth }}>
-
-File: src\features\catalog\PriceRangeSlider.js
-  L154   [HARDCODED_SPACING] marginVertical 8px -> marginVertical: 8,
-  L155   [HARDCODED_SPACING] paddingHorizontal 10px -> paddingHorizontal: 10,
-  L160   [HARDCODED_SPACING] borderRadius 2px -> borderRadius: 2,
-  L166   [HARDCODED_SPACING] borderRadius 2px -> borderRadius: 2,
-  L172   [HARDCODED_SPACING] borderRadius 10px -> borderRadius: 10,
 
 File: src\features\catalog\ProductGrid.js
   L21    [INLINE_STYLE] <View style={{ width: itemWidth, alignSelf: 'stretch' }}>
@@ -329,14 +289,6 @@ File: src\features\shell\NavMenu\LanguageSelector.js
   L32    [HARDCODED_SPACING] marginRight 10px -> container: { marginRight: 10 },
   L49    [INLINE_STYLE] style={getThemeToggleStyle(isDark)}
   L52    [INLINE_STYLE] <View style={getThemeIconStyles(isDark).container}>
-
-File: src\features\shell\NavMenu\NavMenuStyles.js
-  L58    [HARDCODED_SPACING] paddingVertical 13px -> paddingVertical: 13,
-  L63    [HARDCODED_SPACING] marginLeft 10px -> utilLabel: { flex: 1, marginLeft: 10 },
-  L86    [HARDCODED_COLOR] rgba(227, 27, 35, 0.12) -> selectedRowDark: { backgroundColor: 'rgba(227, 27, 35, 0.12)' },
-  L87    [HARDCODED_COLOR] rgba(227, 27, 35, 0.05) -> selectedRowLight: { backgroundColor: 'rgba(227, 27, 35, 0.05)' },
-  L104   [HARDCODED_SPACING] paddingBottom 28px -> paddingBottom: 28,
-  L120   [HARDCODED_SPACING] gap 10px -> langRow: { flexDirection: 'row', gap: 10 },
 
 File: src\features\shell\StoreSearchHeader.js
   L28    [INLINE_STYLE] <View style={{ width: '100%', maxWidth: contentWidth, minWidth: 0, overflow: 'visible', paddingHorizontal: layout.spacing.sm }}>

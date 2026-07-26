@@ -5009,5 +5009,35 @@
         }
       ]
     }
+  },
+  "src_07-27_01-43_02-dynamic-raw-i18n-admin-smoke-violations.json_123files": {
+    "timestamp": "2026-07-26T22:43:15.976Z",
+    "diff": {
+      "added": 0,
+      "removed": 9,
+      "modified": 49,
+      "topFolders": [
+        {
+          "folder": ".docs/audits/audits",
+          "count": 11
+        },
+        {
+          "folder": ".todos/style-tokenization",
+          "count": 9
+        },
+        {
+          "folder": ".docs/audits/fallow-audits/project",
+          "count": 7
+        },
+        {
+          "folder": ".docs/audits/catalog-inventory",
+          "count": 6
+        },
+        {
+          "folder": ".docs/audits/fallow-audits/other",
+          "count": 6
+        }
+      ]
+    }
   }
 }

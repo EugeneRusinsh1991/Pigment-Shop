@@ -47,7 +47,7 @@
   - Line [10](file:///D:/Magazine/_PigmentShop/src/components/Card/NavigationCard.js#L10): `<Card>`
 
 ### File: [src/features/catalog/CatalogView.js](file:///D:/Magazine/_PigmentShop/src/features/catalog/CatalogView.js)
-  - Line [24](file:///D:/Magazine/_PigmentShop/src/features/catalog/CatalogView.js#L24): `<PlaceholderCard>`
+  - Line [25](file:///D:/Magazine/_PigmentShop/src/features/catalog/CatalogView.js#L25): `<PlaceholderCard>`
 
 ### File: [src/features/catalog/CategoryCard.js](file:///D:/Magazine/_PigmentShop/src/features/catalog/CategoryCard.js)
   - Line [128](file:///D:/Magazine/_PigmentShop/src/features/catalog/CategoryCard.js#L128): `<Card>`

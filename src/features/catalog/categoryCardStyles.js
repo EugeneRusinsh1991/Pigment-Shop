@@ -18,6 +18,11 @@ export default StyleSheet.create({
   catImage: {
     ...StyleSheet.absoluteFillObject,
   },
+  imageContainer: {
+    ...StyleSheet.absoluteFillObject,
+    borderRadius: layout.radii.lg,
+    overflow: 'hidden',
+  },
   overlay: {
     ...StyleSheet.absoluteFillObject,
     backgroundColor: colors.overlayScrim,
@@ -38,7 +43,7 @@ export default StyleSheet.create({
     right: layout.spacing.xl,
     width: 38,
     height: 38,
-    borderRadius: 19,
+    borderRadius: layout.radii.full,
     backgroundColor: colors.white,
     alignItems: 'center',
     justifyContent: 'center',
@@ -48,13 +53,13 @@ export default StyleSheet.create({
   },
   bannerCard: {
     width: '100%',
-    marginHorizontal: 0,
+    marginHorizontal: layout.spacing.none,
     marginVertical: layout.spacing.sm,
   },
   bannerContent: {
-    bottom: 20,
-    left: 20,
-    right: 20,
+    bottom: layout.spacing.xl,
+    left: layout.spacing.xl,
+    right: layout.spacing.xl,
   },
   bannerLabel: {},
   bannerDesc: {},

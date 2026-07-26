@@ -2,7 +2,7 @@
 type: dynamic-audit
 auditor: raw-i18n
 scope: admin
-date: 2026-07-26T22:24:14.508Z
+date: 2026-07-26T22:43:05.829Z
 ---
 
 ### URL: http://localhost:8081/admin
@@ -462,3 +462,5 @@ date: 2026-07-26T22:24:14.508Z
   Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1dk24ck.r-marginBottom-d0pm55`
 - Found hardcoded text without i18n key: "Универсальный продукт для Product 1-2-1-1 EN"
   Selector: `textarea.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-backgroundColor-fj6wrk.r-borderColor-1t4g3vi.r-borderRadius-1xfd6ze.r-borderWidth-rs99b7.r-color-kgv7a8.r-height-wy61xf.r-outlineStyle-1ny4l3l.r-paddingBlock-ytbthy.r-paddingInline-3o4zer.r-verticalAlign-ad9o1y`
+- Found hardcoded text without i18n key: "Универсальный продукт для Product 1-2-1-1 EN"
+  Selector: `textarea.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-backgroundColor-fj6wrk.r-borderColor-1t4g3vi.r-borderRadius-1xfd6ze.r-color-kgv7a8.r-height-wy61xf.r-outlineStyle-1ny4l3l.r-paddingBlock-ytbthy.r-paddingInline-3o4zer.r-verticalAlign-ad9o1y`

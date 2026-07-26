@@ -1140,6 +1140,11 @@
         "url": "http://localhost:8081/admin",
         "message": "Found hardcoded text without i18n key: \"Универсальный продукт для Product 1-2-1-1 EN\"",
         "selector": "textarea.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-backgroundColor-fj6wrk.r-borderColor-1t4g3vi.r-borderRadius-1xfd6ze.r-borderWidth-rs99b7.r-color-kgv7a8.r-height-wy61xf.r-outlineStyle-1ny4l3l.r-paddingBlock-ytbthy.r-paddingInline-3o4zer.r-verticalAlign-ad9o1y"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"Универсальный продукт для Product 1-2-1-1 EN\"",
+        "selector": "textarea.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-backgroundColor-fj6wrk.r-borderColor-1t4g3vi.r-borderRadius-1xfd6ze.r-color-kgv7a8.r-height-wy61xf.r-outlineStyle-1ny4l3l.r-paddingBlock-ytbthy.r-paddingInline-3o4zer.r-verticalAlign-ad9o1y"
       }
     ]
   },

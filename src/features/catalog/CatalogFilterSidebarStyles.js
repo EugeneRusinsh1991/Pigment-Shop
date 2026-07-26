@@ -1,34 +1,34 @@
 import { StyleSheet } from 'react-native';
-import { colors, buttonTokens } from '../../theme/tokens';
+import { colors, buttonTokens, layout } from '../../theme/tokens';
 import { shadow } from '../../theme/shadows';
 
 const styles = StyleSheet.create({
   sidebar: { width: 224, maxWidth: 224, flexShrink: 0, flexGrow: 0, flexBasis: 224, overflow: 'hidden' },
   sidebarDark: { backgroundColor: colors.backgroundDark },
   sidebarLight: { backgroundColor: colors.backgroundLight },
-  content: { padding: 16, gap: 14 },
+  content: { padding: layout.spacing.lg, gap: layout.spacing.md },
 
   heading: {
-    marginBottom: 16,
+    marginBottom: layout.spacing.lg,
   },
   sectionTitlePrice: {
-    marginTop: 12,
-    marginBottom: 8,
+    marginTop: layout.spacing.md,
+    marginBottom: layout.spacing.sm,
   },
   sectionTitle: {
-    marginTop: 0,
-    marginBottom: 6,
+    marginTop: layout.spacing.none,
+    marginBottom: layout.spacing.xs,
   },
 
-  priceSection: { gap: 12 },
-  filterSection: { gap: 4 },
-  optionsGroup: { gap: 2 },
+  priceSection: { gap: layout.spacing.md },
+  filterSection: { gap: layout.spacing.xxs },
+  optionsGroup: { gap: layout.spacing.xxxs },
 
   textDark: { color: colors.white },
   textLight: { color: colors.dark },
 
-  priceColumn: { flexDirection: 'column', gap: 8, marginTop: 8 },
-  priceFieldRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
+  priceColumn: { flexDirection: 'column', gap: layout.spacing.sm, marginTop: layout.spacing.sm },
+  priceFieldRow: { flexDirection: 'row', alignItems: 'center', gap: layout.spacing.sm },
   priceFieldLabel: {
     width: 32,
   },
@@ -36,15 +36,15 @@ const styles = StyleSheet.create({
     width: 90,
     borderRadius: buttonTokens.sizes.sm.borderRadius,
     borderWidth: 1,
-    paddingHorizontal: 8,
-    paddingVertical: 6,
+    paddingHorizontal: layout.spacing.sm,
+    paddingVertical: layout.spacing.xs,
   },
   inputDark: { backgroundColor: colors.dark, borderColor: colors.outlineDarkBorder, color: colors.white },
   inputLight: { backgroundColor: colors.white, borderColor: colors.warmNeutralSoft, color: colors.dark },
 
-  checkRow: { flexDirection: 'row', alignItems: 'center', gap: 8, paddingVertical: 10, minHeight: 44 },
+  checkRow: { flexDirection: 'row', alignItems: 'center', gap: layout.spacing.sm, paddingVertical: layout.spacing.sm, minHeight: 44 },
   checkbox: {
-    width: 18, height: 18, borderRadius: 4, borderWidth: 1.5, borderColor: colors.accent,
+    width: 18, height: 18, borderRadius: layout.radii.xxxs, borderWidth: 1.5, borderColor: colors.accent,
     alignItems: 'center', justifyContent: 'center',
   },
   checkboxActive: { backgroundColor: colors.accent },
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
   expandBtnPlaceholder: { width: 36 },
   expandChevron: {},
 
-  divider: { height: 1, marginVertical: 16 },
+  divider: { height: 1, marginVertical: layout.spacing.lg },
   dividerDark: { backgroundColor: colors.borderDarkAlt },
   dividerLight: { backgroundColor: colors.borderLightAlt },
 
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     borderRadius: buttonTokens.sizes.md.borderRadius,
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 12,
+    marginTop: layout.spacing.md,
     width: '100%',
   },
   resetText: {
@@ -79,10 +79,10 @@ const styles = StyleSheet.create({
 
   /** Mobile filter toggle button */
   mobileToggleBtn: {
-    marginTop: 12,
-    marginBottom: 4,
+    marginTop: layout.spacing.md,
+    marginBottom: layout.spacing.xxs,
     height: buttonTokens.sizes.md.height,
-    paddingHorizontal: 16,
+    paddingHorizontal: layout.spacing.lg,
     borderRadius: buttonTokens.sizes.md.borderRadius,
     alignItems: 'center',
     justifyContent: 'center',
@@ -95,10 +95,10 @@ const styles = StyleSheet.create({
 
   mobileButtonsRow: {
     flexDirection: 'row',
-    gap: 12,
-    marginTop: 12,
-    marginBottom: 4,
-    marginHorizontal: 16,
+    gap: layout.spacing.md,
+    marginTop: layout.spacing.md,
+    marginBottom: layout.spacing.xxs,
+    marginHorizontal: layout.spacing.lg,
   },
   mobileButton: {
     flex: 1,
@@ -116,11 +116,11 @@ const styles = StyleSheet.create({
   sortDropdown: {
     position: 'absolute',
     top: 54,
-    right: 16,
+    right: layout.spacing.lg,
     width: '46%',
     borderRadius: buttonTokens.sizes.md.borderRadius,
     borderWidth: 1,
-    paddingVertical: 4,
+    paddingVertical: layout.spacing.xxs,
     ...shadow.chip(),
     elevation: 5,
     zIndex: 2000,
@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
   sortDropdownItem: {
     height: buttonTokens.sizes.md.height,
     justifyContent: 'center',
-    paddingHorizontal: 12,
+    paddingHorizontal: layout.spacing.md,
   },
   sortDropdownItemActiveDark: {
     backgroundColor: colors.outlineDarkBorder,
@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingHorizontal: 16,
+    paddingHorizontal: layout.spacing.lg,
     borderBottomWidth: 1,
     position: 'relative',
   },
@@ -177,7 +177,7 @@ const styles = StyleSheet.create({
   },
   closeBtn: {
     position: 'absolute',
-    right: 12,
+    right: layout.spacing.md,
     width: 44,
     height: 44,
     alignItems: 'center',
@@ -189,7 +189,7 @@ const styles = StyleSheet.create({
     borderRadius: buttonTokens.sizes.md.borderRadius,
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 16,
+    marginTop: layout.spacing.lg,
     width: '100%',
   },
   applyBtnText: {

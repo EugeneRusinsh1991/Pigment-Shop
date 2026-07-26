@@ -1,9 +1,9 @@
 ===================================================================
                FILES WITH ISSUES REPORT                            
-Timestamp: 27.07.2026, 01:31:14
+Timestamp: 27.07.2026, 01:42:36
 ===================================================================
 
-Found 210 issue(s) across 63 target(s):
+Found 168 issue(s) across 60 target(s):
 
 - src\AppStyles.js (1 issues)
 - src\components\Admin\Analytics\CalendarDayCell.js (3 issues)
@@ -19,6 +19,7 @@ Found 210 issue(s) across 63 target(s):
 - src\components\DataTable\EmptyState.js (1 issues)
 - src\components\Drawer\Drawer.js (1 issues)
 - src\components\icons\AppIcons.js (26 issues)
+- src\components\icons\CategoryIcons.js (5 issues)
 - src\components\icons\ControlIcons.js (28 issues)
 - src\components\Media\GifRenderer.js (2 issues)
 - src\components\Media\VideoRenderer.js (1 issues)
@@ -34,17 +35,14 @@ Found 210 issue(s) across 63 target(s):
 - src\features\auth\LoginPageStyles.js (2 issues)
 - src\features\cart\CartItem.js (1 issues)
 - src\features\cart\CartViewStyles.js (1 issues)
-- src\features\catalog\CatalogFilterSidebarStyles.js (28 issues)
 - src\features\catalog\CatalogListFooter.js (1 issues)
 - src\features\catalog\CatalogPage.js (2 issues)
-- src\features\catalog\CatalogView.js (7 issues)
-- src\features\catalog\CategoryCard.js (5 issues)
-- src\features\catalog\categoryCardStyles.js (2 issues)
+- src\features\catalog\CatalogView.js (3 issues)
+- src\features\catalog\CategoryCard.js (4 issues)
 - src\features\catalog\CategoryFilterList.js (1 issues)
 - src\features\catalog\components\NewArrivalsFooter.js (3 issues)
-- src\features\catalog\GridHeaderFooter.js (8 issues)
+- src\features\catalog\GridHeaderFooter.js (7 issues)
 - src\features\catalog\PlaceholderCard.js (1 issues)
-- src\features\catalog\PriceRangeSlider.js (5 issues)
 - src\features\catalog\ProductGrid.js (3 issues)
 - src\features\contact\ContactPage.js (1 issues)
 - src\features\contact\ContactPageStyles.js (1 issues)
@@ -66,5 +64,4 @@ Found 210 issue(s) across 63 target(s):
 - src\features\shell\AppHeader.js (1 issues)
 - src\features\shell\NavMenu\CategoryTreeNodeButtons.js (2 issues)
 - src\features\shell\NavMenu\LanguageSelector.js (5 issues)
-- src\features\shell\NavMenu\NavMenuStyles.js (6 issues)
 - src\features\shell\StoreSearchHeader.js (1 issues)

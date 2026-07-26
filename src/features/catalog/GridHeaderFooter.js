@@ -1,4 +1,4 @@
-import { View } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { Text } from '../../components/Text/Text';
 import sidebarStyles from './CatalogFilterSidebarStyles';
 import { SORT_OPTIONS } from './useCatalogFilters';
@@ -78,7 +78,7 @@ export function GridHeader({ isNarrow, isDark, onMobileToggle, sortDropdownVisib
   const { buttonStyle, textStyle } = getGridHeaderStyles(isDark);
 
   return (
-    <View style={{ zIndex: layout.zIndices.drawer, position: 'relative' }}>
+    <View style={styles.gridHeaderWrapper}>
       <View style={[sidebarStyles.mobileButtonsRow, { marginHorizontal: layout.spacing.xxs, gap: layout.spacing.sm }]}>
         <AnimatedButton
           style={buttonStyle}
@@ -125,3 +125,10 @@ export function GridFooter({ currentPage, totalPages, onPrev, onNext, loading, i
     />
   );
 }
+
+const styles = StyleSheet.create({
+  gridHeaderWrapper: {
+    zIndex: layout.zIndices.drawer,
+    position: 'relative',
+  },
+});

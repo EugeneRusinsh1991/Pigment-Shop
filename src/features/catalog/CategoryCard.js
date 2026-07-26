@@ -1,13 +1,13 @@
 import React from 'react';
-import { Image, Platform, StyleSheet, useWindowDimensions, View } from 'react-native';
+import { Image, Platform, useWindowDimensions, View } from 'react-native';
 import { Text, Heading } from '../../components/Text';
 import { useTheme } from '../../context/ThemeContext';
 import { useCatalog } from '../../context/CatalogContext';
-import useCardDimensions from '../../hooks/useCardDimensions';
 import styles from './categoryCardStyles';
 import Card from '../../components/Card/Card';
 import { colors, layout } from '../../theme/tokens';
 import { getLocalizedValue } from '../../utils/localization';
+
 
 const CATEGORY_PLACEHOLDER = 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=600&auto=format&fit=crop';
 
@@ -133,7 +133,7 @@ const CategoryCardInner = React.forwardRef(({ item, isDark, depth = 1, isBanner 
       style={getCardStyle(cardHeight, activeIsBanner, style)}
       {...rest}
     >
-      <View style={{ ...StyleSheet.absoluteFillObject, borderRadius: layout.radii.lg, overflow: 'hidden' }}>
+      <View style={styles.imageContainer}>
         <Image
           source={imageSource}
           style={styles.catImage}
