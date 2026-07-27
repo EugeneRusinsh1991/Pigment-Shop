@@ -38,7 +38,8 @@ export async function runUIExplorer(
   let browser: Browser | null = null;
   
   if (!activePage) {
-    browser = await chromium.launch({ headless: false }); 
+    const headless = process.env.SMOKE_HEADLESS === 'true';
+    browser = await chromium.launch({ headless }); 
     const context = await browser.newContext({
       viewport: { width: 1280, height: 800 }
     });

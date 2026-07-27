@@ -235,6 +235,16 @@
                 "panel": "dedicated"
             },
             "problemMatcher": []
+        },
+        {
+            "label": "Tools: Run All Automations Headless",
+            "type": "shell",
+            "command": "npx tsx .tools/browser-automation/run-smoke-both-headless.ts",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
         }
     ]
 } 
