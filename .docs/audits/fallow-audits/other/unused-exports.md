@@ -1,6 +1,6 @@
 # 📦 Unused Exports
 
-*Generated on: 27.07.2026, 11:30:05*
+*Generated on: 27.07.2026, 13:05:39*
 
 Exports that are not imported or consumed by any other active file:
 
@@ -22,7 +22,7 @@ Exports that are not imported or consumed by any other active file:
 - [DIContainer.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/di/DIContainer.ts): `createDefaultContainer` ([L145](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/di/DIContainer.ts#L145))
 - [ExecutionWatchdog.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/diagnostics/ExecutionWatchdog.ts): `ExecutionWatchdog` ([L5](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/diagnostics/ExecutionWatchdog.ts#L5))
 - [InteractionDiagnostics.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/diagnostics/InteractionDiagnostics.ts): `InteractionDiagnostics` ([L1](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/diagnostics/InteractionDiagnostics.ts#L1))
-- [PlaywrightAdapter.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/driver/PlaywrightAdapter.ts): `PlaywrightElement` ([L5](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/driver/PlaywrightAdapter.ts#L5)), `PlaywrightPage` ([L64](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/driver/PlaywrightAdapter.ts#L64)), `PlaywrightContext` ([L123](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/driver/PlaywrightAdapter.ts#L123)), `PlaywrightBrowser` ([L136](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/driver/PlaywrightAdapter.ts#L136))
+- [PlaywrightAdapter.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/driver/PlaywrightAdapter.ts): `PlaywrightElement` ([L5](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/driver/PlaywrightAdapter.ts#L5)), `PlaywrightPage` ([L64](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/driver/PlaywrightAdapter.ts#L64)), `PlaywrightContext` ([L138](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/driver/PlaywrightAdapter.ts#L138)), `PlaywrightBrowser` ([L151](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/driver/PlaywrightAdapter.ts#L151))
 - [elementScannerEvaluators.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/elementScannerEvaluators.ts): `evaluateDomHash` ([L5](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/elementScannerEvaluators.ts#L5)), `evaluateScanPage` ([L35](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/elementScannerEvaluators.ts#L35))
 - [ExplorerEventEmitter.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/events/ExplorerEventEmitter.ts): `ExplorerEventEmitter` ([L5](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/events/ExplorerEventEmitter.ts#L5))
 - [ExecutionStateGraph.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/graph/ExecutionStateGraph.ts): `ExecutionStateGraph` ([L4](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/graph/ExecutionStateGraph.ts#L4))

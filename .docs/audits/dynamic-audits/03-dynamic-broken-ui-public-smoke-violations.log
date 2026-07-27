@@ -2,7 +2,7 @@
 type: dynamic-audit
 auditor: broken-ui
 scope: public
-date: 2026-07-27T09:12:47.926Z
+date: 2026-07-27T09:55:11.897Z
 ---
 
 ### URL: http://localhost:8081/
@@ -60,6 +60,8 @@ date: 2026-07-27T09:12:47.926Z
   Selector: `div.css-view-g5y9jx.r-alignItems-1awozwy.r-flexDirection-18u37iz.r-flexWrap-1w6e6rj.r-gap-1cmwbt1.r-justifyContent-1wtj0ep.r-marginBottom-1ifxtd0`
 - Element has overflow clipping (`scrollWidth > clientWidth`).
   Selector: `div.css-view-g5y9jx.r-alignItems-1awozwy.r-backgroundColor-fj6wrk.r-flexDirection-18u37iz.r-padding-zhp00w.r-position-bnwqim.r-borderRadius-kdyh1x.r-height-mabqd8`
+- Element has overflow clipping (`scrollWidth > clientWidth`).
+  Selector: `div.css-view-g5y9jx.r-flex-13awgt0.r-overflow-1udh08x.r-width-13qz1uu`
 
 ### URL: http://localhost:8081/product/prod-1-1-1-1
 - Element has overflow clipping (`scrollWidth > clientWidth`).

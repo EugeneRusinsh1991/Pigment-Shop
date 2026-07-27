@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
     marginTop: layout.spacing.xs,
   },
   noPaddingBottom: {
-    paddingBottom: 0,
+    paddingBottom: layout.spacing.none,
   },
   flex1: {
     flex: 1,

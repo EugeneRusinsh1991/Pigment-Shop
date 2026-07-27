@@ -59,7 +59,7 @@
   - Line [52](file:///D:/Magazine/_PigmentShop/src/features/catalog/PlaceholderCard.js#L52): `<PlaceholderCard>`
 
 ### File: [src/features/catalog/ProductGrid.js](file:///D:/Magazine/_PigmentShop/src/features/catalog/ProductGrid.js)
-  - Line [34](file:///D:/Magazine/_PigmentShop/src/features/catalog/ProductGrid.js#L34): `<ProductCard>`
+  - Line [36](file:///D:/Magazine/_PigmentShop/src/features/catalog/ProductGrid.js#L36): `<ProductCard>`
 
 ### File: [src/features/contact/ContactQuestionForm.js](file:///D:/Magazine/_PigmentShop/src/features/contact/ContactQuestionForm.js)
   - Line [86](file:///D:/Magazine/_PigmentShop/src/features/contact/ContactQuestionForm.js#L86): `<Card>`

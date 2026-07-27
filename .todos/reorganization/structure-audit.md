@@ -245,6 +245,144 @@ export const buttonColors = {
 
 ---
 
+## 🔴 CRITICAL: Additional Non-Existent Text Variants
+
+### 19. `variant="label"` — Non-Existent Variant (~10 usages)
+
+**Rationale:** Same silent-fallback issue as `variant="body"` (#11). The `VARIANTS` map in `TextStyles.js` does not define `"label"`. All usages fall back silently to `body1`.
+
+**Affected files:**
+- `src/components/TextField/TextField.js` (L28) — used for all field labels
+- `src/features/cart/CartSummary.js` (L33, L84)
+- `src/features/profile/ProfileFormCard.js` (L11)
+- `src/features/orders/OrderDetailsCard.js` (L13, L16, L19, L22)
+- `src/features/auth/LoginPageComponents.js` (L113)
+- `src/features/auth/LoginPage.js` (L94)
+
+```
+variant="label"   ← ❌ Not in VARIANTS, silently falls back to body1
+variant="caption" ← ✅ Closest semantic equivalent (xs, regular)
+```
+
+---
+
+### 20. `variant="title"` — Non-Existent Variant (2 usages)
+
+**Rationale:** `"title"` is not defined in `VARIANTS`. Falls back to `body1`, which is completely wrong visually for a title-level element.
+
+**Affected files:**
+- `src/features/orders/OrderHeader.js` (L11)
+- `src/features/cart/CartSummary.js` (L87)
+
+```
+variant="title" ← ❌ Not in VARIANTS, falls back to body1
+variant="h3"    ← ✅ or variant="h4" depending on context
+```
+
+---
+
+## 🔴 CRITICAL: Typography Weight Inconsistencies
+
+### 21. `weight="semiBold"` — camelCase Mismatch with Token Key (~6 usages)
+
+**Rationale:** `typography.weights` defines `semibold` (all-lowercase). The `getTextStyle` function passes the weight prop directly as `fontWeight`, bypassing the token map entirely. Passing `"semiBold"` is a raw string not recognised by React Native's font weight system (which expects `"600"`), so the weight may be silently ignored or produce unexpected results.
+
+**Affected files:**
+- `src/components/Button/Button.js` (L50)
+- `src/components/Badge/Badge.js` (L31)
+- `src/components/Card/NavigationCard.js` (L22)
+- `src/features/admin/Orders/OrderCustomerCard.js` (L29)
+- `src/features/admin/Banners/BannersManager.js` (L99, L109)
+
+```
+weight="semiBold" ← ❌ camelCase, not a valid token key or RN fontWeight value
+weight="semibold" ← ✅ matches typography.weights.semibold → '600'
+```
+
+---
+
+## 🟠 IMPORTANT: Additional Token Gaps
+
+### 22. `weight="heavy"` — Undefined Typography Weight (3 usages)
+
+**Rationale:** `typography.weights` defines `regular`, `medium`, `semibold`, `bold`. `"heavy"` does not exist. Mentioned in the `[!WARNING]` note under #11 but not formally tracked as its own item.
+
+**Affected files:**
+- `src/features/cart/CartItem.js` (L68)
+- `src/features/cart/CartSummary.js` (L36)
+- `src/features/orders/OrderHeader.js` (L11)
+
+**Fix:** Replace with `weight="bold"` or add `heavy: '800'` to `typography.weights` in `tokens.js` if a distinct extra-bold step is needed.
+
+---
+
+### 23. `color="info"` — Missing Color Preset in Text Component (2 usages)
+
+**Rationale:** `colorPresetMap` in `TextStyles.js` does not contain an `"info"` key. The resolver falls back to `"primary"` (dark text on light / white on dark), which is semantically incorrect for an informational state that should resolve to `colors.infoStrong` / `colors.infoLight`.
+
+**Affected files:**
+- `src/features/cart/CartItem.js` (L68) — `color={isDark ? 'info' : 'primary'}`
+- `src/features/orders/OrderHeader.js` (L11) — `color={isDark ? 'info' : 'success'}`
+
+**Fix:** Add `info: (isDark) => isDark ? colors.infoLight : colors.infoDeep` to `colorPresetMap`.
+
+---
+
+### 24. `activeOpacity` — No Motion Token, Scattered Raw Values (20+ usages)
+
+**Rationale:** `buttonCommon.js` defines `DEFAULT_ACTIVE_OPACITY = 0.8` as a module-level constant, not a design token. Over 20 files bypass this constant and hardcode different raw values (`0.7`, `0.75`, `0.85`, `0.9`), making press feedback inconsistent across the UI.
+
+**Sample affected files:**
+- `src/components/Toggle/Toggle.js` — `0.7`
+- `src/components/Card/Card.js` — `0.85`
+- `src/components/Badge/Badge.js` — `0.75`
+- `src/features/shell/NavMenu/NavItemList.js`, `MainMenuContent.js`, `CategoryTreeNodeButtons.js` — `0.7`
+- `src/features/admin/Users/UserRow.js` — `0.7`
+- `src/features/admin/Categories/CategoryRow.js` — `0.85`
+- `src/features/admin/Banners/BannersManager.js` — `0.8`, `0.85`
+
+**Fix:** Add `motion.press.activeOpacity: 0.8` to `tokens.js` and replace all raw values with the token. Remove `DEFAULT_ACTIVE_OPACITY` from `buttonCommon.js`.
+
+---
+
+### 25. `motion.press.scale: 1.1` — Inverted Press Animation Direction
+
+**Rationale:** The press scale token in `tokens.js` is set to `1.1`, meaning interactive elements *grow* when pressed. The standard UX convention for press feedback is a subtle *shrink* (scale < 1.0, typically `0.97`–`0.98`). Growing on press feels unnatural and is inconsistent with platform conventions. Used in `Button.js` as the default `scaleTo`.
+
+```js
+// tokens.js — current:
+motion.press.scale: 1.1  // ❌ Grows on press — unconventional
+
+// Expected:
+motion.press.scale: 0.97 // ✅ Shrinks on press — standard feel
+```
+
+---
+
+## 🟡 DISCUSSION REQUIRED: Minor Token Coverage Gaps
+
+### 26. `borderWidth: 1` — Token Exists but Is Ignored (50+ usages)
+
+**Rationale:** `layout.borderWidth.thin: 1` is already defined in `tokens.js`. However, the raw integer `1` is used directly in 50+ style files instead of referencing the token. This is a lower-priority consistency issue since the value is unlikely to change, but it breaks the single-source principle.
+
+**Fix:** Replace `borderWidth: 1` with `borderWidth: layout.borderWidth.thin` across all style files.
+
+---
+
+### 27. `badgeFontSizes` — Local Size Dictionary Outside Token System
+
+**Rationale:** `Badge.js` defines a local `badgeFontSizes` object with raw pixel values (`sm: 10`, `md: 11`, `lg: 12`, `counter: 10`). These partially overlap with `typography.sizes` (`xxs: 10`, `xs: 12`) but are maintained separately, creating a divergence point if the type scale changes.
+
+```js
+// Badge.js — current:
+const badgeFontSizes = { sm: 10, small: 10, md: 11, medium: 11, lg: 12, large: 12, counter: 10 };
+// ❌ Raw values, not referenced from typography.sizes
+```
+
+**Fix:** Map badge sizes to `typography.sizes` tokens, or move the size map into `buttonTokens`/`badgeTokens` section in `tokens.js`.
+
+---
+
 ## Summary Matrix
 
 | # | Item | Current Location | Recommended Location | Priority |
@@ -267,3 +405,12 @@ export const buttonColors = {
 | 16 | `buttonColors` re-export | `buttonCommon.js` | Import from `tokens.js` directly | 🟡 Discussion |
 | 17 | `letterSpacing: 1` hardcoded | `TextStyles.js` | `typography.letterSpacing` scale | 🟡 Discussion |
 | 18 | Dual shadow sources | `shadows.js` + `tokens.js` | Consolidate to one source | 🟠 Important |
+| 19 | `variant="label"` (~10 usages) | Throughout codebase | Use `caption` or `body2` | 🔴 Critical |
+| 20 | `variant="title"` (2 usages) | `OrderHeader.js`, `CartSummary.js` | Use `h3` or `h4` | 🔴 Critical |
+| 21 | `weight="semiBold"` camelCase (6 usages) | Components & features | Use `semibold` (lowercase) | 🔴 Critical |
+| 22 | `weight="heavy"` (3 usages) | `CartItem.js`, `CartSummary.js`, `OrderHeader.js` | Use `bold` or define token | 🟠 Important |
+| 23 | `color="info"` missing preset (2 usages) | `CartItem.js`, `OrderHeader.js` | Add `info` to `colorPresetMap` | 🟠 Important |
+| 24 | `activeOpacity` raw values (20+ usages) | Throughout codebase | Add `motion.press.activeOpacity` token | 🟠 Important |
+| 25 | `motion.press.scale: 1.1` inverted | `tokens.js` | Change to `0.97` (shrink on press) | 🟠 Important |
+| 26 | `borderWidth: 1` raw number (50+ usages) | Throughout styles | Use `layout.borderWidth.thin` | 🟡 Discussion |
+| 27 | `badgeFontSizes` local dict in Badge | `Badge.js` | Map to `typography.sizes` tokens | 🟡 Discussion |
