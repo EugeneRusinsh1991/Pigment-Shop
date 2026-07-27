@@ -5604,5 +5604,19 @@
         }
       ]
     }
+  },
+  "src_07-27_13-08_04-typography-violations.md_25files": {
+    "timestamp": "2026-07-27T10:08:32.553Z",
+    "diff": {
+      "added": 1,
+      "removed": 0,
+      "modified": 0,
+      "topFolders": [
+        {
+          "folder": ".todos/typography",
+          "count": 1
+        }
+      ]
+    }
   }
 }
