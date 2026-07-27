@@ -16,7 +16,7 @@ function BackButton({ show, onPress, styles, t }) {
       style={styles.backButton} 
       onPress={onPress}
     >
-      <Text variant="body" size="sm" weight="medium" style={styles.backText}>
+      <Text variant="body1" size="sm" weight="medium" style={styles.backText}>
         ‹ {t('btnBackLabel')}
       </Text>
     </AnimatedButton>

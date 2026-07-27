@@ -28,9 +28,9 @@ const ResultRow = React.forwardRef(({ item, isDark, onPress, ...rest }, ref) => 
       {item.image ? (
         <Image source={{ uri: item.image }} style={SearchStyles.resultImage} />
       ) : (
-        <Text variant="body" size={16}>{item.icon || '📦'}</Text>
+        <Text variant="body1" size={16}>{item.icon || '📦'}</Text>
       )}
-      <Text variant="body" size={14} style={[SearchStyles.resultText, SearchStyles[`text_${isDark ? 'defaultDark' : 'defaultLight'}`]]} numberOfLines={1}>
+      <Text variant="body1" size={14} style={[SearchStyles.resultText, SearchStyles[`text_${isDark ? 'defaultDark' : 'defaultLight'}`]]} numberOfLines={1}>
         {label}
       </Text>
       <Text variant="caption" color="muted" size={16}>›</Text>
@@ -44,7 +44,7 @@ function EmptySearchState({ query, isDark, t }) {
 
   return (
     <View style={[SearchStyles.dropdownOverlay, SearchStyles[isDark ? 'defaultDark' : 'defaultLight']]}>
-      <Text variant="body" size={14} style={[SearchStyles.emptyText, SearchStyles[`text_${isDark ? 'defaultDark' : 'defaultLight'}`]]}>
+      <Text variant="body1" size={14} style={[SearchStyles.emptyText, SearchStyles[`text_${isDark ? 'defaultDark' : 'defaultLight'}`]]}>
         {message}
       </Text>
     </View>

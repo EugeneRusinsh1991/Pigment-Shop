@@ -64,7 +64,7 @@ function renderToggleOption(opt, index, ctx) {
       accessibilityState={{ selected: isActive }}
     >
       <Text
-        variant="body"
+        variant="body1"
         size={ctx.size === 'sm' ? 'sm' : 'md'}
         weight={isActive ? 'bold' : 'medium'}
         style={computedTextStyle}

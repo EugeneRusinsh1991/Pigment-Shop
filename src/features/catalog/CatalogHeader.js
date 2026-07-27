@@ -1,6 +1,6 @@
 import { View } from 'react-native';
 import { Text } from '../../components/Text/Text';
-import styles from '../../AppStyles';
+import styles from '../../theme/appStyles';
 import { Link } from 'expo-router';
 import HeroCarousel from '../home/components/HeroCarousel';
 import Button from '../../components/Button';

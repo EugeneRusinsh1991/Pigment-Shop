@@ -27,7 +27,7 @@ export default function CartItem({ item, isDark, onIncrease, onDecrease, onRemov
       {/* Product Info & Controls */}
       <View style={styles.details}>
         <View style={styles.headerRow}>
-          <Text variant="body" weight="bold" style={styles.label} numberOfLines={2}>
+          <Text variant="body1" weight="bold" style={styles.label} numberOfLines={2}>
             {getLocalizedValue(item.label, lang, item.label)}
           </Text>
           <IconButton
@@ -48,23 +48,23 @@ export default function CartItem({ item, isDark, onIncrease, onDecrease, onRemov
         <View style={styles.footerRow}>
           <View style={styles.qtyRow}>
             <IconButton
-              icon={<Text variant="body" weight="medium" style={[styles.qtyBtnTxt, ic(styles.qtyBtnTxtDark, styles.qtyBtnTxtLight)]}>−</Text>}
+              icon={<Text variant="body1" weight="medium" style={[styles.qtyBtnTxt, ic(styles.qtyBtnTxtDark, styles.qtyBtnTxtLight)]}>−</Text>}
               onPress={onDecrease}
               size={28}
               variant="outline"
             />
 
-            <Text variant="body" weight="bold" style={styles.qty}>{item.qty}</Text>
+            <Text variant="body1" weight="bold" style={styles.qty}>{item.qty}</Text>
 
             <IconButton
-              icon={<Text variant="body" weight="medium" style={[styles.qtyBtnTxt, ic(styles.qtyBtnTxtDark, styles.qtyBtnTxtLight)]}>+</Text>}
+              icon={<Text variant="body1" weight="medium" style={[styles.qtyBtnTxt, ic(styles.qtyBtnTxtDark, styles.qtyBtnTxtLight)]}>+</Text>}
               onPress={onIncrease}
               size={28}
               variant="outline"
             />
           </View>
 
-          <Text variant="body" weight="bold" color={isDark ? 'info' : 'primary'}>
+          <Text variant="body1" weight="bold" color={isDark ? 'info' : 'primary'}>
             {subtotal}
           </Text>
         </View>

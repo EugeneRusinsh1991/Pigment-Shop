@@ -2,7 +2,7 @@
 type: dynamic-audit
 auditor: raw-i18n
 scope: public
-date: 2026-07-27T18:27:01.925Z
+date: 2026-07-27T18:47:38.503Z
 ---
 
 ### Problem: Hardcoded text without i18n key
@@ -275,6 +275,7 @@ date: 2026-07-27T18:27:01.925Z
   - Found hardcoded text without i18n key: "Все товары" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-kgv7a8`
   - Found hardcoded text without i18n key: "Контакты" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-kgv7a8`
   - Found hardcoded text without i18n key: "Универсальный продукт для Product 2-2-1-1 RU" | Selector: `div.css-text-146c3p1.r-color-1dk24ck.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-14yzgew.r-marginBottom-6gpygo`
+  - Found hardcoded text without i18n key: "Универсальный продукт для Product 2-1-2-1 RU" | Selector: `div.css-text-146c3p1.r-color-1dk24ck.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-14yzgew.r-marginBottom-6gpygo`
 - URL: `http://localhost:8081/catalog/cat-root-1-sub-0`
   - Found hardcoded text without i18n key: "Главная" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-1dk24ck`
   - Found hardcoded text without i18n key: "Каталог" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-kgv7a8`
@@ -328,6 +329,7 @@ date: 2026-07-27T18:27:01.925Z
   - Found hardcoded text without i18n key: "Каталог" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-kgv7a8`
   - Found hardcoded text without i18n key: "Все товары" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-kgv7a8`
   - Found hardcoded text without i18n key: "Контакты" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-kgv7a8`
+  - Found hardcoded text without i18n key: "Универсальный продукт для Product 2-1-2-1 RU" | Selector: `div.css-text-146c3p1.r-color-1dk24ck.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-14yzgew.r-marginBottom-6gpygo`
 - URL: `http://localhost:8081/catalog/cat-root-1-sub-1`
   - Found hardcoded text without i18n key: "Главная" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-1dk24ck`
   - Found hardcoded text without i18n key: "Каталог" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-kgv7a8`
@@ -570,6 +572,11 @@ date: 2026-07-27T18:27:01.925Z
   - Found hardcoded text without i18n key: "Group 2-1-2 EN" | Selector: `div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-1s7ct43`
   - Found hardcoded text without i18n key: "Group 2-1-2 RU" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8`
   - Found hardcoded text without i18n key: "Product 2-1-2-1 RU" | Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16`
+  - Found hardcoded text without i18n key: "Главная" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-1dk24ck`
+  - Found hardcoded text without i18n key: "Каталог" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-kgv7a8`
+  - Found hardcoded text without i18n key: "Все товары" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-kgv7a8`
+  - Found hardcoded text without i18n key: "Контакты" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-kgv7a8`
+  - Found hardcoded text without i18n key: "Универсальный продукт для Product 2-1-2-1 RU" | Selector: `div.css-text-146c3p1.r-color-1dk24ck.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-14yzgew.r-marginBottom-6gpygo`
 - URL: `http://localhost:8081/product/prod-1-2-2-1`
   - Found hardcoded text without i18n key: "Главная" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-1dk24ck`
   - Found hardcoded text without i18n key: "Каталог" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-kgv7a8`
@@ -803,6 +810,10 @@ date: 2026-07-27T18:27:01.925Z
   - Found raw camelCase i18n key: "toggleCustomerQuestions" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-color-1cucpzw`
   - Found raw camelCase i18n key: "reviewsCount" | Selector: `div.css-text-146c3p1.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7`
   - Found raw camelCase i18n key: "badgeNew" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j`
+  - Found raw camelCase i18n key: "catalogFilters" | Selector: `h1.css-text-146c3p1.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-1kfrs79.r-lineHeight-135wba7.r-marginBottom-1ifxtd0`
+  - Found raw camelCase i18n key: "catalogResetFilters" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-jwli3a`
+  - Found raw camelCase i18n key: "productAddToCart" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1kitb6n.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-jwli3a`
+  - Found raw camelCase i18n key: "reviewsSubmitBtn" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1kitb6n.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-jwli3a`
 - URL: `http://localhost:8081/catalog/cat-root-1-sub-1`
   - Found raw camelCase i18n key: "badgeNew" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-1qxivpv.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j`
   - Found raw camelCase i18n key: "offerEndsIn" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-1cwl3u0.r-marginRight-1pcdyqj.r-color-1s7ct43`
@@ -1004,6 +1015,11 @@ date: 2026-07-27T18:27:01.925Z
   - Found raw camelCase i18n key: "toggleCustomerQuestions" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-color-1cucpzw`
   - Found raw camelCase i18n key: "reviewsCount" | Selector: `div.css-text-146c3p1.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7`
   - Found raw camelCase i18n key: "navRootCatalog" | Selector: `div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-12zy4o2`
+  - Found raw camelCase i18n key: "badgeNew" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j`
+  - Found raw camelCase i18n key: "catalogFilters" | Selector: `h1.css-text-146c3p1.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-1kfrs79.r-lineHeight-135wba7.r-marginBottom-1ifxtd0`
+  - Found raw camelCase i18n key: "catalogResetFilters" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-jwli3a`
+  - Found raw camelCase i18n key: "productAddToCart" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1kitb6n.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-jwli3a`
+  - Found raw camelCase i18n key: "reviewsSubmitBtn" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1kitb6n.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-jwli3a`
 - URL: `http://localhost:8081/product/prod-1-2-2-1`
   - Found raw camelCase i18n key: "badgeNew" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-1qxivpv.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j`
   - Found raw camelCase i18n key: "offerEndsIn" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-1cwl3u0.r-marginRight-1pcdyqj.r-color-1s7ct43`

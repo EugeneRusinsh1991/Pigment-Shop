@@ -1985,6 +1985,11 @@
         "url": "http://localhost:8081/catalog/cat-root-1",
         "message": "Found raw camelCase i18n key: \"reviewsSubmitBtn\"",
         "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1kitb6n.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-jwli3a"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1",
+        "message": "Found hardcoded text without i18n key: \"Универсальный продукт для Product 2-1-2-1 RU\"",
+        "selector": "div.css-text-146c3p1.r-color-1dk24ck.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-14yzgew.r-marginBottom-6gpygo"
       }
     ],
     "http://localhost:8081/catalog/cat-root-1-sub-0": [
@@ -2392,6 +2397,31 @@
         "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
         "message": "Found raw camelCase i18n key: \"badgeNew\"",
         "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Found raw camelCase i18n key: \"catalogFilters\"",
+        "selector": "h1.css-text-146c3p1.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-1kfrs79.r-lineHeight-135wba7.r-marginBottom-1ifxtd0"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Found raw camelCase i18n key: \"catalogResetFilters\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-jwli3a"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Found hardcoded text without i18n key: \"Универсальный продукт для Product 2-1-2-1 RU\"",
+        "selector": "div.css-text-146c3p1.r-color-1dk24ck.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-14yzgew.r-marginBottom-6gpygo"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Found raw camelCase i18n key: \"productAddToCart\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1kitb6n.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-jwli3a"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Found raw camelCase i18n key: \"reviewsSubmitBtn\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1kitb6n.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-jwli3a"
       }
     ],
     "http://localhost:8081/catalog/cat-root-1-sub-1": [
@@ -4559,6 +4589,56 @@
         "url": "http://localhost:8081/catalog/cat-root-1-sub-0-sub-1",
         "message": "Found hardcoded text without i18n key: \"Product 2-1-2-1 RU\"",
         "selector": "div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0-sub-1",
+        "message": "Found hardcoded text without i18n key: \"Главная\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-1dk24ck"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0-sub-1",
+        "message": "Found hardcoded text without i18n key: \"Каталог\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0-sub-1",
+        "message": "Found hardcoded text without i18n key: \"Все товары\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0-sub-1",
+        "message": "Found hardcoded text without i18n key: \"Контакты\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0-sub-1",
+        "message": "Found raw camelCase i18n key: \"badgeNew\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0-sub-1",
+        "message": "Found raw camelCase i18n key: \"catalogFilters\"",
+        "selector": "h1.css-text-146c3p1.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-1kfrs79.r-lineHeight-135wba7.r-marginBottom-1ifxtd0"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0-sub-1",
+        "message": "Found raw camelCase i18n key: \"catalogResetFilters\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-jwli3a"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0-sub-1",
+        "message": "Found hardcoded text without i18n key: \"Универсальный продукт для Product 2-1-2-1 RU\"",
+        "selector": "div.css-text-146c3p1.r-color-1dk24ck.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-14yzgew.r-marginBottom-6gpygo"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0-sub-1",
+        "message": "Found raw camelCase i18n key: \"productAddToCart\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1kitb6n.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-jwli3a"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0-sub-1",
+        "message": "Found raw camelCase i18n key: \"reviewsSubmitBtn\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1kitb6n.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-jwli3a"
       }
     ],
     "http://localhost:8081/product/prod-1-2-2-1": [

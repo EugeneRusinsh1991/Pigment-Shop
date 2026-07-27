@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { FlatList, ScrollView, StyleSheet, View } from 'react-native';
 import { layout } from '../../theme/tokens';
-import styles from '../../AppStyles';
+import styles from '../../theme/appStyles';
 import { useFavoritesContext } from '../../context/FavoritesContext';
 import { useRouter } from 'expo-router';
 import { useTheme } from '../../context/ThemeContext';

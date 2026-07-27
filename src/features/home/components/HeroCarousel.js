@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useWindowDimensions, View } from 'react-native';
-import globalStyles from '@/AppStyles';
+import globalStyles from '@/theme/appStyles';
 import { useCatalog } from '@/context/CatalogContext';
 import { ChevronLeftIcon, ChevronRightIcon } from '@/components/Icons';
 import { DEFAULT_ACTIVE_OPACITY } from '@/theme/buttonCommon';

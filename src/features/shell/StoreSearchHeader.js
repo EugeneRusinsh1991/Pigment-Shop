@@ -4,7 +4,7 @@ import { AutocompleteSearch } from '../../components/Search';
 import { useHomeScrollHide } from '../../hooks/useHomeScrollHide';
 import { useTheme } from '../../context/ThemeContext';
 import { layout } from '../../theme/tokens';
-import styles from '../../AppStyles';
+import styles from '../../theme/appStyles';
 
 const ic = (isDark, dark, light) => (isDark ? dark : light);
 

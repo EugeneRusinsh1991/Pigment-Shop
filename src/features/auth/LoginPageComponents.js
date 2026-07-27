@@ -21,7 +21,7 @@ export function LoginHeader({ isRegister, isDark }) {
       <Heading level={2} style={styles.title}>
         {isRegister ? t('loginCreateAccount') : t('loginWelcome')}
       </Heading>
-      <Text variant="body" color="muted" style={styles.subtitle}>
+      <Text variant="body1" color="muted" style={styles.subtitle}>
         {isRegister ? t('loginSignUpGetStarted') : t('loginToAccount')}
       </Text>
     </View>
@@ -59,7 +59,7 @@ export function LoginFooter({ isRegister, isDark, setIsRegister, setError }) {
   const { t } = useTheme();
   return (
     <View style={styles.footer}>
-      <Text variant="body" color="muted" style={styles.footerText}>
+      <Text variant="body1" color="muted" style={styles.footerText}>
         {isRegister ? t('loginAlreadyHaveAccount') : t('loginDontHaveAccount')}{' '}
         <Button
           testID="login-toggle-mode-button"
@@ -87,7 +87,7 @@ export function ErrorText({ error }) {
   else if (error === 'Invalid credentials') errorMsg = t('loginErrorInvalid');
   else if (error === 'Google Sign-In failed') errorMsg = t('errorGoogleSignInFailed');
 
-  return <Text testID="login-error-text" variant="body" color="error" style={styles.errorText}>{errorMsg}</Text>;
+  return <Text testID="login-error-text" variant="body1" color="error" style={styles.errorText}>{errorMsg}</Text>;
 }
 
 export function ForgotPasswordLink({ isRegister, isDark }) {

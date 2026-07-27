@@ -12,7 +12,7 @@ function EmailField({ label, email, selectTheme }) {
         {label}
       </Text>
       <View style={[styles.inputContainer, selectTheme(styles.inputContainerDark, styles.inputContainerLight), styles.inputDisabled]}>
-        <Text variant="body" color="muted" style={styles.value}>
+        <Text variant="body1" color="muted" style={styles.value}>
           {email || 'user@example.com'}
         </Text>
       </View>

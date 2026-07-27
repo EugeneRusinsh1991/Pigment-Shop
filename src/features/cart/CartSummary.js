@@ -33,7 +33,7 @@ export default function CartSummary({ totalItems, totalPrice, isWide, isDark, no
         <Text variant="label" color="muted">
           {t('cartItemsCount')}
         </Text>
-        <Text variant="body" weight="bold">
+        <Text variant="body1" weight="bold">
           {totalItems}
         </Text>
       </View>

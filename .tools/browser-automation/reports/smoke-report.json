@@ -2,8 +2,8 @@
   "summary": {
     "visitedScreens": 0,
     "visitedInteractions": 0,
-    "successfulInteractions": 58,
-    "failedInteractions": 0,
+    "successfulInteractions": 62,
+    "failedInteractions": 1,
     "warnings": 0,
     "errors": 1,
     "executionDurationMs": 0
@@ -12,9 +12,9 @@
     {
       "screen": "http://localhost:8081/admin",
       "interaction": "Click",
-      "elementIdentifier": "btn|Category Holder",
-      "event": "ScreenEntered",
-      "timestamp": 1785176823871,
+      "elementIdentifier": "btn|adminCategoriesFor...",
+      "event": "AfterInteraction",
+      "timestamp": 1785178062654,
       "errorType": "Health Check Evaluation Failed",
       "errorMessage": "[Application Bug] page.evaluate: Target page, context or browser has been closed"
     }

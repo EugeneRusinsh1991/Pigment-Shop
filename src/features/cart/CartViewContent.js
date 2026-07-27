@@ -13,7 +13,7 @@ function EmptyCart({ isDark, t }) {
   return (
     <ScrollFadeUp style={[styles.emptyState, isDark ? styles.containerDark : styles.containerLight]}>
       <CartIcon color={isDark ? colors.white : colors.dark} size={48} style={styles.emptyIcon} />
-      <Text variant="body" color="muted">
+      <Text variant="body1" color="muted">
         {t('cartEmpty')}
       </Text>
     </ScrollFadeUp>

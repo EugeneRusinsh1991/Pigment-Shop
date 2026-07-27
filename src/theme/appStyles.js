@@ -1,5 +1,5 @@
 import { Platform, StyleSheet } from 'react-native';
-import { colors, fonts, layout } from './theme/tokens';
+import { colors, fonts, layout } from './tokens';
 
 const rootStyles = Platform.OS === 'web'
   ? { minHeight: '100vh', overflowX: 'hidden', cursor: 'default' }

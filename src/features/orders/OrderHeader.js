@@ -13,7 +13,7 @@ export default function OrderHeader({ isDark, t }) {
       <Heading level={2} style={styles.title}>
         {t('orderConfirmationThankYou')}
       </Heading>
-      <Text variant="body" color="muted" style={styles.subtitle}>
+      <Text variant="body1" color="muted" style={styles.subtitle}>
         {t('cartSuccessMsg')}
       </Text>
     </ScrollFadeUp>

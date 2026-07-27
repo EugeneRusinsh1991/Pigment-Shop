@@ -6,7 +6,7 @@ import { CountdownTimer } from './FeaturedSections';
 import { useCatalog } from '@/context/CatalogContext';
 import { getDeviceTier } from '@/utils/layout';
 import { useRouter } from 'expo-router';
-import styles from '@/AppStyles';
+import styles from '@/theme/appStyles';
 import { ScrollFadeUp } from '@/components/Motion';
 import { layout } from '@/theme/tokens';
 
@@ -66,7 +66,7 @@ export default function DiscountsSection({ isDark, isWide, t, onCardPress, favs 
       <DiscountsHeader isWide={isWide} isDark={isDark} title={t.discounts} />
       {discountedProducts.length === 0 ? (
         <View style={localStyles.emptyContainer}>
-          <Text variant="body" color="muted" style={localStyles.emptyText}>
+          <Text variant="body1" color="muted" style={localStyles.emptyText}>
             {t.emptyDiscounts}
           </Text>
         </View>

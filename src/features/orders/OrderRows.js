@@ -14,7 +14,7 @@ export function OrderMetaRow({ label, value, isPrice, isLast, isDark, textStyle,
   const borderStyle = isDark ? styles.borderDark : styles.borderLight;
   return (
     <View style={[styles.metaRow, borderStyle, isLast && styles.noBorder]}>
-      <Text variant="body" color="muted" style={[styles.subtextCell, subtextStyle]}>{label}</Text>
+      <Text variant="body1" color="muted" style={[styles.subtextCell, subtextStyle]}>{label}</Text>
       <Text variant={isPrice ? 'h3' : 'body'} weight={isPrice ? 'heavy' : 'medium'} style={[styles.textCell, textStyle]}>
         {value}
       </Text>
@@ -30,16 +30,16 @@ export function OrderItemRow({ item, flatList, lang, isDark, isLast, textStyle, 
 
   return (
     <View style={[styles.itemRow, borderStyle, isLast && styles.noBorder]}>
-      <Text variant="body" style={[styles.colProduct, textStyle]} numberOfLines={2}>
+      <Text variant="body1" style={[styles.colProduct, textStyle]} numberOfLines={2}>
         {label}
       </Text>
-      <Text variant="body" color="muted" style={[styles.colQty, styles.textCenter, subtextStyle]}>
+      <Text variant="body1" color="muted" style={[styles.colQty, styles.textCenter, subtextStyle]}>
         {item.qty}
       </Text>
-      <Text variant="body" color="muted" style={[styles.colPrice, styles.textRight, subtextStyle]}>
+      <Text variant="body1" color="muted" style={[styles.colPrice, styles.textRight, subtextStyle]}>
         ${priceNum.toFixed(2)}
       </Text>
-      <Text variant="body" weight="medium" style={[styles.colTotal, styles.textRight, textStyle]}>
+      <Text variant="body1" weight="medium" style={[styles.colTotal, styles.textRight, textStyle]}>
         ${lineTotal}
       </Text>
     </View>

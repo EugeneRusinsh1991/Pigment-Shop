@@ -8,7 +8,7 @@ import AppHeader from '@/features/shell/AppHeader';
 import NavMenu from '@/features/shell/NavMenu';
 import StoreSearchHeader from '@/features/shell/StoreSearchHeader';
 import SharedLayoutWrapper from '@/components/SharedLayoutWrapper';
-import styles from '@/AppStyles';
+import styles from '@/theme/appStyles';
 
 const ic = (isDark, dark, light) => (isDark ? dark : light);
 
