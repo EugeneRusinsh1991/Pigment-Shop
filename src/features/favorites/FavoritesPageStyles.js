@@ -43,7 +43,7 @@ export default StyleSheet.create({
   subtextDark: { color: colors.textMutedDark },
   subtextLight: { color: colors.textMutedLight },
   noPaddingBottom: {
-    paddingBottom: 0,
+    paddingBottom: layout.spacing.none,
   },
   flex1: {
     flex: 1,

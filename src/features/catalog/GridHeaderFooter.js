@@ -21,7 +21,7 @@ const getSortItemStyles = (isSelected, isDark) => {
 const getSortDropdownStyles = (isDark) => [
   sidebarStyles.sortDropdown,
   isDark ? sidebarStyles.sortDropdownDark : sidebarStyles.sortDropdownLight,
-  { top: 54, right: layout.spacing.xxs, width: 165 },
+  styles.sortDropdownPosition,
 ];
 
 const getGridHeaderStyles = (isDark) => {
@@ -130,5 +130,10 @@ const styles = StyleSheet.create({
   gridHeaderWrapper: {
     zIndex: layout.zIndices.drawer,
     position: 'relative',
+  },
+  sortDropdownPosition: {
+    top: 54,
+    right: layout.spacing.xxs,
+    width: 165,
   },
 });

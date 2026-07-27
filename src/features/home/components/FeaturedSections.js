@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import { Platform, StyleSheet, View } from 'react-native';
 import { Text } from '@/components/Text';
 import { useTheme } from '@/context/ThemeContext';
-import { colors, layout } from '@/theme/tokens';
+import { colors, layout, shadows } from '@/theme/tokens';
 
 const setElementText = (ref, text) => {
   if (!ref.current) return;
@@ -109,19 +109,12 @@ const styles = StyleSheet.create({
   card: {
     marginHorizontal: layout.spacing.lg,
     marginVertical: layout.spacing.sm,
-    padding: 18,
+    padding: layout.spacing.lg,
     borderRadius: layout.radii.md,
     borderWidth: 1,
     ...Platform.select({
-      web: {
-        boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.06)',
-      },
-      default: {
-        shadowColor: colors.black,
-        shadowOffset: { width: 0, height: 4 },
-        shadowOpacity: 0.06,
-        shadowRadius: 8,
-      },
+      web: shadows.cardLight.web,
+      default: shadows.cardLight.native,
     }),
     elevation: layout.elevation.sm,
   },
@@ -141,7 +134,7 @@ const styles = StyleSheet.create({
 
   badge: {
     paddingHorizontal: layout.spacing.sm,
-    paddingVertical: 3,
+    paddingVertical: layout.spacing.xxxs,
     borderRadius: layout.radii.sm,
     marginRight: layout.spacing.md,
   },
