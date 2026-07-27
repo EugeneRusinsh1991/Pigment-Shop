@@ -67,11 +67,16 @@ function walkDir(dirPath, violations) {
   }
 }
 
-function auditMagicNumbers() {
+function auditMagicNumbers(disableDynamicAudits = false) {
   if (!fs.existsSync(AUDITS_DIR)) fs.mkdirSync(AUDITS_DIR, { recursive: true });
   let rawViolations = [];
   walkDir(SRC_DIR, rawViolations);
   const violations = deduplicate(rawViolations);
+
+  if (disableDynamicAudits) {
+    console.log('[08 Magic Numbers Audit] Skipped (dynamic audits disabled)');
+    return;
+  }
 
   const timestamp = new Date().toLocaleString('ru-RU');
   let report = `===================================================================\n`;

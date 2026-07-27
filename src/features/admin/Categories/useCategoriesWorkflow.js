@@ -1,8 +1,8 @@
 import { useCallback, useMemo } from 'react';
 import { useTheme } from '../../../context/ThemeContext';
-import { useAdminDrafts, useAdminActions } from '../../../services/adminDomain';
 import { getCategoryTree } from '../../../services/adminCategoriesTransforms';
-import { useCrudWorkflow } from '../../../hooks/useCrudWorkflow';
+import { useAdminActions, useAdminDrafts } from '../../../services/adminDomain';
+import { useCrudWorkflow } from '../useCrudWorkflow';
 
 export function useCategoriesWorkflow() {
   const { draftCategories, isDirty, addCategory, updateCategory, removeCategory } = useAdminDrafts();

@@ -1,6 +1,6 @@
 ===================================================================
          5. SERVICE LAYER ARCHITECTURE REPORT                      
-Timestamp: 28.07.2026, 02:18:07
+Timestamp: 28.07.2026, 02:58:32
 ===================================================================
 [DESCRIPTION FOR USER]: Этот отчет находит прямые обращения к БД/Firebase (Firestore) из UI или хуков.
 Прямой вызов getDocs/addDoc в компонентах нарушает изоляцию сервисного слоя.
@@ -8,7 +8,7 @@ Timestamp: 28.07.2026, 02:18:07
 [PROMPT FOR AGENT]: Refactor direct database/Firestore calls out of UI components and hooks into dedicated service layer modules.
 ===================================================================
 
-Found 4 service layer issue(s) across 2 file(s):
+Found 9 service layer issue(s) across 4 file(s):
 
 File: src\features\admin\Analytics\AnalyticsDashboard.js
   L3     import { collection, getDocs } from 'firebase/firestore';
@@ -17,4 +17,13 @@ File: src\features\admin\Analytics\AnalyticsDashboard.js
 File: src\features\contact\ContactQuestionForm.js
   L1     import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
   L42    await addDoc(collection(db, COLLECTIONS.SUPPORT_MESSAGES), payload);
+
+File: src\features\orders\useOrders.js
+  L1     import { collection, onSnapshot, query, where } from 'firebase/firestore';
+  L33    const q = query(collection(db, COLLECTIONS.ORDERS), where('userId', '==', user.uid));
+
+File: src\features\profile\useProfile.js
+  L1     import { doc, getDoc, setDoc } from 'firebase/firestore';
+  L35    const docSnap = await getDoc(docRef);
+  L55    await setDoc(docRef, { profile: nextProfile }, { merge: true });
 

@@ -62,10 +62,9 @@ function generateSubReport(title, description, items, formatter) {
   });
 
   Object.keys(grouped).sort().forEach(file => {
-    const fileAbs = path.resolve(ROOT, file).replace(/\\/g, '/');
-    md += `### File: [${file}](file:///${fileAbs})\n`;
+    md += `### File: ${file}\n\n`;
     grouped[file].forEach(item => {
-      md += formatter(item, fileAbs);
+      md += formatter(item, file);
     });
     md += `\n`;
   });
@@ -73,7 +72,12 @@ function generateSubReport(title, description, items, formatter) {
   return md;
 }
 
-function runCatalogGenerator() {
+function runCatalogGenerator(disableDynamicAudits = false) {
+  if (disableDynamicAudits) {
+    console.log('[Catalog Generator] Skipped (dynamic audits disabled)');
+    return;
+  }
+
   ensureDir(AUDITS_DIR);
   const files = getAllFiles(SRC_DIR);
 
@@ -141,7 +145,7 @@ function runCatalogGenerator() {
     '01. Text & Typography Catalog',
     'Catalog of all Text, Typography, and related components rendering textual content.',
     catalog.texts,
-    (item, fileAbs) => `  - Line [${item.line}](file:///${fileAbs}#L${item.line}): \`<${item.component}>\` -> \`${item.content}\`\n`
+    (item, file) => `  - Line ${item.line}: \`<${item.component}>\` -> \`${item.content}\`\n`
   );
   fs.writeFileSync(path.join(AUDITS_DIR, '01-texts-catalog.md'), textsMd, 'utf-8');
 
@@ -150,7 +154,7 @@ function runCatalogGenerator() {
     '02. Cards & Containers Catalog',
     'Catalog of structural layout cards, containers, modal sheets, and wrappers.',
     catalog.cards,
-    (item, fileAbs) => `  - Line [${item.line}](file:///${fileAbs}#L${item.line}): \`<${item.component}>\`\n`
+    (item, file) => `  - Line ${item.line}: \`<${item.component}>\`\n`
   );
   fs.writeFileSync(path.join(AUDITS_DIR, '02-cards-catalog.md'), cardsMd, 'utf-8');
 
@@ -159,7 +163,7 @@ function runCatalogGenerator() {
     '03. Buttons & Interactive Elements Catalog',
     'Catalog of pressable UI elements including Buttons, Touchables, and Pressables.',
     catalog.buttons,
-    (item, fileAbs) => `  - Line [${item.line}](file:///${fileAbs}#L${item.line}): \`<${item.component}>\`\n`
+    (item, file) => `  - Line ${item.line}: \`<${item.component}>\`\n`
   );
   fs.writeFileSync(path.join(AUDITS_DIR, '03-buttons-catalog.md'), buttonsMd, 'utf-8');
 
@@ -168,7 +172,7 @@ function runCatalogGenerator() {
     '04. Icons Inventory Catalog',
     'Catalog of vector icons and icon component declarations.',
     catalog.icons,
-    (item, fileAbs) => `  - Line [${item.line}](file:///${fileAbs}#L${item.line}): \`<${item.component}>\` (Icon: \`${item.iconName}\`)\n`
+    (item, file) => `  - Line ${item.line}: \`<${item.component}>\` (Icon: \`${item.iconName}\`)\n`
   );
   fs.writeFileSync(path.join(AUDITS_DIR, '04-icons-catalog.md'), iconsMd, 'utf-8');
 
@@ -177,7 +181,7 @@ function runCatalogGenerator() {
     '05. Inputs & Form Controls Catalog',
     'Catalog of form fields, text inputs, selects, and controls.',
     catalog.inputs,
-    (item, fileAbs) => `  - Line [${item.line}](file:///${fileAbs}#L${item.line}): \`<${item.component}>\`\n`
+    (item, file) => `  - Line ${item.line}: \`<${item.component}>\`\n`
   );
   fs.writeFileSync(path.join(AUDITS_DIR, '05-inputs-catalog.md'), inputsMd, 'utf-8');
 
@@ -185,11 +189,11 @@ function runCatalogGenerator() {
   let indexMd = `# Codebase UI Inventory Catalog Index\n\n`;
   indexMd += `> Comprehensive auto-generated catalog of UI elements across the codebase.\n\n`;
   indexMd += `### Sub-Catalogs:\n`;
-  indexMd += `- [01-texts-catalog.md](file:///${path.resolve(AUDITS_DIR, '01-texts-catalog.md').replace(/\\/g, '/')}) — Text & Typography Elements (${catalog.texts.length} items)\n`;
-  indexMd += `- [02-cards-catalog.md](file:///${path.resolve(AUDITS_DIR, '02-cards-catalog.md').replace(/\\/g, '/')}) — Cards & Containers (${catalog.cards.length} items)\n`;
-  indexMd += `- [03-buttons-catalog.md](file:///${path.resolve(AUDITS_DIR, '03-buttons-catalog.md').replace(/\\/g, '/')}) — Buttons & Touchables (${catalog.buttons.length} items)\n`;
-  indexMd += `- [04-icons-catalog.md](file:///${path.resolve(AUDITS_DIR, '04-icons-catalog.md').replace(/\\/g, '/')}) — Icons Inventory (${catalog.icons.length} items)\n`;
-  indexMd += `- [05-inputs-catalog.md](file:///${path.resolve(AUDITS_DIR, '05-inputs-catalog.md').replace(/\\/g, '/')}) — Form Inputs & Controls (${catalog.inputs.length} items)\n`;
+  indexMd += `- [01-texts-catalog.md](01-texts-catalog.md) — Text & Typography Elements (${catalog.texts.length} items)\n`;
+  indexMd += `- [02-cards-catalog.md](02-cards-catalog.md) — Cards & Containers (${catalog.cards.length} items)\n`;
+  indexMd += `- [03-buttons-catalog.md](03-buttons-catalog.md) — Buttons & Touchables (${catalog.buttons.length} items)\n`;
+  indexMd += `- [04-icons-catalog.md](04-icons-catalog.md) — Icons Inventory (${catalog.icons.length} items)\n`;
+  indexMd += `- [05-inputs-catalog.md](05-inputs-catalog.md) — Form Inputs & Controls (${catalog.inputs.length} items)\n`;
 
   fs.writeFileSync(path.join(AUDITS_DIR, 'README.md'), indexMd, 'utf-8');
   if (fs.existsSync(path.join(AUDITS_DIR, 'catalog-inventory.md'))) {

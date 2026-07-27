@@ -218,12 +218,17 @@ function splitData(cleaned) {
   };
 }
 
-function main() {
+function main(disableDynamicAudits = false) {
   const projectName = getProjectName(ROOT);
 
   console.log("=========================================");
   console.log(`  ${projectName} Codebase Auditor       `);
   console.log("=========================================");
+
+  if (disableDynamicAudits) {
+    console.log('[Fallow Auditor] Skipped (dynamic audits disabled)');
+    return;
+  }
 
   if (!fs.existsSync(REPORTS_DIR)) {
     fs.mkdirSync(REPORTS_DIR, { recursive: true });

@@ -1,10 +1,10 @@
 import { useCallback, useMemo, useState } from 'react';
 import { useTheme } from '../../../context/ThemeContext';
 import useSort from '../../../hooks/useSort';
-import { useAdminDrafts, useAdminActions } from '../../../services/adminDomain';
+import { useAdminActions, useAdminDrafts } from '../../../services/adminDomain';
 import { searchProducts } from '../../../services/adminProductsTransforms';
+import { useCrudWorkflow } from '../useCrudWorkflow';
 import { applyFilters, applySort } from './productsSortFilter';
-import { useCrudWorkflow } from '../../../hooks/useCrudWorkflow';
 
 export function useProductsWorkflow() {
   const { draftProducts, isDirty, addProduct, updateProduct, removeProduct } = useAdminDrafts();

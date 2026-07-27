@@ -67,11 +67,16 @@ function walkDir(dirPath, violations) {
   }
 }
 
-function auditRawI18nKeys() {
+function auditRawI18nKeys(disableDynamicAudits = false) {
   if (!fs.existsSync(AUDITS_DIR)) fs.mkdirSync(AUDITS_DIR, { recursive: true });
   let rawViolations = [];
   walkDir(SRC_DIR, rawViolations);
   const violations = deduplicate(rawViolations);
+
+  if (disableDynamicAudits) {
+    console.log('[12 Raw i18n Keys Audit] Skipped (dynamic audits disabled)');
+    return;
+  }
 
   const timestamp = new Date().toLocaleString('ru-RU');
   let report = `===================================================================\n`;

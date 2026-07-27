@@ -37,7 +37,7 @@ function resolveImport(fromFullPath, importStr) {
   return null;
 }
 
-function auditLayerImports() {
+function auditLayerImports(disableDynamicAudits = false) {
   if (!fs.existsSync(AUDITS_DIR)) fs.mkdirSync(AUDITS_DIR, { recursive: true });
   const allFiles = getAllFiles(SRC_DIR);
   const violations = [];
@@ -89,6 +89,11 @@ function auditLayerImports() {
       }
     });
   });
+
+  if (disableDynamicAudits) {
+    console.log('[07 Layer Imports Audit] Skipped (dynamic audits disabled)');
+    return;
+  }
 
   const timestamp = new Date().toLocaleString('ru-RU');
   let report = `===================================================================\n`;

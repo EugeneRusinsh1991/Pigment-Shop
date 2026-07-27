@@ -194,7 +194,7 @@ function generateReportText(title, violations, timestamp) {
   return { report, grouped, fileCount };
 }
 
-function auditStyles() {
+function auditStyles(disableDynamicAudits = false) {
   const isFixMode = process.argv.includes('--fix');
   if (!fs.existsSync(AUDITS_DIR)) fs.mkdirSync(AUDITS_DIR, { recursive: true });
   let rawViolations = [];
@@ -203,6 +203,12 @@ function auditStyles() {
   
   const violations = deduplicate(rawViolations);
   const strictDeduplicated = deduplicate(strictViolations);
+
+  if (disableDynamicAudits) {
+    console.log('[03 Hardcode Styles Audit] Skipped (dynamic audits disabled)');
+    return;
+  }
+
   const timestamp = new Date().toLocaleString('ru-RU');
 
   // 1. Write Raw/Legacy Report

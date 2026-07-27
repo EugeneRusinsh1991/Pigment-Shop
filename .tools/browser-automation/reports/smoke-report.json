@@ -4,7 +4,7 @@
     "visitedInteractions": 0,
     "successfulInteractions": 63,
     "failedInteractions": 0,
-    "warnings": 1,
+    "warnings": 2,
     "errors": 0,
     "executionDurationMs": 0
   },
@@ -12,10 +12,19 @@
   "warnings": [
     {
       "screen": "http://localhost:8081/admin",
+      "interaction": "Initial Load",
+      "elementIdentifier": "None",
+      "event": "Runtime",
+      "timestamp": 1785196494532,
+      "errorType": "Console Warning",
+      "errorMessage": "\"shadow*\" style props are deprecated. Use \"boxShadow\"."
+    },
+    {
+      "screen": "http://localhost:8081/admin",
       "interaction": "Click",
       "elementIdentifier": "btn|Browse",
       "event": "Runtime",
-      "timestamp": 1785195312916,
+      "timestamp": 1785196550354,
       "errorType": "Console Warning",
       "errorMessage": "props.pointerEvents is deprecated. Use style.pointerEvents"
     }

@@ -6,21 +6,21 @@
  * 
  * Displays a compact list of users. Clicking a user shows their details and orders.
  */
+import DataTable from '@/components/DataTable/DataTable';
+import EmptyState from '@/components/DataTable/EmptyState';
+import { SearchInput } from '@/components/Search';
+import { Text } from '@/components/Text';
 import React, { useState } from 'react';
 import { ActivityIndicator, View } from 'react-native';
-import { Text } from '@/components/Text';
-import { SearchInput } from '@/components/Search';
-import EmptyState from '@/components/DataTable/EmptyState';
 import { useTheme } from '../../../context/ThemeContext';
 import useSort from '../../../hooks/useSort';
-import { useCrudWorkflow } from '../../../hooks/useCrudWorkflow';
-import UserDetails from './UserDetails';
 import { loadUsers } from '../../../services/adminUsersService';
-import { compareStrings, compareNumbers } from '../../../utils/sorting';
 import { colors } from '../../../theme/tokens';
+import { compareNumbers, compareStrings } from '../../../utils/sorting';
+import { useCrudWorkflow } from '../useCrudWorkflow';
+import UserDetails from './UserDetails';
+import { DesktopUserRow, MobileUserCard } from './UserRow';
 import styles from './UsersStyles';
-import DataTable from '@/components/DataTable/DataTable';
-import { MobileUserCard, DesktopUserRow } from './UserRow';
 
 
 function sortUsers(users, sortField, sortDirection) {

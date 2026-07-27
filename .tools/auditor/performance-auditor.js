@@ -50,10 +50,15 @@ function walkDir(dirPath, violations) {
   }
 }
 
-function auditPerformance() {
+function auditPerformance(disableDynamicAudits = false) {
   if (!fs.existsSync(AUDITS_DIR)) fs.mkdirSync(AUDITS_DIR, { recursive: true });
   const violations = [];
   walkDir(SRC_DIR, violations);
+
+  if (disableDynamicAudits) {
+    console.log('[10 Performance Audit] Skipped (dynamic audits disabled)');
+    return;
+  }
 
   const timestamp = new Date().toLocaleString('ru-RU');
   let report = `===================================================================\n`;

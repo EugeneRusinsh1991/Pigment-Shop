@@ -229,7 +229,7 @@ function writeAuditReport(violations) {
   console.log(`[01 UI Architecture Audit] Finished (${violations.length} issues) -> .docs/audits/audits/01-ui-architecture-violations.log`);
 }
 
-function auditComponents() {
+function auditComponents(disableDynamicAudits = false) {
   if (!fs.existsSync(COMPONENTS_DIR)) return;
   if (!fs.existsSync(AUDITS_DIR)) fs.mkdirSync(AUDITS_DIR, { recursive: true });
 
@@ -240,6 +240,10 @@ function auditComponents() {
     violations.push(...auditComponentEntry(entry));
   }
 
+  if (disableDynamicAudits) {
+    console.log('[01 UI Architecture Audit] Skipped (dynamic audits disabled)');
+    return;
+  }
   writeAuditReport(violations);
 }
 

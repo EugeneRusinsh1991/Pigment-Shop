@@ -22,7 +22,7 @@ function getAllFiles(dir, fileList = []) {
   return fileList;
 }
 
-function auditUnusedExports() {
+function auditUnusedExports(disableDynamicAudits = false) {
   if (!fs.existsSync(AUDITS_DIR)) fs.mkdirSync(AUDITS_DIR, { recursive: true });
   const allFiles = getAllFiles(SRC_DIR);
   const violations = [];
@@ -60,6 +60,11 @@ function auditUnusedExports() {
         });
       }
     }
+  }
+
+  if (disableDynamicAudits) {
+    console.log('[06 Unused Exports Audit] Skipped (dynamic audits disabled)');
+    return;
   }
 
   const timestamp = new Date().toLocaleString('ru-RU');

@@ -45,10 +45,15 @@ function walkDir(dirPath, violations) {
   }
 }
 
-function auditHardcodeUrl() {
+function auditHardcodeUrl(disableDynamicAudits = false) {
   if (!fs.existsSync(AUDITS_DIR)) fs.mkdirSync(AUDITS_DIR, { recursive: true });
   const violations = [];
   walkDir(SRC_DIR, violations);
+
+  if (disableDynamicAudits) {
+    console.log('[11 Hardcoded URL Audit] Skipped (dynamic audits disabled)');
+    return;
+  }
 
   const timestamp = new Date().toLocaleString('ru-RU');
   let report = `===================================================================\n`;

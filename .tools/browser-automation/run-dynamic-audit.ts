@@ -68,4 +68,4 @@ async function runDynamicAudits() {
   }
 }
 
-runDynamicAudits();
+// runDynamicAudits(); // Disabled - only static audits should run

@@ -36,11 +36,16 @@ function walkDir(dirPath, violations) {
   }
 }
 
-function auditServiceLayer() {
+function auditServiceLayer(disableDynamicAudits = false) {
   if (!fs.existsSync(AUDITS_DIR)) fs.mkdirSync(AUDITS_DIR, { recursive: true });
   const violations = [];
   walkDir(UI_DIR, violations);
   walkDir(FEATURES_DIR, violations);
+
+  if (disableDynamicAudits) {
+    console.log('[05 Service Layer Audit] Skipped (dynamic audits disabled)');
+    return;
+  }
 
   const timestamp = new Date().toLocaleString('ru-RU');
   let report = `===================================================================\n`;

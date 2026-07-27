@@ -1,17 +1,17 @@
-import { useState, useEffect, useCallback } from 'react';
-import { View } from 'react-native';
-import { Text } from '@/components/Text';
-import { useTheme } from '../../../context/ThemeContext';
-import { BackArrowIcon } from '@/components/Icons';
 import { Button } from '@/components/Button';
-import styles from './UsersStyles';
+import { BackArrowIcon } from '@/components/Icons';
+import { Text } from '@/components/Text';
+import { useCallback, useEffect, useState } from 'react';
+import { View } from 'react-native';
+import { useTheme } from '../../../context/ThemeContext';
 import { fetchUserNote, saveUserNote } from '../../../services/adminUsersService';
+import { colors } from '../../../theme/tokens';
+import AdminSaveFooter from '../AdminSaveFooter';
+import { useCrudWorkflow } from '../useCrudWorkflow';
 import UserInfoCard from './UserInfoCard';
 import UserNoteSection from './UserNoteSection';
 import UserOrdersList from './UserOrdersList';
-import { useCrudWorkflow } from '../../../hooks/useCrudWorkflow';
-import AdminSaveFooter from '../AdminSaveFooter';
-import { colors } from '../../../theme/tokens';
+import styles from './UsersStyles';
 
 function useUserNote(user) {
   const [note, setNote] = useState('');
