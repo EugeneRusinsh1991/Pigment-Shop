@@ -14,13 +14,13 @@ Extract complex product page logic into multiple hooks. This is the most complex
 ### 5.1 Create useProductActions Hook (audit #4)
 **Model Recommendation:** 🟡 G 3.6 F (M) — 1d | 2f | +1ctx
 
-- [ ] 5.1.1 Create `src/hooks/useProductActions.js`
-- [ ] 5.1.2 Extract `useProductActions` function from `ProductPage.js` (lines 17-25)
-- [ ] 5.1.3 Extract add to cart logic
-- [ ] 5.1.4 Extract favorite toggle logic
-- [ ] 5.1.5 Extract quantity management logic
-- [ ] 5.1.6 Add error handling with ToastContext
-- [ ] 5.1.7 Test hook independently
+- [x] 5.1.1 Create `src/hooks/useProductActions.js`
+- [x] 5.1.2 Extract `useProductActions` function from `ProductPage.js` (lines 17-25)
+- [x] 5.1.3 Extract add to cart logic
+- [x] 5.1.4 Extract favorite toggle logic
+- [x] 5.1.5 Extract quantity management logic
+- [x] 5.1.6 Add error handling with ToastContext
+- [x] 5.1.7 Test hook independently
 
 **Source file:** `src/features/product/ProductPage.js`  
 **Target file:** `src/hooks/useProductActions.js`
@@ -28,10 +28,10 @@ Extract complex product page logic into multiple hooks. This is the most complex
 ### 5.2 Create useProductNavigation Hook (audit #5)
 **Model Recommendation:** 🟢 G 3.6 F (L) — 1d | 2f | +0ctx
 
-- [ ] 5.2.1 Create `src/hooks/useProductNavigation.js`
-- [ ] 5.2.2 Extract `useBackHandler` function from `ProductPage.js` (lines 76-86)
-- [ ] 5.2.3 Extract navigation logic from `ProductPageHeader` (lines 27-39)
-- [ ] 5.2.4 Test hook independently
+- [x] 5.2.1 Create `src/hooks/useProductNavigation.js`
+- [x] 5.2.2 Extract `useBackHandler` function from `ProductPage.js` (lines 76-86)
+- [x] 5.2.3 Extract navigation logic from `ProductPageHeader` (lines 27-39)
+- [x] 5.2.4 Test hook independently
 
 **Source file:** `src/features/product/ProductPage.js`  
 **Target file:** `src/hooks/useProductNavigation.js`
@@ -39,11 +39,11 @@ Extract complex product page logic into multiple hooks. This is the most complex
 ### 5.3 Create useProductPageState Hook (audit #6)
 **Model Recommendation:** 🟢 G 3.6 F (L) — 1d | 2f | +0ctx
 
-- [ ] 5.3.1 Create `src/hooks/useProductPageState.js`
-- [ ] 5.3.2 Extract `useProductPageState` function from `ProductPage.js` (lines 88-122)
-- [ ] 5.3.3 Extract `resolveProduct` function from `ProductPage.js` (lines 71-86)
-- [ ] 5.3.4 Extract product page state management
-- [ ] 5.3.5 Test hook independently
+- [x] 5.3.1 Create `src/hooks/useProductPageState.js`
+- [x] 5.3.2 Extract `useProductPageState` function from `ProductPage.js` (lines 88-122)
+- [x] 5.3.3 Extract `resolveProduct` function from `ProductPage.js` (lines 71-86)
+- [x] 5.3.4 Extract product page state management
+- [x] 5.3.5 Test hook independently
 
 **Source file:** `src/features/product/ProductPage.js`  
 **Target file:** `src/hooks/useProductPageState.js`
