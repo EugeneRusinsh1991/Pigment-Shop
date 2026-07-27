@@ -5911,5 +5911,27 @@
         }
       ]
     }
+  },
+  "src_07-27_23-30_heuristics.md_65files": {
+    "timestamp": "2026-07-27T20:30:41.603Z",
+    "diff": {
+      "added": 0,
+      "removed": 0,
+      "modified": 3,
+      "topFolders": [
+        {
+          "folder": ".agents/skills/model-recommender/references",
+          "count": 1
+        },
+        {
+          "folder": ".agents/skills/model-recommender",
+          "count": 1
+        },
+        {
+          "folder": ".todos/reorganization",
+          "count": 1
+        }
+      ]
+    }
   }
 }

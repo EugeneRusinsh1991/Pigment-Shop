@@ -5,8 +5,7 @@
 
 **Quick Assessment (Level 1):**
 - Use for 70% of cases
-- Quick Score = f + d
-- Apply conservative margin: Quick Score × 1.1
+- Quick Score = (f + d + ctx) × 1.2 (+20% safety margin)
 
 **Deep Assessment (Level 2):**
 - Use when Quick Score is within ±2 of model threshold
