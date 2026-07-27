@@ -8,6 +8,14 @@
       {
         "url": "http://localhost:8081/",
         "message": "Browser console.error: Failed to load resource: the server responded with a status of 400 ()"
+      },
+      {
+        "url": "http://localhost:8081/",
+        "message": "Unhandled exception: colors is not defined"
+      },
+      {
+        "url": "http://localhost:8081/",
+        "message": "Unhandled exception: useErrorHandler is not defined"
       }
     ]
   },

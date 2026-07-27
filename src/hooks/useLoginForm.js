@@ -1,14 +1,14 @@
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { useToast } from '../context/ToastContext';
 import { useAuthValidation } from './useAuthValidation';
+import { useErrorHandler } from './useErrorHandler';
 
 export function useLoginForm() {
   const { login, register, signInWithGoogle } = useAuth();
   const router = useRouter();
   const params = useLocalSearchParams();
-  const { showToast } = useToast();
+  const { handleError } = useErrorHandler();
   const { validateRegistration, validateLogin } = useAuthValidation();
   const closeScreen = () => {
     if (params.returnUrl) {
@@ -36,7 +36,7 @@ export function useLoginForm() {
     const trimmedEmail = email.trim();
     const result = await register(trimmedEmail, password);
     if (!result.success) {
-      showToast(result.error?.message || 'Registration failed');
+      handleError(result.error, { message: 'Registration failed' });
       return;
     }
     closeScreen();
@@ -44,12 +44,6 @@ export function useLoginForm() {
 
 function isUserCancelledAuth(err) {
   return err?.code === 'auth/cancelled-popup-request' || err?.code === 'auth/popup-closed-by-user';
-}
-
-function showToastIfNotCancelled(err, showToast, fallback) {
-  if (!isUserCancelledAuth(err)) {
-    showToast(err?.message || fallback);
-  }
 }
 
   const handleLogin = async () => {
@@ -61,7 +55,7 @@ function showToastIfNotCancelled(err, showToast, fallback) {
     if (result.success) {
       closeScreen();
     } else {
-      showToast(result.error?.message || 'Invalid credentials');
+      handleError(result.error, { message: 'Invalid credentials' });
     }
   };
 
@@ -73,7 +67,7 @@ function showToastIfNotCancelled(err, showToast, fallback) {
         await handleLogin();
       }
     } catch (err) {
-      showToast(err.message || (isRegister ? 'Registration failed' : 'Invalid credentials'));
+      handleError(err, { message: isRegister ? 'Registration failed' : 'Invalid credentials' });
     }
   };
 
@@ -84,9 +78,13 @@ function showToastIfNotCancelled(err, showToast, fallback) {
         closeScreen();
         return;
       }
-      showToastIfNotCancelled(result.error, showToast, 'Google Sign-In failed');
+      if (!isUserCancelledAuth(result.error)) {
+        handleError(result.error, { message: 'Google Sign-In failed' });
+      }
     } catch (err) {
-      showToastIfNotCancelled(err, showToast, 'Google Sign-In failed');
+      if (!isUserCancelledAuth(err)) {
+        handleError(err, { message: 'Google Sign-In failed' });
+      }
     }
   };
 

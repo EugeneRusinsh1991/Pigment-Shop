@@ -51,12 +51,12 @@
   - Line [148](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UsersManager.js#L148): `<SearchInput>`
 
 ### File: [src/features/auth/LoginPage.js](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPage.js)
-  - Line [74](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPage.js#L74): `<FieldInput>`
-  - Line [97](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPage.js#L97): `<PasswordInputField>`
+  - Line [71](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPage.js#L71): `<FieldInput>`
+  - Line [94](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPage.js#L94): `<PasswordInputField>`
 
 ### File: [src/features/auth/LoginPageComponents.js](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPageComponents.js)
   - Line [32](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPageComponents.js#L32): `<FieldInput>`
-  - Line [113](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPageComponents.js#L113): `<PasswordInputField>`
+  - Line [112](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPageComponents.js#L112): `<PasswordInputField>`
 
 ### File: [src/features/cart/CartSummary.js](file:///D:/Magazine/_PigmentShop/src/features/cart/CartSummary.js)
   - Line [55](file:///D:/Magazine/_PigmentShop/src/features/cart/CartSummary.js#L55): `<FieldInput>`

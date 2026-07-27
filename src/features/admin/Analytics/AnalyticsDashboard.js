@@ -1,18 +1,19 @@
-import React, { useMemo, useState, useEffect } from 'react';
-import { View, ActivityIndicator } from 'react-native';
-import { Text, Heading } from '@/components/Text';
-import { db } from '../../../services/firebase';
+import { BoxIcon, ClipboardIcon, DollarIcon, TrendIcon } from '@/components/Icons';
+import { Heading, Text } from '@/components/Text';
 import { collection, getDocs } from 'firebase/firestore';
-import { getSummaryStats, getTopProducts, getRevenueChartData, getOrderStatuses } from '../../../data/adminAnalytics';
+import { useEffect, useMemo, useState } from 'react';
+import { ActivityIndicator, View } from 'react-native';
+import { useTheme } from '../../../context/ThemeContext';
+import { getOrderStatuses, getRevenueChartData, getSummaryStats, getTopProducts } from '../../../data/adminAnalytics';
+import { useErrorHandler } from '../../../hooks/useErrorHandler';
+import { COLLECTIONS } from '../../../services/collections';
+import { db } from '../../../services/firebase';
+import { colors } from '../../../theme/tokens';
+import styles from './AnalyticsStyles';
+import DateRangePicker from './DateRangePicker';
 import OrderStatusChart from './OrderStatusChart';
 import RevenueChart from './RevenueChart';
 import TopProductsChart from './TopProductsChart';
-import DateRangePicker from './DateRangePicker';
-import styles from './AnalyticsStyles';
-import { useTheme } from '../../../context/ThemeContext';
-import { COLLECTIONS } from '../../../services/collections';
-import { DollarIcon, ClipboardIcon, TrendIcon, BoxIcon } from '@/components/Icons';
-import { colors } from '../../../theme/tokens';
 
 function StatCard({ label, value, icon }) {
   return (
@@ -79,6 +80,7 @@ function getOrderTime(order) {
 export default function AnalyticsDashboard() {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(false);
+  const { handleError } = useErrorHandler();
   
   const initialEnd = new Date();
   initialEnd.setHours(23, 59, 59, 999);
@@ -105,7 +107,7 @@ export default function AnalyticsDashboard() {
         
         setOrders(filtered);
       } catch (err) {
-        console.error('Error fetching orders for analytics:', err);
+        handleError(err, { message: 'Error fetching orders for analytics' });
       } finally {
         setLoading(false);
       }

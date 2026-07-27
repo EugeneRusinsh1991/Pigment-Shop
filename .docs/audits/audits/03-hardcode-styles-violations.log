@@ -1,6 +1,6 @@
 ===================================================================
          3. HARDCODED STYLES, COLORS & SPACING REPORT (RAW)              
-Timestamp: 28.07.2026, 00:11:37
+Timestamp: 28.07.2026, 01:08:59
 ===================================================================
 [PROMPT FOR AGENT]: Refactor hardcoded inline styles/colors in listed files.
 Extract inline style objects to component styles or design tokens.
@@ -175,9 +175,9 @@ File: src\features\home\components\HeroCarousel\CarouselLayers.js
   L17    style={localStyles.imageFill}
 
 File: src\features\home\components\HeroCarousel.js
-  L64    return <View style={placeholderStyle} />;
-  L71    <View style={baseStyle}>
-  L72    <View style={localStyles.carouselContainer}>
+  L46    return <View style={placeholderStyle} />;
+  L53    <View style={baseStyle}>
+  L54    <View style={localStyles.carouselContainer}>
 
 File: src\features\shell\AppHeader\AppHeaderControls.js
   L82    <View style={localStyles.bagIconWrapper}>

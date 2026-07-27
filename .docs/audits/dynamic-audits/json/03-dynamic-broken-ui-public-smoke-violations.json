@@ -25,6 +25,16 @@
         "url": "http://localhost:8081/",
         "message": "Broken image resource (`naturalWidth === 0`).",
         "selector": "img.css-accessibilityImage-9pa8cd"
+      },
+      {
+        "url": "http://localhost:8081/",
+        "message": "Element has overflow clipping (`scrollWidth > clientWidth`).",
+        "selector": "div.css-view-g5y9jx.r-position-bnwqim.r-width-13qz1uu.r-zIndex-1s3egr7"
+      },
+      {
+        "url": "http://localhost:8081/",
+        "message": "Element has overflow clipping (`scrollWidth > clientWidth`).",
+        "selector": "div.css-view-g5y9jx.r-marginBlock-l00any"
       }
     ],
     "http://localhost:8081/catalog/cat-root-0-sub-0": [

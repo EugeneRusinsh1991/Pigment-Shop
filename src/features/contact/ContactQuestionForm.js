@@ -1,13 +1,14 @@
-import { useState } from 'react';
-import { Text } from '../../components/Text';
-import { useAuth } from '../../context/AuthContext';
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
-import { db } from '../../services/firebase';
-import { COLLECTIONS } from '../../services/collections';
-import styles from './ContactPageStyles';
+import { useState } from 'react';
 import { Button } from '../../components/Button';
 import Card from '../../components/Card/Card';
+import { Text } from '../../components/Text';
+import { useAuth } from '../../context/AuthContext';
+import { useErrorHandler } from '../../hooks/useErrorHandler';
+import { COLLECTIONS } from '../../services/collections';
+import { db } from '../../services/firebase';
 import { colors } from '../../theme/tokens';
+import styles from './ContactPageStyles';
 
 function buildSupportMessagePayload(questionText, user) {
   const userId = user?.uid || 'guest';
@@ -24,6 +25,7 @@ function useContactQuestionForm(user) {
   const [questionText, setQuestionText] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+  const { handleError } = useErrorHandler();
   const isEmpty = questionText.trim().length === 0;
 
   const handleChangeText = (text) => {
@@ -41,7 +43,7 @@ function useContactQuestionForm(user) {
       setQuestionText('');
       setSubmitStatus('success');
     } catch (error) {
-      console.error('Error submitting contact question:', error);
+      handleError(error, { message: 'Error submitting contact question' });
       setSubmitStatus('error');
     } finally {
       setSubmitting(false);

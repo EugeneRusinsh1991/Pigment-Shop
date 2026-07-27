@@ -164,13 +164,13 @@
   - Line [39](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UserRow.js#L39): `<AnimatedButton>`
 
 ### File: [src/features/auth/LoginPage.js](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPage.js)
-  - Line [57](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPage.js#L57): `<Button>`
-  - Line [116](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPage.js#L116): `<Button>`
+  - Line [55](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPage.js#L55): `<Button>`
+  - Line [113](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPage.js#L113): `<Button>`
 
 ### File: [src/features/auth/LoginPageComponents.js](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPageComponents.js)
   - Line [46](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPageComponents.js#L46): `<IconButton>`
   - Line [63](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPageComponents.js#L63): `<Button>`
-  - Line [96](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPageComponents.js#L96): `<Button>`
+  - Line [95](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPageComponents.js#L95): `<Button>`
 
 ### File: [src/features/cart/CartItem.js](file:///D:/Magazine/_PigmentShop/src/features/cart/CartItem.js)
   - Line [33](file:///D:/Magazine/_PigmentShop/src/features/cart/CartItem.js#L33): `<IconButton>`
@@ -215,8 +215,8 @@
   - Line [66](file:///D:/Magazine/_PigmentShop/src/features/contact/SocialButtons.js#L66): `<Button>`
 
 ### File: [src/features/home/components/HeroCarousel.js](file:///D:/Magazine/_PigmentShop/src/features/home/components/HeroCarousel.js)
-  - Line [19](file:///D:/Magazine/_PigmentShop/src/features/home/components/HeroCarousel.js#L19): `<AnimatedButton>`
-  - Line [25](file:///D:/Magazine/_PigmentShop/src/features/home/components/HeroCarousel.js#L25): `<AnimatedButton>`
+  - Line [18](file:///D:/Magazine/_PigmentShop/src/features/home/components/HeroCarousel.js#L18): `<AnimatedButton>`
+  - Line [24](file:///D:/Magazine/_PigmentShop/src/features/home/components/HeroCarousel.js#L24): `<AnimatedButton>`
 
 ### File: [src/features/home/components/HeroCarousel/CarouselDots.js](file:///D:/Magazine/_PigmentShop/src/features/home/components/HeroCarousel/CarouselDots.js)
   - Line [49](file:///D:/Magazine/_PigmentShop/src/features/home/components/HeroCarousel/CarouselDots.js#L49): `<AnimatedButton>`
@@ -245,8 +245,8 @@
   - Line [135](file:///D:/Magazine/_PigmentShop/src/features/product/ProductInfoSubcomponents.js#L135): `<IconButton>`
 
 ### File: [src/features/product/ProductReviewSubcomponents.js](file:///D:/Magazine/_PigmentShop/src/features/product/ProductReviewSubcomponents.js)
-  - Line [46](file:///D:/Magazine/_PigmentShop/src/features/product/ProductReviewSubcomponents.js#L46): `<AnimatedButton>`
-  - Line [143](file:///D:/Magazine/_PigmentShop/src/features/product/ProductReviewSubcomponents.js#L143): `<Button>`
+  - Line [44](file:///D:/Magazine/_PigmentShop/src/features/product/ProductReviewSubcomponents.js#L44): `<AnimatedButton>`
+  - Line [141](file:///D:/Magazine/_PigmentShop/src/features/product/ProductReviewSubcomponents.js#L141): `<Button>`
 
 ### File: [src/features/profile/ProfileFormCard.js](file:///D:/Magazine/_PigmentShop/src/features/profile/ProfileFormCard.js)
   - Line [45](file:///D:/Magazine/_PigmentShop/src/features/profile/ProfileFormCard.js#L45): `<Button>`

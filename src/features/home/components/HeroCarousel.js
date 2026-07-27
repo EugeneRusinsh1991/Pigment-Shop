@@ -1,14 +1,13 @@
+ import { ChevronLeftIcon, ChevronRightIcon } from '@/components/Icons';
+import { useCatalog } from '@/context/CatalogContext';
+import { colors } from '@/theme/tokens';
+import { getCarouselBaseStyle, getPlaceholderStyle } from '@/utils/carouselStyles';
 import { useEffect, useState } from 'react';
 import { useWindowDimensions, View } from 'react-native';
-import globalStyles from '@/theme/appStyles';
-import { useCatalog } from '@/context/CatalogContext';
-import { ChevronLeftIcon, ChevronRightIcon } from '@/components/Icons';
-import { DEFAULT_ACTIVE_OPACITY } from '@/theme/buttonCommon';
-import { colors, layout } from '@/theme/tokens';
 import { CarouselDots } from './HeroCarousel/CarouselDots';
 import { CarouselLayers } from './HeroCarousel/CarouselLayers';
-import { useCarouselData } from './HeroCarousel/useCarouselData';
 import { localStyles } from './HeroCarousel/carouselStyles';
+import { useCarouselData } from './HeroCarousel/useCarouselData';
 
 import { AnimatedButton } from '@/components/Button';
 
@@ -30,23 +29,6 @@ function CarouselArrows({ show, onPrev, onNext }) {
       </AnimatedButton>
     </>
   );
-}
-
-function getBreakoutStyle(isWide, windowWidth) {
-  if (isWide) return {};
-  return { width: windowWidth, alignSelf: 'center', borderRadius: layout.radii.none };
-}
-
-function getCarouselBaseStyle(isWide, windowWidth) {
-  const breakoutStyle = getBreakoutStyle(isWide, windowWidth);
-  const responsiveStyle = isWide ? globalStyles.heroRightWide : globalStyles.heroRightMobile;
-  return [globalStyles.heroRight, responsiveStyle, breakoutStyle];
-}
-
-function getPlaceholderStyle(isWide, isDark, windowWidth) {
-  const baseStyle = getCarouselBaseStyle(isWide, windowWidth);
-  const backgroundColor = isDark ? colors.borderDarkAlt : colors.borderSlateLight;
-  return [baseStyle, { backgroundColor }];
 }
 
 export default function HeroCarousel({ isDark, isWide }) {

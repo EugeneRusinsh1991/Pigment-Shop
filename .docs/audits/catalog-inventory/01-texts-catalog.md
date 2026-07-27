@@ -2,7 +2,7 @@
 
 > Catalog of all Text, Typography, and related components rendering textual content.
 
-**Total items found:** 294
+**Total items found:** 293
 
 ---
 
@@ -303,16 +303,15 @@
   - Line [156](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UsersManager.js#L156): `<Text>` -> `[Dynamic Content]`
 
 ### File: [src/features/auth/LoginPage.js](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPage.js)
-  - Line [62](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPage.js#L62): `<Text>` -> `G`
-  - Line [68](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPage.js#L68): `<Text>` -> `[Dynamic Content]`
-  - Line [72](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPage.js#L72): `<ErrorText>` -> `[Dynamic Content]`
-  - Line [94](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPage.js#L94): `<Text>` -> `[Dynamic Content]`
+  - Line [60](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPage.js#L60): `<Text>` -> `G`
+  - Line [66](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPage.js#L66): `<Text>` -> `[Dynamic Content]`
+  - Line [91](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPage.js#L91): `<Text>` -> `[Dynamic Content]`
 
 ### File: [src/features/auth/LoginPageComponents.js](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPageComponents.js)
   - Line [23](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPageComponents.js#L23): `<Text>` -> `[Dynamic Content]`
   - Line [61](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPageComponents.js#L61): `<Text>` -> `[Dynamic Content]`
-  - Line [89](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPageComponents.js#L89): `<Text>` -> `[Dynamic Content]`
-  - Line [112](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPageComponents.js#L112): `<Text>` -> `[Dynamic Content]`
+  - Line [88](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPageComponents.js#L88): `<Text>` -> `[Dynamic Content]`
+  - Line [111](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPageComponents.js#L111): `<Text>` -> `[Dynamic Content]`
 
 ### File: [src/features/cart/CartItem.js](file:///D:/Magazine/_PigmentShop/src/features/cart/CartItem.js)
   - Line [30](file:///D:/Magazine/_PigmentShop/src/features/cart/CartItem.js#L30): `<Text>` -> `[Dynamic Content]`
@@ -434,14 +433,14 @@
   - Line [76](file:///D:/Magazine/_PigmentShop/src/features/product/ProductInfoSubcomponents.js#L76): `<Text>` -> `[Dynamic Content]`
 
 ### File: [src/features/product/ProductReviewSubcomponents.js](file:///D:/Magazine/_PigmentShop/src/features/product/ProductReviewSubcomponents.js)
+  - Line [28](file:///D:/Magazine/_PigmentShop/src/features/product/ProductReviewSubcomponents.js#L28): `<Text>` -> `[Dynamic Content]`
   - Line [30](file:///D:/Magazine/_PigmentShop/src/features/product/ProductReviewSubcomponents.js#L30): `<Text>` -> `[Dynamic Content]`
-  - Line [32](file:///D:/Magazine/_PigmentShop/src/features/product/ProductReviewSubcomponents.js#L32): `<Text>` -> `[Dynamic Content]`
-  - Line [33](file:///D:/Magazine/_PigmentShop/src/features/product/ProductReviewSubcomponents.js#L33): `<Text>` -> `[Dynamic Content]`
-  - Line [42](file:///D:/Magazine/_PigmentShop/src/features/product/ProductReviewSubcomponents.js#L42): `<Text>` -> `[Dynamic Content]`
-  - Line [50](file:///D:/Magazine/_PigmentShop/src/features/product/ProductReviewSubcomponents.js#L50): `<Text>` -> `[Dynamic Content]`
+  - Line [31](file:///D:/Magazine/_PigmentShop/src/features/product/ProductReviewSubcomponents.js#L31): `<Text>` -> `[Dynamic Content]`
+  - Line [40](file:///D:/Magazine/_PigmentShop/src/features/product/ProductReviewSubcomponents.js#L40): `<Text>` -> `[Dynamic Content]`
+  - Line [48](file:///D:/Magazine/_PigmentShop/src/features/product/ProductReviewSubcomponents.js#L48): `<Text>` -> `[Dynamic Content]`
 
 ### File: [src/features/product/ProductReviews.js](file:///D:/Magazine/_PigmentShop/src/features/product/ProductReviews.js)
-  - Line [62](file:///D:/Magazine/_PigmentShop/src/features/product/ProductReviews.js#L62): `<Text>` -> `[Dynamic Content]`
+  - Line [52](file:///D:/Magazine/_PigmentShop/src/features/product/ProductReviews.js#L52): `<Text>` -> `[Dynamic Content]`
 
 ### File: [src/features/profile/ProfileFormCard.js](file:///D:/Magazine/_PigmentShop/src/features/profile/ProfileFormCard.js)
   - Line [11](file:///D:/Magazine/_PigmentShop/src/features/profile/ProfileFormCard.js#L11): `<Text>` -> `[Dynamic Content]`

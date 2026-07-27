@@ -83,11 +83,11 @@
   - Line [79](file:///D:/Magazine/_PigmentShop/src/features/product/ProductCard.js#L79): `<Card>`
 
 ### File: [src/features/product/ProductReviews.js](file:///D:/Magazine/_PigmentShop/src/features/product/ProductReviews.js)
-  - Line [77](file:///D:/Magazine/_PigmentShop/src/features/product/ProductReviews.js#L77): `<ReviewCard>`
+  - Line [67](file:///D:/Magazine/_PigmentShop/src/features/product/ProductReviews.js#L67): `<ReviewCard>`
 
 ### File: [src/features/profile/ProfileFormCard.js](file:///D:/Magazine/_PigmentShop/src/features/profile/ProfileFormCard.js)
   - Line [82](file:///D:/Magazine/_PigmentShop/src/features/profile/ProfileFormCard.js#L82): `<Card>`
 
 ### File: [src/features/profile/ProfilePage.js](file:///D:/Magazine/_PigmentShop/src/features/profile/ProfilePage.js)
-  - Line [88](file:///D:/Magazine/_PigmentShop/src/features/profile/ProfilePage.js#L88): `<ProfileFormCard>`
+  - Line [41](file:///D:/Magazine/_PigmentShop/src/features/profile/ProfilePage.js#L41): `<ProfileFormCard>`
 

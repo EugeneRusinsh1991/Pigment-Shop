@@ -1,14 +1,16 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState } from 'react';
 import { useCatalog } from '../../../context/CatalogContext';
 import { useTheme } from '../../../context/ThemeContext';
-import { useAdminActions } from '../../../services/adminDomain';
 import { catalogStore } from '../../../data/catalogState';
 import { useCrudWorkflow } from '../../../hooks/useCrudWorkflow';
+import { useErrorHandler } from '../../../hooks/useErrorHandler';
+import { useAdminActions } from '../../../services/adminDomain';
 
 export function useBannersWorkflow() {
   const { t } = useTheme();
   const { updateBanners, resetBannersToSeed } = useAdminActions();
   const { banners } = useCatalog();
+  const { handleError } = useErrorHandler();
   const [bannersList, setBannersList] = useState(() => [...banners]);
   const [isDirty, setIsDirty] = useState(false);
 
@@ -38,8 +40,7 @@ export function useBannersWorkflow() {
       setIsDirty(false);
       alert(t('adminBannersResetSuccess'));
     } catch (err) {
-      console.error(err);
-      alert('Failed to reset banners: ' + err.message);
+      handleError(err, { message: 'Failed to reset banners' });
     }
   };
 

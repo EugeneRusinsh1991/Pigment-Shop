@@ -1,6 +1,6 @@
 ===================================================================
          5. SERVICE LAYER ARCHITECTURE REPORT                      
-Timestamp: 28.07.2026, 00:11:37
+Timestamp: 28.07.2026, 01:09:00
 ===================================================================
 [DESCRIPTION FOR USER]: Этот отчет находит прямые обращения к БД/Firebase (Firestore) из UI или хуков.
 Прямой вызов getDocs/addDoc в компонентах нарушает изоляцию сервисного слоя.
@@ -8,7 +8,7 @@ Timestamp: 28.07.2026, 00:11:37
 [PROMPT FOR AGENT]: Refactor direct database/Firestore calls out of UI components and hooks into dedicated service layer modules.
 ===================================================================
 
-Found 10 service layer issue(s) across 3 file(s):
+Found 4 service layer issue(s) across 2 file(s):
 
 File: src\features\admin\Analytics\AnalyticsDashboard.js
   L5     import { collection, getDocs } from 'firebase/firestore';
@@ -17,12 +17,4 @@ File: src\features\admin\Analytics\AnalyticsDashboard.js
 File: src\features\contact\ContactQuestionForm.js
   L4     import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
   L40    await addDoc(collection(db, COLLECTIONS.SUPPORT_MESSAGES), payload);
-
-File: src\features\product\useReviewsState.js
-  L3     import { addDoc, collection, onSnapshot } from 'firebase/firestore';
-  L32    function useFirestoreSubcollection(productId, subcollectionName, fallbackData, setter) {
-  L39    const ref = collection(db, COLLECTIONS.PRODUCTS, productId, subcollectionName);
-  L67    const ref = collection(db, COLLECTIONS.PRODUCTS, productId, subcollectionName);
-  L93    useFirestoreSubcollection(productId, 'reviews', initialReviews, setReviewsList);
-  L94    useFirestoreSubcollection(productId, 'questions', initialQuestions, setQuestionsList);
 

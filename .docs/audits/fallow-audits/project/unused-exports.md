@@ -1,6 +1,6 @@
 # 📦 Unused Exports
 
-*Generated on: 28.07.2026, 00:11:46*
+*Generated on: 28.07.2026, 01:09:10*
 
 Exports that are not imported or consumed by any other active file:
 
@@ -48,6 +48,7 @@ Exports that are not imported or consumed by any other active file:
 - [FavoritesContext.js](file:///D:/Magazine/_PigmentShop/src/context/FavoritesContext.js): `useFavorites` ([L17](file:///D:/Magazine/_PigmentShop/src/context/FavoritesContext.js#L17))
 - [catalogEntityContract.ts](file:///D:/Magazine/_PigmentShop/src/domain/catalogEntityContract.ts): `emptyLocalizedString` ([L45](file:///D:/Magazine/_PigmentShop/src/domain/catalogEntityContract.ts#L45)), `getLocale` ([L61](file:///D:/Magazine/_PigmentShop/src/domain/catalogEntityContract.ts#L61)), `makeSortState` ([L80](file:///D:/Magazine/_PigmentShop/src/domain/catalogEntityContract.ts#L80)), `toggleSortState` ([L84](file:///D:/Magazine/_PigmentShop/src/domain/catalogEntityContract.ts#L84))
 - [SharedFormComponents.js](file:///D:/Magazine/_PigmentShop/src/features/admin/SharedFormComponents.js): `FieldTextArea` ([L112](file:///D:/Magazine/_PigmentShop/src/features/admin/SharedFormComponents.js#L112))
+- [LoginPageComponents.js](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPageComponents.js): `ErrorText` ([L78](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPageComponents.js#L78))
 - [ProductInfoSubcomponents.js](file:///D:/Magazine/_PigmentShop/src/features/product/ProductInfoSubcomponents.js): `getSafePrice` ([L15](file:///D:/Magazine/_PigmentShop/src/features/product/ProductInfoSubcomponents.js#L15)), `calcFinalPrice` ([L17](file:///D:/Magazine/_PigmentShop/src/features/product/ProductInfoSubcomponents.js#L17)), `QtySelector` ([L22](file:///D:/Magazine/_PigmentShop/src/features/product/ProductInfoSubcomponents.js#L22)), `ProductInfoPrice` ([L44](file:///D:/Magazine/_PigmentShop/src/features/product/ProductInfoSubcomponents.js#L44)), `CartButton` ([L86](file:///D:/Magazine/_PigmentShop/src/features/product/ProductInfoSubcomponents.js#L86))
 - [NavItemList.js](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/NavItemList.js): `default` ([L93](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/NavItemList.js#L93))
 - [useExpandedIds.js](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/useExpandedIds.js): `findCategoryPath` ([L58](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/useExpandedIds.js#L58)), `getParentCategoryIds` ([L58](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/useExpandedIds.js#L58))
@@ -67,6 +68,7 @@ Exports that are not imported or consumed by any other active file:
 - [favoritesRepository.js](file:///D:/Magazine/_PigmentShop/src/services/repositories/favoritesRepository.js): `saveFavorites` ([L67](file:///D:/Magazine/_PigmentShop/src/services/repositories/favoritesRepository.js#L67)), `favoritesRepository` ([L76](file:///D:/Magazine/_PigmentShop/src/services/repositories/favoritesRepository.js#L76))
 - [visitorBootstrap.js](file:///D:/Magazine/_PigmentShop/src/services/visitorBootstrap.js): `getOrCreateGuestSessionId` ([L39](file:///D:/Magazine/_PigmentShop/src/services/visitorBootstrap.js#L39)), `bootstrapVisitorSession` ([L72](file:///D:/Magazine/_PigmentShop/src/services/visitorBootstrap.js#L72))
 - [appStateDump.js](file:///D:/Magazine/_PigmentShop/src/utils/appStateDump.js): `getLocationHierarchy` ([L1](file:///D:/Magazine/_PigmentShop/src/utils/appStateDump.js#L1))
+- [carouselStyles.js](file:///D:/Magazine/_PigmentShop/src/utils/carouselStyles.js): `getBreakoutStyle` ([L4](file:///D:/Magazine/_PigmentShop/src/utils/carouselStyles.js#L4))
 - [dateFormatting.js](file:///D:/Magazine/_PigmentShop/src/utils/dateFormatting.js): `LANG_TO_LOCALE` ([L13](file:///D:/Magazine/_PigmentShop/src/utils/dateFormatting.js#L13)), `toDate` ([L31](file:///D:/Magazine/_PigmentShop/src/utils/dateFormatting.js#L31))
 - [localization.js](file:///D:/Magazine/_PigmentShop/src/utils/localization.js): `LANGUAGE_FALLBACK` ([L8](file:///D:/Magazine/_PigmentShop/src/utils/localization.js#L8))
 - [orderStatus.js](file:///D:/Magazine/_PigmentShop/src/utils/orderStatus.js): `STATUS_RAW_TO_KEY` ([L43](file:///D:/Magazine/_PigmentShop/src/utils/orderStatus.js#L43)), `STATUS_RAW_TO_CANONICAL` ([L65](file:///D:/Magazine/_PigmentShop/src/utils/orderStatus.js#L65))

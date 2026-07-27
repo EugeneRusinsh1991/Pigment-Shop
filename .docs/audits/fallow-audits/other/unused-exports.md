@@ -1,6 +1,6 @@
 # 📦 Unused Exports
 
-*Generated on: 28.07.2026, 00:11:46*
+*Generated on: 28.07.2026, 01:09:10*
 
 Exports that are not imported or consumed by any other active file:
 
@@ -42,6 +42,7 @@ Exports that are not imported or consumed by any other active file:
 - [dynamic-report-writer.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/dynamic-report-writer.ts): `clearSeenViolations` ([L15](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/dynamic-report-writer.ts#L15))
 - [envValidator.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/envValidator.ts): `validateAuthEnv` ([L6](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/envValidator.ts#L6))
 - [hoverInfoHelper.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/hoverInfoHelper.ts): `extractElementHoverInfo` ([L44](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/hoverInfoHelper.ts#L44))
+- [reportCleaner.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/reportCleaner.ts): `clearReportsDirectory` ([L6](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/reportCleaner.ts#L6)), `cleanOldReportsByType` ([L24](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/reportCleaner.ts#L24)), `cleanOldJsonReports` ([L68](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/reportCleaner.ts#L68))
 - [index.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/index.ts): `runUIExplorer` ([L25](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/index.ts#L25))
 - [BaseKnowledgeGraphBuilder.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/plugins/knowledge-graph/BaseKnowledgeGraphBuilder.ts): `BaseKnowledgeGraphBuilder` ([L4](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/plugins/knowledge-graph/BaseKnowledgeGraphBuilder.ts#L4))
 - [CapabilityAnalyzer.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/plugins/knowledge-graph/analyzers/CapabilityAnalyzer.ts): `CapabilityAnalyzer` ([L5](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/plugins/knowledge-graph/analyzers/CapabilityAnalyzer.ts#L5))
@@ -63,7 +64,7 @@ Exports that are not imported or consumed by any other active file:
 - [smoke-automation.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/smoke-automation.ts): `runSmokeAutomation` ([L48](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/smoke-automation.ts#L48))
 - [locationContext.js](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/utils/locationContext.js): `getLocationHierarchy` ([L71](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/utils/locationContext.js#L71))
 - [setupManualInspector.ts](file:///D:/Magazine/_PigmentShop/.tools/manual-browser-inspector/setupManualInspector.ts): `setupManualInspector` ([L106](file:///D:/Magazine/_PigmentShop/.tools/manual-browser-inspector/setupManualInspector.ts#L106))
-- [cleanOldFiles.js](file:///D:/Magazine/_PigmentShop/scripts/cleanOldFiles.js): `cleanOldFiles` ([L30](file:///D:/Magazine/_PigmentShop/scripts/cleanOldFiles.js#L30))
+- [cleanOldFiles.js](file:///D:/Magazine/_PigmentShop/scripts/cleanOldFiles.js): `cleanOldFiles` ([L29](file:///D:/Magazine/_PigmentShop/scripts/cleanOldFiles.js#L29))
 - [devServerReport.js](file:///D:/Magazine/_PigmentShop/scripts/devServerReport.js): `cleanOldFiles` ([L48](file:///D:/Magazine/_PigmentShop/scripts/devServerReport.js#L48)), `generateMarkdownReport` ([L49](file:///D:/Magazine/_PigmentShop/scripts/devServerReport.js#L49))
 - [playwright.helpers.js](file:///D:/Magazine/_PigmentShop/scripts/playwright.helpers.js): `takeCompressedScreenshot` ([L115](file:///D:/Magazine/_PigmentShop/scripts/playwright.helpers.js#L115))
 - [smoke-test.helpers.js](file:///D:/Magazine/_PigmentShop/scripts/smoke-test/smoke-test.helpers.js): `safeClick` ([L42](file:///D:/Magazine/_PigmentShop/scripts/smoke-test/smoke-test.helpers.js#L42)), `safeFill` ([L43](file:///D:/Magazine/_PigmentShop/scripts/smoke-test/smoke-test.helpers.js#L43))

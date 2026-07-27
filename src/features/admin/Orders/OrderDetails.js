@@ -8,22 +8,22 @@
  * 4. Order status
  * 5. Admin notes
  */
+import { AnimatedButton } from '@/components/Button';
+import { BackArrowIcon } from '@/components/Icons';
+import { Text } from '@/components/Text';
 import React, { useState } from 'react';
 import { ScrollView, View } from 'react-native';
-import { Text } from '@/components/Text';
-import { AnimatedButton } from '@/components/Button';
 import { useTheme } from '../../../context/ThemeContext';
-import { useToast } from '../../../context/ToastContext';
-import { BackArrowIcon } from '@/components/Icons';
+import { useCrudWorkflow } from '../../../hooks/useCrudWorkflow';
+import { useErrorHandler } from '../../../hooks/useErrorHandler';
+import { updateAdminNote, updateOrderStatus } from '../../../services/adminOrdersService';
+import { colors, layout } from '../../../theme/tokens';
+import AdminSaveFooter from '../AdminSaveFooter';
 import AdminNoteSection from './AdminNoteSection';
 import OrderCustomerCard from './OrderCustomerCard';
 import OrderItemsList from './OrderItemsList';
-import { updateOrderStatus, updateAdminNote } from '../../../services/adminOrdersService';
 import OrderStatusSelector from './OrderStatusSelector';
 import styles from './OrdersStyles';
-import { useCrudWorkflow } from '../../../hooks/useCrudWorkflow';
-import { colors, layout } from '../../../theme/tokens';
-import AdminSaveFooter from '../AdminSaveFooter';
 
 function useOrderNote(order) {
   const [note, setNote] = useState(order?.adminNote || '');
@@ -48,7 +48,7 @@ function useOrderNote(order) {
 
 export default function OrderDetails({ order, onBack, onStatusUpdated }) {
   const { t } = useTheme();
-  const { showToast } = useToast();
+  const { handleError } = useErrorHandler();
   const [currentStatus, setCurrentStatus] = useState(order.status);
   const [updating, setUpdating] = useState(false);
   
@@ -64,10 +64,7 @@ export default function OrderDetails({ order, onBack, onStatusUpdated }) {
       setCurrentStatus(newStatus);
       onStatusUpdated(order.id, newStatus);
     } catch (e) {
-      console.error('Failed to update status', e);
-      if (showToast) {
-        showToast(t('adminOrdersStatusUpdateError') || 'Failed to update status', 'error');
-      }
+      handleError(e, { message: t('adminOrdersStatusUpdateError') || 'Failed to update status' });
     } finally {
       setUpdating(false);
     }

@@ -1,6 +1,6 @@
 # 💀 Dead Files (Unused)
 
-*Generated on: 28.07.2026, 00:11:46*
+*Generated on: 28.07.2026, 01:09:10*
 
 Files that are not reachable or imported by any other codebase file:
 
@@ -50,6 +50,7 @@ Files that are not reachable or imported by any other codebase file:
 - [envValidator.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/envValidator.ts) (`.tools/browser-automation/helpers/envValidator.ts`)
 - [hoverInfoHelper.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/hoverInfoHelper.ts) (`.tools/browser-automation/helpers/hoverInfoHelper.ts`)
 - [migrate-existing-logs.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/migrate-existing-logs.ts) (`.tools/browser-automation/helpers/migrate-existing-logs.ts`)
+- [reportCleaner.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/reportCleaner.ts) (`.tools/browser-automation/helpers/reportCleaner.ts`)
 - [index.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/index.ts) (`.tools/browser-automation/index.ts`)
 - [ApplicationKnowledgeGraphBuilder.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/plugins/knowledge-graph/ApplicationKnowledgeGraphBuilder.ts) (`.tools/browser-automation/plugins/knowledge-graph/ApplicationKnowledgeGraphBuilder.ts`)
 - [BaseKnowledgeGraphBuilder.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/plugins/knowledge-graph/BaseKnowledgeGraphBuilder.ts) (`.tools/browser-automation/plugins/knowledge-graph/BaseKnowledgeGraphBuilder.ts`)
@@ -78,6 +79,10 @@ Files that are not reachable or imported by any other codebase file:
 - [SmokeReportPrinter.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/plugins/smoke/SmokeReportPrinter.ts) (`.tools/browser-automation/plugins/smoke/SmokeReportPrinter.ts`)
 - [run-admin-nav.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/run-admin-nav.ts) (`.tools/browser-automation/run-admin-nav.ts`)
 - [run-full.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/run-full.ts) (`.tools/browser-automation/run-full.ts`)
+- [run-smoke-both-headless.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/run-smoke-both-headless.ts) (`.tools/browser-automation/run-smoke-both-headless.ts`)
+- [run-smoke-both-loop.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/run-smoke-both-loop.ts) (`.tools/browser-automation/run-smoke-both-loop.ts`)
+- [run-smoke-both.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/run-smoke-both.ts) (`.tools/browser-automation/run-smoke-both.ts`)
+- [run-smoke-guest.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/run-smoke-guest.ts) (`.tools/browser-automation/run-smoke-guest.ts`)
 - [run-smoke.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/run-smoke.ts) (`.tools/browser-automation/run-smoke.ts`)
 - [run.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/run.ts) (`.tools/browser-automation/run.ts`)
 - [smoke-automation.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/smoke-automation.ts) (`.tools/browser-automation/smoke-automation.ts`)

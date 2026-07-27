@@ -2,7 +2,7 @@
 type: dynamic-audit
 auditor: broken-ui
 scope: public
-date: 2026-07-27T21:53:40.928Z
+date: 2026-07-27T22:16:26.355Z
 ---
 
 ### Problem: Clickable element is overlapped or intercepted by another element.
@@ -26,6 +26,9 @@ date: 2026-07-27T21:53:40.928Z
 
 ### Problem: Element has overflow clipping (`scrollWidth > clientWidth`).
 
+- URL: `http://localhost:8081/`
+  - Selector: `div.css-view-g5y9jx.r-position-bnwqim.r-width-13qz1uu.r-zIndex-1s3egr7`
+  - Selector: `div.css-view-g5y9jx.r-marginBlock-l00any`
 - URL: `http://localhost:8081/catalog/cat-root-0-sub-0`
   - Selector: `div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-1s7ct43`
   - Selector: `div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-1npgj5g`

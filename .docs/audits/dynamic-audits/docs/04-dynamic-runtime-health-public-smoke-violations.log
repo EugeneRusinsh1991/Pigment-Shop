@@ -2,7 +2,7 @@
 type: dynamic-audit
 auditor: runtime-health
 scope: public
-date: 2026-07-27T21:52:45.293Z
+date: 2026-07-27T22:16:28.079Z
 ---
 
 ### Problem: Network request failure
@@ -14,3 +14,9 @@ date: 2026-07-27T21:52:45.293Z
 
 - URL: `http://localhost:8081/`
   - Browser console.error: Failed to load resource: the server responded with a status of 400 ()
+
+### Problem: Unhandled page exception
+
+- URL: `http://localhost:8081/`
+  - Unhandled exception: colors is not defined
+  - Unhandled exception: useErrorHandler is not defined

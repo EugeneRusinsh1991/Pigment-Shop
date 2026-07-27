@@ -1,4 +1,4 @@
-# AI Debug Report - S_01-00-09_Home
+# AI Debug Report - S_01-16-39_Home
 
 ## 📊 Environment & Diagnostics
 | Parameter | Value |
@@ -11,11 +11,11 @@
 | **DOM Size** | 30 elements |
 
 ## 🖼️ Screenshot
-![Screenshot](../screenshots/S_01-00-09_Home.jpg)
+![Screenshot](../screenshots/S_01-16-39_Home.jpg)
 
 ## 📂 Quick Links
-* [Open Full Screenshot](file:///D:/Magazine/_PigmentShop/.docs/manual-browser-log/screenshots/S_01-00-09_Home.jpg)
-* [Open Raw State JSON](file:///D:/Magazine/_PigmentShop/.docs/manual-browser-log/state/state_S_01-00-09_Home.json)
+* [Open Full Screenshot](file:///D:/Magazine/_PigmentShop/.docs/manual-browser-log/screenshots/S_01-16-39_Home.jpg)
+* [Open Raw State JSON](file:///D:/Magazine/_PigmentShop/.docs/manual-browser-log/state/state_S_01-16-39_Home.json)
 
 ## 📜 Console Warnings & Errors (Recent 0)
 | Timestamp | Type | Message |

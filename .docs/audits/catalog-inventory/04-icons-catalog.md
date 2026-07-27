@@ -79,7 +79,7 @@
   - Line [52](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UserDetails.js#L52): `<BackArrowIcon>` (Icon: `[Unknown]`)
 
 ### File: [src/features/auth/LoginPage.js](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPage.js)
-  - Line [89](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPage.js#L89): `<MailIcon>` (Icon: `[Unknown]`)
+  - Line [86](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPage.js#L86): `<MailIcon>` (Icon: `[Unknown]`)
 
 ### File: [src/features/auth/LoginPageComponents.js](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPageComponents.js)
   - Line [18](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPageComponents.js#L18): `<ForwardArrowIcon>` (Icon: `[Unknown]`)
@@ -108,8 +108,8 @@
   - Line [22](file:///D:/Magazine/_PigmentShop/src/features/favorites/FavoritesPage.js#L22): `<HeartIcon>` (Icon: `[Unknown]`)
 
 ### File: [src/features/home/components/HeroCarousel.js](file:///D:/Magazine/_PigmentShop/src/features/home/components/HeroCarousel.js)
-  - Line [23](file:///D:/Magazine/_PigmentShop/src/features/home/components/HeroCarousel.js#L23): `<ChevronLeftIcon>` (Icon: `[Unknown]`)
-  - Line [29](file:///D:/Magazine/_PigmentShop/src/features/home/components/HeroCarousel.js#L29): `<ChevronRightIcon>` (Icon: `[Unknown]`)
+  - Line [22](file:///D:/Magazine/_PigmentShop/src/features/home/components/HeroCarousel.js#L22): `<ChevronLeftIcon>` (Icon: `[Unknown]`)
+  - Line [28](file:///D:/Magazine/_PigmentShop/src/features/home/components/HeroCarousel.js#L28): `<ChevronRightIcon>` (Icon: `[Unknown]`)
 
 ### File: [src/features/product/ProductCard.js](file:///D:/Magazine/_PigmentShop/src/features/product/ProductCard.js)
   - Line [96](file:///D:/Magazine/_PigmentShop/src/features/product/ProductCard.js#L96): `<IconButton>` (Icon: `[Unknown]`)

@@ -1,21 +1,21 @@
-# AI Debug Report - S_00-47-46_Home
+# AI Debug Report - S_01-07-26_Home
 
 ## 📊 Environment & Diagnostics
 | Parameter | Value |
 | :--- | :--- |
 | **URL** | [http://localhost:8081/](http://localhost:8081/) |
-| **User Agent** | `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36` |
+| **User Agent** | `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.7827.55 Safari/537.36` |
 | **Viewport Size** | 1280x800 (PixelRatio: 1) |
 | **Screen Resolution** | 1280x800 |
 | **Network** | Online: `true`, Type: `4g` |
-| **DOM Size** | 26 elements |
+| **DOM Size** | 30 elements |
 
 ## 🖼️ Screenshot
-![Screenshot](../screenshots/S_00-47-46_Home.jpg)
+![Screenshot](../screenshots/S_01-07-26_Home.jpg)
 
 ## 📂 Quick Links
-* [Open Full Screenshot](file:///D:/Magazine/_PigmentShop/.docs/manual-browser-log/screenshots/S_00-47-46_Home.jpg)
-* [Open Raw State JSON](file:///D:/Magazine/_PigmentShop/.docs/manual-browser-log/state/state_S_00-47-46_Home.json)
+* [Open Full Screenshot](file:///D:/Magazine/_PigmentShop/.docs/manual-browser-log/screenshots/S_01-07-26_Home.jpg)
+* [Open Raw State JSON](file:///D:/Magazine/_PigmentShop/.docs/manual-browser-log/state/state_S_01-07-26_Home.json)
 
 ## 📜 Console Warnings & Errors (Recent 0)
 | Timestamp | Type | Message |
@@ -26,7 +26,7 @@
 ```json
 {
   "url": "http://localhost:8081/",
-  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.7827.55 Safari/537.36",
   "screen": {
     "viewportWidth": 1280,
     "viewportHeight": 800,
@@ -39,7 +39,7 @@
     "effectiveType": "4g"
   },
   "dom": {
-    "elementCount": 26
+    "elementCount": 30
   },
   "history": {
     "length": 2
