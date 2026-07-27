@@ -15,13 +15,15 @@ function EmptyCatalogState({ isDark, label }) {
 }
 
 function getItemStyle(itemWidth) {
-  return { width: itemWidth, alignSelf: 'stretch' };
+  return [styles.item, { width: itemWidth }];
 }
 
 function getGridStyle(isNarrow, gridWidth) {
-  return isNarrow
-    ? { alignSelf: 'center', width: gridWidth || '100%', minHeight: '100%' }
-    : { width: '100%', minHeight: '100%' };
+  return [
+    styles.gridList,
+    isNarrow && styles.gridNarrow,
+    gridWidth ? { width: gridWidth } : null,
+  ];
 }
 
 
@@ -52,9 +54,9 @@ export default function ProductGrid({ products, cols, cardWidth, isDark, onCardP
       key={`catalog-grid-${cols}`}
       style={getGridStyle(isNarrow, gridWidth)}
       renderItem={renderItem}
-      contentContainerStyle={[styles.grid, { flexGrow: 1, minHeight: '100%' }]}
+      contentContainerStyle={[styles.grid, styles.contentContainer]}
       ListHeaderComponent={listHeader}
-      ListHeaderComponentStyle={isNarrow ? { zIndex: layout.zIndices.drawer, elevation: layout.zIndices.drawer, position: 'relative' } : undefined}
+      ListHeaderComponentStyle={isNarrow ? styles.headerStyle : undefined}
       ListFooterComponent={listFooter}
       ListEmptyComponent={<EmptyCatalogState isDark={isDark} label={emptyLabel} />}
       showsVerticalScrollIndicator={!isNarrow}
@@ -68,5 +70,14 @@ export default function ProductGrid({ products, cols, cardWidth, isDark, onCardP
 
 const styles = StyleSheet.create({
   grid: { paddingBottom: layout.spacing.none },
+  gridList: { width: '100%', minHeight: '100%' },
+  gridNarrow: { alignSelf: 'center' },
+  item: { alignSelf: 'stretch' },
+  contentContainer: { flexGrow: 1, minHeight: '100%' },
+  headerStyle: {
+    zIndex: layout.zIndices.drawer,
+    elevation: layout.zIndices.drawer,
+    position: 'relative',
+  },
   empty: { paddingVertical: layout.spacing.xxl, alignItems: 'center' },
 });
