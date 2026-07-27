@@ -1,4 +1,4 @@
-# Engineering Standard: Service Layer & Data Access Architecture
+# Engineering Standard: Reference Service Layer Architecture
 
 > [!NOTE]
 > Defines the architectural specification, directory layout, repository contracts, DTO transformation rules, and error handling standard across `src/services/`.
@@ -24,7 +24,7 @@ The Data Access Layer is strictly partitioned into three layers:
 
 ## 2. Directory Layout & Module Structure
 
-```
+```text
 src/services/
 ├── collections.js                  # Centralized collection name constants
 ├── serviceContract.js               # Service wrapper HOF & standard payload definition

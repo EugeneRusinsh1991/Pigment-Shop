@@ -1195,6 +1195,311 @@
         "url": "http://localhost:8081/admin",
         "message": "Found raw camelCase i18n key: \"adminProductsInvalidPrice\"",
         "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-1cwl3u0.r-marginBottom-5oul0u.r-marginTop-14gqq1x"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"adminTabCategories\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-vw2c0b.r-lineHeight-135wba7.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"adminCategoriesAddBtn\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-jwli3a"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"adminCategoriesExpandAll\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-color-1cucpzw"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"adminCategoriesCollapseAll\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-color-1cucpzw"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"adminCategoriesColName\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-b88u0q.r-letterSpacing-ud0q2t.r-lineHeight-1f529hi.r-color-1s7ct43.r-textTransform-tsynxw"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"adminCategoriesColImage\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-b88u0q.r-letterSpacing-ud0q2t.r-lineHeight-1f529hi.r-color-1s7ct43.r-textTransform-tsynxw"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"Category 1 RU\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"Category Holder\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-1qxivpv.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"adminCategoriesImageNone\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1s7ct43.r-marginLeft-13hce6t"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"Subcategory 1-1 RU\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"Group 1-1-2 RU\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"Product Holder\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-1qxivpv.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"Subcategory 1-2 RU\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"Group 1-2-1 RU\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"Group 1-2-2 RU\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"Category 2 RU\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"Subcategory 2-1 RU\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"Group 2-1-1 RU\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"Group 2-1-2 RU\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"Subcategory 2-2 RU\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"Group 2-2-1 RU\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"Group 2-2-2 RU\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"adminCategoriesNewTitle\"",
+        "selector": "h1.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-eaezby.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"Category Type\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1dk24ck.r-marginBottom-f1odvy"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"Category Holder\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-color-1dk24ck"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"Product Holder\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-color-jwli3a"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"adminCategoriesFormNameSection (UA) *\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1dk24ck.r-marginBottom-f1odvy"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"adminCategoriesFormDescSection (UA)\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1dk24ck.r-marginBottom-f1odvy"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"adminCategoriesFormImage\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1dk24ck.r-marginBottom-f1odvy"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"adminCategoriesFormUploadBtn\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1dk24ck"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"Browse\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1dk24ck"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"adminCategoriesFormAssignedProducts\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1npgj5g.r-marginBottom-5oul0u.r-marginTop-14gqq1x.r-textTransform-tsynxw"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"adminCategoriesFormAssignedProductsHint\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1s7ct43.r-marginBottom-5oul0u"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"adminCategoriesFormNoAssignedProducts\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1s7ct43"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"adminCategoriesFormUnassignedProducts\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1npgj5g.r-marginBottom-5oul0u.r-marginTop-14gqq1x.r-textTransform-tsynxw"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"adminCategoriesFormUnassignedProductsHint\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1s7ct43.r-marginBottom-5oul0u"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"Product 1-1-1-1 RU\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-rjixqe.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"Category Holder\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-color-jwli3a"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"Product Holder\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-color-1dk24ck"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"Media Library\"",
+        "selector": "h1.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-eaezby.r-color-kgv7a8.r-flex-13awgt0"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"Refresh\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-1dk24ck"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"Images\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-color-jwli3a"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"GIFs\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-color-1cucpzw"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"Videos\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-color-1cucpzw"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"photo_2026-07-11_09-31-45.jpg\"",
+        "selector": "div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1dk24ck.r-paddingBlock-cnw61z.r-paddingInline-18c5d7m"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"Cancel\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-1dk24ck"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"Select\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-jwli3a.r-opacity-1g80hic"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"Images\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-color-1cucpzw"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"GIFs\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-color-jwli3a"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"kling_20260710_Image_to_Video_Beauty_mat_5169_0.gif\"",
+        "selector": "div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1dk24ck.r-paddingBlock-cnw61z.r-paddingInline-18c5d7m"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"Videos\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-color-jwli3a"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"0712(1).mp4\"",
+        "selector": "div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1dk24ck.r-paddingBlock-cnw61z.r-paddingInline-18c5d7m"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"kling_20260710_Image_to_Video__5122_0.mp4\"",
+        "selector": "div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1dk24ck.r-paddingBlock-cnw61z.r-paddingInline-18c5d7m"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"Select\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-jwli3a"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"adminCategoriesFormNoUnassignedProducts\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1s7ct43"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"Category Type\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1dk24ck"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"Category Holder\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"Описание для Subcategory 2-1 UK\"",
+        "selector": "textarea.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-backgroundColor-fj6wrk.r-borderColor-1t4g3vi.r-borderRadius-1xfd6ze.r-borderWidth-rs99b7.r-color-kgv7a8.r-height-uvuy5l.r-outlineStyle-1ny4l3l.r-paddingBlock-11f147o.r-paddingInline-3o4zer.r-verticalAlign-ad9o1y"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"+ adminCategoriesAddSubSection\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"adminCategoriesDeleteBtn\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-jwli3a"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"Описание для Subcategory 2-1 UK\"",
+        "selector": "textarea.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-backgroundColor-fj6wrk.r-borderColor-1t4g3vi.r-borderRadius-1xfd6ze.r-color-kgv7a8.r-height-uvuy5l.r-outlineStyle-1ny4l3l.r-paddingBlock-11f147o.r-paddingInline-3o4zer.r-verticalAlign-ad9o1y"
       }
     ]
   },

@@ -1,11 +1,11 @@
 # 📄 Small & Pass-Through Files Findings
 
-*Generated on: 27.07.2026, 03:27:16*
+*Generated on: 27.07.2026, 11:09:48*
 
 ### Candidate Files for Refactoring/Elimination
 
 - **[index.js](file:///D:/Magazine/_PigmentShop/app/admin/index.js)** (`app/admin/index.js`)
-  - Lines: 10 | Size: 254 B | Type: **Tiny File**
+  - Lines: 10 | Size: 241 B | Type: **Tiny File**
   > 💡 This file contains very few lines; review if it adds unnecessary system noise.
 
 - **[cart.js](file:///D:/Magazine/_PigmentShop/app/(store)/cart.js)** (`app/(store)/cart.js`)
@@ -38,6 +38,10 @@
 
 - **[profile.js](file:///D:/Magazine/_PigmentShop/app/(store)/profile.js)** (`app/(store)/profile.js`)
   - Lines: 16 | Size: 486 B | Type: **Tiny File**
+  > 💡 This file contains very few lines; review if it adds unnecessary system noise.
+
+- **[DateRangePresets.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/DateRangePresets.js)** (`src/features/admin/Analytics/DateRangePresets.js`)
+  - Lines: 18 | Size: 400 B | Type: **Tiny File**
   > 💡 This file contains very few lines; review if it adds unnecessary system noise.
 
 - **[useCatalogTransition.js](file:///D:/Magazine/_PigmentShop/src/features/catalog/useCatalogTransition.js)** (`src/features/catalog/useCatalogTransition.js`)
@@ -92,12 +96,12 @@
   - Lines: 18 | Size: 653 B | Type: **Tiny Component**
   > 💡 This component is very small; consider declaring it inline within its parent component.
 
-- **[useSharedLayoutWrapperTheme.js](file:///D:/Magazine/_PigmentShop/src/components/SharedLayoutWrapper/useSharedLayoutWrapperTheme.js)** (`src/components/SharedLayoutWrapper/useSharedLayoutWrapperTheme.js`)
-  - Lines: 18 | Size: 392 B | Type: **Tiny Component**
-  > 💡 This component is very small; consider declaring it inline within its parent component.
-
 - **[DateRangePresets.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Analytics/DateRangePresets.js)** (`src/components/Admin/Analytics/DateRangePresets.js`)
   - Lines: 18 | Size: 400 B | Type: **Tiny Component**
+  > 💡 This component is very small; consider declaring it inline within its parent component.
+
+- **[useSharedLayoutWrapperTheme.js](file:///D:/Magazine/_PigmentShop/src/components/SharedLayoutWrapper/useSharedLayoutWrapperTheme.js)** (`src/components/SharedLayoutWrapper/useSharedLayoutWrapperTheme.js`)
+  - Lines: 18 | Size: 392 B | Type: **Tiny Component**
   > 💡 This component is very small; consider declaring it inline within its parent component.
 
 - **[CardShadow.js](file:///D:/Magazine/_PigmentShop/src/components/Card/CardShadow.js)** (`src/components/Card/CardShadow.js`)

@@ -2,7 +2,7 @@
 
 > Catalog of vector icons and icon component declarations.
 
-**Total items found:** 99
+**Total items found:** 131
 
 ---
 
@@ -77,6 +77,60 @@
   - Line [34](file:///D:/Magazine/_PigmentShop/src/components/Search/SearchInput.js#L34): `<SearchIcon>` (Icon: `[Unknown]`)
   - Line [38](file:///D:/Magazine/_PigmentShop/src/components/Search/SearchInput.js#L38): `<IconButton>` (Icon: `[Unknown]`)
   - Line [42](file:///D:/Magazine/_PigmentShop/src/components/Search/SearchInput.js#L42): `<CrossIcon>` (Icon: `[Unknown]`)
+
+### File: [src/features/admin/AdminPanel.js](file:///D:/Magazine/_PigmentShop/src/features/admin/AdminPanel.js)
+  - Line [59](file:///D:/Magazine/_PigmentShop/src/features/admin/AdminPanel.js#L59): `<IconButton>` (Icon: `[Unknown]`)
+  - Line [60](file:///D:/Magazine/_PigmentShop/src/features/admin/AdminPanel.js#L60): `<BackArrowIcon>` (Icon: `[Unknown]`)
+  - Line [69](file:///D:/Magazine/_PigmentShop/src/features/admin/AdminPanel.js#L69): `<IconButton>` (Icon: `[Unknown]`)
+  - Line [70](file:///D:/Magazine/_PigmentShop/src/features/admin/AdminPanel.js#L70): `<LogoutIcon>` (Icon: `[Unknown]`)
+  - Line [79](file:///D:/Magazine/_PigmentShop/src/features/admin/AdminPanel.js#L79): `<LogoutIcon>` (Icon: `[Unknown]`)
+
+### File: [src/features/admin/Analytics/AnalyticsDashboard.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/AnalyticsDashboard.js)
+  - Line [37](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/AnalyticsDashboard.js#L37): `<DollarIcon>` (Icon: `[Unknown]`)
+  - Line [38](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/AnalyticsDashboard.js#L38): `<ClipboardIcon>` (Icon: `[Unknown]`)
+  - Line [39](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/AnalyticsDashboard.js#L39): `<TrendIcon>` (Icon: `[Unknown]`)
+  - Line [40](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/AnalyticsDashboard.js#L40): `<BoxIcon>` (Icon: `[Unknown]`)
+
+### File: [src/features/admin/Categories/CategoryFormFields.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Categories/CategoryFormFields.js)
+  - Line [95](file:///D:/Magazine/_PigmentShop/src/features/admin/Categories/CategoryFormFields.js#L95): `<UploadIcon>` (Icon: `[Unknown]`)
+  - Line [99](file:///D:/Magazine/_PigmentShop/src/features/admin/Categories/CategoryFormFields.js#L99): `<ImageIcon>` (Icon: `[Unknown]`)
+
+### File: [src/features/admin/Categories/CategoryRowElements.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Categories/CategoryRowElements.js)
+  - Line [44](file:///D:/Magazine/_PigmentShop/src/features/admin/Categories/CategoryRowElements.js#L44): `<IconButton>` (Icon: `[Unknown]`)
+  - Line [45](file:///D:/Magazine/_PigmentShop/src/features/admin/Categories/CategoryRowElements.js#L45): `<ChevronRightIcon>` (Icon: `[Unknown]`)
+  - Line [45](file:///D:/Magazine/_PigmentShop/src/features/admin/Categories/CategoryRowElements.js#L45): `<ChevronDownIcon>` (Icon: `[Unknown]`)
+  - Line [64](file:///D:/Magazine/_PigmentShop/src/features/admin/Categories/CategoryRowElements.js#L64): `<CheckIcon>` (Icon: `[Unknown]`)
+  - Line [65](file:///D:/Magazine/_PigmentShop/src/features/admin/Categories/CategoryRowElements.js#L65): `<CrossIcon>` (Icon: `[Unknown]`)
+
+### File: [src/features/admin/Categories/CategoryTree.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Categories/CategoryTree.js)
+  - Line [83](file:///D:/Magazine/_PigmentShop/src/features/admin/Categories/CategoryTree.js#L83): `<ChevronDownIcon>` (Icon: `[Unknown]`)
+  - Line [88](file:///D:/Magazine/_PigmentShop/src/features/admin/Categories/CategoryTree.js#L88): `<ChevronRightIcon>` (Icon: `[Unknown]`)
+
+### File: [src/features/admin/FormModalLayout.js](file:///D:/Magazine/_PigmentShop/src/features/admin/FormModalLayout.js)
+  - Line [13](file:///D:/Magazine/_PigmentShop/src/features/admin/FormModalLayout.js#L13): `<IconButton>` (Icon: `[Unknown]`)
+  - Line [14](file:///D:/Magazine/_PigmentShop/src/features/admin/FormModalLayout.js#L14): `<CrossIcon>` (Icon: `[Unknown]`)
+
+### File: [src/features/admin/Media/MediaBrowserComponents.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Media/MediaBrowserComponents.js)
+  - Line [23](file:///D:/Magazine/_PigmentShop/src/features/admin/Media/MediaBrowserComponents.js#L23): `<AlertIcon>` (Icon: `[Unknown]`)
+  - Line [40](file:///D:/Magazine/_PigmentShop/src/features/admin/Media/MediaBrowserComponents.js#L40): `<RefreshIcon>` (Icon: `[Unknown]`)
+  - Line [45](file:///D:/Magazine/_PigmentShop/src/features/admin/Media/MediaBrowserComponents.js#L45): `<IconButton>` (Icon: `[Unknown]`)
+  - Line [46](file:///D:/Magazine/_PigmentShop/src/features/admin/Media/MediaBrowserComponents.js#L46): `<CrossIcon>` (Icon: `[Unknown]`)
+
+### File: [src/features/admin/Media/MediaBrowserItem.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Media/MediaBrowserItem.js)
+  - Line [27](file:///D:/Magazine/_PigmentShop/src/features/admin/Media/MediaBrowserItem.js#L27): `<IconButton>` (Icon: `[Unknown]`)
+  - Line [28](file:///D:/Magazine/_PigmentShop/src/features/admin/Media/MediaBrowserItem.js#L28): `<TrashIcon>` (Icon: `[Unknown]`)
+
+### File: [src/features/admin/Orders/OrderDetails.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderDetails.js)
+  - Line [82](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderDetails.js#L82): `<BackArrowIcon>` (Icon: `[Unknown]`)
+
+### File: [src/features/admin/Products/ProductRowComponents.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Products/ProductRowComponents.js)
+  - Line [63](file:///D:/Magazine/_PigmentShop/src/features/admin/Products/ProductRowComponents.js#L63): `<IconButton>` (Icon: `[Unknown]`)
+  - Line [64](file:///D:/Magazine/_PigmentShop/src/features/admin/Products/ProductRowComponents.js#L64): `<EditIcon>` (Icon: `[Unknown]`)
+  - Line [70](file:///D:/Magazine/_PigmentShop/src/features/admin/Products/ProductRowComponents.js#L70): `<IconButton>` (Icon: `[Unknown]`)
+  - Line [71](file:///D:/Magazine/_PigmentShop/src/features/admin/Products/ProductRowComponents.js#L71): `<TrashIcon>` (Icon: `[Unknown]`)
+
+### File: [src/features/admin/Users/UserDetails.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UserDetails.js)
+  - Line [52](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UserDetails.js#L52): `<BackArrowIcon>` (Icon: `[Unknown]`)
 
 ### File: [src/features/auth/LoginPage.js](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPage.js)
   - Line [89](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPage.js#L89): `<MailIcon>` (Icon: `[Unknown]`)

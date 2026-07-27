@@ -1,9 +1,9 @@
 ===================================================================
          3. HARDCODED STYLES, COLORS & SPACING REPORT              
-Timestamp: 27.07.2026, 03:27:06
+Timestamp: 27.07.2026, 11:09:27
 ===================================================================
 
-Found 128 issue(s) across 36 file(s):
+Found 130 issue(s) across 37 file(s):
 
 File: src\components\Admin\SharedFormComponents.js
   L23    [INLINE_STYLE] <View style={resolvedStyles.row}>
@@ -137,6 +137,10 @@ File: src\components\Text\Heading.js
 File: src\components\Toggle\Toggle.js
   L57    [INLINE_STYLE] style={computedOptionStyle}
   L69    [INLINE_STYLE] style={computedTextStyle}
+
+File: src\features\admin\SharedFormComponents.js
+  L23    [INLINE_STYLE] <View style={resolvedStyles.row}>
+  L25    [INLINE_STYLE] {label && <Text style={resolvedStyles.text}>{label}</Text>}
 
 File: src\features\catalog\CatalogView.js
   L139   [INLINE_STYLE] style={layoutStyles.listContainer}

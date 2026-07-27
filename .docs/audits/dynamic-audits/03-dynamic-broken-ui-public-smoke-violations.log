@@ -2,7 +2,7 @@
 type: dynamic-audit
 auditor: broken-ui
 scope: public
-date: 2026-07-26T23:55:34.939Z
+date: 2026-07-27T08:28:47.874Z
 ---
 
 ### URL: http://localhost:8081/
@@ -56,3 +56,19 @@ date: 2026-07-26T23:55:34.939Z
   Selector: `div.css-view-g5y9jx.r-height-1g7fiml.r-justifyContent-1777fci.r-marginBlock-bx70bn.r-paddingInline-18c5d7m.r-width-13qz1uu`
 - Clickable element is overlapped or intercepted by another element.
   Selector: `button.css-view-g5y9jx.r-touchAction-1otgn73.r-alignItems-1awozwy.r-cursor-1loqt21.r-flexDirection-18u37iz.r-justifyContent-1777fci.r-borderRadius-y47klf.r-borderWidth-1rf8fdq.r-minHeight-15ysp7h.r-paddingBlock-vuvdlw.r-paddingInline-3o4zer.r-backgroundColor-wt1z2b.r-borderColor-1jl7vqb`
+- Element has overflow clipping (`scrollWidth > clientWidth`).
+  Selector: `div.css-view-g5y9jx.r-alignItems-1awozwy.r-flexDirection-18u37iz.r-flexWrap-1w6e6rj.r-gap-1cmwbt1.r-justifyContent-1wtj0ep.r-marginBottom-1ifxtd0`
+- Element has overflow clipping (`scrollWidth > clientWidth`).
+  Selector: `div.css-view-g5y9jx.r-alignItems-1awozwy.r-backgroundColor-fj6wrk.r-flexDirection-18u37iz.r-padding-zhp00w.r-position-bnwqim.r-borderRadius-kdyh1x.r-height-mabqd8`
+
+### URL: http://localhost:8081/product/prod-1-1-1-1
+- Element has overflow clipping (`scrollWidth > clientWidth`).
+  Selector: `div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-1s7ct43`
+- Element has overflow clipping (`scrollWidth > clientWidth`).
+  Selector: `div.css-view-g5y9jx.r-alignItems-1awozwy.r-backgroundColor-fj6wrk.r-flexDirection-18u37iz.r-padding-zhp00w.r-position-bnwqim.r-borderRadius-1xfd6ze.r-height-eu3ka.r-marginBottom-1ifxtd0`
+
+### URL: http://localhost:8081/product/prod-2-2-1-1
+- Element has overflow clipping (`scrollWidth > clientWidth`).
+  Selector: `div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-12zy4o2`
+- Element has overflow clipping (`scrollWidth > clientWidth`).
+  Selector: `div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-1s7ct43`

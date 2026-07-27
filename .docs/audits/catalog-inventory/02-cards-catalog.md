@@ -2,7 +2,7 @@
 
 > Catalog of structural layout cards, containers, modal sheets, and wrappers.
 
-**Total items found:** 35
+**Total items found:** 49
 
 ---
 
@@ -45,6 +45,36 @@
 
 ### File: [src/components/Card/NavigationCard.js](file:///D:/Magazine/_PigmentShop/src/components/Card/NavigationCard.js)
   - Line [10](file:///D:/Magazine/_PigmentShop/src/components/Card/NavigationCard.js#L10): `<Card>`
+
+### File: [src/features/admin/Analytics/AnalyticsDashboard.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/AnalyticsDashboard.js)
+  - Line [37](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/AnalyticsDashboard.js#L37): `<StatCard>`
+  - Line [38](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/AnalyticsDashboard.js#L38): `<StatCard>`
+  - Line [39](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/AnalyticsDashboard.js#L39): `<StatCard>`
+  - Line [40](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/AnalyticsDashboard.js#L40): `<StatCard>`
+
+### File: [src/features/admin/Categories/CategoryTree.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Categories/CategoryTree.js)
+  - Line [112](file:///D:/Magazine/_PigmentShop/src/features/admin/Categories/CategoryTree.js#L112): `<MobileCategoryCard>`
+
+### File: [src/features/admin/Orders/OrderDetails.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderDetails.js)
+  - Line [93](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderDetails.js#L93): `<OrderCustomerCard>`
+
+### File: [src/features/admin/Products/MobileProductRow.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Products/MobileProductRow.js)
+  - Line [29](file:///D:/Magazine/_PigmentShop/src/features/admin/Products/MobileProductRow.js#L29): `<CardMetaBlock>`
+  - Line [33](file:///D:/Magazine/_PigmentShop/src/features/admin/Products/MobileProductRow.js#L33): `<CardMetaBlock>`
+  - Line [38](file:///D:/Magazine/_PigmentShop/src/features/admin/Products/MobileProductRow.js#L38): `<CardMetaBlock>`
+  - Line [41](file:///D:/Magazine/_PigmentShop/src/features/admin/Products/MobileProductRow.js#L41): `<CardMetaBlock>`
+
+### File: [src/features/admin/Users/UserDetails.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UserDetails.js)
+  - Line [60](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UserDetails.js#L60): `<UserInfoCard>`
+
+### File: [src/features/admin/Users/UserInfoCard.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UserInfoCard.js)
+  - Line [21](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UserInfoCard.js#L21): `<Card>`
+
+### File: [src/features/admin/Users/UserOrdersList.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UserOrdersList.js)
+  - Line [17](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UserOrdersList.js#L17): `<OrderCard>`
+
+### File: [src/features/admin/Users/UsersManager.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UsersManager.js)
+  - Line [101](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UsersManager.js#L101): `<MobileUserCard>`
 
 ### File: [src/features/catalog/CatalogView.js](file:///D:/Magazine/_PigmentShop/src/features/catalog/CatalogView.js)
   - Line [25](file:///D:/Magazine/_PigmentShop/src/features/catalog/CatalogView.js#L25): `<PlaceholderCard>`

@@ -1,4 +1,4 @@
-# Engineering Standard: Feature Module Specification
+# Engineering Standard: Reference Feature Module Architecture
 
 > [!NOTE]
 > This engineering standard defines the module architecture, component boundaries, state management, and file structure for all **Feature Modules** (pages and key user flows) across PigmentShop.
@@ -17,7 +17,7 @@ A **Feature** (фича / страница) — это законченный б
 
 ## 2. Public API Strategy (`index.js`)
 
-Каждая фича обязана экспортировать свою точку входа через публичный контракты `index.js`.
+Каждая фича обязана экспортировать свою точку входа через публичный контракт `index.js`.
 
 ### Export Contract:
 ```javascript
@@ -34,5 +34,5 @@ src/features/<feature-name>/
 ├── hooks/               # Доменные хуки фичи (фильтрация, запросы)
 ├── styles/              # Токенизированные стили фичи
 ├── <FeatureName>Page.js # Корневой компонент страницы
-└── index.js             # Публичный контракты фичи
+└── index.js             # Публичный контракт фичи
 ```

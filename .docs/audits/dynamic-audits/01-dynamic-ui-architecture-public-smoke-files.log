@@ -1,0 +1,19 @@
+---
+type: dynamic-audit-urls
+auditor: ui-architecture
+scope: public
+date: 2026-07-27T08:28:47.853Z
+---
+
+- http://localhost:8081/
+- http://localhost:8081/catalog
+- http://localhost:8081/catalog/cat-root-0
+- http://localhost:8081/catalog/cat-root-0-sub-0
+- http://localhost:8081/catalog/cat-root-0-sub-1
+- http://localhost:8081/catalog/cat-root-1
+- http://localhost:8081/catalog/cat-root-1-sub-0
+- http://localhost:8081/catalog/cat-root-1-sub-1
+- http://localhost:8081/products
+- http://localhost:8081/product/prod-1-2-1-1
+- http://localhost:8081/product/prod-1-1-1-1
+- http://localhost:8081/product/prod-2-2-1-1

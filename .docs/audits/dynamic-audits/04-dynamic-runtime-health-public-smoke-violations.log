@@ -2,8 +2,11 @@
 type: dynamic-audit
 auditor: runtime-health
 scope: public
-date: 2026-07-26T23:34:22.671Z
+date: 2026-07-27T08:19:24.916Z
 ---
 
 ### URL: http://localhost:8081/
 - Unhandled exception: Failed to set an indexed property [0] on 'CSSStyleDeclaration': Indexed property setter is not supported.
+
+### URL: http://localhost:8081/product/prod-1-1-1-1
+- Unhandled exception: [expo-router]: You are passing an array of styles to a child of <Slot>. Consider flattening the styles with StyleSheet.flatten before passing them to the child component.

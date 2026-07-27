@@ -1,9 +1,9 @@
 ===================================================================
                FILES WITH ISSUES REPORT                            
-Timestamp: 27.07.2026, 03:27:06
+Timestamp: 27.07.2026, 11:09:27
 ===================================================================
 
-Found 128 issue(s) across 36 target(s):
+Found 130 issue(s) across 37 target(s):
 
 - src\components\Admin\SharedFormComponents.js (2 issues)
 - src\components\Badge\Badge.js (2 issues)
@@ -25,6 +25,7 @@ Found 128 issue(s) across 36 target(s):
 - src\components\SharedLayoutWrapper\SharedLayoutWrapper.js (2 issues)
 - src\components\Text\Heading.js (1 issues)
 - src\components\Toggle\Toggle.js (2 issues)
+- src\features\admin\SharedFormComponents.js (2 issues)
 - src\features\catalog\CatalogView.js (3 issues)
 - src\features\catalog\CategoryCard.js (4 issues)
 - src\features\catalog\components\NewArrivalsFooter.js (2 issues)

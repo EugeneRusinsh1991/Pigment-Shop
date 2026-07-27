@@ -98,7 +98,7 @@ export function CartButton({ isInCart, isWide, finalPrice, qty, product, onAddTo
       variant={isInCart ? 'accent' : 'primary'}
       size="lg"
       leftIcon={<CartIcon color={colors.white} size={16} />}
-      style={[isWide ? styles.cartBtnWide : styles.flex1]}
+      style={isWide ? styles.cartBtnWide : styles.flex1}
     />
   );
 

@@ -5392,5 +5392,35 @@
       "modified": 0,
       "topFolders": []
     }
+  },
+  "src_07-27_11-28_smoke-report.json_152files": {
+    "timestamp": "2026-07-27T08:29:04.571Z",
+    "diff": {
+      "added": 59,
+      "removed": 2,
+      "modified": 49,
+      "topFolders": [
+        {
+          "folder": ".todos/tokenize",
+          "count": 37
+        },
+        {
+          "folder": ".docs/audits/dynamic-audits",
+          "count": 16
+        },
+        {
+          "folder": "architecture-standards/features",
+          "count": 14
+        },
+        {
+          "folder": ".docs/audits/audits",
+          "count": 11
+        },
+        {
+          "folder": ".docs/audits/fallow-audits/project",
+          "count": 7
+        }
+      ]
+    }
   }
 }
