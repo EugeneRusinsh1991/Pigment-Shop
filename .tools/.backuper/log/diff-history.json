@@ -6011,5 +6011,23 @@
         }
       ]
     }
+  },
+  "src_07-28_00-14_smoke-report.json_64files": {
+    "timestamp": "2026-07-27T21:14:43.002Z",
+    "diff": {
+      "added": 0,
+      "removed": 0,
+      "modified": 2,
+      "topFolders": [
+        {
+          "folder": ".todos/before ui changes",
+          "count": 1
+        },
+        {
+          "folder": ".tools/browser-automation/reports",
+          "count": 1
+        }
+      ]
+    }
   }
 }

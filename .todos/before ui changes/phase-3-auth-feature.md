@@ -23,10 +23,10 @@ Extract auth validation logic and enhance error handling with ToastContext integ
 **Target file:** `src/hooks/useAuthValidation.js`
 
 ### 3.2 Enhance useLoginForm Hook
-- [ ] Review existing `src/hooks/useLoginForm.js`
-- [ ] Remove debug functions (lines 47-59) to separate file
-- [ ] Ensure error handling uses ToastContext (currently inline state)
-- [ ] Move error message mapping from `LoginPageComponents.js` (lines 80-90)
+- [x] Review existing `src/hooks/useLoginForm.js`
+- [x] Remove debug functions (lines 47-59) to separate file
+- [x] Ensure error handling uses ToastContext (currently inline state)
+- [x] Move error message mapping from `LoginPageComponents.js` (lines 80-90)
 - [ ] Test hook independently
 
 **Files to modify:**
@@ -34,9 +34,9 @@ Extract auth validation logic and enhance error handling with ToastContext integ
 - `src/features/auth/LoginPageComponents.js`
 
 ### 3.3 Refactor Auth Components
-- [ ] Refactor `LoginPage.js` to use `useAuthValidation`
-- [ ] Remove inline validation logic
-- [ ] Remove inline error handling
+- [x] Refactor `LoginPage.js` to use `useAuthValidation`
+- [x] Remove inline validation logic
+- [x] Remove inline error handling
 - [ ] Verify auth functionality still works
 
 **Target file:** `src/features/auth/LoginPage.js`
