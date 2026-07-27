@@ -1,13 +1,13 @@
 # Smoke Test Failure - Category Detail (Dynamic)
 
 * **Route**: `/catalog/cat-root-0`
-* **Timestamp**: 2026-07-24T22:21:30.494Z
+* **Timestamp**: 2026-07-27T21:45:52.557Z
 
 ## ❌ Detected Errors
 
-- Page failed to load: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8081/catalog/cat-root-0
+- Failed to click "Subcategory 1-1 RU Card": locator.waitFor: Timeout 15000ms exceeded.
 Call log:
-[2m  - navigating to "http://localhost:8081/catalog/cat-root-0", waiting until "load"[22m
+[2m  - waiting for locator('text=Subcategory 1-1 RU').first() to be visible[22m
 
 
 ## 🖼️ Screenshot

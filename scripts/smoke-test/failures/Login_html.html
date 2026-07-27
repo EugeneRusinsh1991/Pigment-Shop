@@ -1,1 +1,339 @@
-<html><head></head><body></body></html>
+<!DOCTYPE html><html lang="en"><head><style id="react-native-stylesheet"></style>
+    <meta charset="utf-8">
+    <meta httpequiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>pigment-shop</title>
+    <!-- The `react-native-web` recommended style reset: https://necolas.github.io/react-native-web/docs/setup/#root-element -->
+    <style id="expo-reset">
+      /* These styles make the body full-height */
+      html,
+      body {
+        height: 100%;
+      }
+      /* These styles disable body scrolling if you are using <ScrollView> */
+      body {
+        overflow: hidden;
+      }
+      /* These styles make the root element full-height */
+      #root {
+        display: flex;
+        height: 100%;
+        flex: 1;
+      }
+    </style>
+  <style data-expo-css-hmr="node_modules__expo_log_box_src_toast_ErrorToast_module_css" data-expo-loader="css">.ACiIqa_container {
+  bottom: calc(6px + env(safe-area-inset-bottom, 0px));
+  max-width: 320px;
+  display: flex;
+  position: fixed;
+  left: 10px;
+  right: 10px;
+}
+
+.ACiIqa_toast {
+  border: 1px solid var(--expo-log-color-danger);
+  cursor: pointer;
+  height: 48px;
+  font-family: var(--expo-log-font-family);
+  background-color: #632e2c;
+  border-radius: 6px;
+  flex-direction: row;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+  padding: 0 10px;
+  transition: background-color .2s;
+  display: flex;
+  overflow: hidden;
+}
+
+@media (hover: hover) {
+  .ACiIqa_toast:hover {
+    background-color: #924340;
+  }
+}
+
+.ACiIqa_message {
+  -webkit-user-select: none;
+  user-select: none;
+  color: var(--expo-log-color-label);
+  font-family: var(--expo-log-font-family);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  flex: 1;
+  padding-left: 8px;
+  font-size: 14px;
+  line-height: 22px;
+  display: block;
+  overflow: hidden;
+}
+
+.ACiIqa_count {
+  background: var(--expo-log-color-danger);
+  border-radius: 6px;
+  justify-content: center;
+  align-items: center;
+  min-width: 30px;
+  height: 30px;
+  display: flex;
+}
+
+.ACiIqa_countText {
+  color: var(--expo-log-color-label);
+  font-family: var(--expo-log-font-family);
+  text-align: center;
+  text-shadow: 0 0 3px #333c;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.ACiIqa_dismissButton {
+  cursor: pointer;
+  background: none;
+  border: none;
+  margin: -12px -10px -12px -5px;
+  padding: 12px 10px;
+}
+
+.ACiIqa_dismissContent {
+  background-color: #ffffff1a;
+  border-radius: 25px;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  transition: opacity .2s;
+  display: flex;
+}
+
+@media (hover: hover) {
+  .ACiIqa_dismissButton:hover .ACiIqa_dismissContent {
+    opacity: .8;
+  }
+}
+
+.ACiIqa_dismissButton:active .ACiIqa_dismissContent {
+  opacity: .5;
+}
+
+.ACiIqa_dismissIcon {
+  color: #fff;
+  width: 12px;
+  height: 12px;
+}
+</style><style data-expo-css-hmr="node_modules__expo_log_box_src_overlay_Overlay_module_css" data-expo-loader="css">:host {
+  --expo-log-color-border: #313538;
+  --expo-log-color-label: #edeef0;
+  --expo-log-color-background: #111113;
+  --expo-log-secondary-label: #ebebf599;
+  --expo-log-secondary-system-background: #1c1c1f;
+  --expo-log-secondary-system-grouped-background: #18191b;
+  --expo-log-secondary-system-background-hover: #272a2d;
+  --expo-log-color-danger: #ec5e5e;
+  --expo-log-syntax-red: #ec5e5e;
+  --expo-log-syntax-orange: #ffa163;
+  --expo-log-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+  --expo-log-font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+    monospace;
+}
+
+@supports (color: color(display-p3 0 0 0)) {
+  :host {
+    --expo-log-secondary-system-grouped-background: color(display-p3 .095 .098 .105);
+    --expo-log-secondary-system-background-hover: color(display-p3 .156 .163 .176);
+    --expo-log-color-danger: color(display-p3 .861 .403 .387);
+    --expo-log-syntax-red: color(display-p3 .861 .403 .387);
+    --expo-log-syntax-orange: color(display-p3 1 .63 .38);
+  }
+}
+
+.rJVGbG_overlayIos {
+  top: 0;
+}
+
+.rJVGbG_overlayAndroid {
+  top: var(--android-safe-area-inset-top, env(safe-area-inset-top));
+}
+
+.rJVGbG_overlayWeb {
+  top: calc(10vh + env(safe-area-inset-top, 2vh));
+}
+
+.rJVGbG_overlay {
+  z-index: 9900;
+  -webkit-font-smoothing: antialiased;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.rJVGbG_containerTopRadius {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.rJVGbG_container {
+  --expo-log-max-width: 960px;
+  max-width: var(--expo-log-max-width);
+  background-color: var(--expo-log-color-background);
+  opacity: 0;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  margin: 0 auto;
+  animation: .2s ease-out forwards rJVGbG_fadeInUp;
+  display: flex;
+  position: relative;
+  overflow-x: hidden;
+  transform: translateY(20px);
+}
+
+.rJVGbG_content {
+  opacity: 0;
+  background-color: var(--expo-log-color-background);
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  animation: .2s ease-out forwards rJVGbG_fadeInUp;
+  display: flex;
+}
+
+.rJVGbG_scroll {
+  background-color: var(--expo-log-color-background);
+  padding-top: 16px;
+  padding-bottom: calc(var(--expo-log-footer-height) + 1rem);
+  flex-direction: column;
+  flex: 1;
+  gap: .5rem;
+  display: flex;
+  position: relative;
+  overflow: hidden auto;
+}
+
+.rJVGbG_bg {
+  backdrop-filter: blur(10px);
+  pointer-events: all;
+  z-index: -1;
+  opacity: 0;
+  background-color: #000c;
+  animation: .15s ease-out forwards rJVGbG_data-expo-log-backdrop-fade-in;
+  position: fixed;
+  inset: 0;
+}
+
+.rJVGbG_bgExit {
+  opacity: 1;
+  animation: .15s ease-in forwards rJVGbG_fadeOut;
+}
+
+.rJVGbG_containerExit {
+  opacity: 1;
+  animation: .15s ease-in forwards rJVGbG_fadeOutUp;
+  transform: translateY(0);
+}
+
+@keyframes rJVGbG_data-expo-log-backdrop-fade-in {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rJVGbG_fadeOut {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes rJVGbG_fadeOutUp {
+  to {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+@keyframes rJVGbG_fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rJVGbG_footer {
+  min-height: var(--expo-log-footer-height);
+  padding-bottom: var(--android-safe-area-inset-bottom, env(safe-area-inset-bottom));
+  background-color: var(--expo-log-secondary-system-background);
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+}
+
+.rJVGbG_headerBlur {
+  background: linear-gradient(to top, transparent, var(--expo-log-color-background));
+  -webkit-mask-image: linear-gradient(to bottom, var(--expo-log-color-background) 50%, transparent);
+  mask-image: linear-gradient(to bottom, var(--expo-log-color-background) 50%, transparent);
+  backdrop-filter: blur(4px);
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  height: 48px;
+  min-height: 48px;
+  position: absolute;
+  top: 47px;
+  left: 0;
+  right: 0;
+}
+
+@media screen and (width >= 576px) {
+  .rJVGbG_overlay {
+    top: 10vh;
+    bottom: 10vh;
+  }
+
+  .rJVGbG_container {
+    border: 1px solid var(--expo-log-color-border);
+    border-radius: 10px;
+  }
+}
+
+@media (width >= 576px) {
+  .rJVGbG_container {
+    --expo-log-max-width: 540px;
+  }
+}
+
+@media (width >= 768px) {
+  .rJVGbG_container {
+    --expo-log-max-width: 720px;
+  }
+}
+
+@media (width >= 992px) {
+  .rJVGbG_container {
+    --expo-log-max-width: 960px;
+  }
+}
+</style></head>
+
+  <body>
+    <!-- Use static rendering with Expo Router to support running without JavaScript. -->
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <!-- The root element for your Expo app. -->
+    <div id="root"><div class="css-view-g5y9jx r-flex-13awgt0"><div tabindex="0" class="css-view-g5y9jx r-touchAction-1otgn73 r-alignItems-1oszu61 r-cursor-7q8q6z r-flex-13awgt0 r-flexDirection-eqz5dr r-minHeight-sa2ff0 r-overflow-1udh08x r-overflowX-11yh6sk r-width-13qz1uu r-backgroundColor-r54q32"><div class="css-view-g5y9jx r-alignItems-1awozwy r-borderBottomWidth-ndvcnb r-flexDirection-18u37iz r-height-1mwlp6a r-width-13qz1uu r-zIndex-b9bkkf r-backgroundColor-r54q32 r-borderBottomColor-lberyi" id="app-header" style="justify-content: center;"><div class="css-view-g5y9jx r-alignItems-1awozwy r-flexDirection-18u37iz r-justifyContent-1wtj0ep r-minWidth-bcqeeo r-paddingInline-is05cd r-width-13qz1uu" style="max-width: 1280px;"><div class="css-view-g5y9jx r-alignItems-1awozwy r-flexDirection-18u37iz r-flexShrink-1wbh5a2 r-gap-f4gmv6 r-minWidth-bcqeeo"><a href="/" role="link" class="css-view-g5y9jx r-transitionProperty-1i6wzkk r-userSelect-lrvibr r-cursor-1loqt21 r-touchAction-1otgn73" style="transition-duration: 0s;"><div class="css-view-g5y9jx r-alignItems-1awozwy r-flexDirection-18u37iz r-gap-nnrm1x" style="margin-left: -24px;"><div class="css-view-g5y9jx r-flexBasis-1mlwlqe r-overflow-1udh08x r-zIndex-417010 r-flexShrink-1wbh5a2 r-height-mabqd8 r-maxWidth-zrzavs r-minWidth-bcqeeo r-width-1n20pny"><div class="css-view-g5y9jx r-backgroundColor-1niwhzg r-backgroundPosition-vvn4in r-backgroundRepeat-u6sd8q r-bottom-1p0dtai r-height-1pi2tsx r-left-1d2f490 r-position-u8s1d r-right-zchlnj r-top-ipm5af r-width-13qz1uu r-zIndex-1wyyakw r-backgroundSize-ehq7j7" style="background-image: url(&quot;/assets/?unstable_path=.%2Fsrc%2Fassets/logo.png&quot;);"></div><img alt="" draggable="false" class="css-accessibilityImage-9pa8cd" src="/assets/?unstable_path=.%2Fsrc%2Fassets/logo.png"></div></div></a></div><div class="css-view-g5y9jx r-alignItems-1awozwy r-flexDirection-18u37iz r-flexShrink-1q142lx r-gap-1fdih9r"><div role="presentation" tabindex="0" class="css-view-g5y9jx r-transitionProperty-1i6wzkk r-userSelect-lrvibr r-cursor-1loqt21 r-touchAction-1otgn73 r-alignItems-1awozwy r-justifyContent-1777fci r-backgroundColor-1niwhzg" style="width: 40px; height: 40px; border-radius: 20px; transition-duration: 0s;"><div dir="auto" class="css-text-146c3p1 r-fontFamily-36nht7 r-fontSize-ubezar r-fontWeight-16dba41 r-lineHeight-135wba7 r-color-kgv7a8">☰</div></div><a href="/" role="link" class="css-view-g5y9jx r-transitionProperty-1i6wzkk r-userSelect-lrvibr r-cursor-1loqt21 r-touchAction-1otgn73 r-alignItems-1awozwy r-borderWidth-rs99b7 r-flexDirection-18u37iz r-gap-1cmwbt1 r-justifyContent-1777fci r-borderRadius-kdyh1x r-height-mabqd8 r-paddingInline-3o4zer r-backgroundColor-1niwhzg r-borderColor-42olwf" style="transition-duration: 0s;"><div dir="auto" class="css-text-146c3p1 r-fontFamily-36nht7 r-fontSize-n62j09 r-fontWeight-ha6d2y r-lineHeight-135wba7 r-textAlign-q4m81j r-color-1dk24ck">Главная</div></a><a href="/catalog" role="link" class="css-view-g5y9jx r-transitionProperty-1i6wzkk r-userSelect-lrvibr r-cursor-1loqt21 r-touchAction-1otgn73 r-alignItems-1awozwy r-borderWidth-rs99b7 r-flexDirection-18u37iz r-gap-1cmwbt1 r-justifyContent-1777fci r-borderRadius-kdyh1x r-height-mabqd8 r-paddingInline-3o4zer r-backgroundColor-1niwhzg r-borderColor-42olwf" style="transition-duration: 0s;"><div dir="auto" class="css-text-146c3p1 r-fontFamily-36nht7 r-fontSize-n62j09 r-fontWeight-ha6d2y r-lineHeight-135wba7 r-textAlign-q4m81j r-color-kgv7a8">Каталог</div></a><a href="/products" role="link" class="css-view-g5y9jx r-transitionProperty-1i6wzkk r-userSelect-lrvibr r-cursor-1loqt21 r-touchAction-1otgn73 r-alignItems-1awozwy r-borderWidth-rs99b7 r-flexDirection-18u37iz r-gap-1cmwbt1 r-justifyContent-1777fci r-borderRadius-kdyh1x r-height-mabqd8 r-paddingInline-3o4zer r-backgroundColor-1niwhzg r-borderColor-42olwf" style="transition-duration: 0s;"><div dir="auto" class="css-text-146c3p1 r-fontFamily-36nht7 r-fontSize-n62j09 r-fontWeight-ha6d2y r-lineHeight-135wba7 r-textAlign-q4m81j r-color-kgv7a8">Все товары</div></a><a href="/contact" role="link" class="css-view-g5y9jx r-transitionProperty-1i6wzkk r-userSelect-lrvibr r-cursor-1loqt21 r-touchAction-1otgn73 r-alignItems-1awozwy r-borderWidth-rs99b7 r-flexDirection-18u37iz r-gap-1cmwbt1 r-justifyContent-1777fci r-borderRadius-kdyh1x r-height-mabqd8 r-paddingInline-3o4zer r-backgroundColor-1niwhzg r-borderColor-42olwf" style="transition-duration: 0s;"><div dir="auto" class="css-text-146c3p1 r-fontFamily-36nht7 r-fontSize-n62j09 r-fontWeight-ha6d2y r-lineHeight-135wba7 r-textAlign-q4m81j r-color-kgv7a8">Контакты</div></a></div><div class="css-view-g5y9jx r-alignItems-1awozwy r-flexDirection-18u37iz r-flexShrink-1wbh5a2 r-gap-f4gmv6 r-minWidth-bcqeeo"><div aria-label="Toggle Theme" role="presentation" tabindex="0" class="css-view-g5y9jx r-transitionProperty-1i6wzkk r-userSelect-lrvibr r-cursor-1loqt21 r-touchAction-1otgn73 r-alignItems-1awozwy r-justifyContent-1777fci r-backgroundColor-1niwhzg" style="width: 44px; height: 44px; border-radius: 22px; transition-duration: 0s;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></div><div class="css-view-g5y9jx r-position-bnwqim"><div role="presentation" tabindex="0" class="css-view-g5y9jx r-transitionProperty-1i6wzkk r-userSelect-lrvibr r-cursor-1loqt21 r-touchAction-1otgn73 r-alignItems-1awozwy r-justifyContent-1777fci r-backgroundColor-1niwhzg" style="width: 44px; height: 44px; border-radius: 22px; transition-duration: 0s;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle;"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div></div><div class="css-view-g5y9jx r-position-bnwqim"><div role="presentation" tabindex="0" class="css-view-g5y9jx r-transitionProperty-1i6wzkk r-userSelect-lrvibr r-cursor-1loqt21 r-touchAction-1otgn73 r-alignItems-1awozwy r-justifyContent-1777fci r-backgroundColor-1niwhzg" style="width: 44px; height: 44px; border-radius: 22px; transition-duration: 0s;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle;"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div></div><a href="/cart" role="link" class="css-view-g5y9jx r-transitionProperty-1i6wzkk r-userSelect-lrvibr r-cursor-1loqt21 r-touchAction-1otgn73 r-alignItems-1awozwy r-justifyContent-1777fci r-backgroundColor-1niwhzg" style="width: 44px; height: 44px; border-radius: 22px; transition-duration: 0s;"><div class="css-view-g5y9jx r-alignItems-1awozwy r-justifyContent-1777fci r-position-bnwqim"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle;"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg></div></a><div class="css-view-g5y9jx r-position-bnwqim"><div role="presentation" tabindex="0" class="css-view-g5y9jx r-transitionProperty-1i6wzkk r-userSelect-lrvibr r-cursor-1loqt21 r-touchAction-1otgn73 r-alignItems-1awozwy r-justifyContent-1777fci r-backgroundColor-1niwhzg" style="width: 44px; height: 44px; border-radius: 22px; transition-duration: 0s;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div></div></div></div></div><div class="css-view-g5y9jx r-alignSelf-1pz39u2 r-flex-13awgt0 r-minHeight-ifefl9 r-overflow-1udh08x r-width-13qz1uu"><div class="css-view-g5y9jx r-alignItems-1oszu61 r-flex-13awgt0 r-flexDirection-eqz5dr r-justifyContent-1h0z5md r-minHeight-2llsf r-width-13qz1uu"><div class="css-view-g5y9jx r-alignSelf-1pz39u2 r-flexGrow-16y2uox r-flexShrink-1wbh5a2 r-minHeight-ifefl9 r-overflow-1udh08x r-width-13qz1uu"><div style="position: absolute; inset: 0px; pointer-events: none; visibility: hidden;"></div><div class="css-view-g5y9jx r-flex-13awgt0"><div class="css-view-g5y9jx r-flex-13awgt0 r-bottom-1p0dtai r-left-1d2f490 r-position-u8s1d r-right-zchlnj r-top-ipm5af" style="background-color: rgb(242, 242, 242); display: flex;"><div class="css-view-g5y9jx r-flex-13awgt0"><div class="css-view-g5y9jx r-flex-13awgt0" style="background-color: rgba(0, 0, 0, 0);"><div class="css-view-g5y9jx r-flex-13awgt0 r-overflow-1udh08x r-width-13qz1uu" style="opacity: 1; transform: translateY(0px);"><div class="css-view-g5y9jx r-alignItems-1awozwy r-flex-13awgt0 r-justifyContent-1777fci r-width-13qz1uu r-padding-t60dpp"><div class="css-view-g5y9jx r-WebkitOverflowScrolling-150rngu r-flexDirection-eqz5dr r-flexGrow-16y2uox r-flexShrink-1wbh5a2 r-overflowX-11yh6sk r-overflowY-1rnoaur r-transform-agouwx r-scrollbarWidth-2eszeu"><div class="css-view-g5y9jx r-flexGrow-16y2uox r-paddingBottom-1mdbw0j r-paddingTop-1ygmrgt r-width-13qz1uu"><div class="css-view-g5y9jx r-alignItems-1awozwy r-flex-13awgt0 r-width-13qz1uu"><div class="css-view-g5y9jx r-flex-13awgt0 r-overflow-1udh08x r-width-13qz1uu" style="opacity: 1; transform: translateY(0px);"><div class="css-view-g5y9jx r-alignItems-1awozwy r-maxWidth-hvns9x r-width-13qz1uu r-paddingBottom-11rk87y"><div class="css-view-g5y9jx r-alignItems-1awozwy r-marginBottom-6gpygo"><div class="css-view-g5y9jx r-borderRadius-1867qdf r-height-h3s6tt r-marginBottom-6gpygo r-width-rwqe4o r-backgroundColor-wt1z2b" style="justify-content: center; align-items: center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1C1C1C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div><h1 dir="auto" role="heading" class="css-text-146c3p1 r-color-kgv7a8 r-fontFamily-1anymhi r-fontSize-1x35g6 r-fontWeight-b88u0q r-lineHeight-17rnw9f r-marginBottom-f1odvy">loginWelcome</h1><div dir="auto" class="css-text-146c3p1 r-color-1cucpzw r-fontFamily-36nht7 r-fontSize-ubezar r-fontWeight-16dba41 r-lineHeight-135wba7">loginToAccount</div></div><div class="css-view-g5y9jx r-borderRadius-1867qdf r-boxShadow-h8hcqe r-marginBottom-1ifxtd0 r-paddingBlock-w7s2jr r-paddingInline-cxgwc0 r-width-13qz1uu r-backgroundColor-14lw9ot r-borderColor-4s656n r-borderWidth-rs99b7"><button role="button" class="css-view-g5y9jx r-transitionProperty-1i6wzkk r-userSelect-lrvibr r-cursor-1loqt21 r-touchAction-1otgn73 r-alignItems-1awozwy r-borderWidth-rs99b7 r-flexDirection-18u37iz r-gap-1cmwbt1 r-justifyContent-1777fci r-borderRadius-1xfd6ze r-height-eu3ka r-paddingInline-3pj75a r-backgroundColor-1niwhzg r-borderColor-m4suti r-marginBottom-1ifxtd0" type="button" style="transition-duration: 0s;"><div dir="auto" class="css-text-146c3p1 r-fontFamily-36nht7 r-fontSize-ubezar r-fontWeight-16dba41 r-lineHeight-135wba7 r-color-18j8vuo r-marginRight-1kb76zh">G</div><div dir="auto" class="css-text-146c3p1 r-fontFamily-36nht7 r-fontSize-rk4zbf r-fontWeight-ha6d2y r-lineHeight-135wba7 r-textAlign-q4m81j r-color-kgv7a8">Войти через Google</div></button><div class="css-view-g5y9jx r-alignItems-1awozwy r-flexDirection-18u37iz r-marginBottom-1ifxtd0"><div class="css-view-g5y9jx r-flex-13awgt0 r-height-109y4c4 r-backgroundColor-1pnm7ga"></div><div dir="auto" class="css-text-146c3p1 r-color-1cucpzw r-fontFamily-36nht7 r-fontSize-1enofrn r-fontWeight-16dba41 r-lineHeight-1cwl3u0 r-marginInline-jusfrs">ИЛИ</div><div class="css-view-g5y9jx r-flex-13awgt0 r-height-109y4c4 r-backgroundColor-1pnm7ga"></div></div><div class="css-view-g5y9jx r-marginBottom-6gpygo"><div class="css-view-g5y9jx r-alignItems-1awozwy r-flexDirection-18u37iz r-gap-ojf8lh r-marginBottom-15zivkp"><div dir="auto" class="css-text-146c3p1 r-fontFamily-36nht7 r-fontSize-ubezar r-fontWeight-16dba41 r-lineHeight-135wba7 r-marginBottom-15zivkp r-color-kgv7a8">Электронная почта</div></div><div class="css-view-g5y9jx r-marginBlock-l00any" style="width: 100%;"><div class="css-view-g5y9jx r-backgroundColor-1ins33t r-borderColor-1w15a45 r-borderWidth-rs99b7 r-flexDirection-18u37iz r-width-13qz1uu" style="height: 44px; padding-right: 12px; padding-left: 12px; border-radius: 8px; align-items: center; transform: scale(1);"><div class="css-view-g5y9jx r-alignItems-1awozwy r-justifyContent-1777fci r-marginRight-1kb76zh"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle; margin-right: 8px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></div><input placeholder="email@example.com" autocapitalize="none" autocomplete="on" autocorrect="on" dir="auto" rows="1" spellcheck="true" virtualkeyboardpolicy="auto" data-testid="login-email-input" class="css-textinput-11aywtz r-placeholderTextColor-6taxm2 r-margin-crgep1 r-paddingBlock-1mkv55d r-flex-13awgt0 r-height-1pi2tsx r-outlineStyle-1ny4l3l r-color-kgv7a8" type="email" value="smoke-test@example.com" style="--placeholderTextColor: #6B7280; font-size: 14px;"></div></div></div><div class="css-view-g5y9jx r-marginBottom-6gpygo"><div class="css-view-g5y9jx r-alignItems-1awozwy r-flexDirection-18u37iz r-justifyContent-1wtj0ep"><div dir="auto" class="css-text-146c3p1 r-color-kgv7a8 r-fontFamily-36nht7 r-fontSize-1enofrn r-fontWeight-16dba41 r-lineHeight-1cwl3u0 r-marginBottom-15zivkp">Пароль</div><button role="button" class="css-view-g5y9jx r-transitionProperty-1i6wzkk r-userSelect-lrvibr r-cursor-1loqt21 r-touchAction-1otgn73 r-alignItems-1awozwy r-borderWidth-rs99b7 r-flexDirection-18u37iz r-gap-1cmwbt1 r-justifyContent-1777fci r-borderRadius-kdyh1x r-height-mabqd8 r-paddingInline-3o4zer r-backgroundColor-1niwhzg r-borderColor-42olwf" data-testid="login-forgot-password-link" type="button" style="transition-duration: 0s;"><div dir="auto" class="css-text-146c3p1 r-fontFamily-36nht7 r-fontSize-n62j09 r-fontWeight-ha6d2y r-lineHeight-135wba7 r-textAlign-q4m81j r-color-kgv7a8">loginForgotPassword</div></button></div><div class="css-view-g5y9jx r-flex-13awgt0"><div class="css-view-g5y9jx r-marginBlock-l00any" style="width: 100%;"><div class="css-view-g5y9jx r-backgroundColor-1ins33t r-borderWidth-rs99b7 r-flexDirection-18u37iz r-width-13qz1uu r-borderColor-169eryd" style="height: 44px; padding-right: 12px; padding-left: 12px; border-radius: 8px; align-items: center; transform: scale(1.005);"><div class="css-view-g5y9jx r-alignItems-1awozwy r-justifyContent-1777fci r-marginRight-1kb76zh"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle; margin-right: 8px;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></div><input placeholder="......" autocapitalize="none" autocomplete="on" autocorrect="on" dir="auto" rows="1" spellcheck="true" virtualkeyboardpolicy="auto" data-testid="login-password-input" class="css-textinput-11aywtz r-placeholderTextColor-6taxm2 r-margin-crgep1 r-paddingBlock-1mkv55d r-flex-13awgt0 r-height-1pi2tsx r-outlineStyle-1ny4l3l r-color-kgv7a8" type="password" value="12345678" style="--placeholderTextColor: #6B7280; font-size: 14px; border-color: rgb(59, 130, 246); border-width: 1.5px;"><div class="css-view-g5y9jx r-alignItems-1awozwy r-justifyContent-1777fci r-marginLeft-1jkjb"><div role="presentation" tabindex="0" class="css-view-g5y9jx r-transitionProperty-1i6wzkk r-userSelect-lrvibr r-cursor-1loqt21 r-touchAction-1otgn73 r-alignItems-1awozwy r-justifyContent-1777fci r-backgroundColor-1niwhzg" style="width: 32px; height: 32px; border-radius: 16px; transition-duration: 0s;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6B7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></div></div></div></div></div></div><button role="button" class="css-view-g5y9jx r-transitionProperty-1i6wzkk r-userSelect-lrvibr r-cursor-1loqt21 r-touchAction-1otgn73 r-alignItems-1awozwy r-borderWidth-rs99b7 r-flexDirection-18u37iz r-gap-1cmwbt1 r-justifyContent-1777fci r-borderRadius-1867qdf r-height-h3s6tt r-paddingInline-cxgwc0 r-backgroundColor-wt1z2b r-borderColor-1jl7vqb r-marginTop-knv0ih" data-testid="login-submit-button" type="button" style="transition-duration: 0s;"><div dir="auto" class="css-text-146c3p1 r-fontFamily-36nht7 r-fontSize-1kitb6n r-fontWeight-ha6d2y r-lineHeight-135wba7 r-textAlign-q4m81j r-color-jwli3a">Войти</div></button></div><div class="css-view-g5y9jx r-alignItems-1awozwy"><div dir="auto" class="css-text-146c3p1 r-color-1cucpzw r-fontFamily-36nht7 r-fontSize-ubezar r-fontWeight-16dba41 r-lineHeight-135wba7">loginDontHaveAccount <button role="button" class="css-view-g5y9jx r-display-xoduu5 r-transitionProperty-1i6wzkk r-userSelect-lrvibr r-cursor-1loqt21 r-touchAction-1otgn73 r-alignItems-1awozwy r-borderWidth-rs99b7 r-flexDirection-18u37iz r-gap-1cmwbt1 r-justifyContent-1777fci r-borderRadius-kdyh1x r-height-mabqd8 r-paddingInline-3o4zer r-backgroundColor-1niwhzg r-borderColor-42olwf" data-testid="login-toggle-mode-button" type="button" style="transition-duration: 0s;"><span class="css-textHasAncestor-1jxf684 r-fontFamily-36nht7 r-fontSize-n62j09 r-fontWeight-ha6d2y r-lineHeight-135wba7 r-textAlign-q4m81j r-color-kgv7a8">loginFooterCreateOne</span></button></div></div></div></div></div><div class="css-view-g5y9jx r-alignItems-1awozwy r-borderTopWidth-13yce4e r-justifyContent-1777fci r-paddingBottom-iphfwy r-paddingInline-3pj75a r-paddingTop-13gvty3 r-width-13qz1uu r-backgroundColor-r54q32 r-borderTopColor-jmrtx5"><div class="css-view-g5y9jx r-alignItems-1awozwy r-columnGap-1ta3fxp r-flexDirection-18u37iz r-flexWrap-1w6e6rj r-justifyContent-1777fci r-rowGap-1rxb9bi"><a href="/" role="link" class="css-view-g5y9jx r-transitionProperty-1i6wzkk r-userSelect-lrvibr r-cursor-1loqt21 r-touchAction-1otgn73" style="transition-duration: 0s;"><div class="css-view-g5y9jx r-flexBasis-1mlwlqe r-overflow-1udh08x r-zIndex-417010 r-height-1tl9yi8 r-width-1glkqn6"><div class="css-view-g5y9jx r-backgroundColor-1niwhzg r-backgroundPosition-vvn4in r-backgroundRepeat-u6sd8q r-bottom-1p0dtai r-height-1pi2tsx r-left-1d2f490 r-position-u8s1d r-right-zchlnj r-top-ipm5af r-width-13qz1uu r-zIndex-1wyyakw r-backgroundSize-ehq7j7" style="background-image: url(&quot;/assets/?unstable_path=.%2Fsrc%2Fassets/logo.png&quot;);"></div><img alt="" draggable="false" class="css-accessibilityImage-9pa8cd" src="/assets/?unstable_path=.%2Fsrc%2Fassets/logo.png"></div></a><div dir="auto" class="css-text-146c3p1 r-color-1cucpzw r-fontFamily-36nht7 r-fontSize-1enofrn r-fontWeight-16dba41 r-lineHeight-1cwl3u0 r-marginInline-wnp491">•</div><div dir="auto" class="css-text-146c3p1 r-color-1cucpzw r-fontFamily-36nht7 r-fontSize-1enofrn r-fontWeight-16dba41 r-lineHeight-1cwl3u0">Made by Noren Vox ©</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+  <script src="/node_modules/expo-router/entry.bundle?platform=web&amp;dev=true&amp;hot=false&amp;lazy=true&amp;transform.engine=hermes&amp;transform.routerRoot=app&amp;unstable_transformProfile=hermes-stable" defer=""></script>
+
+<div id="error-toast" style="position: absolute;"></div><div style="position: fixed; left: 0px; top: 0px; width: 0px; height: 0px; z-index: -1; overflow: hidden; visibility: hidden; transition-duration: 0.05s; transition-property: padding; transition-delay: 0s; padding-top: env(safe-area-inset-top); padding-bottom: env(safe-area-inset-bottom); padding-left: env(safe-area-inset-left); padding-right: env(safe-area-inset-right);"></div><div></div></body></html>

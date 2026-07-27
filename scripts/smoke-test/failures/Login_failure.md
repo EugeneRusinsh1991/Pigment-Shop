@@ -1,13 +1,13 @@
 # Smoke Test Failure - Login
 
 * **Route**: `/login`
-* **Timestamp**: 2026-07-24T22:21:35.799Z
+* **Timestamp**: 2026-07-27T21:46:19.171Z
 
 ## ❌ Detected Errors
 
-- Page failed to load: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8081/login
+- Failed to click "Toggle Register Mode Link": locator.waitFor: Timeout 15000ms exceeded.
 Call log:
-[2m  - navigating to "http://localhost:8081/login", waiting until "load"[22m
+[2m  - waiting for locator('text=Создать аккаунт').first() to be visible[22m
 
 
 ## 🖼️ Screenshot

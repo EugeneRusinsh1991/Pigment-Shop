@@ -221,9 +221,19 @@
         {
             "label": "Tools: Run All Automations",
             "dependsOn": [
-                "Run Browser Automation Smoke (TSX)",
-                "Tools: Automation Admin Explorer"
+                "Tools: Automation Admin Explorer",
+                "Tools: Automation Guest Explorer"
             ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Tools: Automation Guest Explorer",
+            "type": "shell",
+            "command": "npx tsx .tools/browser-automation/run-smoke-guest.ts",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            },
             "problemMatcher": []
         }
     ]

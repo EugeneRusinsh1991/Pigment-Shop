@@ -6215,5 +6215,35 @@
         }
       ]
     }
+  },
+  "src_07-28_00-48_smoke-report.json_105files": {
+    "timestamp": "2026-07-27T21:48:12.457Z",
+    "diff": {
+      "added": 1,
+      "removed": 0,
+      "modified": 24,
+      "topFolders": [
+        {
+          "folder": "scripts/smoke-test/failures",
+          "count": 15
+        },
+        {
+          "folder": ".docs/audits/dynamic-audits/docs",
+          "count": 3
+        },
+        {
+          "folder": ".docs/audits/dynamic-audits/json",
+          "count": 3
+        },
+        {
+          "folder": ".tools/browser-automation",
+          "count": 1
+        },
+        {
+          "folder": ".tools/browser-automation/reports",
+          "count": 1
+        }
+      ]
+    }
   }
 }

@@ -1,13 +1,13 @@
 # Smoke Test Failure - Catalog
 
 * **Route**: `/catalog`
-* **Timestamp**: 2026-07-24T22:21:30.478Z
+* **Timestamp**: 2026-07-27T21:45:52.386Z
 
 ## ❌ Detected Errors
 
-- Page failed to load: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8081/catalog
+- Failed to click "Category 1 RU Card": locator.waitFor: Timeout 15000ms exceeded.
 Call log:
-[2m  - navigating to "http://localhost:8081/catalog", waiting until "load"[22m
+[2m  - waiting for locator('text=Category 1 RU').first() to be visible[22m
 
 
 ## 🖼️ Screenshot

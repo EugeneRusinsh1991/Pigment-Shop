@@ -2,7 +2,7 @@
 type: dynamic-audit
 auditor: raw-i18n
 scope: public
-date: 2026-07-27T21:43:58.657Z
+date: 2026-07-27T21:45:25.207Z
 ---
 
 ### Problem: Hardcoded text without i18n key
@@ -614,6 +614,7 @@ date: 2026-07-27T21:43:58.657Z
   - Found hardcoded text without i18n key: "BARBARA" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-b88u0q.r-letterSpacing-ud0q2t.r-lineHeight-1f529hi.r-textTransform-tsynxw.r-color-12zy4o2.r-marginBottom-15zivkp`
   - Found hardcoded text without i18n key: "Added to cart" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-textAlign-q4m81j`
   - Found hardcoded text without i18n key: "Added to favorites" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-textAlign-q4m81j`
+  - Found hardcoded text without i18n key: "Removed from favorites" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-textAlign-q4m81j`
 - URL: `http://localhost:8081/catalog/cat-root-1-sub-1-sub-0`
   - Found hardcoded text without i18n key: "Главная" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-1dk24ck`
   - Found hardcoded text without i18n key: "Каталог" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-kgv7a8`
@@ -707,6 +708,7 @@ date: 2026-07-27T21:43:58.657Z
   - Found hardcoded text without i18n key: "CHEYENNE" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-b88u0q.r-letterSpacing-ud0q2t.r-lineHeight-1f529hi.r-textTransform-tsynxw.r-color-12zy4o2.r-marginBottom-15zivkp`
   - Found hardcoded text without i18n key: "Added to cart" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-textAlign-q4m81j`
   - Found hardcoded text without i18n key: "Added to favorites" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-textAlign-q4m81j`
+  - Found hardcoded text without i18n key: "Removed from favorites" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-textAlign-q4m81j`
 - URL: `http://localhost:8081/catalog/cat-root-1-sub-0-sub-1`
   - Found hardcoded text without i18n key: "Главная" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-1dk24ck`
   - Found hardcoded text without i18n key: "Каталог" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-kgv7a8`
@@ -800,6 +802,7 @@ date: 2026-07-27T21:43:58.657Z
   - Found hardcoded text without i18n key: "CHEYENNE" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-b88u0q.r-letterSpacing-ud0q2t.r-lineHeight-1f529hi.r-textTransform-tsynxw.r-color-12zy4o2.r-marginBottom-15zivkp`
   - Found hardcoded text without i18n key: "Added to cart" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-textAlign-q4m81j`
   - Found hardcoded text without i18n key: "Removed from favorites" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-textAlign-q4m81j`
+  - Found hardcoded text without i18n key: "Added to favorites" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-textAlign-q4m81j`
 - URL: `http://localhost:8081/catalog/cat-root-0-sub-1-sub-1`
   - Found hardcoded text without i18n key: "Главная" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-1dk24ck`
   - Found hardcoded text without i18n key: "Каталог" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-kgv7a8`

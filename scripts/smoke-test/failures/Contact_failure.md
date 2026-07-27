@@ -1,13 +1,17 @@
 # Smoke Test Failure - Contact
 
 * **Route**: `/contact`
-* **Timestamp**: 2026-07-24T22:21:33.153Z
+* **Timestamp**: 2026-07-27T21:46:30.603Z
 
 ## ❌ Detected Errors
 
-- Page failed to load: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8081/contact
+- Failed to fill "Message Text Area": locator.waitFor: Timeout 15000ms exceeded.
 Call log:
-[2m  - navigating to "http://localhost:8081/contact", waiting until "load"[22m
+[2m  - waiting for locator('textarea[placeholder="Напишите ваш вопрос здесь..."]').first() to be visible[22m
+
+- Failed to click "Submit Contact Form Button": locator.waitFor: Timeout 15000ms exceeded.
+Call log:
+[2m  - waiting for locator('text=Задать вопрос').first() to be visible[22m
 
 
 ## 🖼️ Screenshot

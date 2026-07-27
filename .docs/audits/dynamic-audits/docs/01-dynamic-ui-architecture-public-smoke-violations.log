@@ -2,7 +2,7 @@
 type: dynamic-audit
 auditor: ui-architecture
 scope: public
-date: 2026-07-27T21:43:58.624Z
+date: 2026-07-27T21:46:49.693Z
 ---
 
 ### Problem: Design System: Hardcoded spacing/border-radius lacking spatial tokens.
@@ -294,6 +294,7 @@ date: 2026-07-27T21:43:58.624Z
   - Selector: `textarea.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-paddingBlock-1mmae3n.r-borderRadius-1xfd6ze.r-borderWidth-rs99b7.r-marginBottom-5oul0u.r-paddingInline-3o4zer.r-backgroundColor-r54q32.r-borderColor-1wr2p1e.r-color-cqee49.r-height-1ph75f1.r-paddingTop-tskmnb.r-verticalAlign-ad9o1y`
   - Selector: `input.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-paddingBlock-1mkv55d.r-color-jwli3a`
   - Selector: `a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73`
+  - Selector: `div.css-view-g5y9jx.r-borderRadius-1fuqb1j.r-overflow-1udh08x.r-width-13qz1uu.r-height-15zx4ds`
 - URL: `http://localhost:8081/catalog`
   - Selector: `div.css-view-g5y9jx.r-flex-13awgt0.r-bottom-1p0dtai.r-left-1d2f490.r-position-u8s1d.r-right-zchlnj.r-top-ipm5af`
   - Selector: `div.css-view-g5y9jx.r-flex-13awgt0`
@@ -1919,6 +1920,7 @@ date: 2026-07-27T21:43:58.624Z
   - i18n: Potential hardcoded text string found: "Product 2-2-1-1 RU" without data-i18n tracking. | Selector: `h1.css-text-146c3p1.r-color-kgv7a8.r-fontFamily-1anymhi.r-fontSize-1x35g6.r-fontWeight-b88u0q.r-lineHeight-17rnw9f.r-marginBottom-15zivkp`
   - i18n: Potential hardcoded text string found: "Added to cart" without data-i18n tracking. | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-textAlign-q4m81j`
   - i18n: Potential hardcoded text string found: "Added to favorites" without data-i18n tracking. | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-textAlign-q4m81j`
+  - i18n: Potential hardcoded text string found: "Removed from favorites" without data-i18n tracking. | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-textAlign-q4m81j`
 - URL: `http://localhost:8081/catalog/cat-root-1-sub-1-sub-0`
   - i18n: Potential hardcoded text string found: "Product 2-1-1-1 RU" without data-i18n tracking. | Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16`
   - i18n: Potential hardcoded text string found: "Product 1-1-2-1 RU11111" without data-i18n tracking. | Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16`
@@ -1972,6 +1974,7 @@ date: 2026-07-27T21:43:58.624Z
   - i18n: Potential hardcoded text string found: "Product 2-1-2-1 RU" without data-i18n tracking. | Selector: `h1.css-text-146c3p1.r-color-kgv7a8.r-fontFamily-1anymhi.r-fontSize-1x35g6.r-fontWeight-b88u0q.r-lineHeight-17rnw9f.r-marginBottom-15zivkp`
   - i18n: Potential hardcoded text string found: "Added to cart" without data-i18n tracking. | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-textAlign-q4m81j`
   - i18n: Potential hardcoded text string found: "Added to favorites" without data-i18n tracking. | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-textAlign-q4m81j`
+  - i18n: Potential hardcoded text string found: "Removed from favorites" without data-i18n tracking. | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-textAlign-q4m81j`
 - URL: `http://localhost:8081/catalog/cat-root-1-sub-0-sub-1`
   - i18n: Potential hardcoded text string found: "Product 2-1-1-1 RU" without data-i18n tracking. | Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16`
   - i18n: Potential hardcoded text string found: "Product 1-1-2-1 RU11111" without data-i18n tracking. | Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16`
@@ -2025,6 +2028,7 @@ date: 2026-07-27T21:43:58.624Z
   - i18n: Potential hardcoded text string found: "Product 1-2-2-1 RU" without data-i18n tracking. | Selector: `h1.css-text-146c3p1.r-color-kgv7a8.r-fontFamily-1anymhi.r-fontSize-1x35g6.r-fontWeight-b88u0q.r-lineHeight-17rnw9f.r-marginBottom-15zivkp`
   - i18n: Potential hardcoded text string found: "Added to cart" without data-i18n tracking. | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-textAlign-q4m81j`
   - i18n: Potential hardcoded text string found: "Removed from favorites" without data-i18n tracking. | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-textAlign-q4m81j`
+  - i18n: Potential hardcoded text string found: "Added to favorites" without data-i18n tracking. | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-textAlign-q4m81j`
 - URL: `http://localhost:8081/catalog/cat-root-0-sub-1-sub-1`
   - i18n: Potential hardcoded text string found: "Product 2-1-1-1 RU" without data-i18n tracking. | Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16`
   - i18n: Potential hardcoded text string found: "Product 1-1-2-1 RU11111" without data-i18n tracking. | Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16`

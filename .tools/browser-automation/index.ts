@@ -38,7 +38,7 @@ export async function runUIExplorer(
   let browser: Browser | null = null;
   
   if (!activePage) {
-    browser = await chromium.launch({ headless: true }); 
+    browser = await chromium.launch({ headless: false }); 
     const context = await browser.newContext({
       viewport: { width: 1280, height: 800 }
     });

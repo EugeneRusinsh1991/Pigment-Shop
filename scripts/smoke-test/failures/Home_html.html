@@ -1,1 +1,339 @@
-<html><head></head><body></body></html>
+<!DOCTYPE html><html lang="en"><head><style id="react-native-stylesheet"></style>
+    <meta charset="utf-8">
+    <meta httpequiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>pigment-shop</title>
+    <!-- The `react-native-web` recommended style reset: https://necolas.github.io/react-native-web/docs/setup/#root-element -->
+    <style id="expo-reset">
+      /* These styles make the body full-height */
+      html,
+      body {
+        height: 100%;
+      }
+      /* These styles disable body scrolling if you are using <ScrollView> */
+      body {
+        overflow: hidden;
+      }
+      /* These styles make the root element full-height */
+      #root {
+        display: flex;
+        height: 100%;
+        flex: 1;
+      }
+    </style>
+  <style data-expo-css-hmr="node_modules__expo_log_box_src_toast_ErrorToast_module_css" data-expo-loader="css">.ACiIqa_container {
+  bottom: calc(6px + env(safe-area-inset-bottom, 0px));
+  max-width: 320px;
+  display: flex;
+  position: fixed;
+  left: 10px;
+  right: 10px;
+}
+
+.ACiIqa_toast {
+  border: 1px solid var(--expo-log-color-danger);
+  cursor: pointer;
+  height: 48px;
+  font-family: var(--expo-log-font-family);
+  background-color: #632e2c;
+  border-radius: 6px;
+  flex-direction: row;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+  padding: 0 10px;
+  transition: background-color .2s;
+  display: flex;
+  overflow: hidden;
+}
+
+@media (hover: hover) {
+  .ACiIqa_toast:hover {
+    background-color: #924340;
+  }
+}
+
+.ACiIqa_message {
+  -webkit-user-select: none;
+  user-select: none;
+  color: var(--expo-log-color-label);
+  font-family: var(--expo-log-font-family);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  flex: 1;
+  padding-left: 8px;
+  font-size: 14px;
+  line-height: 22px;
+  display: block;
+  overflow: hidden;
+}
+
+.ACiIqa_count {
+  background: var(--expo-log-color-danger);
+  border-radius: 6px;
+  justify-content: center;
+  align-items: center;
+  min-width: 30px;
+  height: 30px;
+  display: flex;
+}
+
+.ACiIqa_countText {
+  color: var(--expo-log-color-label);
+  font-family: var(--expo-log-font-family);
+  text-align: center;
+  text-shadow: 0 0 3px #333c;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.ACiIqa_dismissButton {
+  cursor: pointer;
+  background: none;
+  border: none;
+  margin: -12px -10px -12px -5px;
+  padding: 12px 10px;
+}
+
+.ACiIqa_dismissContent {
+  background-color: #ffffff1a;
+  border-radius: 25px;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  transition: opacity .2s;
+  display: flex;
+}
+
+@media (hover: hover) {
+  .ACiIqa_dismissButton:hover .ACiIqa_dismissContent {
+    opacity: .8;
+  }
+}
+
+.ACiIqa_dismissButton:active .ACiIqa_dismissContent {
+  opacity: .5;
+}
+
+.ACiIqa_dismissIcon {
+  color: #fff;
+  width: 12px;
+  height: 12px;
+}
+</style><style data-expo-css-hmr="node_modules__expo_log_box_src_overlay_Overlay_module_css" data-expo-loader="css">:host {
+  --expo-log-color-border: #313538;
+  --expo-log-color-label: #edeef0;
+  --expo-log-color-background: #111113;
+  --expo-log-secondary-label: #ebebf599;
+  --expo-log-secondary-system-background: #1c1c1f;
+  --expo-log-secondary-system-grouped-background: #18191b;
+  --expo-log-secondary-system-background-hover: #272a2d;
+  --expo-log-color-danger: #ec5e5e;
+  --expo-log-syntax-red: #ec5e5e;
+  --expo-log-syntax-orange: #ffa163;
+  --expo-log-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+  --expo-log-font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+    monospace;
+}
+
+@supports (color: color(display-p3 0 0 0)) {
+  :host {
+    --expo-log-secondary-system-grouped-background: color(display-p3 .095 .098 .105);
+    --expo-log-secondary-system-background-hover: color(display-p3 .156 .163 .176);
+    --expo-log-color-danger: color(display-p3 .861 .403 .387);
+    --expo-log-syntax-red: color(display-p3 .861 .403 .387);
+    --expo-log-syntax-orange: color(display-p3 1 .63 .38);
+  }
+}
+
+.rJVGbG_overlayIos {
+  top: 0;
+}
+
+.rJVGbG_overlayAndroid {
+  top: var(--android-safe-area-inset-top, env(safe-area-inset-top));
+}
+
+.rJVGbG_overlayWeb {
+  top: calc(10vh + env(safe-area-inset-top, 2vh));
+}
+
+.rJVGbG_overlay {
+  z-index: 9900;
+  -webkit-font-smoothing: antialiased;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.rJVGbG_containerTopRadius {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.rJVGbG_container {
+  --expo-log-max-width: 960px;
+  max-width: var(--expo-log-max-width);
+  background-color: var(--expo-log-color-background);
+  opacity: 0;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  margin: 0 auto;
+  animation: .2s ease-out forwards rJVGbG_fadeInUp;
+  display: flex;
+  position: relative;
+  overflow-x: hidden;
+  transform: translateY(20px);
+}
+
+.rJVGbG_content {
+  opacity: 0;
+  background-color: var(--expo-log-color-background);
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  animation: .2s ease-out forwards rJVGbG_fadeInUp;
+  display: flex;
+}
+
+.rJVGbG_scroll {
+  background-color: var(--expo-log-color-background);
+  padding-top: 16px;
+  padding-bottom: calc(var(--expo-log-footer-height) + 1rem);
+  flex-direction: column;
+  flex: 1;
+  gap: .5rem;
+  display: flex;
+  position: relative;
+  overflow: hidden auto;
+}
+
+.rJVGbG_bg {
+  backdrop-filter: blur(10px);
+  pointer-events: all;
+  z-index: -1;
+  opacity: 0;
+  background-color: #000c;
+  animation: .15s ease-out forwards rJVGbG_data-expo-log-backdrop-fade-in;
+  position: fixed;
+  inset: 0;
+}
+
+.rJVGbG_bgExit {
+  opacity: 1;
+  animation: .15s ease-in forwards rJVGbG_fadeOut;
+}
+
+.rJVGbG_containerExit {
+  opacity: 1;
+  animation: .15s ease-in forwards rJVGbG_fadeOutUp;
+  transform: translateY(0);
+}
+
+@keyframes rJVGbG_data-expo-log-backdrop-fade-in {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rJVGbG_fadeOut {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes rJVGbG_fadeOutUp {
+  to {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+@keyframes rJVGbG_fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rJVGbG_footer {
+  min-height: var(--expo-log-footer-height);
+  padding-bottom: var(--android-safe-area-inset-bottom, env(safe-area-inset-bottom));
+  background-color: var(--expo-log-secondary-system-background);
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+}
+
+.rJVGbG_headerBlur {
+  background: linear-gradient(to top, transparent, var(--expo-log-color-background));
+  -webkit-mask-image: linear-gradient(to bottom, var(--expo-log-color-background) 50%, transparent);
+  mask-image: linear-gradient(to bottom, var(--expo-log-color-background) 50%, transparent);
+  backdrop-filter: blur(4px);
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  height: 48px;
+  min-height: 48px;
+  position: absolute;
+  top: 47px;
+  left: 0;
+  right: 0;
+}
+
+@media screen and (width >= 576px) {
+  .rJVGbG_overlay {
+    top: 10vh;
+    bottom: 10vh;
+  }
+
+  .rJVGbG_container {
+    border: 1px solid var(--expo-log-color-border);
+    border-radius: 10px;
+  }
+}
+
+@media (width >= 576px) {
+  .rJVGbG_container {
+    --expo-log-max-width: 540px;
+  }
+}
+
+@media (width >= 768px) {
+  .rJVGbG_container {
+    --expo-log-max-width: 720px;
+  }
+}
+
+@media (width >= 992px) {
+  .rJVGbG_container {
+    --expo-log-max-width: 960px;
+  }
+}
+</style></head>
+
+  <body>
+    <!-- Use static rendering with Expo Router to support running without JavaScript. -->
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <!-- The root element for your Expo app. -->
+    <div id="root"><div class="css-view-g5y9jx r-flex-13awgt0"><div tabindex="0" class="css-view-g5y9jx r-touchAction-1otgn73 r-alignItems-1oszu61 r-cursor-7q8q6z r-flex-13awgt0 r-flexDirection-eqz5dr r-minHeight-sa2ff0 r-overflow-1udh08x r-overflowX-11yh6sk r-width-13qz1uu r-backgroundColor-r54q32"><div class="css-view-g5y9jx r-alignItems-1awozwy r-borderBottomWidth-ndvcnb r-flexDirection-18u37iz r-height-1mwlp6a r-width-13qz1uu r-zIndex-b9bkkf r-backgroundColor-r54q32 r-borderBottomColor-lberyi" id="app-header" style="justify-content: center;"><div class="css-view-g5y9jx r-alignItems-1awozwy r-flexDirection-18u37iz r-justifyContent-1wtj0ep r-minWidth-bcqeeo r-paddingInline-is05cd r-width-13qz1uu" style="max-width: 1280px;"><div class="css-view-g5y9jx r-alignItems-1awozwy r-flexDirection-18u37iz r-flexShrink-1wbh5a2 r-gap-f4gmv6 r-minWidth-bcqeeo"><a href="/" role="link" class="css-view-g5y9jx r-transitionProperty-1i6wzkk r-userSelect-lrvibr r-cursor-1loqt21 r-touchAction-1otgn73" style="transition-duration: 0s;"><div class="css-view-g5y9jx r-alignItems-1awozwy r-flexDirection-18u37iz r-gap-nnrm1x" style="margin-left: -24px;"><div class="css-view-g5y9jx r-flexBasis-1mlwlqe r-overflow-1udh08x r-zIndex-417010 r-flexShrink-1wbh5a2 r-height-mabqd8 r-maxWidth-zrzavs r-minWidth-bcqeeo r-width-1n20pny"><div class="css-view-g5y9jx r-backgroundColor-1niwhzg r-backgroundPosition-vvn4in r-backgroundRepeat-u6sd8q r-bottom-1p0dtai r-height-1pi2tsx r-left-1d2f490 r-position-u8s1d r-right-zchlnj r-top-ipm5af r-width-13qz1uu r-zIndex-1wyyakw r-backgroundSize-ehq7j7" style="background-image: url(&quot;/assets/?unstable_path=.%2Fsrc%2Fassets/logo.png&quot;);"></div><img alt="" draggable="false" class="css-accessibilityImage-9pa8cd" src="/assets/?unstable_path=.%2Fsrc%2Fassets/logo.png"></div></div></a></div><div class="css-view-g5y9jx r-alignItems-1awozwy r-flexDirection-18u37iz r-flexShrink-1q142lx r-gap-1fdih9r"><div role="presentation" tabindex="0" class="css-view-g5y9jx r-transitionProperty-1i6wzkk r-userSelect-lrvibr r-cursor-1loqt21 r-touchAction-1otgn73 r-alignItems-1awozwy r-justifyContent-1777fci r-backgroundColor-1niwhzg" style="width: 40px; height: 40px; border-radius: 20px; transition-duration: 0s;"><div dir="auto" class="css-text-146c3p1 r-fontFamily-36nht7 r-fontSize-ubezar r-fontWeight-16dba41 r-lineHeight-135wba7 r-color-kgv7a8">☰</div></div><a href="/" role="link" class="css-view-g5y9jx r-transitionProperty-1i6wzkk r-userSelect-lrvibr r-cursor-1loqt21 r-touchAction-1otgn73 r-alignItems-1awozwy r-borderWidth-rs99b7 r-flexDirection-18u37iz r-gap-1cmwbt1 r-justifyContent-1777fci r-borderRadius-kdyh1x r-height-mabqd8 r-paddingInline-3o4zer r-backgroundColor-1niwhzg r-borderColor-42olwf" style="transition-duration: 0s;"><div dir="auto" class="css-text-146c3p1 r-fontFamily-36nht7 r-fontSize-n62j09 r-fontWeight-ha6d2y r-lineHeight-135wba7 r-textAlign-q4m81j r-color-1dk24ck">Главная</div></a><a href="/catalog" role="link" class="css-view-g5y9jx r-transitionProperty-1i6wzkk r-userSelect-lrvibr r-cursor-1loqt21 r-touchAction-1otgn73 r-alignItems-1awozwy r-borderWidth-rs99b7 r-flexDirection-18u37iz r-gap-1cmwbt1 r-justifyContent-1777fci r-borderRadius-kdyh1x r-height-mabqd8 r-paddingInline-3o4zer r-backgroundColor-1niwhzg r-borderColor-42olwf" style="transition-duration: 0.25s;"><div dir="auto" class="css-text-146c3p1 r-fontFamily-36nht7 r-fontSize-n62j09 r-fontWeight-ha6d2y r-lineHeight-135wba7 r-textAlign-q4m81j r-color-kgv7a8">Каталог</div></a><a href="/products" role="link" class="css-view-g5y9jx r-transitionProperty-1i6wzkk r-userSelect-lrvibr r-cursor-1loqt21 r-touchAction-1otgn73 r-alignItems-1awozwy r-borderWidth-rs99b7 r-flexDirection-18u37iz r-gap-1cmwbt1 r-justifyContent-1777fci r-borderRadius-kdyh1x r-height-mabqd8 r-paddingInline-3o4zer r-backgroundColor-1niwhzg r-borderColor-42olwf" style="transition-duration: 0s;"><div dir="auto" class="css-text-146c3p1 r-fontFamily-36nht7 r-fontSize-n62j09 r-fontWeight-ha6d2y r-lineHeight-135wba7 r-textAlign-q4m81j r-color-kgv7a8">Все товары</div></a><a href="/contact" role="link" class="css-view-g5y9jx r-transitionProperty-1i6wzkk r-userSelect-lrvibr r-cursor-1loqt21 r-touchAction-1otgn73 r-alignItems-1awozwy r-borderWidth-rs99b7 r-flexDirection-18u37iz r-gap-1cmwbt1 r-justifyContent-1777fci r-borderRadius-kdyh1x r-height-mabqd8 r-paddingInline-3o4zer r-backgroundColor-1niwhzg r-borderColor-42olwf" style="transition-duration: 0s;"><div dir="auto" class="css-text-146c3p1 r-fontFamily-36nht7 r-fontSize-n62j09 r-fontWeight-ha6d2y r-lineHeight-135wba7 r-textAlign-q4m81j r-color-kgv7a8">Контакты</div></a></div><div class="css-view-g5y9jx r-alignItems-1awozwy r-flexDirection-18u37iz r-flexShrink-1wbh5a2 r-gap-f4gmv6 r-minWidth-bcqeeo"><div aria-label="Toggle Theme" role="presentation" tabindex="0" class="css-view-g5y9jx r-transitionProperty-1i6wzkk r-userSelect-lrvibr r-cursor-1loqt21 r-touchAction-1otgn73 r-alignItems-1awozwy r-justifyContent-1777fci r-backgroundColor-1niwhzg" style="width: 44px; height: 44px; border-radius: 22px; transition-duration: 0s;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></div><div class="css-view-g5y9jx r-position-bnwqim"><div role="presentation" tabindex="0" class="css-view-g5y9jx r-transitionProperty-1i6wzkk r-userSelect-lrvibr r-cursor-1loqt21 r-touchAction-1otgn73 r-alignItems-1awozwy r-justifyContent-1777fci r-backgroundColor-1niwhzg" style="width: 44px; height: 44px; border-radius: 22px; transition-duration: 0s;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle;"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div></div><div class="css-view-g5y9jx r-position-bnwqim"><div role="presentation" tabindex="0" class="css-view-g5y9jx r-transitionProperty-1i6wzkk r-userSelect-lrvibr r-cursor-1loqt21 r-touchAction-1otgn73 r-alignItems-1awozwy r-justifyContent-1777fci r-backgroundColor-1niwhzg" style="width: 44px; height: 44px; border-radius: 22px; transition-duration: 0s;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle;"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div></div><a href="/cart" role="link" class="css-view-g5y9jx r-transitionProperty-1i6wzkk r-userSelect-lrvibr r-cursor-1loqt21 r-touchAction-1otgn73 r-alignItems-1awozwy r-justifyContent-1777fci r-backgroundColor-1niwhzg" style="width: 44px; height: 44px; border-radius: 22px; transition-duration: 0s;"><div class="css-view-g5y9jx r-alignItems-1awozwy r-justifyContent-1777fci r-position-bnwqim"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle;"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg></div></a><div class="css-view-g5y9jx r-position-bnwqim"><div role="presentation" tabindex="0" class="css-view-g5y9jx r-transitionProperty-1i6wzkk r-userSelect-lrvibr r-cursor-1loqt21 r-touchAction-1otgn73 r-alignItems-1awozwy r-justifyContent-1777fci r-backgroundColor-1niwhzg" style="width: 44px; height: 44px; border-radius: 22px; transition-duration: 0s;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div></div></div></div></div><div class="css-view-g5y9jx r-alignSelf-1pz39u2 r-flex-13awgt0 r-minHeight-ifefl9 r-overflow-1udh08x r-width-13qz1uu"><div class="css-view-g5y9jx r-alignItems-1oszu61 r-flex-13awgt0 r-flexDirection-eqz5dr r-justifyContent-1h0z5md r-minHeight-2llsf r-width-13qz1uu"><div class="css-view-g5y9jx r-alignSelf-1pz39u2 r-flexGrow-16y2uox r-flexShrink-1wbh5a2 r-minHeight-ifefl9 r-overflow-1udh08x r-width-13qz1uu"><div style="position: absolute; inset: 0px; pointer-events: none; visibility: hidden;"></div><div class="css-view-g5y9jx r-flex-13awgt0"><div class="css-view-g5y9jx r-flex-13awgt0 r-bottom-1p0dtai r-left-1d2f490 r-position-u8s1d r-right-zchlnj r-top-ipm5af" aria-hidden="true" style="background-color: rgb(242, 242, 242); display: none;"><div class="css-view-g5y9jx r-flex-13awgt0"><div class="css-view-g5y9jx r-flex-13awgt0" style="background-color: rgba(0, 0, 0, 0);"><div class="css-view-g5y9jx r-flex-13awgt0 r-overflow-1udh08x r-width-13qz1uu" style="opacity: 1; transform: translateY(0px);"><div class="css-view-g5y9jx r-flex-13awgt0 r-minHeight-2llsf r-backgroundColor-r54q32"><div class="css-view-g5y9jx r-WebkitOverflowScrolling-150rngu r-flexDirection-eqz5dr r-flexGrow-16y2uox r-flexShrink-1wbh5a2 r-overflowX-11yh6sk r-overflowY-1rnoaur r-transform-agouwx r-flex-13awgt0 r-minHeight-2llsf r-scrollbarWidth-2eszeu"><div class="css-view-g5y9jx r-paddingInline-1e084wi r-alignSelf-1kihuf0 r-flexGrow-16y2uox r-paddingBottom-1mdbw0j" style="width: 1280px;"><div class="css-view-g5y9jx r-alignItems-1awozwy r-gap-1ssbvtb r-paddingBottom-kzbkwu r-paddingInline-is05cd r-paddingTop-1h8ys4a"><div class="css-view-g5y9jx r-borderRadius-1fuqb1j r-overflow-1udh08x r-width-13qz1uu r-height-15zx4ds"><div class="css-view-g5y9jx r-height-1pi2tsx r-position-bnwqim r-width-13qz1uu"><div class="css-view-g5y9jx r-bottom-1p0dtai r-height-1pi2tsx r-left-1d2f490 r-position-u8s1d r-right-zchlnj r-top-ipm5af r-width-13qz1uu r-pointerEvents-633pao" style="opacity: 0;"><video src="/media/videos/0712(1).mp4" loop="" playsinline="" preload="auto" style="width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0px;"></video></div><div class="css-view-g5y9jx r-bottom-1p0dtai r-height-1pi2tsx r-left-1d2f490 r-position-u8s1d r-right-zchlnj r-top-ipm5af r-width-13qz1uu r-pointerEvents-105ug2t" style="opacity: 1;"><video src="/media/videos/kling_20260710_Image_to_Video__5122_0.mp4" loop="" playsinline="" preload="auto" autoplay="" style="width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0px;"></video></div><div role="presentation" tabindex="0" class="css-view-g5y9jx r-transitionProperty-1i6wzkk r-userSelect-lrvibr r-cursor-1loqt21 r-touchAction-1otgn73 r-alignItems-1awozwy r-backgroundColor-9vfp0p r-borderRadius-y47klf r-height-1ugchlj r-justifyContent-1777fci r-marginTop-m93i5p r-position-u8s1d r-top-1v2oles r-width-usgzl9 r-zIndex-1s3egr7 r-left-161ttwi" style="transition-duration: 0s;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle;"><polyline points="15 18 9 12 15 6"></polyline></svg></div><div role="presentation" tabindex="0" class="css-view-g5y9jx r-transitionProperty-1i6wzkk r-userSelect-lrvibr r-cursor-1loqt21 r-touchAction-1otgn73 r-alignItems-1awozwy r-backgroundColor-9vfp0p r-borderRadius-y47klf r-height-1ugchlj r-justifyContent-1777fci r-marginTop-m93i5p r-position-u8s1d r-top-1v2oles r-width-usgzl9 r-zIndex-1s3egr7 r-right-1pgswnq" style="transition-duration: 0s;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle;"><polyline points="9 18 15 12 9 6"></polyline></svg></div><div class="css-view-g5y9jx r-alignItems-1awozwy r-bottom-1moh23t r-flexDirection-18u37iz r-gap-1cmwbt1 r-justifyContent-1777fci r-left-1d2f490 r-position-u8s1d r-right-zchlnj r-zIndex-1s3egr7"><div role="presentation" tabindex="0" class="css-view-g5y9jx r-transitionProperty-1i6wzkk r-userSelect-lrvibr r-cursor-1loqt21 r-touchAction-1otgn73 r-backgroundColor-14lw9ot r-borderRadius-kdyh1x r-height-3da1kt r-transition-14jft3i r-opacity-icoktb r-width-1jg9483" style="transition-duration: 0s;"></div><div role="presentation" tabindex="0" class="css-view-g5y9jx r-transitionProperty-1i6wzkk r-userSelect-lrvibr r-cursor-1loqt21 r-touchAction-1otgn73 r-borderRadius-kdyh1x r-height-3da1kt r-transition-14jft3i r-backgroundColor-xl3lkw r-opacity-6dt33c r-overflow-1udh08x r-width-rwqe4o" style="transition-duration: 0s;"><div class="css-view-g5y9jx r-backgroundColor-14lw9ot r-height-1pi2tsx" style="width: 52.9821%;"></div></div></div></div></div><a href="/catalog" role="link" class="css-view-g5y9jx r-transitionProperty-1i6wzkk r-userSelect-lrvibr r-cursor-1loqt21 r-touchAction-1otgn73 r-alignItems-1awozwy r-borderWidth-rs99b7 r-flexDirection-18u37iz r-gap-1cmwbt1 r-justifyContent-1777fci r-borderRadius-1867qdf r-height-h3s6tt r-paddingInline-cxgwc0 r-backgroundColor-a865k2 r-borderColor-169eryd" style="transition-duration: 0s;"></a></div><div class="css-view-g5y9jx r-flex-13awgt0 r-justifyContent-17s6mgv"><div class="css-view-g5y9jx r-width-13qz1uu"><div class="css-view-g5y9jx"><div class="css-view-g5y9jx r-marginTop-knv0ih"><div class="css-view-g5y9jx" style="opacity: 1; transform: translateY(0px);"><h1 dir="auto" role="heading" class="css-text-146c3p1 r-color-kgv7a8 r-fontFamily-1anymhi r-fontSize-1x35g6 r-fontWeight-b88u0q r-lineHeight-17rnw9f r-marginBottom-6gpygo r-paddingInline-is05cd"></h1></div><div class="css-view-g5y9jx r-flexDirection-18u37iz r-flexWrap-1w6e6rj"><div class="css-view-g5y9jx" style="width: 20%;"><div class="css-view-g5y9jx r-borderRadius-1867qdf r-flexDirection-eqz5dr r-overflow-1udh08x r-position-bnwqim" style="background-color: rgb(255, 255, 255); border-color: rgb(239, 239, 239); border-width: 1px; transform: translateY(0px) scale(1);"><a href="/product/prod-2-1-1-1" role="link" class="css-view-g5y9jx r-transitionProperty-1i6wzkk r-userSelect-lrvibr r-cursor-1loqt21 r-touchAction-1otgn73 r-height-1pi2tsx r-position-bnwqim r-width-13qz1uu" style="transition-duration: 0s;"><div class="css-view-g5y9jx r-borderTopLeftRadius-f1w8kp r-borderTopRightRadius-cqzzvf r-overflow-1udh08x" style="height: 230px;"><div class="css-view-g5y9jx r-flexBasis-1mlwlqe r-overflow-1udh08x r-zIndex-417010 r-height-1pi2tsx r-width-13qz1uu"><div class="css-view-g5y9jx r-backgroundColor-1niwhzg r-backgroundPosition-vvn4in r-backgroundRepeat-u6sd8q r-bottom-1p0dtai r-height-1pi2tsx r-left-1d2f490 r-position-u8s1d r-right-zchlnj r-top-ipm5af r-width-13qz1uu r-zIndex-1wyyakw r-backgroundSize-4gszlv" style="background-image: url(&quot;https://images.unsplash.com/photo-1582201942988-13e60e4556ee?w=600&amp;auto=format&amp;fit=crop&quot;);"></div><img alt="" draggable="false" class="css-accessibilityImage-9pa8cd" src="https://images.unsplash.com/photo-1582201942988-13e60e4556ee?w=600&amp;auto=format&amp;fit=crop"></div><div class="css-view-g5y9jx r-alignItems-1habvwh r-flexDirection-eqz5dr r-gap-9aw3ui r-left-1r74h94 r-position-u8s1d r-top-1yxedwg"><div class="css-view-g5y9jx r-alignItems-1awozwy r-alignSelf-k200y r-borderWidth-rs99b7 r-flexDirection-18u37iz r-justifyContent-1777fci" style="background-color: rgb(227, 27, 35); border-color: rgba(0, 0, 0, 0); padding: 2px 6px; border-radius: 6px;"><div dir="auto" class="css-text-146c3p1 r-fontFamily-36nht7 r-fontSize-10x49cs r-fontWeight-ha6d2y r-lineHeight-1cwl3u0 r-includeFontPadding-1rsjblm r-textAlign-q4m81j" style="color: rgb(255, 255, 255);">badgeNew</div></div></div><div class="css-view-g5y9jx r-position-u8s1d r-right-3mc0re r-top-1yxedwg r-zIndex-mhe3cw r-pointerEvents-105ug2t"><div role="presentation" tabindex="0" class="css-view-g5y9jx r-transitionProperty-1i6wzkk r-userSelect-lrvibr r-cursor-1loqt21 r-touchAction-1otgn73 r-alignItems-1awozwy r-justifyContent-1777fci r-backgroundColor-n7aj9u" data-testid="product-fav-button" style="width: 28px; height: 28px; border-radius: 14px; transition-duration: 0s;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle;"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></div></div><div class="css-view-g5y9jx r-bottom-1nlw0im r-position-u8s1d r-right-3mc0re r-zIndex-mhe3cw r-pointerEvents-105ug2t"><div role="presentation" tabindex="0" class="css-view-g5y9jx r-transitionProperty-1i6wzkk r-userSelect-lrvibr r-cursor-1loqt21 r-touchAction-1otgn73 r-alignItems-1awozwy r-justifyContent-1777fci r-backgroundColor-wt1z2b" data-testid="product-cart-button" style="width: 28px; height: 28px; border-radius: 14px; transition-duration: 0s;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle;"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg></div></div></div><div class="css-view-g5y9jx r-paddingBlock-11f147o r-paddingInline-is05cd"><div dir="auto" class="css-text-146c3p1 r-fontFamily-36nht7 r-fontSize-10x49cs r-fontWeight-b88u0q r-letterSpacing-ud0q2t r-lineHeight-1f529hi r-textTransform-tsynxw r-color-12zy4o2 r-marginBottom-15zivkp">LOVELY</div><div dir="auto" class="css-text-146c3p1 r-WebkitBoxOrient-8akbws r-display-krxsd3 r-maxWidth-dnmrzs r-overflow-1qsk4np r-textOverflow-1udbk01 r-color-kgv7a8 r-fontFamily-36nht7 r-fontSize-1b43r93 r-fontWeight-majxgm r-lineHeight-14yzgew r-marginBottom-15zivkp r-minHeight-2yi16" style="-webkit-line-clamp: 2;">Product 2-1-1-1 RU</div><div dir="auto" class="css-text-146c3p1 r-color-kgv7a8 r-fontFamily-36nht7 r-fontSize-ubezar r-fontWeight-b88u0q r-lineHeight-135wba7">$132</div></div></a></div></div></div></div><div class="css-view-g5y9jx r-marginTop-knv0ih"><div class="css-view-g5y9jx" style="flex-direction: row; justify-content: space-between; align-items: center; padding-right: 8px; padding-left: 8px; margin-bottom: 16px; gap: 0px; opacity: 0; transform: translateY(20px);"><h1 dir="auto" role="heading" class="css-text-146c3p1 r-color-kgv7a8 r-fontFamily-1anymhi r-fontSize-1x35g6 r-fontWeight-b88u0q r-lineHeight-17rnw9f"></h1><div class="css-view-g5y9jx r-alignItems-1awozwy r-flexDirection-18u37iz"><div dir="auto" class="css-text-146c3p1 r-fontFamily-36nht7 r-fontSize-1enofrn r-fontWeight-16dba41 r-lineHeight-1cwl3u0 r-marginRight-1pcdyqj r-color-1s7ct43">offerEndsIn:</div><div dir="auto" class="css-text-146c3p1 r-fontFamily-36nht7 r-fontSize-1enofrn r-fontWeight-vw2c0b r-lineHeight-1cwl3u0 r-color-12zy4o2">06</div><div dir="auto" class="css-text-146c3p1 r-fontFamily-36nht7 r-fontSize-1enofrn r-fontWeight-16dba41 r-lineHeight-1cwl3u0 r-color-1s7ct43"> D </div><div dir="auto" class="css-text-146c3p1 r-fontFamily-36nht7 r-fontSize-1enofrn r-fontWeight-vw2c0b r-lineHeight-1cwl3u0 r-color-12zy4o2">23</div><div dir="auto" class="css-text-146c3p1 r-fontFamily-36nht7 r-fontSize-1enofrn r-fontWeight-16dba41 r-lineHeight-1cwl3u0 r-color-1s7ct43"> H </div><div dir="auto" class="css-text-146c3p1 r-fontFamily-36nht7 r-fontSize-1enofrn r-fontWeight-vw2c0b r-lineHeight-1cwl3u0 r-color-12zy4o2">59</div><div dir="auto" class="css-text-146c3p1 r-fontFamily-36nht7 r-fontSize-1enofrn r-fontWeight-16dba41 r-lineHeight-1cwl3u0 r-color-1s7ct43"> M </div><div dir="auto" class="css-text-146c3p1 r-fontFamily-36nht7 r-fontSize-1enofrn r-fontWeight-vw2c0b r-lineHeight-1cwl3u0 r-color-12zy4o2">42</div><div dir="auto" class="css-text-146c3p1 r-fontFamily-36nht7 r-fontSize-1enofrn r-fontWeight-16dba41 r-lineHeight-1cwl3u0 r-color-1s7ct43"> S</div></div></div><div class="css-view-g5y9jx r-flexDirection-18u37iz r-flexWrap-1w6e6rj"><div class="css-view-g5y9jx" style="width: 20%;"><div class="css-view-g5y9jx r-borderRadius-1867qdf r-flexDirection-eqz5dr r-overflow-1udh08x r-position-bnwqim" style="background-color: rgb(255, 255, 255); border-color: rgb(239, 239, 239); border-width: 1px; transform: translateY(0px) scale(1);"><a href="/product/prod-1-1-2-1" role="link" class="css-view-g5y9jx r-transitionProperty-1i6wzkk r-userSelect-lrvibr r-cursor-1loqt21 r-touchAction-1otgn73 r-height-1pi2tsx r-position-bnwqim r-width-13qz1uu" style="transition-duration: 0s;"><div class="css-view-g5y9jx r-borderTopLeftRadius-f1w8kp r-borderTopRightRadius-cqzzvf r-overflow-1udh08x" style="height: 230px;"><div class="css-view-g5y9jx r-flexBasis-1mlwlqe r-overflow-1udh08x r-zIndex-417010 r-height-1pi2tsx r-width-13qz1uu"><div class="css-view-g5y9jx r-backgroundColor-1niwhzg r-backgroundPosition-vvn4in r-backgroundRepeat-u6sd8q r-bottom-1p0dtai r-height-1pi2tsx r-left-1d2f490 r-position-u8s1d r-right-zchlnj r-top-ipm5af r-width-13qz1uu r-zIndex-1wyyakw r-backgroundSize-4gszlv" style="background-image: url(&quot;https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=600&amp;auto=format&amp;fit=crop&quot;);"></div><img alt="" draggable="false" class="css-accessibilityImage-9pa8cd" src="https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=600&amp;auto=format&amp;fit=crop"></div><div class="css-view-g5y9jx r-alignItems-1habvwh r-flexDirection-eqz5dr r-gap-9aw3ui r-left-1r74h94 r-position-u8s1d r-top-1yxedwg"><div class="css-view-g5y9jx r-alignItems-1awozwy r-alignSelf-k200y r-borderWidth-rs99b7 r-flexDirection-18u37iz r-justifyContent-1777fci" style="background-color: rgb(227, 27, 35); border-color: rgba(0, 0, 0, 0); padding: 2px 6px; border-radius: 6px;"><div dir="auto" class="css-text-146c3p1 r-fontFamily-36nht7 r-fontSize-10x49cs r-fontWeight-ha6d2y r-lineHeight-1cwl3u0 r-includeFontPadding-1rsjblm r-textAlign-q4m81j" style="color: rgb(255, 255, 255);">-34%</div></div></div><div class="css-view-g5y9jx r-position-u8s1d r-right-3mc0re r-top-1yxedwg r-zIndex-mhe3cw r-pointerEvents-105ug2t"><div role="presentation" tabindex="0" class="css-view-g5y9jx r-transitionProperty-1i6wzkk r-userSelect-lrvibr r-cursor-1loqt21 r-touchAction-1otgn73 r-alignItems-1awozwy r-justifyContent-1777fci r-backgroundColor-n7aj9u" data-testid="product-fav-button" style="width: 28px; height: 28px; border-radius: 14px; transition-duration: 0s;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle;"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></div></div><div class="css-view-g5y9jx r-bottom-1nlw0im r-position-u8s1d r-right-3mc0re r-zIndex-mhe3cw r-pointerEvents-105ug2t"><div role="presentation" tabindex="0" class="css-view-g5y9jx r-transitionProperty-1i6wzkk r-userSelect-lrvibr r-cursor-1loqt21 r-touchAction-1otgn73 r-alignItems-1awozwy r-justifyContent-1777fci r-backgroundColor-wt1z2b" data-testid="product-cart-button" style="width: 28px; height: 28px; border-radius: 14px; transition-duration: 0s;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle;"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg></div></div></div><div class="css-view-g5y9jx r-paddingBlock-11f147o r-paddingInline-is05cd"><div dir="auto" class="css-text-146c3p1 r-fontFamily-36nht7 r-fontSize-10x49cs r-fontWeight-b88u0q r-letterSpacing-ud0q2t r-lineHeight-1f529hi r-textTransform-tsynxw r-color-12zy4o2 r-marginBottom-15zivkp">BARBARA</div><div dir="auto" class="css-text-146c3p1 r-WebkitBoxOrient-8akbws r-display-krxsd3 r-maxWidth-dnmrzs r-overflow-1qsk4np r-textOverflow-1udbk01 r-color-kgv7a8 r-fontFamily-36nht7 r-fontSize-1b43r93 r-fontWeight-majxgm r-lineHeight-14yzgew r-marginBottom-15zivkp r-minHeight-2yi16" style="-webkit-line-clamp: 2;">Product 1-1-2-1 RU11111</div><div class="css-view-g5y9jx r-alignItems-1d09ksm r-flexDirection-18u37iz r-gap-ojf8lh"><div dir="auto" class="css-text-146c3p1 r-color-kgv7a8 r-fontFamily-36nht7 r-fontSize-ubezar r-fontWeight-b88u0q r-lineHeight-135wba7">$589</div><div dir="auto" class="css-text-146c3p1 r-color-1dk24ck r-fontFamily-36nht7 r-fontSize-1enofrn r-fontWeight-16dba41 r-lineHeight-1cwl3u0 r-textDecorationLine-142tt33">$893</div></div></div></a></div></div><div class="css-view-g5y9jx" style="width: 20%;"><div class="css-view-g5y9jx r-borderRadius-1867qdf r-flexDirection-eqz5dr r-overflow-1udh08x r-position-bnwqim" style="background-color: rgb(255, 255, 255); border-color: rgb(239, 239, 239); border-width: 1px; transform: translateY(0px) scale(1);"><a href="/product/prod-1-2-1-1" role="link" class="css-view-g5y9jx r-transitionProperty-1i6wzkk r-userSelect-lrvibr r-cursor-1loqt21 r-touchAction-1otgn73 r-height-1pi2tsx r-position-bnwqim r-width-13qz1uu" style="transition-duration: 0s;"><div class="css-view-g5y9jx r-borderTopLeftRadius-f1w8kp r-borderTopRightRadius-cqzzvf r-overflow-1udh08x" style="height: 230px;"><div class="css-view-g5y9jx r-flexBasis-1mlwlqe r-overflow-1udh08x r-zIndex-417010 r-height-1pi2tsx r-width-13qz1uu"><div class="css-view-g5y9jx r-backgroundColor-1niwhzg r-backgroundPosition-vvn4in r-backgroundRepeat-u6sd8q r-bottom-1p0dtai r-height-1pi2tsx r-left-1d2f490 r-position-u8s1d r-right-zchlnj r-top-ipm5af r-width-13qz1uu r-zIndex-1wyyakw r-backgroundSize-4gszlv" style="background-image: url(&quot;https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=600&amp;auto=format&amp;fit=crop&quot;);"></div><img alt="" draggable="false" class="css-accessibilityImage-9pa8cd" src="https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=600&amp;auto=format&amp;fit=crop"></div><div class="css-view-g5y9jx r-alignItems-1habvwh r-flexDirection-eqz5dr r-gap-9aw3ui r-left-1r74h94 r-position-u8s1d r-top-1yxedwg"><div class="css-view-g5y9jx r-alignItems-1awozwy r-alignSelf-k200y r-borderWidth-rs99b7 r-flexDirection-18u37iz r-justifyContent-1777fci" style="background-color: rgb(227, 27, 35); border-color: rgba(0, 0, 0, 0); padding: 2px 6px; border-radius: 6px;"><div dir="auto" class="css-text-146c3p1 r-fontFamily-36nht7 r-fontSize-10x49cs r-fontWeight-ha6d2y r-lineHeight-1cwl3u0 r-includeFontPadding-1rsjblm r-textAlign-q4m81j" style="color: rgb(255, 255, 255);">-30%</div></div></div><div class="css-view-g5y9jx r-position-u8s1d r-right-3mc0re r-top-1yxedwg r-zIndex-mhe3cw r-pointerEvents-105ug2t"><div role="presentation" tabindex="0" class="css-view-g5y9jx r-transitionProperty-1i6wzkk r-userSelect-lrvibr r-cursor-1loqt21 r-touchAction-1otgn73 r-alignItems-1awozwy r-justifyContent-1777fci r-backgroundColor-n7aj9u" data-testid="product-fav-button" style="width: 28px; height: 28px; border-radius: 14px; transition-duration: 0s;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle;"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></div></div><div class="css-view-g5y9jx r-bottom-1nlw0im r-position-u8s1d r-right-3mc0re r-zIndex-mhe3cw r-pointerEvents-105ug2t"><div role="presentation" tabindex="0" class="css-view-g5y9jx r-transitionProperty-1i6wzkk r-userSelect-lrvibr r-cursor-1loqt21 r-touchAction-1otgn73 r-alignItems-1awozwy r-justifyContent-1777fci r-backgroundColor-wt1z2b" data-testid="product-cart-button" style="width: 28px; height: 28px; border-radius: 14px; transition-duration: 0s;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle;"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg></div></div></div><div class="css-view-g5y9jx r-paddingBlock-11f147o r-paddingInline-is05cd"><div dir="auto" class="css-text-146c3p1 r-fontFamily-36nht7 r-fontSize-10x49cs r-fontWeight-b88u0q r-letterSpacing-ud0q2t r-lineHeight-1f529hi r-textTransform-tsynxw r-color-12zy4o2 r-marginBottom-15zivkp">BARBARA</div><div dir="auto" class="css-text-146c3p1 r-WebkitBoxOrient-8akbws r-display-krxsd3 r-maxWidth-dnmrzs r-overflow-1qsk4np r-textOverflow-1udbk01 r-color-kgv7a8 r-fontFamily-36nht7 r-fontSize-1b43r93 r-fontWeight-majxgm r-lineHeight-14yzgew r-marginBottom-15zivkp r-minHeight-2yi16" style="-webkit-line-clamp: 2;">Product 1-2-1-1 RU</div><div class="css-view-g5y9jx r-alignItems-1d09ksm r-flexDirection-18u37iz r-gap-ojf8lh"><div dir="auto" class="css-text-146c3p1 r-color-kgv7a8 r-fontFamily-36nht7 r-fontSize-ubezar r-fontWeight-b88u0q r-lineHeight-135wba7">$65</div><div dir="auto" class="css-text-146c3p1 r-color-1dk24ck r-fontFamily-36nht7 r-fontSize-1enofrn r-fontWeight-16dba41 r-lineHeight-1cwl3u0 r-textDecorationLine-142tt33">$93</div></div></div></a></div></div></div></div></div><div class="css-view-g5y9jx r-height-mabqd8"></div><div class="css-view-g5y9jx r-alignItems-1awozwy r-borderTopWidth-13yce4e r-justifyContent-1777fci r-paddingBottom-iphfwy r-paddingInline-3pj75a r-paddingTop-13gvty3 r-width-13qz1uu r-backgroundColor-r54q32 r-borderTopColor-jmrtx5"><div class="css-view-g5y9jx r-alignItems-1awozwy r-columnGap-1ta3fxp r-flexDirection-18u37iz r-flexWrap-1w6e6rj r-justifyContent-1777fci r-rowGap-1rxb9bi"><a href="/" role="link" class="css-view-g5y9jx r-transitionProperty-1i6wzkk r-userSelect-lrvibr r-cursor-1loqt21 r-touchAction-1otgn73" style="transition-duration: 0s;"><div class="css-view-g5y9jx r-flexBasis-1mlwlqe r-overflow-1udh08x r-zIndex-417010 r-height-1tl9yi8 r-width-1glkqn6"><div class="css-view-g5y9jx r-backgroundColor-1niwhzg r-backgroundPosition-vvn4in r-backgroundRepeat-u6sd8q r-bottom-1p0dtai r-height-1pi2tsx r-left-1d2f490 r-position-u8s1d r-right-zchlnj r-top-ipm5af r-width-13qz1uu r-zIndex-1wyyakw r-backgroundSize-ehq7j7" style="background-image: url(&quot;/assets/?unstable_path=.%2Fsrc%2Fassets/logo.png&quot;);"></div><img alt="" draggable="false" class="css-accessibilityImage-9pa8cd" src="/assets/?unstable_path=.%2Fsrc%2Fassets/logo.png"></div></a><div dir="auto" class="css-text-146c3p1 r-color-1cucpzw r-fontFamily-36nht7 r-fontSize-1enofrn r-fontWeight-16dba41 r-lineHeight-1cwl3u0 r-marginInline-wnp491">•</div><div dir="auto" class="css-text-146c3p1 r-color-1cucpzw r-fontFamily-36nht7 r-fontSize-1enofrn r-fontWeight-16dba41 r-lineHeight-1cwl3u0">Made by Noren Vox ©</div></div></div></div></div></div></div></div></div></div></div></div><div class="css-view-g5y9jx r-flex-13awgt0 r-bottom-1p0dtai r-left-1d2f490 r-position-u8s1d r-right-zchlnj r-top-ipm5af" style="background-color: rgb(242, 242, 242); display: flex;"><div class="css-view-g5y9jx r-flex-13awgt0"><div class="css-view-g5y9jx r-flex-13awgt0" style="background-color: rgba(0, 0, 0, 0);"><div class="css-view-g5y9jx r-flex-13awgt0 r-overflow-1udh08x r-width-13qz1uu" style="opacity: 1; transform: translateY(0px);"><div class="css-view-g5y9jx r-flex-13awgt0 r-minHeight-2llsf r-backgroundColor-r54q32"><div class="css-view-g5y9jx r-alignSelf-1kihuf0 r-maxWidth-dnmrzs" style="width: 1280px;"><div class="css-view-g5y9jx r-alignSelf-1kihuf0 r-backgroundColor-r54q32 r-borderBottomColor-lberyi r-borderBottomWidth-ndvcnb r-maxWidth-12jhh2u r-minHeight-2yi16 r-paddingBlock-cnw61z r-paddingInline-is05cd r-width-13qz1uu"><div class="css-view-g5y9jx r-alignItems-1awozwy r-flexDirection-18u37iz r-flexWrap-tzz3ar r-justifyContent-1h0z5md"><div role="presentation" tabindex="0" class="css-view-g5y9jx r-transitionProperty-1i6wzkk r-userSelect-lrvibr r-cursor-1loqt21 r-touchAction-1otgn73 r-flexShrink-1q142lx r-justifyContent-1777fci r-marginRight-88pszg r-minHeight-peo1c r-paddingBlock-cnw61z" data-testid="page-back-button" style="transition-duration: 0s;"><div dir="auto" class="css-text-146c3p1 r-fontFamily-36nht7 r-fontSize-n62j09 r-fontWeight-1y8rou7 r-lineHeight-135wba7 r-color-12zy4o2">‹ btnBackLabel</div></div><div class="css-view-g5y9jx r-borderBottomColor-lberyi r-flex-13awgt0 r-minHeight-1ceczpf r-minWidth-bcqeeo r-paddingBlock-1559e4e"><div class="css-view-g5y9jx r-WebkitOverflowScrolling-150rngu r-flexDirection-18u37iz r-flexShrink-1wbh5a2 r-overflowX-lltvgl r-overflowY-buy8e9 r-transform-agouwx r-flexGrow-16y2uox r-width-13qz1uu r-scrollbarWidth-2eszeu"><div class="css-view-g5y9jx r-alignItems-1awozwy r-flexDirection-18u37iz r-flexWrap-tzz3ar r-minWidth-bcqeeo r-paddingBlock-cnw61z r-paddingInline-1e084wi"><a href="/" role="link" class="css-view-g5y9jx r-transitionProperty-1i6wzkk r-userSelect-lrvibr r-cursor-1loqt21 r-touchAction-1otgn73" data-testid="breadcrumb-home" style="padding: 4px 6px; transition-duration: 0s;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E31B23" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle;"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></a><div class="css-view-g5y9jx r-alignItems-1awozwy r-flexDirection-18u37iz"><div dir="auto" class="css-text-146c3p1 r-fontFamily-36nht7 r-fontSize-n62j09 r-fontWeight-16dba41 r-lineHeight-135wba7 r-color-12zy4o2 r-marginInline-1w1oxbu">/</div><div dir="auto" class="css-text-146c3p1 r-overflow-1udh08x r-textOverflow-1udbk01 r-whiteSpace-3s2u2q r-wordWrap-1iln25a r-fontFamily-36nht7 r-fontSize-n62j09 r-fontWeight-1y8rou7 r-lineHeight-135wba7 r-maxWidth-1cg806a r-color-1s7ct43">navRootCatalog</div></div></div></div></div></div></div></div><div class="css-view-g5y9jx r-WebkitOverflowScrolling-150rngu r-flexDirection-eqz5dr r-flexGrow-16y2uox r-flexShrink-1wbh5a2 r-overflowX-11yh6sk r-overflowY-1rnoaur r-transform-agouwx r-flex-13awgt0 r-minHeight-2llsf r-scrollbarWidth-2eszeu"><div class="css-view-g5y9jx r-paddingInline-1e084wi r-alignSelf-1kihuf0 r-flexGrow-16y2uox r-minHeight-2llsf r-paddingBottom-1mdbw0j" style="width: 1280px;"><div class="css-view-g5y9jx"><div class="css-view-g5y9jx r-alignItems-1awozwy r-flexDirection-18u37iz r-justifyContent-1wtj0ep r-marginBottom-f1odvy r-marginTop-1s2bzr4 r-paddingInline-is05cd" style="opacity: 1; transform: translateY(0px);"><div dir="auto" class="css-text-146c3p1 r-fontFamily-36nht7 r-fontSize-ubezar r-fontWeight-16dba41 r-lineHeight-135wba7 r-color-kgv7a8"></div></div></div><div class="css-view-g5y9jx"><div class="css-view-g5y9jx r-flexDirection-18u37iz"><div class="css-view-g5y9jx r-alignSelf-1pz39u2" style="width: 20%;"><div class="css-view-g5y9jx r-flexDirection-eqz5dr r-borderRadius-y47klf r-flex-13awgt0 r-margin-hwh8t1 r-overflow-1udh08x r-position-bnwqim" style="background-color: rgb(255, 255, 255); border-color: rgb(239, 239, 239); border-width: 1px; min-height: 280px; transform: translateY(0px) scale(1);"><a href="/catalog/cat-root-0" role="link" class="css-view-g5y9jx r-transitionProperty-1i6wzkk r-userSelect-lrvibr r-cursor-1loqt21 r-touchAction-1otgn73 r-height-1pi2tsx r-position-bnwqim r-width-13qz1uu" style="transition-duration: 0s;"><div class="css-view-g5y9jx r-borderRadius-y47klf r-bottom-1p0dtai r-left-1d2f490 r-overflow-1udh08x r-position-u8s1d r-right-zchlnj r-top-ipm5af"><div class="css-view-g5y9jx r-flexBasis-1mlwlqe r-overflow-1udh08x r-zIndex-417010 r-bottom-1p0dtai r-left-1d2f490 r-position-u8s1d r-right-zchlnj r-top-ipm5af"><div class="css-view-g5y9jx r-backgroundColor-1niwhzg r-backgroundPosition-vvn4in r-backgroundRepeat-u6sd8q r-bottom-1p0dtai r-height-1pi2tsx r-left-1d2f490 r-position-u8s1d r-right-zchlnj r-top-ipm5af r-width-13qz1uu r-zIndex-1wyyakw r-backgroundSize-4gszlv" style="background-image: url(&quot;https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&amp;w=600&amp;auto=format&amp;fit=crop&quot;);"></div><img alt="" draggable="false" class="css-accessibilityImage-9pa8cd" src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&amp;w=600&amp;auto=format&amp;fit=crop"></div><div class="css-view-g5y9jx r-backgroundColor-xl3lkw r-bottom-1p0dtai r-left-1d2f490 r-position-u8s1d r-right-zchlnj r-top-ipm5af"></div><div class="css-view-g5y9jx r-bottom-1u8kdu r-left-jxjwwx r-position-u8s1d r-right-yj30ev"><h1 dir="auto" role="heading" class="css-text-146c3p1 r-WebkitBoxOrient-8akbws r-display-krxsd3 r-maxWidth-dnmrzs r-overflow-1qsk4np r-textOverflow-1udbk01 r-color-kgv7a8 r-fontFamily-36nht7 r-fontSize-adyw6z r-fontWeight-1kfrs79 r-lineHeight-vrz42v r-marginBottom-15zivkp" style="-webkit-line-clamp: 2;">Category 1 EN</h1><div dir="auto" class="css-text-146c3p1 r-WebkitBoxOrient-8akbws r-display-krxsd3 r-maxWidth-dnmrzs r-overflow-1qsk4np r-textOverflow-1udbk01 r-color-kgv7a8 r-fontFamily-36nht7 r-fontSize-ubezar r-fontWeight-16dba41 r-lineHeight-135wba7" style="-webkit-line-clamp: 2;">Описание для Category 1 EN</div></div></div></a></div></div><div class="css-view-g5y9jx r-alignSelf-1pz39u2" style="width: 20%;"><div class="css-view-g5y9jx r-flexDirection-eqz5dr r-borderRadius-y47klf r-flex-13awgt0 r-margin-hwh8t1 r-overflow-1udh08x r-position-bnwqim" style="background-color: rgb(255, 255, 255); border-color: rgb(239, 239, 239); border-width: 1px; min-height: 280px; transform: translateY(0px) scale(1);"><a href="/catalog/cat-root-1" role="link" class="css-view-g5y9jx r-transitionProperty-1i6wzkk r-userSelect-lrvibr r-cursor-1loqt21 r-touchAction-1otgn73 r-height-1pi2tsx r-position-bnwqim r-width-13qz1uu" style="transition-duration: 0s;"><div class="css-view-g5y9jx r-borderRadius-y47klf r-bottom-1p0dtai r-left-1d2f490 r-overflow-1udh08x r-position-u8s1d r-right-zchlnj r-top-ipm5af"><div class="css-view-g5y9jx r-flexBasis-1mlwlqe r-overflow-1udh08x r-zIndex-417010 r-bottom-1p0dtai r-left-1d2f490 r-position-u8s1d r-right-zchlnj r-top-ipm5af"><div class="css-view-g5y9jx r-backgroundColor-1niwhzg r-backgroundPosition-vvn4in r-backgroundRepeat-u6sd8q r-bottom-1p0dtai r-height-1pi2tsx r-left-1d2f490 r-position-u8s1d r-right-zchlnj r-top-ipm5af r-width-13qz1uu r-zIndex-1wyyakw r-backgroundSize-4gszlv" style="background-image: url(&quot;https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&amp;w=600&amp;auto=format&amp;fit=crop&quot;);"></div><img alt="" draggable="false" class="css-accessibilityImage-9pa8cd" src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&amp;w=600&amp;auto=format&amp;fit=crop"></div><div class="css-view-g5y9jx r-backgroundColor-xl3lkw r-bottom-1p0dtai r-left-1d2f490 r-position-u8s1d r-right-zchlnj r-top-ipm5af"></div><div class="css-view-g5y9jx r-bottom-1u8kdu r-left-jxjwwx r-position-u8s1d r-right-yj30ev"><h1 dir="auto" role="heading" class="css-text-146c3p1 r-WebkitBoxOrient-8akbws r-display-krxsd3 r-maxWidth-dnmrzs r-overflow-1qsk4np r-textOverflow-1udbk01 r-color-kgv7a8 r-fontFamily-36nht7 r-fontSize-adyw6z r-fontWeight-1kfrs79 r-lineHeight-vrz42v r-marginBottom-15zivkp" style="-webkit-line-clamp: 2;">Category 2 EN</h1><div dir="auto" class="css-text-146c3p1 r-WebkitBoxOrient-8akbws r-display-krxsd3 r-maxWidth-dnmrzs r-overflow-1qsk4np r-textOverflow-1udbk01 r-color-kgv7a8 r-fontFamily-36nht7 r-fontSize-ubezar r-fontWeight-16dba41 r-lineHeight-135wba7" style="-webkit-line-clamp: 2;">Описание для Category 2 EN</div></div></div></a></div></div></div></div><div class="css-view-g5y9jx r-flex-13awgt0 r-justifyContent-17s6mgv"><div class="css-view-g5y9jx r-width-13qz1uu"><div class="css-view-g5y9jx r-height-mabqd8"></div><div class="css-view-g5y9jx r-alignItems-1awozwy r-borderTopWidth-13yce4e r-justifyContent-1777fci r-paddingBottom-iphfwy r-paddingInline-3pj75a r-paddingTop-13gvty3 r-width-13qz1uu r-backgroundColor-r54q32 r-borderTopColor-jmrtx5"><div class="css-view-g5y9jx r-alignItems-1awozwy r-columnGap-1ta3fxp r-flexDirection-18u37iz r-flexWrap-1w6e6rj r-justifyContent-1777fci r-rowGap-1rxb9bi"><a href="/" role="link" class="css-view-g5y9jx r-transitionProperty-1i6wzkk r-userSelect-lrvibr r-cursor-1loqt21 r-touchAction-1otgn73" style="transition-duration: 0s;"><div class="css-view-g5y9jx r-flexBasis-1mlwlqe r-overflow-1udh08x r-zIndex-417010 r-height-1tl9yi8 r-width-1glkqn6"><div class="css-view-g5y9jx r-backgroundColor-1niwhzg r-backgroundPosition-vvn4in r-backgroundRepeat-u6sd8q r-bottom-1p0dtai r-height-1pi2tsx r-left-1d2f490 r-position-u8s1d r-right-zchlnj r-top-ipm5af r-width-13qz1uu r-zIndex-1wyyakw r-backgroundSize-ehq7j7" style="background-image: url(&quot;/assets/?unstable_path=.%2Fsrc%2Fassets/logo.png&quot;);"></div><img alt="" draggable="false" class="css-accessibilityImage-9pa8cd" src="/assets/?unstable_path=.%2Fsrc%2Fassets/logo.png"></div></a><div dir="auto" class="css-text-146c3p1 r-color-1cucpzw r-fontFamily-36nht7 r-fontSize-1enofrn r-fontWeight-16dba41 r-lineHeight-1cwl3u0 r-marginInline-wnp491">•</div><div dir="auto" class="css-text-146c3p1 r-color-1cucpzw r-fontFamily-36nht7 r-fontSize-1enofrn r-fontWeight-16dba41 r-lineHeight-1cwl3u0">Made by Noren Vox ©</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+  <script src="/node_modules/expo-router/entry.bundle?platform=web&amp;dev=true&amp;hot=false&amp;lazy=true&amp;transform.engine=hermes&amp;transform.routerRoot=app&amp;unstable_transformProfile=hermes-stable" defer=""></script>
+
+<div id="error-toast" style="position: absolute;"></div><div style="position: fixed; left: 0px; top: 0px; width: 0px; height: 0px; z-index: -1; overflow: hidden; visibility: hidden; transition-duration: 0.05s; transition-property: padding; transition-delay: 0s; padding-top: env(safe-area-inset-top); padding-bottom: env(safe-area-inset-bottom); padding-left: env(safe-area-inset-left); padding-right: env(safe-area-inset-right);"></div><div></div></body></html>

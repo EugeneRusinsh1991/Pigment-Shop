@@ -1,13 +1,13 @@
 # Smoke Test Failure - Home
 
 * **Route**: `/`
-* **Timestamp**: 2026-07-24T22:21:30.436Z
+* **Timestamp**: 2026-07-27T21:45:54.080Z
 
 ## ❌ Detected Errors
 
-- Page failed to load: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8081/
+- Failed to fill "Search Input": locator.waitFor: Timeout 15000ms exceeded.
 Call log:
-[2m  - navigating to "http://localhost:8081/", waiting until "load"[22m
+[2m  - waiting for locator('input[placeholder="Поиск товаров…"]').first() to be visible[22m
 
 
 ## 🖼️ Screenshot
