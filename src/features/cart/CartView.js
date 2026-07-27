@@ -31,7 +31,7 @@ export default function CartView({ isDark: isDarkProp }) {
   const { note, setNote, customerInfo, ...formHandlers } = useCartViewForm({ user, profile });
   const { email, firstName, lastName, phone, city, setEmail, setFirstName, setLastName, setPhone, setCity } = formHandlers;
 
-  const isWide = windowWidth >= layout.breakpoints.tablet;
+  const isWide = windowWidth >= layout.breakpoints.mobile;
   const { totalPrice, totalItems } = calculateTotals(items);
 
   const handleCheckout = () => {

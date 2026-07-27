@@ -3,7 +3,7 @@ import { View, StyleSheet, useWindowDimensions } from 'react-native';
 import { Text, Heading } from '@/components/Text';
 import { PlaceholderGrid } from '@/features/catalog/PlaceholderCard';
 import { useCatalog } from '@/context/CatalogContext';
-import { getDeviceTier } from '@/utils/layout';
+import { getDeviceTier } from '@/utils/layoutUtils';
 import { useRouter } from 'expo-router';
 import styles from '@/theme/appStyles';
 import { ScrollFadeUp } from '@/components/Motion';

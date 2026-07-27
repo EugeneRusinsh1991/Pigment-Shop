@@ -5821,5 +5821,35 @@
         }
       ]
     }
+  },
+  "src_07-27_21-53_smoke-report.json_81files": {
+    "timestamp": "2026-07-27T18:53:30.811Z",
+    "diff": {
+      "added": 3,
+      "removed": 6,
+      "modified": 16,
+      "topFolders": [
+        {
+          "folder": ".todos/reorganization",
+          "count": 4
+        },
+        {
+          "folder": ".tmp-build-check",
+          "count": 3
+        },
+        {
+          "folder": "src/hooks",
+          "count": 3
+        },
+        {
+          "folder": ".tmp-build-check/_expo/static/js/web",
+          "count": 2
+        },
+        {
+          "folder": "src/utils",
+          "count": 2
+        }
+      ]
+    }
   }
 }

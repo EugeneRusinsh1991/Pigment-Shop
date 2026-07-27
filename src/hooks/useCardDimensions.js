@@ -11,7 +11,7 @@ const IMG_HEIGHTS = { desktop: 230, tablet: 180, mobile: 135 };
 
 function getDevice(windowWidth) {
   if (windowWidth >= layout.breakpoints.desktop) return 'desktop';
-  if (windowWidth >= layout.breakpoints.tablet) return 'tablet';
+  if (windowWidth >= layout.breakpoints.mobile) return 'tablet';
   return 'mobile';
 }
 

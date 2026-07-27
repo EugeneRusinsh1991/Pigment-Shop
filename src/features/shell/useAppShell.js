@@ -5,7 +5,7 @@ import { useCart } from '../../context/CartContext';
 import { useTheme } from '../../context/ThemeContext';
 import { useLanguage } from '../../context/LanguageContext';
 import { useCatalog } from '../../context/CatalogContext';
-import { getContentGridWidth } from '../../utils/layout';
+import { getContentGridWidth } from '../../utils/layoutUtils';
 import { useMenuVisibilityState } from './useMenuVisibilityState';
 
 function buildMenuItems(t, catalogItems) {

@@ -39,7 +39,7 @@ const CARD_MARGIN_MAP = {
  */
 export function getDeviceTier(windowWidth) {
   if (windowWidth >= layoutTokens.breakpoints.desktop) return 'desktop';
-  if (windowWidth >= layoutTokens.breakpoints.tablet) return 'tablet';
+  if (windowWidth >= layoutTokens.breakpoints.mobile) return 'tablet';
   return 'mobile';
 }
 

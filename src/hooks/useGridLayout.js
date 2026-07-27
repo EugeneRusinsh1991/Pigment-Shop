@@ -3,7 +3,7 @@ import { layout } from '../theme/tokens';
 
 function getDeviceType(windowWidth) {
   if (windowWidth >= layout.breakpoints.desktop) return 'desktop';
-  if (windowWidth >= layout.breakpoints.tablet) return 'tablet';
+  if (windowWidth >= layout.breakpoints.mobile) return 'tablet';
   return 'mobile';
 }
 

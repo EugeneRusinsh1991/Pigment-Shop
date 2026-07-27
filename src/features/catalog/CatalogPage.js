@@ -17,7 +17,7 @@ import usePaginatedCatalog from './usePaginatedCatalog';
 import ProductGrid from './ProductGrid';
 import { GridHeader, GridFooter } from './GridHeaderFooter';
 import Footer from '../shell/components/Footer';
-import { getContentGridWidth, CARD_MARGIN, SIDEBAR_WIDTH, MAIN_PADDING, getGridCols } from '../../utils/layout';
+import { getContentGridWidth, CARD_MARGIN, SIDEBAR_WIDTH, MAIN_PADDING, getGridCols } from '../../utils/layoutUtils';
 import { PageTransition } from '../../components/Motion';
 import { colors, layout } from '../../theme/tokens';
 

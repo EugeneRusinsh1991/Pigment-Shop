@@ -240,7 +240,6 @@ export const layout = {
   breakpoints: {
     sm: 640,
     mobile: 768,
-    tablet: 768,
     desktop: 1024,
   },
   radii: {

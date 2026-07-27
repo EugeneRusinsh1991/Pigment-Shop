@@ -4,7 +4,7 @@ import { useTheme } from '../../context/ThemeContext';
 import commonStyles from '../../theme/commonStyles';
 import Footer from '../shell/components/Footer';
 import { ScrollFadeUp } from '../../components/Motion';
-import { getContentGridWidth } from '../../utils/layout';
+import { getContentGridWidth } from '../../utils/layoutUtils';
 import SocialButtons from './SocialButtons';
 import ContactQuestionForm from './ContactQuestionForm';
 import styles from './ContactPageStyles';
