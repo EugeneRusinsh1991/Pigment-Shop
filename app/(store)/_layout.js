@@ -1,14 +1,13 @@
-import React from 'react';
-import { View, Pressable } from 'react-native';
-import { Stack, usePathname } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import { useAppShell } from '@/features/shell/useAppShell';
 import { useTheme } from '@/context/ThemeContext';
 import AppHeader from '@/features/shell/AppHeader';
 import NavMenu from '@/features/shell/NavMenu';
+import SharedLayoutWrapper from '@/features/shell/SharedLayoutWrapper';
 import StoreSearchHeader from '@/features/shell/StoreSearchHeader';
-import SharedLayoutWrapper from '@/components/SharedLayoutWrapper';
+import { useAppShell } from '@/features/shell/useAppShell';
 import styles from '@/theme/appStyles';
+import { Stack, usePathname } from 'expo-router';
+import { StatusBar } from 'expo-status-bar';
+import { Pressable, View } from 'react-native';
 
 const ic = (isDark, dark, light) => (isDark ? dark : light);
 

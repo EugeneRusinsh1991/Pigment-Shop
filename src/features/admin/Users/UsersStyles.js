@@ -135,7 +135,6 @@ export default StyleSheet.create({
   },
   infoLabel: {
     color: colors.secondaryDarkText,
-    textTransform: 'uppercase',
   },
   infoValue: {
     color: colors.dark,

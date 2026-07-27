@@ -41,7 +41,7 @@ export default function CartSummary({ totalItems, totalPrice, isWide, isDark, no
       ]}
     >
       <View style={styles.summaryRow}>
-        <Text variant="label" color="muted">
+        <Text variant="caption" color="muted">
           {t('cartItemsCount')}
         </Text>
         <Text variant="body1" weight="bold">
@@ -92,7 +92,7 @@ export default function CartSummary({ totalItems, totalPrice, isWide, isDark, no
       <View style={styles.summaryDivider} />
 
       <View style={styles.summaryRow}>
-        <Text variant="label" color="muted">
+        <Text variant="caption" color="muted">
           {t('cartTotal')}
         </Text>
         <Text variant="h3" weight="bold">

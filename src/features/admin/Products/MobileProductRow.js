@@ -1,14 +1,14 @@
-import { TouchableOpacity, View } from 'react-native';
 import { Text } from '@/components/Text';
+import { TouchableOpacity, View } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
-import { layout, motion, typography } from '../../../theme/tokens';
-import { getRowStyle, NewBadge, StatusBadge, ProductRowActions } from './ProductRowComponents';
+import { motion, typography } from '../../../theme/tokens';
+import { getRowStyle, NewBadge, ProductRowActions, StatusBadge } from './ProductRowComponents';
 import styles from './ProductsStyles';
 
 function CardMetaBlock({ label, children }) {
   return (
     <View style={styles.cardMetaBlock}>
-      <Text style={styles.cardMetaLabel}>{label}</Text>
+      <Text variant="overline" color="desc" style={styles.cardMetaLabel}>{label}</Text>
       {children}
     </View>
   );

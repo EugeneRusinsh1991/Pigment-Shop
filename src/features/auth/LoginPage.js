@@ -1,16 +1,16 @@
-import { KeyboardAvoidingView, Platform, ScrollView, TextInput, TouchableOpacity, View } from 'react-native';
-import { Text } from '../../components/Text';
-import { useTheme } from '../../context/ThemeContext';
-import { colors } from '../../theme/tokens';
-import { useLanguage } from '../../context/LanguageContext';
-import { useLoginForm } from '../../hooks/useLoginForm';
 import { MailIcon } from '@/components/Icons';
-import { ConfirmPasswordField, ErrorText, ForgotPasswordLink, LoginFooter, LoginHeader, PasswordInputField } from './LoginPageComponents';
-import styles from './LoginPageStyles';
-import Footer from '../shell/components/Footer';
+import { KeyboardAvoidingView, Platform, ScrollView, View } from 'react-native';
 import { Button } from '../../components/Button';
 import { PageTransition } from '../../components/Motion';
+import { Text } from '../../components/Text';
+import { useLanguage } from '../../context/LanguageContext';
+import { useTheme } from '../../context/ThemeContext';
+import { useLoginForm } from '../../hooks/useLoginForm';
+import { colors } from '../../theme/tokens';
 import { FieldInput } from '../admin/SharedFormComponents';
+import Footer from '../shell/components/Footer';
+import { ConfirmPasswordField, ErrorText, ForgotPasswordLink, LoginFooter, LoginHeader, PasswordInputField } from './LoginPageComponents';
+import styles from './LoginPageStyles';
 
 
 const ic = (isDark, dark, light) => (isDark ? dark : light);
@@ -91,7 +91,7 @@ export default function LoginPage({ isDark: isDarkProp }) {
 
                 <View style={styles.inputGroup}>
                   <View style={styles.passwordLabelRow}>
-                    <Text variant="label" style={styles.label}>{t('loginPasswordLabel')}</Text>
+                    <Text variant="caption" style={styles.label}>{t('loginPasswordLabel')}</Text>
                     <ForgotPasswordLink isRegister={isRegister} isDark={isDark} />
                   </View>
                   <PasswordInputField

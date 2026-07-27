@@ -1,7 +1,7 @@
-import { View } from 'react-native';
-import { Text } from '@/components/Text';
-import { useTheme } from '../../../context/ThemeContext';
 import Card from '@/components/Card';
+import { Text } from '@/components/Text';
+import { View } from 'react-native';
+import { useTheme } from '../../../context/ThemeContext';
 import styles from './UsersStyles';
 
 
@@ -9,7 +9,7 @@ function InfoRow({ label, value }) {
   const displayVal = value || '—';
   return (
     <View style={styles.infoGroup}>
-      <Text style={styles.infoLabel} size={10} weight="600">{label}</Text>
+      <Text variant="overline" color="desc" style={styles.infoLabel}>{label}</Text>
       <Text style={styles.infoValue} size={14} weight="500">{displayVal}</Text>
     </View>
   );

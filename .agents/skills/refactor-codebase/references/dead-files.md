@@ -19,7 +19,7 @@ Never remove files outside this report.
 # Execution Limits
 
 - Process exactly ONE logical file at a time.
-- Maximum items per execution: 20.
+- Maximum items per execution: 10.
 - Maximum attempts per item: 1.
 - Never chain multiple file deletions during the same pass.
 

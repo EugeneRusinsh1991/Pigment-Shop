@@ -1,6 +1,6 @@
 # 📦 Unused Exports
 
-*Generated on: 27.07.2026, 15:47:43*
+*Generated on: 27.07.2026, 22:53:24*
 
 Exports that are not imported or consumed by any other active file:
 
@@ -61,6 +61,7 @@ Exports that are not imported or consumed by any other active file:
 - [SmokePlugin.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/plugins/smoke/SmokePlugin.ts): `SmokePlugin` ([L22](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/plugins/smoke/SmokePlugin.ts#L22))
 - [SmokeReportPrinter.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/plugins/smoke/SmokeReportPrinter.ts): `SmokeReportPrinter` ([L6](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/plugins/smoke/SmokeReportPrinter.ts#L6))
 - [smoke-automation.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/smoke-automation.ts): `runSmokeAutomation` ([L48](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/smoke-automation.ts#L48))
+- [locationContext.js](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/utils/locationContext.js): `getLocationHierarchy` ([L71](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/utils/locationContext.js#L71))
 - [setupManualInspector.ts](file:///D:/Magazine/_PigmentShop/.tools/manual-browser-inspector/setupManualInspector.ts): `setupManualInspector` ([L106](file:///D:/Magazine/_PigmentShop/.tools/manual-browser-inspector/setupManualInspector.ts#L106))
 - [cleanOldFiles.js](file:///D:/Magazine/_PigmentShop/scripts/cleanOldFiles.js): `cleanOldFiles` ([L30](file:///D:/Magazine/_PigmentShop/scripts/cleanOldFiles.js#L30))
 - [devServerReport.js](file:///D:/Magazine/_PigmentShop/scripts/devServerReport.js): `cleanOldFiles` ([L48](file:///D:/Magazine/_PigmentShop/scripts/devServerReport.js#L48)), `generateMarkdownReport` ([L49](file:///D:/Magazine/_PigmentShop/scripts/devServerReport.js#L49))

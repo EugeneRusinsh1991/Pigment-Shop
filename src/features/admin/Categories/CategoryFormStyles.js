@@ -5,8 +5,7 @@
  * Shares colour tokens with ProductFormStyles.
  */
 import { StyleSheet } from 'react-native';
-import { colors, layout, shadow } from '../../../theme/tokens';
-import { buttonTokens } from '../../../theme/tokens';
+import { buttonTokens, colors, layout, shadow } from '../../../theme/tokens';
 
 export default StyleSheet.create({
   /* Modal overlay */
@@ -92,7 +91,6 @@ export default StyleSheet.create({
   /* Section heading */
   sectionLabel: {
     color: colors.textDescDark,
-    textTransform: 'uppercase',
     marginBottom: layout.spacing.sm,
     marginTop: layout.spacing.xxs,
   },

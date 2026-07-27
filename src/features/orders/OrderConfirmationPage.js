@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react';
-import { useTheme } from '../../context/ThemeContext';
 import { useRouter } from 'expo-router';
-import { useCatalog } from '../../context/CatalogContext';
-import useGridLayout from '../../hooks/useGridLayout';
-import { ScrollFadeUp } from '../../components/Motion';
+import { useEffect } from 'react';
 import { Button } from '../../components/Button';
-import PageScrollLayout from '../../components/PageScrollLayout';
-import OrderHeader from './OrderHeader';
+import { ScrollFadeUp } from '../../components/Motion';
+import { useCatalog } from '../../context/CatalogContext';
+import { useTheme } from '../../context/ThemeContext';
+import useGridLayout from '../../hooks/useGridLayout';
+import PageScrollLayout from '../shell/PageScrollLayout';
 import OrderDetailsCard from './OrderDetailsCard';
+import OrderHeader from './OrderHeader';
 
 export default function OrderConfirmationPage({ isDark, params }) {
   const { t, lang } = useTheme();

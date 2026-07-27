@@ -23,7 +23,7 @@ Never process duplication outside this report.
 # Execution Limits
 
 - Process exactly ONE duplication at a time.
-- Maximum duplications per execution: 15.
+- Maximum duplications per execution: 5.
 - Maximum attempts per duplication: 2.
 - Never resolve multiple duplications simultaneously.
 

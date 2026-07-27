@@ -1255,6 +1255,16 @@
         "url": "http://localhost:8081/admin",
         "message": "i18n: Potential hardcoded text string found: \"Category Holder\" without data-i18n tracking.",
         "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-b88u0q.r-letterSpacing-ud0q2t.r-lineHeight-1f529hi.r-textTransform-tsynxw"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "i18n: Potential hardcoded text string found: \"Category Holder\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-b88u0q.r-letterSpacing-ud0q2t.r-lineHeight-1f529hi.r-textTransform-tsynxw"
       }
     ]
   },

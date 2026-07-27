@@ -1,16 +1,16 @@
 import { useState } from 'react';
+import { ScrollFadeUp } from '../../components/Motion';
 import { Heading } from '../../components/Text';
 import { useAuth } from '../../context/AuthContext';
 import { useTheme } from '../../context/ThemeContext';
-import { useOrders } from '../../hooks/useOrders';
 import useGridLayout from '../../hooks/useGridLayout';
+import { useOrders } from '../../hooks/useOrders';
+import PageScrollLayout from '../shell/PageScrollLayout';
 import OrderCard from './components/OrderCard';
 import styles from './OrdersPageStyles';
-import { ScrollFadeUp } from '../../components/Motion';
-import PageScrollLayout from '../../components/PageScrollLayout';
 
-import CatalogPagination from '../catalog/CatalogPagination';
 import EmptyState from '../../components/DataTable/EmptyState';
+import CatalogPagination from '../catalog/CatalogPagination';
 
 const PAGE_SIZE = 10;
 

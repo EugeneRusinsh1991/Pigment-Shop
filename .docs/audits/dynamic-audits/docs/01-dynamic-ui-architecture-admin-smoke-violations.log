@@ -2,7 +2,7 @@
 type: dynamic-audit
 auditor: ui-architecture
 scope: admin
-date: 2026-07-27T19:16:59.275Z
+date: 2026-07-27T19:35:54.748Z
 ---
 
 ### Problem: Design System: Hardcoded spacing/border-radius lacking spatial tokens.
@@ -64,6 +64,7 @@ date: 2026-07-27T19:16:59.275Z
   - Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-14yzgew.r-marginBottom-1peese0`
   - Selector: `div.css-view-g5y9jx.r-borderRadius-kdyh1x.r-borderWidth-rs99b7.r-paddingBlock-cnw61z.r-paddingInline-is05cd`
   - Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7`
+  - Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-b88u0q.r-letterSpacing-ud0q2t.r-lineHeight-1f529hi.r-textTransform-tsynxw`
 
 ### Problem: Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.
 
@@ -277,6 +278,7 @@ date: 2026-07-27T19:16:59.275Z
   - i18n: Potential hardcoded text string found: "Select" without data-i18n tracking. | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-jwli3a`
   - i18n: Potential hardcoded text string found: "Category Type" without data-i18n tracking. | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1dk24ck`
   - i18n: Potential hardcoded text string found: "Category Holder" without data-i18n tracking. | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7`
+  - i18n: Potential hardcoded text string found: "Category Holder" without data-i18n tracking. | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-b88u0q.r-letterSpacing-ud0q2t.r-lineHeight-1f529hi.r-textTransform-tsynxw`
 
 ### Problem: Architecture: Raw `<img>` element used without MediaRenderer/Icon wrapper.
 

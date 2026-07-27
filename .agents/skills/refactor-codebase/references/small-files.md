@@ -25,7 +25,7 @@ Never process files outside this report.
 # Execution Limits
 
 - Process exactly ONE file at a time.
-- Maximum files per execution: 20.
+- Maximum files per execution: 10.
 - Maximum attempts per file: 1.
 - Never process multiple unrelated files simultaneously.
 

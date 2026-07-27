@@ -1,6 +1,6 @@
 # 📄 Small & Pass-Through Files Findings
 
-*Generated on: 27.07.2026, 15:47:43*
+*Generated on: 27.07.2026, 22:53:24*
 
 ### Candidate Files for Refactoring/Elimination
 
@@ -40,8 +40,16 @@
   - Lines: 15 | Size: 364 B | Type: **Tiny File**
   > 💡 This file contains very few lines; review if it adds unnecessary system noise.
 
+- **[useThemeUtils.js](file:///D:/Magazine/_PigmentShop/src/theme/useThemeUtils.js)** (`src/theme/useThemeUtils.js`)
+  - Lines: 16 | Size: 369 B | Type: **Tiny File**
+  > 💡 This file contains very few lines; review if it adds unnecessary system noise.
+
 - **[profile.js](file:///D:/Magazine/_PigmentShop/app/(store)/profile.js)** (`app/(store)/profile.js`)
   - Lines: 16 | Size: 486 B | Type: **Tiny File**
+  > 💡 This file contains very few lines; review if it adds unnecessary system noise.
+
+- **[useSharedLayoutWrapperTheme.js](file:///D:/Magazine/_PigmentShop/src/features/shell/SharedLayoutWrapper/useSharedLayoutWrapperTheme.js)** (`src/features/shell/SharedLayoutWrapper/useSharedLayoutWrapperTheme.js`)
+  - Lines: 18 | Size: 392 B | Type: **Tiny File**
   > 💡 This file contains very few lines; review if it adds unnecessary system noise.
 
 - **[DateRangePresets.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/DateRangePresets.js)** (`src/features/admin/Analytics/DateRangePresets.js`)
@@ -80,10 +88,6 @@
   - Lines: 14 | Size: 373 B | Type: **Tiny Component**
   > 💡 This component is very small; consider declaring it inline within its parent component.
 
-- **[useThemeUtils.js](file:///D:/Magazine/_PigmentShop/src/components/useThemeUtils.js)** (`src/components/useThemeUtils.js`)
-  - Lines: 16 | Size: 369 B | Type: **Tiny Component**
-  > 💡 This component is very small; consider declaring it inline within its parent component.
-
 - **[FieldError.js](file:///D:/Magazine/_PigmentShop/src/components/Feedback/InlineError/FieldError.js)** (`src/components/Feedback/InlineError/FieldError.js`)
   - Lines: 16 | Size: 392 B | Type: **Tiny Component**
   > 💡 This component is very small; consider declaring it inline within its parent component.
@@ -93,15 +97,11 @@
   > 💡 This component is very small; consider declaring it inline within its parent component.
 
 - **[useFlagTheme.js](file:///D:/Magazine/_PigmentShop/src/components/Flag/useFlagTheme.js)** (`src/components/Flag/useFlagTheme.js`)
-  - Lines: 17 | Size: 588 B | Type: **Tiny Component**
+  - Lines: 17 | Size: 597 B | Type: **Tiny Component**
   > 💡 This component is very small; consider declaring it inline within its parent component.
 
 - **[useModalTheme.js](file:///D:/Magazine/_PigmentShop/src/components/Modal/useModalTheme.js)** (`src/components/Modal/useModalTheme.js`)
   - Lines: 18 | Size: 653 B | Type: **Tiny Component**
-  > 💡 This component is very small; consider declaring it inline within its parent component.
-
-- **[useSharedLayoutWrapperTheme.js](file:///D:/Magazine/_PigmentShop/src/components/SharedLayoutWrapper/useSharedLayoutWrapperTheme.js)** (`src/components/SharedLayoutWrapper/useSharedLayoutWrapperTheme.js`)
-  - Lines: 18 | Size: 392 B | Type: **Tiny Component**
   > 💡 This component is very small; consider declaring it inline within its parent component.
 
 - **[CardShadow.js](file:///D:/Magazine/_PigmentShop/src/components/Card/CardShadow.js)** (`src/components/Card/CardShadow.js`)
@@ -118,10 +118,6 @@
 
 - **[useToastTheme.js](file:///D:/Magazine/_PigmentShop/src/components/Feedback/Toast/useToastTheme.js)** (`src/components/Feedback/Toast/useToastTheme.js`)
   - Lines: 23 | Size: 985 B | Type: **Tiny Component**
-  > 💡 This component is very small; consider declaring it inline within its parent component.
-
-- **[PageScrollLayout.js](file:///D:/Magazine/_PigmentShop/src/components/PageScrollLayout/PageScrollLayout.js)** (`src/components/PageScrollLayout/PageScrollLayout.js`)
-  - Lines: 24 | Size: 850 B | Type: **Tiny Component**
   > 💡 This component is very small; consider declaring it inline within its parent component.
 
 - **[useFeedbackTheme.js](file:///D:/Magazine/_PigmentShop/src/components/Feedback/useFeedbackTheme.js)** (`src/components/Feedback/useFeedbackTheme.js`)

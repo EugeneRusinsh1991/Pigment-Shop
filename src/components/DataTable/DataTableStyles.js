@@ -20,7 +20,6 @@ export const getDataTableStyles = (isDark = false) => {
     },
     thText: {
       color: isDark ? colors.textMutedDark : colors.slateText,
-      textTransform: 'uppercase',
     },
     colHeader: {
       flexDirection: 'row',
@@ -97,7 +96,6 @@ export const styles = StyleSheet.create({
   },
   thText: {
     color: colors.slateText,
-    textTransform: 'uppercase',
   },
   thTextDark: {
     color: colors.textMutedDark,

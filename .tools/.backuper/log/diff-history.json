@@ -5881,5 +5881,35 @@
         }
       ]
     }
+  },
+  "src_07-27_23-18_smoke-report.json_150files": {
+    "timestamp": "2026-07-27T20:18:18.973Z",
+    "diff": {
+      "added": 16,
+      "removed": 20,
+      "modified": 72,
+      "topFolders": [
+        {
+          "folder": ".agents/skills/refactor-codebase/references",
+          "count": 8
+        },
+        {
+          "folder": ".docs/audits/dynamic-audits/docs",
+          "count": 8
+        },
+        {
+          "folder": ".todos/reorganization",
+          "count": 8
+        },
+        {
+          "folder": ".docs/audits/fallow-audits/project",
+          "count": 7
+        },
+        {
+          "folder": ".docs/audits/catalog-inventory",
+          "count": 6
+        }
+      ]
+    }
   }
 }

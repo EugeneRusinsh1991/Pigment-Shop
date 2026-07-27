@@ -1,14 +1,14 @@
 import { View } from 'react-native';
-import { Text } from '../../components/Text';
-import Card from '../../components/Card/Card';
-import styles from './ProfilePageStyles';
 import { Button } from '../../components/Button';
+import Card from '../../components/Card/Card';
+import { Text } from '../../components/Text';
 import { FieldInput } from '../admin/SharedFormComponents';
+import styles from './ProfilePageStyles';
 
 function EmailField({ label, email, selectTheme }) {
   return (
     <View style={styles.inputGroup}>
-      <Text variant="label" color="muted" style={styles.label}>
+      <Text variant="caption" color="muted" style={styles.label}>
         {label}
       </Text>
       <View style={[styles.inputContainer, selectTheme(styles.inputContainerDark, styles.inputContainerLight), styles.inputDisabled]}>

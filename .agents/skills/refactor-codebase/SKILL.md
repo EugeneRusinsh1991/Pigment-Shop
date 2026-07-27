@@ -22,8 +22,7 @@ Identify the refactoring category from the user request, supplied file, or audit
 | Type | Trigger | Reference |
 |------|---------|-----------|
 | Complex Methods | complexity-health-findings.md | references/complex-methods.md |
-| High Complexity Files | high-complexity-files.md | references/high-complexity-files.md |
-| Large Files | large-files.md | references/large-files.md |
+| Complex Files | large-files.md OR high-complexity-files.md | references/complex-files.md |
 | Small Files | small-files.md | references/small-files.md |
 | Code Duplication | code-duplication.md | references/code-duplication.md |
 | Dead Files (Unused) | dead-files.md | references/dead-files.md |

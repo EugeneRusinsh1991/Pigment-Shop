@@ -69,7 +69,6 @@ export default StyleSheet.create({
   sectionHeading: {
     paddingHorizontal: layout.spacing.lg,
     paddingVertical: layout.spacing.sm,
-    textTransform: 'uppercase',
   },
   dividerDark: { backgroundColor: colors.borderDarkAlt },
   dividerLight: { backgroundColor: colors.navItemHoverDark },

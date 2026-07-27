@@ -1,4 +1,4 @@
-import { getIsDarkContext, getStyle } from '../useThemeUtils';
+import { getIsDarkContext, getStyle } from '../../theme/useThemeUtils';
 
 /**
  * Resolves active theme tokens & style overrides for the Flag primitive module.

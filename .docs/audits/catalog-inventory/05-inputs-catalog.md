@@ -55,11 +55,11 @@
   - Line [97](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPage.js#L97): `<PasswordInputField>`
 
 ### File: [src/features/auth/LoginPageComponents.js](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPageComponents.js)
-  - Line [33](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPageComponents.js#L33): `<FieldInput>`
-  - Line [114](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPageComponents.js#L114): `<PasswordInputField>`
+  - Line [32](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPageComponents.js#L32): `<FieldInput>`
+  - Line [113](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPageComponents.js#L113): `<PasswordInputField>`
 
 ### File: [src/features/cart/CartSummary.js](file:///D:/Magazine/_PigmentShop/src/features/cart/CartSummary.js)
-  - Line [44](file:///D:/Magazine/_PigmentShop/src/features/cart/CartSummary.js#L44): `<FieldInput>`
+  - Line [55](file:///D:/Magazine/_PigmentShop/src/features/cart/CartSummary.js#L55): `<FieldInput>`
 
 ### File: [src/features/catalog/SidebarContent.js](file:///D:/Magazine/_PigmentShop/src/features/catalog/SidebarContent.js)
   - Line [67](file:///D:/Magazine/_PigmentShop/src/features/catalog/SidebarContent.js#L67): `<PriceInputs>`

@@ -1,9 +1,9 @@
-import React, { useState, forwardRef, useCallback } from 'react';
-import { View, TextInput, Animated } from 'react-native';
+import { forwardRef, useCallback, useState } from 'react';
+import { Animated, TextInput, View } from 'react-native';
 import { Text } from '../../components/Text';
 import styles, { getTextFieldStyles } from './TextFieldStyles';
-import { useTextFieldTheme } from './useTextFieldTheme';
 import { useTextFieldAnimation } from './useTextFieldAnimation';
+import { useTextFieldTheme } from './useTextFieldTheme';
 
 function getDisplayHelperText(error, helperText) {
   if (typeof error === 'string') return error;
@@ -25,7 +25,7 @@ function makeFocusHandler(setFocused, value, externalHandler) {
 function renderLabel(label, dynamicStyles, labelStyle) {
   if (!label) return null;
   return (
-    <Text variant="label" style={[dynamicStyles.label, labelStyle]}>
+    <Text variant="caption" style={[dynamicStyles.label, labelStyle]}>
       {label}
     </Text>
   );

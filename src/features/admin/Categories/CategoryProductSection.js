@@ -1,9 +1,9 @@
-import React, { useMemo } from 'react';
-import { StyleSheet, View } from 'react-native';
-import { Text } from '@/components/Text';
 import { AnimatedButton } from '@/components/Button';
-import styles from './CategoryFormStyles';
+import { Text } from '@/components/Text';
+import { useMemo } from 'react';
+import { StyleSheet, View } from 'react-native';
 import { colors, layout, motion } from '../../../theme/tokens';
+import styles from './CategoryFormStyles';
 
 const getLanguageFallback = (labelObj, lang) => labelObj[lang] || labelObj.ru || labelObj.en;
 
@@ -97,7 +97,7 @@ const renderProductOption = (product, selected, toggleProduct, lang) => (
 
 const renderProductGroup = ({ titleKey, hintKey, emptyKey, products, selected, toggleProduct, lang, t }) => (
   <View>
-    <Text style={styles.sectionLabel}>{t(titleKey)}</Text>
+    <Text variant="overline" color="desc" style={styles.sectionLabel}>{t(titleKey)}</Text>
     <Text size={12} style={sec_styles.hintText}>
       {t(hintKey)}
     </Text>

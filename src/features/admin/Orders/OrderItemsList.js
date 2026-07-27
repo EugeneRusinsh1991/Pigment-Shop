@@ -1,8 +1,8 @@
 /**
  * OrderItemsList.js — redesigned with aligned columns + order total
  */
-import { View } from 'react-native';
 import { Text } from '@/components/Text';
+import { View } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
 import styles from './OrdersStyles';
 
@@ -39,10 +39,10 @@ export default function OrderItemsList({ items, totalPrice }) {
     <View style={styles.detailCard}>
       {/* Column header row */}
       <View style={[styles.itemRow, styles.itemHeaderRow]}>
-        <Text style={[styles.itemLabel, styles.itemColHeader]} size={11} weight="700">{t('adminOrdersItemName')}</Text>
-        <Text style={[styles.itemQty, styles.itemColHeader]} size={11} weight="700">{t('adminOrdersItemQty')}</Text>
-        <Text style={[styles.itemUnitPrice, styles.itemColHeader]} size={11} weight="700">{t('adminOrdersItemUnit')}</Text>
-        <Text style={[styles.itemPrice, styles.itemColHeader]} size={11} weight="700">{t('adminOrdersItemTotal')}</Text>
+        <Text variant="overline" color="desc" style={[styles.itemLabel, styles.itemColHeader]}>{t('adminOrdersItemName')}</Text>
+        <Text variant="overline" color="desc" style={[styles.itemQty, styles.itemColHeader]}>{t('adminOrdersItemQty')}</Text>
+        <Text variant="overline" color="desc" style={[styles.itemUnitPrice, styles.itemColHeader]}>{t('adminOrdersItemUnit')}</Text>
+        <Text variant="overline" color="desc" style={[styles.itemPrice, styles.itemColHeader]}>{t('adminOrdersItemTotal')}</Text>
       </View>
 
       {items?.map((item, idx) => (

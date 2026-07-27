@@ -7,19 +7,19 @@
  * - NameField           (localized name input)
  * - DescriptionField    (localized description textarea)
  */
+import { AnimatedButton } from '@/components/Button';
+import { Flag, FlagGroup } from '@/components/Flag';
+import { ImageIcon, UploadIcon } from '@/components/Icons';
+import { Text } from '@/components/Text';
+import TextField from '@/components/TextField';
 import { useState } from 'react';
 import { View } from 'react-native';
-import { Text } from '@/components/Text';
-import { AnimatedButton } from '@/components/Button';
 import { useTheme } from '../../../context/ThemeContext';
-import { colors, layout, motion } from '../../../theme/tokens';
 import { fromMediaRef } from '../../../media';
+import { colors, layout, motion } from '../../../theme/tokens';
 import { triggerFileInput } from '../../../utils/fileInput';
-import { ImageIcon, UploadIcon } from '@/components/Icons';
-import TextField from '@/components/TextField';
 import MediaBrowser from '../Media/MediaBrowser';
 import { FieldInput as SharedFieldInput, FieldTextarea as SharedFieldTextarea } from '../SharedFormComponents';
-import { Flag, FlagGroup } from '@/components/Flag';
 import { CATEGORY_TYPE_COLORS } from './CategoriesStyles';
 import styles from './CategoryFormStyles';
 
@@ -38,7 +38,7 @@ export function CategoryTypeDisplay({ value }) {
     <View style={styles.categoryTypeRow}>
       <Text style={styles.categoryTypeLabel}>Category Type</Text>
       <View style={[styles.categoryTypeBadge, { backgroundColor: typeColors.softBg, borderColor: typeColors.accent }]}>
-        <Text style={[styles.categoryTypeBadgeText, { color: typeColors.text }]}>
+        <Text variant="overline" style={[styles.categoryTypeBadgeText, { color: typeColors.text }]}>
           {typeColors.label}
         </Text>
       </View>

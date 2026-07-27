@@ -1,12 +1,11 @@
-import React from 'react';
-import { View, TextInput, TouchableOpacity } from 'react-native';
-import { Text, Heading } from '../../components/Text';
-import styles from './LoginPageStyles';
-import { LockIcon, EyeIcon, EyeOffIcon, ForwardArrowIcon } from '@/components/Icons';
+import { EyeIcon, EyeOffIcon, ForwardArrowIcon, LockIcon } from '@/components/Icons';
+import { View } from 'react-native';
+import { Heading, Text } from '../../components/Text';
 import { useTheme } from '../../context/ThemeContext';
 import { colors } from '../../theme/tokens';
+import styles from './LoginPageStyles';
 
-import { Button, IconButton, AnimatedButton } from '../../components/Button';
+import { Button, IconButton } from '../../components/Button';
 import { FieldInput } from '../admin/SharedFormComponents';
 
 const ic = (isDark, dark, light) => (isDark ? dark : light);
@@ -110,7 +109,7 @@ export function ConfirmPasswordField({ isRegister, value, onChangeText, isDark, 
   if (!isRegister) return null;
   return (
     <View style={styles.inputGroup}>
-      <Text variant="label" style={styles.label}>{t('loginConfirmPassword')}</Text>
+      <Text variant="caption" style={styles.label}>{t('loginConfirmPassword')}</Text>
       <PasswordInputField
         value={value}
         onChangeText={onChangeText}

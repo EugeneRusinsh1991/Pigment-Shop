@@ -1,6 +1,6 @@
 ===================================================================
          1. UI ARCHITECTURE AUDIT REPORT                           
-Timestamp: 27.07.2026, 15:47:20
+Timestamp: 27.07.2026, 22:53:06
 ===================================================================
 [DESCRIPTION FOR USER]: Этот отчет находит нарушения структуры UI-компонентов.
 Например: компоненты с недопустимыми файлами, незаимпортированные стили (GHOST_IMPORT) или дублирование файлов стилей.
@@ -9,7 +9,7 @@ Timestamp: 27.07.2026, 15:47:20
 Ensure component structure follows standard architecture (Styles, Hooks, Main Component).
 ===================================================================
 
-Found 6 architecture violation(s) across 6 target(s):
+Found 5 architecture violation(s) across 5 target(s):
 
 Target: src/components/Badge/
   [GHOST_IMPORT] BadgeStyles.js exists but is not imported in Badge.js
@@ -19,9 +19,6 @@ Target: src/components/Button/
 
 Target: src/components/Motion/
   [MISSING_MODULES] Missing: MotionStyles.js, useMotionTheme.js
-
-Target: src/components/PageScrollLayout/
-  [MISSING_MODULES] Missing: PageScrollLayoutStyles.js, usePageScrollLayoutTheme.js
 
 Target: src/components/Search/
   [HOOK_RETURNS_EMPTY] useSearchTheme.js returns empty object/null or has no return statement

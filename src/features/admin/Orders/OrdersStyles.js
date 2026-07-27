@@ -106,11 +106,9 @@ export default StyleSheet.create({
   metaLabel: {
     color: colors.secondaryDarkText,
     marginBottom: layout.elevation.sm,
-    textTransform: 'uppercase',
   },
   metaLabelInline: {
     color: colors.secondaryDarkText,
-    textTransform: 'uppercase',
   },
   metaValue: {
     color: colors.textLight,
@@ -216,7 +214,6 @@ export default StyleSheet.create({
   },
   itemColHeader: {
     color: colors.textDescDark,
-    textTransform: 'uppercase',
   },
   itemHeaderRow: {
     paddingBottom: layout.spacing.sm,

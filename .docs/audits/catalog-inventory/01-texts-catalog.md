@@ -7,7 +7,7 @@
 ---
 
 ### File: [src/components/Badge/Badge.js](file:///D:/Magazine/_PigmentShop/src/components/Badge/Badge.js)
-  - Line [31](file:///D:/Magazine/_PigmentShop/src/components/Badge/Badge.js#L31): `<Text>` -> `[Dynamic Content]`
+  - Line [32](file:///D:/Magazine/_PigmentShop/src/components/Badge/Badge.js#L32): `<Text>` -> `[Dynamic Content]`
 
 ### File: [src/components/Button/Button.js](file:///D:/Magazine/_PigmentShop/src/components/Button/Button.js)
   - Line [50](file:///D:/Magazine/_PigmentShop/src/components/Button/Button.js#L50): `<Text>` -> `[Dynamic Content]`
@@ -117,7 +117,7 @@
   - Line [37](file:///D:/Magazine/_PigmentShop/src/components/TextField/TextField.js#L37): `<Text>` -> `[Dynamic Content]`
 
 ### File: [src/components/Toggle/Toggle.js](file:///D:/Magazine/_PigmentShop/src/components/Toggle/Toggle.js)
-  - Line [65](file:///D:/Magazine/_PigmentShop/src/components/Toggle/Toggle.js#L65): `<Text>` -> `[Dynamic Content]`
+  - Line [66](file:///D:/Magazine/_PigmentShop/src/components/Toggle/Toggle.js#L66): `<Text>` -> `[Dynamic Content]`
 
 ### File: [src/features/admin/Analytics/AnalyticsDashboard.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/AnalyticsDashboard.js)
   - Line [21](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/AnalyticsDashboard.js#L21): `<Text>` -> `[Dynamic Content]`
@@ -126,10 +126,10 @@
   - Line [84](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/CalendarDayCell.js#L84): `<Text>` -> `[Dynamic Content]`
 
 ### File: [src/features/admin/Analytics/DateRangeCalendar.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/DateRangeCalendar.js)
-  - Line [85](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/DateRangeCalendar.js#L85): `<Text>` -> `‹`
-  - Line [87](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/DateRangeCalendar.js#L87): `<Text>` -> `[Dynamic Content]`
-  - Line [95](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/DateRangeCalendar.js#L95): `<Text>` -> `›`
-  - Line [102](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/DateRangeCalendar.js#L102): `<Text>` -> `[Dynamic Content]`
+  - Line [86](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/DateRangeCalendar.js#L86): `<Text>` -> `‹`
+  - Line [88](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/DateRangeCalendar.js#L88): `<Text>` -> `[Dynamic Content]`
+  - Line [96](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/DateRangeCalendar.js#L96): `<Text>` -> `›`
+  - Line [103](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/DateRangeCalendar.js#L103): `<Text>` -> `[Dynamic Content]`
 
 ### File: [src/features/admin/Analytics/OrderStatusChart.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/OrderStatusChart.js)
   - Line [104](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/OrderStatusChart.js#L104): `<Text>` -> `:`
@@ -144,11 +144,11 @@
   - Line [63](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/TopProductsChart.js#L63): `<Text>` -> `[Dynamic Content]`
 
 ### File: [src/features/admin/Banners/BannersManager.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Banners/BannersManager.js)
-  - Line [56](file:///D:/Magazine/_PigmentShop/src/features/admin/Banners/BannersManager.js#L56): `<Text>` -> `[Dynamic Content]`
-  - Line [67](file:///D:/Magazine/_PigmentShop/src/features/admin/Banners/BannersManager.js#L67): `<Text>` -> `[Dynamic Content]`
-  - Line [81](file:///D:/Magazine/_PigmentShop/src/features/admin/Banners/BannersManager.js#L81): `<Text>` -> `[Dynamic Content]`
-  - Line [99](file:///D:/Magazine/_PigmentShop/src/features/admin/Banners/BannersManager.js#L99): `<Text>` -> `[Dynamic Content]`
-  - Line [109](file:///D:/Magazine/_PigmentShop/src/features/admin/Banners/BannersManager.js#L109): `<Text>` -> `[Dynamic Content]`
+  - Line [57](file:///D:/Magazine/_PigmentShop/src/features/admin/Banners/BannersManager.js#L57): `<Text>` -> `[Dynamic Content]`
+  - Line [68](file:///D:/Magazine/_PigmentShop/src/features/admin/Banners/BannersManager.js#L68): `<Text>` -> `[Dynamic Content]`
+  - Line [82](file:///D:/Magazine/_PigmentShop/src/features/admin/Banners/BannersManager.js#L82): `<Text>` -> `[Dynamic Content]`
+  - Line [100](file:///D:/Magazine/_PigmentShop/src/features/admin/Banners/BannersManager.js#L100): `<Text>` -> `[Dynamic Content]`
+  - Line [110](file:///D:/Magazine/_PigmentShop/src/features/admin/Banners/BannersManager.js#L110): `<Text>` -> `[Dynamic Content]`
 
 ### File: [src/features/admin/Categories/CategoryFormContent.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Categories/CategoryFormContent.js)
   - Line [34](file:///D:/Magazine/_PigmentShop/src/features/admin/Categories/CategoryFormContent.js#L34): `<Text>` -> `[Dynamic Content]`
@@ -217,30 +217,30 @@
   - Line [63](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderItemsList.js#L63): `<Text>` -> `$`
 
 ### File: [src/features/admin/Orders/OrderRow.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderRow.js)
-  - Line [49](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderRow.js#L49): `<Text>` -> `#`
-  - Line [50](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderRow.js#L50): `<Text>` -> `[Dynamic Content]`
-  - Line [54](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderRow.js#L54): `<Text>` -> `[Dynamic Content]`
-  - Line [59](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderRow.js#L59): `<Text>` -> `[Dynamic Content]`
-  - Line [60](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderRow.js#L60): `<Text>` -> `[Dynamic Content]`
-  - Line [63](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderRow.js#L63): `<Text>` -> `[Dynamic Content]`
-  - Line [67](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderRow.js#L67): `<Text>` -> `[Dynamic Content]`
-  - Line [68](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderRow.js#L68): `<Text>` -> `$`
-  - Line [75](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderRow.js#L75): `<Text>` -> `[Dynamic Content]`
-  - Line [76](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderRow.js#L76): `<Text>` -> `[Dynamic Content]`
-  - Line [79](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderRow.js#L79): `<Text>` -> `[Dynamic Content]`
-  - Line [80](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderRow.js#L80): `<Text>` -> `[Dynamic Content]`
-  - Line [95](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderRow.js#L95): `<Text>` -> `#`
-  - Line [98](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderRow.js#L98): `<Text>` -> `[Dynamic Content]`
-  - Line [103](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderRow.js#L103): `<Text>` -> `[Dynamic Content]`
-  - Line [109](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderRow.js#L109): `<Text>` -> `$`
-  - Line [114](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderRow.js#L114): `<Text>` -> `:`
-  - Line [115](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderRow.js#L115): `<Text>` -> `[Dynamic Content]`
-  - Line [118](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderRow.js#L118): `<Text>` -> `:`
-  - Line [119](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderRow.js#L119): `<Text>` -> `[Dynamic Content]`
+  - Line [47](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderRow.js#L47): `<Text>` -> `#`
+  - Line [48](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderRow.js#L48): `<Text>` -> `[Dynamic Content]`
+  - Line [52](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderRow.js#L52): `<Text>` -> `[Dynamic Content]`
+  - Line [57](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderRow.js#L57): `<Text>` -> `[Dynamic Content]`
+  - Line [58](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderRow.js#L58): `<Text>` -> `[Dynamic Content]`
+  - Line [61](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderRow.js#L61): `<Text>` -> `[Dynamic Content]`
+  - Line [65](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderRow.js#L65): `<Text>` -> `[Dynamic Content]`
+  - Line [66](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderRow.js#L66): `<Text>` -> `$`
+  - Line [73](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderRow.js#L73): `<Text>` -> `[Dynamic Content]`
+  - Line [74](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderRow.js#L74): `<Text>` -> `[Dynamic Content]`
+  - Line [77](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderRow.js#L77): `<Text>` -> `[Dynamic Content]`
+  - Line [78](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderRow.js#L78): `<Text>` -> `[Dynamic Content]`
+  - Line [93](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderRow.js#L93): `<Text>` -> `#`
+  - Line [96](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderRow.js#L96): `<Text>` -> `[Dynamic Content]`
+  - Line [101](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderRow.js#L101): `<Text>` -> `[Dynamic Content]`
+  - Line [107](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderRow.js#L107): `<Text>` -> `$`
+  - Line [112](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderRow.js#L112): `<Text>` -> `:`
+  - Line [113](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderRow.js#L113): `<Text>` -> `[Dynamic Content]`
+  - Line [116](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderRow.js#L116): `<Text>` -> `:`
+  - Line [117](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderRow.js#L117): `<Text>` -> `[Dynamic Content]`
 
 ### File: [src/features/admin/Orders/OrderStatusDropdownMenu.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderStatusDropdownMenu.js)
-  - Line [34](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderStatusDropdownMenu.js#L34): `<Text>` -> `[Dynamic Content]`
-  - Line [37](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderStatusDropdownMenu.js#L37): `<Text>` -> `✓`
+  - Line [33](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderStatusDropdownMenu.js#L33): `<Text>` -> `[Dynamic Content]`
+  - Line [36](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderStatusDropdownMenu.js#L36): `<Text>` -> `✓`
 
 ### File: [src/features/admin/Orders/OrdersTable.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrdersTable.js)
   - Line [47](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrdersTable.js#L47): `<Text>` -> `[Dynamic Content]`
@@ -287,17 +287,17 @@
   - Line [13](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UserNoteSection.js#L13): `<Text>` -> `[Dynamic Content]`
 
 ### File: [src/features/admin/Users/UserRow.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UserRow.js)
-  - Line [18](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UserRow.js#L18): `<Text>` -> `[Dynamic Content]`
-  - Line [22](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UserRow.js#L22): `<Text>` -> `·`
-  - Line [23](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UserRow.js#L23): `<Text>` -> `[Dynamic Content]`
-  - Line [29](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UserRow.js#L29): `<Text>` -> `[Dynamic Content]`
-  - Line [31](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UserRow.js#L31): `<Text>` -> `›`
-  - Line [45](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UserRow.js#L45): `<Text>` -> `[Dynamic Content]`
-  - Line [48](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UserRow.js#L48): `<Text>` -> `[Dynamic Content]`
-  - Line [51](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UserRow.js#L51): `<Text>` -> `[Dynamic Content]`
-  - Line [54](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UserRow.js#L54): `<Text>` -> `[Dynamic Content]`
-  - Line [58](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UserRow.js#L58): `<Text>` -> `[Dynamic Content]`
-  - Line [60](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UserRow.js#L60): `<Text>` -> `›`
+  - Line [19](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UserRow.js#L19): `<Text>` -> `[Dynamic Content]`
+  - Line [23](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UserRow.js#L23): `<Text>` -> `·`
+  - Line [24](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UserRow.js#L24): `<Text>` -> `[Dynamic Content]`
+  - Line [30](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UserRow.js#L30): `<Text>` -> `[Dynamic Content]`
+  - Line [32](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UserRow.js#L32): `<Text>` -> `›`
+  - Line [46](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UserRow.js#L46): `<Text>` -> `[Dynamic Content]`
+  - Line [49](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UserRow.js#L49): `<Text>` -> `[Dynamic Content]`
+  - Line [52](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UserRow.js#L52): `<Text>` -> `[Dynamic Content]`
+  - Line [55](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UserRow.js#L55): `<Text>` -> `[Dynamic Content]`
+  - Line [59](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UserRow.js#L59): `<Text>` -> `[Dynamic Content]`
+  - Line [61](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UserRow.js#L61): `<Text>` -> `›`
 
 ### File: [src/features/admin/Users/UsersManager.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UsersManager.js)
   - Line [156](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UsersManager.js#L156): `<Text>` -> `[Dynamic Content]`
@@ -309,25 +309,25 @@
   - Line [94](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPage.js#L94): `<Text>` -> `[Dynamic Content]`
 
 ### File: [src/features/auth/LoginPageComponents.js](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPageComponents.js)
-  - Line [24](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPageComponents.js#L24): `<Text>` -> `[Dynamic Content]`
-  - Line [62](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPageComponents.js#L62): `<Text>` -> `[Dynamic Content]`
-  - Line [90](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPageComponents.js#L90): `<Text>` -> `[Dynamic Content]`
-  - Line [113](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPageComponents.js#L113): `<Text>` -> `[Dynamic Content]`
+  - Line [23](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPageComponents.js#L23): `<Text>` -> `[Dynamic Content]`
+  - Line [61](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPageComponents.js#L61): `<Text>` -> `[Dynamic Content]`
+  - Line [89](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPageComponents.js#L89): `<Text>` -> `[Dynamic Content]`
+  - Line [112](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPageComponents.js#L112): `<Text>` -> `[Dynamic Content]`
 
 ### File: [src/features/cart/CartItem.js](file:///D:/Magazine/_PigmentShop/src/features/cart/CartItem.js)
-  - Line [31](file:///D:/Magazine/_PigmentShop/src/features/cart/CartItem.js#L31): `<Text>` -> `[Dynamic Content]`
-  - Line [44](file:///D:/Magazine/_PigmentShop/src/features/cart/CartItem.js#L44): `<Text>` -> `[Dynamic Content]`
-  - Line [52](file:///D:/Magazine/_PigmentShop/src/features/cart/CartItem.js#L52): `<Text>` -> `−`
-  - Line [58](file:///D:/Magazine/_PigmentShop/src/features/cart/CartItem.js#L58): `<Text>` -> `[Dynamic Content]`
-  - Line [61](file:///D:/Magazine/_PigmentShop/src/features/cart/CartItem.js#L61): `<Text>` -> `+`
-  - Line [68](file:///D:/Magazine/_PigmentShop/src/features/cart/CartItem.js#L68): `<Text>` -> `[Dynamic Content]`
+  - Line [30](file:///D:/Magazine/_PigmentShop/src/features/cart/CartItem.js#L30): `<Text>` -> `[Dynamic Content]`
+  - Line [43](file:///D:/Magazine/_PigmentShop/src/features/cart/CartItem.js#L43): `<Text>` -> `[Dynamic Content]`
+  - Line [51](file:///D:/Magazine/_PigmentShop/src/features/cart/CartItem.js#L51): `<Text>` -> `−`
+  - Line [57](file:///D:/Magazine/_PigmentShop/src/features/cart/CartItem.js#L57): `<Text>` -> `[Dynamic Content]`
+  - Line [60](file:///D:/Magazine/_PigmentShop/src/features/cart/CartItem.js#L60): `<Text>` -> `+`
+  - Line [67](file:///D:/Magazine/_PigmentShop/src/features/cart/CartItem.js#L67): `<Text>` -> `[Dynamic Content]`
 
 ### File: [src/features/cart/CartSummary.js](file:///D:/Magazine/_PigmentShop/src/features/cart/CartSummary.js)
-  - Line [33](file:///D:/Magazine/_PigmentShop/src/features/cart/CartSummary.js#L33): `<Text>` -> `[Dynamic Content]`
-  - Line [36](file:///D:/Magazine/_PigmentShop/src/features/cart/CartSummary.js#L36): `<Text>` -> `[Dynamic Content]`
-  - Line [62](file:///D:/Magazine/_PigmentShop/src/features/cart/CartSummary.js#L62): `<Text>` -> `[Dynamic Content]`
-  - Line [84](file:///D:/Magazine/_PigmentShop/src/features/cart/CartSummary.js#L84): `<Text>` -> `[Dynamic Content]`
-  - Line [87](file:///D:/Magazine/_PigmentShop/src/features/cart/CartSummary.js#L87): `<Text>` -> `$`
+  - Line [44](file:///D:/Magazine/_PigmentShop/src/features/cart/CartSummary.js#L44): `<Text>` -> `[Dynamic Content]`
+  - Line [47](file:///D:/Magazine/_PigmentShop/src/features/cart/CartSummary.js#L47): `<Text>` -> `[Dynamic Content]`
+  - Line [73](file:///D:/Magazine/_PigmentShop/src/features/cart/CartSummary.js#L73): `<Text>` -> `[Dynamic Content]`
+  - Line [95](file:///D:/Magazine/_PigmentShop/src/features/cart/CartSummary.js#L95): `<Text>` -> `[Dynamic Content]`
+  - Line [98](file:///D:/Magazine/_PigmentShop/src/features/cart/CartSummary.js#L98): `<Text>` -> `$`
 
 ### File: [src/features/cart/CartViewContent.js](file:///D:/Magazine/_PigmentShop/src/features/cart/CartViewContent.js)
   - Line [16](file:///D:/Magazine/_PigmentShop/src/features/cart/CartViewContent.js#L16): `<Text>` -> `[Dynamic Content]`
@@ -375,10 +375,10 @@
   - Line [81](file:///D:/Magazine/_PigmentShop/src/features/home/components/FeaturedSections.js#L81): `<Text>` -> `S`
 
 ### File: [src/features/orders/OrderDetailsCard.js](file:///D:/Magazine/_PigmentShop/src/features/orders/OrderDetailsCard.js)
-  - Line [13](file:///D:/Magazine/_PigmentShop/src/features/orders/OrderDetailsCard.js#L13): `<Text>` -> `[Dynamic Content]`
-  - Line [16](file:///D:/Magazine/_PigmentShop/src/features/orders/OrderDetailsCard.js#L16): `<Text>` -> `[Dynamic Content]`
-  - Line [19](file:///D:/Magazine/_PigmentShop/src/features/orders/OrderDetailsCard.js#L19): `<Text>` -> `[Dynamic Content]`
-  - Line [22](file:///D:/Magazine/_PigmentShop/src/features/orders/OrderDetailsCard.js#L22): `<Text>` -> `[Dynamic Content]`
+  - Line [12](file:///D:/Magazine/_PigmentShop/src/features/orders/OrderDetailsCard.js#L12): `<Text>` -> `[Dynamic Content]`
+  - Line [15](file:///D:/Magazine/_PigmentShop/src/features/orders/OrderDetailsCard.js#L15): `<Text>` -> `[Dynamic Content]`
+  - Line [18](file:///D:/Magazine/_PigmentShop/src/features/orders/OrderDetailsCard.js#L18): `<Text>` -> `[Dynamic Content]`
+  - Line [21](file:///D:/Magazine/_PigmentShop/src/features/orders/OrderDetailsCard.js#L21): `<Text>` -> `[Dynamic Content]`
 
 ### File: [src/features/orders/OrderHeader.js](file:///D:/Magazine/_PigmentShop/src/features/orders/OrderHeader.js)
   - Line [11](file:///D:/Magazine/_PigmentShop/src/features/orders/OrderHeader.js#L11): `<Text>` -> `✓`

@@ -71,7 +71,7 @@
   - Line [37](file:///D:/Magazine/_PigmentShop/src/features/orders/OrderConfirmationPage.js#L37): `<OrderDetailsCard>`
 
 ### File: [src/features/orders/OrderDetailsCard.js](file:///D:/Magazine/_PigmentShop/src/features/orders/OrderDetailsCard.js)
-  - Line [34](file:///D:/Magazine/_PigmentShop/src/features/orders/OrderDetailsCard.js#L34): `<Card>`
+  - Line [33](file:///D:/Magazine/_PigmentShop/src/features/orders/OrderDetailsCard.js#L33): `<Card>`
 
 ### File: [src/features/orders/OrdersPage.js](file:///D:/Magazine/_PigmentShop/src/features/orders/OrdersPage.js)
   - Line [31](file:///D:/Magazine/_PigmentShop/src/features/orders/OrdersPage.js#L31): `<OrderCard>`

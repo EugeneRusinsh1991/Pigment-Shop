@@ -1,6 +1,6 @@
 ===================================================================
                FILES WITH ISSUES REPORT                            
-Timestamp: 27.07.2026, 15:47:24
+Timestamp: 27.07.2026, 22:53:08
 ===================================================================
 
 Found 125 issue(s) across 35 target(s):
@@ -17,11 +17,9 @@ Found 125 issue(s) across 35 target(s):
 - src\components\Media\GifRenderer.js (2 issues)
 - src\components\Media\VideoRenderer.js (1 issues)
 - src\components\Navigation\Breadcrumbs\Breadcrumb.js (2 issues)
-- src\components\PageScrollLayout\PageScrollLayout.js (2 issues)
 - src\components\Search\AutocompleteSearch.js (1 issues)
 - src\components\Search\SearchDropdown.js (2 issues)
 - src\components\Search\SearchInput.js (1 issues)
-- src\components\SharedLayoutWrapper\SharedLayoutWrapper.js (2 issues)
 - src\components\Text\Heading.js (1 issues)
 - src\components\Toggle\Toggle.js (2 issues)
 - src\features\admin\SharedFormComponents.js (2 issues)
@@ -39,4 +37,6 @@ Found 125 issue(s) across 35 target(s):
 - src\features\shell\AppHeader\AppHeaderLogo.js (1 issues)
 - src\features\shell\AppHeader\HeaderDropdown.js (1 issues)
 - src\features\shell\NavMenu\LanguageSelector.js (2 issues)
+- src\features\shell\PageScrollLayout\PageScrollLayout.js (2 issues)
+- src\features\shell\SharedLayoutWrapper\SharedLayoutWrapper.js (2 issues)
 - src\features\shell\StoreSearchHeader.js (1 issues)

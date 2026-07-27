@@ -4,7 +4,7 @@
  * Styles for the categories manager container and tree table.
  */
 import { StyleSheet } from 'react-native';
-import { colors, layout, shadow, buttonTokens } from '../../../theme/tokens';
+import { buttonTokens, colors, layout, shadow } from '../../../theme/tokens';
 
 export const CATEGORY_TYPE_COLORS = {
   category_holder: {
@@ -148,7 +148,6 @@ export default StyleSheet.create({
     borderRadius: layout.radii.full,
   },
   typeBadgeText: {
-    textTransform: 'uppercase',
   },
 
   cellText: {

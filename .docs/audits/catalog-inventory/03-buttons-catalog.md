@@ -7,7 +7,7 @@
 ---
 
 ### File: [src/components/Badge/Badge.js](file:///D:/Magazine/_PigmentShop/src/components/Badge/Badge.js)
-  - Line [78](file:///D:/Magazine/_PigmentShop/src/components/Badge/Badge.js#L78): `<TouchableOpacity>`
+  - Line [79](file:///D:/Magazine/_PigmentShop/src/components/Badge/Badge.js#L79): `<TouchableOpacity>`
 
 ### File: [src/components/Button/Button.js](file:///D:/Magazine/_PigmentShop/src/components/Button/Button.js)
   - Line [58](file:///D:/Magazine/_PigmentShop/src/components/Button/Button.js#L58): `<TouchableOpacity>`
@@ -61,7 +61,7 @@
   - Line [38](file:///D:/Magazine/_PigmentShop/src/components/Search/SearchInput.js#L38): `<IconButton>`
 
 ### File: [src/components/Toggle/Toggle.js](file:///D:/Magazine/_PigmentShop/src/components/Toggle/Toggle.js)
-  - Line [54](file:///D:/Magazine/_PigmentShop/src/components/Toggle/Toggle.js#L54): `<TouchableOpacity>`
+  - Line [55](file:///D:/Magazine/_PigmentShop/src/components/Toggle/Toggle.js#L55): `<TouchableOpacity>`
 
 ### File: [src/features/admin/AdminPanel.js](file:///D:/Magazine/_PigmentShop/src/features/admin/AdminPanel.js)
   - Line [59](file:///D:/Magazine/_PigmentShop/src/features/admin/AdminPanel.js#L59): `<IconButton>`
@@ -75,15 +75,15 @@
   - Line [77](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/CalendarDayCell.js#L77): `<AnimatedButton>`
 
 ### File: [src/features/admin/Analytics/DateRangeCalendar.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/DateRangeCalendar.js)
-  - Line [80](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/DateRangeCalendar.js#L80): `<TouchableOpacity>`
-  - Line [90](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/DateRangeCalendar.js#L90): `<TouchableOpacity>`
+  - Line [81](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/DateRangeCalendar.js#L81): `<TouchableOpacity>`
+  - Line [91](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/DateRangeCalendar.js#L91): `<TouchableOpacity>`
 
 ### File: [src/features/admin/Banners/BannersManager.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Banners/BannersManager.js)
-  - Line [47](file:///D:/Magazine/_PigmentShop/src/features/admin/Banners/BannersManager.js#L47): `<AnimatedButton>`
-  - Line [62](file:///D:/Magazine/_PigmentShop/src/features/admin/Banners/BannersManager.js#L62): `<AnimatedButton>`
-  - Line [70](file:///D:/Magazine/_PigmentShop/src/features/admin/Banners/BannersManager.js#L70): `<AnimatedButton>`
-  - Line [94](file:///D:/Magazine/_PigmentShop/src/features/admin/Banners/BannersManager.js#L94): `<AnimatedButton>`
-  - Line [108](file:///D:/Magazine/_PigmentShop/src/features/admin/Banners/BannersManager.js#L108): `<AnimatedButton>`
+  - Line [48](file:///D:/Magazine/_PigmentShop/src/features/admin/Banners/BannersManager.js#L48): `<AnimatedButton>`
+  - Line [63](file:///D:/Magazine/_PigmentShop/src/features/admin/Banners/BannersManager.js#L63): `<AnimatedButton>`
+  - Line [71](file:///D:/Magazine/_PigmentShop/src/features/admin/Banners/BannersManager.js#L71): `<AnimatedButton>`
+  - Line [95](file:///D:/Magazine/_PigmentShop/src/features/admin/Banners/BannersManager.js#L95): `<AnimatedButton>`
+  - Line [109](file:///D:/Magazine/_PigmentShop/src/features/admin/Banners/BannersManager.js#L109): `<AnimatedButton>`
 
 ### File: [src/features/admin/Categories/CategoryFormFields.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Categories/CategoryFormFields.js)
   - Line [94](file:///D:/Magazine/_PigmentShop/src/features/admin/Categories/CategoryFormFields.js#L94): `<AnimatedButton>`
@@ -135,10 +135,10 @@
   - Line [81](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderDetails.js#L81): `<AnimatedButton>`
 
 ### File: [src/features/admin/Orders/OrderRow.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderRow.js)
-  - Line [46](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderRow.js#L46): `<AnimatedButton>`
+  - Line [44](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderRow.js#L44): `<AnimatedButton>`
 
 ### File: [src/features/admin/Orders/OrderStatusDropdownMenu.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderStatusDropdownMenu.js)
-  - Line [21](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderStatusDropdownMenu.js#L21): `<AnimatedButton>`
+  - Line [20](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderStatusDropdownMenu.js#L20): `<AnimatedButton>`
 
 ### File: [src/features/admin/Products/MobileProductRow.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Products/MobileProductRow.js)
   - Line [51](file:///D:/Magazine/_PigmentShop/src/features/admin/Products/MobileProductRow.js#L51): `<TouchableOpacity>`
@@ -160,25 +160,25 @@
   - Line [51](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UserDetails.js#L51): `<Button>`
 
 ### File: [src/features/admin/Users/UserRow.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UserRow.js)
-  - Line [11](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UserRow.js#L11): `<AnimatedButton>`
-  - Line [38](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UserRow.js#L38): `<AnimatedButton>`
+  - Line [12](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UserRow.js#L12): `<AnimatedButton>`
+  - Line [39](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UserRow.js#L39): `<AnimatedButton>`
 
 ### File: [src/features/auth/LoginPage.js](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPage.js)
   - Line [57](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPage.js#L57): `<Button>`
   - Line [116](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPage.js#L116): `<Button>`
 
 ### File: [src/features/auth/LoginPageComponents.js](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPageComponents.js)
-  - Line [47](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPageComponents.js#L47): `<IconButton>`
-  - Line [64](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPageComponents.js#L64): `<Button>`
-  - Line [97](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPageComponents.js#L97): `<Button>`
+  - Line [46](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPageComponents.js#L46): `<IconButton>`
+  - Line [63](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPageComponents.js#L63): `<Button>`
+  - Line [96](file:///D:/Magazine/_PigmentShop/src/features/auth/LoginPageComponents.js#L96): `<Button>`
 
 ### File: [src/features/cart/CartItem.js](file:///D:/Magazine/_PigmentShop/src/features/cart/CartItem.js)
-  - Line [34](file:///D:/Magazine/_PigmentShop/src/features/cart/CartItem.js#L34): `<IconButton>`
-  - Line [51](file:///D:/Magazine/_PigmentShop/src/features/cart/CartItem.js#L51): `<IconButton>`
-  - Line [60](file:///D:/Magazine/_PigmentShop/src/features/cart/CartItem.js#L60): `<IconButton>`
+  - Line [33](file:///D:/Magazine/_PigmentShop/src/features/cart/CartItem.js#L33): `<IconButton>`
+  - Line [50](file:///D:/Magazine/_PigmentShop/src/features/cart/CartItem.js#L50): `<IconButton>`
+  - Line [59](file:///D:/Magazine/_PigmentShop/src/features/cart/CartItem.js#L59): `<IconButton>`
 
 ### File: [src/features/cart/CartSummary.js](file:///D:/Magazine/_PigmentShop/src/features/cart/CartSummary.js)
-  - Line [96](file:///D:/Magazine/_PigmentShop/src/features/cart/CartSummary.js#L96): `<Button>`
+  - Line [107](file:///D:/Magazine/_PigmentShop/src/features/cart/CartSummary.js#L107): `<Button>`
 
 ### File: [src/features/catalog/CatalogFilterSidebar.js](file:///D:/Magazine/_PigmentShop/src/features/catalog/CatalogFilterSidebar.js)
   - Line [27](file:///D:/Magazine/_PigmentShop/src/features/catalog/CatalogFilterSidebar.js#L27): `<AnimatedButton>`

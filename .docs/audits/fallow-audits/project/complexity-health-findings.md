@@ -1,6 +1,15 @@
 # 🩺 Complexity Health Findings (Critical & High)
 
-*Generated on: 27.07.2026, 15:47:43*
+*Generated on: 27.07.2026, 22:53:24*
+
+## 🔴 Critical (> 50 lines)
+
+#### 📁 [useCheckoutLogic.js](file:///D:/Magazine/_PigmentShop/src/hooks/useCheckoutLogic.js)
+`src/hooks/useCheckoutLogic.js`
+
+- 🔴 **`handleCheckoutProcess`** [L86](file:///D:/Magazine/_PigmentShop/src/hooks/useCheckoutLogic.js#L86)
+  - Lines: 64 | Cyclomatic: 16 | Cognitive: 16 | CRAP: 272
+
 
 ## 🔴 Critical (≤ 50 lines)
 
@@ -9,6 +18,12 @@
 
 - 🔴 **`warnFontOverrides`** [L7](file:///D:/Magazine/_PigmentShop/src/components/Text/Text.js#L7)
   - Lines: 25 | Cyclomatic: 12 | Cognitive: 19 | CRAP: 156
+
+#### 📁 [useCheckoutLogic.js](file:///D:/Magazine/_PigmentShop/src/hooks/useCheckoutLogic.js)
+`src/hooks/useCheckoutLogic.js`
+
+- 🔴 **`validateCheckoutForm`** [L53](file:///D:/Magazine/_PigmentShop/src/hooks/useCheckoutLogic.js#L53)
+  - Lines: 27 | Cyclomatic: 11 | Cognitive: 10 | CRAP: 132
 
 
 ## 🟠 High (> 50 lines)
@@ -49,7 +64,7 @@
 #### 📁 [UserRow.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UserRow.js)
 `src/features/admin/Users/UserRow.js`
 
-- 🟠 **`DesktopUserRow`** [L36](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UserRow.js#L36)
+- 🟠 **`DesktopUserRow`** [L37](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UserRow.js#L37)
   - Lines: 29 | Cyclomatic: 9 | Cognitive: 8 | CRAP: 90
 
 #### 📁 [useDataTableTheme.js](file:///D:/Magazine/_PigmentShop/src/components/DataTable/useDataTableTheme.js)
@@ -61,9 +76,9 @@
 #### 📁 [Badge.js](file:///D:/Magazine/_PigmentShop/src/components/Badge/Badge.js)
 `src/components/Badge/Badge.js`
 
-- 🟠 **`extractFontProps`** [L17](file:///D:/Magazine/_PigmentShop/src/components/Badge/Badge.js#L17)
+- 🟠 **`extractFontProps`** [L18](file:///D:/Magazine/_PigmentShop/src/components/Badge/Badge.js#L18)
   - Lines: 11 | Cyclomatic: 7 | Cognitive: 6 | CRAP: 56
-- 🟠 **`resolveDisplayText`** [L99](file:///D:/Magazine/_PigmentShop/src/components/Badge/Badge.js#L99)
+- 🟠 **`resolveDisplayText`** [L100](file:///D:/Magazine/_PigmentShop/src/components/Badge/Badge.js#L100)
   - Lines: 6 | Cyclomatic: 7 | Cognitive: 6 | CRAP: 56
 
 #### 📁 [useModalTheme.js](file:///D:/Magazine/_PigmentShop/src/components/Modal/useModalTheme.js)

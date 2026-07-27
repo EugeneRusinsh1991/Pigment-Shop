@@ -1,6 +1,6 @@
 ===================================================================
          3. HARDCODED STYLES, COLORS & SPACING REPORT (RAW)              
-Timestamp: 27.07.2026, 15:47:24
+Timestamp: 27.07.2026, 22:53:08
 ===================================================================
 [PROMPT FOR AGENT]: Refactor hardcoded inline styles/colors in listed files.
 Extract inline style objects to component styles or design tokens.
@@ -10,11 +10,11 @@ Do not alter runtime behavior or API props.
 Found 125 issue(s) across 35 file(s):
 
 File: src\components\Badge\Badge.js
-  L77    <Animated.View style={mergedContainerStyle}>
-  L93    <Animated.View ref={ref} style={mergedContainerStyle} {...rest}>
+  L78    <Animated.View style={mergedContainerStyle}>
+  L94    <Animated.View ref={ref} style={mergedContainerStyle} {...rest}>
 
 File: src\components\Button\Button.js
-  L50    : title ? <Text style={textCombinedStyle} size={size} weight="semiBold">{title}</Text> : null}
+  L50    : title ? <Text style={textCombinedStyle} size={size} weight="semibold">{title}</Text> : null}
   L60    style={containerStyle}
 
 File: src\components\Card\Card.js
@@ -111,10 +111,6 @@ File: src\components\Navigation\Breadcrumbs\Breadcrumb.js
   L20    <Text style={textStyle} size="sm" weight="medium" numberOfLines={1}>
   L29    <Text style={textStyle} size="sm" weight="medium" numberOfLines={1}>
 
-File: src\components\PageScrollLayout\PageScrollLayout.js
-  L14    <View style={commonStyles.flex1}>
-  L19    <View style={commonStyles.bottomSpacer} />
-
 File: src\components\Search\AutocompleteSearch.js
   L69    <View style={SearchStyles.autocompleteContainer}>
 
@@ -125,16 +121,12 @@ File: src\components\Search\SearchDropdown.js
 File: src\components\Search\SearchInput.js
   L41    style={SearchStyles.clearButton}
 
-File: src\components\SharedLayoutWrapper\SharedLayoutWrapper.js
-  L17    <View style={sharedLayoutWrapperStyles.wrapper}>
-  L24    <View style={sharedLayoutWrapperStyles.footerInner}>
-
 File: src\components\Text\Heading.js
   L40    style={style}
 
 File: src\components\Toggle\Toggle.js
-  L57    style={computedOptionStyle}
-  L69    style={computedTextStyle}
+  L58    style={computedOptionStyle}
+  L70    style={computedTextStyle}
 
 File: src\features\admin\SharedFormComponents.js
   L23    <View style={resolvedStyles.row}>
@@ -153,7 +145,7 @@ File: src\features\catalog\CategoryCard.js
 
 File: src\features\catalog\components\NewArrivalsFooter.js
   L41    <View style={localStyles.emptyContainer}>
-  L42    <Text variant="body" color="muted" style={localStyles.emptyText}>
+  L42    <Text variant="body1" color="muted" style={localStyles.emptyText}>
 
 File: src\features\catalog\GridHeaderFooter.js
   L44    style={itemStyle}
@@ -174,7 +166,7 @@ File: src\features\catalog\ProductGrid.js
 File: src\features\home\components\DiscountsSection.js
   L23    <ScrollFadeUp style={headerStyle}>
   L68    <View style={localStyles.emptyContainer}>
-  L69    <Text variant="body" color="muted" style={localStyles.emptyText}>
+  L69    <Text variant="body1" color="muted" style={localStyles.emptyText}>
 
 File: src\features\home\components\HeroCarousel\CarouselDots.js
   L43    <View style={localStyles.dotsContainer}>
@@ -200,6 +192,14 @@ File: src\features\shell\AppHeader\HeaderDropdown.js
 File: src\features\shell\NavMenu\LanguageSelector.js
   L50    style={getThemeToggleStyle(isDark)}
   L53    <View style={themeIconStyles.container}>
+
+File: src\features\shell\PageScrollLayout\PageScrollLayout.js
+  L14    <View style={commonStyles.flex1}>
+  L19    <View style={commonStyles.bottomSpacer} />
+
+File: src\features\shell\SharedLayoutWrapper\SharedLayoutWrapper.js
+  L17    <View style={sharedLayoutWrapperStyles.wrapper}>
+  L24    <View style={sharedLayoutWrapperStyles.footerInner}>
 
 File: src\features\shell\StoreSearchHeader.js
   L29    <View style={searchInnerStyle}>

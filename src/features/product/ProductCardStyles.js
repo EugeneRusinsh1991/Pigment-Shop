@@ -38,7 +38,6 @@ export default StyleSheet.create({
   },
   brandText: {
     color: colors.accent,
-    textTransform: 'uppercase',
     marginBottom: layout.spacing.xxs,
   },
   prodTitle: {

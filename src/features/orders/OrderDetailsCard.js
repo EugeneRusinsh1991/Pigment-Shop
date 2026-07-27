@@ -1,25 +1,24 @@
-import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Text, Heading } from '../../components/Text';
 import Card from '../../components/Card/Card';
+import { Heading, Text } from '../../components/Text';
 import { colors, layout } from '../../theme/tokens';
-import { OrderMetaRow, OrderItemRow } from './OrderRows';
 import { formatDateLong } from '../../utils/dateFormatting';
+import { OrderItemRow, OrderMetaRow } from './OrderRows';
 
 
 function OrderItemsHeader({ isDark, t }) {
   return (
     <View style={[styles.itemsHeader, isDark ? styles.borderDark : styles.borderLight, styles.itemsHeaderTop]}>
-      <Text variant="label" weight="medium" style={[styles.colProduct]}>
+      <Text variant="caption" weight="medium" style={[styles.colProduct]}>
         {t('orderConfirmationItemProduct')}
       </Text>
-      <Text variant="label" weight="medium" style={[styles.colQty, { textAlign: 'center' }]}>
+      <Text variant="caption" weight="medium" style={[styles.colQty, { textAlign: 'center' }]}>
         {t('orderConfirmationItemQty')}
       </Text>
-      <Text variant="label" weight="medium" style={[styles.colPrice, { textAlign: 'right' }]}>
+      <Text variant="caption" weight="medium" style={[styles.colPrice, { textAlign: 'right' }]}>
         {t('orderConfirmationItemPrice')}
       </Text>
-      <Text variant="label" weight="medium" style={[styles.colTotal, { textAlign: 'right' }]}>
+      <Text variant="caption" weight="medium" style={[styles.colTotal, { textAlign: 'right' }]}>
         {t('orderConfirmationItemTotal')}
       </Text>
     </View>

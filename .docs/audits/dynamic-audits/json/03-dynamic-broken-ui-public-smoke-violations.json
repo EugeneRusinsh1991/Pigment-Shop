@@ -233,6 +233,33 @@
         "message": "Element has overflow clipping (`scrollWidth > clientWidth`).",
         "selector": "div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-12zy4o2"
       }
+    ],
+    "http://localhost:8081/cart": [
+      {
+        "url": "http://localhost:8081/cart",
+        "message": "Element has overflow clipping (`scrollWidth > clientWidth`).",
+        "selector": "div.css-view-g5y9jx.r-flex-13awgt0.r-justifyContent-1wtj0ep.r-marginInlineStart-1cwvpvk"
+      },
+      {
+        "url": "http://localhost:8081/cart",
+        "message": "Element has overflow clipping (`scrollWidth > clientWidth`).",
+        "selector": "div.css-view-g5y9jx.r-alignItems-1habvwh.r-flexDirection-18u37iz.r-justifyContent-1wtj0ep"
+      },
+      {
+        "url": "http://localhost:8081/cart",
+        "message": "Element has overflow clipping (`scrollWidth > clientWidth`).",
+        "selector": "div.css-view-g5y9jx.r-marginBottom-5oul0u"
+      },
+      {
+        "url": "http://localhost:8081/cart",
+        "message": "Element has overflow clipping (`scrollWidth > clientWidth`).",
+        "selector": "div.css-view-g5y9jx.r-marginBlock-l00any"
+      },
+      {
+        "url": "http://localhost:8081/cart",
+        "message": "Element has overflow clipping (`scrollWidth > clientWidth`).",
+        "selector": "div.css-view-g5y9jx"
+      }
     ]
   },
   "urls": [
@@ -252,6 +279,7 @@
     "http://localhost:8081/catalog/cat-root-0-sub-0-sub-1",
     "http://localhost:8081/catalog/cat-root-0-sub-1-sub-0",
     "http://localhost:8081/catalog/cat-root-1-sub-0-sub-0",
-    "http://localhost:8081/catalog/cat-root-1-sub-1-sub-1"
+    "http://localhost:8081/catalog/cat-root-1-sub-1-sub-1",
+    "http://localhost:8081/cart"
   ]
 }

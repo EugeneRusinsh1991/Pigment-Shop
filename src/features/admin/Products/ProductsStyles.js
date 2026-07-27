@@ -2,7 +2,7 @@
  * ProductsStyles.js
  */
 import { StyleSheet } from 'react-native';
-import { colors, layout, shadow, buttonTokens } from '../../../theme/tokens';
+import { buttonTokens, colors, layout, shadow } from '../../../theme/tokens';
 
 export default StyleSheet.create({
   container: {
@@ -85,7 +85,6 @@ export default StyleSheet.create({
   },
   thText: {
     color: colors.textDescDark,
-    textTransform: 'uppercase',
   },
   tableRow: {
     flexDirection: 'column',
@@ -155,7 +154,6 @@ export default StyleSheet.create({
   },
   cardMetaLabel: {
     color: colors.secondaryDarkText,
-    textTransform: 'uppercase',
   },
   cardMetaValue: {
     color: colors.textLight,

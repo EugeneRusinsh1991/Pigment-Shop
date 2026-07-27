@@ -1,5 +1,5 @@
-import { getIsDarkContext, getStyle } from '../useThemeUtils';
 import { colors } from '../../theme/tokens';
+import { getIsDarkContext, getStyle } from '../../theme/useThemeUtils';
 
 function getBorderColor(isDark, error, styleMap) {
   if (!styleMap) return undefined;

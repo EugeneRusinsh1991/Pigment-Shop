@@ -1,17 +1,15 @@
 /**
  * OrderRow.js
  */
-import React from 'react';
-import { View } from 'react-native';
-import { Text } from '@/components/Text';
-import { AnimatedButton } from '@/components/Button';
-import { useTheme } from '../../../context/ThemeContext';
-import { DataTableRow, DataTableCell } from '@/components/DataTable/DataTable';
 import { Badge } from '@/components/Badge';
-import styles from './OrdersStyles';
+import { AnimatedButton } from '@/components/Button';
+import { DataTableCell, DataTableRow } from '@/components/DataTable/DataTable';
+import { Text } from '@/components/Text';
+import { View } from 'react-native';
+import { useTheme } from '../../../context/ThemeContext';
 import { formatDateShortWithTime } from '../../../utils/dateFormatting';
 import { resolveStatusDef } from '../../../utils/orderStatus';
-import { layout } from '../../../theme/tokens';
+import styles from './OrdersStyles';
 
 function formatRowDate(createdAt, lang) {
   return formatDateShortWithTime(createdAt, lang);
@@ -56,15 +54,15 @@ export function MobileOrderRow({ order, onPress }) {
       {/* Row 3: contact | status | total */}
       <View style={styles.rowMiddle}>
         <View style={styles.metaBlock}>
-          <Text style={styles.metaLabel} size={10}>{t('adminOrdersCustomer')}</Text>
+          <Text variant="overline" color="desc" style={styles.metaLabel}>{t('adminOrdersCustomer')}</Text>
           <Text style={styles.metaValue} size={13} weight="600" numberOfLines={1}>{summary.contact || '—'}</Text>
         </View>
         <View style={styles.metaBlock}>
-          <Text style={styles.metaLabel} size={10}>{t('adminOrdersStatus')}</Text>
+          <Text variant="overline" color="desc" style={styles.metaLabel}>{t('adminOrdersStatus')}</Text>
           <StatusBadge statusKey={summary.statusKey} statusDef={summary.statusDef} statusDisplay={summary.statusDisplay} />
         </View>
         <View style={styles.metaBlock}>
-          <Text style={styles.metaLabel} size={10}>{t('adminOrdersTotal')}</Text>
+          <Text variant="overline" color="desc" style={styles.metaLabel}>{t('adminOrdersTotal')}</Text>
           <Text style={styles.metaValue} size={13} weight="600">${summary.formattedTotal}</Text>
         </View>
       </View>
@@ -72,11 +70,11 @@ export function MobileOrderRow({ order, onPress }) {
       {/* Row 4: notes */}
       <View style={styles.rowBottom}>
         <View style={styles.noteBlock}>
-          <Text style={styles.metaLabel} size={10}>{t('adminOrdersCustNote')}</Text>
+          <Text variant="overline" color="desc" style={styles.metaLabel}>{t('adminOrdersCustNote')}</Text>
           <Text style={styles.metaValue} size={13} weight="600" numberOfLines={1}>{order.note || '—'}</Text>
         </View>
         <View style={styles.noteBlock}>
-          <Text style={styles.metaLabel} size={10}>{t('adminOrdersAdminNote')}</Text>
+          <Text variant="overline" color="desc" style={styles.metaLabel}>{t('adminOrdersAdminNote')}</Text>
           <Text style={styles.metaValue} size={13} weight="600" numberOfLines={1}>{order.adminNote || '—'}</Text>
         </View>
       </View>
@@ -111,11 +109,11 @@ export function DesktopOrderRow({ order, onPress }) {
       </View>
       <View style={styles.rowNotes}>
         <View style={styles.noteItem}>
-          <Text style={styles.metaLabelInline} size={10}>{t('adminOrdersCustNote')}: </Text>
+          <Text variant="overline" color="desc" style={styles.metaLabelInline}>{t('adminOrdersCustNote')}: </Text>
           <Text variant="body2" style={styles.metaValue} size={13} weight="600" numberOfLines={1}>{order.note || '—'}</Text>
         </View>
         <View style={styles.noteItem}>
-          <Text style={styles.metaLabelInline} size={10}>{t('adminOrdersAdminNote')}: </Text>
+          <Text variant="overline" color="desc" style={styles.metaLabelInline}>{t('adminOrdersAdminNote')}: </Text>
           <Text variant="body2" style={styles.metaValue} size={13} weight="600" numberOfLines={1}>{order.adminNote || '—'}</Text>
         </View>
       </View>

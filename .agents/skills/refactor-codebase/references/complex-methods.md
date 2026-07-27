@@ -23,7 +23,7 @@ Never process methods outside this report.
 # Execution Limits
 
 - Process exactly ONE method at a time.
-- Maximum methods per execution: 10.
+- Maximum methods per execution: 5.
 - Maximum attempts per method: 3.
 - Never refactor multiple methods simultaneously.
 
