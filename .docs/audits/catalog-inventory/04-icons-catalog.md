@@ -32,10 +32,10 @@
   - Line [79](file:///D:/Magazine/_PigmentShop/src/features/admin/AdminPanel.js#L79): `<LogoutIcon>` (Icon: `[Unknown]`)
 
 ### File: [src/features/admin/Analytics/AnalyticsDashboard.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/AnalyticsDashboard.js)
-  - Line [37](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/AnalyticsDashboard.js#L37): `<DollarIcon>` (Icon: `[Unknown]`)
-  - Line [38](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/AnalyticsDashboard.js#L38): `<ClipboardIcon>` (Icon: `[Unknown]`)
-  - Line [39](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/AnalyticsDashboard.js#L39): `<TrendIcon>` (Icon: `[Unknown]`)
-  - Line [40](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/AnalyticsDashboard.js#L40): `<BoxIcon>` (Icon: `[Unknown]`)
+  - Line [38](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/AnalyticsDashboard.js#L38): `<DollarIcon>` (Icon: `[Unknown]`)
+  - Line [39](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/AnalyticsDashboard.js#L39): `<ClipboardIcon>` (Icon: `[Unknown]`)
+  - Line [40](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/AnalyticsDashboard.js#L40): `<TrendIcon>` (Icon: `[Unknown]`)
+  - Line [41](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/AnalyticsDashboard.js#L41): `<BoxIcon>` (Icon: `[Unknown]`)
 
 ### File: [src/features/admin/Categories/CategoryFormFields.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Categories/CategoryFormFields.js)
   - Line [95](file:///D:/Magazine/_PigmentShop/src/features/admin/Categories/CategoryFormFields.js#L95): `<UploadIcon>` (Icon: `[Unknown]`)
@@ -67,7 +67,7 @@
   - Line [28](file:///D:/Magazine/_PigmentShop/src/features/admin/Media/MediaBrowserItem.js#L28): `<TrashIcon>` (Icon: `[Unknown]`)
 
 ### File: [src/features/admin/Orders/OrderDetails.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderDetails.js)
-  - Line [82](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderDetails.js#L82): `<BackArrowIcon>` (Icon: `[Unknown]`)
+  - Line [79](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderDetails.js#L79): `<BackArrowIcon>` (Icon: `[Unknown]`)
 
 ### File: [src/features/admin/Products/ProductRowComponents.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Products/ProductRowComponents.js)
   - Line [63](file:///D:/Magazine/_PigmentShop/src/features/admin/Products/ProductRowComponents.js#L63): `<IconButton>` (Icon: `[Unknown]`)

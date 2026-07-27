@@ -120,7 +120,7 @@
   - Line [66](file:///D:/Magazine/_PigmentShop/src/components/Toggle/Toggle.js#L66): `<Text>` -> `[Dynamic Content]`
 
 ### File: [src/features/admin/Analytics/AnalyticsDashboard.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/AnalyticsDashboard.js)
-  - Line [21](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/AnalyticsDashboard.js#L21): `<Text>` -> `[Dynamic Content]`
+  - Line [22](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/AnalyticsDashboard.js#L22): `<Text>` -> `[Dynamic Content]`
 
 ### File: [src/features/admin/Analytics/CalendarDayCell.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/CalendarDayCell.js)
   - Line [84](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/CalendarDayCell.js#L84): `<Text>` -> `[Dynamic Content]`
@@ -194,13 +194,13 @@
   - Line [29](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderCustomerCard.js#L29): `<Text>` -> `⚠️`
 
 ### File: [src/features/admin/Orders/OrderDetails.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderDetails.js)
-  - Line [83](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderDetails.js#L83): `<Text>` -> `[Dynamic Content]`
-  - Line [88](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderDetails.js#L88): `<Text>` -> `#`
-  - Line [92](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderDetails.js#L92): `<Text>` -> `[Dynamic Content]`
-  - Line [96](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderDetails.js#L96): `<Text>` -> `[Dynamic Content]`
-  - Line [98](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderDetails.js#L98): `<Text>` -> `[Dynamic Content]`
-  - Line [104](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderDetails.js#L104): `<Text>` -> `( )`
-  - Line [110](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderDetails.js#L110): `<Text>` -> `[Dynamic Content]`
+  - Line [80](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderDetails.js#L80): `<Text>` -> `[Dynamic Content]`
+  - Line [85](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderDetails.js#L85): `<Text>` -> `#`
+  - Line [89](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderDetails.js#L89): `<Text>` -> `[Dynamic Content]`
+  - Line [93](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderDetails.js#L93): `<Text>` -> `[Dynamic Content]`
+  - Line [95](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderDetails.js#L95): `<Text>` -> `[Dynamic Content]`
+  - Line [101](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderDetails.js#L101): `<Text>` -> `( )`
+  - Line [107](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderDetails.js#L107): `<Text>` -> `[Dynamic Content]`
 
 ### File: [src/features/admin/Orders/OrderItemsList.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderItemsList.js)
   - Line [27](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderItemsList.js#L27): `<Text>` -> `[Dynamic Content]`
@@ -353,7 +353,7 @@
   - Line [42](file:///D:/Magazine/_PigmentShop/src/features/catalog/components/NewArrivalsFooter.js#L42): `<Text>` -> `[Dynamic Content]`
 
 ### File: [src/features/contact/ContactQuestionForm.js](file:///D:/Magazine/_PigmentShop/src/features/contact/ContactQuestionForm.js)
-  - Line [68](file:///D:/Magazine/_PigmentShop/src/features/contact/ContactQuestionForm.js#L68): `<Text>` -> `[Dynamic Content]`
+  - Line [70](file:///D:/Magazine/_PigmentShop/src/features/contact/ContactQuestionForm.js#L70): `<Text>` -> `[Dynamic Content]`
 
 ### File: [src/features/contact/SocialButtons.js](file:///D:/Magazine/_PigmentShop/src/features/contact/SocialButtons.js)
   - Line [22](file:///D:/Magazine/_PigmentShop/src/features/contact/SocialButtons.js#L22): `<Text>` -> `📷`

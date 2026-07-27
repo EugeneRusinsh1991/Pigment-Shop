@@ -1,6 +1,6 @@
 ===================================================================
          5. SERVICE LAYER ARCHITECTURE REPORT                      
-Timestamp: 28.07.2026, 01:09:00
+Timestamp: 28.07.2026, 02:18:07
 ===================================================================
 [DESCRIPTION FOR USER]: Этот отчет находит прямые обращения к БД/Firebase (Firestore) из UI или хуков.
 Прямой вызов getDocs/addDoc в компонентах нарушает изоляцию сервисного слоя.
@@ -11,10 +11,10 @@ Timestamp: 28.07.2026, 01:09:00
 Found 4 service layer issue(s) across 2 file(s):
 
 File: src\features\admin\Analytics\AnalyticsDashboard.js
-  L5     import { collection, getDocs } from 'firebase/firestore';
-  L95    const snap = await getDocs(collection(db, COLLECTIONS.ORDERS));
+  L3     import { collection, getDocs } from 'firebase/firestore';
+  L97    const snap = await getDocs(collection(db, COLLECTIONS.ORDERS));
 
 File: src\features\contact\ContactQuestionForm.js
-  L4     import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
-  L40    await addDoc(collection(db, COLLECTIONS.SUPPORT_MESSAGES), payload);
+  L1     import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
+  L42    await addDoc(collection(db, COLLECTIONS.SUPPORT_MESSAGES), payload);
 

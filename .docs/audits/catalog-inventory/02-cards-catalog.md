@@ -17,16 +17,16 @@
   - Line [10](file:///D:/Magazine/_PigmentShop/src/components/Card/NavigationCard.js#L10): `<Card>`
 
 ### File: [src/features/admin/Analytics/AnalyticsDashboard.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/AnalyticsDashboard.js)
-  - Line [37](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/AnalyticsDashboard.js#L37): `<StatCard>`
   - Line [38](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/AnalyticsDashboard.js#L38): `<StatCard>`
   - Line [39](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/AnalyticsDashboard.js#L39): `<StatCard>`
   - Line [40](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/AnalyticsDashboard.js#L40): `<StatCard>`
+  - Line [41](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/AnalyticsDashboard.js#L41): `<StatCard>`
 
 ### File: [src/features/admin/Categories/CategoryTree.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Categories/CategoryTree.js)
   - Line [112](file:///D:/Magazine/_PigmentShop/src/features/admin/Categories/CategoryTree.js#L112): `<MobileCategoryCard>`
 
 ### File: [src/features/admin/Orders/OrderDetails.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderDetails.js)
-  - Line [93](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderDetails.js#L93): `<OrderCustomerCard>`
+  - Line [90](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderDetails.js#L90): `<OrderCustomerCard>`
 
 ### File: [src/features/admin/Products/MobileProductRow.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Products/MobileProductRow.js)
   - Line [29](file:///D:/Magazine/_PigmentShop/src/features/admin/Products/MobileProductRow.js#L29): `<CardMetaBlock>`
@@ -62,7 +62,7 @@
   - Line [36](file:///D:/Magazine/_PigmentShop/src/features/catalog/ProductGrid.js#L36): `<ProductCard>`
 
 ### File: [src/features/contact/ContactQuestionForm.js](file:///D:/Magazine/_PigmentShop/src/features/contact/ContactQuestionForm.js)
-  - Line [86](file:///D:/Magazine/_PigmentShop/src/features/contact/ContactQuestionForm.js#L86): `<Card>`
+  - Line [88](file:///D:/Magazine/_PigmentShop/src/features/contact/ContactQuestionForm.js#L88): `<Card>`
 
 ### File: [src/features/favorites/FavoritesPage.js](file:///D:/Magazine/_PigmentShop/src/features/favorites/FavoritesPage.js)
   - Line [40](file:///D:/Magazine/_PigmentShop/src/features/favorites/FavoritesPage.js#L40): `<PlaceholderCard>`

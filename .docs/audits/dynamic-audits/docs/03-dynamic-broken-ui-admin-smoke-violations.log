@@ -2,7 +2,7 @@
 type: dynamic-audit
 auditor: broken-ui
 scope: admin
-date: 2026-07-27T22:29:10.196Z
+date: 2026-07-27T23:17:27.557Z
 ---
 
 ### Problem: Element has overflow clipping (`scrollWidth > clientWidth`).
@@ -48,3 +48,4 @@ date: 2026-07-27T22:29:10.196Z
 
 - URL: `http://localhost:8081/admin`
   - Selector: `img`
+  - Selector: `img.css-accessibilityImage-9pa8cd`
