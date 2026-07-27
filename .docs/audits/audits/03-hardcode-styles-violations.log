@@ -1,9 +1,9 @@
 ===================================================================
          3. HARDCODED STYLES, COLORS & SPACING REPORT              
-Timestamp: 27.07.2026, 03:14:13
+Timestamp: 27.07.2026, 03:27:06
 ===================================================================
 
-Found 135 issue(s) across 40 file(s):
+Found 128 issue(s) across 36 file(s):
 
 File: src\components\Admin\SharedFormComponents.js
   L23    [INLINE_STYLE] <View style={resolvedStyles.row}>
@@ -127,9 +127,6 @@ File: src\components\Search\SearchDropdown.js
 File: src\components\Search\SearchInput.js
   L41    [INLINE_STYLE] style={SearchStyles.clearButton}
 
-File: src\components\Search\SearchStyles.js
-  L57    [HARDCODED_SPACING] paddingVertical 0px -> paddingVertical: 0,
-
 File: src\components\SharedLayoutWrapper\SharedLayoutWrapper.js
   L17    [INLINE_STYLE] <View style={sharedLayoutWrapperStyles.wrapper}>
   L24    [INLINE_STYLE] <View style={sharedLayoutWrapperStyles.footerInner}>
@@ -166,12 +163,11 @@ File: src\features\catalog\GridHeaderFooter.js
   L96    [INLINE_STYLE] <Text style={textStyle}>
 
 File: src\features\catalog\PlaceholderCard.js
-  L47    [INLINE_STYLE] <View key={item.id} style={{ width: itemWidth }}>
+  L51    [INLINE_STYLE] <View key={item.id} style={getItemStyle(itemWidth)}>
 
 File: src\features\catalog\ProductGrid.js
-  L21    [INLINE_STYLE] <View style={{ width: itemWidth, alignSelf: 'stretch' }}>
-  L42    [INLINE_STYLE] style={isNarrow ? { alignSelf: 'center', width: gridWidth || '100%', minHeight: '100%' } : { width: '100%', minHeight: '100%' }}
-  L59    [HARDCODED_SPACING] paddingBottom 0px -> grid: { paddingBottom: 0 },
+  L32    [INLINE_STYLE] <View style={getItemStyle(itemWidth)}>
+  L53    [INLINE_STYLE] style={getGridStyle(isNarrow, gridWidth)}
 
 File: src\features\home\components\DiscountsSection.js
   L23    [INLINE_STYLE] <ScrollFadeUp style={headerStyle}>
@@ -188,17 +184,6 @@ File: src\features\home\components\HeroCarousel.js
   L64    [INLINE_STYLE] return <View style={placeholderStyle} />;
   L71    [INLINE_STYLE] <View style={baseStyle}>
   L72    [INLINE_STYLE] <View style={localStyles.carouselContainer}>
-
-File: src\features\orders\OrderRows.js
-  L83    [HARDCODED_SPACING] paddingBottom 0px -> paddingBottom: 0,
-
-File: src\features\orders\OrdersPageStyles.js
-  L13    [HARDCODED_SPACING] paddingBottom 0px -> paddingBottom: 0,
-
-File: src\features\product\ProductPageStyles.js
-  L26    [HARDCODED_SPACING] paddingBottom 0px -> paddingBottom: 0,
-  L46    [HARDCODED_SPACING] marginTop 0px -> marginTop: 0,
-  L255   [HARDCODED_SPACING] paddingBottom 0px -> paddingBottom: 0,
 
 File: src\features\profile\ProfilePageStyles.js
   L120   [HARDCODED_SPACING] paddingBottom 0px -> paddingBottom: 0,

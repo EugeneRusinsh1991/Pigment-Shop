@@ -1,9 +1,9 @@
 ===================================================================
                FILES WITH ISSUES REPORT                            
-Timestamp: 27.07.2026, 03:14:13
+Timestamp: 27.07.2026, 03:27:06
 ===================================================================
 
-Found 135 issue(s) across 40 target(s):
+Found 128 issue(s) across 36 target(s):
 
 - src\components\Admin\SharedFormComponents.js (2 issues)
 - src\components\Badge\Badge.js (2 issues)
@@ -22,7 +22,6 @@ Found 135 issue(s) across 40 target(s):
 - src\components\Search\AutocompleteSearch.js (1 issues)
 - src\components\Search\SearchDropdown.js (4 issues)
 - src\components\Search\SearchInput.js (1 issues)
-- src\components\Search\SearchStyles.js (1 issues)
 - src\components\SharedLayoutWrapper\SharedLayoutWrapper.js (2 issues)
 - src\components\Text\Heading.js (1 issues)
 - src\components\Toggle\Toggle.js (2 issues)
@@ -31,14 +30,11 @@ Found 135 issue(s) across 40 target(s):
 - src\features\catalog\components\NewArrivalsFooter.js (2 issues)
 - src\features\catalog\GridHeaderFooter.js (7 issues)
 - src\features\catalog\PlaceholderCard.js (1 issues)
-- src\features\catalog\ProductGrid.js (3 issues)
+- src\features\catalog\ProductGrid.js (2 issues)
 - src\features\home\components\DiscountsSection.js (3 issues)
 - src\features\home\components\HeroCarousel\CarouselDots.js (1 issues)
 - src\features\home\components\HeroCarousel\CarouselLayers.js (1 issues)
 - src\features\home\components\HeroCarousel.js (3 issues)
-- src\features\orders\OrderRows.js (1 issues)
-- src\features\orders\OrdersPageStyles.js (1 issues)
-- src\features\product\ProductPageStyles.js (3 issues)
 - src\features\profile\ProfilePageStyles.js (1 issues)
 - src\features\shell\AppHeader\AppHeaderControls.js (2 issues)
 - src\features\shell\AppHeader\AppHeaderLogo.js (1 issues)

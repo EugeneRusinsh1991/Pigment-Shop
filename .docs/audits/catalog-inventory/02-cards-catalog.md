@@ -56,10 +56,10 @@
   - Line [16](file:///D:/Magazine/_PigmentShop/src/features/catalog/PlaceholderCard.js#L16): `<NavigationCard>`
   - Line [24](file:///D:/Magazine/_PigmentShop/src/features/catalog/PlaceholderCard.js#L24): `<ProductCard>`
   - Line [26](file:///D:/Magazine/_PigmentShop/src/features/catalog/PlaceholderCard.js#L26): `<CategoryCard>`
-  - Line [48](file:///D:/Magazine/_PigmentShop/src/features/catalog/PlaceholderCard.js#L48): `<PlaceholderCard>`
+  - Line [52](file:///D:/Magazine/_PigmentShop/src/features/catalog/PlaceholderCard.js#L52): `<PlaceholderCard>`
 
 ### File: [src/features/catalog/ProductGrid.js](file:///D:/Magazine/_PigmentShop/src/features/catalog/ProductGrid.js)
-  - Line [23](file:///D:/Magazine/_PigmentShop/src/features/catalog/ProductGrid.js#L23): `<ProductCard>`
+  - Line [34](file:///D:/Magazine/_PigmentShop/src/features/catalog/ProductGrid.js#L34): `<ProductCard>`
 
 ### File: [src/features/contact/ContactQuestionForm.js](file:///D:/Magazine/_PigmentShop/src/features/contact/ContactQuestionForm.js)
   - Line [86](file:///D:/Magazine/_PigmentShop/src/features/contact/ContactQuestionForm.js#L86): `<Card>`
