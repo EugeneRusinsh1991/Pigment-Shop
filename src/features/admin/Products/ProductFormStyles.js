@@ -4,8 +4,7 @@
  * Styles for the product create/edit form modal and its fields.
  */
 import { StyleSheet } from 'react-native';
-import { colors, layout } from '../../../theme/tokens';
-import { shadow } from '../../../theme/shadows';
+import { colors, layout, shadow } from '../../../theme/tokens';
 
 export default StyleSheet.create({
   /* Modal overlay */

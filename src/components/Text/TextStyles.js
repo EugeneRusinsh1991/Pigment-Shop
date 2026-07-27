@@ -25,6 +25,7 @@ const colorPresetMap = {
   error:     () => colors.danger,
   success:   () => colors.success,
   warning:   (isDark) => isDark ? colors.warningMid : colors.warningDark,
+  info:      (isDark) => isDark ? colors.infoLight : colors.infoDeep,
   inverse:   (isDark) => isDark ? colors.textLight : colors.textDark,
   white:     () => colors.white,
   black:     () => colors.black,

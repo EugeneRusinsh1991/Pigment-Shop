@@ -1,8 +1,7 @@
 import { View } from 'react-native';
 import { Text } from '@/components/Text';
 import { AnimatedButton } from '@/components/Button';
-import { colors, layout } from '../../../theme/tokens';
-import { shadow } from '../../../theme/shadows';
+import { colors, layout, shadow } from '../../../theme/tokens';
 import styles from './OrdersStyles';
 
 export default function OrderStatusDropdownMenu({ statuses, currentStatus, updating, handleSelect, t }) {

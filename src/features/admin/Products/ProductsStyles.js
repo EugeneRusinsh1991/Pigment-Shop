@@ -2,8 +2,7 @@
  * ProductsStyles.js
  */
 import { StyleSheet } from 'react-native';
-import { colors, layout, buttonTokens } from '../../../theme/tokens';
-import { shadow } from '../../../theme/shadows';
+import { colors, layout, shadow, buttonTokens } from '../../../theme/tokens';
 
 export default StyleSheet.create({
   container: {

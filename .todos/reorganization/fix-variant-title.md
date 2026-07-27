@@ -1,0 +1,9 @@
+# Fix `variant="title"` — Non-Existent Variant (2 usages)
+
+**Rationale:** `"title"` is not defined in `VARIANTS`. Falls back to `body1`, which is visually incorrect for a title-level element. Replace with `h3` or `h4` depending on context.
+
+---
+
+- [ ] `src/features/orders/OrderHeader.js` (L11) — evaluate context, use `h3` or `h4`
+- [ ] `src/features/cart/CartSummary.js` (L87) — evaluate context, use `h3` or `h4`
+- [ ] Verify no `variant="title"` remains in `src/`

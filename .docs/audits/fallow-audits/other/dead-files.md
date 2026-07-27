@@ -1,6 +1,6 @@
 # 💀 Dead Files (Unused)
 
-*Generated on: 27.07.2026, 13:33:03*
+*Generated on: 27.07.2026, 15:47:43*
 
 Files that are not reachable or imported by any other codebase file:
 
@@ -49,6 +49,7 @@ Files that are not reachable or imported by any other codebase file:
 - [devServerHelper.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/devServerHelper.ts) (`.tools/browser-automation/helpers/devServerHelper.ts`)
 - [envValidator.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/envValidator.ts) (`.tools/browser-automation/helpers/envValidator.ts`)
 - [hoverInfoHelper.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/hoverInfoHelper.ts) (`.tools/browser-automation/helpers/hoverInfoHelper.ts`)
+- [migrate-existing-logs.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/migrate-existing-logs.ts) (`.tools/browser-automation/helpers/migrate-existing-logs.ts`)
 - [index.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/index.ts) (`.tools/browser-automation/index.ts`)
 - [ApplicationKnowledgeGraphBuilder.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/plugins/knowledge-graph/ApplicationKnowledgeGraphBuilder.ts) (`.tools/browser-automation/plugins/knowledge-graph/ApplicationKnowledgeGraphBuilder.ts`)
 - [BaseKnowledgeGraphBuilder.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/plugins/knowledge-graph/BaseKnowledgeGraphBuilder.ts) (`.tools/browser-automation/plugins/knowledge-graph/BaseKnowledgeGraphBuilder.ts`)

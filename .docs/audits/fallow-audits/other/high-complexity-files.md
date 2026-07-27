@@ -1,6 +1,6 @@
 # 🧠 Highly Complex Files
 
-*Generated on: 27.07.2026, 13:33:03*
+*Generated on: 27.07.2026, 15:47:43*
 
 ### Highly Complex Files (< 200 lines)
 
@@ -20,10 +20,13 @@
   - Lines: 83 | CRAP Max: 240 | Complex Funcs: 2 | Density: 33%
 
 - **[dynamic-report-writer.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/dynamic-report-writer.ts)** (`.tools/browser-automation/helpers/dynamic-report-writer.ts`)
-  - Lines: 126 | CRAP Max: 182 | Complex Funcs: 1 | Density: 22%
+  - Lines: 196 | CRAP Max: 210 | Complex Funcs: 2 | Density: 23%
 
 - **[03-dynamic-broken-ui-auditor.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/auditors/03-dynamic-broken-ui-auditor.ts)** (`.tools/browser-automation/auditors/03-dynamic-broken-ui-auditor.ts`)
   - Lines: 93 | CRAP Max: 132 | Complex Funcs: 3 | Density: 33%
+
+- **[migrate-existing-logs.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/migrate-existing-logs.ts)** (`.tools/browser-automation/helpers/migrate-existing-logs.ts`)
+  - Lines: 137 | CRAP Max: 110 | Complex Funcs: 2 | Density: 22%
 
 - **[a11y-auditor.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/a11y-auditor.js)** (`.tools/auditor/a11y-auditor.js`)
   - Lines: 103 | CRAP Max: 110 | Complex Funcs: 3 | Density: 29%

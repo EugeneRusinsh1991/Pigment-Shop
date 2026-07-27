@@ -1,6 +1,6 @@
 # 🩺 Complexity Health Findings (Critical & High)
 
-*Generated on: 27.07.2026, 13:33:03*
+*Generated on: 27.07.2026, 15:47:43*
 
 ## 🔴 Critical (> 50 lines)
 
@@ -19,8 +19,8 @@
 #### 📁 [dynamic-report-writer.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/dynamic-report-writer.ts)
 `.tools/browser-automation/helpers/dynamic-report-writer.ts`
 
-- 🔴 **`writeDynamicReport`** [L21](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/dynamic-report-writer.ts#L21)
-  - Lines: 104 | Cyclomatic: 13 | Cognitive: 15 | CRAP: 182
+- 🔴 **`writeDynamicReport`** [L53](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/dynamic-report-writer.ts#L53)
+  - Lines: 141 | Cyclomatic: 14 | Cognitive: 16 | CRAP: 210
 
 #### 📁 [12-raw-i18n-keys-auditor.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/12-raw-i18n-keys-auditor.js)
 `.tools/auditor/12-raw-i18n-keys-auditor.js`
@@ -88,6 +88,18 @@
 
 - 🔴 **`<arrow>`** [L47](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/auditors/03-dynamic-broken-ui-auditor.ts#L47)
   - Lines: 20 | Cyclomatic: 11 | Cognitive: 7 | CRAP: 132
+
+#### 📁 [migrate-existing-logs.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/migrate-existing-logs.ts)
+`.tools/browser-automation/helpers/migrate-existing-logs.ts`
+
+- 🔴 **`getProblemTitleAndDetail`** [L11](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/migrate-existing-logs.ts#L11)
+  - Lines: 31 | Cyclomatic: 10 | Cognitive: 9 | CRAP: 110
+
+#### 📁 [dynamic-report-writer.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/dynamic-report-writer.ts)
+`.tools/browser-automation/helpers/dynamic-report-writer.ts`
+
+- 🔴 **`getProblemTitleAndDetail`** [L21](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/dynamic-report-writer.ts#L21)
+  - Lines: 31 | Cyclomatic: 10 | Cognitive: 9 | CRAP: 110
 
 
 ## 🟠 High (> 50 lines)

@@ -5,8 +5,8 @@
  * Shares colour tokens with ProductFormStyles.
  */
 import { StyleSheet } from 'react-native';
-import { colors, fonts, layout, buttonTokens } from '../../../theme/tokens';
-import { shadow } from '../../../theme/shadows';
+import { colors, layout, shadow } from '../../../theme/tokens';
+import { buttonTokens } from '../../../theme/tokens';
 
 export default StyleSheet.create({
   /* Modal overlay */

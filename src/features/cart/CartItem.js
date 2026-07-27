@@ -5,8 +5,7 @@ import { useTheme } from '../../context/ThemeContext';
 import { CrossIcon } from '@/components/Icons';
 import { IconButton } from '../../components/Button';
 import { getLocalizedValue } from '../../utils/localization';
-import { colors, layout } from '../../theme/tokens';
-import { shadow } from '../../theme/shadows';
+import { colors, layout, shadow } from '../../theme/tokens';
 
 export default function CartItem({ item, isDark, onIncrease, onDecrease, onRemove }) {
   const { lang } = useTheme();

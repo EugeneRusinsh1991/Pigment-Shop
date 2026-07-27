@@ -1,6 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors, buttonTokens, layout } from '../../theme/tokens';
-import { shadow } from '../../theme/shadows';
+import { colors, buttonTokens, layout, shadow } from '../../theme/tokens';
 
 const styles = StyleSheet.create({
   sidebar: { width: 224, maxWidth: 224, flexShrink: 0, flexGrow: 0, flexBasis: 224, overflow: 'hidden' },

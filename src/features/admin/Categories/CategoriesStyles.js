@@ -4,8 +4,7 @@
  * Styles for the categories manager container and tree table.
  */
 import { StyleSheet } from 'react-native';
-import { colors, layout, buttonTokens } from '../../../theme/tokens';
-import { shadow } from '../../../theme/shadows';
+import { colors, layout, shadow, buttonTokens } from '../../../theme/tokens';
 
 export const CATEGORY_TYPE_COLORS = {
   category_holder: {

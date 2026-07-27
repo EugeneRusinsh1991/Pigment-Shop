@@ -1,3 +1,5 @@
+import { Platform } from 'react-native';
+
 export const colors = {
   // Brand & Accent
   accent: '#E31B23',
@@ -371,3 +373,24 @@ export const shadows = {
     native: { shadowColor: '#000000', shadowOffset: { width: 0, height: 6 }, shadowOpacity: 0.15, shadowRadius: 10 },
   },
 };
+
+function resolveShadow(tokenShadow) {
+  return Platform.select({
+    web: tokenShadow.web,
+    default: tokenShadow.native,
+  });
+}
+
+export const shadow = {
+  card:     () => resolveShadow(shadows.cardLight),
+  dropdown: () => resolveShadow(shadows.dropdownLight),
+  chip:     () => resolveShadow(shadows.chipLight),
+  panel:    () => resolveShadow(shadows.panelLight),
+  media:    () => resolveShadow(shadows.mediaLight),
+  header:   () => resolveShadow(shadows.headerLight),
+  search:   () => resolveShadow(shadows.searchExpandedLight),
+  modal:    () => resolveShadow(shadows.modalLight),
+  drawer:   () => resolveShadow(shadows.drawerSide),
+  thumb:    () => resolveShadow(shadows.thumbLight),
+};
+

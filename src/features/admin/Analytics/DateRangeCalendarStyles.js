@@ -1,6 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors, layout, typography } from '../../../theme/tokens';
-import { shadow } from '../../../theme/shadows';
+import { colors, layout, shadow, typography } from '../../../theme/tokens';
 
 export const localStyles = StyleSheet.create({
   calendarPopup: {

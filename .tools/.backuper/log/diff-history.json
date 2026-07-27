@@ -5687,5 +5687,35 @@
         }
       ]
     }
+  },
+  "src_07-27_16-43_smoke-report.json_122files": {
+    "timestamp": "2026-07-27T13:43:25.771Z",
+    "diff": {
+      "added": 23,
+      "removed": 2,
+      "modified": 55,
+      "topFolders": [
+        {
+          "folder": ".todos/reorganization",
+          "count": 21
+        },
+        {
+          "folder": ".docs/audits/catalog-inventory",
+          "count": 6
+        },
+        {
+          "folder": ".docs/audits/dynamic-audits/docs",
+          "count": 6
+        },
+        {
+          "folder": ".docs/audits/fallow-audits/other",
+          "count": 6
+        },
+        {
+          "folder": ".docs/audits/fallow-audits/project",
+          "count": 6
+        }
+      ]
+    }
   }
 }

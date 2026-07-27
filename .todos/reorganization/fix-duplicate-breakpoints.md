@@ -1,0 +1,17 @@
+# Fix Duplicate Breakpoint Tokens: `sm` / `mobile` / `tablet`
+
+**Rationale:** `layout.breakpoints` in `tokens.js` has `mobile: 768` and `tablet: 768` (identical values) plus `sm: 640` which is unused in actual breakpoint logic.
+
+```js
+// Current (wrong):
+breakpoints: { sm: 640, mobile: 768, tablet: 768, desktop: 1024 }
+// sm unused, mobile === tablet
+```
+
+---
+
+- [ ] 1. Decide canonical breakpoint names: remove `tablet` (duplicate of `mobile`) and either use or remove `sm`
+- [ ] 2. Update `layout.breakpoints` in `src/theme/tokens.js`
+- [ ] 3. Update `getDeviceTier` in `src/utils/layout.js` (or `layoutUtils.js`) to use correct token names
+- [ ] 4. Search codebase for direct references to `breakpoints.sm`, `breakpoints.tablet` and update
+- [ ] 5. Verify build compiles with no errors
