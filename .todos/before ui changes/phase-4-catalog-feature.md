@@ -51,10 +51,10 @@ Move existing catalog hooks to proper location and extract layout calculations.
 ### 4.4 Create usePriceRangeSlider Hook (audit #9 - Low Priority)
 **Model Recommendation:** 🟢 G 3.6 F (L) — 1d | 2f | +0ctx
 
-- [ ] 4.4.1 Create `src/hooks/usePriceRangeSlider.js`
-- [ ] 4.4.2 Extract `useSliderPanResponders` from `PriceRangeSlider.js` (lines 12-52)
-- [ ] 4.4.3 Extract slider pan responder logic
-- [ ] 4.4.4 Test hook independently
+- [x] 4.4.1 Create `src/hooks/usePriceRangeSlider.js`
+- [x] 4.4.2 Extract `useSliderPanResponders` from `PriceRangeSlider.js` (lines 12-52)
+- [x] 4.4.3 Extract slider pan responder logic
+- [x] 4.4.4 Test hook independently
 
 **Source file:** `src/features/catalog/PriceRangeSlider.js`  
 **Target file:** `src/hooks/usePriceRangeSlider.js`

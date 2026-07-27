@@ -6,50 +6,9 @@
  * which ensures complete compatibility across Web and Mobile targets.
  */
 import { useRef, useState } from 'react';
-import { PanResponder, Platform, StyleSheet, View } from 'react-native';
+import { Platform, StyleSheet, View } from 'react-native';
+import useSliderPanResponders from '../../hooks/usePriceRangeSlider';
 import { colors, layout } from '../../theme/tokens';
-
-function useSliderPanResponders(minLimit, maxLimit, trackWidthRef, minRef, maxRef, startVal, onChange) {
-  const minPanRef = useRef(null);
-  if (!minPanRef.current) {
-    minPanRef.current = PanResponder.create({
-      onStartShouldSetPanResponder: () => true,
-      onMoveShouldSetPanResponder: () => true,
-      onPanResponderGrant: () => {
-        startVal.current = minRef.current;
-      },
-      onPanResponderMove: (e, gestureState) => {
-        if (!trackWidthRef.current) return;
-        const deltaPct = gestureState.dx / trackWidthRef.current;
-        const deltaVal = deltaPct * (maxLimit - minLimit);
-        let nextVal = Math.round(startVal.current + deltaVal);
-        nextVal = Math.max(minLimit, Math.min(nextVal, maxRef.current - 100));
-        onChange(nextVal, maxRef.current);
-      },
-    });
-  }
-
-  const maxPanRef = useRef(null);
-  if (!maxPanRef.current) {
-    maxPanRef.current = PanResponder.create({
-      onStartShouldSetPanResponder: () => true,
-      onMoveShouldSetPanResponder: () => true,
-      onPanResponderGrant: () => {
-        startVal.current = maxRef.current;
-      },
-      onPanResponderMove: (e, gestureState) => {
-        if (!trackWidthRef.current) return;
-        const deltaPct = gestureState.dx / trackWidthRef.current;
-        const deltaVal = deltaPct * (maxLimit - minLimit);
-        let nextVal = Math.round(startVal.current + deltaVal);
-        nextVal = Math.max(minRef.current + 100, Math.min(nextVal, maxLimit));
-        onChange(minRef.current, nextVal);
-      },
-    });
-  }
-
-  return { handleMinPan: minPanRef.current, handleMaxPan: maxPanRef.current };
-}
 
 function SliderTrackContent({ trackWidth, minPercent, maxPercent, activeColor, isDark, handleMinPan, handleMaxPan }) {
   if (trackWidth <= 0) return null;
