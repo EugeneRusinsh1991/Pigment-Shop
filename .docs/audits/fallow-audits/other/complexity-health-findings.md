@@ -1,6 +1,6 @@
 # 🩺 Complexity Health Findings (Critical & High)
 
-*Generated on: 27.07.2026, 13:05:39*
+*Generated on: 27.07.2026, 13:15:05*
 
 ## 🔴 Critical (> 50 lines)
 
@@ -14,7 +14,7 @@
 `.tools/auditor/unused-exports-auditor.js`
 
 - 🔴 **`auditUnusedExports`** [L25](file:///D:/Magazine/_PigmentShop/.tools/auditor/unused-exports-auditor.js#L25)
-  - Lines: 92 | Cyclomatic: 16 | Cognitive: 37 | CRAP: 272
+  - Lines: 55 | Cyclomatic: 15 | Cognitive: 28 | CRAP: 240
 
 #### 📁 [dynamic-report-writer.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/dynamic-report-writer.ts)
 `.tools/browser-automation/helpers/dynamic-report-writer.ts`
@@ -32,18 +32,6 @@
 `.tools/auditor/a11y-auditor.js`
 
 - 🔴 **`auditA11y`** [L46](file:///D:/Magazine/_PigmentShop/.tools/auditor/a11y-auditor.js#L46)
-  - Lines: 54 | Cyclomatic: 10 | Cognitive: 23 | CRAP: 110
-
-#### 📁 [hardcode-url-auditor.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-url-auditor.js)
-`.tools/auditor/hardcode-url-auditor.js`
-
-- 🔴 **`auditHardcodeUrl`** [L48](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-url-auditor.js#L48)
-  - Lines: 54 | Cyclomatic: 10 | Cognitive: 23 | CRAP: 110
-
-#### 📁 [performance-auditor.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/performance-auditor.js)
-`.tools/auditor/performance-auditor.js`
-
-- 🔴 **`auditPerformance`** [L53](file:///D:/Magazine/_PigmentShop/.tools/auditor/performance-auditor.js#L53)
   - Lines: 54 | Cyclomatic: 10 | Cognitive: 23 | CRAP: 110
 
 #### 📁 [01-dynamic-ui-architecture-auditor.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/auditors/01-dynamic-ui-architecture-auditor.ts)
@@ -108,7 +96,7 @@
 `.tools/auditor/hardcode-styles-auditor.js`
 
 - 🟠 **`auditStyles`** [L94](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-styles-auditor.js#L94)
-  - Lines: 60 | Cyclomatic: 8 | Cognitive: 18 | CRAP: 72
+  - Lines: 61 | Cyclomatic: 8 | Cognitive: 18 | CRAP: 72
 - 🟠 **`scanFile`** [L9](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-styles-auditor.js#L9)
   - Lines: 60 | Cyclomatic: 7 | Cognitive: 4 | CRAP: 56
 
@@ -228,6 +216,18 @@
 
 - 🟠 **`shouldExcludeElement`** [L49](file:///D:/Magazine/_PigmentShop/.tools/manual-browser-inspector/utils/domHelpers.js#L49)
   - Lines: 6 | Cyclomatic: 7 | Cognitive: 6 | CRAP: 56
+
+#### 📁 [hardcode-url-auditor.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-url-auditor.js)
+`.tools/auditor/hardcode-url-auditor.js`
+
+- 🟠 **`auditHardcodeUrl`** [L48](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-url-auditor.js#L48)
+  - Lines: 20 | Cyclomatic: 7 | Cognitive: 9 | CRAP: 56
+
+#### 📁 [performance-auditor.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/performance-auditor.js)
+`.tools/auditor/performance-auditor.js`
+
+- 🟠 **`auditPerformance`** [L53](file:///D:/Magazine/_PigmentShop/.tools/auditor/performance-auditor.js#L53)
+  - Lines: 20 | Cyclomatic: 7 | Cognitive: 9 | CRAP: 56
 
 #### 📁 [maintenance-reports.cjs](file:///D:/Magazine/_PigmentShop/.tools/auditor/fallow-auditor/src/maintenance-reports.cjs)
 `.tools/auditor/fallow-auditor/src/maintenance-reports.cjs`

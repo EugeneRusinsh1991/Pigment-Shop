@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text as RNText, Platform } from 'react-native';
+import { getIconTextStyle } from '../../theme/iconStyles';
 import { colors, iconTokens } from '../../theme/tokens';
 
 const styles = StyleSheet.create({
@@ -18,7 +19,7 @@ const getSvgStyle = (style) => {
   }
   return typeof style === 'object' ? { ...base, ...style } : base;
 };
-const getTextStyle = (color, size, style) => [{ color: getThemeColor(color), fontSize: size }, style];
+const getTextStyle = (color, size, style) => getIconTextStyle(getThemeColor(color), size, style);
 
 export const SparkleIcon = ({ color, size = 18, style, ...props }) => {
   if (Platform.OS === 'web') {

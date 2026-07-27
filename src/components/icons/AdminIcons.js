@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Platform, Text as RNText } from 'react-native';
+import { getIconTextStyle } from '../../theme/iconStyles';
 import { colors } from '../../theme/tokens';
 import { CurrencyIcon } from './AppIcons';
 
@@ -14,7 +15,7 @@ const styles = {
     }
     return typeof style === 'object' ? { ...base, ...style } : base;
   },
-  text: (color, size, style) => [{ color: getThemeColor(color), fontSize: size }, style],
+  text: (color, size, style) => getIconTextStyle(getThemeColor(color), size, style),
 };
 
 export const AdminIcon = ({ color, size = 16, style, ...props }) => {

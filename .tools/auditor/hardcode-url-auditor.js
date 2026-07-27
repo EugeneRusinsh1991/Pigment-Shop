@@ -56,47 +56,13 @@ function auditHardcodeUrl() {
   report += `Timestamp: ${timestamp}\n`;
   report += `===================================================================\n\n`;
 
+  if (fs.existsSync(LOG_FILE)) { try { fs.unlinkSync(LOG_FILE); } catch (_) {} }
+  if (fs.existsSync(FILES_LOG_FILE)) { try { fs.unlinkSync(FILES_LOG_FILE); } catch (_) {} }
+
   if (violations.length === 0) {
-    if (fs.existsSync(LOG_FILE)) { try { fs.unlinkSync(LOG_FILE); } catch (_) {} }
-    if (fs.existsSync(FILES_LOG_FILE)) { try { fs.unlinkSync(FILES_LOG_FILE); } catch (_) {} }
     console.log('[11 Hardcoded URL Audit] Finished (0 issues) -> Clean');
   } else {
-    const grouped = {};
-    violations.forEach(v => {
-      const filePath = v.location ? v.location.split(':')[0] : (v.location || 'Unknown');
-      if (!grouped[filePath]) grouped[filePath] = [];
-      grouped[filePath].push(v);
-    });
-
-    const fileCount = Object.keys(grouped).length;
-    report += `Found ${violations.length} URL issue(s) across ${fileCount} file(s):\n\n`;
-
-    Object.entries(grouped).forEach(([filePath, items]) => {
-      report += `File: ${filePath}\n`;
-      items.forEach((item) => {
-        const lineNum = item.location.split(':')[1] || '';
-        report += `  L${lineNum.padEnd(5)} ${item.details}\n`;
-      });
-      report += `\n`;
-    });
-
-    if (fileCount > 10) {
-      let filesReport = `===================================================================\n`;
-      filesReport += `               FILES WITH ISSUES REPORT                            \n`;
-      filesReport += `Timestamp: ${timestamp}\n`;
-      filesReport += `===================================================================\n\n`;
-      filesReport += `Found ${violations.length} issue(s) across ${fileCount} target(s):\n\n`;
-      Object.keys(grouped).forEach(filePath => {
-        filesReport += `- ${filePath} (${grouped[filePath].length} issues)\n`;
-      });
-      fs.writeFileSync(FILES_LOG_FILE, filesReport);
-      console.log(`  -> Also generated compact file list: 11-hardcode-url-files.log`);
-    } else {
-      if (fs.existsSync(FILES_LOG_FILE)) { try { fs.unlinkSync(FILES_LOG_FILE); } catch (_) {} }
-    }
-
-    fs.writeFileSync(LOG_FILE, report);
-    console.log(`[11 Hardcoded URL Audit] Finished (${violations.length} issues) -> .docs/audits/audits/11-hardcode-url-violations.log`);
+    console.log(`[11 Hardcoded URL Audit] Finished (${violations.length} issues)`);
   }
 }
 

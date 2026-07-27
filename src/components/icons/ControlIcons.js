@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text as RNText, Platform } from 'react-native';
+import { getIconTextStyle } from '../../theme/iconStyles';
 import { colors, iconTokens } from '../../theme/tokens';
 
 const getThemeColor = (color) => color || colors.textLight;
@@ -13,11 +14,7 @@ const getSvgStyle = (style) => {
   return typeof style === 'object' ? { ...SVG_BASE_STYLE, ...style } : SVG_BASE_STYLE;
 };
 
-const getTextStyle = (color, size, style) => [
-  iconStyles.base,
-  { color: getThemeColor(color), fontSize: size },
-  style,
-];
+const getTextStyle = (color, size, style) => getIconTextStyle(getThemeColor(color), size, style);
 
 const iconStyles = StyleSheet.create({
   base: {},

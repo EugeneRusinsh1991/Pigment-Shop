@@ -10,11 +10,11 @@
   - Line [20](file:///D:/Magazine/_PigmentShop/src/components/Card/NavigationCard.js#L20): `<ForwardArrowIcon>` (Icon: `[Unknown]`)
 
 ### File: [src/components/Icons/AdminIcons.js](file:///D:/Magazine/_PigmentShop/src/components/Icons/AdminIcons.js)
-  - Line [109](file:///D:/Magazine/_PigmentShop/src/components/Icons/AdminIcons.js#L109): `<CurrencyIcon>` (Icon: `[Unknown]`)
+  - Line [110](file:///D:/Magazine/_PigmentShop/src/components/Icons/AdminIcons.js#L110): `<CurrencyIcon>` (Icon: `[Unknown]`)
 
 ### File: [src/components/Icons/AppIcons.js](file:///D:/Magazine/_PigmentShop/src/components/Icons/AppIcons.js)
-  - Line [55](file:///D:/Magazine/_PigmentShop/src/components/Icons/AppIcons.js#L55): `<ThemeSunIcon>` (Icon: `[Unknown]`)
-  - Line [57](file:///D:/Magazine/_PigmentShop/src/components/Icons/AppIcons.js#L57): `<ThemeMoonIcon>` (Icon: `[Unknown]`)
+  - Line [56](file:///D:/Magazine/_PigmentShop/src/components/Icons/AppIcons.js#L56): `<ThemeSunIcon>` (Icon: `[Unknown]`)
+  - Line [58](file:///D:/Magazine/_PigmentShop/src/components/Icons/AppIcons.js#L58): `<ThemeMoonIcon>` (Icon: `[Unknown]`)
 
 ### File: [src/components/Navigation/Breadcrumbs/Breadcrumb.js](file:///D:/Magazine/_PigmentShop/src/components/Navigation/Breadcrumbs/Breadcrumb.js)
   - Line [62](file:///D:/Magazine/_PigmentShop/src/components/Navigation/Breadcrumbs/Breadcrumb.js#L62): `<HomeIcon>` (Icon: `[Unknown]`)

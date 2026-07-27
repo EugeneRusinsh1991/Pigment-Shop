@@ -41,52 +41,52 @@
   - Line [159](file:///D:/Magazine/_PigmentShop/src/components/Flag/Flag.js#L159): `<Text>` -> `✓`
 
 ### File: [src/components/Icons/AdminIcons.js](file:///D:/Magazine/_PigmentShop/src/components/Icons/AdminIcons.js)
-  - Line [29](file:///D:/Magazine/_PigmentShop/src/components/Icons/AdminIcons.js#L29): `<RNText>` -> `⚙`
-  - Line [42](file:///D:/Magazine/_PigmentShop/src/components/Icons/AdminIcons.js#L42): `<RNText>` -> `📦`
-  - Line [55](file:///D:/Magazine/_PigmentShop/src/components/Icons/AdminIcons.js#L55): `<RNText>` -> `🖼️`
-  - Line [67](file:///D:/Magazine/_PigmentShop/src/components/Icons/AdminIcons.js#L67): `<RNText>` -> `📋`
-  - Line [80](file:///D:/Magazine/_PigmentShop/src/components/Icons/AdminIcons.js#L80): `<RNText>` -> `🚪`
-  - Line [93](file:///D:/Magazine/_PigmentShop/src/components/Icons/AdminIcons.js#L93): `<RNText>` -> `🚪`
-  - Line [105](file:///D:/Magazine/_PigmentShop/src/components/Icons/AdminIcons.js#L105): `<RNText>` -> `🔒`
-  - Line [121](file:///D:/Magazine/_PigmentShop/src/components/Icons/AdminIcons.js#L121): `<RNText>` -> `📈`
+  - Line [30](file:///D:/Magazine/_PigmentShop/src/components/Icons/AdminIcons.js#L30): `<RNText>` -> `⚙`
+  - Line [43](file:///D:/Magazine/_PigmentShop/src/components/Icons/AdminIcons.js#L43): `<RNText>` -> `📦`
+  - Line [56](file:///D:/Magazine/_PigmentShop/src/components/Icons/AdminIcons.js#L56): `<RNText>` -> `🖼️`
+  - Line [68](file:///D:/Magazine/_PigmentShop/src/components/Icons/AdminIcons.js#L68): `<RNText>` -> `📋`
+  - Line [81](file:///D:/Magazine/_PigmentShop/src/components/Icons/AdminIcons.js#L81): `<RNText>` -> `🚪`
+  - Line [94](file:///D:/Magazine/_PigmentShop/src/components/Icons/AdminIcons.js#L94): `<RNText>` -> `🚪`
+  - Line [106](file:///D:/Magazine/_PigmentShop/src/components/Icons/AdminIcons.js#L106): `<RNText>` -> `🔒`
+  - Line [122](file:///D:/Magazine/_PigmentShop/src/components/Icons/AdminIcons.js#L122): `<RNText>` -> `📈`
 
 ### File: [src/components/Icons/AppIcons.js](file:///D:/Magazine/_PigmentShop/src/components/Icons/AppIcons.js)
-  - Line [39](file:///D:/Magazine/_PigmentShop/src/components/Icons/AppIcons.js#L39): `<RNText>` -> `☀️`
-  - Line [50](file:///D:/Magazine/_PigmentShop/src/components/Icons/AppIcons.js#L50): `<RNText>` -> `🌙`
-  - Line [71](file:///D:/Magazine/_PigmentShop/src/components/Icons/AppIcons.js#L71): `<RNText>` -> `🌐`
-  - Line [84](file:///D:/Magazine/_PigmentShop/src/components/Icons/AppIcons.js#L84): `<RNText>` -> `👜`
-  - Line [96](file:///D:/Magazine/_PigmentShop/src/components/Icons/AppIcons.js#L96): `<RNText>` -> `👤`
-  - Line [109](file:///D:/Magazine/_PigmentShop/src/components/Icons/AppIcons.js#L109): `<RNText>` -> `🛒`
-  - Line [120](file:///D:/Magazine/_PigmentShop/src/components/Icons/AppIcons.js#L120): `<RNText>` -> `[Dynamic Content]`
-  - Line [132](file:///D:/Magazine/_PigmentShop/src/components/Icons/AppIcons.js#L132): `<RNText>` -> `✉`
-  - Line [144](file:///D:/Magazine/_PigmentShop/src/components/Icons/AppIcons.js#L144): `<RNText>` -> `🏷️`
-  - Line [156](file:///D:/Magazine/_PigmentShop/src/components/Icons/AppIcons.js#L156): `<RNText>` -> `🔍`
-  - Line [168](file:///D:/Magazine/_PigmentShop/src/components/Icons/AppIcons.js#L168): `<RNText>` -> `🏠`
-  - Line [182](file:///D:/Magazine/_PigmentShop/src/components/Icons/AppIcons.js#L182): `<RNText>` -> `🗂️`
-  - Line [194](file:///D:/Magazine/_PigmentShop/src/components/Icons/AppIcons.js#L194): `<RNText>` -> `$`
+  - Line [40](file:///D:/Magazine/_PigmentShop/src/components/Icons/AppIcons.js#L40): `<RNText>` -> `☀️`
+  - Line [51](file:///D:/Magazine/_PigmentShop/src/components/Icons/AppIcons.js#L51): `<RNText>` -> `🌙`
+  - Line [72](file:///D:/Magazine/_PigmentShop/src/components/Icons/AppIcons.js#L72): `<RNText>` -> `🌐`
+  - Line [85](file:///D:/Magazine/_PigmentShop/src/components/Icons/AppIcons.js#L85): `<RNText>` -> `👜`
+  - Line [97](file:///D:/Magazine/_PigmentShop/src/components/Icons/AppIcons.js#L97): `<RNText>` -> `👤`
+  - Line [110](file:///D:/Magazine/_PigmentShop/src/components/Icons/AppIcons.js#L110): `<RNText>` -> `🛒`
+  - Line [121](file:///D:/Magazine/_PigmentShop/src/components/Icons/AppIcons.js#L121): `<RNText>` -> `[Dynamic Content]`
+  - Line [133](file:///D:/Magazine/_PigmentShop/src/components/Icons/AppIcons.js#L133): `<RNText>` -> `✉`
+  - Line [145](file:///D:/Magazine/_PigmentShop/src/components/Icons/AppIcons.js#L145): `<RNText>` -> `🏷️`
+  - Line [157](file:///D:/Magazine/_PigmentShop/src/components/Icons/AppIcons.js#L157): `<RNText>` -> `🔍`
+  - Line [169](file:///D:/Magazine/_PigmentShop/src/components/Icons/AppIcons.js#L169): `<RNText>` -> `🏠`
+  - Line [183](file:///D:/Magazine/_PigmentShop/src/components/Icons/AppIcons.js#L183): `<RNText>` -> `🗂️`
+  - Line [195](file:///D:/Magazine/_PigmentShop/src/components/Icons/AppIcons.js#L195): `<RNText>` -> `$`
 
 ### File: [src/components/Icons/CategoryIcons.js](file:///D:/Magazine/_PigmentShop/src/components/Icons/CategoryIcons.js)
-  - Line [33](file:///D:/Magazine/_PigmentShop/src/components/Icons/CategoryIcons.js#L33): `<RNText>` -> `✨`
-  - Line [49](file:///D:/Magazine/_PigmentShop/src/components/Icons/CategoryIcons.js#L49): `<RNText>` -> `👁️`
-  - Line [62](file:///D:/Magazine/_PigmentShop/src/components/Icons/CategoryIcons.js#L62): `<RNText>` -> `🖌️`
-  - Line [74](file:///D:/Magazine/_PigmentShop/src/components/Icons/CategoryIcons.js#L74): `<RNText>` -> `👄`
-  - Line [87](file:///D:/Magazine/_PigmentShop/src/components/Icons/CategoryIcons.js#L87): `<RNText>` -> `📍`
+  - Line [34](file:///D:/Magazine/_PigmentShop/src/components/Icons/CategoryIcons.js#L34): `<RNText>` -> `✨`
+  - Line [50](file:///D:/Magazine/_PigmentShop/src/components/Icons/CategoryIcons.js#L50): `<RNText>` -> `👁️`
+  - Line [63](file:///D:/Magazine/_PigmentShop/src/components/Icons/CategoryIcons.js#L63): `<RNText>` -> `🖌️`
+  - Line [75](file:///D:/Magazine/_PigmentShop/src/components/Icons/CategoryIcons.js#L75): `<RNText>` -> `👄`
+  - Line [88](file:///D:/Magazine/_PigmentShop/src/components/Icons/CategoryIcons.js#L88): `<RNText>` -> `📍`
 
 ### File: [src/components/Icons/ControlIcons.js](file:///D:/Magazine/_PigmentShop/src/components/Icons/ControlIcons.js)
-  - Line [34](file:///D:/Magazine/_PigmentShop/src/components/Icons/ControlIcons.js#L34): `<RNText>` -> `✓`
-  - Line [46](file:///D:/Magazine/_PigmentShop/src/components/Icons/ControlIcons.js#L46): `<RNText>` -> `✗`
-  - Line [59](file:///D:/Magazine/_PigmentShop/src/components/Icons/ControlIcons.js#L59): `<RNText>` -> `←`
-  - Line [71](file:///D:/Magazine/_PigmentShop/src/components/Icons/ControlIcons.js#L71): `<RNText>` -> `→`
-  - Line [82](file:///D:/Magazine/_PigmentShop/src/components/Icons/ControlIcons.js#L82): `<RNText>` -> `◀`
-  - Line [93](file:///D:/Magazine/_PigmentShop/src/components/Icons/ControlIcons.js#L93): `<RNText>` -> `▶`
-  - Line [104](file:///D:/Magazine/_PigmentShop/src/components/Icons/ControlIcons.js#L104): `<RNText>` -> `▼`
-  - Line [116](file:///D:/Magazine/_PigmentShop/src/components/Icons/ControlIcons.js#L116): `<RNText>` -> `👁️`
-  - Line [128](file:///D:/Magazine/_PigmentShop/src/components/Icons/ControlIcons.js#L128): `<RNText>` -> `🙈`
-  - Line [139](file:///D:/Magazine/_PigmentShop/src/components/Icons/ControlIcons.js#L139): `<RNText>` -> `🔄`
-  - Line [152](file:///D:/Magazine/_PigmentShop/src/components/Icons/ControlIcons.js#L152): `<RNText>` -> `📁`
-  - Line [165](file:///D:/Magazine/_PigmentShop/src/components/Icons/ControlIcons.js#L165): `<RNText>` -> `⚠️`
-  - Line [177](file:///D:/Magazine/_PigmentShop/src/components/Icons/ControlIcons.js#L177): `<RNText>` -> `✏️`
-  - Line [189](file:///D:/Magazine/_PigmentShop/src/components/Icons/ControlIcons.js#L189): `<RNText>` -> `🗑️`
+  - Line [31](file:///D:/Magazine/_PigmentShop/src/components/Icons/ControlIcons.js#L31): `<RNText>` -> `✓`
+  - Line [43](file:///D:/Magazine/_PigmentShop/src/components/Icons/ControlIcons.js#L43): `<RNText>` -> `✗`
+  - Line [56](file:///D:/Magazine/_PigmentShop/src/components/Icons/ControlIcons.js#L56): `<RNText>` -> `←`
+  - Line [68](file:///D:/Magazine/_PigmentShop/src/components/Icons/ControlIcons.js#L68): `<RNText>` -> `→`
+  - Line [79](file:///D:/Magazine/_PigmentShop/src/components/Icons/ControlIcons.js#L79): `<RNText>` -> `◀`
+  - Line [90](file:///D:/Magazine/_PigmentShop/src/components/Icons/ControlIcons.js#L90): `<RNText>` -> `▶`
+  - Line [101](file:///D:/Magazine/_PigmentShop/src/components/Icons/ControlIcons.js#L101): `<RNText>` -> `▼`
+  - Line [113](file:///D:/Magazine/_PigmentShop/src/components/Icons/ControlIcons.js#L113): `<RNText>` -> `👁️`
+  - Line [125](file:///D:/Magazine/_PigmentShop/src/components/Icons/ControlIcons.js#L125): `<RNText>` -> `🙈`
+  - Line [136](file:///D:/Magazine/_PigmentShop/src/components/Icons/ControlIcons.js#L136): `<RNText>` -> `🔄`
+  - Line [149](file:///D:/Magazine/_PigmentShop/src/components/Icons/ControlIcons.js#L149): `<RNText>` -> `📁`
+  - Line [162](file:///D:/Magazine/_PigmentShop/src/components/Icons/ControlIcons.js#L162): `<RNText>` -> `⚠️`
+  - Line [174](file:///D:/Magazine/_PigmentShop/src/components/Icons/ControlIcons.js#L174): `<RNText>` -> `✏️`
+  - Line [186](file:///D:/Magazine/_PigmentShop/src/components/Icons/ControlIcons.js#L186): `<RNText>` -> `🗑️`
 
 ### File: [src/components/Modal/ConfirmationModal.js](file:///D:/Magazine/_PigmentShop/src/components/Modal/ConfirmationModal.js)
   - Line [57](file:///D:/Magazine/_PigmentShop/src/components/Modal/ConfirmationModal.js#L57): `<Text>` -> `[Dynamic Content]`

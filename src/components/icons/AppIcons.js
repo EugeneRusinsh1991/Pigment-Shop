@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text as RNText, Platform, StyleSheet } from 'react-native';
+import { getIconTextStyle } from '../../theme/iconStyles';
 import { colors, iconTokens } from '../../theme/tokens';
 
 const getThemeColor = (color) => color || colors.textLight;
@@ -17,7 +18,7 @@ const appIconStyles = {
     }
     return typeof style === 'object' ? { ...base, ...style } : base;
   },
-  getText: (color, size, style) => [{ color: getThemeColor(color), fontSize: size }, style],
+  getText: (color, size, style) => getIconTextStyle(getThemeColor(color), size, style),
 };
 
 export const ThemeSunIcon = ({ color, size = 18, style, ...props }) => {

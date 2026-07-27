@@ -124,7 +124,8 @@ function auditStyles() {
       report += `File: ${filePath}\n`;
       items.forEach((item) => {
         const lineStr = item.lineNum ? `L${item.lineNum}` : '';
-        report += `  ${lineStr.padEnd(6)} [${item.type}] ${item.details}\n`;
+        const typeStr = item.type === 'INLINE_STYLE' ? '' : `[${item.type}] `;
+        report += `  ${lineStr.padEnd(6)} ${typeStr}${item.details}\n`;
       });
       report += `\n`;
     });
