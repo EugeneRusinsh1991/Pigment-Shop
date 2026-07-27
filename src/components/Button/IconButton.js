@@ -36,13 +36,6 @@ export function IconButton({
   const dim = getDimension();
   const radius = dim / 2;
 
-  const combinedStyle = [
-    iconStyles.base,
-    { width: dim, height: dim, borderRadius: radius },
-    resolvedContainer,
-    style,
-  ];
-
   const defaultIconColor = isDark ? buttonColors.textDark : buttonColors.textLight;
   const renderedIcon = React.isValidElement(icon) && icon.type !== React.Fragment
     ? React.cloneElement(icon, { color: icon.props?.color || defaultIconColor })
@@ -53,7 +46,7 @@ export function IconButton({
       variant="unstyled"
       animated={animated}
       size={dim}
-      style={combinedStyle}
+      style={[iconStyles.base, { width: dim, height: dim, borderRadius: radius }, resolvedContainer, style]}
       onPress={onPress}
       activeOpacity={activeOpacity}
       isDark={isDark}

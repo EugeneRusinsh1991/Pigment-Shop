@@ -16,20 +16,20 @@ function getThemeToggleStyle(isDark) {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 10,
+    paddingVertical: layout.spacing.sm,
     paddingHorizontal: layout.spacing.sm,
     minHeight: 44,
     borderRadius: layout.radii.sm,
     borderWidth: 1,
     borderColor: isDark ? colors.borderDarkAlt : colors.navItemHoverDark,
-    backgroundColor: isDark ? 'rgba(255,255,255,0.03)' : 'rgba(15,23,42,0.03)',
+    backgroundColor: isDark ? colors.surfaceFaintDark : colors.surfaceFaintLight,
     marginBottom: layout.spacing.md,
   };
 }
 
 function getThemeIconStyles(isDark) {
   return {
-    container: { marginRight: 10 },
+    container: { marginRight: layout.spacing.sm },
     icon: { isDark, color: isDark ? colors.white : colors.dark, size: 16 },
   };
 }
@@ -41,6 +41,7 @@ export default function LanguageSelector({ isDark, lang, onSelectLanguage, onTog
 
   if (!onSelectLanguage && !onToggleTheme) return null;
   const themeToggleLabel = getThemeToggleLabel(isDark);
+  const themeIconStyles = getThemeIconStyles(isDark);
 
   return (
     <View style={[styles.menuFooter, isDark ? styles.menuFooterDark : styles.menuFooterLight]}>
@@ -49,8 +50,8 @@ export default function LanguageSelector({ isDark, lang, onSelectLanguage, onTog
           style={getThemeToggleStyle(isDark)}
           onPress={onToggleTheme}
         >
-          <View style={getThemeIconStyles(isDark).container}>
-            <ThemeIcon {...getThemeIconStyles(isDark).icon} />
+          <View style={themeIconStyles.container}>
+            <ThemeIcon {...themeIconStyles.icon} />
           </View>
           <Text variant="body2" weight="600" size={13}>
             {themeToggleLabel}

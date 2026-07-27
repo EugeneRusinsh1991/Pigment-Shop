@@ -46,26 +46,32 @@ const InteractiveCard = React.forwardRef(({
     }).start();
   };
 
-  const computedOuterStyle = {
-    width: cardWidth,
-    minWidth: cardWidth,
-    height: cardHeight,
-    flex: 0,
-    flexGrow: 0,
-    margin: cardMargin,
-    overflow: 'visible',
-    ...outerStyle,
-  };
+  const computedOuterStyle = [
+    {
+      width: cardWidth,
+      minWidth: cardWidth,
+      height: cardHeight,
+      flex: 0,
+      flexGrow: 0,
+      margin: cardMargin,
+      overflow: 'visible',
+    },
+    outerStyle,
+  ];
 
-  const innerStyle = {
-    ...StyleSheet.flatten(style),
-    flex: 1,
-    width: '100%',
-    height: '100%',
-    transform: [{ translateY }, { scale: scaleAnim }],
-    borderRadius,
-    overflow: 'visible',
-  };
+  const innerStyle = [
+    style,
+    {
+      flex: 1,
+      width: '100%',
+      height: '100%',
+      transform: [{ translateY }, { scale: scaleAnim }],
+      borderRadius,
+      overflow: 'visible',
+    },
+  ];
+
+  const cardDimStyle = { width: cardWidth, height: cardHeight, borderRadius };
 
   return (
     <ScrollFadeUp ref={ref} style={computedOuterStyle}>
@@ -88,7 +94,7 @@ const InteractiveCard = React.forwardRef(({
               backgroundColor: isDark ? defaultDarkBg : defaultLightBg
             }
           ]} />
-          <CardShadow hoverAnim={hoverAnim} isDark={isDark} lightBgColor={defaultLightBg} style={{ width: cardWidth, height: cardHeight, borderRadius }} />
+          <CardShadow hoverAnim={hoverAnim} isDark={isDark} lightBgColor={defaultLightBg} style={cardDimStyle} />
           {children}
         </TouchableOpacity>
       </Animated.View>

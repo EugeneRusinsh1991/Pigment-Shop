@@ -4,7 +4,7 @@ import globalStyles from '@/AppStyles';
 import { useCatalog } from '@/context/CatalogContext';
 import { ChevronLeftIcon, ChevronRightIcon } from '@/components/Icons';
 import { DEFAULT_ACTIVE_OPACITY } from '@/theme/buttonCommon';
-import { colors } from '@/theme/tokens';
+import { colors, layout } from '@/theme/tokens';
 import { CarouselDots } from './HeroCarousel/CarouselDots';
 import { CarouselLayers } from './HeroCarousel/CarouselLayers';
 import { useCarouselData } from './HeroCarousel/useCarouselData';
@@ -34,7 +34,7 @@ function CarouselArrows({ show, onPrev, onNext }) {
 
 function getBreakoutStyle(isWide, windowWidth) {
   if (isWide) return {};
-  return { width: windowWidth, alignSelf: 'center', borderRadius: 0 };
+  return { width: windowWidth, alignSelf: 'center', borderRadius: layout.radii.none };
 }
 
 function getCarouselBaseStyle(isWide, windowWidth) {
@@ -46,7 +46,7 @@ function getCarouselBaseStyle(isWide, windowWidth) {
 function getPlaceholderStyle(isWide, isDark, windowWidth) {
   const baseStyle = getCarouselBaseStyle(isWide, windowWidth);
   const backgroundColor = isDark ? colors.borderDarkAlt : colors.borderSlateLight;
-  return [...baseStyle, { backgroundColor }];
+  return [baseStyle, { backgroundColor }];
 }
 
 export default function HeroCarousel({ isDark, isWide }) {
