@@ -5,7 +5,7 @@ function getContentStyle(isMobile) {
   return {
     paddingHorizontal: isMobile ? layout.spacing.sm : layout.spacing.xl,
     paddingVertical: isMobile ? layout.spacing.sm : layout.spacing.lg,
-    maxWidth: 1330,
+    maxWidth: layout.maxContentWidth,
     alignSelf: 'center',
     width: '100%',
   };
@@ -21,7 +21,7 @@ export default StyleSheet.create({
   content: {
     paddingHorizontal: layout.spacing.sm,
     paddingVertical: layout.spacing.sm,
-    maxWidth: 1330,
+    maxWidth: layout.maxContentWidth,
     alignSelf: 'center',
     width: '100%',
   },

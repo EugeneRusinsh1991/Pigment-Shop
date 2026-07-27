@@ -29,7 +29,7 @@ function extractFontProps(style) {
 
 function BadgeContent({ textStyle, cleanedStyle, fontProps, resolvedSize, displayText }) {
   return (
-    <Text variant="caption" weight="semiBold" {...fontProps} size={resolvedSize} style={[...textStyle, cleanedStyle]}>{displayText}</Text>
+    <Text variant="caption" weight="semibold" {...fontProps} size={resolvedSize} style={[...textStyle, cleanedStyle]}>{displayText}</Text>
   );
 }
 

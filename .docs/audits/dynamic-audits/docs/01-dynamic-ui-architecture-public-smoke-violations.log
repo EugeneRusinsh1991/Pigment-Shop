@@ -2,7 +2,7 @@
 type: dynamic-audit
 auditor: ui-architecture
 scope: public
-date: 2026-07-27T18:15:31.358Z
+date: 2026-07-27T18:27:00.877Z
 ---
 
 ### Problem: Design System: Hardcoded spacing/border-radius lacking spatial tokens.
@@ -198,6 +198,7 @@ date: 2026-07-27T18:15:31.358Z
   - Selector: `div.css-view-g5y9jx.r-bottom-1p0dtai.r-left-1d2f490.r-position-u8s1d.r-right-zchlnj.r-top-ipm5af`
   - Selector: `button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderWidth-rs99b7.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-borderColor-42olwf`
   - Selector: `div.css-view-g5y9jx.r-flexDirection-eqz5dr.r-borderRadius-y47klf.r-flex-13awgt0.r-margin-hwh8t1.r-overflow-1udh08x.r-position-bnwqim`
+  - Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j`
 - URL: `http://localhost:8081/catalog`
   - Selector: `div.css-view-g5y9jx.r-flex-13awgt0.r-bottom-1p0dtai.r-left-1d2f490.r-position-u8s1d.r-right-zchlnj.r-top-ipm5af`
   - Selector: `div.css-view-g5y9jx.r-flex-13awgt0`
@@ -208,6 +209,7 @@ date: 2026-07-27T18:15:31.358Z
   - Selector: `div.css-view-g5y9jx.r-borderRadius-1jkafct.r-height-hdaws3.r-justifyContent-1777fci.r-position-bnwqim`
   - Selector: `input.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-borderRadius-kdyh1x.r-borderWidth-rs99b7.r-paddingBlock-vuvdlw.r-paddingInline-is05cd.r-width-19554kt.r-backgroundColor-14lw9ot.r-borderColor-zj8kiy.r-color-kgv7a8`
   - Selector: `textarea.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-paddingBlock-1mmae3n.r-borderRadius-1xfd6ze.r-borderWidth-rs99b7.r-marginBottom-5oul0u.r-paddingInline-3o4zer.r-backgroundColor-r54q32.r-borderColor-1wr2p1e.r-color-cqee49.r-height-1ph75f1.r-paddingTop-tskmnb.r-verticalAlign-ad9o1y`
+  - Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j`
 - URL: `http://localhost:8081/catalog/cat-root-0`
   - Selector: `div.css-view-g5y9jx.r-flex-13awgt0.r-bottom-1p0dtai.r-left-1d2f490.r-position-u8s1d.r-right-zchlnj.r-top-ipm5af`
   - Selector: `div.css-view-g5y9jx.r-flex-13awgt0`
@@ -218,6 +220,7 @@ date: 2026-07-27T18:15:31.358Z
   - Selector: `div.css-view-g5y9jx.r-borderRadius-1jkafct.r-height-hdaws3.r-justifyContent-1777fci.r-position-bnwqim`
   - Selector: `input.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-borderRadius-kdyh1x.r-borderWidth-rs99b7.r-paddingBlock-vuvdlw.r-paddingInline-is05cd.r-width-19554kt.r-backgroundColor-14lw9ot.r-borderColor-zj8kiy.r-color-kgv7a8`
   - Selector: `textarea.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-paddingBlock-1mmae3n.r-borderRadius-1xfd6ze.r-borderWidth-rs99b7.r-marginBottom-5oul0u.r-paddingInline-3o4zer.r-backgroundColor-r54q32.r-borderColor-1wr2p1e.r-color-cqee49.r-height-1ph75f1.r-paddingTop-tskmnb.r-verticalAlign-ad9o1y`
+  - Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j`
 - URL: `http://localhost:8081/catalog/cat-root-0-sub-0`
   - Selector: `div.css-view-g5y9jx.r-flex-13awgt0.r-bottom-1p0dtai.r-left-1d2f490.r-position-u8s1d.r-right-zchlnj.r-top-ipm5af`
   - Selector: `div.css-view-g5y9jx.r-flex-13awgt0`
@@ -225,6 +228,7 @@ date: 2026-07-27T18:15:31.358Z
   - Selector: `div.css-view-g5y9jx.r-alignItems-1awozwy.r-alignSelf-k200y.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-justifyContent-1777fci`
   - Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-1qxivpv.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j`
   - Selector: `div.css-view-g5y9jx.r-flexDirection-eqz5dr.r-borderRadius-y47klf.r-flex-13awgt0.r-margin-hwh8t1.r-overflow-1udh08x.r-position-bnwqim`
+  - Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j`
 - URL: `http://localhost:8081/catalog/cat-root-0-sub-1`
   - Selector: `div.css-view-g5y9jx.r-flex-13awgt0.r-bottom-1p0dtai.r-left-1d2f490.r-position-u8s1d.r-right-zchlnj.r-top-ipm5af`
   - Selector: `div.css-view-g5y9jx.r-flex-13awgt0`
@@ -235,6 +239,7 @@ date: 2026-07-27T18:15:31.358Z
   - Selector: `div.css-view-g5y9jx.r-borderRadius-1jkafct.r-height-hdaws3.r-justifyContent-1777fci.r-position-bnwqim`
   - Selector: `input.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-borderRadius-kdyh1x.r-borderWidth-rs99b7.r-paddingBlock-vuvdlw.r-paddingInline-is05cd.r-width-19554kt.r-backgroundColor-14lw9ot.r-borderColor-zj8kiy.r-color-kgv7a8`
   - Selector: `textarea.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-paddingBlock-1mmae3n.r-borderRadius-1xfd6ze.r-borderWidth-rs99b7.r-marginBottom-5oul0u.r-paddingInline-3o4zer.r-backgroundColor-r54q32.r-borderColor-1wr2p1e.r-color-cqee49.r-height-1ph75f1.r-paddingTop-tskmnb.r-verticalAlign-ad9o1y`
+  - Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j`
 - URL: `http://localhost:8081/catalog/cat-root-1`
   - Selector: `div.css-view-g5y9jx.r-flex-13awgt0.r-bottom-1p0dtai.r-left-1d2f490.r-position-u8s1d.r-right-zchlnj.r-top-ipm5af`
   - Selector: `div.css-view-g5y9jx.r-flex-13awgt0`
@@ -245,6 +250,7 @@ date: 2026-07-27T18:15:31.358Z
   - Selector: `div.css-view-g5y9jx.r-borderRadius-1jkafct.r-height-hdaws3.r-justifyContent-1777fci.r-position-bnwqim`
   - Selector: `input.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-borderRadius-kdyh1x.r-borderWidth-rs99b7.r-paddingBlock-vuvdlw.r-paddingInline-is05cd.r-width-19554kt.r-backgroundColor-14lw9ot.r-borderColor-zj8kiy.r-color-kgv7a8`
   - Selector: `textarea.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-paddingBlock-1mmae3n.r-borderRadius-1xfd6ze.r-borderWidth-rs99b7.r-marginBottom-5oul0u.r-paddingInline-3o4zer.r-backgroundColor-r54q32.r-borderColor-1wr2p1e.r-color-cqee49.r-height-1ph75f1.r-paddingTop-tskmnb.r-verticalAlign-ad9o1y`
+  - Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j`
 - URL: `http://localhost:8081/catalog/cat-root-1-sub-0`
   - Selector: `div.css-view-g5y9jx.r-flex-13awgt0.r-bottom-1p0dtai.r-left-1d2f490.r-position-u8s1d.r-right-zchlnj.r-top-ipm5af`
   - Selector: `div.css-view-g5y9jx.r-flex-13awgt0`
@@ -255,6 +261,7 @@ date: 2026-07-27T18:15:31.358Z
   - Selector: `div.css-view-g5y9jx.r-borderRadius-1jkafct.r-height-hdaws3.r-justifyContent-1777fci.r-position-bnwqim`
   - Selector: `input.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-borderRadius-kdyh1x.r-borderWidth-rs99b7.r-paddingBlock-vuvdlw.r-paddingInline-is05cd.r-width-19554kt.r-backgroundColor-14lw9ot.r-borderColor-zj8kiy.r-color-kgv7a8`
   - Selector: `textarea.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-paddingBlock-1mmae3n.r-borderRadius-1xfd6ze.r-borderWidth-rs99b7.r-marginBottom-5oul0u.r-paddingInline-3o4zer.r-backgroundColor-r54q32.r-borderColor-1wr2p1e.r-color-cqee49.r-height-1ph75f1.r-paddingTop-tskmnb.r-verticalAlign-ad9o1y`
+  - Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j`
 - URL: `http://localhost:8081/catalog/cat-root-1-sub-1`
   - Selector: `div.css-view-g5y9jx.r-flex-13awgt0.r-bottom-1p0dtai.r-left-1d2f490.r-position-u8s1d.r-right-zchlnj.r-top-ipm5af`
   - Selector: `div.css-view-g5y9jx.r-flex-13awgt0`
@@ -265,6 +272,7 @@ date: 2026-07-27T18:15:31.358Z
   - Selector: `div.css-view-g5y9jx.r-borderRadius-1jkafct.r-height-hdaws3.r-justifyContent-1777fci.r-position-bnwqim`
   - Selector: `input.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-borderRadius-kdyh1x.r-borderWidth-rs99b7.r-paddingBlock-vuvdlw.r-paddingInline-is05cd.r-width-19554kt.r-backgroundColor-14lw9ot.r-borderColor-zj8kiy.r-color-kgv7a8`
   - Selector: `textarea.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-paddingBlock-1mmae3n.r-borderRadius-1xfd6ze.r-borderWidth-rs99b7.r-marginBottom-5oul0u.r-paddingInline-3o4zer.r-backgroundColor-r54q32.r-borderColor-1wr2p1e.r-color-cqee49.r-height-1ph75f1.r-paddingTop-tskmnb.r-verticalAlign-ad9o1y`
+  - Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j`
 - URL: `http://localhost:8081/products`
   - Selector: `div.css-view-g5y9jx.r-flex-13awgt0.r-bottom-1p0dtai.r-left-1d2f490.r-position-u8s1d.r-right-zchlnj.r-top-ipm5af`
   - Selector: `div.css-view-g5y9jx.r-flex-13awgt0`
@@ -276,6 +284,7 @@ date: 2026-07-27T18:15:31.358Z
   - Selector: `div.css-view-g5y9jx.r-borderRadius-1tw7wh.r-borderWidth-d045u9.r-cursor-1loqt21.r-height-z80fyv.r-position-u8s1d.r-top-1wghi3f.r-width-19wmn03`
   - Selector: `input.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-borderRadius-kdyh1x.r-borderWidth-rs99b7.r-paddingBlock-vuvdlw.r-paddingInline-is05cd.r-width-19554kt.r-backgroundColor-14lw9ot.r-borderColor-zj8kiy.r-color-kgv7a8`
   - Selector: `input.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-borderRadius-kdyh1x.r-paddingBlock-vuvdlw.r-paddingInline-is05cd.r-width-19554kt.r-backgroundColor-14lw9ot.r-color-kgv7a8`
+  - Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j`
 - URL: `http://localhost:8081/product/prod-2-2-1-1`
   - Selector: `div.css-view-g5y9jx.r-flex-13awgt0.r-bottom-1p0dtai.r-left-1d2f490.r-position-u8s1d.r-right-zchlnj.r-top-ipm5af`
   - Selector: `div.css-view-g5y9jx.r-flex-13awgt0`
@@ -285,6 +294,7 @@ date: 2026-07-27T18:15:31.358Z
   - Selector: `div.css-view-g5y9jx.r-borderRadius-1jkafct.r-height-hdaws3.r-justifyContent-1777fci.r-position-bnwqim`
   - Selector: `input.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-borderRadius-kdyh1x.r-borderWidth-rs99b7.r-paddingBlock-vuvdlw.r-paddingInline-is05cd.r-width-19554kt.r-backgroundColor-14lw9ot.r-borderColor-zj8kiy.r-color-kgv7a8`
   - Selector: `textarea.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-paddingBlock-1mmae3n.r-borderRadius-1xfd6ze.r-borderWidth-rs99b7.r-marginBottom-5oul0u.r-paddingInline-3o4zer.r-backgroundColor-r54q32.r-borderColor-1wr2p1e.r-color-cqee49.r-height-1ph75f1.r-paddingTop-tskmnb.r-verticalAlign-ad9o1y`
+  - Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j`
 - URL: `http://localhost:8081/catalog/cat-root-1-sub-1-sub-0`
   - Selector: `div.css-view-g5y9jx.r-flex-13awgt0.r-bottom-1p0dtai.r-left-1d2f490.r-position-u8s1d.r-right-zchlnj.r-top-ipm5af`
   - Selector: `div.css-view-g5y9jx.r-flex-13awgt0`
@@ -294,6 +304,7 @@ date: 2026-07-27T18:15:31.358Z
   - Selector: `div.css-view-g5y9jx.r-borderRadius-1jkafct.r-height-hdaws3.r-justifyContent-1777fci.r-position-bnwqim`
   - Selector: `input.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-borderRadius-kdyh1x.r-borderWidth-rs99b7.r-paddingBlock-vuvdlw.r-paddingInline-is05cd.r-width-19554kt.r-backgroundColor-14lw9ot.r-borderColor-zj8kiy.r-color-kgv7a8`
   - Selector: `textarea.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-paddingBlock-1mmae3n.r-borderRadius-1xfd6ze.r-borderWidth-rs99b7.r-marginBottom-5oul0u.r-paddingInline-3o4zer.r-backgroundColor-r54q32.r-borderColor-1wr2p1e.r-color-cqee49.r-height-1ph75f1.r-paddingTop-tskmnb.r-verticalAlign-ad9o1y`
+  - Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j`
 - URL: `http://localhost:8081/product/prod-2-1-2-1`
   - Selector: `div.css-view-g5y9jx.r-flex-13awgt0.r-bottom-1p0dtai.r-left-1d2f490.r-position-u8s1d.r-right-zchlnj.r-top-ipm5af`
   - Selector: `div.css-view-g5y9jx.r-flex-13awgt0`
@@ -303,6 +314,7 @@ date: 2026-07-27T18:15:31.358Z
   - Selector: `div.css-view-g5y9jx.r-borderRadius-1jkafct.r-height-hdaws3.r-justifyContent-1777fci.r-position-bnwqim`
   - Selector: `input.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-borderRadius-kdyh1x.r-borderWidth-rs99b7.r-paddingBlock-vuvdlw.r-paddingInline-is05cd.r-width-19554kt.r-backgroundColor-14lw9ot.r-borderColor-zj8kiy.r-color-kgv7a8`
   - Selector: `textarea.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-paddingBlock-1mmae3n.r-borderRadius-1xfd6ze.r-borderWidth-rs99b7.r-marginBottom-5oul0u.r-paddingInline-3o4zer.r-backgroundColor-r54q32.r-borderColor-1wr2p1e.r-color-cqee49.r-height-1ph75f1.r-paddingTop-tskmnb.r-verticalAlign-ad9o1y`
+  - Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j`
 - URL: `http://localhost:8081/catalog/cat-root-1-sub-0-sub-1`
   - Selector: `div.css-view-g5y9jx.r-flex-13awgt0.r-bottom-1p0dtai.r-left-1d2f490.r-position-u8s1d.r-right-zchlnj.r-top-ipm5af`
   - Selector: `div.css-view-g5y9jx.r-flex-13awgt0`
@@ -1079,6 +1091,8 @@ date: 2026-07-27T18:15:31.358Z
   - i18n: Potential hardcoded text string found: "Category 2 EN" without data-i18n tracking. | Selector: `h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-vrz42v.r-marginBottom-15zivkp`
   - i18n: Potential hardcoded text string found: "Subcategory 1-1 EN" without data-i18n tracking. | Selector: `h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-vrz42v.r-marginBottom-15zivkp`
   - i18n: Potential hardcoded text string found: "Subcategory 1-2 EN" without data-i18n tracking. | Selector: `h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-vrz42v.r-marginBottom-15zivkp`
+  - i18n: Potential hardcoded text string found: "Subcategory 2-1 EN" without data-i18n tracking. | Selector: `h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-vrz42v.r-marginBottom-15zivkp`
+  - i18n: Potential hardcoded text string found: "Subcategory 2-2 EN" without data-i18n tracking. | Selector: `h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-vrz42v.r-marginBottom-15zivkp`
 - URL: `http://localhost:8081/catalog/cat-root-0`
   - i18n: Potential hardcoded text string found: "Product 2-1-1-1 RU" without data-i18n tracking. | Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16`
   - i18n: Potential hardcoded text string found: "Product 1-1-2-1 RU11111" without data-i18n tracking. | Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16`
@@ -1152,6 +1166,12 @@ date: 2026-07-27T18:15:31.358Z
   - i18n: Potential hardcoded text string found: "Product 2-1-1-1 EN" without data-i18n tracking. | Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16`
   - i18n: Potential hardcoded text string found: "Product 1-2-1-1 EN" without data-i18n tracking. | Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16`
   - i18n: Potential hardcoded text string found: "Product 1-2-2-1 RU" without data-i18n tracking. | Selector: `h1.css-text-146c3p1.r-color-kgv7a8.r-fontFamily-1anymhi.r-fontSize-1x35g6.r-fontWeight-b88u0q.r-lineHeight-17rnw9f.r-marginBottom-15zivkp`
+  - i18n: Potential hardcoded text string found: "Category 1 EN" without data-i18n tracking. | Selector: `h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-vrz42v.r-marginBottom-15zivkp`
+  - i18n: Potential hardcoded text string found: "Category 2 EN" without data-i18n tracking. | Selector: `h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-vrz42v.r-marginBottom-15zivkp`
+  - i18n: Potential hardcoded text string found: "Subcategory 1-1 EN" without data-i18n tracking. | Selector: `h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-vrz42v.r-marginBottom-15zivkp`
+  - i18n: Potential hardcoded text string found: "Subcategory 1-2 EN" without data-i18n tracking. | Selector: `h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-vrz42v.r-marginBottom-15zivkp`
+  - i18n: Potential hardcoded text string found: "Group 1-2-1 EN" without data-i18n tracking. | Selector: `h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-vrz42v.r-marginBottom-15zivkp`
+  - i18n: Potential hardcoded text string found: "Group 1-2-2 EN" without data-i18n tracking. | Selector: `h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-vrz42v.r-marginBottom-15zivkp`
 - URL: `http://localhost:8081/catalog/cat-root-1`
   - i18n: Potential hardcoded text string found: "Product 2-1-1-1 RU" without data-i18n tracking. | Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16`
   - i18n: Potential hardcoded text string found: "Product 1-1-2-1 RU11111" without data-i18n tracking. | Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16`
@@ -1175,6 +1195,10 @@ date: 2026-07-27T18:15:31.358Z
   - i18n: Potential hardcoded text string found: "Product 1-2-1-1 EN" without data-i18n tracking. | Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16`
   - i18n: Potential hardcoded text string found: "Product 2-2-1-1 RU" without data-i18n tracking. | Selector: `h1.css-text-146c3p1.r-color-kgv7a8.r-fontFamily-1anymhi.r-fontSize-1x35g6.r-fontWeight-b88u0q.r-lineHeight-17rnw9f.r-marginBottom-15zivkp`
   - i18n: Potential hardcoded text string found: "Product 2-1-2-1 RU" without data-i18n tracking. | Selector: `h1.css-text-146c3p1.r-color-kgv7a8.r-fontFamily-1anymhi.r-fontSize-1x35g6.r-fontWeight-b88u0q.r-lineHeight-17rnw9f.r-marginBottom-15zivkp`
+  - i18n: Potential hardcoded text string found: "Category 1 EN" without data-i18n tracking. | Selector: `h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-vrz42v.r-marginBottom-15zivkp`
+  - i18n: Potential hardcoded text string found: "Category 2 EN" without data-i18n tracking. | Selector: `h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-vrz42v.r-marginBottom-15zivkp`
+  - i18n: Potential hardcoded text string found: "Subcategory 2-1 EN" without data-i18n tracking. | Selector: `h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-vrz42v.r-marginBottom-15zivkp`
+  - i18n: Potential hardcoded text string found: "Subcategory 2-2 EN" without data-i18n tracking. | Selector: `h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-vrz42v.r-marginBottom-15zivkp`
 - URL: `http://localhost:8081/catalog/cat-root-1-sub-0`
   - i18n: Potential hardcoded text string found: "Product 2-1-1-1 RU" without data-i18n tracking. | Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16`
   - i18n: Potential hardcoded text string found: "Product 1-1-2-1 RU11111" without data-i18n tracking. | Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16`
@@ -1202,6 +1226,12 @@ date: 2026-07-27T18:15:31.358Z
   - i18n: Potential hardcoded text string found: "Product 2-1-1-1 EN" without data-i18n tracking. | Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16`
   - i18n: Potential hardcoded text string found: "Product 1-2-1-1 EN" without data-i18n tracking. | Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16`
   - i18n: Potential hardcoded text string found: "Product 2-1-2-1 RU" without data-i18n tracking. | Selector: `h1.css-text-146c3p1.r-color-kgv7a8.r-fontFamily-1anymhi.r-fontSize-1x35g6.r-fontWeight-b88u0q.r-lineHeight-17rnw9f.r-marginBottom-15zivkp`
+  - i18n: Potential hardcoded text string found: "Category 1 EN" without data-i18n tracking. | Selector: `h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-vrz42v.r-marginBottom-15zivkp`
+  - i18n: Potential hardcoded text string found: "Category 2 EN" without data-i18n tracking. | Selector: `h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-vrz42v.r-marginBottom-15zivkp`
+  - i18n: Potential hardcoded text string found: "Subcategory 2-1 EN" without data-i18n tracking. | Selector: `h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-vrz42v.r-marginBottom-15zivkp`
+  - i18n: Potential hardcoded text string found: "Subcategory 2-2 EN" without data-i18n tracking. | Selector: `h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-vrz42v.r-marginBottom-15zivkp`
+  - i18n: Potential hardcoded text string found: "Group 2-1-1 EN" without data-i18n tracking. | Selector: `h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-vrz42v.r-marginBottom-15zivkp`
+  - i18n: Potential hardcoded text string found: "Group 2-1-2 EN" without data-i18n tracking. | Selector: `h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-vrz42v.r-marginBottom-15zivkp`
 - URL: `http://localhost:8081/catalog/cat-root-1-sub-1`
   - i18n: Potential hardcoded text string found: "Product 2-1-1-1 RU" without data-i18n tracking. | Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16`
   - i18n: Potential hardcoded text string found: "Product 1-1-2-1 RU11111" without data-i18n tracking. | Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16`
@@ -1229,6 +1259,12 @@ date: 2026-07-27T18:15:31.358Z
   - i18n: Potential hardcoded text string found: "Product 2-1-1-1 EN" without data-i18n tracking. | Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16`
   - i18n: Potential hardcoded text string found: "Product 1-2-1-1 EN" without data-i18n tracking. | Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16`
   - i18n: Potential hardcoded text string found: "Product 2-2-1-1 RU" without data-i18n tracking. | Selector: `h1.css-text-146c3p1.r-color-kgv7a8.r-fontFamily-1anymhi.r-fontSize-1x35g6.r-fontWeight-b88u0q.r-lineHeight-17rnw9f.r-marginBottom-15zivkp`
+  - i18n: Potential hardcoded text string found: "Category 1 EN" without data-i18n tracking. | Selector: `h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-vrz42v.r-marginBottom-15zivkp`
+  - i18n: Potential hardcoded text string found: "Category 2 EN" without data-i18n tracking. | Selector: `h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-vrz42v.r-marginBottom-15zivkp`
+  - i18n: Potential hardcoded text string found: "Subcategory 2-1 EN" without data-i18n tracking. | Selector: `h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-vrz42v.r-marginBottom-15zivkp`
+  - i18n: Potential hardcoded text string found: "Subcategory 2-2 EN" without data-i18n tracking. | Selector: `h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-vrz42v.r-marginBottom-15zivkp`
+  - i18n: Potential hardcoded text string found: "Group 2-2-1 EN" without data-i18n tracking. | Selector: `h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-vrz42v.r-marginBottom-15zivkp`
+  - i18n: Potential hardcoded text string found: "Group 2-2-2 EN" without data-i18n tracking. | Selector: `h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-vrz42v.r-marginBottom-15zivkp`
 - URL: `http://localhost:8081/products`
   - i18n: Potential hardcoded text string found: "Product 2-1-1-1 RU" without data-i18n tracking. | Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16`
   - i18n: Potential hardcoded text string found: "Product 1-1-2-1 RU11111" without data-i18n tracking. | Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16`

@@ -26,7 +26,7 @@ export default function OrderCustomerCard({ order }) {
     <View style={styles.detailCard}>
       {isGuest && (
         <View style={[styles.detailRow, styles.guestBanner]}>
-          <Text variant="subtitle2" weight="semiBold" style={styles.guestBannerText}>
+          <Text variant="subtitle2" weight="semibold" style={styles.guestBannerText}>
             ⚠️ {t('adminOrdersGuestLabel')}
           </Text>
         </View>

@@ -6,6 +6,8 @@
 
 ---
 
-- [ ] `src/features/orders/OrderHeader.js` (L11) — evaluate context, use `h3` or `h4`
-- [ ] `src/features/cart/CartSummary.js` (L87) — evaluate context, use `h3` or `h4`
-- [ ] Verify no `variant="title"` remains in `src/`
+- [x] `src/features/orders/OrderHeader.js` (L11) — evaluate context, use `h3` or `h4`
+- [x] `src/features/cart/CartSummary.js` (L87) — evaluate context, use `h3` or `h4`
+- [x] Verify no `variant="title"` remains in `src/`
+
+**Also fixed:** `src/features/orders/OrderRows.js` — same invalid `title` variant on price cells → `h3`

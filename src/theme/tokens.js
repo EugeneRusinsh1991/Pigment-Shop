@@ -236,6 +236,7 @@ export const typography = {
 };
 
 export const layout = {
+  maxContentWidth: 1330,
   breakpoints: {
     sm: 640,
     mobile: 768,
@@ -314,7 +315,7 @@ export const motion = {
     duration: 90,
     friction: 4,
     tension: 40,
-    scale: 1.1,
+    scale: 0.97,
     activeOpacity: 0.8,
   },
   drawer: {

@@ -47,7 +47,7 @@ function renderButtonContent(children, loading, title, leftIcon, rightIcon, text
       {leftIcon}
       {loading
         ? <ActivityIndicator size="small" color={StyleSheet.flatten(textCombinedStyle).color || colors.white} />
-        : title ? <Text style={textCombinedStyle} size={size} weight="semiBold">{title}</Text> : null}
+        : title ? <Text style={textCombinedStyle} size={size} weight="semibold">{title}</Text> : null}
       {rightIcon}
     </>
   );

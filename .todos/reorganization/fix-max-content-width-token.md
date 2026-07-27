@@ -6,9 +6,8 @@
 
 ---
 
-- [ ] 1. Add `layout.maxContentWidth: 1330` to `src/theme/tokens.js` (🟢 G 3.6 F (L) — 1d | 1f | +0ctx)
-- [ ] 2. `src/theme/commonStyles.js` (L8, L24) — replace `1330` with `layout.maxContentWidth` (🟢 G 3.6 F (L) — 1d | 1f | +1ctx)
-- [ ] 3. `src/features/catalog/CatalogPage.js` (L193) — replace `1330` with `layout.maxContentWidth` (🟢 G 3.6 F (L) — 1d | 1f | +1ctx)
-- [ ] 4. `src/components/Navigation/NavigationStyles.js` (L44) — replace `1330` with `layout.maxContentWidth` (🟢 G 3.6 F (L) — 1d | 1f | +1ctx)
-- [ ] 5. Verify no raw `1330` remains in `src/` (🟢 G 3.6 F (L) — 1d | 1f | +0ctx)
-
+- [x] 1. Add `layout.maxContentWidth: 1330` to `src/theme/tokens.js` (🟢 G 3.6 F (L) — 1d | 1f | +0ctx)
+- [x] 2. `src/theme/commonStyles.js` (L8, L24) — replace `1330` with `layout.maxContentWidth` (🟢 G 3.6 F (L) — 1d | 1f | +1ctx)
+- [x] 3. `src/features/catalog/CatalogPage.js` (L193) — replace `1330` with `layout.maxContentWidth` (🟢 G 3.6 F (L) — 1d | 1f | +1ctx)
+- [x] 4. `src/components/Navigation/NavigationStyles.js` (L44) — replace `1330` with `layout.maxContentWidth` (🟢 G 3.6 F (L) — 1d | 1f | +1ctx)
+- [x] 5. Verify no raw `1330` remains in `src/` (🟢 G 3.6 F (L) — 1d | 1f | +0ctx)

@@ -64,7 +64,7 @@ export default function CartItem({ item, isDark, onIncrease, onDecrease, onRemov
             />
           </View>
 
-          <Text variant="body" weight="heavy" color={isDark ? 'info' : 'primary'}>
+          <Text variant="body" weight="bold" color={isDark ? 'info' : 'primary'}>
             {subtotal}
           </Text>
         </View>

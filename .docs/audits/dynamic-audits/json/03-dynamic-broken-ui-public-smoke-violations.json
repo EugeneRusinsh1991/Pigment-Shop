@@ -110,6 +110,11 @@
         "url": "http://localhost:8081/products",
         "message": "Element has overflow clipping (`scrollWidth > clientWidth`).",
         "selector": "div.css-view-g5y9jx.r-alignItems-1awozwy.r-backgroundColor-fj6wrk.r-flexDirection-18u37iz.r-padding-zhp00w.r-position-bnwqim.r-borderRadius-kdyh1x.r-height-mabqd8"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Broken image resource (`naturalWidth === 0`).",
+        "selector": "img.css-accessibilityImage-9pa8cd"
       }
     ],
     "http://localhost:8081/product/prod-2-2-1-1": [

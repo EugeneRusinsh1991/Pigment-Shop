@@ -15,7 +15,7 @@ export function OrderMetaRow({ label, value, isPrice, isLast, isDark, textStyle,
   return (
     <View style={[styles.metaRow, borderStyle, isLast && styles.noBorder]}>
       <Text variant="body" color="muted" style={[styles.subtextCell, subtextStyle]}>{label}</Text>
-      <Text variant={isPrice ? 'title' : 'body'} weight={isPrice ? 'heavy' : 'medium'} style={[styles.textCell, textStyle]}>
+      <Text variant={isPrice ? 'h3' : 'body'} weight={isPrice ? 'heavy' : 'medium'} style={[styles.textCell, textStyle]}>
         {value}
       </Text>
     </View>

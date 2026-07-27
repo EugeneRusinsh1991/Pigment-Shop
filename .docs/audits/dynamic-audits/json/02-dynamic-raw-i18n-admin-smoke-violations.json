@@ -1440,6 +1440,171 @@
         "url": "http://localhost:8081/admin",
         "message": "Found hardcoded text without i18n key: \"sadasd\"",
         "selector": "div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-1kfrs79.r-lineHeight-14yzgew.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"userLogout\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-1dk24ck"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"orderStatusCancelled\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"orderStatusProcessing\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"orderStatusPending\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"orderStatusCompleted\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"adminProductsFilterDiscount\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1gkfh8e.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"adminProductsFilterNew\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1gkfh8e.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"adminProductsAddBtn\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-jwli3a"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"adminProductsActive\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"badgeNew\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"adminProductsEditTitle\"",
+        "selector": "h1.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-vrz42v.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"UA\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-color-1cucpzw"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"RU\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-color-1cucpzw"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"EN\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-color-1cucpzw"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"adminProductsActionDelete\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"btnCancelLabel\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-1dk24ck"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"btnSaveLabel\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-jwli3a"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"UA\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-color-jwli3a"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"RU\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-color-jwli3a"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"EN\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-color-jwli3a"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"confirmDeleteDefaultTitle\"",
+        "selector": "h1.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-1kfrs79.r-lineHeight-135wba7.r-marginBottom-5oul0u"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"confirmDeleteDefaultMsg\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-14yzgew.r-marginBottom-1peese0"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"confirmDeleteCancel\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-1dk24ck"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"confirmDeleteYes\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-jwli3a"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"btnSaveLabel\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1kitb6n.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-jwli3a"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"adminProductsNewTitle\"",
+        "selector": "h1.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-vrz42v.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"adminCategoriesAddBtn\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-jwli3a"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"adminCategoriesExpandAll\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-color-1cucpzw"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"adminCategoriesCollapseAll\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-color-1cucpzw"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"Category Holder\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"Product Holder\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found raw camelCase i18n key: \"adminCategoriesNewTitle\"",
+        "selector": "h1.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-vrz42v.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"Product 1-1-1-1 RU\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-14yzgew.r-color-kgv7a8"
       }
     ]
   },

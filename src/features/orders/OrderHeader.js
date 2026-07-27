@@ -8,7 +8,7 @@ export default function OrderHeader({ isDark, t }) {
   return (
     <ScrollFadeUp style={styles.headerSection}>
       <View style={[styles.checkmarkCircle, isDark ? styles.checkmarkCircleDark : styles.checkmarkCircleLight]}>
-        <Text variant="title" weight="heavy" color={isDark ? 'info' : 'success'}>✓</Text>
+        <Text variant="h3" weight="bold" color={isDark ? 'info' : 'success'}>✓</Text>
       </View>
       <Heading level={2} style={styles.title}>
         {t('orderConfirmationThankYou')}

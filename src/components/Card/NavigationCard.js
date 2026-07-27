@@ -19,7 +19,7 @@ const NavigationCard = React.forwardRef(({ type, isDark, text, style, ...rest },
         <View style={[styles.circle, isDark ? styles.circleDark : styles.circleLight]}>
           <ForwardArrowIcon color={colors.accent} size={20} />
         </View>
-        <Text variant="subtitle1" weight="semiBold" style={[styles.text, isDark ? styles.textDark : styles.textLight]}>
+        <Text variant="subtitle1" weight="semibold" style={[styles.text, isDark ? styles.textDark : styles.textLight]}>
           {text}
         </Text>
       </View>

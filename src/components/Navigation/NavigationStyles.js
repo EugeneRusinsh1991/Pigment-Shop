@@ -41,7 +41,7 @@ export const createPaginationStyles = (isDark) => StyleSheet.create({
   container: {
     alignSelf: 'center',
     width: '100%',
-    maxWidth: 1330,
+    maxWidth: layout.maxContentWidth,
     paddingHorizontal: layout.spacing.sm,
     paddingVertical: layout.spacing.xxs,
     borderBottomWidth: 0,

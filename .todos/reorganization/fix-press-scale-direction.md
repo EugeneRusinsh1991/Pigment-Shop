@@ -13,7 +13,6 @@ motion.press.scale: 0.97  // ✅ shrinks on press — standard feel
 
 ---
 
-- [ ] 1. Change `motion.press.scale` from `1.1` to `0.97` in `src/theme/tokens.js` (🟢 G 3.6 F (L) — 1d | 1f | +0ctx)
-- [ ] 2. Verify `src/components/Button/Button.js` (`scaleTo` prop default) reflects correct press feel (🟢 G 3.6 F (L) — 1d | 1f | +1ctx)
-- [ ] 3. Test press animation visually on buttons and interactive elements (🟢 G 3.6 F (L) — 1d | 1f | +0ctx)
-
+- [x] 1. Change `motion.press.scale` from `1.1` to `0.97` in `src/theme/tokens.js` (🟢 G 3.6 F (L) — 1d | 1f | +0ctx)
+- [x] 2. Verify `src/components/Button/Button.js` (`scaleTo` prop default) reflects correct press feel (🟢 G 3.6 F (L) — 1d | 1f | +1ctx)
+- [x] 3. Test press animation visually on buttons and interactive elements (🟢 G 3.6 F (L) — 1d | 1f | +0ctx)

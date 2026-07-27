@@ -37,7 +37,7 @@ function computeCardWidth(flatListWidth, cols) {
 function useCatalogLayout() {
   const { width: windowWidth } = useWindowDimensions();
   const isNarrow = windowWidth < layout.breakpoints.sm;
-  const contentWidth = Math.min(windowWidth, 1330) - layout.spacing.lg;
+  const contentWidth = Math.min(windowWidth, layout.maxContentWidth) - layout.spacing.lg;
   const gridWidth = isNarrow
     ? Math.min(windowWidth, getContentGridWidth(windowWidth, 1))
     : contentWidth - SIDEBAR_WIDTH;
@@ -190,7 +190,7 @@ const styles = StyleSheet.create({
   container: { flex: 1, minHeight: 0 },
   containerDark: { flex: 1, backgroundColor: colors.backgroundDark },
   containerLight: { flex: 1, backgroundColor: colors.backgroundLight },
-  row: { flex: 1, minHeight: 0, flexDirection: 'row', width: '100%', maxWidth: 1330, alignSelf: 'center', paddingHorizontal: layout.spacing.sm },
+  row: { flex: 1, minHeight: 0, flexDirection: 'row', width: '100%', maxWidth: layout.maxContentWidth, alignSelf: 'center', paddingHorizontal: layout.spacing.sm },
   main: { flex: 1, minHeight: 0, padding: layout.spacing.lg },
   mainNarrow: { padding: layout.spacing.none, alignItems: 'center' },
   gridContainer: { flex: 1, minHeight: 0 },

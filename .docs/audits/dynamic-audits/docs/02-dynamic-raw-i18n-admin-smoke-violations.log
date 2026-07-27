@@ -2,7 +2,7 @@
 type: dynamic-audit
 auditor: raw-i18n
 scope: admin
-date: 2026-07-27T18:15:29.710Z
+date: 2026-07-27T18:27:02.444Z
 ---
 
 ### Problem: Raw camelCase i18n key found
@@ -100,6 +100,30 @@ date: 2026-07-27T18:15:29.710Z
   - Found raw camelCase i18n key: "adminCategoriesFormNoAssignedProducts" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1s7ct43`
   - Found raw camelCase i18n key: "adminCategoriesFormUnassignedProducts" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1npgj5g.r-marginBottom-5oul0u.r-marginTop-14gqq1x.r-textTransform-tsynxw`
   - Found raw camelCase i18n key: "adminCategoriesFormUnassignedProductsHint" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1s7ct43.r-marginBottom-5oul0u`
+  - Found raw camelCase i18n key: "userLogout" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-1dk24ck`
+  - Found raw camelCase i18n key: "orderStatusCancelled" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j`
+  - Found raw camelCase i18n key: "orderStatusProcessing" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j`
+  - Found raw camelCase i18n key: "orderStatusPending" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j`
+  - Found raw camelCase i18n key: "orderStatusCompleted" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j`
+  - Found raw camelCase i18n key: "adminProductsFilterDiscount" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1gkfh8e.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j`
+  - Found raw camelCase i18n key: "adminProductsFilterNew" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1gkfh8e.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j`
+  - Found raw camelCase i18n key: "adminProductsAddBtn" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-jwli3a`
+  - Found raw camelCase i18n key: "adminProductsActive" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j`
+  - Found raw camelCase i18n key: "badgeNew" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j`
+  - Found raw camelCase i18n key: "adminProductsEditTitle" | Selector: `h1.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-vrz42v.r-color-kgv7a8`
+  - Found raw camelCase i18n key: "adminProductsActionDelete" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j`
+  - Found raw camelCase i18n key: "btnCancelLabel" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-1dk24ck`
+  - Found raw camelCase i18n key: "btnSaveLabel" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-jwli3a`
+  - Found raw camelCase i18n key: "confirmDeleteDefaultTitle" | Selector: `h1.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-1kfrs79.r-lineHeight-135wba7.r-marginBottom-5oul0u`
+  - Found raw camelCase i18n key: "confirmDeleteDefaultMsg" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-14yzgew.r-marginBottom-1peese0`
+  - Found raw camelCase i18n key: "confirmDeleteCancel" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-1dk24ck`
+  - Found raw camelCase i18n key: "confirmDeleteYes" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-jwli3a`
+  - Found raw camelCase i18n key: "btnSaveLabel" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1kitb6n.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-jwli3a`
+  - Found raw camelCase i18n key: "adminProductsNewTitle" | Selector: `h1.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-vrz42v.r-color-kgv7a8`
+  - Found raw camelCase i18n key: "adminCategoriesAddBtn" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-jwli3a`
+  - Found raw camelCase i18n key: "adminCategoriesExpandAll" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-color-1cucpzw`
+  - Found raw camelCase i18n key: "adminCategoriesCollapseAll" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-color-1cucpzw`
+  - Found raw camelCase i18n key: "adminCategoriesNewTitle" | Selector: `h1.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-vrz42v.r-color-kgv7a8`
 
 ### Problem: Hardcoded text without i18n key
 
@@ -300,3 +324,12 @@ date: 2026-07-27T18:15:29.710Z
   - Found hardcoded text without i18n key: "0712(1).mp4" | Selector: `div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1dk24ck.r-paddingBlock-cnw61z.r-paddingInline-18c5d7m`
   - Found hardcoded text without i18n key: "kling_20260710_Image_to_Video__5122_0.mp4" | Selector: `div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1dk24ck.r-paddingBlock-cnw61z.r-paddingInline-18c5d7m`
   - Found hardcoded text without i18n key: "sadasd" | Selector: `div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-1kfrs79.r-lineHeight-14yzgew.r-color-kgv7a8`
+  - Found hardcoded text without i18n key: "UA" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-color-1cucpzw`
+  - Found hardcoded text without i18n key: "RU" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-color-1cucpzw`
+  - Found hardcoded text without i18n key: "EN" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-color-1cucpzw`
+  - Found hardcoded text without i18n key: "UA" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-color-jwli3a`
+  - Found hardcoded text without i18n key: "RU" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-color-jwli3a`
+  - Found hardcoded text without i18n key: "EN" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-color-jwli3a`
+  - Found hardcoded text without i18n key: "Category Holder" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j`
+  - Found hardcoded text without i18n key: "Product Holder" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j`
+  - Found hardcoded text without i18n key: "Product 1-1-1-1 RU" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-14yzgew.r-color-kgv7a8`

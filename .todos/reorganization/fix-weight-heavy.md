@@ -6,8 +6,8 @@
 
 ---
 
-- [ ] Decide: replace with `weight="bold"` OR add `heavy: '800'` to `typography.weights` in `src/theme/tokens.js`
-- [ ] `src/features/cart/CartItem.js` (L68)
-- [ ] `src/features/cart/CartSummary.js` (L36)
-- [ ] `src/features/orders/OrderHeader.js` (L11)
-- [ ] Verify no `weight="heavy"` remains in `src/`
+- [x] Decide: replace with `weight="bold"` OR add `heavy: '800'` to `typography.weights` in `src/theme/tokens.js`
+- [x] `src/features/cart/CartItem.js` (L68)
+- [x] `src/features/cart/CartSummary.js` (L36)
+- [x] `src/features/orders/OrderHeader.js` (L11)
+- [x] Verify no `weight="heavy"` remains in `src/`

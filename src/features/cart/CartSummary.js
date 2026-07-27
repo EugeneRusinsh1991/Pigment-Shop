@@ -33,7 +33,7 @@ export default function CartSummary({ totalItems, totalPrice, isWide, isDark, no
         <Text variant="label" color="muted">
           {t('cartItemsCount')}
         </Text>
-        <Text variant="body" weight="heavy">
+        <Text variant="body" weight="bold">
           {totalItems}
         </Text>
       </View>
@@ -84,7 +84,7 @@ export default function CartSummary({ totalItems, totalPrice, isWide, isDark, no
         <Text variant="label" color="muted">
           {t('cartTotal')}
         </Text>
-        <Text variant="title" weight="bold">
+        <Text variant="h3" weight="bold">
           ${totalPrice.toLocaleString()}
         </Text>
       </View>

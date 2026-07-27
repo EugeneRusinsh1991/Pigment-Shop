@@ -6,9 +6,9 @@
 
 ---
 
-- [ ] `src/components/Button/Button.js` (L50) — `weight="semiBold"` → `weight="semibold"`
-- [ ] `src/components/Badge/Badge.js` (L31) — `weight="semiBold"` → `weight="semibold"`
-- [ ] `src/components/Card/NavigationCard.js` (L22) — `weight="semiBold"` → `weight="semibold"`
-- [ ] `src/features/admin/Orders/OrderCustomerCard.js` (L29) — `weight="semiBold"` → `weight="semibold"`
-- [ ] `src/features/admin/Banners/BannersManager.js` (L99, L109) — `weight="semiBold"` → `weight="semibold"`
-- [ ] Verify no `weight="semiBold"` remains in `src/`
+- [x] `src/components/Button/Button.js` (L50) — `weight="semiBold"` → `weight="semibold"`
+- [x] `src/components/Badge/Badge.js` (L31) — `weight="semiBold"` → `weight="semibold"`
+- [x] `src/components/Card/NavigationCard.js` (L22) — `weight="semiBold"` → `weight="semibold"`
+- [x] `src/features/admin/Orders/OrderCustomerCard.js` (L29) — `weight="semiBold"` → `weight="semibold"`
+- [x] `src/features/admin/Banners/BannersManager.js` (L99, L109) — `weight="semiBold"` → `weight="semibold"`
+- [x] Verify no `weight="semiBold"` remains in `src/`
