@@ -1,5 +1,7 @@
 # Fix `weight="semiBold"` — camelCase Mismatch (~6 usages)
 
+**Model Recommendation:** 🟠 G 3.6 F (H) — 4d | 5f | +1ctx
+
 **Rationale:** `typography.weights` defines `semibold` (lowercase). Passing `"semiBold"` is neither a valid token key nor a valid React Native `fontWeight` value — the weight is silently ignored or produces unexpected results.
 
 ---

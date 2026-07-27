@@ -1,5 +1,7 @@
 # Move AppStyles.js → src/theme/appStyles.js
 
+**Model Recommendation:** 🔴 G 3.1 P (H) — 5d | 7f | +1ctx
+
 **Rationale:** `AppStyles.js` defines global theme styles (`heroContainer`, `breadcrumbBar`, `stickySearchContainer`) and imports design tokens. It should reside in `src/theme/` rather than floating at the `src/` root.
 
 ---

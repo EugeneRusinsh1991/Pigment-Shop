@@ -2,16 +2,16 @@ import { StyleSheet } from 'react-native';
 import { colors, fonts, typography } from '../../theme/tokens';
 
 export const VARIANTS = {
-  h1: { fontSize: typography.sizes.xxl, lineHeight: 34, fontWeight: typography.weights.bold, fontFamily: fonts.serif },
-  h2: { fontSize: typography.sizes.xl, lineHeight: 30, fontWeight: typography.weights.bold, fontFamily: fonts.serif },
-  h3: { fontSize: typography.sizes.lg, lineHeight: 26, fontWeight: typography.weights.semibold, fontFamily: fonts.sans },
-  h4: { fontSize: typography.sizes.md, lineHeight: 22, fontWeight: typography.weights.semibold, fontFamily: fonts.sans },
-  subtitle1: { fontSize: typography.sizes.md, lineHeight: 22, fontWeight: typography.weights.medium, fontFamily: fonts.sans },
-  subtitle2: { fontSize: typography.sizes.sm, lineHeight: 18, fontWeight: typography.weights.medium, fontFamily: fonts.sans },
-  body1: { fontSize: typography.sizes.md, lineHeight: 24, fontWeight: typography.weights.regular, fontFamily: fonts.sans },
-  body2: { fontSize: typography.sizes.sm, lineHeight: 20, fontWeight: typography.weights.regular, fontFamily: fonts.sans },
-  caption: { fontSize: typography.sizes.xs, lineHeight: 16, fontWeight: typography.weights.regular, fontFamily: fonts.sans },
-  overline: { fontSize: typography.sizes.xxs, lineHeight: 14, fontWeight: typography.weights.bold, letterSpacing: 1, textTransform: 'uppercase', fontFamily: fonts.sans },
+  h1: { fontSize: typography.sizes.xxl, lineHeight: typography.lineHeights.xxl, fontWeight: typography.weights.bold, fontFamily: fonts.serif },
+  h2: { fontSize: typography.sizes.xl, lineHeight: typography.lineHeights.xl, fontWeight: typography.weights.bold, fontFamily: fonts.serif },
+  h3: { fontSize: typography.sizes.lg, lineHeight: typography.lineHeights.lg, fontWeight: typography.weights.semibold, fontFamily: fonts.sans },
+  h4: { fontSize: typography.sizes.md, lineHeight: typography.lineHeights.md, fontWeight: typography.weights.semibold, fontFamily: fonts.sans },
+  subtitle1: { fontSize: typography.sizes.md, lineHeight: typography.lineHeights.md, fontWeight: typography.weights.medium, fontFamily: fonts.sans },
+  subtitle2: { fontSize: typography.sizes.sm, lineHeight: typography.lineHeights.sm, fontWeight: typography.weights.medium, fontFamily: fonts.sans },
+  body1: { fontSize: typography.sizes.md, lineHeight: typography.lineHeights.md, fontWeight: typography.weights.regular, fontFamily: fonts.sans },
+  body2: { fontSize: typography.sizes.sm, lineHeight: typography.lineHeights.sm, fontWeight: typography.weights.regular, fontFamily: fonts.sans },
+  caption: { fontSize: typography.sizes.xs, lineHeight: typography.lineHeights.xs, fontWeight: typography.weights.regular, fontFamily: fonts.sans },
+  overline: { fontSize: typography.sizes.xxs, lineHeight: typography.lineHeights.xxs, fontWeight: typography.weights.bold, letterSpacing: 1, textTransform: 'uppercase', fontFamily: fonts.sans },
 };
 
 const colorPresetMap = {

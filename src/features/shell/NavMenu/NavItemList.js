@@ -1,7 +1,7 @@
 import { View } from 'react-native';
 import { Text } from '@/components/Text/Text';
 import Button from '@/components/Button';
-import { colors } from '../../../theme/tokens';
+import { colors, motion } from '../../../theme/tokens';
 import {
     BagIcon,
     BrowIcon,
@@ -77,7 +77,7 @@ function NavItem({ item, isDark, onSelect }) {
       isDark={isDark}
       style={[styles.itemRow, isDark ? styles.itemRowDark : styles.itemRowLight]}
       onPress={() => onSelect(item)}
-      activeOpacity={0.7}
+      activeOpacity={motion.press.activeOpacity}
     >
       <View style={styles.iconWrapper}>
         {getNavItemIcon(item, iconColor)}

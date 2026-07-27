@@ -3,6 +3,7 @@ import { Animated, TouchableOpacity } from 'react-native';
 import { Text } from '../Text';
 import { useBadgeTheme } from './useBadgeTheme';
 import { useBadgeAnimation } from './useBadgeAnimation';
+import { motion } from '../../theme/tokens';
 
 const badgeFontSizes = {
   sm: 10,
@@ -78,7 +79,7 @@ const Badge = React.forwardRef(({
         <TouchableOpacity
           ref={ref}
           onPress={onPress}
-          activeOpacity={0.75}
+          activeOpacity={motion.press.activeOpacity}
           onPressIn={bind.onPressIn}
           onPressOut={bind.onPressOut}
           {...rest}

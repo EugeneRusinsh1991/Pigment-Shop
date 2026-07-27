@@ -9,7 +9,7 @@ import {
   ProductRowActions,
   StatusBadge,
 } from './ProductRowComponents';
-import { layout } from '../../../theme/tokens';
+import { layout, motion } from '../../../theme/tokens';
 import styles from './ProductsStyles';
 
 export { MobileProductRow } from './MobileProductRow';
@@ -19,7 +19,7 @@ export function TabletProductRow({ product, index, label, effectivePrice, highli
     <TouchableOpacity
       style={[getRowStyle(index, false), highlightStyle]}
       onPress={() => onEdit(product)}
-      activeOpacity={0.85}
+      activeOpacity={motion.press.activeOpacity}
     >
       <View style={styles.desktopTopRow}>
         <Text style={styles.desktopCell}>{index + 1}</Text>

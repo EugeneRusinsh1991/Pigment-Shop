@@ -4,7 +4,7 @@ import { Text } from '../Text';
 import { useCardTheme } from './useCardTheme';
 import { useCardAnimation } from './useCardAnimation';
 import { slotStyles } from './CardStyles';
-import { layout } from '../../theme/tokens';
+import { layout, motion } from '../../theme/tokens';
 import Flag from '../Flag';
 
 const Card = React.forwardRef(({
@@ -42,7 +42,7 @@ const Card = React.forwardRef(({
       <Animated.View style={combinedStyle}>
         <TouchableOpacity
           ref={ref}
-          activeOpacity={0.85}
+          activeOpacity={motion.press.activeOpacity}
           onPress={handlePress}
           style={staticStyles.touchable}
           onMouseEnter={bind.onMouseEnter}

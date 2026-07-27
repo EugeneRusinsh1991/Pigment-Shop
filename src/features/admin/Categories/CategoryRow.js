@@ -4,7 +4,7 @@ import { Text } from '@/components/Text';
 import { AnimatedButton } from '@/components/Button';
 import { useTheme } from '../../../context/ThemeContext';
 import { Badge } from '@/components/Badge';
-import { layout } from '../../../theme/tokens';
+import { layout, motion } from '../../../theme/tokens';
 import styles, { CATEGORY_TYPE_COLORS } from './CategoriesStyles';
 import {
   DepthBars,
@@ -68,7 +68,7 @@ export function DesktopCategoryRow({ row, hasChildren, isCollapsed, onToggle, on
         type === 'category_holder' ? styles.treeRowCategoryHolder : styles.treeRowProductHolder,
       ]}
       onPress={() => onEdit(row)}
-      activeOpacity={0.85}
+      activeOpacity={motion.press.activeOpacity}
     >
       <DepthBars depth={safeDepth} leftOffset={16} />
 
@@ -101,7 +101,7 @@ export function MobileCategoryCard({ row, hasChildren, isCollapsed, onToggle, on
         type === 'category_holder' ? styles.mobileTreeCardCategoryHolder : styles.mobileTreeCardProductHolder,
       ]}
       onPress={() => onEdit(row)}
-      activeOpacity={0.85}
+      activeOpacity={motion.press.activeOpacity}
     >
       <DepthBars depth={safeDepth} leftOffset={16} />
 

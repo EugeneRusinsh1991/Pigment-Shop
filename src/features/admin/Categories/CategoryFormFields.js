@@ -12,7 +12,7 @@ import { View } from 'react-native';
 import { Text } from '@/components/Text';
 import { AnimatedButton } from '@/components/Button';
 import { useTheme } from '../../../context/ThemeContext';
-import { colors, layout } from '../../../theme/tokens';
+import { colors, layout, motion } from '../../../theme/tokens';
 import { fromMediaRef } from '../../../media';
 import { triggerFileInput } from '../../../utils/fileInput';
 import { ImageIcon, UploadIcon } from '@/components/Icons';
@@ -91,11 +91,11 @@ export function ImagePickerField({ value, onChange }) {
           placeholder={t('adminCategoriesFormImagePlaceholder')}
           autoCapitalize="none"
         />
-        <AnimatedButton style={[styles.uploadBtn, { flexDirection: 'row', alignItems: 'center', gap: layout.spacing.xxs }]} onPress={() => triggerFileInput('cat-image-file-input', onChange)} activeOpacity={0.8}>
+        <AnimatedButton style={[styles.uploadBtn, { flexDirection: 'row', alignItems: 'center', gap: layout.spacing.xxs }]} onPress={() => triggerFileInput('cat-image-file-input', onChange)} activeOpacity={motion.press.activeOpacity}>
           <UploadIcon color={colors.white} size={12} />
           <Text style={styles.uploadBtnText}>{t('adminCategoriesFormUploadBtn')}</Text>
         </AnimatedButton>
-        <AnimatedButton style={[styles.uploadBtn, { flexDirection: 'row', alignItems: 'center', gap: layout.spacing.xxs }]} onPress={() => setBrowserOpen(true)} activeOpacity={0.8}>
+        <AnimatedButton style={[styles.uploadBtn, { flexDirection: 'row', alignItems: 'center', gap: layout.spacing.xxs }]} onPress={() => setBrowserOpen(true)} activeOpacity={motion.press.activeOpacity}>
           <ImageIcon color={colors.white} size={12} />
           <Text style={styles.uploadBtnText}>Browse</Text>
         </AnimatedButton>

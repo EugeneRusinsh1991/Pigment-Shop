@@ -4,6 +4,7 @@ import { Text } from '@/components/Text';
 import { useTheme } from '../../../context/ThemeContext';
 import { localStyles as styles } from './DateRangeCalendarStyles';
 import { CalendarDayCell } from './CalendarDayCell';
+import { motion } from '../../../theme/tokens';
 
 function getPrevMonthCells(year, month, firstDayIndex, daysInPrevMonth) {
   const cells = [];
@@ -80,7 +81,7 @@ export function DateRangeCalendar({
         <TouchableOpacity 
           style={styles.arrowBtn} 
           onPress={() => navigateMonth(-1)}
-          activeOpacity={0.7}
+          activeOpacity={motion.press.activeOpacity}
         >
           <Text style={styles.arrowText}>‹</Text>
         </TouchableOpacity>
@@ -90,7 +91,7 @@ export function DateRangeCalendar({
         <TouchableOpacity 
           style={styles.arrowBtn} 
           onPress={() => navigateMonth(1)}
-          activeOpacity={0.7}
+          activeOpacity={motion.press.activeOpacity}
         >
           <Text style={styles.arrowText}>›</Text>
         </TouchableOpacity>

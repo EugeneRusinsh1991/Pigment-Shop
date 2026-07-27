@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import { Text } from '@/components/Text';
 import { AnimatedButton } from '@/components/Button';
 import styles from './CategoryFormStyles';
-import { colors, layout } from '../../../theme/tokens';
+import { colors, layout, motion } from '../../../theme/tokens';
 
 const getLanguageFallback = (labelObj, lang) => labelObj[lang] || labelObj.ru || labelObj.en;
 
@@ -86,7 +86,7 @@ const renderProductOption = (product, selected, toggleProduct, lang) => (
     key={product.id}
     onPress={() => toggleProduct(product.id)}
     style={[getProductOptionStyle(selected)]}
-    activeOpacity={0.8}
+    activeOpacity={motion.press.activeOpacity}
   >
     <View style={[getProductCheckStyle(selected)]}>
       {selected ? <Text variant="caption" weight="bold" style={sec_styles.checkText}>✓</Text> : null}

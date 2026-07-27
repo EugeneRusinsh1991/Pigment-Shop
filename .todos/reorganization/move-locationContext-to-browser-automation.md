@@ -1,5 +1,7 @@
 # Move locationContext.js → .tools/browser-automation/utils/
 
+**Model Recommendation:** 🟢 G 3.6 F (L) — 2d | 2f | +0ctx
+
 **Rationale:** `locationContext.js` contains test automation visual overlay helpers (`getLocationHierarchy`, `getOverlayText`, `getTimestamp`). It is tooling logic and should not be included in runtime `src/utils/`.
 
 ---

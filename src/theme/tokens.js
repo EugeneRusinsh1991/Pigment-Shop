@@ -217,6 +217,15 @@ export const typography = {
     xl: 24,
     xxl: 28,
   },
+  lineHeights: {
+    xxs: 14,
+    xs: 16,
+    sm: 18,
+    md: 24,
+    lg: 28,
+    xl: 30,
+    xxl: 34,
+  },
   weights: {
     regular: '400',
     medium: '500',
@@ -306,6 +315,7 @@ export const motion = {
     friction: 4,
     tension: 40,
     scale: 1.1,
+    activeOpacity: 0.8,
   },
   drawer: {
     slideDuration: 250,

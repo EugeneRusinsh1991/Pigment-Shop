@@ -3,7 +3,7 @@ import { Text } from '@/components/Text';
 import { AnimatedButton } from '@/components/Button';
 import { useTheme } from '@/context/ThemeContext';
 import Card from '@/components/Card';
-import { colors, layout } from '@/theme/tokens';
+import { colors, layout, motion } from '@/theme/tokens';
 import { Badge } from '@/components/Badge';
 import {
     ExpandedItemsList,
@@ -102,7 +102,7 @@ export default function OrderCard({ order, isDark, isExpanded, onToggle, getStyl
         isAdminView && [styles.adminCardSpecific, getAdminBgStyle(order)],
       ]}
     >
-      <AnimatedButton onPress={onToggle} activeOpacity={0.9}>
+      <AnimatedButton onPress={onToggle} activeOpacity={motion.press.activeOpacity}>
         {isMobile && !isAdminView ? (
           <MobileOrderHeader
             order={order}

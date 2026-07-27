@@ -5,7 +5,7 @@ import { useRouter } from 'expo-router';
 import Button, { IconButton } from '../../../components/Button';
 import { ChevronDownIcon, ChevronRightIcon } from '../../../components/Icons';
 import { getNavItemIcon } from './NavItemList';
-import { layout } from '../../../theme/tokens';
+import { layout, motion } from '../../../theme/tokens';
 import styles from './NavMenuStyles';
 
 export function CategoryLabelButton({ isDark, node, iconColor, onClose, isSelected, indent = 0 }) {
@@ -31,7 +31,7 @@ export function CategoryLabelButton({ isDark, node, iconColor, onClose, isSelect
         { paddingLeft: layout.spacing.lg + indent },
       ]}
       onPress={handlePress}
-      activeOpacity={0.7}
+      activeOpacity={motion.press.activeOpacity}
     >
       <View style={styles.iconWrapper}>
         {getNavItemIcon(node, iconColor)}

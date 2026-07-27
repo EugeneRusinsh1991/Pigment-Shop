@@ -1,5 +1,7 @@
 # Move SharedLayoutWrapper → src/features/shell/
 
+**Model Recommendation:** 🟡 G 3.6 F (M) — 2d | 5f | +0ctx
+
 **Rationale:** Renders `<Footer />` from `src/features/shell/` and manages footer region layout. It is a shell layout wrapper, not a reusable UI primitive.
 
 > **Note:** `src/components/SharedLayoutWrapper.js` exists alongside the directory — both must be resolved.

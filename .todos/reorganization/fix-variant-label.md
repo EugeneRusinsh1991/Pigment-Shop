@@ -1,5 +1,7 @@
 # Fix `variant="label"` — Non-Existent Variant (~10 usages)
 
+**Recommended Model:** 🟠 G 3.6 F (H) — 5d | 6f | +2ctx
+
 **Rationale:** `VARIANTS` in `TextStyles.js` has no `"label"` key. All usages fall back silently to `body1`. Replace with `caption` (closest semantic equivalent: xs, regular) or `body2` as appropriate.
 
 ---

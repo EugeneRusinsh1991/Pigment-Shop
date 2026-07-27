@@ -4,7 +4,7 @@ import useCardDimensions from '../../hooks/useCardDimensions';
 import InteractiveCard from './InteractiveCard';
 import StaticCard from './StaticCard';
 
-import { layout } from '../../theme/tokens';
+import { layout, motion } from '../../theme/tokens';
 
 /**
  * BaseCard — shared card primitive for layout, shadows, and theme.
@@ -29,7 +29,7 @@ const BaseCard = React.forwardRef(({
   children,
   style,
   outerStyle,
-  activeOpacity = 0.85,
+  activeOpacity = motion.press.activeOpacity,
   ...rest
 }, ref) => {
   const { isDark: isDarkContext } = useTheme();

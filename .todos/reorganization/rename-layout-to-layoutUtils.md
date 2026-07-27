@@ -1,5 +1,7 @@
 # Rename layout.js → src/utils/layoutUtils.js
 
+**Model Recommendation:** 🔴 G 3.1 P (H) — 7d | 7f | +1ctx
+
 **Rationale:** Contains layout grid metrics (`SIDEBAR_WIDTH`, `CARD_MARGIN`, `getDeviceTier`). The generic name `layout.js` overlaps with design tokens in `src/theme/tokens.js`.
 
 ---

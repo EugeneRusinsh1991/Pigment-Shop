@@ -3,6 +3,7 @@ import { Text } from '@/components/Text';
 import { AnimatedButton } from '@/components/Button';
 import { useTheme } from '../../../context/ThemeContext';
 import styles from './UsersStyles';
+import { motion } from '../../../theme/tokens';
 
 export function MobileUserCard({ user, index, fullName, onPress }) {
   const metaItems = [user.email, user.phone, user.city].filter(Boolean);
@@ -11,7 +12,7 @@ export function MobileUserCard({ user, index, fullName, onPress }) {
     <AnimatedButton
       style={[styles.mobileCard, index % 2 === 1 && styles.mobileCardAlt]}
       onPress={onPress}
-      activeOpacity={0.7}
+      activeOpacity={motion.press.activeOpacity}
       scaleTo={0.99}
     >
       <View style={styles.mobileCardContent}>
@@ -38,7 +39,7 @@ export function DesktopUserRow({ user, index, fullName, onPress }) {
     <AnimatedButton
       style={[styles.tableRow, index % 2 === 1 && styles.tableRowAlt]}
       onPress={onPress}
-      activeOpacity={0.7}
+      activeOpacity={motion.press.activeOpacity}
       scaleTo={0.99}
     >
       <View style={[styles.colName, styles.userCell]}>

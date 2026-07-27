@@ -1,6 +1,6 @@
-import { colors } from './tokens';
+import { colors, motion } from './tokens';
 
-export const DEFAULT_ACTIVE_OPACITY = 0.8;
+export const DEFAULT_ACTIVE_OPACITY = motion.press.activeOpacity;
 
 function getThemeKey(isDark) {
   return isDark ? 'Dark' : 'Light';

@@ -1,5 +1,7 @@
 # Move PageScrollLayout → src/features/shell/
 
+**Model Recommendation:** 🟡 G 3.6 F (M) — 3d | 4f | +0ctx
+
 **Rationale:** Tightly couples with `<Footer />` from `src/features/shell/`, not a primitive component.
 
 ---

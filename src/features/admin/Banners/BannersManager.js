@@ -8,6 +8,7 @@ import MediaRenderer from '@/components/Media/MediaRenderer';
 import { triggerFileInput } from '../../../utils/fileInput';
 import MediaBrowser from '../Media/MediaBrowser';
 import styles from './BannersStyles';
+import { motion } from '../../../theme/tokens';
 import { useBannersWorkflow } from './useBannersWorkflow';
 import { useDeleteConfirmation } from '../../../hooks/useDeleteConfirmation';
 import AdminSaveFooter from '../AdminSaveFooter';
@@ -47,7 +48,7 @@ export default function BannersManager() {
       <AnimatedButton
         style={isDesktopLayout ? styles.previewContainerDesktop : styles.previewContainer}
         onPress={() => openBrowser(index)}
-        activeOpacity={0.85}
+        activeOpacity={motion.press.activeOpacity}
       >
         {banner ? (
           <MediaRenderer uri={banner} style={styles.previewImage} resizeMode="cover" />
@@ -62,7 +63,7 @@ export default function BannersManager() {
         <AnimatedButton
           style={styles.uploadBtn}
           onPress={() => triggerFileInput(`banner-image-file-input-${index}`, (uri) => handleUpdateBanner(index, uri))}
-          activeOpacity={0.8}
+          activeOpacity={motion.press.activeOpacity}
         >
           <Text style={styles.uploadBtnText}>{t('adminBannersUploadBtn')}</Text>
         </AnimatedButton>
@@ -76,7 +77,7 @@ export default function BannersManager() {
               onConfirm: () => handleDeleteBanner(index)
             });
           }}
-          activeOpacity={0.8}
+          activeOpacity={motion.press.activeOpacity}
         >
           <Text style={styles.deleteBtnText}>{t('adminBannersDeleteBtn')}</Text>
         </AnimatedButton>
@@ -94,7 +95,7 @@ export default function BannersManager() {
             <AnimatedButton
               style={styles.addCardDesktop}
               onPress={handleAddBanner}
-              activeOpacity={0.8}
+              activeOpacity={motion.press.activeOpacity}
             >
               <Text variant="body2" weight="semiBold" style={styles.addCardBtnText}>{t('adminBannersAddBtn')}</Text>
             </AnimatedButton>
@@ -105,7 +106,7 @@ export default function BannersManager() {
           {bannersList.map((banner, index) => renderBannerItem(banner, index, false))}
 
           {bannersList.length < 3 && (
-            <AnimatedButton style={styles.addBtn} onPress={handleAddBanner} activeOpacity={0.8}>
+            <AnimatedButton style={styles.addBtn} onPress={handleAddBanner} activeOpacity={motion.press.activeOpacity}>
               <Text variant="body2" weight="semiBold" style={styles.addBtnText}>{t('adminBannersAddBtn')}</Text>
             </AnimatedButton>
           )}

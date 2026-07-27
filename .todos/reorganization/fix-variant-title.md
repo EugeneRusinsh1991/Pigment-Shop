@@ -1,5 +1,7 @@
 # Fix `variant="title"` — Non-Existent Variant (2 usages)
 
+**Recommended Model:** 🟢 G 3.6 F (L) — 2d | 2f | +1ctx
+
 **Rationale:** `"title"` is not defined in `VARIANTS`. Falls back to `body1`, which is visually incorrect for a title-level element. Replace with `h3` or `h4` depending on context.
 
 ---

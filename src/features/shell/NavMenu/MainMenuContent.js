@@ -5,7 +5,7 @@ import { useRouter } from 'expo-router';
 
 import Button, { IconButton } from '../../../components/Button';
 import { ChevronDownIcon, ChevronRightIcon } from '../../../components/Icons';
-import { colors } from '../../../theme/tokens';
+import { colors, motion } from '../../../theme/tokens';
 import { useTheme } from '../../../context/ThemeContext';
 import { useLanguage } from '../../../context/LanguageContext';
 import { useCatalog } from '../../../context/CatalogContext';
@@ -32,7 +32,7 @@ function MenuRowItem({ isDark, item, iconColor, onPress, style, href, onClose })
       isDark={isDark}
       style={StyleSheet.flatten([styles.itemRow, isDark ? styles.itemRowDark : styles.itemRowLight, styles.menuRowItem, style])}
       onPress={handlePress}
-      activeOpacity={0.7}
+      activeOpacity={motion.press.activeOpacity}
     >
       <View style={styles.iconWrapper}>
         {getNavItemIcon(item, iconColor)}

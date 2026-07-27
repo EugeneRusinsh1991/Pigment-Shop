@@ -1,7 +1,7 @@
 import { TouchableOpacity, View } from 'react-native';
 import { Text } from '@/components/Text';
 import { useTheme } from '../../../context/ThemeContext';
-import { layout, typography } from '../../../theme/tokens';
+import { layout, motion, typography } from '../../../theme/tokens';
 import { getRowStyle, NewBadge, StatusBadge, ProductRowActions } from './ProductRowComponents';
 import styles from './ProductsStyles';
 
@@ -51,7 +51,7 @@ export function MobileProductRow({ product, index, label, effectivePrice, highli
     <TouchableOpacity
       style={[getRowStyle(index, true), highlightStyle]}
       onPress={() => onEdit(product)}
-      activeOpacity={0.85}
+      activeOpacity={motion.press.activeOpacity}
     >
       {/* Top: name + badge + price + action */}
       <View style={styles.cardTopRow}>

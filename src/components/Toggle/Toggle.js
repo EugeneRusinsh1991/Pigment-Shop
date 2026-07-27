@@ -2,6 +2,7 @@ import React from 'react';
 import { View, TouchableOpacity, Animated } from 'react-native';
 import { Text } from '../../components/Text';
 import { calculateHitSlop } from '../../theme/buttonCommon';
+import { motion } from '../../theme/tokens';
 import styles from './ToggleStyles';
 import { useToggleTheme } from './useToggleTheme';
 import { useToggleAnimation } from './useToggleAnimation';
@@ -57,7 +58,7 @@ function renderToggleOption(opt, index, ctx) {
       style={computedOptionStyle}
       hitSlop={ctx.computedHitSlop}
       disabled={ctx.disabled}
-      activeOpacity={0.7}
+      activeOpacity={motion.press.activeOpacity}
       onPress={handlePress}
       accessibilityRole="tab"
       accessibilityState={{ selected: isActive }}

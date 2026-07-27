@@ -1,5 +1,7 @@
 # Move useThemeUtils.js → src/theme/
 
+**Model Recommendation:** 🟡 G 3.6 F (M) — 2d | 3f | +1ctx
+
 **Rationale:** Provides theme helper functions (`getIsDarkContext`, `getStyle`). It is not a UI component and belongs alongside `tokens.js` and `commonStyles.js` in `src/theme/`.
 
 ---

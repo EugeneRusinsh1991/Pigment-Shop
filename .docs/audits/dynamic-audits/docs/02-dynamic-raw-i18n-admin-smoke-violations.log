@@ -2,7 +2,7 @@
 type: dynamic-audit
 auditor: raw-i18n
 scope: admin
-date: 2026-07-27T11:48:34.800Z
+date: 2026-07-27T18:15:29.710Z
 ---
 
 ### Problem: Raw camelCase i18n key found
@@ -299,3 +299,4 @@ date: 2026-07-27T11:48:34.800Z
   - Found hardcoded text without i18n key: "Videos" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-color-jwli3a`
   - Found hardcoded text without i18n key: "0712(1).mp4" | Selector: `div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1dk24ck.r-paddingBlock-cnw61z.r-paddingInline-18c5d7m`
   - Found hardcoded text without i18n key: "kling_20260710_Image_to_Video__5122_0.mp4" | Selector: `div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1dk24ck.r-paddingBlock-cnw61z.r-paddingInline-18c5d7m`
+  - Found hardcoded text without i18n key: "sadasd" | Selector: `div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-1kfrs79.r-lineHeight-14yzgew.r-color-kgv7a8`

@@ -1,5 +1,7 @@
 # Fix Scattered `textTransform: 'uppercase'` (9+ files)
 
+**Recommended Model:** 🟠 G 3.6 F (H) — 6d | 8f | +2ctx
+
 **Rationale:** The `overline` variant in `TextStyles.js` is the canonical token for uppercase label text. Raw `textTransform: 'uppercase'` inline in style files bypasses the token system.
 
 **Fix:** Replace inline `textTransform: 'uppercase'` + manual `fontSize`/`letterSpacing` combos with `<Text variant="overline">` where semantics match.

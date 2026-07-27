@@ -1,5 +1,7 @@
 # Fix `variant="body"` — Non-Existent Variant (~25 usages)
 
+**Recommended Model:** 🔴 G 3.1 P (H) — 8d | 15f | +2ctx
+
 **Rationale:** `VARIANTS` in `TextStyles.js` defines `body1` and `body2`, not `body`. Usage silently falls back to `body1`, masking intent. Replace all with explicit `body1` or `body2`.
 
 ---
