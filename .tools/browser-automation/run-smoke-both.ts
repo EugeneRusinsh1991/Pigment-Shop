@@ -1,5 +1,6 @@
 import { spawn } from 'child_process';
 import * as path from 'path';
+import { clearReportsDirectory } from './helpers/reportCleaner';
 
 const colors = {
   reset: '\x1b[0m',
@@ -24,6 +25,10 @@ function runProcess(name: string, script: string, color: string) {
 
 (async () => {
   console.log(`${colors.cyan}--- Starting Dual Smoke Test (Admin + Guest) ---${colors.reset}\n`);
+
+  // Clear reports directory before run
+  const reportsDir = path.join(__dirname, 'reports');
+  clearReportsDirectory(reportsDir);
 
   const adminScript = path.join(__dirname, 'run-admin-nav.ts');
   const guestScript = path.join(__dirname, 'run-smoke-guest.ts');

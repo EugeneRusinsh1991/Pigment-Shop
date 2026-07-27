@@ -14,7 +14,7 @@ import CatalogPagination from '../catalog/CatalogPagination';
 
 const PAGE_SIZE = 10;
 
-function OrdersList({ orders, paginatedOrders, expandedOrders, toggleExpand, currentPage, totalPages, setCurrentPage, isDark, t }) {
+function OrdersList({ orders, paginatedOrders, expandedOrders, toggleExpand, currentPage, totalPages, goToPrevPage, goToNextPage, isDark, t }) {
   if (orders.length === 0) {
     return (
       <ScrollFadeUp>
@@ -42,8 +42,8 @@ function OrdersList({ orders, paginatedOrders, expandedOrders, toggleExpand, cur
         <CatalogPagination
           currentPage={currentPage}
           totalPages={totalPages}
-          onPrev={() => setCurrentPage((p) => Math.max(1, p - 1))}
-          onNext={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+          onPrev={goToPrevPage}
+          onNext={goToNextPage}
           isDark={isDark}
         />
       )}
@@ -56,11 +56,8 @@ export default function OrdersPage({ isDark }) {
   const { user } = useAuth();
   const { orders = [] } = useOrders(user);
   const [expandedOrders, setExpandedOrders] = useState({});
-  const [currentPage, setCurrentPage] = useState(1);
   const { isWide, gridWidth } = useGridLayout();
-
-  const totalPages = Math.ceil(orders.length / PAGE_SIZE);
-  const paginatedOrders = orders.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
+  const { currentPage, totalPages, paginatedOrders, goToPrevPage, goToNextPage } = useOrdersPagination(orders);
 
   const toggleExpand = (orderId) => {
     setExpandedOrders((prev) => ({ ...prev, [orderId]: !prev[orderId] }));
@@ -81,7 +78,8 @@ export default function OrdersPage({ isDark }) {
         toggleExpand={toggleExpand}
         currentPage={currentPage}
         totalPages={totalPages}
-        setCurrentPage={setCurrentPage}
+        goToPrevPage={goToPrevPage}
+        goToNextPage={goToNextPage}
         isDark={isDark}
         t={t}
       />

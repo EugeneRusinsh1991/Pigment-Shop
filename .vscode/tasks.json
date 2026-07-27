@@ -245,6 +245,16 @@
                 "panel": "shared"
             },
             "problemMatcher": []
+        },
+        {
+            "label": "Tools: Run All Automations Loop",
+            "type": "shell",
+            "command": "npx tsx .tools/browser-automation/run-smoke-both-loop.ts",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
         }
     ]
 } 

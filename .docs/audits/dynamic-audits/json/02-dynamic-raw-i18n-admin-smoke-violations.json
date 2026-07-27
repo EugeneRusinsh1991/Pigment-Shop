@@ -1830,6 +1830,31 @@
         "url": "http://localhost:8081/admin",
         "message": "Found hardcoded text without i18n key: \"27 июл. 2026 г. 22:39\"",
         "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"ADMINxzczxc ADMINzxczxc\"",
+        "selector": "div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-vw2c0b.r-lineHeight-135wba7.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"(111111zxcxzc)\"",
+        "selector": "div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-vw2c0b.r-lineHeight-135wba7.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"ADMINxzczxc ADMINzxczxc\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0.r-flexShrink-1wbh5a2.r-textAlign-1ff274t"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"111111zxcxzc\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0.r-flexShrink-1wbh5a2.r-textAlign-1ff274t"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Found hardcoded text without i18n key: \"ADMINzxcxz\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0.r-flexShrink-1wbh5a2.r-textAlign-1ff274t"
       }
     ]
   },

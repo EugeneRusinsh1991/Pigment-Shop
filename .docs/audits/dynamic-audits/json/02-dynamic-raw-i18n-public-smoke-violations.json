@@ -560,6 +560,11 @@
         "url": "http://localhost:8081/",
         "message": "Found hardcoded text without i18n key: \"123123sadsad\"",
         "selector": "div.css-text-146c3p1.r-color-1npgj5g.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-marginBottom-15zivkp"
+      },
+      {
+        "url": "http://localhost:8081/",
+        "message": "Found hardcoded text without i18n key: \"Valid email is required\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-textAlign-q4m81j"
       }
     ],
     "http://localhost:8081/catalog": [
@@ -1312,6 +1317,11 @@
         "url": "http://localhost:8081/catalog",
         "message": "Found hardcoded text without i18n key: \"123123sadsad\"",
         "selector": "div.css-text-146c3p1.r-color-1npgj5g.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-marginBottom-15zivkp"
+      },
+      {
+        "url": "http://localhost:8081/catalog",
+        "message": "Found hardcoded text without i18n key: \"Valid email is required\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-textAlign-q4m81j"
       }
     ],
     "http://localhost:8081/catalog/cat-root-0": [
@@ -9270,6 +9280,16 @@
         "url": "http://localhost:8081/cart",
         "message": "Found raw camelCase i18n key: \"cartCheckoutBtn\"",
         "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1kitb6n.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/cart",
+        "message": "Found hardcoded text without i18n key: \"Minimum quantity is 1\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-textAlign-q4m81j"
+      },
+      {
+        "url": "http://localhost:8081/cart",
+        "message": "Found hardcoded text without i18n key: \"Valid email is required\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-textAlign-q4m81j"
       }
     ],
     "http://localhost:8081/login": [
@@ -10465,6 +10485,11 @@
         "url": "http://localhost:8081/product/prod-1-2-1-1",
         "message": "Found hardcoded text without i18n key: \"123123sadsad\"",
         "selector": "div.css-text-146c3p1.r-color-1dk24ck.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-marginBottom-15zivkp"
+      },
+      {
+        "url": "http://localhost:8081/product/prod-1-2-1-1",
+        "message": "Found hardcoded text without i18n key: \"Added to favorites\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-textAlign-q4m81j"
       }
     ]
   },

@@ -13,12 +13,12 @@ Extract form logic from profile and orders features, plus style calculations fro
 
 ### 6.1 Create useProfileForm Hook (audit #8)
 **Model Recommendation:** 🟡 G 3.6 F (M) — 2f | +2r
-- [ ] Create `src/hooks/useProfileForm.js`
-- [ ] Extract `useProfileForm` function from `ProfilePage.js` (lines 27-56)
-- [ ] Extract `getVal` function from `ProfilePage.js` (lines 13-15)
-- [ ] Extract `mapProfileToForm` function from `ProfilePage.js` (lines 17-25)
-- [ ] Extract form state and save logic
-- [ ] Add error handling with ToastContext (already uses it)
+- [x] Create `src/hooks/useProfileForm.js`
+- [x] Extract `useProfileForm` function from `ProfilePage.js` (lines 27-56)
+- [x] Extract `getVal` function from `ProfilePage.js` (lines 13-15)
+- [x] Extract `mapProfileToForm` function from `ProfilePage.js` (lines 17-25)
+- [x] Extract form state and save logic
+- [x] Add error handling with ToastContext (already uses it)
 - [ ] Test hook independently
 
 **Source file:** `src/features/profile/ProfilePage.js`
@@ -30,9 +30,9 @@ Extract form logic from profile and orders features, plus style calculations fro
 
 ### 6.2 Create useOrdersPagination Hook (audit #10 - Low Priority)
 **Model Recommendation:** 🟡 G 3.6 F (M) — 2f | +2r
-- [ ] Create `src/hooks/useOrdersPagination.js`
-- [ ] Extract pagination calculation from `OrdersPage.js` (lines 62-63)
-- [ ] Extract pagination logic from `OrdersList` component (lines 17-52)
+- [x] Create `src/hooks/useOrdersPagination.js`
+- [x] Extract pagination calculation from `OrdersPage.js` (lines 62-63)
+- [x] Extract pagination logic from `OrdersList` component (lines 17-52)
 - [ ] Test hook independently
 
 **Source file:** `src/features/orders/OrdersPage.js`
@@ -57,8 +57,8 @@ Extract form logic from profile and orders features, plus style calculations fro
 
 ### 6.4 Refactor Other Feature Components
 **Model Recommendation:** 🟡 G 3.6 F (M) — 3f | +3r
-- [ ] Refactor `ProfilePage.js` to use `useProfileForm`
-- [ ] Refactor `OrdersPage.js` to use `useOrdersPagination`
+- [x] Refactor `ProfilePage.js` to use `useProfileForm`
+- [x] Refactor `OrdersPage.js` to use `useOrdersPagination`
 - [ ] Refactor `HeroCarousel.js` to use style utility
 - [ ] Verify other features functionality still works
 

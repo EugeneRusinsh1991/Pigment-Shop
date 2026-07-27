@@ -2,7 +2,7 @@
 type: dynamic-audit
 auditor: raw-i18n
 scope: admin
-date: 2026-07-27T20:18:07.537Z
+date: 2026-07-27T22:05:44.105Z
 ---
 
 ### Problem: Raw camelCase i18n key found
@@ -378,3 +378,8 @@ date: 2026-07-27T20:18:07.537Z
   - Found hardcoded text without i18n key: "Category Holder" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-b88u0q.r-letterSpacing-ud0q2t.r-lineHeight-1f529hi.r-textTransform-tsynxw`
   - Found hardcoded text without i18n key: "NAOQE" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-vw2c0b.r-lineHeight-135wba7.r-color-kgv7a8`
   - Found hardcoded text without i18n key: "27 июл. 2026 г. 22:39" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8`
+  - Found hardcoded text without i18n key: "ADMINxzczxc ADMINzxczxc" | Selector: `div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-vw2c0b.r-lineHeight-135wba7.r-color-kgv7a8`
+  - Found hardcoded text without i18n key: "(111111zxcxzc)" | Selector: `div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-vw2c0b.r-lineHeight-135wba7.r-color-kgv7a8`
+  - Found hardcoded text without i18n key: "ADMINxzczxc ADMINzxczxc" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0.r-flexShrink-1wbh5a2.r-textAlign-1ff274t`
+  - Found hardcoded text without i18n key: "111111zxcxzc" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0.r-flexShrink-1wbh5a2.r-textAlign-1ff274t`
+  - Found hardcoded text without i18n key: "ADMINzxcxz" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0.r-flexShrink-1wbh5a2.r-textAlign-1ff274t`
