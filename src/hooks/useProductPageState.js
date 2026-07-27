@@ -1,11 +1,11 @@
-import { useState, useCallback } from 'react';
-import { useRouter, useLocalSearchParams } from 'expo-router';
+import { useLocalSearchParams, useRouter } from 'expo-router';
+import { useCallback } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { useProfile } from './useProfile';
 import { useCatalog } from '../context/CatalogContext';
-import { useGridLayout } from './useGridLayout';
-import { useProductActions } from './useProductActions';
 import { getAccountName, useReviewsState } from '../features/product/ProductReviewSubcomponents';
+import useGridLayout from './useGridLayout';
+import { useProductActions } from './useProductActions';
+import { useProfile } from './useProfile';
 
 function resolveProduct(initialProduct, flatList) {
   if (!initialProduct) return null;

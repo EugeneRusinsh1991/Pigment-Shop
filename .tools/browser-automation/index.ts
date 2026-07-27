@@ -1,23 +1,23 @@
-export * from './explorer/ExplorerConfig';
-export * from './explorer/NavigationTracker';
-export * from './explorer/ElementScanner';
 export * from './explorer/ElementInteractor';
-export * from './explorer/UIExplorer';
+export * from './explorer/ElementScanner';
+export * from './explorer/ExplorerConfig';
 export * from './explorer/ExplorerContext';
 export * from './explorer/ExplorerReport';
-export * from './explorer/events/ExplorerEvents';
+export * from './explorer/NavigationTracker';
+export * from './explorer/UIExplorer';
 export * from './explorer/events/ExplorerEventEmitter';
+export * from './explorer/events/ExplorerEvents';
 export * from './explorer/modules/ReportCollector';
 
-import { chromium, Browser, Page } from 'playwright';
-import { ExplorerConfig, defaultConfig } from './explorer/ExplorerConfig';
-import { UIExplorer } from './explorer/UIExplorer';
-import { ExplorerEventEmitter } from './explorer/events/ExplorerEventEmitter';
-import { ReportCollector } from './explorer/modules/ReportCollector';
-import { ExplorerReport } from './explorer/ExplorerReport';
+import { Browser, Page, chromium } from 'playwright';
 import { resolveExecutionContext } from './execution-context';
+import { ExplorerConfig, defaultConfig } from './explorer/ExplorerConfig';
+import { ExplorerReport } from './explorer/ExplorerReport';
+import { UIExplorer } from './explorer/UIExplorer';
 import { createDefaultContainer } from './explorer/di/DIContainer';
 import { PlaywrightPage } from './explorer/driver/PlaywrightAdapter';
+import { ExplorerEventEmitter } from './explorer/events/ExplorerEventEmitter';
+import { ReportCollector } from './explorer/modules/ReportCollector';
 
 /**
  * Runs the Universal UI Explorer.
@@ -38,7 +38,7 @@ export async function runUIExplorer(
   let browser: Browser | null = null;
   
   if (!activePage) {
-    browser = await chromium.launch({ headless: false }); 
+    browser = await chromium.launch({ headless: true }); 
     const context = await browser.newContext({
       viewport: { width: 1280, height: 800 }
     });
