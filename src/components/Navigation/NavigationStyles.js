@@ -9,7 +9,7 @@ export const createBreadcrumbStyles = (isDark) => StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 0,
+    paddingHorizontal: layout.spacing.none,
     paddingVertical: layout.spacing.xxs,
     flexWrap: 'nowrap',
     minWidth: 0,

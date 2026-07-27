@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { View, useWindowDimensions } from 'react-native';
+import { View, StyleSheet, useWindowDimensions } from 'react-native';
 import { Text, Heading } from '@/components/Text';
 import { PlaceholderGrid } from '@/features/catalog/PlaceholderCard';
 import { useCatalog } from '@/context/CatalogContext';
@@ -7,6 +7,7 @@ import { getDeviceTier } from '@/utils/layout';
 import { useRouter } from 'expo-router';
 import styles from '@/AppStyles';
 import { ScrollFadeUp } from '@/components/Motion';
+import { layout } from '@/theme/tokens';
 
 function getColsAndLimit(tier) {
   if (tier === 'desktop') {
@@ -37,8 +38,8 @@ function getDisplayData(newArrivals, limit, viewAllNewText, onNavPress) {
 
 function EmptyArrivalsMessage({ isDark, text }) {
   return (
-    <View style={{ paddingVertical: 32, alignItems: 'center' }}>
-      <Text variant="body" color="muted" style={{ fontStyle: 'italic', textAlign: 'center' }}>
+    <View style={localStyles.emptyContainer}>
+      <Text variant="body" color="muted" style={localStyles.emptyText}>
         {text}
       </Text>
     </View>
@@ -81,3 +82,7 @@ export default function NewArrivalsFooter({ isDark, isWide, t, onCardPress, favs
   );
 }
 
+const localStyles = StyleSheet.create({
+  emptyContainer: { paddingVertical: layout.spacing.xxl, alignItems: 'center' },
+  emptyText: { fontStyle: 'italic', textAlign: 'center' },
+});

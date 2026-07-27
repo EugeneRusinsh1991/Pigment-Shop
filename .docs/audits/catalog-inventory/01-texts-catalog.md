@@ -2,7 +2,7 @@
 
 > Catalog of all Text, Typography, and related components rendering textual content.
 
-**Total items found:** 295
+**Total items found:** 294
 
 ---
 
@@ -190,8 +190,7 @@
   - Line [156](file:///D:/Magazine/_PigmentShop/src/components/Admin/Users/UsersManager.js#L156): `<Text>` -> `[Dynamic Content]`
 
 ### File: [src/components/Badge/Badge.js](file:///D:/Magazine/_PigmentShop/src/components/Badge/Badge.js)
-  - Line [77](file:///D:/Magazine/_PigmentShop/src/components/Badge/Badge.js#L77): `<Text>` -> `[Dynamic Content]`
-  - Line [85](file:///D:/Magazine/_PigmentShop/src/components/Badge/Badge.js#L85): `<Text>` -> `[Dynamic Content]`
+  - Line [31](file:///D:/Magazine/_PigmentShop/src/components/Badge/Badge.js#L31): `<Text>` -> `[Dynamic Content]`
 
 ### File: [src/components/Button/Button.js](file:///D:/Magazine/_PigmentShop/src/components/Button/Button.js)
   - Line [50](file:///D:/Magazine/_PigmentShop/src/components/Button/Button.js#L50): `<Text>` -> `[Dynamic Content]`
@@ -352,7 +351,7 @@
   - Line [96](file:///D:/Magazine/_PigmentShop/src/features/catalog/GridHeaderFooter.js#L96): `<Text>` -> `[Dynamic Content]`
 
 ### File: [src/features/catalog/components/NewArrivalsFooter.js](file:///D:/Magazine/_PigmentShop/src/features/catalog/components/NewArrivalsFooter.js)
-  - Line [41](file:///D:/Magazine/_PigmentShop/src/features/catalog/components/NewArrivalsFooter.js#L41): `<Text>` -> `[Dynamic Content]`
+  - Line [42](file:///D:/Magazine/_PigmentShop/src/features/catalog/components/NewArrivalsFooter.js#L42): `<Text>` -> `[Dynamic Content]`
 
 ### File: [src/features/contact/ContactQuestionForm.js](file:///D:/Magazine/_PigmentShop/src/features/contact/ContactQuestionForm.js)
   - Line [68](file:///D:/Magazine/_PigmentShop/src/features/contact/ContactQuestionForm.js#L68): `<Text>` -> `[Dynamic Content]`
@@ -459,10 +458,10 @@
   - Line [88](file:///D:/Magazine/_PigmentShop/src/features/shell/AppHeader/UserDropdown.js#L88): `<Text>` -> `[Dynamic Content]`
 
 ### File: [src/features/shell/NavMenu/CategoryTreeNodeButtons.js](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/CategoryTreeNodeButtons.js)
-  - Line [38](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/CategoryTreeNodeButtons.js#L38): `<Text>` -> `[Dynamic Content]`
+  - Line [39](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/CategoryTreeNodeButtons.js#L39): `<Text>` -> `[Dynamic Content]`
 
 ### File: [src/features/shell/NavMenu/LanguageSelector.js](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/LanguageSelector.js)
-  - Line [55](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/LanguageSelector.js#L55): `<Text>` -> `[Dynamic Content]`
+  - Line [56](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/LanguageSelector.js#L56): `<Text>` -> `[Dynamic Content]`
 
 ### File: [src/features/shell/NavMenu/MainMenuContent.js](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/MainMenuContent.js)
   - Line [40](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/MainMenuContent.js#L40): `<Text>` -> `[Dynamic Content]`

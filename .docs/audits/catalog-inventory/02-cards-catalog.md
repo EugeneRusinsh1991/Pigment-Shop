@@ -41,7 +41,7 @@
   - Line [64](file:///D:/Magazine/_PigmentShop/src/components/Card/BaseCard.js#L64): `<StaticCard>`
 
 ### File: [src/components/Card/InteractiveCard.js](file:///D:/Magazine/_PigmentShop/src/components/Card/InteractiveCard.js)
-  - Line [91](file:///D:/Magazine/_PigmentShop/src/components/Card/InteractiveCard.js#L91): `<CardShadow>`
+  - Line [97](file:///D:/Magazine/_PigmentShop/src/components/Card/InteractiveCard.js#L97): `<CardShadow>`
 
 ### File: [src/components/Card/NavigationCard.js](file:///D:/Magazine/_PigmentShop/src/components/Card/NavigationCard.js)
   - Line [10](file:///D:/Magazine/_PigmentShop/src/components/Card/NavigationCard.js#L10): `<Card>`

@@ -10,7 +10,7 @@ export default StyleSheet.create({
   containerLight: { backgroundColor: colors.backgroundLight },
   scrollContent: {
     flexGrow: 1,
-    paddingBottom: 0,
+    paddingBottom: layout.spacing.none,
   },
   pageContent: {
     paddingHorizontal: layout.spacing.sm,

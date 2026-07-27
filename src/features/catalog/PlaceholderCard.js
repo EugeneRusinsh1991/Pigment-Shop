@@ -39,12 +39,16 @@ export default PlaceholderCard;
  * PlaceholderGrid Component
  * Renders a flat grid of Leaf PlaceholderCards.
  */
+function getItemStyle(itemWidth) {
+  return { width: itemWidth };
+}
+
 export const PlaceholderGrid = React.memo(function PlaceholderGrid({ data, cols, gridKey, isDark, favs }) {
   const itemWidth = `${(100 / cols).toFixed(4)}%`;
   return (
     <View style={styles.gridRow} key={`${gridKey}-${cols}`}>
       {data.map((item) => (
-        <View key={item.id} style={{ width: itemWidth }}>
+        <View key={item.id} style={getItemStyle(itemWidth)}>
           <PlaceholderCard
             item={item}
             isDark={isDark}

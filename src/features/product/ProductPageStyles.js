@@ -23,7 +23,7 @@ export default StyleSheet.create({
   narrowStack: {
     paddingHorizontal: layout.spacing.md,
     paddingTop: layout.spacing.sm,
-    paddingBottom: 0,
+    paddingBottom: layout.spacing.none,
   },
   imageArea: {
     height: 300,
@@ -43,7 +43,7 @@ export default StyleSheet.create({
   },
   infoAreaWide: {
     flex: 1,
-    marginTop: 0,
+    marginTop: layout.spacing.none,
   },
   brandText: {
     color: colors.accent,
@@ -252,7 +252,7 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   scrollContent: {
-    paddingBottom: 0,
+    paddingBottom: layout.spacing.none,
   },
   bottomSpacer: {
     height: layout.spacing.xxl + layout.spacing.sm,

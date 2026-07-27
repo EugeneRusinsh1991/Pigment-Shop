@@ -1,20 +1,21 @@
 ===================================================================
          3. HARDCODED STYLES, COLORS & SPACING REPORT              
-Timestamp: 27.07.2026, 02:47:15
+Timestamp: 27.07.2026, 03:14:13
 ===================================================================
 
-Found 152 issue(s) across 49 file(s):
+Found 135 issue(s) across 40 file(s):
 
 File: src\components\Admin\SharedFormComponents.js
   L23    [INLINE_STYLE] <View style={resolvedStyles.row}>
   L25    [INLINE_STYLE] {label && <Text style={resolvedStyles.text}>{label}</Text>}
 
+File: src\components\Badge\Badge.js
+  L77    [INLINE_STYLE] <Animated.View style={mergedContainerStyle}>
+  L93    [INLINE_STYLE] <Animated.View ref={ref} style={mergedContainerStyle} {...rest}>
+
 File: src\components\Button\Button.js
   L50    [INLINE_STYLE] : title ? <Text style={textCombinedStyle} size={size} weight="semiBold">{title}</Text> : null}
   L60    [INLINE_STYLE] style={containerStyle}
-
-File: src\components\Button\IconButton.js
-  L56    [INLINE_STYLE] style={combinedStyle}
 
 File: src\components\Card\Card.js
   L42    [INLINE_STYLE] <Animated.View style={combinedStyle}>
@@ -23,22 +24,16 @@ File: src\components\Card\Card.js
   L70    [INLINE_STYLE] <View style={slotStyles.imageContainer}>
 
 File: src\components\Card\InteractiveCard.js
-  L71    [INLINE_STYLE] <ScrollFadeUp ref={ref} style={computedOuterStyle}>
-  L72    [INLINE_STYLE] <Animated.View style={innerStyle}>
-  L75    [INLINE_STYLE] style={staticStyles.touchable}
-  L91    [INLINE_STYLE] <CardShadow hoverAnim={hoverAnim} isDark={isDark} lightBgColor={defaultLightBg} style={{ width: cardWidth, height: cardHeight, borderRadius }} />
-
-File: src\components\Card\NavigationCard.js
-  L15    [INLINE_STYLE] style={style}
+  L77    [INLINE_STYLE] <ScrollFadeUp ref={ref} style={computedOuterStyle}>
+  L78    [INLINE_STYLE] <Animated.View style={innerStyle}>
+  L81    [INLINE_STYLE] style={staticStyles.touchable}
+  L97    [INLINE_STYLE] <CardShadow hoverAnim={hoverAnim} isDark={isDark} lightBgColor={defaultLightBg} style={cardDimStyle} />
 
 File: src\components\Card\StaticCard.js
   L61    [INLINE_STYLE] <ScrollFadeUp ref={ref} style={computedStyle} {...rest}>
 
 File: src\components\DataTable\EmptyState.js
-  L10    [INLINE_STYLE] <GlobalEmptyState style={style}>
-
-File: src\components\Drawer\Drawer.js
-  L11    [INLINE_STYLE] {title ? <Text variant="h4" style={titleStyle}>{title}</Text> : null}
+  L10    [INLINE_STYLE] <GlobalEmptyState style={style} {...props}>
 
 File: src\components\Icons\AppIcons.js
   L26    [INLINE_STYLE] <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={getThemeColor(color)} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={appIconStyles.getSvg(style)} {...props}>
@@ -116,9 +111,6 @@ File: src\components\Navigation\Breadcrumbs\Breadcrumb.js
   L20    [INLINE_STYLE] <Text style={textStyle} size="sm" weight="medium" numberOfLines={1}>
   L29    [INLINE_STYLE] <Text style={textStyle} size="sm" weight="medium" numberOfLines={1}>
 
-File: src\components\Navigation\NavigationStyles.js
-  L12    [HARDCODED_SPACING] paddingHorizontal 0px -> paddingHorizontal: 0,
-
 File: src\components\PageScrollLayout\PageScrollLayout.js
   L14    [INLINE_STYLE] <View style={commonStyles.flex1}>
   L19    [INLINE_STYLE] <View style={commonStyles.bottomSpacer} />
@@ -149,10 +141,6 @@ File: src\components\Toggle\Toggle.js
   L57    [INLINE_STYLE] style={computedOptionStyle}
   L69    [INLINE_STYLE] style={computedTextStyle}
 
-File: src\features\auth\LoginPageStyles.js
-  L139   [HARDCODED_SPACING] padding 0px -> padding: 0,
-  L148   [HARDCODED_SPACING] paddingBottom 0px -> paddingBottom: 0,
-
 File: src\features\catalog\CatalogView.js
   L139   [INLINE_STYLE] style={layoutStyles.listContainer}
   L149   [INLINE_STYLE] style={layoutStyles.listContainer}
@@ -165,9 +153,8 @@ File: src\features\catalog\CategoryCard.js
   L146   [INLINE_STYLE] <Text style={getDescStyle(computedStyles, activeIsBanner)} numberOfLines={2} isDark={isDark}>{desc}</Text>
 
 File: src\features\catalog\components\NewArrivalsFooter.js
-  L40    [INLINE_STYLE] <View style={{ paddingVertical: 32, alignItems: 'center' }}>
-  L40    [HARDCODED_SPACING] paddingVertical 32px -> <View style={{ paddingVertical: 32, alignItems: 'center' }}>
-  L41    [INLINE_STYLE] <Text variant="body" color="muted" style={{ fontStyle: 'italic', textAlign: 'center' }}>
+  L41    [INLINE_STYLE] <View style={localStyles.emptyContainer}>
+  L42    [INLINE_STYLE] <Text variant="body" color="muted" style={localStyles.emptyText}>
 
 File: src\features\catalog\GridHeaderFooter.js
   L44    [INLINE_STYLE] style={itemStyle}
@@ -186,24 +173,10 @@ File: src\features\catalog\ProductGrid.js
   L42    [INLINE_STYLE] style={isNarrow ? { alignSelf: 'center', width: gridWidth || '100%', minHeight: '100%' } : { width: '100%', minHeight: '100%' }}
   L59    [HARDCODED_SPACING] paddingBottom 0px -> grid: { paddingBottom: 0 },
 
-File: src\features\contact\ContactPage.js
-  L27    [INLINE_STYLE] <Heading level={1} style={commonStyles.title} isDark={isDark}>
-
-File: src\features\contact\ContactPageStyles.js
-  L112   [HARDCODED_SPACING] paddingBottom 0px -> paddingBottom: 0,
-
-File: src\features\favorites\FavoritesPageStyles.js
-  L46    [HARDCODED_SPACING] paddingBottom 0px -> paddingBottom: 0,
-
 File: src\features\home\components\DiscountsSection.js
   L23    [INLINE_STYLE] <ScrollFadeUp style={headerStyle}>
-  L68    [INLINE_STYLE] <View style={{ paddingVertical: layout.spacing.xxl, alignItems: 'center' }}>
-  L69    [INLINE_STYLE] <Text variant="body" color="muted" style={{ fontStyle: 'italic', textAlign: 'center' }}>
-
-File: src\features\home\components\FeaturedSections.js
-  L112   [HARDCODED_SPACING] padding 18px -> padding: 18,
-  L117   [HARDCODED_COLOR] rgba(0, 0, 0, 0.06) -> boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.06)',
-  L144   [HARDCODED_SPACING] paddingVertical 3px -> paddingVertical: 3,
+  L68    [INLINE_STYLE] <View style={localStyles.emptyContainer}>
+  L69    [INLINE_STYLE] <Text variant="body" color="muted" style={localStyles.emptyText}>
 
 File: src\features\home\components\HeroCarousel\CarouselDots.js
   L43    [INLINE_STYLE] <View style={localStyles.dotsContainer}>
@@ -212,7 +185,6 @@ File: src\features\home\components\HeroCarousel\CarouselLayers.js
   L17    [INLINE_STYLE] style={localStyles.imageFill}
 
 File: src\features\home\components\HeroCarousel.js
-  L37    [HARDCODED_SPACING] borderRadius 0px -> return { width: windowWidth, alignSelf: 'center', borderRadius: 0 };
   L64    [INLINE_STYLE] return <View style={placeholderStyle} />;
   L71    [INLINE_STYLE] <View style={baseStyle}>
   L72    [INLINE_STYLE] <View style={localStyles.carouselContainer}>
@@ -239,18 +211,11 @@ File: src\features\shell\AppHeader\AppHeaderLogo.js
   L28    [INLINE_STYLE] <View style={computedStyles.leftSec}>
 
 File: src\features\shell\AppHeader\HeaderDropdown.js
-  L35    [INLINE_STYLE] style={{ marginVertical: layout.spacing.xxs / 2, width: '100%' }}
-
-File: src\features\shell\NavMenu\CategoryTreeNodeButtons.js
-  L26    [INLINE_STYLE] style={StyleSheet.flatten([
-  L30    [HARDCODED_SPACING] paddingVertical 10px -> { flex: 1, paddingVertical: 10, paddingLeft: layout.spacing.lg + indent, minHeight: 44 }
+  L35    [INLINE_STYLE] style={dropdownItemStyles.chipButton}
 
 File: src\features\shell\NavMenu\LanguageSelector.js
-  L19    [HARDCODED_SPACING] paddingVertical 10px -> paddingVertical: 10,
-  L25    [HARDCODED_COLOR] rgba(255,255,255,0.03), rgba(15,23,42,0.03) -> backgroundColor: isDark ? 'rgba(255,255,255,0.03)' : 'rgba(15,23,42,0.03)',
-  L32    [HARDCODED_SPACING] marginRight 10px -> container: { marginRight: 10 },
-  L49    [INLINE_STYLE] style={getThemeToggleStyle(isDark)}
-  L52    [INLINE_STYLE] <View style={getThemeIconStyles(isDark).container}>
+  L50    [INLINE_STYLE] style={getThemeToggleStyle(isDark)}
+  L53    [INLINE_STYLE] <View style={themeIconStyles.container}>
 
 File: src\features\shell\StoreSearchHeader.js
   L29    [INLINE_STYLE] <View style={searchInnerStyle}>

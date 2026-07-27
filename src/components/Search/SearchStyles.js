@@ -54,7 +54,7 @@ function createSearchStyles() {
     },
     inputBase: {
       flex: 1,
-      paddingVertical: 0,
+      paddingVertical: layout.spacing.none,
       paddingHorizontal: layout.spacing.sm,
     },
     searchIconWrapper: {

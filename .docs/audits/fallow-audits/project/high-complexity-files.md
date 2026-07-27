@@ -1,6 +1,6 @@
 # 🧠 Highly Complex Files
 
-*Generated on: 27.07.2026, 02:47:25*
+*Generated on: 27.07.2026, 03:14:24*
 
 ### Highly Complex Files (< 200 lines)
 
@@ -11,5 +11,5 @@
   - Lines: 101 | CRAP Max: 90 | Complex Funcs: 5 | Density: 37%
 
 - **[Badge.js](file:///D:/Magazine/_PigmentShop/src/components/Badge/Badge.js)** (`src/components/Badge/Badge.js`)
-  - Lines: 115 | CRAP Max: 56 | Complex Funcs: 3 | Density: 23%
+  - Lines: 124 | CRAP Max: 56 | Complex Funcs: 3 | Density: 21%
 

@@ -155,12 +155,12 @@
   - Line [173](file:///D:/Magazine/_PigmentShop/src/features/shell/AppHeader/UserDropdown.js#L173): `<UserIcon>` (Icon: `[Unknown]`)
 
 ### File: [src/features/shell/NavMenu/CategoryTreeNodeButtons.js](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/CategoryTreeNodeButtons.js)
-  - Line [47](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/CategoryTreeNodeButtons.js#L47): `<IconButton>` (Icon: `[Unknown]`)
-  - Line [48](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/CategoryTreeNodeButtons.js#L48): `<ChevronDownIcon>` (Icon: `[Unknown]`)
-  - Line [48](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/CategoryTreeNodeButtons.js#L48): `<ChevronRightIcon>` (Icon: `[Unknown]`)
+  - Line [48](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/CategoryTreeNodeButtons.js#L48): `<IconButton>` (Icon: `[Unknown]`)
+  - Line [49](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/CategoryTreeNodeButtons.js#L49): `<ChevronDownIcon>` (Icon: `[Unknown]`)
+  - Line [49](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/CategoryTreeNodeButtons.js#L49): `<ChevronRightIcon>` (Icon: `[Unknown]`)
 
 ### File: [src/features/shell/NavMenu/LanguageSelector.js](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/LanguageSelector.js)
-  - Line [53](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/LanguageSelector.js#L53): `<ThemeIcon>` (Icon: `[Unknown]`)
+  - Line [54](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/LanguageSelector.js#L54): `<ThemeIcon>` (Icon: `[Unknown]`)
 
 ### File: [src/features/shell/NavMenu/MainMenuContent.js](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/MainMenuContent.js)
   - Line [67](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/MainMenuContent.js#L67): `<IconButton>` (Icon: `[Unknown]`)

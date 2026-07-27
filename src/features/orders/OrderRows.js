@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
   },
   noBorder: {
     borderBottomWidth: 0,
-    paddingBottom: 0,
+    paddingBottom: layout.spacing.none,
   },
   textCell: {},
   subtextCell: {},

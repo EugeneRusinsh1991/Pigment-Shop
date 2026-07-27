@@ -14,11 +14,22 @@ function EmptyCatalogState({ isDark, label }) {
   );
 }
 
+function getItemStyle(itemWidth) {
+  return { width: itemWidth, alignSelf: 'stretch' };
+}
+
+function getGridStyle(isNarrow, gridWidth) {
+  return isNarrow
+    ? { alignSelf: 'center', width: gridWidth || '100%', minHeight: '100%' }
+    : { width: '100%', minHeight: '100%' };
+}
+
+
 export default function ProductGrid({ products, cols, cardWidth, isDark, onCardPress, favs, emptyLabel, listHeader, listFooter, isNarrow, gridWidth }) {
   const itemWidth = `${(100 / cols).toFixed(4)}%`;
   const renderItem = useCallback(
     ({ item }) => (
-      <View style={{ width: itemWidth, alignSelf: 'stretch' }}>
+      <View style={getItemStyle(itemWidth)}>
         <Link href={{ pathname: '/product/[id]', params: { id: item.id } }} asChild>
           <ProductCard
             item={item}
@@ -39,7 +50,7 @@ export default function ProductGrid({ products, cols, cardWidth, isDark, onCardP
       keyExtractor={(item) => item.id}
       numColumns={cols}
       key={`catalog-grid-${cols}`}
-      style={isNarrow ? { alignSelf: 'center', width: gridWidth || '100%', minHeight: '100%' } : { width: '100%', minHeight: '100%' }}
+      style={getGridStyle(isNarrow, gridWidth)}
       renderItem={renderItem}
       contentContainerStyle={[styles.grid, { flexGrow: 1, minHeight: '100%' }]}
       ListHeaderComponent={listHeader}
@@ -56,6 +67,6 @@ export default function ProductGrid({ products, cols, cardWidth, isDark, onCardP
 }
 
 const styles = StyleSheet.create({
-  grid: { paddingBottom: 0 },
+  grid: { paddingBottom: layout.spacing.none },
   empty: { paddingVertical: layout.spacing.xxl, alignItems: 'center' },
 });

@@ -1,6 +1,6 @@
 # 📦 Unused Exports
 
-*Generated on: 27.07.2026, 02:47:25*
+*Generated on: 27.07.2026, 03:14:24*
 
 Exports that are not imported or consumed by any other active file:
 
@@ -9,7 +9,7 @@ Exports that are not imported or consumed by any other active file:
 - [index.js](file:///D:/Magazine/_PigmentShop/src/components/Badge/index.js): `default` ([L1](file:///D:/Magazine/_PigmentShop/src/components/Badge/index.js#L1)), `useBadgeTheme` ([L2](file:///D:/Magazine/_PigmentShop/src/components/Badge/index.js#L2)), `useBadgeAnimation` ([L3](file:///D:/Magazine/_PigmentShop/src/components/Badge/index.js#L3))
 - [useBadgeAnimation.js](file:///D:/Magazine/_PigmentShop/src/components/Badge/useBadgeAnimation.js): `default` ([L75](file:///D:/Magazine/_PigmentShop/src/components/Badge/useBadgeAnimation.js#L75))
 - [index.js](file:///D:/Magazine/_PigmentShop/src/components/Button/index.js): `useButtonTheme` ([L4](file:///D:/Magazine/_PigmentShop/src/components/Button/index.js#L4)), `buttonTokens` ([L5](file:///D:/Magazine/_PigmentShop/src/components/Button/index.js#L5))
-- [InteractiveCard.js](file:///D:/Magazine/_PigmentShop/src/components/Card/InteractiveCard.js): `default` ([L112](file:///D:/Magazine/_PigmentShop/src/components/Card/InteractiveCard.js#L112))
+- [InteractiveCard.js](file:///D:/Magazine/_PigmentShop/src/components/Card/InteractiveCard.js): `default` ([L118](file:///D:/Magazine/_PigmentShop/src/components/Card/InteractiveCard.js#L118))
 - [StaticCard.js](file:///D:/Magazine/_PigmentShop/src/components/Card/StaticCard.js): `default` ([L67](file:///D:/Magazine/_PigmentShop/src/components/Card/StaticCard.js#L67))
 - [index.js](file:///D:/Magazine/_PigmentShop/src/components/Card/index.js): `Card` ([L1](file:///D:/Magazine/_PigmentShop/src/components/Card/index.js#L1)), `useCardTheme` ([L2](file:///D:/Magazine/_PigmentShop/src/components/Card/index.js#L2)), `useCardAnimation` ([L3](file:///D:/Magazine/_PigmentShop/src/components/Card/index.js#L3)), `BaseCard` ([L6](file:///D:/Magazine/_PigmentShop/src/components/Card/index.js#L6)), `InteractiveCard` ([L7](file:///D:/Magazine/_PigmentShop/src/components/Card/index.js#L7)), `StaticCard` ([L8](file:///D:/Magazine/_PigmentShop/src/components/Card/index.js#L8)), `CardShadow` ([L9](file:///D:/Magazine/_PigmentShop/src/components/Card/index.js#L9)), `NavigationCard` ([L10](file:///D:/Magazine/_PigmentShop/src/components/Card/index.js#L10))
 - [useCardAnimation.js](file:///D:/Magazine/_PigmentShop/src/components/Card/useCardAnimation.js): `default` ([L81](file:///D:/Magazine/_PigmentShop/src/components/Card/useCardAnimation.js#L81))

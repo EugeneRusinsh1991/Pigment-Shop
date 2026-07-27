@@ -12,7 +12,7 @@ const NavigationCard = React.forwardRef(({ type, isDark, text, style, ...rest },
       variant="compact"
       isDark={isDark}
       interactive={true}
-      style={style}
+      style={[styles.root, style]}
       {...rest}
     >
       <View style={styles.content}>
@@ -30,6 +30,7 @@ const NavigationCard = React.forwardRef(({ type, isDark, text, style, ...rest },
 export default NavigationCard;
 
 const styles = StyleSheet.create({
+  root: {},
   content: {
     alignItems: 'center',
     justifyContent: 'center',

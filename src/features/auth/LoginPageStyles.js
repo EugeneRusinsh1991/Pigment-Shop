@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
   subtextDark: { color: colors.textMutedDark },
   subtextLight: { color: colors.textMutedLight },
   noPadding: {
-    padding: 0,
+    padding: layout.spacing.none,
   },
   contentPadding: {
     paddingBottom: layout.spacing.xxl,
@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     width: '100%',
     paddingTop: layout.spacing.xl,
-    paddingBottom: 0,
+    paddingBottom: layout.spacing.none,
   },
   centerContainer: {
     flex: 1,
