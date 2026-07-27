@@ -722,6 +722,26 @@
         "url": "http://localhost:8081/catalog",
         "message": "Found hardcoded text without i18n key: \"SKU-PROD-1-2-2-1\"",
         "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-1cwl3u0.r-color-1npgj5g.r-marginBottom-15zivkp"
+      },
+      {
+        "url": "http://localhost:8081/catalog",
+        "message": "Found hardcoded text without i18n key: \"Product 1-2-1-1 RU\"",
+        "selector": "div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16"
+      },
+      {
+        "url": "http://localhost:8081/catalog",
+        "message": "Found hardcoded text without i18n key: \"Subcategory 1-1 RU\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/catalog",
+        "message": "Found hardcoded text without i18n key: \"Group 1-1-2 EN\"",
+        "selector": "h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-eaezby.r-marginBottom-15zivkp"
+      },
+      {
+        "url": "http://localhost:8081/catalog",
+        "message": "Found hardcoded text without i18n key: \"Описание для Group 1-1-2 EN\"",
+        "selector": "div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7"
       }
     ],
     "http://localhost:8081/catalog/cat-root-0": [
@@ -1114,6 +1134,36 @@
         "url": "http://localhost:8081/catalog/cat-root-0",
         "message": "Found raw camelCase i18n key: \"reviewsCount\"",
         "selector": "div.css-text-146c3p1.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0",
+        "message": "Found hardcoded text without i18n key: \"Product 1-2-1-1 RU\"",
+        "selector": "div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0",
+        "message": "Found hardcoded text without i18n key: \"Category 1 EN\"",
+        "selector": "div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-12zy4o2"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0",
+        "message": "Found hardcoded text without i18n key: \"Subcategory 1-1 EN\"",
+        "selector": "div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-1s7ct43"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0",
+        "message": "Found hardcoded text without i18n key: \"Subcategory 1-1 RU\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0",
+        "message": "Found hardcoded text without i18n key: \"Group 1-1-2 EN\"",
+        "selector": "h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-eaezby.r-marginBottom-15zivkp"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0",
+        "message": "Found hardcoded text without i18n key: \"Описание для Group 1-1-2 EN\"",
+        "selector": "div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7"
       }
     ],
     "http://localhost:8081/catalog/cat-root-0-sub-0": [
@@ -1261,6 +1311,11 @@
         "url": "http://localhost:8081/catalog/cat-root-0-sub-0",
         "message": "Found hardcoded text without i18n key: \"Описание для Group 1-1-2 EN\"",
         "selector": "div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0-sub-0",
+        "message": "Found hardcoded text without i18n key: \"Product 1-2-1-1 RU\"",
+        "selector": "div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16"
       }
     ],
     "http://localhost:8081/catalog/cat-root-0-sub-1": [
@@ -1608,6 +1663,11 @@
         "url": "http://localhost:8081/catalog/cat-root-0-sub-1",
         "message": "Found raw camelCase i18n key: \"reviewsCount\"",
         "selector": "div.css-text-146c3p1.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0-sub-1",
+        "message": "Found hardcoded text without i18n key: \"Product 1-2-1-1 RU\"",
+        "selector": "div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16"
       }
     ],
     "http://localhost:8081/catalog/cat-root-1": [
@@ -1940,6 +2000,11 @@
         "url": "http://localhost:8081/catalog/cat-root-1",
         "message": "Found hardcoded text without i18n key: \"SKU-PROD-2-1-2-1\"",
         "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-1cwl3u0.r-color-1npgj5g.r-marginBottom-15zivkp"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1",
+        "message": "Found hardcoded text without i18n key: \"Product 1-2-1-1 RU\"",
+        "selector": "div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16"
       }
     ],
     "http://localhost:8081/catalog/cat-root-1-sub-0": [
@@ -2287,6 +2352,11 @@
         "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
         "message": "Found raw camelCase i18n key: \"reviewsCount\"",
         "selector": "div.css-text-146c3p1.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0",
+        "message": "Found hardcoded text without i18n key: \"Product 1-2-1-1 RU\"",
+        "selector": "div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16"
       }
     ],
     "http://localhost:8081/catalog/cat-root-1-sub-1": [
@@ -2634,6 +2704,11 @@
         "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
         "message": "Found raw camelCase i18n key: \"reviewsCount\"",
         "selector": "div.css-text-146c3p1.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1",
+        "message": "Found hardcoded text without i18n key: \"Product 1-2-1-1 RU\"",
+        "selector": "div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16"
       }
     ],
     "http://localhost:8081/products": [
@@ -2951,6 +3026,41 @@
         "url": "http://localhost:8081/products",
         "message": "Found raw camelCase i18n key: \"catalogSortPriceDesc\"",
         "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-vw2c0b.r-lineHeight-135wba7.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Found hardcoded text without i18n key: \"Product 1-2-1-1 RU\"",
+        "selector": "div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Found hardcoded text without i18n key: \"Subcategory 2-1 RU\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-color-jwli3a"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Found hardcoded text without i18n key: \"Group 2-1-1 RU\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-color-1dk24ck"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Found hardcoded text without i18n key: \"Group 2-1-2 RU\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-color-1dk24ck"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Found hardcoded text without i18n key: \"Subcategory 2-2 RU\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-color-jwli3a"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Found hardcoded text without i18n key: \"Group 2-2-1 RU\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-color-1dk24ck"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Found hardcoded text without i18n key: \"Group 2-2-2 RU\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-color-1dk24ck"
       }
     ],
     "http://localhost:8081/product/prod-1-2-1-1": [
@@ -3727,6 +3837,11 @@
         "url": "http://localhost:8081/product/prod-2-2-1-1",
         "message": "Found raw camelCase i18n key: \"questionsCount\"",
         "selector": "div.css-text-146c3p1.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7"
+      },
+      {
+        "url": "http://localhost:8081/product/prod-2-2-1-1",
+        "message": "Found hardcoded text without i18n key: \"Product 1-2-1-1 RU\"",
+        "selector": "div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16"
       }
     ],
     "http://localhost:8081/catalog/cat-root-1-sub-1-sub-0": [
@@ -4013,6 +4128,11 @@
       {
         "url": "http://localhost:8081/catalog/cat-root-1-sub-1-sub-0",
         "message": "Found hardcoded text without i18n key: \"Product 2-2-1-1 RU\"",
+        "selector": "div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1-sub-0",
+        "message": "Found hardcoded text without i18n key: \"Product 1-2-1-1 RU\"",
         "selector": "div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16"
       }
     ],
@@ -4326,6 +4446,11 @@
         "url": "http://localhost:8081/product/prod-2-1-2-1",
         "message": "Found raw camelCase i18n key: \"questionsCount\"",
         "selector": "div.css-text-146c3p1.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7"
+      },
+      {
+        "url": "http://localhost:8081/product/prod-2-1-2-1",
+        "message": "Found hardcoded text without i18n key: \"Product 1-2-1-1 RU\"",
+        "selector": "div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16"
       }
     ],
     "http://localhost:8081/catalog/cat-root-1-sub-0-sub-1": [
@@ -4612,6 +4737,11 @@
       {
         "url": "http://localhost:8081/catalog/cat-root-1-sub-0-sub-1",
         "message": "Found hardcoded text without i18n key: \"Product 2-1-2-1 RU\"",
+        "selector": "div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0-sub-1",
+        "message": "Found hardcoded text without i18n key: \"Product 1-2-1-1 RU\"",
         "selector": "div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16"
       }
     ],
@@ -4925,6 +5055,11 @@
         "url": "http://localhost:8081/product/prod-1-2-2-1",
         "message": "Found raw camelCase i18n key: \"questionsCount\"",
         "selector": "div.css-text-146c3p1.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7"
+      },
+      {
+        "url": "http://localhost:8081/product/prod-1-2-2-1",
+        "message": "Found hardcoded text without i18n key: \"Product 1-2-1-1 RU\"",
+        "selector": "div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16"
       }
     ],
     "http://localhost:8081/catalog/cat-root-0-sub-1-sub-1": [
@@ -5212,6 +5347,11 @@
         "url": "http://localhost:8081/catalog/cat-root-0-sub-1-sub-1",
         "message": "Found hardcoded text without i18n key: \"Product 1-2-2-1 RU\"",
         "selector": "div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0-sub-1-sub-1",
+        "message": "Found hardcoded text without i18n key: \"Product 1-2-1-1 RU\"",
+        "selector": "div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16"
       }
     ],
     "http://localhost:8081/contact": [
@@ -5300,6 +5440,173 @@
         "message": "Found raw camelCase i18n key: \"contactUsQuestion\"",
         "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1kitb6n.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-jwli3a.r-opacity-1g80hic"
       }
+    ],
+    "http://localhost:8081/catalog/cat-root-0-sub-0-sub-1": [
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0-sub-0-sub-1",
+        "message": "Found hardcoded text without i18n key: \"Главная\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-1dk24ck"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0-sub-0-sub-1",
+        "message": "Found hardcoded text without i18n key: \"Каталог\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0-sub-0-sub-1",
+        "message": "Found hardcoded text without i18n key: \"Все товары\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0-sub-0-sub-1",
+        "message": "Found hardcoded text without i18n key: \"Контакты\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0-sub-0-sub-1",
+        "message": "Found raw camelCase i18n key: \"badgeNew\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-1qxivpv.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0-sub-0-sub-1",
+        "message": "Found hardcoded text without i18n key: \"LOVELY\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-b88u0q.r-letterSpacing-ud0q2t.r-lineHeight-1f529hi.r-color-12zy4o2.r-marginBottom-15zivkp.r-textTransform-tsynxw"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0-sub-0-sub-1",
+        "message": "Found hardcoded text without i18n key: \"Product 2-1-1-1 RU\"",
+        "selector": "div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0-sub-0-sub-1",
+        "message": "Found raw camelCase i18n key: \"offerEndsIn\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-1cwl3u0.r-marginRight-1pcdyqj.r-color-1s7ct43"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0-sub-0-sub-1",
+        "message": "Found hardcoded text without i18n key: \"BARBARA\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-b88u0q.r-letterSpacing-ud0q2t.r-lineHeight-1f529hi.r-color-12zy4o2.r-marginBottom-15zivkp.r-textTransform-tsynxw"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0-sub-0-sub-1",
+        "message": "Found hardcoded text without i18n key: \"Product 1-1-2-1 RU11111\"",
+        "selector": "div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0-sub-0-sub-1",
+        "message": "Found hardcoded text without i18n key: \"Product 1-2-1-1 RU\"",
+        "selector": "div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0-sub-0-sub-1",
+        "message": "Found hardcoded text without i18n key: \"Made by Noren Vox ©\"",
+        "selector": "div.css-text-146c3p1.r-color-1cucpzw.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-1cwl3u0"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0-sub-0-sub-1",
+        "message": "Found raw camelCase i18n key: \"btnBackLabel\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-color-12zy4o2"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0-sub-0-sub-1",
+        "message": "Found raw camelCase i18n key: \"navRootCatalog\"",
+        "selector": "div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-1s7ct43"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0-sub-0-sub-1",
+        "message": "Found hardcoded text without i18n key: \"Category 1 EN\"",
+        "selector": "h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-eaezby.r-marginBottom-15zivkp"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0-sub-0-sub-1",
+        "message": "Found hardcoded text without i18n key: \"Описание для Category 1 EN\"",
+        "selector": "div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0-sub-0-sub-1",
+        "message": "Found hardcoded text without i18n key: \"Category 2 EN\"",
+        "selector": "h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-eaezby.r-marginBottom-15zivkp"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0-sub-0-sub-1",
+        "message": "Found hardcoded text without i18n key: \"Описание для Category 2 EN\"",
+        "selector": "div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0-sub-0-sub-1",
+        "message": "Found raw camelCase i18n key: \"navRootCatalog\"",
+        "selector": "div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-12zy4o2"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0-sub-0-sub-1",
+        "message": "Found hardcoded text without i18n key: \"Category 1 EN\"",
+        "selector": "div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-1s7ct43"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0-sub-0-sub-1",
+        "message": "Found hardcoded text without i18n key: \"Category 1 RU\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0-sub-0-sub-1",
+        "message": "Found hardcoded text without i18n key: \"Subcategory 1-1 EN\"",
+        "selector": "h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-eaezby.r-marginBottom-15zivkp"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0-sub-0-sub-1",
+        "message": "Found hardcoded text without i18n key: \"Описание для Subcategory 1-1 EN\"",
+        "selector": "div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0-sub-0-sub-1",
+        "message": "Found hardcoded text without i18n key: \"Subcategory 1-2 EN\"",
+        "selector": "h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-eaezby.r-marginBottom-15zivkp"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0-sub-0-sub-1",
+        "message": "Found hardcoded text without i18n key: \"Описание для Subcategory 1-2 EN\"",
+        "selector": "div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0-sub-0-sub-1",
+        "message": "Found hardcoded text without i18n key: \"Category 1 EN\"",
+        "selector": "div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-12zy4o2"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0-sub-0-sub-1",
+        "message": "Found hardcoded text without i18n key: \"Subcategory 1-1 EN\"",
+        "selector": "div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-1s7ct43"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0-sub-0-sub-1",
+        "message": "Found hardcoded text without i18n key: \"Subcategory 1-1 RU\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0-sub-0-sub-1",
+        "message": "Found hardcoded text without i18n key: \"Group 1-1-2 EN\"",
+        "selector": "h1.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-eaezby.r-marginBottom-15zivkp"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0-sub-0-sub-1",
+        "message": "Found hardcoded text without i18n key: \"Описание для Group 1-1-2 EN\"",
+        "selector": "div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0-sub-0-sub-1",
+        "message": "Found hardcoded text without i18n key: \"Subcategory 1-1 EN\"",
+        "selector": "div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-12zy4o2"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0-sub-0-sub-1",
+        "message": "Found hardcoded text without i18n key: \"Group 1-1-2 EN\"",
+        "selector": "div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-1s7ct43"
+      },
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0-sub-0-sub-1",
+        "message": "Found hardcoded text without i18n key: \"Group 1-1-2 RU\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8"
+      }
     ]
   },
   "urls": [
@@ -5320,6 +5627,7 @@
     "http://localhost:8081/catalog/cat-root-1-sub-0-sub-1",
     "http://localhost:8081/product/prod-1-2-2-1",
     "http://localhost:8081/catalog/cat-root-0-sub-1-sub-1",
-    "http://localhost:8081/contact"
+    "http://localhost:8081/contact",
+    "http://localhost:8081/catalog/cat-root-0-sub-0-sub-1"
   ]
 }

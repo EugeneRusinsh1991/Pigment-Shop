@@ -1,6 +1,7 @@
 export const colors = {
   // Brand & Accent
   accent: '#E31B23',
+  accentBlue: '#3B82F6',
 
   // Backgrounds
   backgroundLight: '#FAF8F6',
@@ -56,6 +57,7 @@ export const colors = {
   success: '#16A34A',
   white: '#FFFFFF',
   black: '#000000',
+  transparent: 'transparent',
   dark: '#1C1C1C',
 
   // Secondary Button / Component Styles
@@ -256,6 +258,11 @@ export const layout = {
     toast: 3000,
     tooltip: 4000,
   },
+  borderWidth: {
+    thin: 1,
+    focus: 1.5,
+    thick: 2,
+  },
   spacing: {
     none: 0,
     xxxs: 2,
@@ -275,6 +282,16 @@ export const buttonTokens = {
     md: { height: 40, paddingHorizontal: 16, borderRadius: layout.radii.sm, borderRadiusPill: 20, fontSize: 13 },
     lg: { height: 48, paddingHorizontal: 24, borderRadius: layout.radii.md, borderRadiusPill: 24, fontSize: 14 },
   },
+};
+
+export const iconTokens = {
+  strokeWidth: {
+    default: 2,
+    bold: 2.5,
+    tagDot: 3,
+  },
+  viewBox: '0 0 24 24',
+  fillNone: 'none',
 };
 
 export const motion = {

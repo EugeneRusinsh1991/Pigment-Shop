@@ -44,7 +44,7 @@ function createButtonStyles() {
       alignItems: 'center',
       justifyContent: 'center',
       gap: layout.spacing.sm,
-      borderWidth: 1,
+      borderWidth: layout.borderWidth.thin,
       borderColor: 'transparent',
     },
     textBase: {

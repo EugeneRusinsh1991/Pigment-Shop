@@ -114,7 +114,7 @@ const baseBadgeStyles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     alignSelf: 'flex-start',
-    borderWidth: 1,
+    borderWidth: layout.borderWidth.thin,
     borderColor: 'transparent',
   },
   text: {

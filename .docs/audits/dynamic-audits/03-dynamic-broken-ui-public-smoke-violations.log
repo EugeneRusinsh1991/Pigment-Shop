@@ -2,7 +2,7 @@
 type: dynamic-audit
 auditor: broken-ui
 scope: public
-date: 2026-07-27T08:31:58.953Z
+date: 2026-07-27T09:12:47.926Z
 ---
 
 ### URL: http://localhost:8081/
@@ -110,3 +110,7 @@ date: 2026-07-27T08:31:58.953Z
   Selector: `div.css-view-g5y9jx`
 - Element has overflow clipping (`scrollWidth > clientWidth`).
   Selector: `div.css-view-g5y9jx.r-marginBlock-l00any`
+
+### URL: http://localhost:8081/catalog/cat-root-0-sub-0-sub-1
+- Element has overflow clipping (`scrollWidth > clientWidth`).
+  Selector: `div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-12zy4o2`

@@ -5452,5 +5452,35 @@
         }
       ]
     }
+  },
+  "src_07-27_12-18_smoke-report.json_79files": {
+    "timestamp": "2026-07-27T09:18:51.203Z",
+    "diff": {
+      "added": 1,
+      "removed": 6,
+      "modified": 34,
+      "topFolders": [
+        {
+          "folder": ".docs/audits/dynamic-audits",
+          "count": 15
+        },
+        {
+          "folder": ".todos/tokenize",
+          "count": 15
+        },
+        {
+          "folder": "src/components/Icons",
+          "count": 3
+        },
+        {
+          "folder": "src/theme",
+          "count": 2
+        },
+        {
+          "folder": ".tools/browser-automation/explorer/driver",
+          "count": 1
+        }
+      ]
+    }
   }
 }

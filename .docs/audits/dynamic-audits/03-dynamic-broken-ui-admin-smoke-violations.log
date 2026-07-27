@@ -2,7 +2,7 @@
 type: dynamic-audit
 auditor: broken-ui
 scope: admin
-date: 2026-07-27T08:31:55.755Z
+date: 2026-07-27T09:07:48.202Z
 ---
 
 ### URL: http://localhost:8081/admin
@@ -70,3 +70,5 @@ date: 2026-07-27T08:31:55.755Z
   Selector: `img`
 - Element has overflow clipping (`scrollWidth > clientWidth`).
   Selector: `div.css-view-g5y9jx.r-alignItems-1awozwy.r-justifyContent-1777fci`
+- Element has overflow clipping (`scrollWidth > clientWidth`).
+  Selector: `input.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-paddingBlock-1mkv55d.r-backgroundColor-fj6wrk.r-borderRadius-1xfd6ze.r-color-kgv7a8.r-height-eu3ka.r-outlineStyle-1ny4l3l.r-paddingInline-3o4zer`

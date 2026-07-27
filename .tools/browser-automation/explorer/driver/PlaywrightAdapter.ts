@@ -83,15 +83,30 @@ export class PlaywrightPage implements IWebPage {
   }
 
   async goBack(): Promise<void> {
-    await this.page.goBack();
+    if (this.page.isClosed()) return;
+    try {
+      await this.page.goBack();
+    } catch {
+      // Safe fallback if target page or context is already closed
+    }
   }
 
   async waitForTimeout(timeout: number): Promise<void> {
-    await this.page.waitForTimeout(timeout);
+    if (this.page.isClosed()) return;
+    try {
+      await this.page.waitForTimeout(timeout);
+    } catch {
+      // Safe fallback if target page or context is already closed
+    }
   }
 
   async screenshot(options?: { path?: string; fullPage?: boolean }): Promise<Buffer> {
-    return await this.page.screenshot(options);
+    if (this.page.isClosed()) return Buffer.from('');
+    try {
+      return await this.page.screenshot(options);
+    } catch {
+      return Buffer.from('');
+    }
   }
 
   locator(selector: string): IWebElement {
