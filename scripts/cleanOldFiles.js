@@ -1,4 +1,4 @@
-const fs = require('fs');
+ const fs = require('fs');
 const path = require('path');
 
 function cleanOldFiles(directory, maxFiles, extension) {
@@ -19,7 +19,6 @@ function cleanOldFiles(directory, maxFiles, extension) {
       filesToDelete.forEach((file) => {
         const filePath = path.join(directory, file);
         fs.unlinkSync(filePath);
-        console.log(`[CleanUp] Deleted old file: ${file}`);
       });
     }
   } catch (err) {

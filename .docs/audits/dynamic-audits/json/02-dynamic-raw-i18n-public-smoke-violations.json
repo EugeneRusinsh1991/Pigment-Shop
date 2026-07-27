@@ -4553,6 +4553,21 @@
         "url": "http://localhost:8081/product/prod-2-2-1-1",
         "message": "Found hardcoded text without i18n key: \"Removed from favorites\"",
         "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-textAlign-q4m81j"
+      },
+      {
+        "url": "http://localhost:8081/product/prod-2-2-1-1",
+        "message": "Found hardcoded text without i18n key: \"Manual Browser Inspector\"",
+        "selector": "div.css-text-146c3p1.r-color-1npgj5g.r-fontSize-1enofrn.r-fontWeight-vw2c0b.r-letterSpacing-ud0q2t.r-textTransform-tsynxw"
+      },
+      {
+        "url": "http://localhost:8081/product/prod-2-2-1-1",
+        "message": "Found hardcoded text without i18n key: \"Capture Screenshot & State\"",
+        "selector": "div.css-text-146c3p1.r-color-1gnjku.r-fontSize-n6v787.r-fontWeight-majxgm"
+      },
+      {
+        "url": "http://localhost:8081/product/prod-2-2-1-1",
+        "message": "Found hardcoded text without i18n key: \"Alt+1\"",
+        "selector": "div.css-text-146c3p1.r-backgroundColor-1tl8prc.r-borderColor-11unwc4.r-borderRadius-z2wwpe.r-borderWidth-rs99b7.r-color-ox415g.r-fontSize-1gkfh8e.r-fontWeight-vw2c0b.r-paddingBlock-1559e4e.r-paddingInline-18c5d7m"
       }
     ],
     "http://localhost:8081/catalog/cat-root-1-sub-1-sub-0": [
@@ -5382,6 +5397,21 @@
         "url": "http://localhost:8081/product/prod-2-1-2-1",
         "message": "Found hardcoded text without i18n key: \"Removed from favorites\"",
         "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-textAlign-q4m81j"
+      },
+      {
+        "url": "http://localhost:8081/product/prod-2-1-2-1",
+        "message": "Found hardcoded text without i18n key: \"Manual Browser Inspector\"",
+        "selector": "div.css-text-146c3p1.r-color-1npgj5g.r-fontSize-1enofrn.r-fontWeight-vw2c0b.r-letterSpacing-ud0q2t.r-textTransform-tsynxw"
+      },
+      {
+        "url": "http://localhost:8081/product/prod-2-1-2-1",
+        "message": "Found hardcoded text without i18n key: \"Capture Screenshot & State\"",
+        "selector": "div.css-text-146c3p1.r-color-1gnjku.r-fontSize-n6v787.r-fontWeight-majxgm"
+      },
+      {
+        "url": "http://localhost:8081/product/prod-2-1-2-1",
+        "message": "Found hardcoded text without i18n key: \"Alt+1\"",
+        "selector": "div.css-text-146c3p1.r-backgroundColor-1tl8prc.r-borderColor-11unwc4.r-borderRadius-z2wwpe.r-borderWidth-rs99b7.r-color-ox415g.r-fontSize-1gkfh8e.r-fontWeight-vw2c0b.r-paddingBlock-1559e4e.r-paddingInline-18c5d7m"
       }
     ],
     "http://localhost:8081/catalog/cat-root-1-sub-0-sub-1": [
@@ -6206,6 +6236,21 @@
         "url": "http://localhost:8081/product/prod-1-2-2-1",
         "message": "Found hardcoded text without i18n key: \"Added to favorites\"",
         "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-textAlign-q4m81j"
+      },
+      {
+        "url": "http://localhost:8081/product/prod-1-2-2-1",
+        "message": "Found hardcoded text without i18n key: \"Manual Browser Inspector\"",
+        "selector": "div.css-text-146c3p1.r-color-1npgj5g.r-fontSize-1enofrn.r-fontWeight-vw2c0b.r-letterSpacing-ud0q2t.r-textTransform-tsynxw"
+      },
+      {
+        "url": "http://localhost:8081/product/prod-1-2-2-1",
+        "message": "Found hardcoded text without i18n key: \"Capture Screenshot & State\"",
+        "selector": "div.css-text-146c3p1.r-color-1gnjku.r-fontSize-n6v787.r-fontWeight-majxgm"
+      },
+      {
+        "url": "http://localhost:8081/product/prod-1-2-2-1",
+        "message": "Found hardcoded text without i18n key: \"Alt+1\"",
+        "selector": "div.css-text-146c3p1.r-backgroundColor-1tl8prc.r-borderColor-11unwc4.r-borderRadius-z2wwpe.r-borderWidth-rs99b7.r-color-ox415g.r-fontSize-1gkfh8e.r-fontWeight-vw2c0b.r-paddingBlock-1559e4e.r-paddingInline-18c5d7m"
       }
     ],
     "http://localhost:8081/catalog/cat-root-0-sub-1-sub-1": [
@@ -7875,6 +7920,21 @@
         "url": "http://localhost:8081/cart",
         "message": "Found hardcoded text without i18n key: \"Ваша корзина пуста\"",
         "selector": "div.css-text-146c3p1.r-color-1s06vhe.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7"
+      },
+      {
+        "url": "http://localhost:8081/cart",
+        "message": "Found hardcoded text without i18n key: \"Manual Browser Inspector\"",
+        "selector": "div.css-text-146c3p1.r-color-1npgj5g.r-fontSize-1enofrn.r-fontWeight-vw2c0b.r-letterSpacing-ud0q2t.r-textTransform-tsynxw"
+      },
+      {
+        "url": "http://localhost:8081/cart",
+        "message": "Found hardcoded text without i18n key: \"Capture Screenshot & State\"",
+        "selector": "div.css-text-146c3p1.r-color-1gnjku.r-fontSize-n6v787.r-fontWeight-majxgm"
+      },
+      {
+        "url": "http://localhost:8081/cart",
+        "message": "Found hardcoded text without i18n key: \"Alt+1\"",
+        "selector": "div.css-text-146c3p1.r-backgroundColor-1tl8prc.r-borderColor-11unwc4.r-borderRadius-z2wwpe.r-borderWidth-rs99b7.r-color-ox415g.r-fontSize-1gkfh8e.r-fontWeight-vw2c0b.r-paddingBlock-1559e4e.r-paddingInline-18c5d7m"
       }
     ],
     "http://localhost:8081/login": [

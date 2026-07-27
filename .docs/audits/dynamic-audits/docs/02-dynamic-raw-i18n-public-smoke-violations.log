@@ -2,7 +2,7 @@
 type: dynamic-audit
 auditor: raw-i18n
 scope: public
-date: 2026-07-27T21:45:25.207Z
+date: 2026-07-27T21:48:54.367Z
 ---
 
 ### Problem: Hardcoded text without i18n key
@@ -615,6 +615,9 @@ date: 2026-07-27T21:45:25.207Z
   - Found hardcoded text without i18n key: "Added to cart" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-textAlign-q4m81j`
   - Found hardcoded text without i18n key: "Added to favorites" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-textAlign-q4m81j`
   - Found hardcoded text without i18n key: "Removed from favorites" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-textAlign-q4m81j`
+  - Found hardcoded text without i18n key: "Manual Browser Inspector" | Selector: `div.css-text-146c3p1.r-color-1npgj5g.r-fontSize-1enofrn.r-fontWeight-vw2c0b.r-letterSpacing-ud0q2t.r-textTransform-tsynxw`
+  - Found hardcoded text without i18n key: "Capture Screenshot & State" | Selector: `div.css-text-146c3p1.r-color-1gnjku.r-fontSize-n6v787.r-fontWeight-majxgm`
+  - Found hardcoded text without i18n key: "Alt+1" | Selector: `div.css-text-146c3p1.r-backgroundColor-1tl8prc.r-borderColor-11unwc4.r-borderRadius-z2wwpe.r-borderWidth-rs99b7.r-color-ox415g.r-fontSize-1gkfh8e.r-fontWeight-vw2c0b.r-paddingBlock-1559e4e.r-paddingInline-18c5d7m`
 - URL: `http://localhost:8081/catalog/cat-root-1-sub-1-sub-0`
   - Found hardcoded text without i18n key: "Главная" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-1dk24ck`
   - Found hardcoded text without i18n key: "Каталог" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-kgv7a8`
@@ -709,6 +712,9 @@ date: 2026-07-27T21:45:25.207Z
   - Found hardcoded text without i18n key: "Added to cart" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-textAlign-q4m81j`
   - Found hardcoded text without i18n key: "Added to favorites" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-textAlign-q4m81j`
   - Found hardcoded text without i18n key: "Removed from favorites" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-textAlign-q4m81j`
+  - Found hardcoded text without i18n key: "Manual Browser Inspector" | Selector: `div.css-text-146c3p1.r-color-1npgj5g.r-fontSize-1enofrn.r-fontWeight-vw2c0b.r-letterSpacing-ud0q2t.r-textTransform-tsynxw`
+  - Found hardcoded text without i18n key: "Capture Screenshot & State" | Selector: `div.css-text-146c3p1.r-color-1gnjku.r-fontSize-n6v787.r-fontWeight-majxgm`
+  - Found hardcoded text without i18n key: "Alt+1" | Selector: `div.css-text-146c3p1.r-backgroundColor-1tl8prc.r-borderColor-11unwc4.r-borderRadius-z2wwpe.r-borderWidth-rs99b7.r-color-ox415g.r-fontSize-1gkfh8e.r-fontWeight-vw2c0b.r-paddingBlock-1559e4e.r-paddingInline-18c5d7m`
 - URL: `http://localhost:8081/catalog/cat-root-1-sub-0-sub-1`
   - Found hardcoded text without i18n key: "Главная" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-1dk24ck`
   - Found hardcoded text without i18n key: "Каталог" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-kgv7a8`
@@ -803,6 +809,9 @@ date: 2026-07-27T21:45:25.207Z
   - Found hardcoded text without i18n key: "Added to cart" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-textAlign-q4m81j`
   - Found hardcoded text without i18n key: "Removed from favorites" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-textAlign-q4m81j`
   - Found hardcoded text without i18n key: "Added to favorites" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-textAlign-q4m81j`
+  - Found hardcoded text without i18n key: "Manual Browser Inspector" | Selector: `div.css-text-146c3p1.r-color-1npgj5g.r-fontSize-1enofrn.r-fontWeight-vw2c0b.r-letterSpacing-ud0q2t.r-textTransform-tsynxw`
+  - Found hardcoded text without i18n key: "Capture Screenshot & State" | Selector: `div.css-text-146c3p1.r-color-1gnjku.r-fontSize-n6v787.r-fontWeight-majxgm`
+  - Found hardcoded text without i18n key: "Alt+1" | Selector: `div.css-text-146c3p1.r-backgroundColor-1tl8prc.r-borderColor-11unwc4.r-borderRadius-z2wwpe.r-borderWidth-rs99b7.r-color-ox415g.r-fontSize-1gkfh8e.r-fontWeight-vw2c0b.r-paddingBlock-1559e4e.r-paddingInline-18c5d7m`
 - URL: `http://localhost:8081/catalog/cat-root-0-sub-1-sub-1`
   - Found hardcoded text without i18n key: "Главная" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-1dk24ck`
   - Found hardcoded text without i18n key: "Каталог" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-kgv7a8`
@@ -1048,6 +1057,9 @@ date: 2026-07-27T21:45:25.207Z
   - Found hardcoded text without i18n key: "Product 1-2-1-1 RU" | Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-jwli3a.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16`
   - Found hardcoded text without i18n key: "Made by Noren Vox ©" | Selector: `div.css-text-146c3p1.r-color-1s06vhe.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-1cwl3u0`
   - Found hardcoded text without i18n key: "Ваша корзина пуста" | Selector: `div.css-text-146c3p1.r-color-1s06vhe.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7`
+  - Found hardcoded text without i18n key: "Manual Browser Inspector" | Selector: `div.css-text-146c3p1.r-color-1npgj5g.r-fontSize-1enofrn.r-fontWeight-vw2c0b.r-letterSpacing-ud0q2t.r-textTransform-tsynxw`
+  - Found hardcoded text without i18n key: "Capture Screenshot & State" | Selector: `div.css-text-146c3p1.r-color-1gnjku.r-fontSize-n6v787.r-fontWeight-majxgm`
+  - Found hardcoded text without i18n key: "Alt+1" | Selector: `div.css-text-146c3p1.r-backgroundColor-1tl8prc.r-borderColor-11unwc4.r-borderRadius-z2wwpe.r-borderWidth-rs99b7.r-color-ox415g.r-fontSize-1gkfh8e.r-fontWeight-vw2c0b.r-paddingBlock-1559e4e.r-paddingInline-18c5d7m`
 - URL: `http://localhost:8081/login`
   - Found hardcoded text without i18n key: "Главная" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-1dk24ck`
   - Found hardcoded text without i18n key: "Каталог" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-kgv7a8`

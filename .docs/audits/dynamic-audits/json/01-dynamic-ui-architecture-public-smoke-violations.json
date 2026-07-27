@@ -5123,6 +5123,31 @@
         "url": "http://localhost:8081/product/prod-2-2-1-1",
         "message": "i18n: Potential hardcoded text string found: \"Removed from favorites\" without data-i18n tracking.",
         "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-textAlign-q4m81j"
+      },
+      {
+        "url": "http://localhost:8081/product/prod-2-2-1-1",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 246x37",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderRadius-kdyh1x.r-flexDirection-18u37iz.r-justifyContent-1wtj0ep.r-paddingBlock-11f147o.r-paddingInline-is05cd"
+      },
+      {
+        "url": "http://localhost:8081/product/prod-2-2-1-1",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderRadius-kdyh1x.r-flexDirection-18u37iz.r-justifyContent-1wtj0ep.r-paddingBlock-11f147o.r-paddingInline-is05cd"
+      },
+      {
+        "url": "http://localhost:8081/product/prod-2-2-1-1",
+        "message": "i18n: Potential hardcoded text string found: \"Manual Browser Inspector\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-color-1npgj5g.r-fontSize-1enofrn.r-fontWeight-vw2c0b.r-letterSpacing-ud0q2t.r-textTransform-tsynxw"
+      },
+      {
+        "url": "http://localhost:8081/product/prod-2-2-1-1",
+        "message": "i18n: Potential hardcoded text string found: \"Capture Screenshot & State\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-color-1gnjku.r-fontSize-n6v787.r-fontWeight-majxgm"
+      },
+      {
+        "url": "http://localhost:8081/product/prod-2-2-1-1",
+        "message": "i18n: Potential hardcoded text string found: \"Alt+1\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-backgroundColor-1tl8prc.r-borderColor-11unwc4.r-borderRadius-z2wwpe.r-borderWidth-rs99b7.r-color-ox415g.r-fontSize-1gkfh8e.r-fontWeight-vw2c0b.r-paddingBlock-1559e4e.r-paddingInline-18c5d7m"
       }
     ],
     "http://localhost:8081/catalog/cat-root-1-sub-1-sub-0": [
@@ -6077,6 +6102,31 @@
         "url": "http://localhost:8081/product/prod-2-1-2-1",
         "message": "i18n: Potential hardcoded text string found: \"Removed from favorites\" without data-i18n tracking.",
         "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-textAlign-q4m81j"
+      },
+      {
+        "url": "http://localhost:8081/product/prod-2-1-2-1",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 246x37",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderRadius-kdyh1x.r-flexDirection-18u37iz.r-justifyContent-1wtj0ep.r-paddingBlock-11f147o.r-paddingInline-is05cd"
+      },
+      {
+        "url": "http://localhost:8081/product/prod-2-1-2-1",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderRadius-kdyh1x.r-flexDirection-18u37iz.r-justifyContent-1wtj0ep.r-paddingBlock-11f147o.r-paddingInline-is05cd"
+      },
+      {
+        "url": "http://localhost:8081/product/prod-2-1-2-1",
+        "message": "i18n: Potential hardcoded text string found: \"Manual Browser Inspector\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-color-1npgj5g.r-fontSize-1enofrn.r-fontWeight-vw2c0b.r-letterSpacing-ud0q2t.r-textTransform-tsynxw"
+      },
+      {
+        "url": "http://localhost:8081/product/prod-2-1-2-1",
+        "message": "i18n: Potential hardcoded text string found: \"Capture Screenshot & State\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-color-1gnjku.r-fontSize-n6v787.r-fontWeight-majxgm"
+      },
+      {
+        "url": "http://localhost:8081/product/prod-2-1-2-1",
+        "message": "i18n: Potential hardcoded text string found: \"Alt+1\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-backgroundColor-1tl8prc.r-borderColor-11unwc4.r-borderRadius-z2wwpe.r-borderWidth-rs99b7.r-color-ox415g.r-fontSize-1gkfh8e.r-fontWeight-vw2c0b.r-paddingBlock-1559e4e.r-paddingInline-18c5d7m"
       }
     ],
     "http://localhost:8081/catalog/cat-root-1-sub-0-sub-1": [
@@ -7031,6 +7081,31 @@
         "url": "http://localhost:8081/product/prod-1-2-2-1",
         "message": "i18n: Potential hardcoded text string found: \"Added to favorites\" without data-i18n tracking.",
         "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-textAlign-q4m81j"
+      },
+      {
+        "url": "http://localhost:8081/product/prod-1-2-2-1",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 246x37",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderRadius-kdyh1x.r-flexDirection-18u37iz.r-justifyContent-1wtj0ep.r-paddingBlock-11f147o.r-paddingInline-is05cd"
+      },
+      {
+        "url": "http://localhost:8081/product/prod-1-2-2-1",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderRadius-kdyh1x.r-flexDirection-18u37iz.r-justifyContent-1wtj0ep.r-paddingBlock-11f147o.r-paddingInline-is05cd"
+      },
+      {
+        "url": "http://localhost:8081/product/prod-1-2-2-1",
+        "message": "i18n: Potential hardcoded text string found: \"Manual Browser Inspector\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-color-1npgj5g.r-fontSize-1enofrn.r-fontWeight-vw2c0b.r-letterSpacing-ud0q2t.r-textTransform-tsynxw"
+      },
+      {
+        "url": "http://localhost:8081/product/prod-1-2-2-1",
+        "message": "i18n: Potential hardcoded text string found: \"Capture Screenshot & State\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-color-1gnjku.r-fontSize-n6v787.r-fontWeight-majxgm"
+      },
+      {
+        "url": "http://localhost:8081/product/prod-1-2-2-1",
+        "message": "i18n: Potential hardcoded text string found: \"Alt+1\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-backgroundColor-1tl8prc.r-borderColor-11unwc4.r-borderRadius-z2wwpe.r-borderWidth-rs99b7.r-color-ox415g.r-fontSize-1gkfh8e.r-fontWeight-vw2c0b.r-paddingBlock-1559e4e.r-paddingInline-18c5d7m"
       }
     ],
     "http://localhost:8081/catalog/cat-root-0-sub-1-sub-1": [
@@ -9510,6 +9585,31 @@
         "url": "http://localhost:8081/cart",
         "message": "i18n: Potential hardcoded text string found: \"Made by Noren Vox ©\" without data-i18n tracking.",
         "selector": "div.css-text-146c3p1.r-color-1s06vhe.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-1cwl3u0"
+      },
+      {
+        "url": "http://localhost:8081/cart",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 246x37",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderRadius-kdyh1x.r-flexDirection-18u37iz.r-justifyContent-1wtj0ep.r-paddingBlock-11f147o.r-paddingInline-is05cd"
+      },
+      {
+        "url": "http://localhost:8081/cart",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderRadius-kdyh1x.r-flexDirection-18u37iz.r-justifyContent-1wtj0ep.r-paddingBlock-11f147o.r-paddingInline-is05cd"
+      },
+      {
+        "url": "http://localhost:8081/cart",
+        "message": "i18n: Potential hardcoded text string found: \"Manual Browser Inspector\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-color-1npgj5g.r-fontSize-1enofrn.r-fontWeight-vw2c0b.r-letterSpacing-ud0q2t.r-textTransform-tsynxw"
+      },
+      {
+        "url": "http://localhost:8081/cart",
+        "message": "i18n: Potential hardcoded text string found: \"Capture Screenshot & State\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-color-1gnjku.r-fontSize-n6v787.r-fontWeight-majxgm"
+      },
+      {
+        "url": "http://localhost:8081/cart",
+        "message": "i18n: Potential hardcoded text string found: \"Alt+1\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-backgroundColor-1tl8prc.r-borderColor-11unwc4.r-borderRadius-z2wwpe.r-borderWidth-rs99b7.r-color-ox415g.r-fontSize-1gkfh8e.r-fontWeight-vw2c0b.r-paddingBlock-1559e4e.r-paddingInline-18c5d7m"
       }
     ],
     "http://localhost:8081/login": [
