@@ -1,15 +1,13 @@
-import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import { Text, Heading } from '../../components/Text';
-import styles from './ProductReviewsStyles';
-import { useTheme } from '../../context/ThemeContext';
-import Button, { AnimatedButton } from '../../components/Button';
-import Toggle from '../../components/Toggle';
 import { Link } from 'expo-router';
-import { colors } from '../../theme/tokens';
+import { StyleSheet, View } from 'react-native';
+import Button, { AnimatedButton } from '../../components/Button';
+import { Heading, Text } from '../../components/Text';
+import Toggle from '../../components/Toggle';
+import { useTheme } from '../../context/ThemeContext';
 import { FieldTextarea } from '../admin/SharedFormComponents';
+import styles from './ProductReviewsStyles';
 
-export { getAccountName, useReviewsState } from './useReviewsState';
+export { getAccountName, useReviewsState } from '../../hooks/useReviewsState';
 
 export function SegmentedToggle({ options, activeValue, onChange, isDark }) {
   return (

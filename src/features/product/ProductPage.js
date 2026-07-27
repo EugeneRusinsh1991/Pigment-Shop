@@ -1,28 +1,13 @@
-import { useState, useMemo, useCallback } from 'react';
-import { ScrollView, View } from 'react-native';
-import { useCartContext } from '../../context/CartContext';
-import { useCatalog } from '../../context/CatalogContext';
-import { useFavoritesContext } from '../../context/FavoritesContext';
-import { useRouter, useLocalSearchParams } from 'expo-router';
-import useGridLayout from '../../hooks/useGridLayout';
 import { PageNavigation } from '@/components/Navigation';
+import { ScrollView, View } from 'react-native';
+import { SkeletonLoader } from '../../components/Feedback';
+import { ScrollFadeUp } from '../../components/Motion';
+import { useProductPageState } from '../../hooks/useProductPageState';
+import Footer from '../shell/components/Footer';
 import { ProductImagePanel } from './ProductImagePanel';
 import { ProductInfoPanel } from './ProductInfoPanel';
 import styles from './ProductPageStyles';
 import ProductReviews from './ProductReviews';
-import Footer from '../shell/components/Footer';
-import { ScrollFadeUp } from '../../components/Motion';
-import { useTheme } from '../../context/ThemeContext';
-
-function useProductActions(product) {
-  const { addItem } = useCartContext();
-  const { isFavorite, toggleFavorite } = useFavoritesContext();
-  return {
-    onAddToCart: (prod, q) => addItem(prod, prod?.price, q),
-    isFavorite: product ? isFavorite(product.id) : false,
-    onToggleFavorite: toggleFavorite,
-  };
-}
 
 function ProductPageHeader({ showNavigation, gridWidth, isDark, onBack, showBreadcrumbs = true }) {
   if (!showNavigation) return null;
@@ -37,10 +22,6 @@ function ProductPageHeader({ showNavigation, gridWidth, isDark, onBack, showBrea
     </View>
   );
 }
-
-import { useAuth } from '../../context/AuthContext';
-import { useProfile } from '../../hooks/useProfile';
-import { getAccountName, useReviewsState } from './ProductReviewSubcomponents';
 
 function ProductDetails({ product, isWide, isDark, qty, onDecreaseQty, onIncreaseQty, onAddToCart, isFavorite, onToggleFavorite, reviewsState }) {
   return (
@@ -68,60 +49,6 @@ function ProductDetails({ product, isWide, isDark, qty, onDecreaseQty, onIncreas
   );
 }
 
-function resolveProduct(initialProduct, flatList) {
-  if (!initialProduct) return null;
-  return flatList.find((p) => p.id === initialProduct.id) || initialProduct;
-}
-
-function useBackHandler(onBack, router) {
-  return useCallback(() => {
-    if (onBack) {
-      onBack();
-    } else if (router.canGoBack()) {
-      router.back();
-    } else {
-      router.push('/');
-    }
-  }, [onBack, router]);
-}
-
-function useProductPageState({ initialProduct, onBack, isFromAllProductsProp }) {
-  const [qty, setQty] = useState(1);
-  const { flatList = [] } = useCatalog() || {};
-  const { isAuthenticated, user } = useAuth();
-  const { profile } = useProfile(user);
-  const { isWide, gridWidth } = useGridLayout();
-  const router = useRouter();
-  const params = useLocalSearchParams();
-
-  const isFromAllProducts = isFromAllProductsProp ?? (params?.from === 'all' || params?.isFromAllProducts === 'true');
-  const handleBackPress = useBackHandler(onBack, router);
-
-  const product = resolveProduct(initialProduct, flatList);
-  const { onAddToCart, isFavorite: productIsFavorite, onToggleFavorite } = useProductActions(product);
-  const accountName = getAccountName(user, profile);
-  const reviewsState = useReviewsState(product, isAuthenticated, accountName);
-
-  const decreaseQty = useCallback(() => setQty((q) => Math.max(1, q - 1)), []);
-  const increaseQty = useCallback(() => setQty((q) => Math.min(99, q + 1)), []);
-
-  return {
-    qty,
-    product,
-    isWide,
-    gridWidth,
-    isFromAllProducts,
-    handleBackPress,
-    onAddToCart,
-    productIsFavorite,
-    onToggleFavorite,
-    reviewsState,
-    decreaseQty,
-    increaseQty,
-  };
-}
-
-import { SkeletonLoader } from '../../components/Feedback';
 
 export default function ProductPage({ product: initialProduct, isDark, showNavigation = true, onBack, isFromAllProducts: isFromAllProductsProp }) {
   const state = useProductPageState({ initialProduct, onBack, isFromAllProductsProp });

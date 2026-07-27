@@ -51,11 +51,11 @@ Extract complex product page logic into multiple hooks. This is the most complex
 ### 5.4 Move useReviewsState Hook (audit relocation #3)
 **Model Recommendation:** 🟡 G 3.6 F (M) — 1d | 2f | +1ctx
 
-- [ ] 5.4.1 Move file `src/features/product/useReviewsState.js` → `src/hooks/useReviewsState.js`
-- [ ] 5.4.2 Update imports in `ProductPage.js`
-- [ ] 5.4.3 Update imports in `ProductReviews.js`
-- [ ] 5.4.4 Replace console.error with ToastContext at line 71
-- [ ] 5.4.5 Test hook independently
+- [x] 5.4.1 Move file `src/features/product/useReviewsState.js` → `src/hooks/useReviewsState.js`
+- [x] 5.4.2 Update imports in `ProductPage.js`
+- [x] 5.4.3 Update imports in `ProductReviews.js`
+- [x] 5.4.4 Replace console.error with ToastContext at line 71
+- [x] 5.4.5 Test hook independently
 
 **Source:** `src/features/product/useReviewsState.js`  
 **Target:** `src/hooks/useReviewsState.js`
@@ -63,21 +63,21 @@ Extract complex product page logic into multiple hooks. This is the most complex
 ### 5.5 Extract getTabData Utility (audit #5)
 **Model Recommendation:** 🟢 G 3.6 F (L) — 1d | 2f | +0ctx
 
-- [ ] 5.5.1 Extract `getTabData` function from `ProductReviews.js` (lines 24-32)
-- [ ] 5.5.2 Move to utility file or hook
-- [ ] 5.5.3 Update imports in `ProductReviews.js`
+- [x] 5.5.1 Extract `getTabData` function from `ProductReviews.js` (lines 24-32)
+- [x] 5.5.2 Move to utility file or hook
+- [x] 5.5.3 Update imports in `ProductReviews.js`
 
 **Source file:** `src/features/product/ProductReviews.js`
 
 ### 5.6 Refactor Product Components
 **Model Recommendation:** 🟡 G 3.6 F (M) — 1d | 1f | +3ctx
 
-- [ ] 5.6.1 Refactor `ProductPage.js` to use `useProductActions`
-- [ ] 5.6.2 Refactor `ProductPage.js` to use `useProductNavigation`
-- [ ] 5.6.3 Refactor `ProductPage.js` to use `useProductPageState`
-- [ ] 5.6.4 Remove inline action logic
-- [ ] 5.6.5 Remove inline state management
-- [ ] 5.6.6 Verify product functionality still works
+- [x] 5.6.1 Refactor `ProductPage.js` to use `useProductActions`
+- [x] 5.6.2 Refactor `ProductPage.js` to use `useProductNavigation`
+- [x] 5.6.3 Refactor `ProductPage.js` to use `useProductPageState`
+- [x] 5.6.4 Remove inline action logic
+- [x] 5.6.5 Remove inline state management
+- [x] 5.6.6 Verify product functionality still works
 
 **Target file:** `src/features/product/ProductPage.js`
 

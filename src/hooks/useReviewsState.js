@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
-import { useTheme } from '../../context/ThemeContext';
 import { addDoc, collection, onSnapshot } from 'firebase/firestore';
-import { db } from '../../services/firebase';
-import { COLLECTIONS } from '../../services/collections';
+import { useEffect, useState } from 'react';
+import { useTheme } from '../context/ThemeContext';
+import { useToast } from '../context/ToastContext';
+import { COLLECTIONS } from '../services/collections';
+import { db } from '../services/firebase';
 
 function getProfileName(profile) {
   if (!profile) return '';
@@ -61,14 +62,14 @@ function useFirestoreSubcollection(productId, subcollectionName, fallbackData, s
   }, [productId, subcollectionName, fallbackData, setter]);
 }
 
-async function saveSubcollectionItem(productId, subcollectionName, item, fallbackSetter) {
+async function saveSubcollectionItem(productId, subcollectionName, item, fallbackSetter, showToast) {
   if (productId) {
     try {
       const ref = collection(db, COLLECTIONS.PRODUCTS, productId, subcollectionName);
       await addDoc(ref, item);
       return;
     } catch (error) {
-      console.error(`Failed to save ${subcollectionName}:`, error);
+      showToast(`Failed to save ${subcollectionName}`);
     }
   }
   fallbackSetter((prev) => [item, ...prev]);
@@ -78,6 +79,7 @@ const EMPTY_ARRAY = [];
 
 export function useReviewsState(product, isAuthenticated, accountName) {
   const { lang } = useTheme();
+  const { showToast } = useToast();
   const productId = product?.id;
   const initialReviews = product?.reviews || EMPTY_ARRAY;
   const initialQuestions = product?.questions || EMPTY_ARRAY;
@@ -100,7 +102,7 @@ export function useReviewsState(product, isAuthenticated, accountName) {
 
     setNewComment('');
     setNewRating(5);
-    await saveSubcollectionItem(productId, 'reviews', review, setReviewsList);
+    await saveSubcollectionItem(productId, 'reviews', review, setReviewsList, showToast);
   };
 
   const addQuestion = async () => {
@@ -109,7 +111,7 @@ export function useReviewsState(product, isAuthenticated, accountName) {
     const question = createReview(author, newQuestion, 5, lang);
 
     setNewQuestion('');
-    await saveSubcollectionItem(productId, 'questions', question, setQuestionsList);
+    await saveSubcollectionItem(productId, 'questions', question, setQuestionsList, showToast);
   };
 
   return {

@@ -260,6 +260,23 @@
         "message": "Element has overflow clipping (`scrollWidth > clientWidth`).",
         "selector": "div.css-view-g5y9jx"
       }
+    ],
+    "http://localhost:8081/login": [
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Element has overflow clipping (`scrollWidth > clientWidth`).",
+        "selector": "div.css-view-g5y9jx.r-marginBottom-6gpygo"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Element has overflow clipping (`scrollWidth > clientWidth`).",
+        "selector": "div.css-view-g5y9jx.r-marginBlock-l00any"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Element has overflow clipping (`scrollWidth > clientWidth`).",
+        "selector": "div.css-view-g5y9jx.r-flex-13awgt0"
+      }
     ]
   },
   "urls": [
@@ -280,6 +297,7 @@
     "http://localhost:8081/catalog/cat-root-0-sub-1-sub-0",
     "http://localhost:8081/catalog/cat-root-1-sub-0-sub-0",
     "http://localhost:8081/catalog/cat-root-1-sub-1-sub-1",
-    "http://localhost:8081/cart"
+    "http://localhost:8081/cart",
+    "http://localhost:8081/login"
   ]
 }

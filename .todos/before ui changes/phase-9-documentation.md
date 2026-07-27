@@ -11,6 +11,7 @@ Document all new hooks and clean up unused files.
 ## Tasks
 
 ### 9.1 Update Documentation
+**Model Recommendation:** 🟡 G 3.6 F (M) — 2f | +2r
 - [ ] Document all new hooks created
 - [ ] Document hook usage patterns
 - [ ] Document error handling strategy
@@ -21,7 +22,10 @@ Document all new hooks and clean up unused files.
 - Hook JSDoc comments for each new hook
 - Architecture documentation if it exists
 
+**UI Location:** None (documentation task - no UI changes)
+
 ### 9.2 Cleanup
+**Model Recommendation:** 🟡 G 3.6 F (M) — 0f | +5r
 - [ ] Remove any unused utility files
 - [ ] Remove any commented-out code
 - [ ] Ensure consistent file naming
@@ -35,6 +39,8 @@ Document all new hooks and clean up unused files.
 - Remove commented-out code
 - Remove unused imports
 - Ensure consistent naming conventions
+
+**UI Location:** None (cleanup task - no UI changes)
 
 ---
 

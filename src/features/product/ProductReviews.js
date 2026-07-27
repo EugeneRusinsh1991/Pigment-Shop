@@ -1,17 +1,17 @@
-import React from 'react';
 import { View, useWindowDimensions } from 'react-native';
 import { Text } from '../../components/Text/Text';
-import styles from './ProductReviewsStyles';
-import { useTheme } from '../../context/ThemeContext';
 import { useAuth } from '../../context/AuthContext';
+import { useTheme } from '../../context/ThemeContext';
 import { useProfile } from '../../hooks/useProfile';
+import { getTabData } from '../../utils/getTabData';
+import styles from './ProductReviewsStyles';
 import {
-  RegistrationPrompt,
-  ReviewCard,
-  ReviewForm,
-  SegmentedToggle,
-  getAccountName,
-  useReviewsState,
+    RegistrationPrompt,
+    ReviewCard,
+    ReviewForm,
+    SegmentedToggle,
+    getAccountName,
+    useReviewsState,
 } from './ProductReviewSubcomponents';
 
 function MobileFormArea({ isDark, isAuthenticated, state }) {
@@ -19,16 +19,6 @@ function MobileFormArea({ isDark, isAuthenticated, state }) {
     return <ReviewForm isDark={isDark} showModeToggle {...state} />;
   }
   return <RegistrationPrompt isDark={isDark} />;
-}
-
-function getTabData(state, t) {
-  const isQuestions = state.contentTab === 'questions';
-  const displayList = (isQuestions ? state.questionsList : state.reviewsList) || [];
-  const template = isQuestions ? t('questionsCount') : t('reviewsCount');
-  return {
-    displayList,
-    countText: template.replace('{count}', displayList.length),
-  };
 }
 
 export default function ProductReviews({ product, isDark, reviewsState: parentState }) {

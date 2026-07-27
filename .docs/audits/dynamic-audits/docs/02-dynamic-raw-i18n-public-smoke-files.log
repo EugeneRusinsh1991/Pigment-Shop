@@ -2,7 +2,7 @@
 type: dynamic-audit-urls
 auditor: raw-i18n
 scope: public
-date: 2026-07-27T19:39:19.668Z
+date: 2026-07-27T21:31:09.715Z
 ---
 
 - http://localhost:8081/
@@ -26,3 +26,4 @@ date: 2026-07-27T19:39:19.668Z
 - http://localhost:8081/catalog/cat-root-1-sub-0-sub-0
 - http://localhost:8081/catalog/cat-root-1-sub-1-sub-1
 - http://localhost:8081/cart
+- http://localhost:8081/login
