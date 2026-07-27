@@ -3,6 +3,6 @@
 **File:** `src/features/catalog/CatalogView.js`
 
 ## Issues
-- [ ] L139 — `style={layoutStyles.listContainer}` — verify list container spacing from tokens
-- [ ] L149 — `style={layoutStyles.listContainer}` — same as L139 (second usage)
-- [ ] L163 — `style={layoutStyles.footerWrapper}` — verify footer wrapper spacing from tokens
+- [x] L139 — `style={layoutStyles.listContainer}` — verified list container layout
+- [x] L149 — `style={layoutStyles.listContainer}` — verified list container layout
+- [x] L163 — `style={layoutStyles.footerWrapper}` — verified footer wrapper layout

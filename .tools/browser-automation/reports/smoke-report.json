@@ -2,7 +2,7 @@
   "summary": {
     "visitedScreens": 0,
     "visitedInteractions": 0,
-    "successfulInteractions": 11,
+    "successfulInteractions": 71,
     "failedInteractions": 0,
     "warnings": 1,
     "errors": 1,
@@ -10,11 +10,11 @@
   },
   "failures": [
     {
-      "screen": "http://localhost:8081/catalog/cat-root-0",
+      "screen": "http://localhost:8081/product/prod-1-2-2-1",
       "interaction": "Click",
-      "elementIdentifier": "link|/catalog/cat-root-0-sub-1|Subcategory 1-2 EN...",
-      "event": "AfterInteraction",
-      "timestamp": 1785144212894,
+      "elementIdentifier": "link|/product/prod-1-2-2-1|BARBARAProduct 1-2...",
+      "event": "ScreenEntered",
+      "timestamp": 1785144532328,
       "errorType": "Health Check Evaluation Failed",
       "errorMessage": "[Application Bug] page.evaluate: Target page, context or browser has been closed"
     }
@@ -25,7 +25,7 @@
       "interaction": "Initial Load",
       "elementIdentifier": "None",
       "event": "Runtime",
-      "timestamp": 1785144201435,
+      "timestamp": 1785144471845,
       "errorType": "Console Warning",
       "errorMessage": "props.pointerEvents is deprecated. Use style.pointerEvents"
     }

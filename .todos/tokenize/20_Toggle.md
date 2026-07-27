@@ -3,5 +3,5 @@
 **File:** `src/components/Toggle/Toggle.js`
 
 ## Issues
-- [ ] L57 — `style={computedOptionStyle}` — verify option style uses spacing/color tokens
-- [ ] L69 — `style={computedTextStyle}` — verify text style uses typography tokens
+- [x] L57 — `style={computedOptionStyle}` — verified option style uses tokenized styles
+- [x] L69 — `style={computedTextStyle}` — verified text style uses tokenized styles
