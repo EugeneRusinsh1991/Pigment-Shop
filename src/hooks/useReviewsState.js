@@ -77,6 +77,28 @@ async function saveSubcollectionItem(productId, subcollectionName, item, fallbac
 
 const EMPTY_ARRAY = [];
 
+/**
+ * Hook for managing product reviews and questions state with Firestore sync.
+ * 
+ * @param {Object} product - Product object containing reviews and questions
+ * @param {boolean} isAuthenticated - Whether user is authenticated
+ * @param {string} accountName - Display name for review author
+ * @returns {Object} Reviews and questions state and handlers
+ * @returns {Array} returns.reviewsList - List of product reviews
+ * @returns {Array} returns.questionsList - List of product questions
+ * @returns {string} returns.submitMode - Current submission mode ('review' or 'question')
+ * @returns {Function} returns.setSubmitMode - Set submission mode
+ * @returns {string} returns.contentTab - Current content tab ('reviews' or 'questions')
+ * @returns {Function} returns.setContentTab - Set content tab
+ * @returns {string} returns.newComment - New review comment text
+ * @returns {Function} returns.setNewComment - Set new comment text
+ * @returns {string} returns.newQuestion - New question text
+ * @returns {Function} returns.setNewQuestion - Set new question text
+ * @returns {number} returns.newRating - New review rating (1-5)
+ * @returns {Function} returns.setNewRating - Set new rating
+ * @returns {Function} returns.addReview - Submit new review
+ * @returns {Function} returns.addQuestion - Submit new question
+ */
 export function useReviewsState(product, isAuthenticated, accountName) {
   const { lang } = useTheme();
   const { showToast } = useToast();

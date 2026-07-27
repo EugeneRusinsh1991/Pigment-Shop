@@ -2,6 +2,18 @@ import { useState } from 'react';
 
 const PAGE_SIZE = 10;
 
+/**
+ * Hook for paginating orders list.
+ * 
+ * @param {Array} orders - Complete list of orders to paginate
+ * @returns {Object} Pagination state and controls
+ * @returns {number} returns.currentPage - Current page number (1-indexed)
+ * @returns {number} returns.totalPages - Total number of pages
+ * @returns {Array} returns.paginatedOrders - Orders for current page
+ * @returns {Function} returns.setCurrentPage - Function to set current page
+ * @returns {Function} returns.goToPrevPage - Navigate to previous page
+ * @returns {Function} returns.goToNextPage - Navigate to next page
+ */
 export function useOrdersPagination(orders) {
   const [currentPage, setCurrentPage] = useState(1);
 

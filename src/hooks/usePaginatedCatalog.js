@@ -52,6 +52,24 @@ async function fetchAndApplyServerPage(cursor, filters, sortKey, pageSize, pageO
 }
 
 
+/**
+ * Hook for managing paginated catalog with server-side pagination and client-side fallback.
+ * 
+ * @param {Object} filters - Filter criteria for catalog products
+ * @param {string} sortKey - Sort key for ordering products
+ * @param {Array} flatList - Complete list of products for client-side fallback
+ * @param {Object} categoryTree - Category tree structure
+ * @param {number} [pageSize=PAGE_SIZE] - Number of products per page
+ * @returns {Object} Paginated catalog state and controls
+ * @returns {Array} returns.currentPageProducts - Products for current page
+ * @returns {number} returns.currentPage - Current page number (1-indexed)
+ * @returns {number} returns.totalPages - Total number of pages
+ * @returns {number} returns.totalCount - Total number of products matching filters
+ * @returns {boolean} returns.loading - Loading state for page changes
+ * @returns {Function} returns.nextPage - Navigate to next page
+ * @returns {Function} returns.prevPage - Navigate to previous page
+ * @returns {string} returns.triggerKey - Unique key for triggering re-renders
+ */
 export default function usePaginatedCatalog(filters, sortKey, flatList, categoryTree, pageSize = PAGE_SIZE) {
   const [currentPageProducts, setCurrentPageProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);

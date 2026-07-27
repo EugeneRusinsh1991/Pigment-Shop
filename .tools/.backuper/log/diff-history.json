@@ -6395,5 +6395,35 @@
         }
       ]
     }
+  },
+  "src_07-28_01-56_smoke-report.json_107files": {
+    "timestamp": "2026-07-27T22:56:46.084Z",
+    "diff": {
+      "added": 4,
+      "removed": 3,
+      "modified": 8,
+      "topFolders": [
+        {
+          "folder": "src/hooks",
+          "count": 7
+        },
+        {
+          "folder": ".todos/before ui changes",
+          "count": 3
+        },
+        {
+          "folder": ".tools/browser-automation/reports",
+          "count": 2
+        },
+        {
+          "folder": "reports",
+          "count": 2
+        },
+        {
+          "folder": "architecture-standards",
+          "count": 1
+        }
+      ]
+    }
   }
 }

@@ -23,6 +23,10 @@ Governs page-level screens, complex business flows, routing integrations, and do
 - **Parent Reference Spec:** [`features/_reference-feature-spec.md`](./features/_reference-feature-spec.md)
 - **AI Entry Point:** [`features/README.md`](./features/README.md) (Contains specifications for all 11 feature modules).
 
+### 4. [Hooks Layer Documentation](../src/hooks/README.md) (`src/hooks/`)
+Encapsulates business logic, state management, and data fetching through reusable React hooks.
+- **Documentation:** [`src/hooks/README.md`](../src/hooks/README.md) (Contains comprehensive documentation for all hooks including usage patterns, best practices, and error handling).
+
 ---
 
 ## AI Agent Decision Matrix

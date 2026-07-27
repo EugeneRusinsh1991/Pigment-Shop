@@ -21,6 +21,16 @@ function computeCardWidth(flatListWidth, cols) {
   return Math.max(140, Math.floor((flatListWidth - CARD_MARGIN * 2 * cols) / cols));
 }
 
+/**
+ * Hook for computing responsive catalog layout dimensions.
+ * Calculates grid columns, card widths, and responsive breakpoints.
+ * 
+ * @returns {Object} Layout calculations
+ * @returns {boolean} returns.isNarrow - Whether screen is narrow (mobile)
+ * @returns {number} returns.gridWidth - Available width for product grid
+ * @returns {number} returns.cols - Number of grid columns
+ * @returns {number} returns.cardWidth - Width of each product card
+ */
 export default function useCatalogLayout() {
   const { width: windowWidth } = useWindowDimensions();
   const isNarrow = windowWidth < layout.breakpoints.sm;
