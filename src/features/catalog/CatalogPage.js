@@ -5,7 +5,7 @@
  * Reuses ProductCard via PlaceholderGrid and existing product navigation.
  */
 import { useLocalSearchParams, useRouter } from 'expo-router';
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { PageTransition } from '../../components/Motion';
 import { useCatalog } from '../../context/CatalogContext';
@@ -33,9 +33,16 @@ function CatalogMainContent({
   cardWidth,
   favs,
   t,
-  listHeader,
-  listFooter,
   gridWidth,
+  mobileFiltersVisible,
+  setMobileFiltersVisible,
+  sortDropdownVisible,
+  setSortDropdownVisible,
+  currentPage,
+  totalPages,
+  prevPage,
+  nextPage,
+  loading,
 }) {
   return (
     <View style={[styles.main, isNarrow && styles.mainNarrow]}>
@@ -57,8 +64,29 @@ function CatalogMainContent({
               isDark={isDark}
               favs={favs}
               emptyLabel={t('catalogNoProducts')}
-              listHeader={listHeader}
-              listFooter={listFooter}
+              listHeader={
+                <GridHeader
+                  isNarrow={isNarrow}
+                  isDark={isDark}
+                  onMobileToggle={() => setMobileFiltersVisible(true)}
+                  sortDropdownVisible={sortDropdownVisible}
+                  setSortDropdownVisible={setSortDropdownVisible}
+                  sortKey={sortKey}
+                  onSortChange={setSortKey}
+                  t={t}
+                />
+              }
+              listFooter={
+                <GridFooter
+                  currentPage={currentPage}
+                  totalPages={totalPages}
+                  onPrev={prevPage}
+                  onNext={nextPage}
+                  loading={loading}
+                  isDark={isDark}
+                  isNarrow={isNarrow}
+                />
+              }
               isNarrow={isNarrow}
               gridWidth={gridWidth}
             />
@@ -96,31 +124,6 @@ export default function CatalogPage({ isDark }) {
     triggerKey
   } = usePaginatedCatalog(filters, sortKey, flatList, categoryTree, pageSize);
 
-  const listHeader = useMemo(() => (
-    <GridHeader
-      isNarrow={isNarrow}
-      isDark={isDark}
-      onMobileToggle={() => setMobileFiltersVisible(true)}
-      sortDropdownVisible={sortDropdownVisible}
-      setSortDropdownVisible={setSortDropdownVisible}
-      sortKey={sortKey}
-      onSortChange={setSortKey}
-      t={t}
-    />
-  ), [isNarrow, isDark, sortDropdownVisible, sortKey, setSortKey, t]);
-
-  const listFooter = useMemo(() => (
-    <GridFooter
-      currentPage={currentPage}
-      totalPages={totalPages}
-      onPrev={prevPage}
-      onNext={nextPage}
-      loading={loading}
-      isDark={isDark}
-      isNarrow={isNarrow}
-    />
-  ), [currentPage, totalPages, prevPage, nextPage, loading, isDark, isNarrow]);
-
   return (
     <View style={isDark ? styles.containerDark : styles.containerLight}>
       <View style={isNarrow ? styles.container : styles.row}>
@@ -149,9 +152,16 @@ export default function CatalogPage({ isDark }) {
           cardWidth={cardWidth}
           favs={favs}
           t={t}
-          listHeader={listHeader}
-          listFooter={listFooter}
           gridWidth={gridWidth}
+          mobileFiltersVisible={mobileFiltersVisible}
+          setMobileFiltersVisible={setMobileFiltersVisible}
+          sortDropdownVisible={sortDropdownVisible}
+          setSortDropdownVisible={setSortDropdownVisible}
+          currentPage={currentPage}
+          totalPages={totalPages}
+          prevPage={prevPage}
+          nextPage={nextPage}
+          loading={loading}
         />
       </View>
       <Footer />
