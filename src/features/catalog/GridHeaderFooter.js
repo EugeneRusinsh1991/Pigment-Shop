@@ -1,10 +1,10 @@
-import { View, StyleSheet } from 'react-native';
-import { Text } from '../../components/Text/Text';
-import sidebarStyles from './CatalogFilterSidebarStyles';
-import { SORT_OPTIONS } from './useCatalogFilters';
-import CatalogPagination from './CatalogPagination';
+import { StyleSheet, View } from 'react-native';
 import { AnimatedButton } from '../../components/Button';
+import { Text } from '../../components/Text/Text';
+import { SORT_OPTIONS } from '../../hooks/useCatalogFilters';
 import { layout } from '../../theme/tokens';
+import sidebarStyles from './CatalogFilterSidebarStyles';
+import CatalogPagination from './CatalogPagination';
 
 const getSortItemStyles = (isSelected, isDark) => {
   const itemStyle = [

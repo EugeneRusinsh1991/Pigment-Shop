@@ -5,8 +5,8 @@
  * Uses PanResponder and relative dx to calculate value shifts dynamically,
  * which ensures complete compatibility across Web and Mobile targets.
  */
-import React, { useState, useRef } from 'react';
-import { Platform, View, PanResponder, StyleSheet } from 'react-native';
+import { useRef, useState } from 'react';
+import { PanResponder, Platform, StyleSheet, View } from 'react-native';
 import { colors, layout } from '../../theme/tokens';
 
 function useSliderPanResponders(minLimit, maxLimit, trackWidthRef, minRef, maxRef, startVal, onChange) {

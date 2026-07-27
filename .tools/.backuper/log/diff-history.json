@@ -5951,5 +5951,35 @@
         }
       ]
     }
+  },
+  "src_07-28_00-11_smoke-report.json_76files": {
+    "timestamp": "2026-07-27T21:11:05.003Z",
+    "diff": {
+      "added": 2,
+      "removed": 2,
+      "modified": 12,
+      "topFolders": [
+        {
+          "folder": "src/features/catalog",
+          "count": 6
+        },
+        {
+          "folder": ".todos/before ui changes",
+          "count": 3
+        },
+        {
+          "folder": "src/hooks",
+          "count": 3
+        },
+        {
+          "folder": "src/features/auth",
+          "count": 2
+        },
+        {
+          "folder": ".agents/skills/model-recommender",
+          "count": 1
+        }
+      ]
+    }
   }
 }

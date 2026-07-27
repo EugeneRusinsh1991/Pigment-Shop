@@ -4,22 +4,22 @@
  * Full-page Catalog layout: left sidebar (filters) + right area (sort bar + product grid).
  * Reuses ProductCard via PlaceholderGrid and existing product navigation.
  */
-import { useState, useMemo } from 'react';
+import { useLocalSearchParams, useRouter } from 'expo-router';
+import { useMemo, useState } from 'react';
 import { StyleSheet, useWindowDimensions, View } from 'react-native';
+import { PageTransition } from '../../components/Motion';
 import { useCatalog } from '../../context/CatalogContext';
 import { useFavoritesContext } from '../../context/FavoritesContext';
-import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useTheme } from '../../context/ThemeContext';
+import useCatalogFilters from '../../hooks/useCatalogFilters';
+import usePaginatedCatalog from '../../hooks/usePaginatedCatalog';
+import { colors, layout } from '../../theme/tokens';
+import { CARD_MARGIN, getContentGridWidth, getGridCols, MAIN_PADDING, SIDEBAR_WIDTH } from '../../utils/layoutUtils';
+import Footer from '../shell/components/Footer';
 import CatalogFilterSidebar from './CatalogFilterSidebar';
 import CatalogSortBar from './CatalogSortBar';
-import useCatalogFilters from './useCatalogFilters';
-import usePaginatedCatalog from './usePaginatedCatalog';
+import { GridFooter, GridHeader } from './GridHeaderFooter';
 import ProductGrid from './ProductGrid';
-import { GridHeader, GridFooter } from './GridHeaderFooter';
-import Footer from '../shell/components/Footer';
-import { getContentGridWidth, CARD_MARGIN, SIDEBAR_WIDTH, MAIN_PADDING, getGridCols } from '../../utils/layoutUtils';
-import { PageTransition } from '../../components/Motion';
-import { colors, layout } from '../../theme/tokens';
 
 /**
  * Full-width desktop (>=1024px): 4 columns.

@@ -8,12 +8,12 @@
  * Category filtering uses node IDs (language-independent). Selecting a parent
  * category also matches all products in its descendant categories.
  */
-import { useState, useMemo, useEffect, useCallback } from 'react';
-import { SORT_KEYS } from '../../services/catalogPageService';
-import useSessionState from '../../hooks/useSessionState';
-import { useCatalog } from '../../context/CatalogContext';
-import { getEffectivePrice } from '../../utils/pricing';
-import { compareNumbers } from '../../utils/sorting';
+import { useCallback, useEffect } from 'react';
+import { useCatalog } from '../context/CatalogContext';
+import { SORT_KEYS } from '../services/catalogPageService';
+import { getEffectivePrice } from '../utils/pricing';
+import { compareNumbers } from '../utils/sorting';
+import useSessionState from './useSessionState';
 
 /** Sort option keys — labels are resolved in CatalogSortBar via t(labelKey). */
 export const SORT_OPTIONS = [

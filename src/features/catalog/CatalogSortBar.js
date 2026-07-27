@@ -3,13 +3,12 @@
  *
  * Thin horizontal bar with a sort selector for the catalog product grid.
  */
-import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import { SORT_OPTIONS } from './useCatalogFilters';
+import { StyleSheet, View } from 'react-native';
 import { Text } from '../../components/Text';
-import { useTheme } from '../../context/ThemeContext';
 import Toggle from '../../components/Toggle';
-import { colors, layout } from '../../theme/tokens';
+import { useTheme } from '../../context/ThemeContext';
+import { SORT_OPTIONS } from '../../hooks/useCatalogFilters';
+import { layout } from '../../theme/tokens';
 
 export default function CatalogSortBar({ sortKey, onSortChange, resultCount, isDark }) {
   const { t } = useTheme();

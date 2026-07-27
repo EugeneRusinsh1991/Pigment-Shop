@@ -30,3 +30,9 @@ Examples:
 - **Parent Task**: Calculate for entire parent task in single session
 - **Subtasks**: Calculate for EACH subtask separately
 - **Decomposition**: Add `⚠️ Action: BREAK DOWN INTO SUBTASKS` if S > 8
+
+## Multi-Task Parallelism Rule
+When evaluating multiple tasks/subtasks:
+- Evaluate dependency **purely contextually** from task descriptions (no extra file searches).
+- **PARALLEL**: Tasks are EXPLICITLY independent.
+- **SEQUENTIAL**: Tasks are EXPLICITLY dependent OR dependency is UNCLEAR/AMBIGUOUS.

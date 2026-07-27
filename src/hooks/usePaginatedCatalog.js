@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { canUseServerPagination, fetchProductCount, fetchProductPage, MissingIndexError, PAGE_SIZE } from '../../services/catalogPageService';
-import { getParamsState, getFilterKey } from './catalogParamsUtils';
+import { useCatalog } from '../context/CatalogContext';
+import { getFilterKey, getParamsState } from '../features/catalog/catalogParamsUtils';
+import { canUseServerPagination, fetchProductCount, fetchProductPage, MissingIndexError, PAGE_SIZE } from '../services/catalogPageService';
 import { applyFilters, applySort } from './useCatalogFilters';
-import { useCatalog } from '../../context/CatalogContext';
 
 const MAX_CLIENT_FALLBACK_ITEMS = 500;
 
