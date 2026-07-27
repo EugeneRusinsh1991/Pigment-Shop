@@ -2,7 +2,7 @@
 type: dynamic-audit
 auditor: raw-i18n
 scope: admin
-date: 2026-07-27T18:27:02.444Z
+date: 2026-07-27T19:17:00.412Z
 ---
 
 ### Problem: Raw camelCase i18n key found
@@ -124,6 +124,8 @@ date: 2026-07-27T18:27:02.444Z
   - Found raw camelCase i18n key: "adminCategoriesExpandAll" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-color-1cucpzw`
   - Found raw camelCase i18n key: "adminCategoriesCollapseAll" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-color-1cucpzw`
   - Found raw camelCase i18n key: "adminCategoriesNewTitle" | Selector: `h1.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-vrz42v.r-color-kgv7a8`
+  - Found raw camelCase i18n key: "adminCategoriesFormNoUnassignedProducts" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1s7ct43`
+  - Found raw camelCase i18n key: "adminCategoriesDeleteBtn" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-jwli3a`
 
 ### Problem: Hardcoded text without i18n key
 
@@ -333,3 +335,19 @@ date: 2026-07-27T18:27:02.444Z
   - Found hardcoded text without i18n key: "Category Holder" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j`
   - Found hardcoded text without i18n key: "Product Holder" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j`
   - Found hardcoded text without i18n key: "Product 1-1-1-1 RU" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-14yzgew.r-color-kgv7a8`
+  - Found hardcoded text without i18n key: "Media Library" | Selector: `h1.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-vrz42v.r-color-kgv7a8.r-flex-13awgt0`
+  - Found hardcoded text without i18n key: "Refresh" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-1dk24ck`
+  - Found hardcoded text without i18n key: "Images" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-color-jwli3a`
+  - Found hardcoded text without i18n key: "GIFs" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-color-1cucpzw`
+  - Found hardcoded text without i18n key: "Videos" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-color-1cucpzw`
+  - Found hardcoded text without i18n key: "Cancel" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-1dk24ck`
+  - Found hardcoded text without i18n key: "Select" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-jwli3a.r-opacity-1g80hic`
+  - Found hardcoded text without i18n key: "Images" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-color-1cucpzw`
+  - Found hardcoded text without i18n key: "GIFs" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-color-jwli3a`
+  - Found hardcoded text without i18n key: "Videos" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-color-jwli3a`
+  - Found hardcoded text without i18n key: "Select" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-jwli3a`
+  - Found hardcoded text without i18n key: "Category Type" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1dk24ck`
+  - Found hardcoded text without i18n key: "Category Holder" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7`
+  - Found hardcoded text without i18n key: "Описание для Subcategory 2-1 UK" | Selector: `textarea.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-backgroundColor-fj6wrk.r-borderColor-1t4g3vi.r-borderRadius-1xfd6ze.r-borderWidth-rs99b7.r-color-kgv7a8.r-height-uvuy5l.r-outlineStyle-1ny4l3l.r-paddingBlock-11f147o.r-paddingInline-3o4zer.r-verticalAlign-ad9o1y`
+  - Found hardcoded text without i18n key: "+ adminCategoriesAddSubSection" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-kgv7a8`
+  - Found hardcoded text without i18n key: "Описание для Subcategory 2-1 UK" | Selector: `textarea.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-backgroundColor-fj6wrk.r-borderRadius-1xfd6ze.r-color-kgv7a8.r-height-uvuy5l.r-outlineStyle-1ny4l3l.r-paddingBlock-11f147o.r-paddingInline-3o4zer.r-verticalAlign-ad9o1y`

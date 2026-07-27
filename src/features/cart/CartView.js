@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
+import { Redirect, useRouter } from 'expo-router';
+import { useState } from 'react';
 import { useWindowDimensions } from 'react-native';
 import { useAuth } from '../../context/AuthContext';
 import { useCartContext } from '../../context/CartContext';
 import { useCatalog } from '../../context/CatalogContext';
-import { useTheme } from '../../context/ThemeContext';
 import { useLanguage } from '../../context/LanguageContext';
+import { useTheme } from '../../context/ThemeContext';
 import { useToast } from '../../context/ToastContext';
+import { useCartLogic } from '../../hooks/useCartLogic';
 import { useCartViewForm } from '../../hooks/useCartViewForm';
+import { useCheckoutLogic } from '../../hooks/useCheckoutLogic';
 import { useProfile } from '../../hooks/useProfile';
-import { calculateTotals, handleCheckoutProcess } from './cartCheckoutLogic';
-import CartViewContent from './CartViewContent';
-import { useRouter, Redirect } from 'expo-router';
 import { layout } from '../../theme/tokens';
+import CartViewContent from './CartViewContent';
 
 export default function CartView({ isDark: isDarkProp }) {
   const { isDark: isDarkContext } = useTheme();
@@ -20,22 +21,30 @@ export default function CartView({ isDark: isDarkProp }) {
   const isDark = isDarkProp ?? isDarkContext;
   const router = useRouter();
   const [completedOrderParams, setCompletedOrderParams] = useState(null);
-  const { items, updateQuantity, removeFromCart, clearCart } = useCartContext();
-  const increaseQty = (id) => updateQuantity(id, 1);
-  const decreaseQty = (id) => updateQuantity(id, -1);
-  const removeItem = (id) => removeFromCart(id);
   const { user } = useAuth();
   const { profile } = useProfile(user);
   const { width: windowWidth } = useWindowDimensions();
   const { flatList } = useCatalog();
   const { note, setNote, customerInfo, ...formHandlers } = useCartViewForm({ user, profile });
   const { email, firstName, lastName, phone, city, setEmail, setFirstName, setLastName, setPhone, setCity } = formHandlers;
+  const { items, clearCart } = useCartContext();
+
+  // Use new hooks for cart logic
+  const { increaseQty, decreaseQty, removeItem } = useCartLogic();
+  const { handleCheckoutProcess: checkoutProcess, calculateTotals } = useCheckoutLogic({ 
+    user, 
+    items, 
+    clearCart, 
+    t 
+  });
 
   const isWide = windowWidth >= layout.breakpoints.mobile;
-  const { totalPrice, totalItems } = calculateTotals(items);
+  const { totalPrice, totalItems } = calculateTotals();
 
   const handleCheckout = () => {
-    handleCheckoutProcess({ user, items, totalItems, totalPrice, note, customerInfo, clearCart, t, showToast, 
+    checkoutProcess({ 
+      note, 
+      customerInfo, 
       openScreen: (screen, params) => {
         if (screen === 'orderConfirmation') {
           setCompletedOrderParams({

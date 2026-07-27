@@ -151,6 +151,11 @@
         "url": "http://localhost:8081/product/prod-2-1-2-1",
         "message": "Element has overflow clipping (`scrollWidth > clientWidth`).",
         "selector": "div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-1s7ct43"
+      },
+      {
+        "url": "http://localhost:8081/product/prod-2-1-2-1",
+        "message": "Element has overflow clipping (`scrollWidth > clientWidth`).",
+        "selector": "div.css-view-g5y9jx.r-alignItems-1awozwy.r-backgroundColor-fj6wrk.r-flexDirection-18u37iz.r-padding-zhp00w.r-position-bnwqim.r-borderRadius-1xfd6ze.r-height-eu3ka.r-marginBottom-1ifxtd0"
       }
     ],
     "http://localhost:8081/catalog/cat-root-1-sub-0-sub-1": [
@@ -170,11 +175,61 @@
         "url": "http://localhost:8081/product/prod-1-2-2-1",
         "message": "Element has overflow clipping (`scrollWidth > clientWidth`).",
         "selector": "div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-1s7ct43"
+      },
+      {
+        "url": "http://localhost:8081/product/prod-1-2-2-1",
+        "message": "Element has overflow clipping (`scrollWidth > clientWidth`).",
+        "selector": "div.css-view-g5y9jx.r-alignItems-1awozwy.r-backgroundColor-fj6wrk.r-flexDirection-18u37iz.r-padding-zhp00w.r-position-bnwqim.r-borderRadius-1xfd6ze.r-height-eu3ka.r-marginBottom-1ifxtd0"
       }
     ],
     "http://localhost:8081/catalog/cat-root-0-sub-1-sub-1": [
       {
         "url": "http://localhost:8081/catalog/cat-root-0-sub-1-sub-1",
+        "message": "Element has overflow clipping (`scrollWidth > clientWidth`).",
+        "selector": "div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-12zy4o2"
+      }
+    ],
+    "http://localhost:8081/contact": [
+      {
+        "url": "http://localhost:8081/contact",
+        "message": "Element has overflow clipping (`scrollWidth > clientWidth`).",
+        "selector": "div.css-view-g5y9jx.r-borderRadius-1867qdf.r-flexDirection-eqz5dr.r-overflow-1udh08x.r-position-bnwqim.r-marginBottom-1ifxtd0.r-maxWidth-1ik5qf4"
+      },
+      {
+        "url": "http://localhost:8081/contact",
+        "message": "Element has overflow clipping (`scrollWidth > clientWidth`).",
+        "selector": "div.css-view-g5y9jx"
+      },
+      {
+        "url": "http://localhost:8081/contact",
+        "message": "Element has overflow clipping (`scrollWidth > clientWidth`).",
+        "selector": "div.css-view-g5y9jx.r-marginBlock-l00any"
+      }
+    ],
+    "http://localhost:8081/catalog/cat-root-0-sub-0-sub-1": [
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0-sub-0-sub-1",
+        "message": "Element has overflow clipping (`scrollWidth > clientWidth`).",
+        "selector": "div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-12zy4o2"
+      }
+    ],
+    "http://localhost:8081/catalog/cat-root-0-sub-1-sub-0": [
+      {
+        "url": "http://localhost:8081/catalog/cat-root-0-sub-1-sub-0",
+        "message": "Element has overflow clipping (`scrollWidth > clientWidth`).",
+        "selector": "div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-12zy4o2"
+      }
+    ],
+    "http://localhost:8081/catalog/cat-root-1-sub-0-sub-0": [
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-0-sub-0",
+        "message": "Element has overflow clipping (`scrollWidth > clientWidth`).",
+        "selector": "div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-12zy4o2"
+      }
+    ],
+    "http://localhost:8081/catalog/cat-root-1-sub-1-sub-1": [
+      {
+        "url": "http://localhost:8081/catalog/cat-root-1-sub-1-sub-1",
         "message": "Element has overflow clipping (`scrollWidth > clientWidth`).",
         "selector": "div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-12zy4o2"
       }
@@ -192,6 +247,11 @@
     "http://localhost:8081/product/prod-2-1-2-1",
     "http://localhost:8081/catalog/cat-root-1-sub-0-sub-1",
     "http://localhost:8081/product/prod-1-2-2-1",
-    "http://localhost:8081/catalog/cat-root-0-sub-1-sub-1"
+    "http://localhost:8081/catalog/cat-root-0-sub-1-sub-1",
+    "http://localhost:8081/contact",
+    "http://localhost:8081/catalog/cat-root-0-sub-0-sub-1",
+    "http://localhost:8081/catalog/cat-root-0-sub-1-sub-0",
+    "http://localhost:8081/catalog/cat-root-1-sub-0-sub-0",
+    "http://localhost:8081/catalog/cat-root-1-sub-1-sub-1"
   ]
 }

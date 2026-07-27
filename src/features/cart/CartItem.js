@@ -1,16 +1,16 @@
-import React from 'react';
-import { StyleSheet, View, Image } from 'react-native';
+import { CrossIcon } from '@/components/Icons';
+import { Image, StyleSheet, View } from 'react-native';
+import { IconButton } from '../../components/Button';
 import { Text } from '../../components/Text';
 import { useTheme } from '../../context/ThemeContext';
-import { CrossIcon } from '@/components/Icons';
-import { IconButton } from '../../components/Button';
-import { getLocalizedValue } from '../../utils/localization';
+import { useCartLogic } from '../../hooks/useCartLogic';
 import { colors, layout, shadow } from '../../theme/tokens';
+import { getLocalizedValue } from '../../utils/localization';
 
 export default function CartItem({ item, isDark, onIncrease, onDecrease, onRemove }) {
   const { lang } = useTheme();
-  const priceNum = parseFloat(String(item.price).replace(/[^0-9.]/g, '')) || 0;
-  const subtotal = `$${(priceNum * item.qty).toFixed(2)}`;
+  const { calculateItemSubtotal } = useCartLogic();
+  const subtotal = calculateItemSubtotal(item);
   const ic = (dark, light) => (isDark ? dark : light);
 
   return (

@@ -1140,6 +1140,121 @@
         "url": "http://localhost:8081/admin",
         "message": "i18n: Potential hardcoded text string found: \"Product 1-1-1-1 RU\" without data-i18n tracking.",
         "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-14yzgew.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "i18n: Potential hardcoded text string found: \"Media Library\" without data-i18n tracking.",
+        "selector": "h1.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-vrz42v.r-color-kgv7a8.r-flex-13awgt0"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "i18n: Potential hardcoded text string found: \"Refresh\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-1dk24ck"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "i18n: Potential hardcoded text string found: \"Images\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-color-jwli3a"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "i18n: Potential hardcoded text string found: \"Videos\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-color-1cucpzw"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "i18n: Potential hardcoded text string found: \"Cancel\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-1dk24ck"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "i18n: Potential hardcoded text string found: \"Select\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-jwli3a.r-opacity-1g80hic"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "i18n: Potential hardcoded text string found: \"Images\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-color-1cucpzw"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "i18n: Potential hardcoded text string found: \"Videos\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-color-jwli3a"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 71x40",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-paddingInline-3pj75a.r-backgroundColor-wt1z2b.r-borderColor-1jl7vqb"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-backgroundColor-11j01x2.r-borderRadius-1xfd6ze.r-borderWidth-d045u9.r-overflow-1udh08x.r-width-b8lwoo.r-borderColor-1jl7vqb"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "i18n: Potential hardcoded text string found: \"Select\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-jwli3a"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 497x36",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderRadius-1xfd6ze.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-paddingBlock-11f147o.r-paddingInline-is05cd.r-backgroundColor-og65ln.r-borderColor-1fvvsgw"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderRadius-1xfd6ze.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-paddingBlock-11f147o.r-paddingInline-is05cd.r-backgroundColor-og65ln.r-borderColor-1fvvsgw"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "div.css-view-g5y9jx.r-borderRadius-kdyh1x.r-borderWidth-rs99b7.r-paddingBlock-cnw61z.r-paddingInline-is05cd"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-paddingInline-3pj75a.r-backgroundColor-1niwhzg.r-borderColor-m4suti.r-flex-13awgt0"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-paddingInline-3pj75a.r-backgroundColor-dpkc41.r-borderColor-1upjcm2.r-flex-13awgt0"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 250x40",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-paddingInline-3pj75a.r-backgroundColor-1niwhzg.r-borderColor-m4suti.r-flex-13awgt0"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 250x40",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-paddingInline-3pj75a.r-backgroundColor-dpkc41.r-borderColor-1upjcm2.r-flex-13awgt0"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-paddingInline-3pj75a.r-backgroundColor-1niwhzg.r-borderColor-m4suti.r-flex-13awgt0"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-paddingInline-3pj75a.r-backgroundColor-dpkc41.r-borderColor-1upjcm2.r-flex-13awgt0"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "i18n: Potential hardcoded text string found: \"Category Type\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1dk24ck"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "i18n: Potential hardcoded text string found: \"Category Holder\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7"
       }
     ]
   },

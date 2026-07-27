@@ -1,11 +1,19 @@
-import React from 'react';
+import { Link } from 'expo-router';
 import { View } from 'react-native';
+import { Button } from '../../components/Button';
 import { Text } from '../../components/Text';
 import { useTheme } from '../../context/ThemeContext';
-import styles from './CartViewStyles';
-import { Button } from '../../components/Button';
-import { Link } from 'expo-router';
 import { FieldInput, FieldTextarea } from '../admin/SharedFormComponents';
+import styles from './CartViewStyles';
+
+const CHECKOUT_INPUT_FIELDS = [
+  { labelKey: 'profileEmail', field: 'email', keyboardType: 'email-address', autoCapitalize: 'none' },
+  { labelKey: 'profileFirstName', field: 'firstName' },
+  { labelKey: 'profileLastName', field: 'lastName' },
+  { labelKey: 'profilePhone', field: 'phone', keyboardType: 'phone-pad' },
+  { labelKey: 'profileCity', field: 'city' },
+];
+
 export default function CartSummary({ totalItems, totalPrice, isWide, isDark, note, onNoteChange, onCheckout,
   email, firstName, lastName, phone, city,
   onEmailChange, onFirstNameChange, onLastNameChange, onPhoneChange, onCityChange,
@@ -13,13 +21,16 @@ export default function CartSummary({ totalItems, totalPrice, isWide, isDark, no
   const { t } = useTheme();
   const ic = (dark, light) => (isDark ? dark : light);
 
-  const inputFields = [
-    { labelKey: 'profileEmail', value: email, onChange: onEmailChange, keyboardType: 'email-address', autoCapitalize: 'none' },
-    { labelKey: 'profileFirstName', value: firstName, onChange: onFirstNameChange },
-    { labelKey: 'profileLastName', value: lastName, onChange: onLastNameChange },
-    { labelKey: 'profilePhone', value: phone, onChange: onPhoneChange, keyboardType: 'phone-pad' },
-    { labelKey: 'profileCity', value: city, onChange: onCityChange },
-  ];
+  const fieldValues = { email, firstName, lastName, phone, city };
+  const fieldHandlers = { onEmailChange, onFirstNameChange, onLastNameChange, onPhoneChange, onCityChange };
+
+  const inputFields = CHECKOUT_INPUT_FIELDS.map((fieldConfig) => ({
+    labelKey: fieldConfig.labelKey,
+    value: fieldValues[fieldConfig.field],
+    onChange: fieldHandlers[`on${fieldConfig.field.charAt(0).toUpperCase() + fieldConfig.field.slice(1)}Change`],
+    keyboardType: fieldConfig.keyboardType,
+    autoCapitalize: fieldConfig.autoCapitalize,
+  }));
 
   return (
     <View

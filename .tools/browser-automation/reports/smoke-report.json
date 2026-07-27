@@ -2,19 +2,19 @@
   "summary": {
     "visitedScreens": 0,
     "visitedInteractions": 0,
-    "successfulInteractions": 43,
-    "failedInteractions": 1,
+    "successfulInteractions": 126,
+    "failedInteractions": 0,
     "warnings": 1,
     "errors": 1,
     "executionDurationMs": 0
   },
   "failures": [
     {
-      "screen": "http://localhost:8081/product/prod-2-2-1-1",
+      "screen": "http://localhost:8081/products",
       "interaction": "Click",
-      "elementIdentifier": "card|Card|/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[6]/div[1]",
-      "event": "AfterInteraction",
-      "timestamp": 1785178399946,
+      "elementIdentifier": "link|/products|Все товары",
+      "event": "ScreenEntered",
+      "timestamp": 1785179960357,
       "errorType": "Health Check Evaluation Failed",
       "errorMessage": "[Application Bug] page.evaluate: Target page, context or browser has been closed"
     }
@@ -25,7 +25,7 @@
       "interaction": "Initial Load",
       "elementIdentifier": "None",
       "event": "Runtime",
-      "timestamp": 1785178360382,
+      "timestamp": 1785179739978,
       "errorType": "Console Warning",
       "errorMessage": "props.pointerEvents is deprecated. Use style.pointerEvents"
     }
