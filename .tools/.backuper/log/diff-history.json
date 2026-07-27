@@ -5717,5 +5717,19 @@
         }
       ]
     }
+  },
+  "src_07-27_16-50_fix-duplicate-breakpoints.md_45files": {
+    "timestamp": "2026-07-27T13:50:23.368Z",
+    "diff": {
+      "added": 0,
+      "removed": 0,
+      "modified": 1,
+      "topFolders": [
+        {
+          "folder": ".todos/reorganization",
+          "count": 1
+        }
+      ]
+    }
   }
 }

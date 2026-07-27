@@ -1,5 +1,7 @@
 # Fix Duplicate Breakpoint Tokens: `sm` / `mobile` / `tablet`
 
+**Recommended Model:** 🟡 G 3.6 F (M) — 2d | 3f | +2ctx
+
 **Rationale:** `layout.breakpoints` in `tokens.js` has `mobile: 768` and `tablet: 768` (identical values) plus `sm: 640` which is unused in actual breakpoint logic.
 
 ```js
