@@ -1,5 +1,5 @@
 import { useCallback, useMemo } from 'react';
-import useSessionState from './useSessionState';
+import useSessionState from '../../hooks/useSessionState';
 
 function parseStringPrice(priceOrQty, fallbackPrice) {
   const numericPrice = parseFloat(String(priceOrQty).replace(/[^0-9.]/g, ''));

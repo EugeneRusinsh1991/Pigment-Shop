@@ -16,6 +16,18 @@
       {
         "url": "http://localhost:8081/",
         "message": "Unhandled exception: useErrorHandler is not defined"
+      },
+      {
+        "url": "http://localhost:8081/",
+        "message": "Unhandled exception: Unable to resolve module ../../hooks/useLoginForm from D:\\Magazine\\_PigmentShop\\src\\features\\auth\\LoginPage.js: \n\nNone of these files exist:\n  * src\\hooks\\useLoginForm(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * src\\hooks\\useLoginForm\n   6 | import { useLanguage } from '../../context/LanguageContext';\n   7 | import { useTheme } from '../../context/ThemeContext';\n>  8 | import { useLoginForm } from '../../hooks/useLoginForm';\n     |                               ^\n   9 | import { colors } from '../../theme/tokens';\n  10 | import { FieldInput } from '../admin/SharedFormComponents';\n  11 | import Footer from '../shell/components/Footer';"
+      },
+      {
+        "url": "http://localhost:8081/",
+        "message": "Unhandled exception: Unable to resolve module ../context/AuthContext from D:\\Magazine\\_PigmentShop\\src\\features\\auth\\useLoginForm.js: \n\nNone of these files exist:\n  * src\\features\\context\\AuthContext(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * src\\features\\context\\AuthContext\n  1 | import { useLocalSearchParams, useRouter } from 'expo-router';\n  2 | import { useEffect, useState } from 'react';\n> 3 | import { useAuth } from '../../context/AuthContext';\n    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  4 | import { useAuthValidation } from '../hooks/useAuthValidation';\n  5 | import { useErrorHandler } from '../hooks/useErrorHandler';\n  6 |"
+      },
+      {
+        "url": "http://localhost:8081/",
+        "message": "Unhandled exception: Unable to resolve module ../hooks/useAuthValidation from D:\\Magazine\\_PigmentShop\\src\\features\\auth\\useLoginForm.js: \n\nNone of these files exist:\n  * src\\features\\hooks\\useAuthValidation(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * src\\features\\hooks\\useAuthValidation\n  2 | import { useEffect, useState } from 'react';\n  3 | import { useAuth } from '../../context/AuthContext';\n> 4 | import { useAuthValidation } from '../hooks/useAuthValidation';\n    |                                    ^\n  5 | import { useErrorHandler } from '../hooks/useErrorHandler';\n  6 |\n  7 | export function useLoginForm() {"
       }
     ]
   },

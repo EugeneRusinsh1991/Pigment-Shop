@@ -8,11 +8,11 @@ import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
 import { useToast } from '../../context/ToastContext';
 import { useCartLogic } from '../../hooks/useCartLogic';
-import { useCartViewForm } from '../../hooks/useCartViewForm';
 import { useCheckoutLogic } from '../../hooks/useCheckoutLogic';
 import { useProfile } from '../../hooks/useProfile';
 import { layout } from '../../theme/tokens';
 import CartViewContent from './CartViewContent';
+import { useCartViewForm } from './useCartViewForm';
 
 export default function CartView({ isDark: isDarkProp }) {
   const { isDark: isDarkContext } = useTheme();

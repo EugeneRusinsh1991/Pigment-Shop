@@ -18,7 +18,7 @@ Move domain-specific hooks from `src/hooks/` to their respective feature modules
 
 ## Subtasks
 
-- [ ] **1.1.** Move cart hooks
+- [x] **1.1.** Move cart hooks
   🟡 G 3.6 F (M) — 1d | 2f | +4r
   **Files:** `useCart.js`, `useCartViewForm.js`
   **From:** `src/hooks/`
@@ -26,7 +26,7 @@ Move domain-specific hooks from `src/hooks/` to their respective feature modules
   **View changes:** Check `src/hooks/` (files removed) and `src/features/cart/` (files added)
   **UI impact:** No visual changes - file reorganization only
 
-- [ ] **1.2.** Move catalog hooks
+- [x] **1.2.** Move catalog hooks
   🟡 G 3.6 F (M) — 1d | 1f | +3r
   **File:** `useCatalogViewData.js`
   **From:** `src/hooks/`
@@ -34,7 +34,7 @@ Move domain-specific hooks from `src/hooks/` to their respective feature modules
   **View changes:** Check `src/hooks/useCatalogViewData.js` (removed) and `src/features/catalog/useCatalogViewData.js` (added)
   **UI impact:** No visual changes - file reorganization only
 
-- [ ] **1.3.** Move auth hooks
+- [x] **1.3.** Move auth hooks
   🟡 G 3.6 F (M) — 1d | 1f | +3r
   **File:** `useLoginForm.js`
   **From:** `src/hooks/`

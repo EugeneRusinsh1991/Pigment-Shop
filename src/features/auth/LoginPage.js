@@ -5,12 +5,12 @@ import { PageTransition } from '../../components/Motion';
 import { Text } from '../../components/Text';
 import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
-import { useLoginForm } from '../../hooks/useLoginForm';
 import { colors } from '../../theme/tokens';
 import { FieldInput } from '../admin/SharedFormComponents';
 import Footer from '../shell/components/Footer';
 import { ConfirmPasswordField, ForgotPasswordLink, LoginFooter, LoginHeader, PasswordInputField } from './LoginPageComponents';
 import styles from './LoginPageStyles';
+import { useLoginForm } from './useLoginForm';
 
 
 const ic = (isDark, dark, light) => (isDark ? dark : light);

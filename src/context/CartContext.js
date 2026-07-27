@@ -4,8 +4,8 @@
  * Promotes `useCart` from a local hook into a React Context so any component
  * can access cart state without prop drilling.
  */
-import React, { createContext, useContext, useMemo } from 'react';
-import useCartHook from '../hooks/useCart';
+import { createContext, useContext, useMemo } from 'react';
+import useCartHook from '../features/cart/useCart';
 
 const CartContext = createContext(null);
 

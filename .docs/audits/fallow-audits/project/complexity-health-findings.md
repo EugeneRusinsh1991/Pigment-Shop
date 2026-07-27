@@ -1,6 +1,6 @@
 # 🩺 Complexity Health Findings (Critical & High)
 
-*Generated on: 28.07.2026, 01:09:10*
+*Generated on: 28.07.2026, 02:18:20*
 
 ## 🔴 Critical (> 50 lines)
 
@@ -12,6 +12,12 @@
 
 
 ## 🔴 Critical (≤ 50 lines)
+
+#### 📁 [useErrorHandler.js](file:///D:/Magazine/_PigmentShop/src/hooks/useErrorHandler.js)
+`src/hooks/useErrorHandler.js`
+
+- 🔴 **`getErrorMessage`** [L13](file:///D:/Magazine/_PigmentShop/src/hooks/useErrorHandler.js#L13)
+  - Lines: 24 | Cyclomatic: 13 | Cognitive: 11 | CRAP: 182
 
 #### 📁 [Text.js](file:///D:/Magazine/_PigmentShop/src/components/Text/Text.js)
 `src/components/Text/Text.js`

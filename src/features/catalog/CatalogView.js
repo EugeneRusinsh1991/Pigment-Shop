@@ -1,17 +1,17 @@
-import React, { useCallback } from 'react';
-import { FlatList, ScrollView, StyleSheet, View } from 'react-native';
-import { layout } from '../../theme/tokens';
-import styles from '../../theme/appStyles';
-import { useFavoritesContext } from '../../context/FavoritesContext';
 import { useRouter } from 'expo-router';
+import { useCallback } from 'react';
+import { FlatList, ScrollView, StyleSheet, View } from 'react-native';
+import { useFavoritesContext } from '../../context/FavoritesContext';
 import { useTheme } from '../../context/ThemeContext';
+import styles from '../../theme/appStyles';
+import { layout } from '../../theme/tokens';
 
-import CatalogHeader from './CatalogHeader';
 import { PageNavigation } from '@/components/Navigation';
-import PlaceholderCard from './PlaceholderCard';
+import CatalogHeader from './CatalogHeader';
 import CatalogListFooter from './CatalogListFooter';
-import { useCatalogViewData } from '../../hooks/useCatalogViewData';
+import PlaceholderCard from './PlaceholderCard';
 import { useCatalogTransition } from './useCatalogTransition';
+import { useCatalogViewData } from './useCatalogViewData';
 
 /**
  * Helper to render catalog list items.

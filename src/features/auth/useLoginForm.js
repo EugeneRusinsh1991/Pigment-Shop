@@ -1,8 +1,8 @@
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { useAuth } from '../context/AuthContext';
-import { useAuthValidation } from './useAuthValidation';
-import { useErrorHandler } from './useErrorHandler';
+import { useAuth } from '../../context/AuthContext';
+import { useAuthValidation } from '../../hooks/useAuthValidation';
+import { useErrorHandler } from '../../hooks/useErrorHandler';
 
 export function useLoginForm() {
   const { login, register, signInWithGoogle } = useAuth();

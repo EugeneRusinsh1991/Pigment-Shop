@@ -1,10 +1,10 @@
 import { useLocalSearchParams } from 'expo-router';
 import { useMemo } from 'react';
 import { useWindowDimensions } from 'react-native';
-import { useCatalog } from '../context/CatalogContext';
-import { useTheme } from '../context/ThemeContext';
-import { findCategoryPath } from '../utils/categoryTreeUtils';
-import { getContentGridWidth, getGridCols } from '../utils/layoutUtils';
+import { useCatalog } from '../../context/CatalogContext';
+import { useTheme } from '../../context/ThemeContext';
+import { findCategoryPath } from '../../utils/categoryTreeUtils';
+import { getContentGridWidth, getGridCols } from '../../utils/layoutUtils';
 
 function getCatalogLayout(isWide, depth, windowWidth, hasFilterSidebar = false) {
   const cols = getGridCols(windowWidth, hasFilterSidebar);

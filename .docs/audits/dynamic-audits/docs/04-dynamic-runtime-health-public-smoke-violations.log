@@ -2,7 +2,7 @@
 type: dynamic-audit
 auditor: runtime-health
 scope: public
-date: 2026-07-27T22:16:28.079Z
+date: 2026-07-27T23:25:58.497Z
 ---
 
 ### Problem: Network request failure
@@ -20,3 +20,39 @@ date: 2026-07-27T22:16:28.079Z
 - URL: `http://localhost:8081/`
   - Unhandled exception: colors is not defined
   - Unhandled exception: useErrorHandler is not defined
+  - Unhandled exception: Unable to resolve module ../../hooks/useLoginForm from D:\Magazine\_PigmentShop\src\features\auth\LoginPage.js: 
+
+None of these files exist:
+  * src\hooks\useLoginForm(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)
+  * src\hooks\useLoginForm
+   6 | import { useLanguage } from '../../context/LanguageContext';
+   7 | import { useTheme } from '../../context/ThemeContext';
+>  8 | import { useLoginForm } from '../../hooks/useLoginForm';
+     |                               ^
+   9 | import { colors } from '../../theme/tokens';
+  10 | import { FieldInput } from '../admin/SharedFormComponents';
+  11 | import Footer from '../shell/components/Footer';
+  - Unhandled exception: Unable to resolve module ../context/AuthContext from D:\Magazine\_PigmentShop\src\features\auth\useLoginForm.js: 
+
+None of these files exist:
+  * src\features\context\AuthContext(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)
+  * src\features\context\AuthContext
+  1 | import { useLocalSearchParams, useRouter } from 'expo-router';
+  2 | import { useEffect, useState } from 'react';
+> 3 | import { useAuth } from '../../context/AuthContext';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import { useAuthValidation } from '../hooks/useAuthValidation';
+  5 | import { useErrorHandler } from '../hooks/useErrorHandler';
+  6 |
+  - Unhandled exception: Unable to resolve module ../hooks/useAuthValidation from D:\Magazine\_PigmentShop\src\features\auth\useLoginForm.js: 
+
+None of these files exist:
+  * src\features\hooks\useAuthValidation(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)
+  * src\features\hooks\useAuthValidation
+  2 | import { useEffect, useState } from 'react';
+  3 | import { useAuth } from '../../context/AuthContext';
+> 4 | import { useAuthValidation } from '../hooks/useAuthValidation';
+    |                                    ^
+  5 | import { useErrorHandler } from '../hooks/useErrorHandler';
+  6 |
+  7 | export function useLoginForm() {
