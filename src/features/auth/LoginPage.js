@@ -9,7 +9,7 @@ import { useLoginForm } from '../../hooks/useLoginForm';
 import { colors } from '../../theme/tokens';
 import { FieldInput } from '../admin/SharedFormComponents';
 import Footer from '../shell/components/Footer';
-import { ConfirmPasswordField, ErrorText, ForgotPasswordLink, LoginFooter, LoginHeader, PasswordInputField } from './LoginPageComponents';
+import { ConfirmPasswordField, ForgotPasswordLink, LoginFooter, LoginHeader, PasswordInputField } from './LoginPageComponents';
 import styles from './LoginPageStyles';
 
 
@@ -33,8 +33,6 @@ export default function LoginPage({ isDark: isDarkProp }) {
     setConfirmPassword,
     showPassword,
     setShowPassword,
-    error,
-    setError,
     handleAuth,
     handleGoogleSignIn,
   } = useLoginForm();
@@ -69,7 +67,6 @@ export default function LoginPage({ isDark: isDarkProp }) {
                   <View style={[styles.dividerLine, ic(isDark, styles.dividerLineDark, styles.dividerLineLight)]} />
                 </View>
 
-                <ErrorText error={error} />
 
                 <FieldInput
                   testID="login-email-input"
@@ -127,7 +124,6 @@ export default function LoginPage({ isDark: isDarkProp }) {
                 isRegister={isRegister} 
                 isDark={isDark} 
                 setIsRegister={setIsRegister} 
-                setError={setError} 
               />
             </View>
           </PageTransition>

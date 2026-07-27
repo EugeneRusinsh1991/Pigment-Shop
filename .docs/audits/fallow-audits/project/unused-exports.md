@@ -1,6 +1,6 @@
 # 📦 Unused Exports
 
-*Generated on: 27.07.2026, 22:53:24*
+*Generated on: 28.07.2026, 00:11:46*
 
 Exports that are not imported or consumed by any other active file:
 
@@ -52,9 +52,9 @@ Exports that are not imported or consumed by any other active file:
 - [NavItemList.js](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/NavItemList.js): `default` ([L93](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/NavItemList.js#L93))
 - [useExpandedIds.js](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/useExpandedIds.js): `findCategoryPath` ([L58](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/useExpandedIds.js#L58)), `getParentCategoryIds` ([L58](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/useExpandedIds.js#L58))
 - [index.js](file:///D:/Magazine/_PigmentShop/src/features/shell/PageScrollLayout/index.js): `PageScrollLayout` ([L3](file:///D:/Magazine/_PigmentShop/src/features/shell/PageScrollLayout/index.js#L3))
-- [SharedLayoutWrapper.js](file:///D:/Magazine/_PigmentShop/src/features/shell/SharedLayoutWrapper/SharedLayoutWrapper.js): `default` ([L6](file:///D:/Magazine/_PigmentShop/src/features/shell/SharedLayoutWrapper/SharedLayoutWrapper.js#L6))
-- [SharedLayoutWrapperStyles.js](file:///D:/Magazine/_PigmentShop/src/features/shell/SharedLayoutWrapper/SharedLayoutWrapperStyles.js): `sharedLayoutWrapperStyles` ([L4](file:///D:/Magazine/_PigmentShop/src/features/shell/SharedLayoutWrapper/SharedLayoutWrapperStyles.js#L4)), `default` ([L34](file:///D:/Magazine/_PigmentShop/src/features/shell/SharedLayoutWrapper/SharedLayoutWrapperStyles.js#L34))
-- [useSharedLayoutWrapperTheme.js](file:///D:/Magazine/_PigmentShop/src/features/shell/SharedLayoutWrapper/useSharedLayoutWrapperTheme.js): `useSharedLayoutWrapperTheme` ([L12](file:///D:/Magazine/_PigmentShop/src/features/shell/SharedLayoutWrapper/useSharedLayoutWrapperTheme.js#L12)), `default` ([L17](file:///D:/Magazine/_PigmentShop/src/features/shell/SharedLayoutWrapper/useSharedLayoutWrapperTheme.js#L17))
+- [SharedLayoutWrapperStyles.js](file:///D:/Magazine/_PigmentShop/src/features/shell/SharedLayoutWrapper/SharedLayoutWrapperStyles.js): `default` ([L34](file:///D:/Magazine/_PigmentShop/src/features/shell/SharedLayoutWrapper/SharedLayoutWrapperStyles.js#L34))
+- [index.js](file:///D:/Magazine/_PigmentShop/src/features/shell/SharedLayoutWrapper/index.js): `SharedLayoutWrapper` ([L6](file:///D:/Magazine/_PigmentShop/src/features/shell/SharedLayoutWrapper/index.js#L6)), `useSharedLayoutWrapperTheme` ([L7](file:///D:/Magazine/_PigmentShop/src/features/shell/SharedLayoutWrapper/index.js#L7)), `sharedLayoutWrapperStyles` ([L8](file:///D:/Magazine/_PigmentShop/src/features/shell/SharedLayoutWrapper/index.js#L8))
+- [useSharedLayoutWrapperTheme.js](file:///D:/Magazine/_PigmentShop/src/features/shell/SharedLayoutWrapper/useSharedLayoutWrapperTheme.js): `default` ([L17](file:///D:/Magazine/_PigmentShop/src/features/shell/SharedLayoutWrapper/useSharedLayoutWrapperTheme.js#L17))
 - [useHoverAnimation.js](file:///D:/Magazine/_PigmentShop/src/hooks/useHoverAnimation.js): `default` ([L12](file:///D:/Magazine/_PigmentShop/src/hooks/useHoverAnimation.js#L12))
 - [adminProductsTransforms.js](file:///D:/Magazine/_PigmentShop/src/services/adminProductsTransforms.js): `getAllProducts` ([L19](file:///D:/Magazine/_PigmentShop/src/services/adminProductsTransforms.js#L19))
 - [authService.js](file:///D:/Magazine/_PigmentShop/src/services/authService.js): `subscribeToAuthChanges` ([L24](file:///D:/Magazine/_PigmentShop/src/services/authService.js#L24)), `login` ([L38](file:///D:/Magazine/_PigmentShop/src/services/authService.js#L38)), `register` ([L50](file:///D:/Magazine/_PigmentShop/src/services/authService.js#L50)), `signInWithGoogle` ([L66](file:///D:/Magazine/_PigmentShop/src/services/authService.js#L66)), `logout` ([L76](file:///D:/Magazine/_PigmentShop/src/services/authService.js#L76))

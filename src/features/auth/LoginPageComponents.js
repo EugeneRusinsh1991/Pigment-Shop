@@ -54,7 +54,7 @@ export function PasswordInputField({ value, onChangeText, showToggle, isDark, sh
   );
 }
 
-export function LoginFooter({ isRegister, isDark, setIsRegister, setError }) {
+export function LoginFooter({ isRegister, isDark, setIsRegister }) {
   const { t } = useTheme();
   return (
     <View style={styles.footer}>
@@ -68,7 +68,6 @@ export function LoginFooter({ isRegister, isDark, setIsRegister, setError }) {
           isDark={isDark}
           onPress={() => {
             setIsRegister(!isRegister);
-            setError('');
           }}
         />
       </Text>

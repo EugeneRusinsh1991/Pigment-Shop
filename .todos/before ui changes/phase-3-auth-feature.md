@@ -12,11 +12,11 @@ Extract auth validation logic and enhance error handling with ToastContext integ
 ## Tasks
 
 ### 3.1 Create useAuthValidation Hook (from audit #7)
-- [ ] Create `src/hooks/useAuthValidation.js`
-- [ ] Extract email validation logic from `useLoginForm.js` (lines 56-59)
-- [ ] Extract password validation logic from `useLoginForm.js` (lines 29-38)
-- [ ] Extract confirm password matching logic from `useLoginForm.js` (lines 35-38)
-- [ ] Add error handling with ToastContext
+- [x] Create `src/hooks/useAuthValidation.js`
+- [x] Extract email validation logic from `useLoginForm.js` (lines 56-59)
+- [x] Extract password validation logic from `useLoginForm.js` (lines 29-38)
+- [x] Extract confirm password matching logic from `useLoginForm.js` (lines 35-38)
+- [x] Add error handling with ToastContext
 - [ ] Test hook independently
 
 **Source file:** `src/hooks/useLoginForm.js`  

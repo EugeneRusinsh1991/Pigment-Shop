@@ -340,7 +340,7 @@
   - Line [51](file:///D:/Magazine/_PigmentShop/src/features/catalog/CatalogPagination.js#L51): `<Text>` -> `[Dynamic Content]`
 
 ### File: [src/features/catalog/CatalogSortBar.js](file:///D:/Magazine/_PigmentShop/src/features/catalog/CatalogSortBar.js)
-  - Line [25](file:///D:/Magazine/_PigmentShop/src/features/catalog/CatalogSortBar.js#L25): `<Text>` -> `[Dynamic Content]`
+  - Line [24](file:///D:/Magazine/_PigmentShop/src/features/catalog/CatalogSortBar.js#L24): `<Text>` -> `[Dynamic Content]`
 
 ### File: [src/features/catalog/CategoryCard.js](file:///D:/Magazine/_PigmentShop/src/features/catalog/CategoryCard.js)
   - Line [146](file:///D:/Magazine/_PigmentShop/src/features/catalog/CategoryCard.js#L146): `<Text>` -> `[Dynamic Content]`
