@@ -44,7 +44,7 @@ src/features/admin/
 ## Step 2: Move Files
 `🔴 G 3.1 P (H) — 3d | 21f | +1ctx` ⚠️ Action: BREAK DOWN INTO SUBTASKS
 
-### Step 2.1: Copy Root-Level Admin Files
+### ~~Step 2.1: Copy Root-Level Admin Files~~ ✅
 `🟡 G 3.6 F (M) — 1d | 6f | +0ctx`
 
 Copy the 6 root-level files from `src/components/Admin/` → `src/features/admin/`:
@@ -57,7 +57,7 @@ Copy the 6 root-level files from `src/components/Admin/` → `src/features/admin
 
 ---
 
-### Step 2.2: Copy Domain Sub-Folders
+### ~~Step 2.2: Copy Domain Sub-Folders~~ ✅
 `🟠 G 3.6 F (H) — 2d | ~14f | +0ctx`
 
 Copy all domain sub-folders preserving internal structure:

@@ -1,0 +1,221 @@
+import { StyleSheet } from 'react-native';
+import { colors, layout } from '../../../theme/tokens';
+import { shadow } from '../../../theme/shadows';
+
+export default StyleSheet.create({
+  container: {
+    padding: layout.spacing.xl,
+  },
+  toolbar: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: layout.spacing.lg,
+    gap: layout.spacing.md,
+  },
+  toolbarTitle: {
+    flex: 1,
+    color: colors.secondaryLightText,
+  },
+  resetBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    height: 44,
+    paddingHorizontal: layout.spacing.lg,
+    borderRadius: layout.radii.sm,
+    backgroundColor: colors.neutralLightFaint,
+    borderWidth: 1,
+    borderColor: colors.inputBorderLight,
+  },
+  resetBtnText: {
+    color: colors.neutralDarkStrong,
+  },
+  card: {
+    backgroundColor: colors.surfaceLight,
+    borderRadius: layout.radii.iconBtn,
+    padding: layout.spacing.lg,
+    ...shadow.card(),
+    elevation: 2,
+    marginBottom: layout.spacing.xl,
+    gap: layout.spacing.lg,
+  },
+  bannerRow: {
+    flexDirection: 'row',
+    alignItems: 'stretch',
+    gap: layout.spacing.lg,
+    paddingBottom: layout.spacing.lg,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.neutralLightFaint,
+  },
+  previewContainer: {
+    width: 140,
+    minHeight: 90,
+    borderRadius: layout.radii.sm,
+    overflow: 'hidden',
+    backgroundColor: colors.neutralLightFaint,
+    borderWidth: 1,
+    borderColor: colors.inputBorderLight,
+  },
+  previewImage: {
+    width: '100%',
+    height: '100%',
+  },
+  noImage: {
+    width: '100%',
+    height: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  noImageText: {
+    color: colors.textSubtleLight,
+    textAlign: 'center',
+  },
+  actionsCol: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    gap: layout.spacing.sm,
+  },
+  uploadBtn: {
+    height: 40,
+    paddingHorizontal: layout.spacing.lg,
+    borderRadius: layout.radii.sm,
+    backgroundColor: colors.dark,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  uploadBtnText: {
+    color: colors.white,
+  },
+  deleteBtn: {
+    height: 40,
+    paddingHorizontal: layout.spacing.lg,
+    borderRadius: layout.radii.sm,
+    backgroundColor: colors.danger,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  deleteBtnText: {
+    color: colors.white,
+  },
+
+  /* In-app delete confirmation modal */
+  confirmOverlay: {
+    flex: 1,
+    backgroundColor: colors.overlayScrim,
+    alignItems: 'center',
+    justifyContent: 'center',
+    zIndex: layout.zIndices.modal,
+  },
+  confirmCard: {
+    width: '90%',
+    maxWidth: 400,
+    backgroundColor: colors.surfaceLight,
+    borderRadius: layout.radii.iconBtn,
+    padding: layout.spacing.xl,
+    ...shadow.modal(),
+    elevation: 10,
+  },
+  confirmTitle: {
+    color: colors.dark,
+    marginBottom: layout.spacing.sm,
+  },
+  confirmMsg: {
+    color: colors.slateText,
+    marginBottom: layout.spacing.lg,
+  },
+  confirmRow: {
+    flexDirection: 'row',
+    gap: layout.spacing.md,
+  },
+  cancelBtn: {
+    flex: 1,
+    height: 40,
+    borderRadius: layout.radii.sm,
+    backgroundColor: colors.secondaryLightBg,
+    borderWidth: 1,
+    borderColor: colors.secondaryLightBorder,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  cancelBtnText: {
+    color: colors.secondaryLightText,
+  },
+  confirmDeleteBtn: {
+    flex: 1,
+    height: 40,
+    borderRadius: layout.radii.sm,
+    backgroundColor: colors.danger,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  confirmDeleteBtnText: {
+    color: colors.white,
+  },
+  /* Desktop grid & cards */
+  desktopGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: layout.spacing.lg,
+    marginBottom: layout.spacing.xl,
+  },
+  bannerCardDesktop: {
+    width: 260,
+    backgroundColor: colors.surfaceLight,
+    borderRadius: layout.radii.iconBtn,
+    padding: layout.spacing.lg,
+    borderWidth: 1,
+    borderColor: colors.secondaryLightBorder,
+    gap: layout.spacing.md,
+    ...shadow.card(),
+    elevation: 2,
+  },
+  previewContainerDesktop: {
+    width: '100%',
+    height: 140,
+    borderRadius: layout.radii.sm,
+    overflow: 'hidden',
+    backgroundColor: colors.neutralLightFaint,
+    borderWidth: 1,
+    borderColor: colors.inputBorderLight,
+  },
+  addCardDesktop: {
+    width: 260,
+    minHeight: 250,
+    backgroundColor: colors.surfaceNeutralLight,
+    borderRadius: layout.radii.iconBtn,
+    padding: layout.spacing.lg,
+    borderWidth: 2,
+    borderStyle: 'dashed',
+    borderColor: colors.slateStrong,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  addCardBtnText: {
+    color: colors.secondaryLightText,
+  },
+  addBtn: {
+    height: 44,
+    borderRadius: layout.radii.sm,
+    borderWidth: 1,
+    borderStyle: 'dashed',
+    borderColor: colors.textSubtleLight,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: layout.spacing.sm,
+  },
+  addBtnText: {
+    color: colors.neutralDarkStrong,
+  },
+  saveBtn: {
+    height: 40,
+    paddingHorizontal: layout.spacing.xl,
+    borderRadius: layout.radii.sm,
+    backgroundColor: colors.dark,
+    alignSelf: 'flex-start',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  saveBtnText: {
+    color: colors.white,
+  },
+});

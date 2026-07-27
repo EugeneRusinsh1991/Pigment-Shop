@@ -5323,5 +5323,35 @@
         }
       ]
     }
+  },
+  "src_07-27_03-34_smoke-report.json_118files": {
+    "timestamp": "2026-07-27T00:34:45.528Z",
+    "diff": {
+      "added": 72,
+      "removed": 0,
+      "modified": 2,
+      "topFolders": [
+        {
+          "folder": "src/features/admin/Products",
+          "count": 17
+        },
+        {
+          "folder": "src/features/admin/Categories",
+          "count": 13
+        },
+        {
+          "folder": "src/features/admin/Orders",
+          "count": 12
+        },
+        {
+          "folder": "src/features/admin/Analytics",
+          "count": 10
+        },
+        {
+          "folder": "src/features/admin/Users",
+          "count": 7
+        }
+      ]
+    }
   }
 }
