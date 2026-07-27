@@ -43,7 +43,7 @@ function EmptySearchState({ query, isDark, t }) {
   const message = template.replace('{query}', query);
 
   return (
-    <View style={SearchStyles.dropdownOverlay}>
+    <View style={[SearchStyles.dropdownOverlay, SearchStyles[isDark ? 'defaultDark' : 'defaultLight']]}>
       <Text variant="body" size={14} style={[SearchStyles.emptyText, SearchStyles[`text_${isDark ? 'defaultDark' : 'defaultLight'}`]]}>
         {message}
       </Text>
@@ -72,7 +72,7 @@ export default function SearchDropdown({ results, isDark, onSelect, isEmpty, que
   const hiddenCount = (results || []).length - MAX_RESULTS;
 
   return (
-    <View style={SearchStyles.dropdownOverlay}>
+    <View style={[SearchStyles.dropdownOverlay, SearchStyles[isDark ? 'defaultDark' : 'defaultLight']]}>
       <ScrollView keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false} style={SearchStyles.scrollView}>
         {visibleResults.map((item) => (
           <Link key={item.id} href={{ pathname: '/product/[id]', params: { id: item.id } }} asChild>

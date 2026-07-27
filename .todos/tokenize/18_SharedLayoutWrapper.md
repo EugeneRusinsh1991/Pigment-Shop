@@ -3,5 +3,5 @@
 **File:** `src/components/SharedLayoutWrapper/SharedLayoutWrapper.js`
 
 ## Issues
-- [ ] L17 — `style={sharedLayoutWrapperStyles.wrapper}` — verify wrapper spacing/layout from tokens
-- [ ] L24 — `style={sharedLayoutWrapperStyles.footerInner}` — verify footer spacing from tokens
+- [x] L17 — `style={sharedLayoutWrapperStyles.wrapper}` — verified wrapper spacing/layout from tokens
+- [x] L24 — `style={sharedLayoutWrapperStyles.footerInner}` — verified footer spacing from tokens

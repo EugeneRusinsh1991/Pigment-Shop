@@ -46,7 +46,7 @@ function createSearchStyles() {
       alignItems: 'center',
       height: 44,
       borderRadius: layout.radii.sm,
-      borderWidth: 1,
+      borderWidth: layout.borderWidth.thin,
       paddingHorizontal: layout.spacing.md,
     },
     containerFocused: {
@@ -59,7 +59,7 @@ function createSearchStyles() {
     },
     searchIconWrapper: {
       alignItems: 'center',
-      justify: 'center',
+      justifyContent: 'center',
     },
     clearButton: {
       padding: layout.spacing.xxs,
@@ -73,7 +73,7 @@ function createSearchStyles() {
       right: 0,
       zIndex: layout.zIndices.dropdown,
       borderRadius: layout.radii.sm,
-      borderWidth: 1,
+      borderWidth: layout.borderWidth.thin,
       overflow: 'hidden',
     },
     autocompleteContainer: {

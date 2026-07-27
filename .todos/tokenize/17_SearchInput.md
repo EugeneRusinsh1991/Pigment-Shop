@@ -3,4 +3,4 @@
 **File:** `src/components/Search/SearchInput.js`
 
 ## Issues
-- [ ] L41 — `style={SearchStyles.clearButton}` — verify clear button sizing/padding/color from tokens
+- [x] L41 — `style={SearchStyles.clearButton}` — verified clear button sizing/padding/color from tokens

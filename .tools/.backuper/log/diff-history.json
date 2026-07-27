@@ -5482,5 +5482,27 @@
         }
       ]
     }
+  },
+  "src_07-27_12-23_smoke-report.json_50files": {
+    "timestamp": "2026-07-27T09:23:40.902Z",
+    "diff": {
+      "added": 0,
+      "removed": 9,
+      "modified": 6,
+      "topFolders": [
+        {
+          "folder": ".todos/tokenize",
+          "count": 12
+        },
+        {
+          "folder": "src/components/Search",
+          "count": 2
+        },
+        {
+          "folder": ".tools/browser-automation/reports",
+          "count": 1
+        }
+      ]
+    }
   }
 }
