@@ -2,8 +2,8 @@ import { View, useWindowDimensions } from 'react-native';
 import { Text } from '../../components/Text/Text';
 import { useAuth } from '../../context/AuthContext';
 import { useTheme } from '../../context/ThemeContext';
-import { useProfile } from '../../hooks/useProfile';
 import { getTabData } from '../../utils/getTabData';
+import { useProfile } from '../profile/useProfile';
 import styles from './ProductReviewsStyles';
 import {
     RegistrationPrompt,

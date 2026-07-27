@@ -1,13 +1,3 @@
-import React, { useState } from 'react';
-import { Animated, StyleSheet, View } from 'react-native';
-import { Text } from '@/components/Text';
-import { Link } from 'expo-router';
-import { useDropdownAnimation } from '@/hooks/useDropdownAnimation';
-import { useAuth } from '@/context/AuthContext';
-import { useTheme } from '@/context/ThemeContext';
-import { useLanguage } from '@/context/LanguageContext';
-import { useProfile } from '@/hooks/useProfile';
-import { useAdminAuth } from '@/services/adminDomain';
 import Button from '@/components/Button';
 import {
     AdminIcon,
@@ -17,7 +7,16 @@ import {
     LogoutIcon,
     UserIcon
 } from '@/components/Icons';
+import { Text } from '@/components/Text';
+import { useAuth } from '@/context/AuthContext';
+import { useLanguage } from '@/context/LanguageContext';
+import { useTheme } from '@/context/ThemeContext';
+import { useProfile } from '@/features/profile/useProfile';
+import { useDropdownAnimation } from '@/hooks/useDropdownAnimation';
+import { useAdminAuth } from '@/services/adminDomain';
 import { colors, layout, typography } from '@/theme/tokens';
+import { Link } from 'expo-router';
+import { Animated, StyleSheet, View } from 'react-native';
 import styles from './AppHeaderStyles';
 
 const getTrimmedValue = (val) => {

@@ -358,6 +358,26 @@
         "url": "http://localhost:8081/product/prod-2-1-1-1",
         "message": "Element has overflow clipping (`scrollWidth > clientWidth`).",
         "selector": "div.css-view-g5y9jx.r-alignItems-1awozwy.r-flexDirection-18u37iz.r-padding-zhp00w.r-position-bnwqim.r-borderRadius-1xfd6ze.r-height-eu3ka.r-backgroundColor-1gzzd1q.r-marginBottom-1ifxtd0"
+      },
+      {
+        "url": "http://localhost:8081/product/prod-2-1-1-1",
+        "message": "Clickable element is overlapped or intercepted by another element.",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73"
+      },
+      {
+        "url": "http://localhost:8081/product/prod-2-1-1-1",
+        "message": "Clickable element is overlapped or intercepted by another element.",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/product/prod-2-1-1-1",
+        "message": "Clickable element is overlapped or intercepted by another element.",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-justifyContent-1777fci.r-backgroundColor-1niwhzg"
+      },
+      {
+        "url": "http://localhost:8081/product/prod-2-1-1-1",
+        "message": "Clickable element is overlapped or intercepted by another element.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1867qdf.r-height-h3s6tt.r-paddingInline-cxgwc0.r-backgroundColor-14lw9ot.r-borderColor-11mg6pl.r-width-y46g1k"
       }
     ],
     "http://localhost:8081/product/prod-1-1-2-1": [

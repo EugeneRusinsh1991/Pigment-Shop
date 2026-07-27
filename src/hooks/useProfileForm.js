@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useToast } from '../context/ToastContext';
-import { useProfile } from './useProfile';
+import { useProfile } from '../features/profile/useProfile';
 
 function getVal(str) {
   return typeof str === 'string' ? str : '';

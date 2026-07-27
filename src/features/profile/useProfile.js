@@ -1,7 +1,7 @@
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
-import { COLLECTIONS } from '../services/collections';
-import { db } from '../services/firebase';
+import { COLLECTIONS } from '../../services/collections';
+import { db } from '../../services/firebase';
 
 function parseDisplayName(displayName) {
   if (!displayName) return { firstName: '', lastName: '' };

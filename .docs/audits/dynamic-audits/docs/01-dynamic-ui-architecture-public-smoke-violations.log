@@ -2,7 +2,7 @@
 type: dynamic-audit
 auditor: ui-architecture
 scope: public
-date: 2026-07-27T22:26:22.055Z
+date: 2026-07-27T23:33:01.477Z
 ---
 
 ### Problem: Design System: Hardcoded spacing/border-radius lacking spatial tokens.
@@ -810,6 +810,7 @@ date: 2026-07-27T22:26:22.055Z
   - Selector: `input.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-margin-crgep1.r-paddingBlock-1mkv55d.r-flex-13awgt0.r-height-1pi2tsx.r-outlineStyle-1ny4l3l.r-color-jwli3a`
   - Selector: `button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1867qdf.r-height-h3s6tt.r-paddingInline-cxgwc0.r-backgroundColor-14lw9ot.r-borderColor-11mg6pl.r-marginTop-knv0ih`
   - Selector: `button.css-view-g5y9jx.r-display-xoduu5.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf`
+  - Selector: `button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1867qdf.r-height-h3s6tt.r-paddingInline-cxgwc0.r-backgroundColor-14lw9ot.r-borderColor-11mg6pl.r-width-y46g1k`
 - URL: `http://localhost:8081/product/prod-1-1-2-1`
   - Selector: `button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1867qdf.r-height-h3s6tt.r-paddingInline-cxgwc0.r-backgroundColor-14lw9ot.r-borderColor-11mg6pl.r-width-y46g1k`
   - Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderRadius-kdyh1x.r-flex-13awgt0.r-height-1pi2tsx.r-justifyContent-1777fci.r-paddingInline-3o4zer.r-zIndex-184en5c`
@@ -1864,6 +1865,7 @@ date: 2026-07-27T22:26:22.055Z
   - Selector: `button.css-view-g5y9jx.r-display-xoduu5.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf`
   - Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-backgroundColor-1gzzd1q.r-borderColor-1wq0cks.r-borderRadius-1fuqb1j.r-borderWidth-rs99b7.r-boxShadow-118c6o3.r-height-h3s6tt.r-justifyContent-1777fci.r-width-rwqe4o`
   - Selector: `div`
+  - Selector: `button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1867qdf.r-height-h3s6tt.r-paddingInline-cxgwc0.r-backgroundColor-14lw9ot.r-borderColor-11mg6pl.r-width-y46g1k`
 - URL: `http://localhost:8081/product/prod-1-1-2-1`
   - Selector: `a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73`
   - Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-justifyContent-1777fci.r-backgroundColor-1niwhzg`

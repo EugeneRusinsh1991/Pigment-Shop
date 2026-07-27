@@ -2,7 +2,7 @@
 type: dynamic-audit
 auditor: runtime-health
 scope: public
-date: 2026-07-27T23:25:58.497Z
+date: 2026-07-27T23:30:33.664Z
 ---
 
 ### Problem: Network request failure
@@ -56,3 +56,39 @@ None of these files exist:
   5 | import { useErrorHandler } from '../hooks/useErrorHandler';
   6 |
   7 | export function useLoginForm() {
+  - Unhandled exception: Unable to resolve module ../../hooks/useOrders from D:\Magazine\_PigmentShop\src\features\orders\OrdersPage.js: 
+
+None of these files exist:
+  * src\hooks\useOrders(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)
+  * src\hooks\useOrders
+   5 | import { useTheme } from '../../context/ThemeContext';
+   6 | import useGridLayout from '../../hooks/useGridLayout';
+>  7 | import { useOrders } from '../../hooks/useOrders';
+     |                            ^
+   8 | import PageScrollLayout from '../shell/PageScrollLayout';
+   9 | import OrderCard from './components/OrderCard';
+  10 | import styles from './OrdersPageStyles';
+  - Unhandled exception: Unable to resolve module ../../hooks/useOrders from D:\Magazine\_PigmentShop\src\features\orders\OrdersPage.js: 
+
+None of these files exist:
+  * src\hooks\useOrders(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)
+  * src\hooks\useOrders
+   5 | import { useTheme } from '../../context/ThemeContext';
+   6 | import useGridLayout from '../../hooks/useGridLayout';
+>  7 | import PageScrollLayout from '../shell/PageScrollLayout';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import OrderCard from './components/OrderCard';
+   9 | import styles from './OrdersPageStyles';
+  10 | import { useOrders } from './useOrders';
+  - Unhandled exception: Unable to resolve module ../services/firebase from D:\Magazine\_PigmentShop\src\features\orders\useOrders.js: 
+
+None of these files exist:
+  * src\features\services\firebase(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)
+  * src\features\services\firebase
+  1 | import { collection, onSnapshot, orderBy, query, where } from 'firebase/firestore';
+  2 | import { useEffect, useState } from 'react';
+> 3 | import { db } from '../services/firebase';
+    |                     ^
+  4 | import { COLLECTIONS } from '../services/collections';
+  5 |
+  6 | function sortByCreatedAtDesc(a, b) {

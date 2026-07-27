@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { useAuth } from '../context/AuthContext';
-import { addFavorite, removeFavorite, subscribeFavorites } from '../services/repositories/favoritesRepository';
+import { useAuth } from '../../context/AuthContext';
+import { addFavorite, removeFavorite, subscribeFavorites } from '../../services/repositories/favoritesRepository';
 
 export default function useFavorites() {
   const [favorites, setFavorites] = useState([]);

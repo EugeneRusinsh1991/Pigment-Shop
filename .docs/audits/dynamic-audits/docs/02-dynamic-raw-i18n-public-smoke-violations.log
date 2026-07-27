@@ -2,7 +2,7 @@
 type: dynamic-audit
 auditor: raw-i18n
 scope: public
-date: 2026-07-27T22:16:14.548Z
+date: 2026-07-27T23:33:01.512Z
 ---
 
 ### Problem: Hardcoded text without i18n key
@@ -2153,6 +2153,7 @@ date: 2026-07-27T22:16:14.548Z
   - Found raw camelCase i18n key: "loginConfirmPassword" | Selector: `div.css-text-146c3p1.r-color-jwli3a.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-1cwl3u0.r-marginBottom-15zivkp`
   - Found raw camelCase i18n key: "loginAlreadyHaveAccount" | Selector: `div.css-text-146c3p1.r-color-1s06vhe.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7`
   - Found raw camelCase i18n key: "loginFooterLogIn" | Selector: `span.css-textHasAncestor-1jxf684.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-jwli3a`
+  - Found raw camelCase i18n key: "productAddToCart" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1kitb6n.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-kgv7a8`
 - URL: `http://localhost:8081/product/prod-1-1-2-1`
   - Found raw camelCase i18n key: "badgeNew" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j`
   - Found raw camelCase i18n key: "offerEndsIn" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-1cwl3u0.r-marginRight-1pcdyqj.r-color-1npgj5g`

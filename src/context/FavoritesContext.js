@@ -4,8 +4,8 @@
  * Promotes `useFavorites` from a local hook into a React Context so any
  * component can access favorites state without prop drilling.
  */
-import React, { createContext, useContext } from 'react';
-import useFavoritesHook from '../hooks/useFavorites';
+import { createContext, useContext } from 'react';
+import useFavoritesHook from '../features/favorites/useFavorites';
 
 const FavoritesContext = createContext(null);
 

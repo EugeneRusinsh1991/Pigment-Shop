@@ -2,7 +2,7 @@
 type: dynamic-audit
 auditor: ui-architecture
 scope: admin
-date: 2026-07-27T22:29:16.964Z
+date: 2026-07-27T23:33:00.978Z
 ---
 
 ### Problem: Design System: Hardcoded spacing/border-radius lacking spatial tokens.
@@ -187,6 +187,8 @@ date: 2026-07-27T22:29:16.964Z
   - Size: 232x28 | Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-flexDirection-18u37iz.r-gap-9aw3ui.r-flex-sax9pr.r-minWidth-ggk5by`
   - Size: 124x28 | Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-flexDirection-18u37iz.r-gap-9aw3ui.r-alignItems-obd0qt.r-flex-1j6g5un.r-minWidth-1m5eot9.r-justifyContent-17s6mgv`
   - Size: 130x32 | Selector: `button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf.r-alignSelf-k200y.r-marginBottom-1ifxtd0`
+  - Size: 226x40 | Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-backgroundColor-wt1z2b.r-borderRadius-1xfd6ze.r-height-eu3ka.r-justifyContent-1777fci.r-paddingInline-3pj75a`
+  - Size: 226x40 | Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-backgroundColor-dpkc41.r-borderRadius-1xfd6ze.r-height-eu3ka.r-justifyContent-1777fci.r-paddingInline-3pj75a`
 
 ### Problem: Theme/Motion: Custom CSS transition/animation defined outside token system.
 
@@ -236,6 +238,10 @@ date: 2026-07-27T22:29:16.964Z
   - Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderBottomColor-eaxd7d.r-borderBottomWidth-qklmqi.r-flexDirection-18u37iz.r-flexWrap-1w6e6rj.r-paddingBlock-1ml3abn.r-paddingInline-3pj75a`
   - Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderBottomColor-eaxd7d.r-borderBottomWidth-qklmqi.r-flexDirection-18u37iz.r-flexWrap-1w6e6rj.r-paddingBlock-1ml3abn.r-paddingInline-3pj75a.r-backgroundColor-1p5k89o`
   - Selector: `button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf.r-alignSelf-k200y.r-marginBottom-1ifxtd0`
+  - Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-backgroundColor-pgx3k3.r-borderColor-1w15a45.r-borderRadius-1xfd6ze.r-borderWidth-rs99b7.r-height-1wztat5.r-overflow-1udh08x.r-width-13qz1uu`
+  - Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-backgroundColor-wt1z2b.r-borderRadius-1xfd6ze.r-height-eu3ka.r-justifyContent-1777fci.r-paddingInline-3pj75a`
+  - Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-backgroundColor-dpkc41.r-borderRadius-1xfd6ze.r-height-eu3ka.r-justifyContent-1777fci.r-paddingInline-3pj75a`
+  - Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-backgroundColor-1uavh4e.r-borderColor-1ropktw.r-borderRadius-t23y2h.r-borderStyle-eg6o18.r-borderWidth-d045u9.r-justifyContent-1777fci.r-minHeight-g8fybc.r-padding-nsbfu8.r-width-8upyzv`
 
 ### Problem: i18n: Potential hardcoded text string found without data-i18n tracking
 

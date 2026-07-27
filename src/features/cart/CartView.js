@@ -9,8 +9,8 @@ import { useTheme } from '../../context/ThemeContext';
 import { useToast } from '../../context/ToastContext';
 import { useCartLogic } from '../../hooks/useCartLogic';
 import { useCheckoutLogic } from '../../hooks/useCheckoutLogic';
-import { useProfile } from '../../hooks/useProfile';
 import { layout } from '../../theme/tokens';
+import { useProfile } from '../profile/useProfile';
 import CartViewContent from './CartViewContent';
 import { useCartViewForm } from './useCartViewForm';
 

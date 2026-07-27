@@ -10081,6 +10081,11 @@
         "url": "http://localhost:8081/login?isRegister=true",
         "message": "Found hardcoded text without i18n key: \"Removed from favorites\"",
         "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-textAlign-q4m81j"
+      },
+      {
+        "url": "http://localhost:8081/login?isRegister=true",
+        "message": "Found raw camelCase i18n key: \"productAddToCart\"",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1kitb6n.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-kgv7a8"
       }
     ],
     "http://localhost:8081/product/prod-1-1-2-1": [

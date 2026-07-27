@@ -3,9 +3,9 @@ import { useCallback } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useCatalog } from '../context/CatalogContext';
 import { getAccountName, useReviewsState } from '../features/product/ProductReviewSubcomponents';
+import { useProfile } from '../features/profile/useProfile';
 import useGridLayout from './useGridLayout';
 import { useProductActions } from './useProductActions';
-import { useProfile } from './useProfile';
 
 function resolveProduct(initialProduct, flatList) {
   if (!initialProduct) return null;

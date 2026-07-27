@@ -4,10 +4,10 @@ import { Heading } from '../../components/Text';
 import { useAuth } from '../../context/AuthContext';
 import { useTheme } from '../../context/ThemeContext';
 import useGridLayout from '../../hooks/useGridLayout';
-import { useOrders } from '../../hooks/useOrders';
 import PageScrollLayout from '../shell/PageScrollLayout';
 import OrderCard from './components/OrderCard';
 import styles from './OrdersPageStyles';
+import { useOrders } from './useOrders';
 
 import EmptyState from '../../components/DataTable/EmptyState';
 import CatalogPagination from '../catalog/CatalogPagination';

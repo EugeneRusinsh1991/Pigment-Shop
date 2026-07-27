@@ -2,22 +2,22 @@
   "summary": {
     "visitedScreens": 0,
     "visitedInteractions": 0,
-    "successfulInteractions": 33,
-    "failedInteractions": 1,
-    "warnings": 0,
-    "errors": 1,
+    "successfulInteractions": 63,
+    "failedInteractions": 0,
+    "warnings": 1,
+    "errors": 0,
     "executionDurationMs": 0
   },
-  "failures": [
+  "failures": [],
+  "warnings": [
     {
       "screen": "http://localhost:8081/admin",
       "interaction": "Click",
-      "elementIdentifier": "btn|adminProductsFormA...",
-      "event": "AfterInteraction",
-      "timestamp": 1785194922784,
-      "errorType": "Health Check Evaluation Failed",
-      "errorMessage": "[Application Bug] page.evaluate: Target crashed "
+      "elementIdentifier": "btn|Browse",
+      "event": "Runtime",
+      "timestamp": 1785195312916,
+      "errorType": "Console Warning",
+      "errorMessage": "props.pointerEvents is deprecated. Use style.pointerEvents"
     }
-  ],
-  "warnings": []
+  ]
 }

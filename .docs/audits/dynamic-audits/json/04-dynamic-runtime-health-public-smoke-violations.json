@@ -28,6 +28,18 @@
       {
         "url": "http://localhost:8081/",
         "message": "Unhandled exception: Unable to resolve module ../hooks/useAuthValidation from D:\\Magazine\\_PigmentShop\\src\\features\\auth\\useLoginForm.js: \n\nNone of these files exist:\n  * src\\features\\hooks\\useAuthValidation(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * src\\features\\hooks\\useAuthValidation\n  2 | import { useEffect, useState } from 'react';\n  3 | import { useAuth } from '../../context/AuthContext';\n> 4 | import { useAuthValidation } from '../hooks/useAuthValidation';\n    |                                    ^\n  5 | import { useErrorHandler } from '../hooks/useErrorHandler';\n  6 |\n  7 | export function useLoginForm() {"
+      },
+      {
+        "url": "http://localhost:8081/",
+        "message": "Unhandled exception: Unable to resolve module ../../hooks/useOrders from D:\\Magazine\\_PigmentShop\\src\\features\\orders\\OrdersPage.js: \n\nNone of these files exist:\n  * src\\hooks\\useOrders(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * src\\hooks\\useOrders\n   5 | import { useTheme } from '../../context/ThemeContext';\n   6 | import useGridLayout from '../../hooks/useGridLayout';\n>  7 | import { useOrders } from '../../hooks/useOrders';\n     |                            ^\n   8 | import PageScrollLayout from '../shell/PageScrollLayout';\n   9 | import OrderCard from './components/OrderCard';\n  10 | import styles from './OrdersPageStyles';"
+      },
+      {
+        "url": "http://localhost:8081/",
+        "message": "Unhandled exception: Unable to resolve module ../../hooks/useOrders from D:\\Magazine\\_PigmentShop\\src\\features\\orders\\OrdersPage.js: \n\nNone of these files exist:\n  * src\\hooks\\useOrders(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * src\\hooks\\useOrders\n   5 | import { useTheme } from '../../context/ThemeContext';\n   6 | import useGridLayout from '../../hooks/useGridLayout';\n>  7 | import PageScrollLayout from '../shell/PageScrollLayout';\n     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   8 | import OrderCard from './components/OrderCard';\n   9 | import styles from './OrdersPageStyles';\n  10 | import { useOrders } from './useOrders';"
+      },
+      {
+        "url": "http://localhost:8081/",
+        "message": "Unhandled exception: Unable to resolve module ../services/firebase from D:\\Magazine\\_PigmentShop\\src\\features\\orders\\useOrders.js: \n\nNone of these files exist:\n  * src\\features\\services\\firebase(.web.ts|.ts|.web.tsx|.tsx|.web.mjs|.mjs|.web.js|.js|.web.jsx|.jsx|.web.json|.json|.web.cjs|.cjs|.web.scss|.scss|.web.sass|.sass|.web.css|.css)\n  * src\\features\\services\\firebase\n  1 | import { collection, onSnapshot, orderBy, query, where } from 'firebase/firestore';\n  2 | import { useEffect, useState } from 'react';\n> 3 | import { db } from '../services/firebase';\n    |                     ^\n  4 | import { COLLECTIONS } from '../services/collections';\n  5 |\n  6 | function sortByCreatedAtDesc(a, b) {"
       }
     ]
   },

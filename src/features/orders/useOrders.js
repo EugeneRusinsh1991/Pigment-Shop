@@ -1,7 +1,7 @@
-import { collection, onSnapshot, orderBy, query, where } from 'firebase/firestore';
+import { collection, onSnapshot, query, where } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
-import { db } from '../services/firebase';
-import { COLLECTIONS } from '../services/collections';
+import { COLLECTIONS } from '../../services/collections';
+import { db } from '../../services/firebase';
 
 function sortByCreatedAtDesc(a, b) {
   const timeA = a.createdAt?.toMillis ? a.createdAt.toMillis() : 0;

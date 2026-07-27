@@ -42,7 +42,7 @@ Move domain-specific hooks from `src/hooks/` to their respective feature modules
   **View changes:** Check `src/hooks/useLoginForm.js` (removed) and `src/features/auth/useLoginForm.js` (added)
   **UI impact:** No visual changes - file reorganization only
 
-- [ ] **1.4.** Move favorites hooks
+- [x] **1.4.** Move favorites hooks
   🟡 G 3.6 F (M) — 1d | 1f | +3r
   **File:** `useFavorites.js`
   **From:** `src/hooks/`
@@ -50,7 +50,7 @@ Move domain-specific hooks from `src/hooks/` to their respective feature modules
   **View changes:** Check `src/hooks/useFavorites.js` (removed) and `src/features/favorites/useFavorites.js` (added)
   **UI impact:** No visual changes - file reorganization only
 
-- [ ] **1.5.** Move orders hooks
+- [x] **1.5.** Move orders hooks
   🟡 G 3.6 F (M) — 1d | 1f | +3r
   **File:** `useOrders.js`
   **From:** `src/hooks/`
@@ -58,7 +58,7 @@ Move domain-specific hooks from `src/hooks/` to their respective feature modules
   **View changes:** Check `src/hooks/useOrders.js` (removed) and `src/features/orders/useOrders.js` (added)
   **UI impact:** No visual changes - file reorganization only
 
-- [ ] **1.6.** Move profile hooks
+- [x] **1.6.** Move profile hooks
   🟡 G 3.6 F (M) — 1d | 1f | +3r
   **File:** `useProfile.js`
   **From:** `src/hooks/`

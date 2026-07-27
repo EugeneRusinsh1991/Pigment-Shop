@@ -1,10 +1,8 @@
-import React from 'react';
 import { View } from 'react-native';
-import styles from './ProductPageStyles';
 import { useAuth } from '../../context/AuthContext';
-import { useProfile } from '../../hooks/useProfile';
+import { ProductActionRow, ProductMetaInfo } from './ProductInfoSubcomponents';
+import styles from './ProductPageStyles';
 import { RegistrationPrompt, ReviewForm } from './ProductReviewSubcomponents';
-import { ProductMetaInfo, ProductActionRow } from './ProductInfoSubcomponents';
 
 function ProductReviewSection({ isWide, reviewsState, isDark }) {
   const { isAuthenticated } = useAuth();
