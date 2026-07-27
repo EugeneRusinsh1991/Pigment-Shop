@@ -72,8 +72,8 @@ function getCategoryCardStyles(isDark, isMobile) {
     overlay: native.overlay,
   };
 }
-const CATEGORY_GRID_HEIGHTS = { desktop: 280, tablet: 250, mobile: 200 };
-const CATEGORY_BANNER_HEIGHTS = { desktop: 180, tablet: 160, mobile: 140 };
+const CATEGORY_GRID_HEIGHTS = layout.cardHeights.categoryGrid;
+const CATEGORY_BANNER_HEIGHTS = layout.cardHeights.categoryBanner;
 
 function getCategoryCardHeight(isBanner, device) {
   return isBanner ? CATEGORY_BANNER_HEIGHTS[device] : CATEGORY_GRID_HEIGHTS[device];

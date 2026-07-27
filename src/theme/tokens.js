@@ -274,6 +274,10 @@ export const layout = {
     xl: 24,
     xxl: 32,
   },
+  cardHeights: {
+    categoryGrid: { desktop: 280, tablet: 250, mobile: 200 },
+    categoryBanner: { desktop: 180, tablet: 160, mobile: 140 },
+  },
 };
 
 export const buttonTokens = {
