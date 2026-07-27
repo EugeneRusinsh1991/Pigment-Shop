@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useCatalog } from '../context/CatalogContext';
+import { useToast } from '../context/ToastContext';
 import { getFilterKey, getParamsState } from '../features/catalog/catalogParamsUtils';
 import { canUseServerPagination, fetchProductCount, fetchProductPage, MissingIndexError, PAGE_SIZE } from '../services/catalogPageService';
 import { applyFilters, applySort } from './useCatalogFilters';
@@ -62,6 +63,7 @@ export default function usePaginatedCatalog(filters, sortKey, flatList, category
   const [loadedParams, setLoadedParams] = useState(null);
 
   const { categorySubtreeMap } = useCatalog();
+  const { showToast } = useToast();
 
   const clientFilteredProductsUnsorted = useMemo(() => {
     if (!clientFallback) return [];
@@ -94,7 +96,7 @@ export default function usePaginatedCatalog(filters, sortKey, flatList, category
         setClientFallback(true);
         setCurrentPage(1);
       } else {
-        console.error('Error loading paginated catalog:', error);
+        showToast('Error loading paginated catalog');
       }
     }
 
@@ -150,7 +152,7 @@ export default function usePaginatedCatalog(filters, sortKey, flatList, category
       await fetchAndApplyServerPage(cursor, filters, sortKey, pageSize, delta, setCurrentPageProducts, setCurrentPage, setLoadedParams, setCursorStack);
     } catch (error) {
       const direction = delta > 0 ? 'next' : 'prev';
-      console.error(`Error fetching ${direction} page:`, error);
+      showToast(`Error fetching ${direction} page`);
     } finally {
       setLoading(false);
     }

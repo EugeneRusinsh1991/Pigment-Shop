@@ -6,46 +6,20 @@
  */
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useMemo, useState } from 'react';
-import { StyleSheet, useWindowDimensions, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { PageTransition } from '../../components/Motion';
 import { useCatalog } from '../../context/CatalogContext';
 import { useFavoritesContext } from '../../context/FavoritesContext';
 import { useTheme } from '../../context/ThemeContext';
 import useCatalogFilters from '../../hooks/useCatalogFilters';
+import useCatalogLayout from '../../hooks/useCatalogLayout';
 import usePaginatedCatalog from '../../hooks/usePaginatedCatalog';
 import { colors, layout } from '../../theme/tokens';
-import { CARD_MARGIN, getContentGridWidth, getGridCols, MAIN_PADDING, SIDEBAR_WIDTH } from '../../utils/layoutUtils';
 import Footer from '../shell/components/Footer';
 import CatalogFilterSidebar from './CatalogFilterSidebar';
 import CatalogSortBar from './CatalogSortBar';
 import { GridFooter, GridHeader } from './GridHeaderFooter';
 import ProductGrid from './ProductGrid';
-
-/**
- * Full-width desktop (>=1024px): 4 columns.
- * Tablet (>=768px): 2 columns.
- * Narrow (mobile): 2 columns.
- */
-function computeCols(windowWidth) {
-  return getGridCols(windowWidth, true);
-}
-
-function computeCardWidth(flatListWidth, cols) {
-  return Math.max(140, Math.floor((flatListWidth - CARD_MARGIN * 2 * cols) / cols));
-}
-
-function useCatalogLayout() {
-  const { width: windowWidth } = useWindowDimensions();
-  const isNarrow = windowWidth < layout.breakpoints.sm;
-  const contentWidth = Math.min(windowWidth, layout.maxContentWidth) - layout.spacing.lg;
-  const gridWidth = isNarrow
-    ? Math.min(windowWidth, getContentGridWidth(windowWidth, 1))
-    : contentWidth - SIDEBAR_WIDTH;
-  const cols = computeCols(windowWidth);
-  const cardWidth = isNarrow ? computeCardWidth(gridWidth, cols) : computeCardWidth(gridWidth - MAIN_PADDING, cols);
-
-  return { isNarrow, gridWidth, cols, cardWidth };
-}
 
 function CatalogMainContent({
   isNarrow,
