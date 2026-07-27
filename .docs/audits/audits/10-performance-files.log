@@ -1,15 +1,11 @@
 ===================================================================
                FILES WITH ISSUES REPORT                            
-Timestamp: 27.07.2026, 11:09:30
+Timestamp: 27.07.2026, 11:29:52
 ===================================================================
 
-Found 40 issue(s) across 18 target(s):
+Found 30 issue(s) across 14 target(s):
 
 - src/bootstrap/BootstrapGate.js (1 issues)
-- src/components/Admin/Analytics/AnalyticsDashboard.js (4 issues)
-- src/components/Admin/Categories/CategoryTree.js (4 issues)
-- src/components/Admin/Categories/useCategoriesWorkflow.js (1 issues)
-- src/components/Admin/Users/UserDetails.js (1 issues)
 - src/components/Navigation/useNavigationTheme.js (2 issues)
 - src/context/CatalogContext.js (8 issues)
 - src/context/LanguageContext.js (1 issues)

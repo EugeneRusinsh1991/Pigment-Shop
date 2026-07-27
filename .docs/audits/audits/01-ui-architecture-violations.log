@@ -1,12 +1,9 @@
 ===================================================================
                1. UI ARCHITECTURE COMPLIANCE REPORT                
-Timestamp: 27.07.2026, 11:09:24
+Timestamp: 27.07.2026, 11:29:51
 ===================================================================
 
-Found 7 architecture violation(s) across 7 target(s):
-
-Target: src/components/Admin/
-  [MISSING_MODULES] Missing: index.js, useAdminTheme.js
+Found 6 architecture violation(s) across 6 target(s):
 
 Target: src/components/Badge/
   [GHOST_IMPORT] BadgeStyles.js exists but is not imported in Badge.js

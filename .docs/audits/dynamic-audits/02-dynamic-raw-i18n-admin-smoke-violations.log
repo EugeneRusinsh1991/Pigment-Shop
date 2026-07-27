@@ -2,7 +2,7 @@
 type: dynamic-audit
 auditor: raw-i18n
 scope: admin
-date: 2026-07-27T08:18:34.891Z
+date: 2026-07-27T08:31:56.847Z
 ---
 
 ### URL: http://localhost:8081/admin
@@ -606,3 +606,17 @@ date: 2026-07-27T08:18:34.891Z
   Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-1qxivpv.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-jwli3a`
 - Found hardcoded text without i18n key: "Описание для Subcategory 2-1 UK"
   Selector: `textarea.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-backgroundColor-fj6wrk.r-borderColor-1t4g3vi.r-borderRadius-1xfd6ze.r-color-kgv7a8.r-height-uvuy5l.r-outlineStyle-1ny4l3l.r-paddingBlock-11f147o.r-paddingInline-3o4zer.r-verticalAlign-ad9o1y`
+- Found hardcoded text without i18n key: "Описание для Subcategory 1-1 UK"
+  Selector: `textarea.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-backgroundColor-fj6wrk.r-borderColor-1t4g3vi.r-borderRadius-1xfd6ze.r-borderWidth-rs99b7.r-color-kgv7a8.r-height-uvuy5l.r-outlineStyle-1ny4l3l.r-paddingBlock-11f147o.r-paddingInline-3o4zer.r-verticalAlign-ad9o1y`
+- Found hardcoded text without i18n key: "Описание для Subcategory 1-1 UK"
+  Selector: `textarea.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-backgroundColor-fj6wrk.r-borderColor-1t4g3vi.r-borderRadius-1xfd6ze.r-color-kgv7a8.r-height-uvuy5l.r-outlineStyle-1ny4l3l.r-paddingBlock-11f147o.r-paddingInline-3o4zer.r-verticalAlign-ad9o1y`
+- Found raw camelCase i18n key: "adminTabBanners"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-vw2c0b.r-lineHeight-135wba7.r-color-kgv7a8`
+- Found raw camelCase i18n key: "adminBannersUploadBtn"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-jwli3a`
+- Found raw camelCase i18n key: "adminBannersDeleteBtn"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-jwli3a`
+- Found raw camelCase i18n key: "adminBannersAddBtn"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-1qxivpv.r-lineHeight-rjixqe.r-color-1dk24ck`
+- Found raw camelCase i18n key: "adminCategoriesSuccessTitle"
+  Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-textAlign-q4m81j`

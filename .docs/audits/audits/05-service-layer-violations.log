@@ -1,18 +1,9 @@
 ===================================================================
                5. SERVICE LAYER ARCHITECTURE REPORT                
-Timestamp: 27.07.2026, 11:09:28
+Timestamp: 27.07.2026, 11:29:51
 ===================================================================
 
-Found 15 service layer issue(s) across 5 file(s):
-
-File: src\components\Admin\Analytics\AnalyticsDashboard.js
-  L5     import { collection, getDocs } from 'firebase/firestore';
-  L95    const snap = await getDocs(collection(db, COLLECTIONS.ORDERS));
-
-File: src\components\Admin\shared\adminSharedService.js
-  L1     import { collection, getDocs } from 'firebase/firestore';
-  L13    getDocs(collection(db, COLLECTIONS.USERS)),
-  L14    getDocs(collection(db, COLLECTIONS.ORDERS))
+Found 10 service layer issue(s) across 3 file(s):
 
 File: src\features\admin\Analytics\AnalyticsDashboard.js
   L5     import { collection, getDocs } from 'firebase/firestore';

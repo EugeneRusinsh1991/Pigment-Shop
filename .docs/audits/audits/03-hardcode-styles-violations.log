@@ -1,13 +1,9 @@
 ===================================================================
          3. HARDCODED STYLES, COLORS & SPACING REPORT              
-Timestamp: 27.07.2026, 11:09:27
+Timestamp: 27.07.2026, 11:29:51
 ===================================================================
 
-Found 130 issue(s) across 37 file(s):
-
-File: src\components\Admin\SharedFormComponents.js
-  L23    [INLINE_STYLE] <View style={resolvedStyles.row}>
-  L25    [INLINE_STYLE] {label && <Text style={resolvedStyles.text}>{label}</Text>}
+Found 128 issue(s) across 36 file(s):
 
 File: src\components\Badge\Badge.js
   L77    [INLINE_STYLE] <Animated.View style={mergedContainerStyle}>

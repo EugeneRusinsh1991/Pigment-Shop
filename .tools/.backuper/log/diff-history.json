@@ -5422,5 +5422,35 @@
         }
       ]
     }
+  },
+  "src_07-27_11-32_02-dynamic-raw-i18n-public-smoke-violations.log_93files": {
+    "timestamp": "2026-07-27T08:32:21.098Z",
+    "diff": {
+      "added": 2,
+      "removed": 76,
+      "modified": 47,
+      "topFolders": [
+        {
+          "folder": "src/components/Admin/Products",
+          "count": 17
+        },
+        {
+          "folder": ".docs/audits/dynamic-audits",
+          "count": 15
+        },
+        {
+          "folder": "src/components/Admin/Categories",
+          "count": 13
+        },
+        {
+          "folder": "src/components/Admin/Orders",
+          "count": 12
+        },
+        {
+          "folder": ".docs/audits/audits",
+          "count": 11
+        }
+      ]
+    }
   }
 }

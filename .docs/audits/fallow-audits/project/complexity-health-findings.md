@@ -1,6 +1,6 @@
 # 🩺 Complexity Health Findings (Critical & High)
 
-*Generated on: 27.07.2026, 11:09:48*
+*Generated on: 27.07.2026, 11:30:05*
 
 ## 🔴 Critical (≤ 50 lines)
 
@@ -46,22 +46,10 @@
 - 🟠 **`CalendarDayCell`** [L55](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/CalendarDayCell.js#L55)
   - Lines: 45 | Cyclomatic: 9 | Cognitive: 11 | CRAP: 90
 
-#### 📁 [CalendarDayCell.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Analytics/CalendarDayCell.js)
-`src/components/Admin/Analytics/CalendarDayCell.js`
-
-- 🟠 **`CalendarDayCell`** [L55](file:///D:/Magazine/_PigmentShop/src/components/Admin/Analytics/CalendarDayCell.js#L55)
-  - Lines: 45 | Cyclomatic: 9 | Cognitive: 11 | CRAP: 90
-
 #### 📁 [UserRow.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UserRow.js)
 `src/features/admin/Users/UserRow.js`
 
 - 🟠 **`DesktopUserRow`** [L36](file:///D:/Magazine/_PigmentShop/src/features/admin/Users/UserRow.js#L36)
-  - Lines: 29 | Cyclomatic: 9 | Cognitive: 8 | CRAP: 90
-
-#### 📁 [UserRow.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Users/UserRow.js)
-`src/components/Admin/Users/UserRow.js`
-
-- 🟠 **`DesktopUserRow`** [L36](file:///D:/Magazine/_PigmentShop/src/components/Admin/Users/UserRow.js#L36)
   - Lines: 29 | Cyclomatic: 9 | Cognitive: 8 | CRAP: 90
 
 #### 📁 [useDataTableTheme.js](file:///D:/Magazine/_PigmentShop/src/components/DataTable/useDataTableTheme.js)

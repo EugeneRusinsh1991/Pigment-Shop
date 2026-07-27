@@ -1,14 +1,9 @@
 ===================================================================
                11. HARDCODED URL & CONFIG REPORT                   
-Timestamp: 27.07.2026, 11:09:30
+Timestamp: 27.07.2026, 11:29:52
 ===================================================================
 
-Found 20 URL issue(s) across 8 file(s):
-
-File: src/components/Admin/Products/ProductFormFields.js
-  L89    https://...
-  L90    https://...
-  L91    https://...
+Found 17 URL issue(s) across 7 file(s):
 
 File: src/features/admin/Products/ProductFormFields.js
   L89    https://...

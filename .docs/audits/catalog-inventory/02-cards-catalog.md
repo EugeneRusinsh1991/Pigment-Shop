@@ -2,39 +2,9 @@
 
 > Catalog of structural layout cards, containers, modal sheets, and wrappers.
 
-**Total items found:** 49
+**Total items found:** 35
 
 ---
-
-### File: [src/components/Admin/Analytics/AnalyticsDashboard.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Analytics/AnalyticsDashboard.js)
-  - Line [37](file:///D:/Magazine/_PigmentShop/src/components/Admin/Analytics/AnalyticsDashboard.js#L37): `<StatCard>`
-  - Line [38](file:///D:/Magazine/_PigmentShop/src/components/Admin/Analytics/AnalyticsDashboard.js#L38): `<StatCard>`
-  - Line [39](file:///D:/Magazine/_PigmentShop/src/components/Admin/Analytics/AnalyticsDashboard.js#L39): `<StatCard>`
-  - Line [40](file:///D:/Magazine/_PigmentShop/src/components/Admin/Analytics/AnalyticsDashboard.js#L40): `<StatCard>`
-
-### File: [src/components/Admin/Categories/CategoryTree.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryTree.js)
-  - Line [112](file:///D:/Magazine/_PigmentShop/src/components/Admin/Categories/CategoryTree.js#L112): `<MobileCategoryCard>`
-
-### File: [src/components/Admin/Orders/OrderDetails.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Orders/OrderDetails.js)
-  - Line [93](file:///D:/Magazine/_PigmentShop/src/components/Admin/Orders/OrderDetails.js#L93): `<OrderCustomerCard>`
-
-### File: [src/components/Admin/Products/MobileProductRow.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/MobileProductRow.js)
-  - Line [29](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/MobileProductRow.js#L29): `<CardMetaBlock>`
-  - Line [33](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/MobileProductRow.js#L33): `<CardMetaBlock>`
-  - Line [38](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/MobileProductRow.js#L38): `<CardMetaBlock>`
-  - Line [41](file:///D:/Magazine/_PigmentShop/src/components/Admin/Products/MobileProductRow.js#L41): `<CardMetaBlock>`
-
-### File: [src/components/Admin/Users/UserDetails.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Users/UserDetails.js)
-  - Line [60](file:///D:/Magazine/_PigmentShop/src/components/Admin/Users/UserDetails.js#L60): `<UserInfoCard>`
-
-### File: [src/components/Admin/Users/UserInfoCard.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Users/UserInfoCard.js)
-  - Line [21](file:///D:/Magazine/_PigmentShop/src/components/Admin/Users/UserInfoCard.js#L21): `<Card>`
-
-### File: [src/components/Admin/Users/UserOrdersList.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Users/UserOrdersList.js)
-  - Line [17](file:///D:/Magazine/_PigmentShop/src/components/Admin/Users/UserOrdersList.js#L17): `<OrderCard>`
-
-### File: [src/components/Admin/Users/UsersManager.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Users/UsersManager.js)
-  - Line [101](file:///D:/Magazine/_PigmentShop/src/components/Admin/Users/UsersManager.js#L101): `<MobileUserCard>`
 
 ### File: [src/components/Card/BaseCard.js](file:///D:/Magazine/_PigmentShop/src/components/Card/BaseCard.js)
   - Line [43](file:///D:/Magazine/_PigmentShop/src/components/Card/BaseCard.js#L43): `<InteractiveCard>`

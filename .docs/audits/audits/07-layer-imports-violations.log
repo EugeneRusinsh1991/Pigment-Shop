@@ -1,51 +1,9 @@
 ===================================================================
                7. LAYER IMPORTS & CYCLIC REPORT                    
-Timestamp: 27.07.2026, 11:09:29
+Timestamp: 27.07.2026, 11:29:52
 ===================================================================
 
-Found 20 layer import issue(s) across 14 file(s):
-
-File: src/components/Admin/AdminPanel.js
-  - ../../services/adminDomain
-
-File: src/components/Admin/Analytics/AnalyticsDashboard.js
-  - ../../../services/firebase
-  - ../../../data/adminAnalytics
-  - ../../../services/collections
-
-File: src/components/Admin/Banners/useBannersWorkflow.js
-  - ../../../services/adminDomain
-  - ../../../data/catalogState
-
-File: src/components/Admin/Categories/categoryFormLogic.js
-  - ../../../services/adminCategoriesTransforms
-
-File: src/components/Admin/Categories/useCategoriesWorkflow.js
-  - ../../../services/adminDomain
-  - ../../../services/adminCategoriesTransforms
-
-File: src/components/Admin/Orders/OrderDetails.js
-  - ../../../services/adminOrdersService
-
-File: src/components/Admin/Orders/OrdersManager.js
-  - ../../../services/adminOrdersService
-
-File: src/components/Admin/Products/useProductsWorkflow.js
-  - ../../../services/adminDomain
-  - ../../../services/adminProductsTransforms
-
-File: src/components/Admin/shared/adminSharedService.js
-  - ../../../services/firebase
-  - ../../../services/collections
-
-File: src/components/Admin/Users/UserDetails.js
-  - ../../../services/adminUsersService
-
-File: src/components/Admin/Users/UserOrdersList.js
-  - ../../../features/orders/components/OrderCard
-
-File: src/components/Admin/Users/UsersManager.js
-  - ../../../services/adminUsersService
+Found 2 layer import issue(s) across 2 file(s):
 
 File: src/components/PageScrollLayout/PageScrollLayout.js
   - ../../features/shell/components/Footer

@@ -1,11 +1,10 @@
 ===================================================================
                FILES WITH ISSUES REPORT                            
-Timestamp: 27.07.2026, 11:09:27
+Timestamp: 27.07.2026, 11:29:51
 ===================================================================
 
-Found 130 issue(s) across 37 target(s):
+Found 128 issue(s) across 36 target(s):
 
-- src\components\Admin\SharedFormComponents.js (2 issues)
 - src\components\Badge\Badge.js (2 issues)
 - src\components\Button\Button.js (2 issues)
 - src\components\Card\Card.js (4 issues)

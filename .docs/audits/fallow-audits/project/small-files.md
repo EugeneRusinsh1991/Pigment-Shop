@@ -1,6 +1,6 @@
 # 📄 Small & Pass-Through Files Findings
 
-*Generated on: 27.07.2026, 11:09:48*
+*Generated on: 27.07.2026, 11:30:05*
 
 ### Candidate Files for Refactoring/Elimination
 
@@ -94,10 +94,6 @@
 
 - **[useModalTheme.js](file:///D:/Magazine/_PigmentShop/src/components/Modal/useModalTheme.js)** (`src/components/Modal/useModalTheme.js`)
   - Lines: 18 | Size: 653 B | Type: **Tiny Component**
-  > 💡 This component is very small; consider declaring it inline within its parent component.
-
-- **[DateRangePresets.js](file:///D:/Magazine/_PigmentShop/src/components/Admin/Analytics/DateRangePresets.js)** (`src/components/Admin/Analytics/DateRangePresets.js`)
-  - Lines: 18 | Size: 400 B | Type: **Tiny Component**
   > 💡 This component is very small; consider declaring it inline within its parent component.
 
 - **[useSharedLayoutWrapperTheme.js](file:///D:/Magazine/_PigmentShop/src/components/SharedLayoutWrapper/useSharedLayoutWrapperTheme.js)** (`src/components/SharedLayoutWrapper/useSharedLayoutWrapperTheme.js`)
