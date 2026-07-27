@@ -2,7 +2,7 @@
 type: dynamic-audit
 auditor: raw-i18n
 scope: admin
-date: 2026-07-27T22:05:44.105Z
+date: 2026-07-27T22:29:16.974Z
 ---
 
 ### Problem: Raw camelCase i18n key found
@@ -147,6 +147,24 @@ date: 2026-07-27T22:05:44.105Z
   - Found raw camelCase i18n key: "adminCategoriesColImage" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-b88u0q.r-letterSpacing-ud0q2t.r-lineHeight-1f529hi.r-textTransform-tsynxw.r-color-1s7ct43`
   - Found raw camelCase i18n key: "adminCategoriesFormAssignedProducts" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-b88u0q.r-letterSpacing-ud0q2t.r-lineHeight-1f529hi.r-textTransform-tsynxw.r-color-1npgj5g.r-marginBottom-5oul0u.r-marginTop-14gqq1x`
   - Found raw camelCase i18n key: "adminCategoriesFormUnassignedProducts" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-b88u0q.r-letterSpacing-ud0q2t.r-lineHeight-1f529hi.r-textTransform-tsynxw.r-color-1npgj5g.r-marginBottom-5oul0u.r-marginTop-14gqq1x`
+  - Found raw camelCase i18n key: "adminTabUsers" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-vw2c0b.r-lineHeight-135wba7.r-color-kgv7a8`
+  - Found raw camelCase i18n key: "profileEmail" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-b88u0q.r-letterSpacing-ud0q2t.r-lineHeight-1f529hi.r-textTransform-tsynxw.r-color-1s7ct43`
+  - Found raw camelCase i18n key: "profilePhone" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-b88u0q.r-letterSpacing-ud0q2t.r-lineHeight-1f529hi.r-textTransform-tsynxw.r-color-1s7ct43`
+  - Found raw camelCase i18n key: "profileCity" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-b88u0q.r-letterSpacing-ud0q2t.r-lineHeight-1f529hi.r-textTransform-tsynxw.r-color-1s7ct43`
+  - Found raw camelCase i18n key: "adminAnalyticsOrders" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-b88u0q.r-letterSpacing-ud0q2t.r-lineHeight-1f529hi.r-textTransform-tsynxw.r-color-1s7ct43`
+  - Found raw camelCase i18n key: "adminUsersUnnamed" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-vw2c0b.r-lineHeight-135wba7.r-color-kgv7a8`
+  - Found raw camelCase i18n key: "btnBackLabel" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-kgv7a8`
+  - Found raw camelCase i18n key: "profileFirstName" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-b88u0q.r-letterSpacing-ud0q2t.r-lineHeight-1f529hi.r-textTransform-tsynxw.r-color-1npgj5g`
+  - Found raw camelCase i18n key: "profileLastName" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-b88u0q.r-letterSpacing-ud0q2t.r-lineHeight-1f529hi.r-textTransform-tsynxw.r-color-1npgj5g`
+  - Found raw camelCase i18n key: "profileEmail" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-b88u0q.r-letterSpacing-ud0q2t.r-lineHeight-1f529hi.r-textTransform-tsynxw.r-color-1npgj5g`
+  - Found raw camelCase i18n key: "profilePhone" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-b88u0q.r-letterSpacing-ud0q2t.r-lineHeight-1f529hi.r-textTransform-tsynxw.r-color-1npgj5g`
+  - Found raw camelCase i18n key: "profileCity" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-b88u0q.r-letterSpacing-ud0q2t.r-lineHeight-1f529hi.r-textTransform-tsynxw.r-color-1npgj5g`
+  - Found raw camelCase i18n key: "adminUserNote" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-vw2c0b.r-lineHeight-135wba7.r-color-kgv7a8.r-marginBottom-15d164r`
+  - Found raw camelCase i18n key: "ordersTitle" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-vw2c0b.r-lineHeight-135wba7.r-color-kgv7a8.r-marginBottom-6gpygo`
+  - Found raw camelCase i18n key: "orderNumber" | Selector: `div.css-text-146c3p1.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7`
+  - Found raw camelCase i18n key: "orderStatusProcessing" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-chq4ru`
+  - Found raw camelCase i18n key: "orderTotalLabel" | Selector: `div.css-text-146c3p1.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7`
+  - Found raw camelCase i18n key: "orderStatusPending" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-c4gyn4`
 
 ### Problem: Hardcoded text without i18n key
 
@@ -383,3 +401,23 @@ date: 2026-07-27T22:05:44.105Z
   - Found hardcoded text without i18n key: "ADMINxzczxc ADMINzxczxc" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0.r-flexShrink-1wbh5a2.r-textAlign-1ff274t`
   - Found hardcoded text without i18n key: "111111zxcxzc" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0.r-flexShrink-1wbh5a2.r-textAlign-1ff274t`
   - Found hardcoded text without i18n key: "ADMINzxcxz" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0.r-flexShrink-1wbh5a2.r-textAlign-1ff274t`
+  - Found hardcoded text without i18n key: "Описание для Category 1 UK" | Selector: `textarea.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-backgroundColor-fj6wrk.r-borderColor-1t4g3vi.r-borderRadius-1xfd6ze.r-borderWidth-rs99b7.r-color-kgv7a8.r-height-uvuy5l.r-outlineStyle-1ny4l3l.r-paddingBlock-11f147o.r-paddingInline-3o4zer.r-verticalAlign-ad9o1y`
+  - Found hardcoded text without i18n key: "Описание для Category 1 UK" | Selector: `textarea.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-backgroundColor-fj6wrk.r-borderRadius-1xfd6ze.r-color-kgv7a8.r-height-uvuy5l.r-outlineStyle-1ny4l3l.r-paddingBlock-11f147o.r-paddingInline-3o4zer.r-verticalAlign-ad9o1y`
+  - Found hardcoded text without i18n key: "adminCategoriesFormNameSection (RU) *" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1dk24ck.r-marginBottom-f1odvy`
+  - Found hardcoded text without i18n key: "adminCategoriesFormDescSection (RU)" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1dk24ck.r-marginBottom-f1odvy`
+  - Found hardcoded text without i18n key: "profileFirstName / profileLastName" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-b88u0q.r-letterSpacing-ud0q2t.r-lineHeight-1f529hi.r-textTransform-tsynxw.r-color-1s7ct43`
+  - Found hardcoded text without i18n key: "DNEPR" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8`
+  - Found hardcoded text without i18n key: "Буянова  Наталія" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-vw2c0b.r-lineHeight-135wba7.r-color-kgv7a8`
+  - Found hardcoded text without i18n key: "Днепр" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8`
+  - Found hardcoded text without i18n key: "Євген Русіньш" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-vw2c0b.r-lineHeight-135wba7.r-color-kgv7a8`
+  - Found hardcoded text without i18n key: "Dnipro" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8`
+  - Found hardcoded text without i18n key: "ADMINxzczxc ADMINzxczxc" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-vw2c0b.r-lineHeight-135wba7.r-color-kgv7a8`
+  - Found hardcoded text without i18n key: "111111zxcxzc" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8`
+  - Found hardcoded text without i18n key: "ADMINzxcxz" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8`
+  - Found hardcoded text without i18n key: "asdsadsad" | Selector: `textarea.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-backgroundColor-fj6wrk.r-borderColor-1t4g3vi.r-borderRadius-1xfd6ze.r-borderWidth-rs99b7.r-color-kgv7a8.r-marginBottom-6gpygo.r-minHeight-mjyw6.r-outlineStyle-1ny4l3l.r-paddingBlock-ytbthy.r-paddingInline-3o4zer.r-verticalAlign-ad9o1y`
+  - Found hardcoded text without i18n key: "15 июля 2026 г." | Selector: `div.css-text-146c3p1.r-color-1cucpzw.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-1cwl3u0.r-marginBottom-15zivkp`
+  - Found hardcoded text without i18n key: "orderShowDetails ▼" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-c4gyn4`
+  - Found hardcoded text without i18n key: "asdsadsad" | Selector: `textarea.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-backgroundColor-fj6wrk.r-borderRadius-1xfd6ze.r-color-kgv7a8.r-marginBottom-6gpygo.r-minHeight-mjyw6.r-outlineStyle-1ny4l3l.r-paddingBlock-ytbthy.r-paddingInline-3o4zer.r-verticalAlign-ad9o1y`
+  - Found hardcoded text without i18n key: "orderHideDetails ▲" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-c4gyn4`
+  - Found hardcoded text without i18n key: "Product 1-2-1-1 RU" | Selector: `div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7`
+  - Found hardcoded text without i18n key: "pcs" | Selector: `div.css-text-146c3p1.r-color-1cucpzw.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-1cwl3u0.r-marginTop-1bymd8e`

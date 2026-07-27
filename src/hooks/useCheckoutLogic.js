@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { Alert } from 'react-native';
-import { checkoutService } from '../services/checkoutService';
 import { useToast } from '../context/ToastContext';
+import { checkoutService } from '../services/checkoutService';
 
 /**
  * useCheckoutLogic Hook

@@ -1,6 +1,6 @@
-import React, { useState, useCallback } from 'react';
-import { useTheme } from '../context/ThemeContext';
+import { useCallback, useState } from 'react';
 import { ConfirmationModal } from '../components/Modal';
+import { useTheme } from '../context/ThemeContext';
 
 /**
  * Shared hook for cross-platform delete confirmations.

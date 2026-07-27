@@ -6365,5 +6365,35 @@
         }
       ]
     }
+  },
+  "src_07-28_01-34_phase-9-documentation.md_161files": {
+    "timestamp": "2026-07-27T22:34:10.389Z",
+    "diff": {
+      "added": 9,
+      "removed": 3,
+      "modified": 57,
+      "topFolders": [
+        {
+          "folder": "src/hooks",
+          "count": 32
+        },
+        {
+          "folder": "scripts/smoke-test/failures",
+          "count": 12
+        },
+        {
+          "folder": "reports",
+          "count": 8
+        },
+        {
+          "folder": ".docs/audits/dynamic-audits/docs",
+          "count": 5
+        },
+        {
+          "folder": ".docs/audits/dynamic-audits/json",
+          "count": 5
+        }
+      ]
+    }
   }
 }

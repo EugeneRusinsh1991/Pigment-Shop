@@ -2,7 +2,7 @@
 type: dynamic-audit
 auditor: broken-ui
 scope: admin
-date: 2026-07-27T11:48:34.077Z
+date: 2026-07-27T22:29:10.196Z
 ---
 
 ### Problem: Element has overflow clipping (`scrollWidth > clientWidth`).
@@ -28,6 +28,7 @@ date: 2026-07-27T11:48:34.077Z
   - Selector: `div.css-view-g5y9jx.r-flex-13awgt0.r-marginBottom-6gpygo.r-minWidth-qtfnoi`
   - Selector: `div.css-view-g5y9jx.r-backgroundColor-1ins33t.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-width-13qz1uu.r-borderColor-169eryd`
   - Selector: `div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1dk24ck.r-paddingBlock-cnw61z.r-paddingInline-18c5d7m`
+  - Selector: `div.css-view-g5y9jx.r-alignItems-1awozwy.r-backgroundColor-fj6wrk.r-flexDirection-18u37iz.r-padding-zhp00w.r-position-bnwqim.r-borderRadius-1xfd6ze.r-height-eu3ka`
 
 ### Problem: Clickable element is overlapped or intercepted by another element.
 

@@ -1305,6 +1305,106 @@
         "url": "http://localhost:8081/admin",
         "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 512x36",
         "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderRadius-1xfd6ze.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-paddingBlock-11f147o.r-paddingInline-is05cd.r-backgroundColor-og65ln.r-borderColor-1fvvsgw"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 310x28",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-flexDirection-18u37iz.r-gap-9aw3ui.r-flex-dta0w2.r-minWidth-qtfnoi"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 310x28",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-flexDirection-18u37iz.r-gap-9aw3ui.r-flex-dta0w2.r-minWidth-19mqnvc"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 232x28",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-flexDirection-18u37iz.r-gap-9aw3ui.r-flex-sax9pr.r-minWidth-ggk5by"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 124x28",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-flexDirection-18u37iz.r-gap-9aw3ui.r-alignItems-obd0qt.r-flex-1j6g5un.r-minWidth-1m5eot9.r-justifyContent-17s6mgv"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-flexDirection-18u37iz.r-gap-9aw3ui.r-flex-dta0w2.r-minWidth-qtfnoi"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-flexDirection-18u37iz.r-gap-9aw3ui.r-flex-dta0w2.r-minWidth-19mqnvc"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-flexDirection-18u37iz.r-gap-9aw3ui.r-flex-sax9pr.r-minWidth-ggk5by"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-flexDirection-18u37iz.r-gap-9aw3ui.r-alignItems-obd0qt.r-flex-1j6g5un.r-minWidth-1m5eot9.r-justifyContent-17s6mgv"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderBottomColor-eaxd7d.r-borderBottomWidth-qklmqi.r-flexDirection-18u37iz.r-flexWrap-1w6e6rj.r-paddingBlock-1ml3abn.r-paddingInline-3pj75a"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderBottomColor-eaxd7d.r-borderBottomWidth-qklmqi.r-flexDirection-18u37iz.r-flexWrap-1w6e6rj.r-paddingBlock-1ml3abn.r-paddingInline-3pj75a.r-backgroundColor-1p5k89o"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "i18n: Potential hardcoded text string found: \"Dnipro\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "div.css-view-g5y9jx.r-overflow-1udh08x.r-position-bnwqim.r-backgroundColor-14lw9ot.r-borderRadius-t23y2h.r-boxShadow-1alywg8.r-flexDirection-18u37iz.r-flexWrap-1w6e6rj.r-gap-1fdih9r.r-marginBottom-117bsoe.r-padding-nsbfu8"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "textarea.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-backgroundColor-fj6wrk.r-borderColor-1t4g3vi.r-borderRadius-1xfd6ze.r-borderWidth-rs99b7.r-color-kgv7a8.r-marginBottom-6gpygo.r-minHeight-mjyw6.r-outlineStyle-1ny4l3l.r-paddingBlock-ytbthy.r-paddingInline-3o4zer.r-verticalAlign-ad9o1y"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf.r-alignSelf-k200y.r-marginBottom-1ifxtd0"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.",
+        "selector": "textarea.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-backgroundColor-fj6wrk.r-borderColor-1t4g3vi.r-borderRadius-1xfd6ze.r-borderWidth-rs99b7.r-color-kgv7a8.r-marginBottom-6gpygo.r-minHeight-mjyw6.r-outlineStyle-1ny4l3l.r-paddingBlock-ytbthy.r-paddingInline-3o4zer.r-verticalAlign-ad9o1y"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 130x32",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf.r-alignSelf-k200y.r-marginBottom-1ifxtd0"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf.r-alignSelf-k200y.r-marginBottom-1ifxtd0"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "textarea.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-backgroundColor-fj6wrk.r-borderRadius-1xfd6ze.r-color-kgv7a8.r-marginBottom-6gpygo.r-minHeight-mjyw6.r-outlineStyle-1ny4l3l.r-paddingBlock-ytbthy.r-paddingInline-3o4zer.r-verticalAlign-ad9o1y"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.",
+        "selector": "textarea.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-backgroundColor-fj6wrk.r-borderRadius-1xfd6ze.r-color-kgv7a8.r-marginBottom-6gpygo.r-minHeight-mjyw6.r-outlineStyle-1ny4l3l.r-paddingBlock-ytbthy.r-paddingInline-3o4zer.r-verticalAlign-ad9o1y"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "i18n: Potential hardcoded text string found: \"Product 1-2-1-1 RU\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7"
       }
     ]
   },

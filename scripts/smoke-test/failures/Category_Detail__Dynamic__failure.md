@@ -1,7 +1,7 @@
 # Smoke Test Failure - Category Detail (Dynamic)
 
 * **Route**: `/catalog/cat-root-0`
-* **Timestamp**: 2026-07-27T21:45:52.557Z
+* **Timestamp**: 2026-07-27T22:24:26.825Z
 
 ## ❌ Detected Errors
 

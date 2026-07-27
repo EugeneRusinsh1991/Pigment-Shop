@@ -155,6 +155,11 @@
         "url": "http://localhost:8081/admin",
         "message": "Broken image resource (`naturalWidth === 0`).",
         "selector": "img"
+      },
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Element has overflow clipping (`scrollWidth > clientWidth`).",
+        "selector": "div.css-view-g5y9jx.r-alignItems-1awozwy.r-backgroundColor-fj6wrk.r-flexDirection-18u37iz.r-padding-zhp00w.r-position-bnwqim.r-borderRadius-1xfd6ze.r-height-eu3ka"
       }
     ]
   },
