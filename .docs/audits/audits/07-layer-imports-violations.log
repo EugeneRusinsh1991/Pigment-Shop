@@ -1,6 +1,10 @@
 ===================================================================
-               7. LAYER IMPORTS & CYCLIC REPORT                    
-Timestamp: 27.07.2026, 13:14:58
+         7. LAYER IMPORTS COMPLIANCE REPORT                        
+Timestamp: 27.07.2026, 13:32:56
+===================================================================
+[DESCRIPTION FOR USER]: Этот отчет находит межслойные нарушения импортов (например, когда базовый UI компонент пытается импортировать бизнес-фичу).
+-------------------------------------------------------------------
+[PROMPT FOR AGENT]: Fix layer boundary import violations in listed files. Remove cross-layer dependencies.
 ===================================================================
 
 Found 2 layer import issue(s) across 2 file(s):

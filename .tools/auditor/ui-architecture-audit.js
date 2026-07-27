@@ -172,8 +172,14 @@ function auditComponentEntry(entry) {
 function writeAuditReport(violations) {
   const timestamp = new Date().toLocaleString('ru-RU');
   let report = `===================================================================\n`;
-  report += `               1. UI ARCHITECTURE COMPLIANCE REPORT                \n`;
+  report += `         1. UI ARCHITECTURE AUDIT REPORT                           \n`;
   report += `Timestamp: ${timestamp}\n`;
+  report += `===================================================================\n`;
+  report += `[DESCRIPTION FOR USER]: Этот отчет находит нарушения структуры UI-компонентов.\n`;
+  report += `Например: компоненты с недопустимыми файлами, незаимпортированные стили (GHOST_IMPORT) или дублирование файлов стилей.\n`;
+  report += `-------------------------------------------------------------------\n`;
+  report += `[PROMPT FOR AGENT]: Fix UI component architecture violations in listed folders.\n`;
+  report += `Ensure component structure follows standard architecture (Styles, Hooks, Main Component).\n`;
   report += `===================================================================\n\n`;
 
   if (violations.length === 0) {

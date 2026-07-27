@@ -18,6 +18,38 @@ export function clearSeenViolations() {
   Object.keys(memoryUrls).forEach(k => delete memoryUrls[k]);
 }
 
+function getProblemTitleAndDetail(message: string): { title: string; detail?: string } {
+  if (message.includes('. Size: ')) {
+    const parts = message.split('. Size: ');
+    return { title: parts[0], detail: `Size: ${parts[1]}` };
+  }
+  if (message.startsWith('i18n: Potential hardcoded text string found:')) {
+    return { title: 'i18n: Potential hardcoded text string found without data-i18n tracking', detail: message };
+  }
+  if (message.startsWith('Found raw camelCase i18n key:')) {
+    return { title: 'Raw camelCase i18n key found', detail: message };
+  }
+  if (message.startsWith('Found raw runtime fallback string:')) {
+    return { title: 'Raw runtime fallback string found', detail: message };
+  }
+  if (message.startsWith('Found placeholder string:')) {
+    return { title: 'Placeholder string found', detail: message };
+  }
+  if (message.startsWith('Found hardcoded text without i18n key:')) {
+    return { title: 'Hardcoded text without i18n key', detail: message };
+  }
+  if (message.startsWith('Browser console.error:')) {
+    return { title: 'Browser console error', detail: message };
+  }
+  if (message.startsWith('Unhandled exception:')) {
+    return { title: 'Unhandled page exception', detail: message };
+  }
+  if (message.startsWith('Network failure')) {
+    return { title: 'Network request failure', detail: message };
+  }
+  return { title: message };
+}
+
 export function writeDynamicReport(
   auditorPrefix: string,
   auditorName: string,
@@ -25,17 +57,22 @@ export function writeDynamicReport(
   violations: Violation[],
   sessionId?: string
 ) {
-  const dirPath = path.resolve(process.cwd(), '.docs/audits/dynamic-audits');
+  const baseDir = path.resolve(process.cwd(), '.docs/audits/dynamic-audits');
+  const docsDir = path.join(baseDir, 'docs');
+  const jsonDir = path.join(baseDir, 'json');
   
-  if (!fs.existsSync(dirPath)) {
-    fs.mkdirSync(dirPath, { recursive: true });
+  if (!fs.existsSync(docsDir)) {
+    fs.mkdirSync(docsDir, { recursive: true });
+  }
+  if (!fs.existsSync(jsonDir)) {
+    fs.mkdirSync(jsonDir, { recursive: true });
   }
 
   const sessionSuffix = sessionId ? `-${sessionId}` : '';
   const baseFileName = `${auditorPrefix}-dynamic-${auditorName}-${scope}${sessionSuffix}`;
-  const violationsFilePath = path.join(dirPath, `${baseFileName}-violations.log`);
-  const jsonFilePath = path.join(dirPath, `${baseFileName}-violations.json`);
-  const filesFilePath = path.join(dirPath, `${baseFileName}-files.log`);
+  const violationsFilePath = path.join(docsDir, `${baseFileName}-violations.log`);
+  const jsonFilePath = path.join(jsonDir, `${baseFileName}-violations.json`);
+  const filesFilePath = path.join(docsDir, `${baseFileName}-files.log`);
 
   if (!loadedState.has(baseFileName)) {
     loadedState.add(baseFileName);
@@ -86,6 +123,23 @@ export function writeDynamicReport(
   }, null, 2), 'utf-8');
 
   if (hasNew) {
+    // Group violations by Problem Title
+    const problemsMap: Map<string, { url: string; selector?: string; detail?: string }[]> = new Map();
+
+    Object.keys(state).forEach(url => {
+      state[url].forEach((v: Violation) => {
+        const { title, detail } = getProblemTitleAndDetail(v.message);
+        if (!problemsMap.has(title)) {
+          problemsMap.set(title, []);
+        }
+        problemsMap.get(title)!.push({
+          url,
+          selector: v.selector,
+          detail
+        });
+      });
+    });
+
     let reportContent = `---
 type: dynamic-audit
 auditor: ${auditorName}
@@ -93,14 +147,29 @@ scope: ${scope}
 date: ${new Date().toISOString()}
 ---\n`;
 
-    Object.keys(state).forEach(url => {
-      if (state[url].length === 0) return;
-      reportContent += `\n### URL: ${url}\n`;
-      state[url].forEach((v: Violation) => {
-        reportContent += `- ${v.message}\n`;
-        if (v.selector) {
-          reportContent += `  Selector: \`${v.selector}\`\n`;
+    problemsMap.forEach((items, problemTitle) => {
+      reportContent += `\n### Problem: ${problemTitle}\n\n`;
+      
+      // Group items by URL within each problem
+      const urlGroup: Record<string, { selector?: string; detail?: string }[]> = {};
+      items.forEach(item => {
+        if (!urlGroup[item.url]) {
+          urlGroup[item.url] = [];
         }
+        urlGroup[item.url].push(item);
+      });
+
+      Object.keys(urlGroup).forEach(url => {
+        reportContent += `- URL: \`${url}\`\n`;
+        urlGroup[url].forEach(entry => {
+          const infoParts: string[] = [];
+          if (entry.detail) infoParts.push(entry.detail);
+          if (entry.selector) infoParts.push(`Selector: \`${entry.selector}\``);
+          
+          if (infoParts.length > 0) {
+            reportContent += `  - ${infoParts.join(' | ')}\n`;
+          }
+        });
       });
     });
 
@@ -122,4 +191,5 @@ date: ${new Date().toISOString()}
     fs.writeFileSync(filesFilePath, filesContent, 'utf-8');
   }
 }
+
 

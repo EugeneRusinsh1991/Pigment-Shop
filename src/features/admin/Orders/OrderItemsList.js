@@ -5,7 +5,6 @@ import { View } from 'react-native';
 import { Text } from '@/components/Text';
 import { useTheme } from '../../../context/ThemeContext';
 import styles from './OrdersStyles';
-import { colors, layout } from '../../../theme/tokens';
 
 function resolveItemName(item, lang) {
   const field = item.label || item.name;
@@ -39,7 +38,7 @@ export default function OrderItemsList({ items, totalPrice }) {
   return (
     <View style={styles.detailCard}>
       {/* Column header row */}
-      <View style={[styles.itemRow, { borderBottomWidth: 1, borderBottomColor: colors.secondaryLightBorder, paddingBottom: layout.spacing.sm }]}>
+      <View style={[styles.itemRow, styles.itemHeaderRow]}>
         <Text style={[styles.itemLabel, styles.itemColHeader]} size={11} weight="700">{t('adminOrdersItemName')}</Text>
         <Text style={[styles.itemQty, styles.itemColHeader]} size={11} weight="700">{t('adminOrdersItemQty')}</Text>
         <Text style={[styles.itemUnitPrice, styles.itemColHeader]} size={11} weight="700">{t('adminOrdersItemUnit')}</Text>
@@ -57,11 +56,11 @@ export default function OrderItemsList({ items, totalPrice }) {
       ))}
 
       {/* Order total */}
-      <View style={[styles.itemRow, { borderTopWidth: 1, borderTopColor: colors.secondaryLightBorder, borderBottomWidth: 0, marginTop: layout.spacing.xxs }]}>
-        <Text style={[styles.itemLabel, { color: colors.textLight }]} size={14} weight="bold">{t('adminOrdersTotal')}</Text>
+      <View style={[styles.itemRow, styles.itemTotalRow]}>
+        <Text style={styles.itemLabel} size={14} weight="bold">{t('adminOrdersTotal')}</Text>
         <Text style={styles.itemQty} size={14} />
         <Text style={styles.itemUnitPrice} size={14} />
-        <Text style={[styles.itemPrice, { color: colors.textLight }]} size={14} weight="bold">
+        <Text style={styles.itemPrice} size={14} weight="bold">
           ${(totalPrice || 0).toLocaleString()}
         </Text>
       </View>

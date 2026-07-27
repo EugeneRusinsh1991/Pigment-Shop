@@ -92,8 +92,12 @@ function auditLayerImports() {
 
   const timestamp = new Date().toLocaleString('ru-RU');
   let report = `===================================================================\n`;
-  report += `               7. LAYER IMPORTS & CYCLIC REPORT                    \n`;
+  report += `         7. LAYER IMPORTS COMPLIANCE REPORT                        \n`;
   report += `Timestamp: ${timestamp}\n`;
+  report += `===================================================================\n`;
+  report += `[DESCRIPTION FOR USER]: Этот отчет находит межслойные нарушения импортов (например, когда базовый UI компонент пытается импортировать бизнес-фичу).\n`;
+  report += `-------------------------------------------------------------------\n`;
+  report += `[PROMPT FOR AGENT]: Fix layer boundary import violations in listed files. Remove cross-layer dependencies.\n`;
   report += `===================================================================\n\n`;
 
   if (violations.length === 0) {

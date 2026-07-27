@@ -75,7 +75,7 @@ function NavItem({ item, isDark, onSelect }) {
       key={item.id}
       variant="ghost"
       isDark={isDark}
-      style={[styles.itemRow, isDark ? styles.itemRowDark : styles.itemRowLight, { minHeight: 44 }]}
+      style={[styles.itemRow, isDark ? styles.itemRowDark : styles.itemRowLight]}
       onPress={() => onSelect(item)}
       activeOpacity={0.7}
     >

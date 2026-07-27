@@ -148,8 +148,8 @@ export default function CatalogPage({ isDark }) {
   ), [currentPage, totalPages, prevPage, nextPage, loading, isDark, isNarrow]);
 
   return (
-    <View style={[{ flex: 1 }, isDark ? styles.containerDark : styles.containerLight]}>
-      <View style={[isNarrow ? styles.container : styles.row, { flex: 1 }]}>
+    <View style={isDark ? styles.containerDark : styles.containerLight}>
+      <View style={isNarrow ? styles.container : styles.row}>
         <CatalogFilterSidebar
           categoryTree={categoryTree}
           filters={filters}
@@ -188,8 +188,8 @@ export default function CatalogPage({ isDark }) {
 
 const styles = StyleSheet.create({
   container: { flex: 1, minHeight: 0 },
-  containerDark: { backgroundColor: colors.backgroundDark },
-  containerLight: { backgroundColor: colors.backgroundLight },
+  containerDark: { flex: 1, backgroundColor: colors.backgroundDark },
+  containerLight: { flex: 1, backgroundColor: colors.backgroundLight },
   row: { flex: 1, minHeight: 0, flexDirection: 'row', width: '100%', maxWidth: 1330, alignSelf: 'center', paddingHorizontal: layout.spacing.sm },
   main: { flex: 1, minHeight: 0, padding: layout.spacing.lg },
   mainNarrow: { padding: layout.spacing.none, alignItems: 'center' },

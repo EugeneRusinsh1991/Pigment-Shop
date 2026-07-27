@@ -1,6 +1,10 @@
 ===================================================================
-         3. HARDCODED STYLES, COLORS & SPACING REPORT              
-Timestamp: 27.07.2026, 13:14:58
+         3. HARDCODED STYLES, COLORS & SPACING REPORT (RAW)              
+Timestamp: 27.07.2026, 13:32:55
+===================================================================
+[PROMPT FOR AGENT]: Refactor hardcoded inline styles/colors in listed files.
+Extract inline style objects to component styles or design tokens.
+Do not alter runtime behavior or API props.
 ===================================================================
 
 Found 125 issue(s) across 35 file(s):

@@ -203,18 +203,18 @@
   - Line [110](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderDetails.js#L110): `<Text>` -> `[Dynamic Content]`
 
 ### File: [src/features/admin/Orders/OrderItemsList.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderItemsList.js)
+  - Line [27](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderItemsList.js#L27): `<Text>` -> `[Dynamic Content]`
   - Line [28](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderItemsList.js#L28): `<Text>` -> `[Dynamic Content]`
-  - Line [29](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderItemsList.js#L29): `<Text>` -> `[Dynamic Content]`
+  - Line [29](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderItemsList.js#L29): `<Text>` -> `$`
   - Line [30](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderItemsList.js#L30): `<Text>` -> `$`
-  - Line [31](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderItemsList.js#L31): `<Text>` -> `$`
+  - Line [42](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderItemsList.js#L42): `<Text>` -> `[Dynamic Content]`
   - Line [43](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderItemsList.js#L43): `<Text>` -> `[Dynamic Content]`
   - Line [44](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderItemsList.js#L44): `<Text>` -> `[Dynamic Content]`
   - Line [45](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderItemsList.js#L45): `<Text>` -> `[Dynamic Content]`
-  - Line [46](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderItemsList.js#L46): `<Text>` -> `[Dynamic Content]`
+  - Line [60](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderItemsList.js#L60): `<Text>` -> `[Dynamic Content]`
   - Line [61](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderItemsList.js#L61): `<Text>` -> `[Dynamic Content]`
   - Line [62](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderItemsList.js#L62): `<Text>` -> `[Dynamic Content]`
-  - Line [63](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderItemsList.js#L63): `<Text>` -> `[Dynamic Content]`
-  - Line [64](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderItemsList.js#L64): `<Text>` -> `$`
+  - Line [63](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderItemsList.js#L63): `<Text>` -> `$`
 
 ### File: [src/features/admin/Orders/OrderRow.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderRow.js)
   - Line [49](file:///D:/Magazine/_PigmentShop/src/features/admin/Orders/OrderRow.js#L49): `<Text>` -> `#`

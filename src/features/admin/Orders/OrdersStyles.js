@@ -219,6 +219,15 @@ export default StyleSheet.create({
     color: colors.textDescDark,
     textTransform: 'uppercase',
   },
+  itemHeaderRow: {
+    paddingBottom: layout.spacing.sm,
+  },
+  itemTotalRow: {
+    borderTopWidth: 1,
+    borderTopColor: colors.secondaryLightBorder,
+    borderBottomWidth: 0,
+    marginTop: layout.spacing.xxs,
+  },
   statusDropdown: {
     backgroundColor: colors.surfaceLight,
     borderWidth: 1,

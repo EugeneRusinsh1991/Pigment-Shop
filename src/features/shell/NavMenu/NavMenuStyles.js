@@ -80,6 +80,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: layout.spacing.lg,
     paddingVertical: layout.spacing.md,
+    minHeight: 44,
   },
   itemRowDark: { backgroundColor: colors.navSurfaceDark },
   itemRowLight: { backgroundColor: colors.white },

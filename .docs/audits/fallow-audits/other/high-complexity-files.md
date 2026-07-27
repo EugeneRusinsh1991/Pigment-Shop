@@ -1,17 +1,14 @@
 # 🧠 Highly Complex Files
 
-*Generated on: 27.07.2026, 13:15:05*
+*Generated on: 27.07.2026, 13:33:03*
 
 ### Highly Complex Files (< 200 lines)
 
 - **[02-dynamic-raw-i18n-auditor.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/auditors/02-dynamic-raw-i18n-auditor.ts)** (`.tools/browser-automation/auditors/02-dynamic-raw-i18n-auditor.ts`)
   - Lines: 73 | CRAP Max: 380 | Complex Funcs: 2 | Density: 36%
 
-- **[hardcode-styles-auditor.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-styles-auditor.js)** (`.tools/auditor/hardcode-styles-auditor.js`)
-  - Lines: 159 | CRAP Max: 306 | Complex Funcs: 4 | Density: 33%
-
 - **[layer-imports-auditor.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/layer-imports-auditor.js)** (`.tools/auditor/layer-imports-auditor.js`)
-  - Lines: 148 | CRAP Max: 272 | Complex Funcs: 3 | Density: 26%
+  - Lines: 152 | CRAP Max: 272 | Complex Funcs: 3 | Density: 26%
 
 - **[index.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/index.js)** (`.tools/auditor/index.js`)
   - Lines: 58 | CRAP Max: 240 | Complex Funcs: 1 | Density: 26%
@@ -41,7 +38,7 @@
   - Lines: 112 | CRAP Max: 90 | Complex Funcs: 3 | Density: 29%
 
 - **[service-layer-auditor.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/service-layer-auditor.js)** (`.tools/auditor/service-layer-auditor.js`)
-  - Lines: 102 | CRAP Max: 90 | Complex Funcs: 3 | Density: 29%
+  - Lines: 107 | CRAP Max: 90 | Complex Funcs: 3 | Density: 28%
 
 - **[magic-numbers-auditor.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/magic-numbers-auditor.js)** (`.tools/auditor/magic-numbers-auditor.js`)
   - Lines: 135 | CRAP Max: 90 | Complex Funcs: 3 | Density: 27%

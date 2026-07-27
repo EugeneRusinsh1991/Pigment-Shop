@@ -44,8 +44,13 @@ function auditServiceLayer() {
 
   const timestamp = new Date().toLocaleString('ru-RU');
   let report = `===================================================================\n`;
-  report += `               5. SERVICE LAYER ARCHITECTURE REPORT                \n`;
+  report += `         5. SERVICE LAYER ARCHITECTURE REPORT                      \n`;
   report += `Timestamp: ${timestamp}\n`;
+  report += `===================================================================\n`;
+  report += `[DESCRIPTION FOR USER]: Этот отчет находит прямые обращения к БД/Firebase (Firestore) из UI или хуков.\n`;
+  report += `Прямой вызов getDocs/addDoc в компонентах нарушает изоляцию сервисного слоя.\n`;
+  report += `-------------------------------------------------------------------\n`;
+  report += `[PROMPT FOR AGENT]: Refactor direct database/Firestore calls out of UI components and hooks into dedicated service layer modules.\n`;
   report += `===================================================================\n\n`;
 
   if (violations.length === 0) {
