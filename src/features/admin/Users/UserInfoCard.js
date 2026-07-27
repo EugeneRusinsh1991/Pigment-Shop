@@ -1,7 +1,7 @@
 import { View } from 'react-native';
-import { Text } from '../../Text';
+import { Text } from '@/components/Text';
 import { useTheme } from '../../../context/ThemeContext';
-import Card from '../../Card';
+import Card from '@/components/Card';
 import styles from './UsersStyles';
 
 

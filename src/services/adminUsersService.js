@@ -6,7 +6,7 @@
  * aggregated from the orders collection.
  */
 import { fetchUserNote as fetchNoteRepo, saveUserNote as saveNoteRepo } from './repositories/usersRepository';
-import { fetchUsersAndOrders } from '../components/Admin/shared/adminSharedService';
+import { fetchUsersAndOrders } from './adminSharedService';
 import { withServiceContract } from './serviceContract';
 
 function buildOrderStats(orders) {

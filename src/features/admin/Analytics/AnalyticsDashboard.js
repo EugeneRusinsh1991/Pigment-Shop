@@ -1,6 +1,6 @@
 import React, { useMemo, useState, useEffect } from 'react';
 import { View, ActivityIndicator } from 'react-native';
-import { Text, Heading } from '../../Text';
+import { Text, Heading } from '@/components/Text';
 import { db } from '../../../services/firebase';
 import { collection, getDocs } from 'firebase/firestore';
 import { getSummaryStats, getTopProducts, getRevenueChartData, getOrderStatuses } from '../../../data/adminAnalytics';

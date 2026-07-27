@@ -17,7 +17,7 @@ import CategoryTree from './CategoryTree';
 import styles from './CategoriesStyles';
 import { useCategoriesWorkflow } from './useCategoriesWorkflow';
 import { useFormModal } from '../../../hooks/useFormModal';
-import AdminSaveFooter from '../shared/AdminSaveFooter';
+import AdminSaveFooter from '../AdminSaveFooter';
 
 export default function CategoriesManager() {
   const { tree, allCategories, handleAdd, handleUpdate, handleDelete, handleSaveToFirebase: handleBatchSave, isSaving, isDirty } = useCategoriesWorkflow();

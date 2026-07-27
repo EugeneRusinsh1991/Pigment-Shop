@@ -1,5 +1,5 @@
 import { View } from 'react-native';
-import { Text } from '../../Text';
+import { Text } from '@/components/Text';
 import { AnimatedButton } from '@/components/Button';
 import { useTheme } from '../../../context/ThemeContext';
 import styles from './UsersStyles';

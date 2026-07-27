@@ -5,7 +5,7 @@ import { useTheme } from '../../context/ThemeContext';
 import styles from './CartViewStyles';
 import { Button } from '../../components/Button';
 import { Link } from 'expo-router';
-import { FieldInput, FieldTextarea } from '../../components/Admin/SharedFormComponents';
+import { FieldInput, FieldTextarea } from '../admin/SharedFormComponents';
 export default function CartSummary({ totalItems, totalPrice, isWide, isDark, note, onNoteChange, onCheckout,
   email, firstName, lastName, phone, city,
   onEmailChange, onFirstNameChange, onLastNameChange, onPhoneChange, onCityChange,

@@ -2,8 +2,8 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Text } from '@/components/Text';
 import { colors, layout } from '../../theme/tokens';
-import TextField from '../TextField';
-import { FieldError } from '../Feedback';
+import TextField from '@/components/TextField';
+import { FieldError } from '@/components/Feedback';
 
 const defaultStyles = StyleSheet.create({
   labelRow: { flexDirection: 'row', alignItems: 'center', gap: layout.spacing.xs, marginBottom: layout.spacing.xxs },

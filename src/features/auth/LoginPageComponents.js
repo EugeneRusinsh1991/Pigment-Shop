@@ -7,7 +7,7 @@ import { useTheme } from '../../context/ThemeContext';
 import { colors } from '../../theme/tokens';
 
 import { Button, IconButton, AnimatedButton } from '../../components/Button';
-import { FieldInput } from '../../components/Admin/SharedFormComponents';
+import { FieldInput } from '../admin/SharedFormComponents';
 
 const ic = (isDark, dark, light) => (isDark ? dark : light);
 

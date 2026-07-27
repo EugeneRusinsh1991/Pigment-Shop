@@ -1,9 +1,9 @@
 import React from 'react';
 import { View } from 'react-native';
-import { Text } from '../../Text';
+import { Text } from '@/components/Text';
 import { layout } from '../../../theme/tokens';
 import styles from './OrdersStyles';
-import Toggle from '../../Toggle';
+import Toggle from '@/components/Toggle';
 
 // Canonical statuses with their locale keys
 export const STATUS_FILTERS = [

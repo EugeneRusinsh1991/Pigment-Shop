@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
-import { Text } from '../../Text';
-import { AnimatedButton } from '../../Button';
+import { Text } from '@/components/Text';
+import { AnimatedButton } from '@/components/Button';
 import { calculateHitSlop } from '../../../theme/buttonCommon';
 import { localStyles as styles } from './DateRangeCalendarStyles';
 import { typography } from '../../../theme/tokens';

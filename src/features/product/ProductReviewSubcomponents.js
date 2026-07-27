@@ -7,7 +7,7 @@ import Button, { AnimatedButton } from '../../components/Button';
 import Toggle from '../../components/Toggle';
 import { Link } from 'expo-router';
 import { colors } from '../../theme/tokens';
-import { FieldTextarea } from '../../components/Admin/SharedFormComponents';
+import { FieldTextarea } from '../admin/SharedFormComponents';
 
 export { getAccountName, useReviewsState } from './useReviewsState';
 

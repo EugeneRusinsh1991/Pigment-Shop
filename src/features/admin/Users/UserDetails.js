@@ -1,16 +1,16 @@
 import { useState, useEffect, useCallback } from 'react';
 import { View } from 'react-native';
-import { Text } from '../../Text';
+import { Text } from '@/components/Text';
 import { useTheme } from '../../../context/ThemeContext';
 import { BackArrowIcon } from '@/components/Icons';
-import { Button } from '../../Button';
+import { Button } from '@/components/Button';
 import styles from './UsersStyles';
 import { fetchUserNote, saveUserNote } from '../../../services/adminUsersService';
 import UserInfoCard from './UserInfoCard';
 import UserNoteSection from './UserNoteSection';
 import UserOrdersList from './UserOrdersList';
 import { useCrudWorkflow } from '../../../hooks/useCrudWorkflow';
-import AdminSaveFooter from '../shared/AdminSaveFooter';
+import AdminSaveFooter from '../AdminSaveFooter';
 import { colors } from '../../../theme/tokens';
 
 function useUserNote(user) {

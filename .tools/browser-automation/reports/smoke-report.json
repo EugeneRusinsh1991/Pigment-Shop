@@ -2,7 +2,7 @@
   "summary": {
     "visitedScreens": 0,
     "visitedInteractions": 0,
-    "successfulInteractions": 19,
+    "successfulInteractions": 0,
     "failedInteractions": 0,
     "warnings": 0,
     "errors": 1,
@@ -10,13 +10,13 @@
   },
   "failures": [
     {
-      "screen": "http://localhost:8081/admin",
-      "interaction": "Click",
-      "elementIdentifier": "btn|1Product 1-2-1-1 E...",
-      "event": "AfterInteraction",
-      "timestamp": 1785112473178,
-      "errorType": "Health Check Evaluation Failed",
-      "errorMessage": "[Application Bug] page.evaluate: Target page, context or browser has been closed"
+      "screen": "Authentication",
+      "interaction": "Initial Load",
+      "elementIdentifier": "None",
+      "event": "Internal Explorer",
+      "timestamp": 1785112806532,
+      "errorType": "Explorer Error",
+      "errorMessage": "[Application Bug] Authentication Error: page.waitForSelector: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"login-email-input\"], input[type=\"email\"]') to be visible\u001b[22m\n"
     }
   ],
   "warnings": []

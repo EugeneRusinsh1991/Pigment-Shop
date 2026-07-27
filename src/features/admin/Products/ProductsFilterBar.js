@@ -6,8 +6,8 @@
  */
 import React from 'react';
 import { View } from 'react-native';
-import { Button } from '../../Button';
-import { Badge } from '../../Badge';
+import { Button } from '@/components/Button';
+import { Badge } from '@/components/Badge';
 import { useTheme } from '../../../context/ThemeContext';
 import { layout } from '../../../theme/tokens';
 import styles from './ProductsStyles';

@@ -8,9 +8,9 @@
  */
 import React, { useState } from 'react';
 import { ActivityIndicator, View } from 'react-native';
-import { Text } from '../../Text';
-import { SearchInput } from '../../Search';
-import EmptyState from '../../DataTable/EmptyState';
+import { Text } from '@/components/Text';
+import { SearchInput } from '@/components/Search';
+import EmptyState from '@/components/DataTable/EmptyState';
 import { useTheme } from '../../../context/ThemeContext';
 import useSort from '../../../hooks/useSort';
 import { useCrudWorkflow } from '../../../hooks/useCrudWorkflow';
@@ -19,7 +19,7 @@ import { loadUsers } from '../../../services/adminUsersService';
 import { compareStrings, compareNumbers } from '../../../utils/sorting';
 import { colors } from '../../../theme/tokens';
 import styles from './UsersStyles';
-import DataTable from '../../DataTable/DataTable';
+import DataTable from '@/components/DataTable/DataTable';
 import { MobileUserCard, DesktopUserRow } from './UserRow';
 
 

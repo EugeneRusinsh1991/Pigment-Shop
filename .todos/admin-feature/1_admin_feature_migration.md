@@ -71,14 +71,14 @@ Copy all domain sub-folders preserving internal structure:
 
 ---
 
-### Step 2.3: Move `shared/AdminSaveFooter.js`
+### ~~Step 2.3: Move `shared/AdminSaveFooter.js`~~ ✅
 `🟢 G 3.6 F (L) — 1d | 1f | +0ctx`
 
 Move `src/components/Admin/shared/AdminSaveFooter.js` → `src/features/admin/AdminSaveFooter.js`.
 
 ---
 
-### Step 2.4: Move `shared/adminSharedService.js` to Services
+### ~~Step 2.4: Move `shared/adminSharedService.js` to Services~~ ✅
 `🟢 G 3.6 F (L) — 2d | 1f | +1ctx`
 
 Move `src/components/Admin/shared/adminSharedService.js` → `src/services/adminSharedService.js`.
@@ -92,7 +92,7 @@ Move `src/components/Admin/shared/adminSharedService.js` → `src/services/admin
 ---
 
 
-## Step 3: Update All Import Sites
+## ~~Step 3: Update All Import Sites~~ ✅
 `🔴 G 3.1 P (H) — 4d | 9f | +2ctx`
 
 Files that import from `src/components/Admin` (confirmed by grep):
@@ -112,7 +112,7 @@ Also update any internal Admin files that import `../shared/adminSharedService` 
 
 ---
 
-## Step 4: Check Path Alias (if used)
+## ~~Step 4: Check Path Alias (if used)~~ ✅
 `🟢 G 3.6 F (L) — 1d | 1f | +1ctx`
 
 If the project uses a `@features` module alias (metro/babel config), verify `admin` is covered

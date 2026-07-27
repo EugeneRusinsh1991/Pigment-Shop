@@ -3,7 +3,7 @@ import { Text, Heading } from '../../components/Text';
 import Button from '../../components/Button';
 import { Flag } from '../../components/Flag';
 import styles from './CatalogFilterSidebarStyles';
-import { FieldInput } from '../../components/Admin/SharedFormComponents';
+import { FieldInput } from '../admin/SharedFormComponents';
 
 export function SectionTitle({ label, isDark, isPrice }) {
   return (

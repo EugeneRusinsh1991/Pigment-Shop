@@ -2,7 +2,7 @@
  * OrderCustomerCard.js — localized customer info with order date
  */
 import { View } from 'react-native';
-import { Text } from '../../Text';
+import { Text } from '@/components/Text';
 import { useTheme } from '../../../context/ThemeContext';
 import styles from './OrdersStyles';
 import { formatDateLongWithTime } from '../../../utils/dateFormatting';

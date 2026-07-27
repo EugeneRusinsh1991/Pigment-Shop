@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Text } from '../../Text';
-import { AnimatedButton } from '../../Button';
+import { Text } from '@/components/Text';
+import { AnimatedButton } from '@/components/Button';
 import styles from './CategoryFormStyles';
 import { colors, layout } from '../../../theme/tokens';
 

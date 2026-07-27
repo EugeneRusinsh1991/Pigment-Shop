@@ -1,4 +1,4 @@
-import { Flag } from '../../Flag';
+import { Flag } from '@/components/Flag';
 import { View } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
 import { layout } from '../../../theme/tokens';

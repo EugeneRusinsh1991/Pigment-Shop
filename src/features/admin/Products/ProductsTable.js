@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTheme } from '../../../context/ThemeContext';
-import DataTable from '../../DataTable/DataTable';
+import DataTable from '@/components/DataTable/DataTable';
 import ProductRow from './ProductRow';
 import {
   resolveLocalizedValue,

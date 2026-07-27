@@ -3,7 +3,7 @@ import { Text } from '../../components/Text';
 import Card from '../../components/Card/Card';
 import styles from './ProfilePageStyles';
 import { Button } from '../../components/Button';
-import { FieldInput } from '../../components/Admin/SharedFormComponents';
+import { FieldInput } from '../admin/SharedFormComponents';
 
 function EmailField({ label, email, selectTheme }) {
   return (

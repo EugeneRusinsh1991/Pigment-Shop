@@ -2,7 +2,7 @@ import React from 'react';
 import { ScrollView } from 'react-native';
 import styles from './AdminPanelStyles';
 import { useTheme } from '../../context/ThemeContext';
-import Toggle from '../Toggle';
+import Toggle from '@/components/Toggle';
 import { layout } from '../../theme/tokens';
 
 const ADMIN_TABS = [

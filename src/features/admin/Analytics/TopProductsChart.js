@@ -5,7 +5,7 @@
  */
 import React, { useMemo } from 'react';
 import { View } from 'react-native';
-import { Text } from '../../Text';
+import { Text } from '@/components/Text';
 import styles from './AnalyticsStyles';
 import { useTheme } from '../../../context/ThemeContext';
 import { colors, layout } from '../../../theme/tokens';

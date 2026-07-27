@@ -10,7 +10,7 @@ import styles from './LoginPageStyles';
 import Footer from '../shell/components/Footer';
 import { Button } from '../../components/Button';
 import { PageTransition } from '../../components/Motion';
-import { FieldInput } from '../../components/Admin/SharedFormComponents';
+import { FieldInput } from '../admin/SharedFormComponents';
 
 
 const ic = (isDark, dark, light) => (isDark ? dark : light);

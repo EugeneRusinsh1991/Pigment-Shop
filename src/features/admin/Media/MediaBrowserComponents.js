@@ -1,13 +1,13 @@
 import { AlertIcon, CrossIcon, RefreshIcon } from '@/components/Icons';
 import { ScrollView, View } from 'react-native';
-import { Text, Heading } from '../../Text';
+import { Text, Heading } from '@/components/Text';
 import { MEDIA_CATEGORY } from '../../../media';
-import EmptyState from '../../DataTable/EmptyState';
+import EmptyState from '@/components/DataTable/EmptyState';
 import MediaBrowserItem from './MediaBrowserItem';
 import styles from './MediaBrowserStyles';
-import { Button } from '../../Button';
-import { ChipButton } from '../../Button';
-import { IconButton } from '../../Button';
+import { Button } from '@/components/Button';
+import { ChipButton } from '@/components/Button';
+import { IconButton } from '@/components/Button';
 import { colors } from '../../../theme/tokens';
 
 const TABS = [

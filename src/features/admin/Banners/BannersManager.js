@@ -1,16 +1,16 @@
 import { useState } from 'react';
 import { Modal, View, useWindowDimensions } from 'react-native';
 import { Text } from '@/components/Text';
-import { AnimatedButton } from '../../Button';
+import { AnimatedButton } from '@/components/Button';
 import { useTheme } from '../../../context/ThemeContext';
 import { fromMediaRef } from '../../../media';
-import MediaRenderer from '../../Media/MediaRenderer';
+import MediaRenderer from '@/components/Media/MediaRenderer';
 import { triggerFileInput } from '../../../utils/fileInput';
 import MediaBrowser from '../Media/MediaBrowser';
 import styles from './BannersStyles';
 import { useBannersWorkflow } from './useBannersWorkflow';
 import { useDeleteConfirmation } from '../../../hooks/useDeleteConfirmation';
-import AdminSaveFooter from '../shared/AdminSaveFooter';
+import AdminSaveFooter from '../AdminSaveFooter';
 
 export default function BannersManager() {
   const { t } = useTheme();

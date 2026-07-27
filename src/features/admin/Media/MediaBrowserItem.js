@@ -4,10 +4,10 @@
  * Renders a single selectable media asset tile inside the MediaBrowser.
  */
 import { View } from 'react-native';
-import { Text } from '../../Text';
+import { Text } from '@/components/Text';
 import { resolveMediaUrl } from '../../../media';
-import MediaRenderer from '../../Media/MediaRenderer';
-import { AnimatedButton, IconButton } from '../../Button';
+import MediaRenderer from '@/components/Media/MediaRenderer';
+import { AnimatedButton, IconButton } from '@/components/Button';
 import { TrashIcon } from '@/components/Icons';
 import styles from './MediaBrowserStyles';
 

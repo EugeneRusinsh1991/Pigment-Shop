@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, TouchableOpacity } from 'react-native';
-import { Text } from '../../Text';
+import { Text } from '@/components/Text';
 import { useTheme } from '../../../context/ThemeContext';
 import { localStyles as styles } from './DateRangeCalendarStyles';
 import { CalendarDayCell } from './CalendarDayCell';

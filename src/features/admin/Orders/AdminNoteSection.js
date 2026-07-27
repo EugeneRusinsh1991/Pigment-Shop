@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import { Text } from '../../Text';
+import { Text } from '@/components/Text';
 import { useTheme } from '../../../context/ThemeContext';
 import { FieldTextarea } from '../SharedFormComponents';
 import { colors, layout } from '../../../theme/tokens';

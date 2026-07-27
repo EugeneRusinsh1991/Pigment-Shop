@@ -71,7 +71,7 @@ function FormFeedbackMessage({ submitStatus, t }) {
   );
 }
 
-import { FieldTextarea } from '../../components/Admin/SharedFormComponents';
+import { FieldTextarea } from '../admin/SharedFormComponents';
 
 export default function ContactQuestionForm({ t, ic, isDark, isMobile, contentWidth }) {
   const { user } = useAuth();

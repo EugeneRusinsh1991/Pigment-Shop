@@ -1,7 +1,7 @@
 import React from 'react';
 import { ActivityIndicator } from 'react-native';
-import { Text } from '../../Text';
-import DataTable from '../../DataTable/DataTable';
+import { Text } from '@/components/Text';
+import DataTable from '@/components/DataTable/DataTable';
 import { MobileOrderRow, DesktopOrderRow } from './OrderRow';
 import { colors, layout } from '../../../theme/tokens';
 import styles from './OrdersStyles';

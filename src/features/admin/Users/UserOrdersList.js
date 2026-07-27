@@ -1,7 +1,7 @@
 import { View } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
 import OrderCard from '../../../features/orders/components/OrderCard';
-import EmptyState from '../../DataTable/EmptyState';
+import EmptyState from '@/components/DataTable/EmptyState';
 import styles from './UsersStyles';
 
 const getStyle = (dark, light) => light;

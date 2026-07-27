@@ -5,7 +5,7 @@ import { useTheme } from '../../../context/ThemeContext';
 import { formatDateCompact as formatCompactDate } from '../../../utils/dateFormatting';
 import { calculatePresetDateRange } from './DateRangePresets';
 import { DateRangeCalendar } from './DateRangeCalendar';
-import Toggle from '../../Toggle';
+import Toggle from '@/components/Toggle';
 import { layout } from '../../../theme/tokens';
 
 export default function DateRangePicker({ startDate, endDate, onChange }) {

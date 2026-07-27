@@ -10,14 +10,14 @@
 import { useState } from 'react';
 import { View, useWindowDimensions } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
-import { SearchInput } from '../../Search';
+import { SearchInput } from '@/components/Search';
 import ProductFormModal from './ProductFormModal';
 import ProductsFilterBar from './ProductsFilterBar';
 import styles from './ProductsStyles';
 import ProductsTable from './ProductsTable';
 import { useProductsWorkflow } from './useProductsWorkflow';
 import { useFormModal } from '../../../hooks/useFormModal';
-import AdminSaveFooter from '../shared/AdminSaveFooter';
+import AdminSaveFooter from '../AdminSaveFooter';
 
 export default function ProductsManager() {
   const {

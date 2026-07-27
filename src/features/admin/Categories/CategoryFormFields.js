@@ -9,8 +9,8 @@
  */
 import { useState } from 'react';
 import { View } from 'react-native';
-import { Text } from '../../Text';
-import { AnimatedButton } from '../../Button';
+import { Text } from '@/components/Text';
+import { AnimatedButton } from '@/components/Button';
 import { useTheme } from '../../../context/ThemeContext';
 import { colors, layout } from '../../../theme/tokens';
 import { fromMediaRef } from '../../../media';
@@ -19,7 +19,7 @@ import { ImageIcon, UploadIcon } from '@/components/Icons';
 import TextField from '@/components/TextField';
 import MediaBrowser from '../Media/MediaBrowser';
 import { FieldInput as SharedFieldInput, FieldTextarea as SharedFieldTextarea } from '../SharedFormComponents';
-import { Flag, FlagGroup } from '../../Flag';
+import { Flag, FlagGroup } from '@/components/Flag';
 import { CATEGORY_TYPE_COLORS } from './CategoriesStyles';
 import styles from './CategoryFormStyles';
 

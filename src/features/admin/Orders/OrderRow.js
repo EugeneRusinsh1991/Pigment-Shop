@@ -3,11 +3,11 @@
  */
 import React from 'react';
 import { View } from 'react-native';
-import { Text } from '../../Text';
-import { AnimatedButton } from '../../Button';
+import { Text } from '@/components/Text';
+import { AnimatedButton } from '@/components/Button';
 import { useTheme } from '../../../context/ThemeContext';
-import { DataTableRow, DataTableCell } from '../../DataTable/DataTable';
-import { Badge } from '../../Badge';
+import { DataTableRow, DataTableCell } from '@/components/DataTable/DataTable';
+import { Badge } from '@/components/Badge';
 import styles from './OrdersStyles';
 import { formatDateShortWithTime } from '../../../utils/dateFormatting';
 import { resolveStatusDef } from '../../../utils/orderStatus';

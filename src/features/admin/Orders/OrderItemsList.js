@@ -2,7 +2,7 @@
  * OrderItemsList.js — redesigned with aligned columns + order total
  */
 import { View } from 'react-native';
-import { Text } from '../../Text';
+import { Text } from '@/components/Text';
 import { useTheme } from '../../../context/ThemeContext';
 import styles from './OrdersStyles';
 import { colors, layout } from '../../../theme/tokens';

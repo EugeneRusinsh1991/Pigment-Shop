@@ -10,8 +10,8 @@
  */
 import React, { useState } from 'react';
 import { ScrollView, View } from 'react-native';
-import { Text } from '../../Text';
-import { AnimatedButton } from '../../Button';
+import { Text } from '@/components/Text';
+import { AnimatedButton } from '@/components/Button';
 import { useTheme } from '../../../context/ThemeContext';
 import { useToast } from '../../../context/ToastContext';
 import { BackArrowIcon } from '@/components/Icons';
@@ -23,7 +23,7 @@ import OrderStatusSelector from './OrderStatusSelector';
 import styles from './OrdersStyles';
 import { useCrudWorkflow } from '../../../hooks/useCrudWorkflow';
 import { colors, layout } from '../../../theme/tokens';
-import AdminSaveFooter from '../shared/AdminSaveFooter';
+import AdminSaveFooter from '../AdminSaveFooter';
 
 function useOrderNote(order) {
   const [note, setNote] = useState(order?.adminNote || '');

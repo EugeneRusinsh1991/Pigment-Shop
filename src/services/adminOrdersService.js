@@ -6,7 +6,7 @@
  */
 import { COLLECTIONS } from './collections';
 import { updateOrderStatus as updateStatusRepo, updateAdminNote as updateNoteRepo } from './repositories/ordersRepository';
-import { fetchUsersAndOrders } from '../components/Admin/shared/adminSharedService';
+import { fetchUsersAndOrders } from './adminSharedService';
 import { withServiceContract } from './serviceContract';
 
 function buildFullName(firstName, lastName, fallback) {

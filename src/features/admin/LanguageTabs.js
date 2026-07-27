@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { ChipButton } from '../Button';
+import { ChipButton } from '@/components/Button';
 import { layout } from '../../theme/tokens';
 
 const LANGUAGES = [
