@@ -149,7 +149,7 @@ function getNormalizedImages(rest: Record<string, unknown>): string[] {
 export function normalizeProductEntity(product?: RawProductInput | null): NormalizedProductEntity {
   const safeProduct = product || {} as RawProductInput;
   const { category, subcategory, categoryId, ...rest } = safeProduct;
-  
+
   return {
     ...rest,
     id: safeProduct.id || '',
@@ -162,7 +162,7 @@ export function normalizeProductEntity(product?: RawProductInput | null): Normal
 
 export function normalizeCategoryEntity(category?: RawCategoryInput | null): NormalizedCategoryEntity {
   const safeCategory = category || {} as RawCategoryInput;
-  
+
   return {
     ...safeCategory,
     id: safeCategory.id || '',

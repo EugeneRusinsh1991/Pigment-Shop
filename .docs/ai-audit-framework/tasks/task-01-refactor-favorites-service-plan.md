@@ -9,7 +9,7 @@ Introduce a higher-level favorites service and refactor `useFavorites` to depend
    The contract wrapper is `async` and returns `{ success, data }`. Wrapping a subscription would
    turn the Firestore `unsubscribe` function into a `Promise`, and `useEffect` would return a
    Promise instead of a cleanup function — favorites would leak listeners and never unsubscribe.
-   Rule: only `getFavorites` and `toggleFavorite` (async, one-shot) get the contract.
+   Rule: only `getFavorites` and `toggleFavor[task-01-refactor-favorites-service.md](task-01-refactor-favorites-service.md)ite` (async, one-shot) get the contract.
    `subscribeFavorites` stays **synchronous** and returns the raw `unsubscribe` function.
 
 2. **`toggleFavorite` signature is 3 arguments: `(userId, product, isFavorite)`.**

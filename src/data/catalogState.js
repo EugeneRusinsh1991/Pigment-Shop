@@ -27,7 +27,7 @@
  * immediately and consistently.
  */
 
-import { normalizeProductEntity, normalizeCategoryEntity } from '../domain/catalogEntityContract';
+import { normalizeProductEntity, normalizeCategoryEntity } from '../services/catalogEntityContract';
 
 class CatalogStore {
   constructor(initialData = {}) {

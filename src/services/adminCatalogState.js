@@ -5,7 +5,7 @@
  * separately from the persistence service. Exposes well-defined actions and subscriptions.
  */
 
-import { normalizeProductEntity, normalizeCategoryEntity } from '../domain/catalogEntityContract';
+import { normalizeProductEntity, normalizeCategoryEntity } from './catalogEntityContract';
 import { addCategory, updateCategory, removeCategory as removeCategoryPure, getDescendantIds } from './adminCategoriesTransforms';
 
 export class AdminCatalogState {
