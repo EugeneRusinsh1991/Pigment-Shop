@@ -6834,5 +6834,23 @@
         }
       ]
     }
+  },
+  "src_07-28_18-55_model-selection.md_66files": {
+    "timestamp": "2026-07-28T15:55:27.891Z",
+    "diff": {
+      "added": 0,
+      "removed": 3,
+      "modified": 1,
+      "topFolders": [
+        {
+          "folder": ".agents/skills/model-recommender/references",
+          "count": 3
+        },
+        {
+          "folder": ".todos",
+          "count": 1
+        }
+      ]
+    }
   }
 }
