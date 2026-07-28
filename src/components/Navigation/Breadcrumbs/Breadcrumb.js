@@ -1,7 +1,6 @@
 import { AnimatedButton } from '@/components/Button';
 import { HomeIcon } from '@/components/Icons';
 import { Text } from '@/components/Text';
-import { useCatalog } from '@/features/catalog/CatalogContext';
 import { colors, layout } from '@/theme/tokens';
 import { buildBreadcrumbStack } from '@/utils/breadcrumbResolver';
 import { Link, useLocalSearchParams, useSegments } from 'expo-router';
@@ -40,11 +39,10 @@ function CrumbItem({ crumb, isLast, styles, testID }) {
  * Props:
  *   isDark  boolean
  */
-export function Breadcrumb({ isDark: isDarkProps }) {
+export function Breadcrumb({ isDark: isDarkProps, flatList, categoryLookup }) {
   const { t, lang, styles } = useBreadcrumbTheme(isDarkProps);
   const segments = useSegments();
   const params = useLocalSearchParams();
-  const { flatList, categoryLookup } = useCatalog() || {};
 
   const stack = buildBreadcrumbStack({ segments, params, flatList, categoryLookup, t, lang });
 

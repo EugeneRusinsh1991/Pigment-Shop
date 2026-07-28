@@ -1,7 +1,6 @@
 import { useRouter } from 'expo-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { View } from 'react-native';
-import { useCatalog } from '../../features/catalog/CatalogContext';
 import SearchDropdown from './SearchDropdown';
 import SearchInput from './SearchInput';
 import SearchStyles from './SearchStyles';
@@ -32,10 +31,9 @@ function SearchResultDropdown({ results, query, isDark, onSelect }) {
   return null;
 }
 
-export function AutocompleteSearch({ isDark, onActiveChange, variant = 'default', size = 'md' }) {
+export function AutocompleteSearch({ isDark, onActiveChange, variant = 'default', size = 'md', flatList = [], searchIndex }) {
   const [query, setQuery] = useState('');
   const [isFocused, setIsFocused] = useState(false);
-  const { flatList, searchIndex } = useCatalog();
   const router = useRouter();
   const inputRef = useRef(null);
 

@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { layout } from '../../theme/tokens';
+import { colors, layout } from '../../theme/tokens';
 
 export const mediaStyles = StyleSheet.create({
   nativeContainer: {
@@ -18,15 +18,15 @@ export const mediaStyles = StyleSheet.create({
   playTriangle: {
     width: 0,
     height: 0,
-    backgroundColor: 'transparent',
+    backgroundColor: colors.transparent,
     borderStyle: 'solid',
     borderLeftWidth: 16,
     borderRightWidth: 0,
     borderBottomWidth: 10,
     borderTopWidth: 10,
-    borderRightColor: 'transparent',
-    borderBottomColor: 'transparent',
-    borderTopColor: 'transparent',
+    borderRightColor: colors.transparent,
+    borderBottomColor: colors.transparent,
+    borderTopColor: colors.transparent,
     marginLeft: layout.spacing.xxs,
   },
   webMedia: {

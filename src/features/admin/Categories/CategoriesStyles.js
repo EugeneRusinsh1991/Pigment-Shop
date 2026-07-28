@@ -89,7 +89,7 @@ export default StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: colors.secondaryLightBorder,
     borderLeftWidth: 3,
-    borderLeftColor: 'transparent',
+    borderLeftColor: colors.transparent,
     overflow: 'hidden',
   },
   treeRowAlt: {
@@ -220,7 +220,7 @@ export default StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: colors.secondaryLightBorder,
     borderLeftWidth: 4,
-    borderLeftColor: 'transparent',
+    borderLeftColor: colors.transparent,
     overflow: 'hidden',
   },
   mobileTreeCardCategoryHolder: {

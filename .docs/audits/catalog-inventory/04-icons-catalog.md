@@ -21,7 +21,7 @@
 
 ### File: src/components/Navigation/Breadcrumbs/Breadcrumb.js
 
-  - Line 61: `<HomeIcon>` (Icon: `[Unknown]`)
+  - Line 59: `<HomeIcon>` (Icon: `[Unknown]`)
 
 ### File: src/components/Search/SearchInput.js
 

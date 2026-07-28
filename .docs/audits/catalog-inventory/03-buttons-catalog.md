@@ -59,13 +59,13 @@
 
 ### File: src/components/Navigation/Breadcrumbs/Breadcrumb.js
 
-  - Line 27: `<AnimatedButton>`
-  - Line 60: `<AnimatedButton>`
+  - Line 26: `<AnimatedButton>`
+  - Line 58: `<AnimatedButton>`
 
 ### File: src/components/Navigation/Pagination/PageNavigation.js
 
   - Line 14: `<AnimatedButton>`
-  - Line 62: `<BackButton>`
+  - Line 64: `<BackButton>`
 
 ### File: src/components/Search/SearchDropdown.js
 

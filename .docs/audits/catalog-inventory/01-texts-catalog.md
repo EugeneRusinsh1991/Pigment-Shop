@@ -108,9 +108,9 @@
 
 ### File: src/components/Navigation/Breadcrumbs/Breadcrumb.js
 
-  - Line 19: `<Text>` -> `[Dynamic Content]`
-  - Line 28: `<Text>` -> `[Dynamic Content]`
-  - Line 68: `<Text>` -> `/`
+  - Line 18: `<Text>` -> `[Dynamic Content]`
+  - Line 27: `<Text>` -> `[Dynamic Content]`
+  - Line 66: `<Text>` -> `/`
 
 ### File: src/components/Navigation/Pagination/PageNavigation.js
 

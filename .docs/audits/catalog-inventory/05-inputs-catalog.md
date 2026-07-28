@@ -8,7 +8,7 @@
 
 ### File: src/components/Search/AutocompleteSearch.js
 
-  - Line 70: `<SearchInput>`
+  - Line 68: `<SearchInput>`
 
 ### File: src/components/Search/SearchInput.js
 

@@ -115,7 +115,7 @@ const baseBadgeStyles = StyleSheet.create({
     justifyContent: 'center',
     alignSelf: 'flex-start',
     borderWidth: layout.borderWidth.thin,
-    borderColor: 'transparent',
+    borderColor: colors.transparent,
   },
   text: {
     textAlign: 'center',
@@ -130,15 +130,15 @@ function resolveSubtleCustomColors(isDark, customColor) {
   const text = isDark
     ? colors.textDark
     : (colors[`${customColor}Deep`] || colors.textStrongLight);
-  return { bg, text, border: 'transparent' };
+  return { bg, text, border: colors.transparent };
 }
 
 const variantColorResolvers = {
-  counter:  () => ({ bg: colors.accent, text: colors.white, border: 'transparent' }),
-  discount: () => ({ bg: colors.accent, text: colors.white, border: 'transparent' }),
-  new:      () => ({ bg: colors.accent, text: colors.white, border: 'transparent' }),
-  product:  () => ({ bg: colors.accent, text: colors.white, border: 'transparent' }),
-  featured: () => ({ bg: colors.purpleMid, text: colors.white, border: 'transparent' }),
+  counter:  () => ({ bg: colors.accent, text: colors.white, border: colors.transparent }),
+  discount: () => ({ bg: colors.accent, text: colors.white, border: colors.transparent }),
+  new:      () => ({ bg: colors.accent, text: colors.white, border: colors.transparent }),
+  product:  () => ({ bg: colors.accent, text: colors.white, border: colors.transparent }),
+  featured: () => ({ bg: colors.purpleMid, text: colors.white, border: colors.transparent }),
   status: ({ status, isDark }) => {
     const st = statusColorMap[status] || statusColorMap.pending;
     return {
@@ -152,7 +152,7 @@ const variantColorResolvers = {
       return {
         bg: isDark ? colors.surfaceDark : colors.slateMid,
         text: isDark ? colors.textMutedDark : colors.slateText,
-        border: 'transparent',
+        border: colors.transparent,
       };
     }
     return resolveSubtleCustomColors(isDark, customColor);

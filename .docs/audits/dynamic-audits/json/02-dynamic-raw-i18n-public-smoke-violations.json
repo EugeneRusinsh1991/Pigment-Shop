@@ -1977,6 +1977,11 @@
         "url": "http://localhost:8081/product/prod-2-2-1-1",
         "message": "Found raw camelCase i18n key: \"reviewsCount\"",
         "selector": "div.css-text-146c3p1.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7"
+      },
+      {
+        "url": "http://localhost:8081/product/prod-2-2-1-1",
+        "message": "Found raw camelCase i18n key: \"navRootCatalog\"",
+        "selector": "div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-1s7ct43"
       }
     ],
     "http://localhost:8081/product/prod-2-1-2-1": [
@@ -2249,6 +2254,11 @@
         "url": "http://localhost:8081/product/prod-2-1-2-1",
         "message": "Found raw camelCase i18n key: \"reviewsCount\"",
         "selector": "div.css-text-146c3p1.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7"
+      },
+      {
+        "url": "http://localhost:8081/product/prod-2-1-2-1",
+        "message": "Found raw camelCase i18n key: \"navRootCatalog\"",
+        "selector": "div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-1s7ct43"
       }
     ],
     "http://localhost:8081/product/prod-1-2-2-1": [
@@ -2521,6 +2531,11 @@
         "url": "http://localhost:8081/product/prod-1-2-2-1",
         "message": "Found raw camelCase i18n key: \"reviewsCount\"",
         "selector": "div.css-text-146c3p1.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7"
+      },
+      {
+        "url": "http://localhost:8081/product/prod-1-2-2-1",
+        "message": "Found raw camelCase i18n key: \"navRootCatalog\"",
+        "selector": "div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-1s7ct43"
       }
     ],
     "http://localhost:8081/cart": [
@@ -3225,6 +3240,11 @@
         "url": "http://localhost:8081/product/prod-2-1-1-1",
         "message": "Found hardcoded text without i18n key: \"Product 1-2-1-1 EN\"",
         "selector": "div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16"
+      },
+      {
+        "url": "http://localhost:8081/product/prod-2-1-1-1",
+        "message": "Found raw camelCase i18n key: \"navRootCatalog\"",
+        "selector": "div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-1npgj5g"
       }
     ],
     "http://localhost:8081/catalog/cat-root-1-sub-0": [
@@ -4213,6 +4233,11 @@
         "url": "http://localhost:8081/product/prod-1-1-2-1",
         "message": "Found hardcoded text without i18n key: \"Product 1-2-1-1 EN\"",
         "selector": "div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-marginBottom-15zivkp.r-minHeight-2yi16"
+      },
+      {
+        "url": "http://localhost:8081/product/prod-1-1-2-1",
+        "message": "Found raw camelCase i18n key: \"navRootCatalog\"",
+        "selector": "div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-1npgj5g"
       }
     ],
     "http://localhost:8081/catalog/cat-root-0-sub-0": [

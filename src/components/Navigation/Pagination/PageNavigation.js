@@ -26,11 +26,11 @@ function BackButton({ show, onPress, styles, t }) {
 /**
  * BreadcrumbSection helper component.
  */
-function BreadcrumbSection({ show, isDark, styles }) {
+function BreadcrumbSection({ show, isDark, styles, flatList, categoryLookup }) {
   if (!show) return null;
   return (
     <View style={styles.breadcrumbWrapper}>
-      <Breadcrumb isDark={isDark} />
+      <Breadcrumb isDark={isDark} flatList={flatList} categoryLookup={categoryLookup} />
     </View>
   );
 }
@@ -42,6 +42,8 @@ function BreadcrumbSection({ show, isDark, styles }) {
 export function PageNavigation({
   isDark: isDarkProps,
   crumbs = [], // Kept for backwards compatibility if needed elsewhere
+  flatList,
+  categoryLookup,
   onBack,
   showBack = false,
   showBreadcrumbs = false,
@@ -60,7 +62,7 @@ export function PageNavigation({
     <View style={styles.container}>
       <View style={styles.navRow}>
         <BackButton show={shouldShowBack} onPress={onBack} styles={styles} t={t} />
-        <BreadcrumbSection show={showBreadcrumbs} isDark={isDark} styles={styles} />
+        <BreadcrumbSection show={showBreadcrumbs} isDark={isDark} styles={styles} flatList={flatList} categoryLookup={categoryLookup} />
       </View>
     </View>
   );

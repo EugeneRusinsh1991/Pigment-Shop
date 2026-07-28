@@ -105,7 +105,7 @@ export default StyleSheet.create({
     width: 100,
     borderRadius: layout.radii.sm,
     borderWidth: 2,
-    borderColor: 'transparent',
+    borderColor: colors.transparent,
     overflow: 'hidden',
     backgroundColor: colors.slateLight,
   },
