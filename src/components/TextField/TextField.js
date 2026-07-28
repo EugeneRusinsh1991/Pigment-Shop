@@ -40,6 +40,28 @@ function renderHelperText(displayHelperText, dynamicStyles, helperStyle) {
   );
 }
 
+function buildWrapperProps({ ref, value, onChangeText, placeholder, theme, disabled, multiline, numberOfLines, handleFocus, handleBlur, dynamicStyles, inputStyle, animatedContainerStyle, inputWrapperStyle, leadingIcon, trailingIcon, restProps }) {
+  return {
+    ref,
+    value,
+    onChangeText,
+    placeholder,
+    theme,
+    disabled,
+    multiline,
+    numberOfLines,
+    handleFocus,
+    handleBlur,
+    dynamicStyles,
+    inputStyle,
+    animatedContainerStyle,
+    inputWrapperStyle,
+    leadingIcon,
+    trailingIcon,
+    restProps,
+  };
+}
+
 function renderInputWrapper({ ref, value, onChangeText, placeholder, theme, disabled, multiline, numberOfLines, handleFocus, handleBlur, dynamicStyles, inputStyle, animatedContainerStyle, inputWrapperStyle, leadingIcon, trailingIcon, restProps }) {
   return (
     <Animated.View style={[dynamicStyles.inputWrapper, animatedContainerStyle, inputWrapperStyle]}>
@@ -61,6 +83,97 @@ function renderInputWrapper({ ref, value, onChangeText, placeholder, theme, disa
       {trailingIcon ? <View style={styles.trailingIconContainer}>{trailingIcon}</View> : null}
     </Animated.View>
   );
+}
+
+function useTextFieldController({
+  error,
+  size,
+  multiline,
+  numberOfLines,
+  leftIcon,
+  leadingIcon: propLeadingIcon,
+  rightIcon,
+  trailingIcon: propTrailingIcon,
+  disabled,
+  isDarkProp,
+  animated,
+  fullWidth,
+  width,
+  height,
+  onFocus,
+  onBlur,
+  helperText,
+}) {
+  const [isFocused, setIsFocused] = useState(false);
+
+  const theme = useTextFieldTheme({
+    isDarkProp,
+    disabled,
+    error: !!error,
+    styleMap: styles,
+  });
+
+  const { animatedContainerStyle } = useTextFieldAnimation({
+    focused: isFocused,
+    animated,
+  });
+
+  const leadingIcon = leftIcon || propLeadingIcon;
+  const trailingIcon = rightIcon || propTrailingIcon;
+
+  const displayHelperText = getDisplayHelperText(error, helperText);
+  const dynamicStyles = getTextFieldStyles(buildStyleParams({ size, multiline, numberOfLines, fullWidth, width, height, disabled, error, isFocused, isDark: theme.isDark }));
+
+  const handleFocus = useCallback(makeFocusHandler(setIsFocused, true, onFocus), [onFocus]);
+  const handleBlur = useCallback(makeFocusHandler(setIsFocused, false, onBlur), [onBlur]);
+
+  return {
+    animatedContainerStyle,
+    displayHelperText,
+    dynamicStyles,
+    handleBlur,
+    handleFocus,
+    leadingIcon,
+    theme,
+    trailingIcon,
+  };
+}
+
+function renderTextFieldContent({ label, dynamicStyles, labelStyle, wrapperProps, displayHelperText, helperStyle }) {
+  return (
+    <>
+      {renderLabel(label, dynamicStyles, labelStyle)}
+      {renderInputWrapper(wrapperProps)}
+      {renderHelperText(displayHelperText, dynamicStyles, helperStyle)}
+    </>
+  );
+}
+
+function createTextFieldView({ containerStyle, dynamicStyles, label, labelStyle, wrapperProps, displayHelperText, helperStyle }) {
+  return (
+    <View style={[dynamicStyles.container, containerStyle]}>
+      {renderTextFieldContent({
+        label,
+        dynamicStyles,
+        labelStyle,
+        wrapperProps,
+        displayHelperText,
+        helperStyle,
+      })}
+    </View>
+  );
+}
+
+function TextFieldContent({ containerStyle, dynamicStyles, label, labelStyle, wrapperProps, displayHelperText, helperStyle }) {
+  return createTextFieldView({
+    containerStyle,
+    dynamicStyles,
+    label,
+    labelStyle,
+    wrapperProps,
+    displayHelperText,
+    helperStyle,
+  });
 }
 
 const TextField = forwardRef(function TextField(
@@ -95,42 +208,64 @@ const TextField = forwardRef(function TextField(
   },
   ref
 ) {
-  const [isFocused, setIsFocused] = useState(false);
-
-  const theme = useTextFieldTheme({
-    isDarkProp,
+  const {
+    animatedContainerStyle,
+    displayHelperText,
+    dynamicStyles,
+    handleBlur,
+    handleFocus,
+    leadingIcon,
+    theme,
+    trailingIcon,
+  } = useTextFieldController({
+    error,
+    size,
+    multiline,
+    numberOfLines,
+    leftIcon,
+    leadingIcon: propLeadingIcon,
+    rightIcon,
+    trailingIcon: propTrailingIcon,
     disabled,
-    error: !!error,
-    styleMap: styles,
-  });
-
-  const { animatedContainerStyle } = useTextFieldAnimation({
-    focused: isFocused,
+    isDarkProp,
     animated,
+    fullWidth,
+    width,
+    height,
+    onFocus,
+    onBlur,
+    helperText,
   });
 
-  const leadingIcon = leftIcon || propLeadingIcon;
-  const trailingIcon = rightIcon || propTrailingIcon;
+  const wrapperProps = buildWrapperProps({
+    ref,
+    value,
+    onChangeText,
+    placeholder,
+    theme,
+    disabled,
+    multiline,
+    numberOfLines,
+    handleFocus,
+    handleBlur,
+    dynamicStyles,
+    inputStyle,
+    animatedContainerStyle,
+    inputWrapperStyle,
+    leadingIcon,
+    trailingIcon,
+    restProps,
+  });
 
-  const displayHelperText = getDisplayHelperText(error, helperText);
-  const dynamicStyles = getTextFieldStyles(buildStyleParams({ size, multiline, numberOfLines, fullWidth, width, height, disabled, error, isFocused, isDark: theme.isDark }));
-
-  const handleFocus = useCallback(makeFocusHandler(setIsFocused, true, onFocus), [onFocus]);
-  const handleBlur = useCallback(makeFocusHandler(setIsFocused, false, onBlur), [onBlur]);
-
-  const wrapperProps = {
-    ref, value, onChangeText, placeholder, theme, disabled, multiline,
-    numberOfLines, handleFocus, handleBlur, dynamicStyles, inputStyle,
-    animatedContainerStyle, inputWrapperStyle, leadingIcon, trailingIcon, restProps,
-  };
-
-  return (
-    <View style={[dynamicStyles.container, containerStyle]}>
-      {renderLabel(label, dynamicStyles, labelStyle)}
-      {renderInputWrapper(wrapperProps)}
-      {renderHelperText(displayHelperText, dynamicStyles, helperStyle)}
-    </View>
-  );
+  return TextFieldContent({
+    containerStyle,
+    dynamicStyles,
+    label,
+    labelStyle,
+    wrapperProps,
+    displayHelperText,
+    helperStyle,
+  });
 });
 
 export default TextField;

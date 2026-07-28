@@ -1,9 +1,9 @@
 import React from 'react';
 import { Animated, TouchableOpacity } from 'react-native';
-import { Text } from '../Text';
-import { useBadgeTheme } from './useBadgeTheme';
-import { useBadgeAnimation } from './useBadgeAnimation';
 import { motion } from '../../theme/tokens';
+import { Text } from '../Text';
+import { useBadgeAnimation } from './useBadgeAnimation';
+import { useBadgeTheme } from './useBadgeTheme';
 
 const badgeFontSizes = {
   sm: 10,
@@ -15,15 +15,30 @@ const badgeFontSizes = {
   counter: 10,
 };
 
+const fontPropMap = {
+  fontSize: 'size',
+  fontWeight: 'weight',
+  lineHeight: 'lineHeight',
+  fontFamily: 'font',
+};
+
 function extractFontProps(style) {
   if (!style) return { cleanedStyle: style, fontProps: {} };
-  const flat = Array.isArray(style) ? Object.assign({}, ...style.flat().filter(Boolean)) : { ...style };
+
+  const flat = Array.isArray(style)
+    ? Object.assign({}, ...style.flat().filter(Boolean))
+    : { ...style };
+
   const fontProps = {};
   const cleanedStyle = { ...flat };
-  if (flat.fontSize !== undefined) { fontProps.size = flat.fontSize; delete cleanedStyle.fontSize; }
-  if (flat.fontWeight !== undefined) { fontProps.weight = flat.fontWeight; delete cleanedStyle.fontWeight; }
-  if (flat.lineHeight !== undefined) { fontProps.lineHeight = flat.lineHeight; delete cleanedStyle.lineHeight; }
-  if (flat.fontFamily !== undefined) { fontProps.font = flat.fontFamily; delete cleanedStyle.fontFamily; }
+
+  for (const [styleKey, propKey] of Object.entries(fontPropMap)) {
+    if (flat[styleKey] !== undefined) {
+      fontProps[propKey] = flat[styleKey];
+      delete cleanedStyle[styleKey];
+    }
+  }
+
   return { cleanedStyle, fontProps };
 }
 
@@ -98,9 +113,29 @@ const Badge = React.forwardRef(({
 });
 
 function resolveDisplayText({ variant, label, value, count, children }) {
-  if (children !== undefined) return children;
-  if (variant === 'discount' && value !== undefined) return `-${Math.abs(value)}%`;
-  if (variant === 'counter') return count ?? 0;
+  return (
+    resolveChildren(children)
+    ?? resolveDiscountText(variant, value)
+    ?? resolveCounterText(variant, count)
+    ?? resolveLabelText(label)
+  );
+}
+
+function resolveChildren(children) {
+  return children;
+}
+
+function resolveDiscountText(variant, value) {
+  if (variant !== 'discount' || value === undefined) return undefined;
+  return `-${Math.abs(value)}%`;
+}
+
+function resolveCounterText(variant, count) {
+  if (variant !== 'counter') return undefined;
+  return count ?? 0;
+}
+
+function resolveLabelText(label) {
   return label ?? '';
 }
 

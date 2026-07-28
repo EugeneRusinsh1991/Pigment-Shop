@@ -1,0 +1,34 @@
+[
+  {
+    "label": "Todos - Roadmap",
+    "description": "Project tasks and roadmaps",
+    "icon": "checklist",
+    "iconColor": "editorBracketHighlight.foreground5",
+    "command": "openFile",
+    "arguments": [".todos/before ui changes/_roadmap.md"]
+  },
+  {
+    "label": "Todos - Task 3",
+    "description": "Consolidate domain task",
+    "icon": "checklist",
+    "iconColor": "editorBracketHighlight.foreground5",
+    "command": "openFile",
+    "arguments": [".todos/reorganization/task-3-consolidate-domain.md"]
+  },
+  {
+    "label": "Docs - Hierarchy",
+    "description": "Project structure",
+    "icon": "book",
+    "iconColor": "editorBracketHighlight.foreground6",
+    "command": "openFile",
+    "arguments": [".docs/project-hierarchy/project-hierarchy.md"]
+  },
+  {
+    "label": "Docs - Knowledge",
+    "description": "Project knowledge base",
+    "icon": "book",
+    "iconColor": "editorBracketHighlight.foreground6",
+    "command": "openFile",
+    "arguments": [".docs/project-knowledge/project-knowledge.md"]
+  }
+]

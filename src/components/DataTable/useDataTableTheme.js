@@ -10,14 +10,18 @@ function getIsDarkContext() {
   }
 }
 
+function chooseColor(isDark, darkColor, lightColor) {
+  return isDark ? darkColor : lightColor;
+}
+
 export function useDataTableTheme({ isDarkProp } = {}) {
   const isDark = isDarkProp ?? getIsDarkContext();
 
-  const surfaceColor = isDark ? colors.surfaceDark : colors.surfaceLight;
-  const headerBgColor = isDark ? colors.surfaceNeutralDark : colors.slateLight;
-  const headerBorderColor = isDark ? colors.borderSlateDark : colors.borderSlateLight;
-  const headerTextColor = isDark ? colors.textMutedDark : colors.slateText;
-  const rowAltBgColor = isDark ? colors.surfaceSubtleDark : colors.surfaceSubtleLight;
+  const surfaceColor = chooseColor(isDark, colors.surfaceDark, colors.surfaceLight);
+  const headerBgColor = chooseColor(isDark, colors.surfaceNeutralDark, colors.slateLight);
+  const headerBorderColor = chooseColor(isDark, colors.borderSlateDark, colors.borderSlateLight);
+  const headerTextColor = chooseColor(isDark, colors.textMutedDark, colors.slateText);
+  const rowAltBgColor = chooseColor(isDark, colors.surfaceSubtleDark, colors.surfaceSubtleLight);
   const rowBorderColor = colors.borderLight;
 
   return {

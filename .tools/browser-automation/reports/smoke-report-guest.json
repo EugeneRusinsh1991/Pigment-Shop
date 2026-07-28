@@ -1,12 +1,12 @@
 {
   "summary": {
-    "visitedScreens": 1,
-    "visitedInteractions": 4,
-    "successfulInteractions": 2,
+    "visitedScreens": 8,
+    "visitedInteractions": 163,
+    "successfulInteractions": 99,
     "failedInteractions": 0,
-    "warnings": 2,
+    "warnings": 4,
     "errors": 0,
-    "executionDurationMs": 2219
+    "executionDurationMs": 85798
   },
   "failures": [],
   "warnings": [
@@ -15,18 +15,36 @@
       "interaction": "Initial Load",
       "elementIdentifier": "None",
       "event": "Runtime",
-      "timestamp": 1785198913825,
+      "timestamp": 1785247683875,
       "errorType": "Console Warning",
       "errorMessage": "\"shadow*\" style props are deprecated. Use \"boxShadow\"."
     },
     {
       "screen": "http://localhost:8081/",
       "interaction": "Click",
+      "elementIdentifier": "btn|⚙️",
+      "event": "Runtime",
+      "timestamp": 1785247684742,
+      "errorType": "Console Error",
+      "errorMessage": "Failed to load resource: the server responded with a status of 400 ()"
+    },
+    {
+      "screen": "http://localhost:8081/",
+      "interaction": "Click",
       "elementIdentifier": "btn|Capture Screenshot...",
       "event": "Runtime",
-      "timestamp": 1785198915909,
+      "timestamp": 1785247685884,
       "errorType": "Console Warning",
-      "errorMessage": "Disconnected from Metro (1006)\nTo reconnect:\n- Ensure that Metro is running and available on the same network\n- Reload this app (will trigger further help if Metro cannot be connected to)"
+      "errorMessage": "Animated: `useNativeDriver` is not supported because the native animated module is missing. Falling back to JS-based animation. To resolve this, add `RCTAnimation` module to this app, or remove `useNativeDriver`. Make sure to run `bundle exec pod install` first. Read more about autolinking: https://github.com/react-native-community/cli/blob/master/docs/autolinking.md"
+    },
+    {
+      "screen": "http://localhost:8081/",
+      "interaction": "Click",
+      "elementIdentifier": "btn|Capture Screenshot...",
+      "event": "Runtime",
+      "timestamp": 1785247686090,
+      "errorType": "Console Warning",
+      "errorMessage": "props.pointerEvents is deprecated. Use style.pointerEvents"
     }
   ]
 }

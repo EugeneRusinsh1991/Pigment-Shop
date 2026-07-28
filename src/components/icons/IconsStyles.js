@@ -23,13 +23,19 @@ const colorPresetMap = {
   black: () => colors.black,
 };
 
+function isInlineColorValue(colorPreset) {
+  return typeof colorPreset === 'string' && ['#', 'rgb', 'hsl'].some((prefix) => colorPreset.startsWith(prefix));
+}
+
 export function getIconColor(colorPreset = 'currentColor', isDark = false) {
   if (!colorPreset || colorPreset === 'currentColor') {
     return colorPreset || 'currentColor';
   }
-  if (typeof colorPreset === 'string' && (colorPreset.startsWith('#') || colorPreset.startsWith('rgb') || colorPreset.startsWith('hsl'))) {
+
+  if (isInlineColorValue(colorPreset)) {
     return colorPreset;
   }
+
   const resolver = colorPresetMap[colorPreset];
   return resolver ? resolver(isDark) : colorPreset;
 }

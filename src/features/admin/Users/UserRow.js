@@ -1,9 +1,8 @@
-import { View } from 'react-native';
-import { Text } from '@/components/Text';
 import { AnimatedButton } from '@/components/Button';
-import { useTheme } from '../../../context/ThemeContext';
-import styles from './UsersStyles';
+import { Text } from '@/components/Text';
+import { View } from 'react-native';
 import { motion } from '../../../theme/tokens';
+import styles from './UsersStyles';
 
 export function MobileUserCard({ user, index, fullName, onPress }) {
   const metaItems = [user.email, user.phone, user.city].filter(Boolean);
@@ -34,6 +33,14 @@ export function MobileUserCard({ user, index, fullName, onPress }) {
   );
 }
 
+function renderCell(value, style) {
+  return (
+    <Text style={style} size={13} numberOfLines={1}>
+      {value || '—'}
+    </Text>
+  );
+}
+
 export function DesktopUserRow({ user, index, fullName, onPress }) {
   return (
     <AnimatedButton
@@ -46,13 +53,13 @@ export function DesktopUserRow({ user, index, fullName, onPress }) {
         <Text style={styles.userNameBold} size={14} weight="bold">{fullName}</Text>
       </View>
       <View style={[styles.colEmail, styles.userCell]}>
-        <Text style={user.email ? styles.cellText : styles.cellTextMuted} size={13}>{user.email || '—'}</Text>
+        {renderCell(user.email, user.email ? styles.cellText : styles.cellTextMuted)}
       </View>
       <View style={[styles.colPhone, styles.userCell]}>
-        <Text style={user.phone ? styles.cellText : styles.cellTextMuted} size={13}>{user.phone || '—'}</Text>
+        {renderCell(user.phone, user.phone ? styles.cellText : styles.cellTextMuted)}
       </View>
       <View style={[styles.colPhone, styles.userCell]}>
-        <Text style={user.city ? styles.cellText : styles.cellTextMuted} size={13}>{user.city || '—'}</Text>
+        {renderCell(user.city, user.city ? styles.cellText : styles.cellTextMuted)}
       </View>
       <View style={[styles.colOrders, styles.colOrdersContent]}>
         <View style={styles.ordersBadge}>

@@ -1,6 +1,6 @@
 # 📄 Small & Pass-Through Files Findings
 
-*Generated on: 28.07.2026, 03:29:47*
+*Generated on: 28.07.2026, 17:04:27*
 
 ### Candidate Files for Refactoring/Elimination
 
@@ -116,10 +116,6 @@
   - Lines: 17 | Size: 597 B | Type: **Tiny Component**
   > 💡 This component is very small; consider declaring it inline within its parent component.
 
-- **[useModalTheme.js](file:///D:/Magazine/_PigmentShop/src/components/Modal/useModalTheme.js)** (`src/components/Modal/useModalTheme.js`)
-  - Lines: 18 | Size: 653 B | Type: **Tiny Component**
-  > 💡 This component is very small; consider declaring it inline within its parent component.
-
 - **[CardShadow.js](file:///D:/Magazine/_PigmentShop/src/components/Card/CardShadow.js)** (`src/components/Card/CardShadow.js`)
   - Lines: 20 | Size: 659 B | Type: **Tiny Component**
   > 💡 This component is very small; consider declaring it inline within its parent component.
@@ -134,6 +130,10 @@
 
 - **[useToastTheme.js](file:///D:/Magazine/_PigmentShop/src/components/Feedback/Toast/useToastTheme.js)** (`src/components/Feedback/Toast/useToastTheme.js`)
   - Lines: 23 | Size: 985 B | Type: **Tiny Component**
+  > 💡 This component is very small; consider declaring it inline within its parent component.
+
+- **[useModalTheme.js](file:///D:/Magazine/_PigmentShop/src/components/Modal/useModalTheme.js)** (`src/components/Modal/useModalTheme.js`)
+  - Lines: 24 | Size: 728 B | Type: **Tiny Component**
   > 💡 This component is very small; consider declaring it inline within its parent component.
 
 - **[useFeedbackTheme.js](file:///D:/Magazine/_PigmentShop/src/components/Feedback/useFeedbackTheme.js)** (`src/components/Feedback/useFeedbackTheme.js`)

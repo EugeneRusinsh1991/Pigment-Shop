@@ -2,7 +2,7 @@
 type: dynamic-audit
 auditor: broken-ui
 scope: public
-date: 2026-07-28T00:25:05.646Z
+date: 2026-07-28T14:08:57.373Z
 ---
 
 ### Problem: Clickable element is overlapped or intercepted by another element.
@@ -14,6 +14,13 @@ date: 2026-07-28T00:25:05.646Z
   - Selector: `a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-height-1pi2tsx.r-position-bnwqim.r-width-13qz1uu`
 - URL: `http://localhost:8081/products`
   - Selector: `button.css-view-g5y9jx.r-touchAction-1otgn73.r-alignItems-1awozwy.r-cursor-1loqt21.r-flexDirection-18u37iz.r-justifyContent-1777fci.r-backgroundColor-14lw9ot.r-borderColor-1wr2p1e.r-borderRadius-y47klf.r-borderWidth-1rf8fdq.r-minHeight-15ysp7h.r-paddingBlock-vuvdlw.r-paddingInline-3o4zer`
+
+### Problem: Broken image resource (`naturalWidth === 0`).
+
+- URL: `http://localhost:8081/`
+  - Selector: `img.css-accessibilityImage-9pa8cd`
+- URL: `http://localhost:8081/products`
+  - Selector: `img.css-accessibilityImage-9pa8cd`
 
 ### Problem: Element has overflow clipping (`scrollWidth > clientWidth`).
 
@@ -44,12 +51,33 @@ date: 2026-07-28T00:25:05.646Z
 - URL: `http://localhost:8081/product/prod-2-1-1-1`
   - Selector: `div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-12zy4o2`
   - Selector: `div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-1npgj5g`
+  - Selector: `div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-1s7ct43`
+  - Selector: `div.css-view-g5y9jx.r-alignItems-1awozwy.r-flexDirection-18u37iz.r-padding-zhp00w.r-position-bnwqim.r-borderRadius-1xfd6ze.r-height-eu3ka.r-backgroundColor-1gzzd1q.r-marginBottom-1ifxtd0`
 - URL: `http://localhost:8081/catalog/cat-root-1-sub-0`
   - Selector: `div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-1npgj5g`
 - URL: `http://localhost:8081/catalog/cat-root-1-sub-0-sub-0`
   - Selector: `div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-12zy4o2`
-
-### Problem: Broken image resource (`naturalWidth === 0`).
-
-- URL: `http://localhost:8081/products`
-  - Selector: `img.css-accessibilityImage-9pa8cd`
+- URL: `http://localhost:8081/product/prod-1-1-2-1`
+  - Selector: `div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-12zy4o2`
+  - Selector: `div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-1npgj5g`
+  - Selector: `div.css-view-g5y9jx.r-alignItems-1awozwy.r-flexDirection-18u37iz.r-padding-zhp00w.r-position-bnwqim.r-borderRadius-1xfd6ze.r-height-eu3ka.r-backgroundColor-1gzzd1q.r-marginBottom-1ifxtd0`
+  - Selector: `div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-1s7ct43`
+- URL: `http://localhost:8081/catalog/cat-root-0-sub-0`
+  - Selector: `div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-1npgj5g`
+- URL: `http://localhost:8081/catalog/cat-root-0-sub-0-sub-1`
+  - Selector: `div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-12zy4o2`
+- URL: `http://localhost:8081/product/prod-1-2-1-1`
+  - Selector: `div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-12zy4o2`
+  - Selector: `div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-1npgj5g`
+  - Selector: `div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-1s7ct43`
+  - Selector: `div.css-view-g5y9jx.r-alignItems-1awozwy.r-flexDirection-18u37iz.r-padding-zhp00w.r-position-bnwqim.r-borderRadius-1xfd6ze.r-height-eu3ka.r-backgroundColor-1gzzd1q.r-marginBottom-1ifxtd0`
+- URL: `http://localhost:8081/catalog/cat-root-0-sub-1`
+  - Selector: `div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-1npgj5g`
+- URL: `http://localhost:8081/catalog/cat-root-0-sub-1-sub-0`
+  - Selector: `div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-12zy4o2`
+- URL: `http://localhost:8081/cart`
+  - Selector: `div.css-view-g5y9jx.r-flex-13awgt0.r-justifyContent-1wtj0ep.r-marginInlineStart-1cwvpvk`
+  - Selector: `div.css-view-g5y9jx.r-alignItems-1habvwh.r-flexDirection-18u37iz.r-justifyContent-1wtj0ep`
+  - Selector: `div.css-view-g5y9jx.r-marginBottom-5oul0u`
+  - Selector: `div.css-view-g5y9jx.r-marginBlock-l00any`
+  - Selector: `div.css-view-g5y9jx`

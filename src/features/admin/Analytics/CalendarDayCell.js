@@ -1,10 +1,9 @@
-import React from 'react';
-import { View } from 'react-native';
-import { Text } from '@/components/Text';
 import { AnimatedButton } from '@/components/Button';
+import { Text } from '@/components/Text';
+import { View } from 'react-native';
 import { calculateHitSlop } from '../../../theme/buttonCommon';
-import { localStyles as styles } from './DateRangeCalendarStyles';
 import { typography } from '../../../theme/tokens';
+import { localStyles as styles } from './DateRangeCalendarStyles';
 
 const isSameDay = (d1, d2) => {
   if (!d1 || !d2) return false;
@@ -40,17 +39,44 @@ function checkCellState(cellDate, tempStartDate, tempEndDate, hoverDate) {
   return { isSelected, isRange: !!isRange };
 }
 
-const handleHoverEnter = (shouldHover, cellDate, setHoverDate) => {
+function handleHoverEnter(shouldHover, cellDate, setHoverDate) {
   if (shouldHover) {
     setHoverDate(cellDate);
   }
-};
+}
 
-const handleHoverLeave = (shouldHover, setHoverDate) => {
+function handleHoverLeave(shouldHover, setHoverDate) {
   if (shouldHover) {
     setHoverDate(null);
   }
-};
+}
+
+function getHoverEnabled(tempStartDate, tempEndDate) {
+  return !!(tempStartDate && !tempEndDate);
+}
+
+function getCellTextStyle(isCurrentMonth) {
+  return isCurrentMonth ? styles.dayTextCurrent : styles.dayTextOther;
+}
+
+function getCellWeight(isSelected, isRange) {
+  if (isSelected) return typography.weights.bold;
+  if (isRange) return typography.weights.semibold;
+  return undefined;
+}
+
+function getButtonStyle(isSelected) {
+  return [styles.dayButton, isSelected && styles.daySelected];
+}
+
+function getTextStyles(currentTextStyle, isSelected, isRange) {
+  return [
+    styles.dayText,
+    currentTextStyle,
+    isSelected && styles.dayTextSelected,
+    isRange && styles.dayHighlightText,
+  ];
+}
 
 export function CalendarDayCell({
   cell,
@@ -68,14 +94,14 @@ export function CalendarDayCell({
     hoverDate
   );
 
-  const shouldHover = !!(tempStartDate && !tempEndDate);
-  const currentTextStyle = cell.isCurrentMonth ? styles.dayTextCurrent : styles.dayTextOther;
-  const weight = isSelected ? typography.weights.bold : (isRange ? typography.weights.semibold : undefined);
+  const shouldHover = getHoverEnabled(tempStartDate, tempEndDate);
+  const currentTextStyle = getCellTextStyle(cell.isCurrentMonth);
+  const weight = getCellWeight(isSelected, isRange);
 
   return (
     <View style={[styles.dayCell, isRange && styles.dayHighlight]}>
       <AnimatedButton
-        style={[styles.dayButton, isSelected && styles.daySelected]}
+        style={getButtonStyle(isSelected)}
         onPress={() => handleDayPress(cellDate)}
         onMouseEnter={() => handleHoverEnter(shouldHover, cellDate, setHoverDate)}
         onMouseLeave={() => handleHoverLeave(shouldHover, setHoverDate)}
@@ -84,12 +110,7 @@ export function CalendarDayCell({
         <Text
           variant="body2"
           weight={weight}
-          style={[
-            styles.dayText,
-            currentTextStyle,
-            isSelected && styles.dayTextSelected,
-            isRange && styles.dayHighlightText,
-          ]}
+          style={getTextStyles(currentTextStyle, isSelected, isRange)}
         >
           {cell.dayLabel}
         </Text>

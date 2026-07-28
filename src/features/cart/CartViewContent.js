@@ -1,13 +1,13 @@
+import { CartIcon } from '@/components/Icons';
 import { ScrollView, View } from 'react-native';
-import { Text, Heading } from '../../components/Text';
+import { ScrollFadeUp } from '../../components/Motion';
+import { Heading, Text } from '../../components/Text';
+import useGridLayout from '../../hooks/useGridLayout';
+import { colors } from '../../theme/tokens';
+import Footer from '../shell/components/Footer';
 import CartItem from './CartItem';
 import CartSummary from './CartSummary';
-import Footer from '../shell/components/Footer';
-import { CartIcon } from '@/components/Icons';
 import styles from './CartViewStyles';
-import useGridLayout from '../../hooks/useGridLayout';
-import { ScrollFadeUp } from '../../components/Motion';
-import { colors } from '../../theme/tokens';
 
 function EmptyCart({ isDark, t }) {
   return (
@@ -23,6 +23,50 @@ function EmptyCart({ isDark, t }) {
 function buildDisplayItem(item, flatList) {
   const matched = flatList.find((product) => product.id === item.id);
   return matched ? { ...item, label: matched.label } : item;
+}
+
+function getContainerStyle(isDark, stylesMap) {
+  return [stylesMap.container, isDark ? stylesMap.containerDark : stylesMap.containerLight];
+}
+
+function renderCartList(items, renderItem) {
+  return <View style={styles.list}>{items.map((item) => renderItem({ item }))}</View>;
+}
+
+function renderWideLayout({ items, renderItem, summaryProps }) {
+  return (
+    <ScrollFadeUp style={styles.containerRow}>
+      <View style={styles.leftColumn}>
+        {renderCartList(items, renderItem)}
+      </View>
+      <View style={styles.rightColumn}>
+        <CartSummary {...summaryProps} />
+      </View>
+    </ScrollFadeUp>
+  );
+}
+
+function renderNarrowLayout({ items, renderItem, summaryProps }) {
+  return (
+    <ScrollFadeUp>
+      {renderCartList(items, renderItem)}
+      <CartSummary {...summaryProps} />
+    </ScrollFadeUp>
+  );
+}
+
+function renderCartContent({ items, isWide, renderItem, summaryProps, t }) {
+  return (
+    <>
+      <ScrollFadeUp>
+        <Heading level={2} style={styles.cartTitle}>
+          {t('cartTitle')}
+        </Heading>
+      </ScrollFadeUp>
+
+      {isWide ? renderWideLayout({ items, renderItem, summaryProps }) : renderNarrowLayout({ items, renderItem, summaryProps })}
+    </>
+  );
 }
 
 export default function CartViewContent({
@@ -51,7 +95,6 @@ export default function CartViewContent({
   flatList,
 }) {
   const { gridWidth } = useGridLayout();
-  const ic = (dark, light) => (isDark ? dark : light);
 
   const renderItem = ({ item }) => {
     const displayItem = buildDisplayItem(item, flatList);
@@ -90,7 +133,7 @@ export default function CartViewContent({
 
   return (
     <ScrollView
-      style={[styles.container, ic(styles.containerDark, styles.containerLight)]}
+      style={getContainerStyle(isDark, styles)}
       contentContainerStyle={styles.scrollContent}
       showsVerticalScrollIndicator={false}
     >
@@ -105,29 +148,7 @@ export default function CartViewContent({
           {items.length === 0 ? (
             <EmptyCart isDark={isDark} t={t} />
           ) : (
-            <>
-              <ScrollFadeUp>
-                <Heading level={2} style={styles.cartTitle}>
-                  {t('cartTitle')}
-                </Heading>
-              </ScrollFadeUp>
-
-              {isWide ? (
-                <ScrollFadeUp style={styles.containerRow}>
-                  <View style={styles.leftColumn}>
-                    <View style={styles.list}>{items.map((item) => renderItem({ item }))}</View>
-                  </View>
-                  <View style={styles.rightColumn}>
-                    <CartSummary {...summaryProps} />
-                  </View>
-                </ScrollFadeUp>
-              ) : (
-                <ScrollFadeUp>
-                  <View style={styles.list}>{items.map((item) => renderItem({ item }))}</View>
-                  <CartSummary {...summaryProps} />
-                </ScrollFadeUp>
-              )}
-            </>
+            renderCartContent({ items, isWide, renderItem, summaryProps, t })
           )}
         </View>
       </View>
