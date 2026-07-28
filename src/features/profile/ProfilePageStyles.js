@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.inputBgLight,
   },
   inputDisabled: {
-    opacity: 0.7,
+    opacity: layout.opacity.subtle,
   },
   input: {
     height: '100%',
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.textStrongLight,
   },
   saveBtnDisabled: {
-    opacity: 0.5,
+    opacity: layout.opacity.disabled,
   },
   saveBtnText: {},
   saveBtnTextDark: {

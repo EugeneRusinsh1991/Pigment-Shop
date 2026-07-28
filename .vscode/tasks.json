@@ -134,7 +134,7 @@
             "command": "node scripts/open-playwright.js http://localhost:8081",
             "presentation": {
                 "reveal": "always",
-                "panel": "shared",
+                "panel": "dedicated",
                 "clear": true
             },
             "problemMatcher": []
@@ -160,6 +160,17 @@
                     "endsPattern": ".*"
                 }
             }
+        },
+        {
+            "label": "Run Dev (Non-Background)",
+            "type": "shell",
+            "command": "npm run dev",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "focus": true
+            },
+            "problemMatcher": []
         },
         {
             "label": "Generate Media",
@@ -214,16 +225,18 @@
             "command": "npx tsx .tools/browser-automation/run-admin-nav.ts",
             "presentation": {
                 "reveal": "always",
-                "panel": "shared"
+                "panel": "dedicated"
             },
             "problemMatcher": []
         },
         {
             "label": "Tools: Run All Automations",
-            "dependsOn": [
-                "Tools: Automation Admin Explorer",
-                "Tools: Automation Guest Explorer"
-            ],
+            "type": "shell",
+            "command": "npx tsx .tools/browser-automation/run-smoke-both.ts",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            },
             "problemMatcher": []
         },
         {
@@ -232,7 +245,7 @@
             "command": "npx tsx .tools/browser-automation/run-smoke-guest.ts",
             "presentation": {
                 "reveal": "always",
-                "panel": "shared"
+                "panel": "dedicated"
             },
             "problemMatcher": []
         },
@@ -242,8 +255,7 @@
             "command": "npx tsx .tools/browser-automation/run-smoke-both-headless.ts",
             "presentation": {
                 "reveal": "always",
-                "panel": "shared",
-                "focus": true
+                "panel": "dedicated"
             },
             "problemMatcher": []
         },

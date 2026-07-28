@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
-    zIndex: 100,
+    zIndex: layout.zIndices.dropdown,
   },
   footer: {
     padding: layout.spacing.lg,

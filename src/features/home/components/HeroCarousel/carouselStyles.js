@@ -56,13 +56,13 @@ export const localStyles = StyleSheet.create({
   },
   dotActive: {
     width: 48,
-    opacity: 1,
+    opacity: layout.opacity.full,
     backgroundColor: colors.overlayScrim,
     overflow: 'hidden',
   },
   dotInactive: {
     width: layout.spacing.sm,
-    opacity: 0.5,
+    opacity: layout.opacity.disabled,
   },
   progressBar: {
     backgroundColor: colors.white,

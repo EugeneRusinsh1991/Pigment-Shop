@@ -112,10 +112,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   disabled: {
-    opacity: 0.5,
+    opacity: layout.opacity.disabled,
   },
   textDisabled: {
-    opacity: 0.5,
+    opacity: layout.opacity.disabled,
   },
   pageInfo: {
     marginHorizontal: layout.spacing.md,

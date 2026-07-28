@@ -2,77 +2,32 @@
   "summary": {
     "visitedScreens": 0,
     "visitedInteractions": 0,
-    "successfulInteractions": 73,
+    "successfulInteractions": 57,
     "failedInteractions": 0,
-    "warnings": 4,
-    "errors": 3,
+    "warnings": 1,
+    "errors": 1,
     "executionDurationMs": 0
   },
   "failures": [
     {
       "screen": "http://localhost:8081/admin",
       "interaction": "Click",
-      "elementIdentifier": "btn|Images",
-      "event": "Runtime",
-      "timestamp": 1785254591915,
-      "errorType": "Console Error",
-      "errorMessage": "[Application Bug] WebSocket connection to 'ws://localhost:8081/message' failed: "
-    },
-    {
-      "screen": "http://localhost:8081/admin",
-      "interaction": "Click",
-      "elementIdentifier": "btn|Images",
-      "event": "Runtime",
-      "timestamp": 1785254591918,
-      "errorType": "Console Error",
-      "errorMessage": "[Application Bug] WebSocket connection to 'ws://localhost:8081/hot' failed: "
-    },
-    {
-      "screen": "http://localhost:8081/admin",
-      "interaction": "Click",
-      "elementIdentifier": "btn|kling_20260710_Ima...",
-      "event": "AfterInteraction",
-      "timestamp": 1785254602197,
+      "elementIdentifier": "btn|adminCategoriesAdd...",
+      "event": "ScreenEntered",
+      "timestamp": 1785256347515,
       "errorType": "Health Check Evaluation Failed",
-      "errorMessage": "[Application Bug] page.evaluate: Target page, context or browser has been closed"
+      "errorMessage": "[Application Bug] page.evaluate: Target crashed "
     }
   ],
   "warnings": [
     {
       "screen": "http://localhost:8081/admin",
       "interaction": "Click",
-      "elementIdentifier": "btn|Browse",
+      "elementIdentifier": "btn|adminTabProducts",
       "event": "Runtime",
-      "timestamp": 1785254590271,
+      "timestamp": 1785256319142,
       "errorType": "Console Warning",
-      "errorMessage": "props.pointerEvents is deprecated. Use style.pointerEvents"
-    },
-    {
-      "screen": "http://localhost:8081/admin",
-      "interaction": "Click",
-      "elementIdentifier": "btn|Images",
-      "event": "Runtime",
-      "timestamp": 1785254592414,
-      "errorType": "Console Warning",
-      "errorMessage": "Cannot connect to Expo CLI.\n\nTry the following to fix the issue:\n- Ensure the Expo dev server is running and available on the same network as this device\n\nURL: localhost:8081\n\nError: undefined"
-    },
-    {
-      "screen": "http://localhost:8081/admin",
-      "interaction": "Click",
-      "elementIdentifier": "btn|kling_20260710_Ima...",
-      "event": "Runtime",
-      "timestamp": 1785254596902,
-      "errorType": "Console Error",
-      "errorMessage": "Failed to load resource: net::ERR_CONNECTION_REFUSED"
-    },
-    {
-      "screen": "http://localhost:8081/admin",
-      "interaction": "Click",
-      "elementIdentifier": "btn|kling_20260710_Ima...",
-      "event": "Runtime",
-      "timestamp": 1785254596904,
-      "errorType": "Console Error",
-      "errorMessage": "Failed to load resource: net::ERR_CONNECTION_REFUSED"
+      "errorMessage": "Disconnected from Metro (1006)\nTo reconnect:\n- Ensure that Metro is running and available on the same network\n- Reload this app (will trigger further help if Metro cannot be connected to)"
     }
   ]
 }

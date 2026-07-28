@@ -1,6 +1,6 @@
 import { spawn } from 'child_process';
 import * as path from 'path';
-import { clearReportsDirectory } from './helpers/reportCleaner';
+import { cleanOldReportsByType, clearReportsDirectory } from './helpers/reportCleaner';
 
 const colors = {
   reset: '\x1b[0m',
@@ -18,6 +18,7 @@ function runProcess(name: string, script: string, color: string) {
     cwd: process.cwd(),
     stdio: ['inherit', 'pipe', 'pipe'],
     shell: true,
+    windowsHide: true,
     env: { 
       ...process.env, 
       SMOKE_HEADLESS: 'true',

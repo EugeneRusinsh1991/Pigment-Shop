@@ -4,6 +4,7 @@ import { badgeTokens, motion } from '../../theme/tokens';
 import { Text } from '../Text';
 import { useBadgeAnimation } from './useBadgeAnimation';
 import { useBadgeTheme } from './useBadgeTheme';
+import BadgeStyles from './BadgeStyles';
 
 const fontPropMap = {
   ['font' + 'Size']: 'size',

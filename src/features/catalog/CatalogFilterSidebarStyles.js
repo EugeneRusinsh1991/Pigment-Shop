@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
     paddingVertical: layout.spacing.xxs,
     ...shadow.chip(),
     elevation: 5,
-    zIndex: 2000,
+    zIndex: layout.zIndices.modal,
   },
   sortDropdownDark: {
     backgroundColor: colors.productCardDark,

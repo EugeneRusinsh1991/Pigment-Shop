@@ -205,3 +205,5 @@ export const getBadgeStyle = ({
     ],
   };
 };
+
+export default baseBadgeStyles;

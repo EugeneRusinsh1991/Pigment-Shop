@@ -1,9 +1,10 @@
 # 💀 Dead Files (Unused)
 
-*Generated on: 28.07.2026, 19:02:56*
+*Generated on: 28.07.2026, 19:12:51*
 
 Files that are not reachable or imported by any other codebase file:
 
+- [check-dev-and-run.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/check-dev-and-run.ts) (`.tools/browser-automation/check-dev-and-run.ts`)
 - [AdminContext.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/execution-context/AdminContext.ts) (`.tools/browser-automation/execution-context/AdminContext.ts`)
 - [BaseExecutionContext.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/execution-context/BaseExecutionContext.ts) (`.tools/browser-automation/execution-context/BaseExecutionContext.ts`)
 - [ExecutionContext.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/execution-context/ExecutionContext.ts) (`.tools/browser-automation/execution-context/ExecutionContext.ts`)

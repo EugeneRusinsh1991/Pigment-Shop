@@ -2,7 +2,7 @@
 type: dynamic-audit
 auditor: raw-i18n
 scope: public
-date: 2026-07-28T16:02:58.925Z
+date: 2026-07-28T16:23:48.625Z
 ---
 
 ### Problem: Hardcoded text without i18n key
@@ -951,6 +951,7 @@ date: 2026-07-28T16:02:58.925Z
   - Found raw camelCase i18n key: "catalogSortPriceAsc" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-color-1cucpzw`
   - Found raw camelCase i18n key: "catalogSortPriceDesc" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-vw2c0b.r-lineHeight-135wba7.r-color-kgv7a8`
   - Found raw camelCase i18n key: "navRootCatalog" | Selector: `div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-1npgj5g`
+  - Found raw camelCase i18n key: "navRootCatalog" | Selector: `div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-1s7ct43`
 - URL: `http://localhost:8081/catalog/cat-root-1-sub-0`
   - Found raw camelCase i18n key: "badgeNew" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j`
   - Found raw camelCase i18n key: "offerEndsIn" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-1cwl3u0.r-marginRight-1pcdyqj.r-color-1npgj5g`
@@ -1034,6 +1035,7 @@ date: 2026-07-28T16:02:58.925Z
   - Found raw camelCase i18n key: "catalogSortPriceAsc" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-color-1cucpzw`
   - Found raw camelCase i18n key: "catalogSortPriceDesc" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-vw2c0b.r-lineHeight-135wba7.r-color-kgv7a8`
   - Found raw camelCase i18n key: "navRootCatalog" | Selector: `div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-1npgj5g`
+  - Found raw camelCase i18n key: "navRootCatalog" | Selector: `div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-1s7ct43`
 - URL: `http://localhost:8081/catalog/cat-root-0-sub-0`
   - Found raw camelCase i18n key: "badgeNew" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j`
   - Found raw camelCase i18n key: "offerEndsIn" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-1cwl3u0.r-marginRight-1pcdyqj.r-color-1npgj5g`
@@ -1097,6 +1099,8 @@ date: 2026-07-28T16:02:58.925Z
   - Found raw camelCase i18n key: "catalogProducts" | Selector: `div.css-text-146c3p1.r-color-kgv7a8.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7`
   - Found raw camelCase i18n key: "catalogSortPriceAsc" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-color-1cucpzw`
   - Found raw camelCase i18n key: "catalogSortPriceDesc" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-vw2c0b.r-lineHeight-135wba7.r-color-kgv7a8`
+  - Found raw camelCase i18n key: "navRootCatalog" | Selector: `div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-1npgj5g`
+  - Found raw camelCase i18n key: "navRootCatalog" | Selector: `div.css-text-146c3p1.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-maxWidth-1cg806a.r-color-1s7ct43`
 - URL: `http://localhost:8081/catalog/cat-root-0-sub-1`
   - Found raw camelCase i18n key: "badgeNew" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j`
   - Found raw camelCase i18n key: "offerEndsIn" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-1cwl3u0.r-marginRight-1pcdyqj.r-color-1npgj5g`

@@ -38,23 +38,14 @@ async function ensureDevServer(urlStr = 'http://localhost:8081', maxWaitSeconds 
 
   console.log(`⚠️ Dev server is not running at ${urlStr}. Starting 'npm run dev'...`);
   const projectRoot = path.resolve(__dirname, '..');
-  if (process.platform === 'win32') {
-    const devProc = spawn('cmd.exe', ['/c', 'start', 'cmd', '/k', 'npm run dev'], {
-      cwd: projectRoot,
-      stdio: 'ignore',
-      shell: true,
-      detached: true
-    });
-    devProc.unref();
-  } else {
-    const devProc = spawn('npm', ['run', 'dev'], {
-      cwd: projectRoot,
-      stdio: 'ignore',
-      shell: true,
-      detached: true
-    });
-    devProc.unref();
-  }
+  const devProc = spawn('npm', ['run', 'dev'], {
+    cwd: projectRoot,
+    stdio: 'ignore',
+    shell: true,
+    detached: true,
+    windowsHide: true
+  });
+  devProc.unref();
 
   console.log(`⏳ Waiting up to ${maxWaitSeconds}s for dev server to respond...`);
   const startTime = Date.now();

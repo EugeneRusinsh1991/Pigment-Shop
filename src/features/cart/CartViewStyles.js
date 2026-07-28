@@ -103,7 +103,7 @@ export default StyleSheet.create({
     height: 1,
     backgroundColor: colors.secondaryDarkBorder,
     marginVertical: layout.spacing.md,
-    opacity: 0.2,
+    opacity: layout.opacity.faint,
   },
 
   checkoutBtn: {

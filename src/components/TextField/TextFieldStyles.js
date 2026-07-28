@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     borderColor: colors.danger,
   },
   inputWrapperDisabled: {
-    opacity: 0.6,
+    opacity: layout.opacity.muted,
   },
   input: {
     flex: 1,

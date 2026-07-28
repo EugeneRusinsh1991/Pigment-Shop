@@ -269,6 +269,8 @@ export const layout = {
   },
   zIndices: {
     base: 1,
+    raised: 10,
+    active: 20,
     dropdown: 100,
     sticky: 200,
     header: 500,
@@ -292,6 +294,14 @@ export const layout = {
     lg: 16,
     xl: 24,
     xxl: 32,
+  },
+  opacity: {
+    faint: 0.2,
+    disabled: 0.5,
+    muted: 0.6,
+    subtle: 0.7,
+    pressed: 0.8,
+    full: 1,
   },
   cardHeights: {
     categoryGrid: { desktop: 280, tablet: 250, mobile: 200 },

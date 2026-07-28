@@ -149,7 +149,7 @@ export default StyleSheet.create({
     borderRadius: layout.radii.full,
     alignItems: 'center',
     justifyContent: 'center',
-    zIndex: 20,
+    zIndex: layout.zIndices.active,
   },
   favOverlayDark: { backgroundColor: colors.overlayDark },
   favOverlayLight: { backgroundColor: colors.overlayLight },
@@ -177,7 +177,7 @@ export default StyleSheet.create({
     backgroundColor: colors.overlayScrim,
     alignItems: 'center',
     justifyContent: 'center',
-    zIndex: 10,
+    zIndex: layout.zIndices.raised,
   },
   leftArrow: {
     left: layout.spacing.md,
@@ -196,7 +196,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    zIndex: 10,
+    zIndex: layout.zIndices.raised,
     gap: layout.spacing.sm,
   },
   dot: {
@@ -206,11 +206,11 @@ export default StyleSheet.create({
   },
   dotActive: {
     width: 20,
-    opacity: 1,
+    opacity: layout.opacity.full,
   },
   dotInactive: {
     width: 8,
-    opacity: 0.5,
+    opacity: layout.opacity.disabled,
   },
   badgesOverlay: {
     position: 'absolute',

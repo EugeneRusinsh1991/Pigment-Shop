@@ -9,32 +9,34 @@ const colors = {
 };
 
 function runProcess(name: string, script: string, color: string) {
-  const proc = spawn('npx', ['tsx', script], {
-    cwd: process.cwd(),
-    stdio: ['inherit', 'pipe', 'pipe'],
-    shell: true,
-    env: { ...process.env, SMOKE_HEADLESS: 'true' }
-  });
+  return new Promise<void>((resolve) => {
+    const proc = spawn('npx', ['tsx', script], {
+      cwd: process.cwd(),
+      stdio: ['inherit', 'pipe', 'pipe'],
+      shell: true,
+      windowsHide: true,
+      env: { ...process.env, SMOKE_HEADLESS: 'true' }
+    });
 
-  proc.stdout?.on('data', (data) => {
-    const lines = data.toString().split('\n').filter(line => line.trim());
-    lines.forEach(line => {
-      console.log(`${color}[${name}]${colors.reset} ${line}`);
+    proc.stdout?.on('data', (data) => {
+      const lines = data.toString().split('\n').filter(line => line.trim());
+      lines.forEach(line => {
+        console.log(`${color}[${name}]${colors.reset} ${line}`);
+      });
+    });
+
+    proc.stderr?.on('data', (data) => {
+      const lines = data.toString().split('\n').filter(line => line.trim());
+      lines.forEach(line => {
+        console.log(`${color}[${name}]${colors.reset} ${line}`);
+      });
+    });
+
+    proc.on('close', (code) => {
+      console.log(`${color}[${name}] Process exited with code ${code}${colors.reset}`);
+      resolve();
     });
   });
-
-  proc.stderr?.on('data', (data) => {
-    const lines = data.toString().split('\n').filter(line => line.trim());
-    lines.forEach(line => {
-      console.log(`${color}[${name}]${colors.reset} ${line}`);
-    });
-  });
-
-  proc.on('close', (code) => {
-    console.log(`${color}[${name}] Process exited with code ${code}${colors.reset}`);
-  });
-
-  return proc;
 }
 
 (async () => {
@@ -43,18 +45,9 @@ function runProcess(name: string, script: string, color: string) {
   const adminScript = path.join(__dirname, 'run-admin-nav.ts');
   const guestScript = path.join(__dirname, 'run-smoke-guest.ts');
 
-  const adminProc = runProcess('ADMIN', adminScript, colors.green);
-  const guestProc = runProcess('GUEST', guestScript, colors.yellow);
-
-  // Wait for both processes to complete
-  await Promise.all([
-    new Promise<void>((resolve) => {
-      adminProc.on('close', () => resolve());
-    }),
-    new Promise<void>((resolve) => {
-      guestProc.on('close', () => resolve());
-    })
-  ]);
+  // Run sequentially to avoid multiple terminal windows
+  await runProcess('ADMIN', adminScript, colors.green);
+  await runProcess('GUEST', guestScript, colors.yellow);
 
   console.log(`\n${colors.cyan}--- Both Smoke Tests Completed ---${colors.reset}`);
 })();

@@ -1,6 +1,6 @@
-import * as path from 'path';
-import * as http from 'http';
 import { spawn } from 'child_process';
+import * as http from 'http';
+import * as path from 'path';
 
 export async function isServerRunning(urlStr: string): Promise<boolean> {
   return new Promise((resolve) => {
@@ -22,24 +22,15 @@ export async function ensureDevServer(urlStr: string = 'http://localhost:8081', 
     return;
   }
 
-  console.log(`⚠️ Dev server is not running at ${urlStr}. Starting 'npm run dev' in a separate terminal window...`);
-  if (process.platform === 'win32') {
-    const devProc = spawn('cmd.exe', ['/c', 'start', 'cmd', '/k', 'npm run dev'], {
-      cwd: path.resolve(__dirname, '../../..'),
-      stdio: 'ignore',
-      shell: true,
-      detached: true
-    });
-    devProc.unref();
-  } else {
-    const devProc = spawn('npm', ['run', 'dev'], {
-      cwd: path.resolve(__dirname, '../../..'),
-      stdio: 'ignore',
-      shell: true,
-      detached: true
-    });
-    devProc.unref();
-  }
+  console.log(`⚠️ Dev server is not running at ${urlStr}. Starting it in background...`);
+  const devProc = spawn('npm', ['run', 'dev'], {
+    cwd: path.resolve(__dirname, '../../..'),
+    stdio: 'ignore',
+    shell: true,
+    detached: true,
+    windowsHide: true
+  });
+  devProc.unref();
 
   console.log(`⏳ Waiting up to ${maxWaitSeconds}s for dev server to respond...`);
   const startTime = Date.now();

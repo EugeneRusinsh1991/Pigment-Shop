@@ -2,7 +2,7 @@
 type: dynamic-audit
 auditor: ui-architecture
 scope: public
-date: 2026-07-28T15:35:09.906Z
+date: 2026-07-28T16:23:49.337Z
 ---
 
 ### Problem: Design System: Hardcoded spacing/border-radius lacking spatial tokens.
@@ -302,6 +302,7 @@ date: 2026-07-28T15:35:09.906Z
   - Size: 41x8 | Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-backgroundColor-xl3lkw.r-opacity-6dt33c.r-overflow-1udh08x.r-width-rwqe4o`
   - Size: 14x8 | Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-backgroundColor-xl3lkw.r-opacity-6dt33c.r-overflow-1udh08x.r-width-rwqe4o`
   - Size: 42x8 | Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-backgroundColor-14lw9ot.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-opacity-icoktb.r-width-1jg9483`
+  - Size: 15x8 | Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-backgroundColor-14lw9ot.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-opacity-icoktb.r-width-1jg9483`
 - URL: `http://localhost:8081/catalog`
   - Size: 116x32 | Selector: `a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73`
   - Size: 40x40 | Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-justifyContent-1777fci.r-backgroundColor-1niwhzg`

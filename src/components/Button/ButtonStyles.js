@@ -74,8 +74,8 @@ function createButtonStyles() {
 
     // State modifiers
     fullWidth:    { width: '100%' },
-    disabled:     { opacity: 0.5 },
-    textDisabled: { opacity: 0.8 },
+    disabled:     { opacity: layout.opacity.disabled },
+    textDisabled: { opacity: layout.opacity.pressed },
   };
 
   // Flatten variant containers and texts into the style map

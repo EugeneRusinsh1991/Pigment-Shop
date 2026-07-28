@@ -171,7 +171,7 @@ const styles = StyleSheet.create({
 
   // --- Utilities ---
   disabledOpacity: {
-    opacity: 0.5,
+    opacity: layout.opacity.disabled,
   },
   checkMarkText: {
     color: colors.white,
