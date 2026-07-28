@@ -1,0 +1,23 @@
+---
+type: dynamic-audit-urls
+auditor: broken-ui
+scope: public
+date: 2026-07-28T00:11:05.172Z
+---
+
+- http://localhost:8081/
+- http://localhost:8081/products
+- http://localhost:8081/product/prod-2-2-1-1
+- http://localhost:8081/product/prod-2-1-2-1
+- http://localhost:8081/product/prod-1-2-2-1
+- http://localhost:8081/contact
+- http://localhost:8081/product/prod-2-1-1-1
+- http://localhost:8081/catalog/cat-root-1-sub-0
+- http://localhost:8081/catalog/cat-root-1-sub-0-sub-0
+- http://localhost:8081/product/prod-1-1-2-1
+- http://localhost:8081/catalog/cat-root-0-sub-0
+- http://localhost:8081/catalog/cat-root-0-sub-0-sub-1
+- http://localhost:8081/product/prod-1-2-1-1
+- http://localhost:8081/catalog/cat-root-0-sub-1
+- http://localhost:8081/catalog/cat-root-0-sub-1-sub-0
+- http://localhost:8081/cart
