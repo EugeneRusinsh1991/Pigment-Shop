@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
     width: 20,
     height: 20,
     borderRadius: layout.radii.full,
-    borderWidth: 2,
+    borderWidth: layout.borderWidth.thick,
     position: 'absolute',
     top: -8,
     ...Platform.select({

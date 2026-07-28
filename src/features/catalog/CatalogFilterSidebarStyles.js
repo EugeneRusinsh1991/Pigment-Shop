@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors, buttonTokens, layout, shadow } from '../../theme/tokens';
+import { buttonTokens, colors, layout, shadow } from '../../theme/tokens';
 
 const styles = StyleSheet.create({
   sidebar: { width: 224, maxWidth: 224, flexShrink: 0, flexGrow: 0, flexBasis: 224, overflow: 'hidden' },
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
   priceInput: {
     width: 90,
     borderRadius: buttonTokens.sizes.sm.borderRadius,
-    borderWidth: 1,
+    borderWidth: layout.borderWidth.thin,
     paddingHorizontal: layout.spacing.sm,
     paddingVertical: layout.spacing.xs,
   },
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
 
   checkRow: { flexDirection: 'row', alignItems: 'center', gap: layout.spacing.sm, paddingVertical: layout.spacing.sm, minHeight: 44 },
   checkbox: {
-    width: 18, height: 18, borderRadius: layout.radii.xxxs, borderWidth: 1.5, borderColor: colors.accent,
+    width: 18, height: 18, borderRadius: layout.radii.xxxs, borderWidth: layout.borderWidth.focus, borderColor: colors.accent,
     alignItems: 'center', justifyContent: 'center',
   },
   checkboxActive: { backgroundColor: colors.accent },
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     borderRadius: buttonTokens.sizes.md.borderRadius,
     alignItems: 'center',
     justifyContent: 'center',
-    borderWidth: 1,
+    borderWidth: layout.borderWidth.thin,
   },
   mobileToggleDark: { borderColor: colors.accent, backgroundColor: colors.dark },
   mobileToggleLight: { borderColor: colors.accent, backgroundColor: colors.dangerBgAlt },
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     borderRadius: buttonTokens.sizes.md.borderRadius,
     alignItems: 'center',
     justifyContent: 'center',
-    borderWidth: 1,
+    borderWidth: layout.borderWidth.thin,
   },
   mobileButtonDark: { borderColor: colors.accent, backgroundColor: colors.dark },
   mobileButtonLight: { borderColor: colors.accent, backgroundColor: colors.dangerBgAlt },
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
     right: layout.spacing.lg,
     width: '46%',
     borderRadius: buttonTokens.sizes.md.borderRadius,
-    borderWidth: 1,
+    borderWidth: layout.borderWidth.thin,
     paddingVertical: layout.spacing.xxs,
     ...shadow.chip(),
     elevation: 5,
@@ -167,7 +167,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: layout.spacing.lg,
-    borderBottomWidth: 1,
+    borderBottomWidth: layout.borderWidth.thin,
     position: 'relative',
   },
   panelHeaderDark: { borderBottomColor: colors.borderDarkAlt },

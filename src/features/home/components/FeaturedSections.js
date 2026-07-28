@@ -1,8 +1,8 @@
-import { useEffect, useState, useRef } from 'react';
-import { Platform, StyleSheet, View } from 'react-native';
 import { Text } from '@/components/Text';
 import { useTheme } from '@/context/ThemeContext';
 import { colors, layout, shadows } from '@/theme/tokens';
+import { useEffect, useRef } from 'react';
+import { Platform, StyleSheet, View } from 'react-native';
 
 const setElementText = (ref, text) => {
   if (!ref.current) return;
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
     marginVertical: layout.spacing.sm,
     padding: layout.spacing.lg,
     borderRadius: layout.radii.md,
-    borderWidth: 1,
+    borderWidth: layout.borderWidth.thin,
     ...Platform.select({
       web: shadows.cardLight.web,
       default: shadows.cardLight.native,

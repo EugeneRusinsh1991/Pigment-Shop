@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
 import { colors, layout } from '@/theme/tokens';
+import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   container: {
@@ -92,11 +92,11 @@ export default StyleSheet.create({
     paddingVertical: layout.spacing.xs,
   },
   itemBorderDark: {
-    borderTopWidth: 1,
+    borderTopWidth: layout.borderWidth.thin,
     borderTopColor: colors.neutralDarkFaint,
   },
   itemBorderLight: {
-    borderTopWidth: 1,
+    borderTopWidth: layout.borderWidth.thin,
     borderTopColor: colors.secondaryLightBorder,
   },
   itemInfo: {

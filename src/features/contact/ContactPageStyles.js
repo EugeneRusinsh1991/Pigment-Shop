@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors, fonts, buttonTokens, layout } from '../../theme/tokens';
+import { buttonTokens, colors, layout } from '../../theme/tokens';
 
 export default StyleSheet.create({
   container: {
@@ -42,7 +42,7 @@ export default StyleSheet.create({
     paddingVertical: layout.spacing.md,
     paddingHorizontal: layout.spacing.lg,
     borderRadius: layout.radii.full,
-    borderWidth: 1,
+    borderWidth: layout.borderWidth.thin,
   },
   socialItemDark: {
     borderColor: colors.borderDark,
@@ -67,7 +67,7 @@ export default StyleSheet.create({
   },
   textarea: {
     borderRadius: layout.radii.md,
-    borderWidth: 1,
+    borderWidth: layout.borderWidth.thin,
     padding: layout.spacing.md,
     minHeight: 120,
     textAlignVertical: 'top',

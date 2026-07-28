@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
   itemsHeader: {
     flexDirection: 'row',
     paddingBottom: layout.spacing.sm,
-    borderBottomWidth: 1,
+    borderBottomWidth: layout.borderWidth.thin,
   },
   itemsHeaderTop: {
     marginTop: layout.spacing.xl,

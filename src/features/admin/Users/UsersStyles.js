@@ -61,7 +61,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: layout.spacing.lg,
     paddingVertical: layout.radii.iconBtn,
-    borderBottomWidth: 1,
+    borderBottomWidth: layout.borderWidth.thin,
     borderBottomColor: colors.secondaryLightBorder,
   },
   tableRowAlt: {
@@ -166,7 +166,7 @@ export default StyleSheet.create({
     paddingHorizontal: layout.spacing.md,
     paddingVertical: layout.spacing.sm + 2,
     color: colors.dark,
-    borderWidth: 1,
+    borderWidth: layout.borderWidth.thin,
     borderColor: colors.navItemHoverDark,
     textAlignVertical: 'top',
     outlineStyle: 'none',
@@ -195,7 +195,7 @@ export default StyleSheet.create({
   mobileCard: {
     paddingHorizontal: layout.spacing.lg,
     paddingVertical: layout.radii.iconBtn,
-    borderBottomWidth: 1,
+    borderBottomWidth: layout.borderWidth.thin,
     borderBottomColor: colors.secondaryLightBorder,
     flexDirection: 'row',
     alignItems: 'center',

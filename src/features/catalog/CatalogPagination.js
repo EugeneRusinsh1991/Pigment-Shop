@@ -1,7 +1,7 @@
 import { ActivityIndicator, StyleSheet, View } from 'react-native';
+import { AnimatedButton } from '../../components/Button';
 import { Text } from '../../components/Text';
 import { useTheme } from '../../context/ThemeContext';
-import { AnimatedButton } from '../../components/Button';
 import { colors, layout } from '../../theme/tokens';
 
 function PaginationButton({ label, onPress, isDisabled, isDark }) {
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
     width: 120,
     height: 44,
     borderRadius: layout.radii.sm,
-    borderWidth: 1,
+    borderWidth: layout.borderWidth.thin,
     alignItems: 'center',
     justifyContent: 'center',
   },

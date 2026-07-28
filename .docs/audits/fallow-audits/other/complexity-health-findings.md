@@ -1,6 +1,6 @@
 # 🩺 Complexity Health Findings (Critical & High)
 
-*Generated on: 28.07.2026, 20:38:21*
+*Generated on: 28.07.2026, 22:10:26*
 
 ## 🔴 Critical (> 50 lines)
 
@@ -67,17 +67,17 @@
 - 🔴 **`rawIssues`** [L13](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/auditors/02-dynamic-raw-i18n-auditor.ts#L13)
   - Lines: 36 | Cyclomatic: 19 | Cognitive: 26 | CRAP: 380
 
+#### 📁 [index.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/index.js)
+`.tools/auditor/index.js`
+
+- 🔴 **`runAllAudits`** [L25](file:///D:/Magazine/_PigmentShop/.tools/auditor/index.js#L25)
+  - Lines: 41 | Cyclomatic: 17 | Cognitive: 16 | CRAP: 306
+
 #### 📁 [hardcode-styles-auditor.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-styles-auditor.js)
 `.tools/auditor/hardcode-styles-auditor.js`
 
 - 🔴 **`<arrow>`** [L74](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-styles-auditor.js#L74)
   - Lines: 36 | Cyclomatic: 17 | Cognitive: 15 | CRAP: 306
-
-#### 📁 [index.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/index.js)
-`.tools/auditor/index.js`
-
-- 🔴 **`runAllAudits`** [L24](file:///D:/Magazine/_PigmentShop/.tools/auditor/index.js#L24)
-  - Lines: 33 | Cyclomatic: 16 | Cognitive: 15 | CRAP: 272
 
 #### 📁 [01-dynamic-ui-architecture-auditor.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/auditors/01-dynamic-ui-architecture-auditor.ts)
 `.tools/browser-automation/auditors/01-dynamic-ui-architecture-auditor.ts`

@@ -1,8 +1,7 @@
-import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Text } from '../../components/Text';
-import { getLocalizedValue } from '../../utils/localization';
 import { colors, layout } from '../../theme/tokens';
+import { getLocalizedValue } from '../../utils/localization';
 
 function getProductLabel(item, flatList, lang) {
   const matched = flatList.find((p) => p.id === item.id);
@@ -52,7 +51,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingVertical: layout.spacing.md,
-    borderBottomWidth: 1,
+    borderBottomWidth: layout.borderWidth.thin,
   },
   borderDark: {
     borderBottomColor: colors.borderDark,
@@ -64,7 +63,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingVertical: layout.spacing.md,
-    borderBottomWidth: 1,
+    borderBottomWidth: layout.borderWidth.thin,
   },
   colProduct: {
     flex: 4,
@@ -79,7 +78,7 @@ const styles = StyleSheet.create({
     flex: 1.5,
   },
   noBorder: {
-    borderBottomWidth: 0,
+    borderBottomWidth: layout.borderWidth.none,
     paddingBottom: layout.spacing.none,
   },
   textCell: {},

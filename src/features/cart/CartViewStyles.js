@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors, layout, shadow } from '../../theme/tokens';
+import { colors, layout } from '../../theme/tokens';
 
 export default StyleSheet.create({
   container: {
@@ -20,7 +20,7 @@ export default StyleSheet.create({
     marginBottom: layout.spacing.xs,
   },
   inputContainer: {
-    borderWidth: 1,
+    borderWidth: layout.borderWidth.thin,
     borderRadius: layout.radii.sm,
     paddingHorizontal: layout.spacing.md,
     height: 44,
@@ -80,7 +80,7 @@ export default StyleSheet.create({
   summaryPanel: {
     borderRadius: layout.radii.xl,
     padding: layout.spacing.xl,
-    borderWidth: 1,
+    borderWidth: layout.borderWidth.thin,
   },
   summaryPanelDark: { backgroundColor: colors.surfaceNeutralDark, borderColor: colors.borderDarkAlt },
   summaryPanelLight: { backgroundColor: colors.white, borderColor: colors.secondaryLightBorder },
@@ -125,7 +125,7 @@ export default StyleSheet.create({
 
   noteInput: {
     borderRadius: layout.spacing.md,
-    borderWidth: 1,
+    borderWidth: layout.borderWidth.thin,
     padding: layout.spacing.md,
     minHeight: 80,
     marginTop: layout.spacing.xs,

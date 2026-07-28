@@ -1,17 +1,17 @@
 # 🧠 Highly Complex Files
 
-*Generated on: 28.07.2026, 20:38:21*
+*Generated on: 28.07.2026, 22:10:26*
 
 ### Highly Complex Files (< 200 lines)
 
 - **[02-dynamic-raw-i18n-auditor.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/auditors/02-dynamic-raw-i18n-auditor.ts)** (`.tools/browser-automation/auditors/02-dynamic-raw-i18n-auditor.ts`)
   - Lines: 73 | CRAP Max: 380 | Complex Funcs: 2 | Density: 36%
 
+- **[index.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/index.js)** (`.tools/auditor/index.js`)
+  - Lines: 72 | CRAP Max: 306 | Complex Funcs: 1 | Density: 24%
+
 - **[layer-imports-auditor.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/layer-imports-auditor.js)** (`.tools/auditor/layer-imports-auditor.js`)
   - Lines: 157 | CRAP Max: 306 | Complex Funcs: 3 | Density: 25%
-
-- **[index.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/index.js)** (`.tools/auditor/index.js`)
-  - Lines: 63 | CRAP Max: 272 | Complex Funcs: 1 | Density: 25%
 
 - **[unused-exports-auditor.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/unused-exports-auditor.js)** (`.tools/auditor/unused-exports-auditor.js`)
   - Lines: 88 | CRAP Max: 272 | Complex Funcs: 2 | Density: 32%

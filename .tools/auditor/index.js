@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs');
 const { auditComponents } = require('./ui-architecture-audit');
 const { auditTextLiterals } = require('./hardcode-text-auditor');
 const { auditStyles } = require('./hardcode-styles-auditor');
@@ -22,6 +23,14 @@ const DISABLE_DYNAMIC_AUDITS = false;
  * Executes all domain auditors and generates individual report logs inside .docs/audits/
  */
 function runAllAudits() {
+  const AUDITS_DIR = path.join(__dirname, '../../.docs/audits');
+  
+  // Clean up old audit reports
+  if (fs.existsSync(AUDITS_DIR)) {
+    fs.rmSync(AUDITS_DIR, { recursive: true, force: true });
+    console.log('Cleaned up previous audit reports');
+  }
+  
   console.log('===================================================================');
   console.log('         RUNNING FULL SYSTEM AUDIT SUITE (.tools/auditor)          ');
   console.log('===================================================================');

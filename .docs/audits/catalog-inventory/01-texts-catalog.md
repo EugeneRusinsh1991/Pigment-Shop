@@ -223,7 +223,7 @@
 
 ### File: src/features/admin/Orders/AdminNoteSection.js
 
-  - Line 14: `<Text>` -> `[Dynamic Content]`
+  - Line 13: `<Text>` -> `[Dynamic Content]`
 
 ### File: src/features/admin/Orders/OrderCustomerCard.js
 
@@ -243,18 +243,18 @@
 
 ### File: src/features/admin/Orders/OrderItemsList.js
 
-  - Line 27: `<Text>` -> `[Dynamic Content]`
   - Line 28: `<Text>` -> `[Dynamic Content]`
-  - Line 29: `<Text>` -> `$`
+  - Line 29: `<Text>` -> `[Dynamic Content]`
   - Line 30: `<Text>` -> `$`
-  - Line 42: `<Text>` -> `[Dynamic Content]`
+  - Line 31: `<Text>` -> `$`
   - Line 43: `<Text>` -> `[Dynamic Content]`
   - Line 44: `<Text>` -> `[Dynamic Content]`
   - Line 45: `<Text>` -> `[Dynamic Content]`
-  - Line 60: `<Text>` -> `[Dynamic Content]`
+  - Line 46: `<Text>` -> `[Dynamic Content]`
   - Line 61: `<Text>` -> `[Dynamic Content]`
   - Line 62: `<Text>` -> `[Dynamic Content]`
-  - Line 63: `<Text>` -> `$`
+  - Line 63: `<Text>` -> `[Dynamic Content]`
+  - Line 64: `<Text>` -> `$`
 
 ### File: src/features/admin/Orders/OrderRow.js
 
@@ -453,12 +453,12 @@
 
 ### File: src/features/orders/OrderRows.js
 
+  - Line 16: `<Text>` -> `[Dynamic Content]`
   - Line 17: `<Text>` -> `[Dynamic Content]`
-  - Line 18: `<Text>` -> `[Dynamic Content]`
-  - Line 33: `<Text>` -> `[Dynamic Content]`
-  - Line 36: `<Text>` -> `[Dynamic Content]`
-  - Line 39: `<Text>` -> `$`
-  - Line 42: `<Text>` -> `$`
+  - Line 32: `<Text>` -> `[Dynamic Content]`
+  - Line 35: `<Text>` -> `[Dynamic Content]`
+  - Line 38: `<Text>` -> `$`
+  - Line 41: `<Text>` -> `$`
 
 ### File: src/features/orders/components/OrderCard.helpers.js
 

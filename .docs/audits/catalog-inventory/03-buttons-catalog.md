@@ -87,7 +87,7 @@
 
 ### File: src/features/admin/AdminSaveFooter.js
 
-  - Line 31: `<Button>`
+  - Line 30: `<Button>`
 
 ### File: src/features/admin/Analytics/CalendarDayCell.js
 

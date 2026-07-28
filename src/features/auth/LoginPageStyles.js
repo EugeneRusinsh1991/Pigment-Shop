@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors, layout, shadow, buttonTokens } from '../../theme/tokens';
+import { buttonTokens, colors, layout, shadow } from '../../theme/tokens';
 
 const styles = StyleSheet.create({
   container: {
@@ -44,8 +44,8 @@ const styles = StyleSheet.create({
     elevation: 2,
     marginBottom: layout.spacing.lg,
   },
-  formContainerDark: { backgroundColor: colors.dark, borderWidth: 1, borderColor: colors.borderDark },
-  formContainerLight: { backgroundColor: colors.white, borderWidth: 1, borderColor: colors.borderLight },
+  formContainerDark: { backgroundColor: colors.dark, borderWidth: layout.borderWidth.thin, borderColor: colors.borderDark },
+  formContainerLight: { backgroundColor: colors.white, borderWidth: layout.borderWidth.thin, borderColor: colors.borderLight },
   googleBtn: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     height: buttonTokens.sizes.lg.height,
     paddingHorizontal: buttonTokens.sizes.lg.paddingHorizontal,
     borderRadius: buttonTokens.sizes.lg.borderRadius,
-    borderWidth: 1,
+    borderWidth: layout.borderWidth.thin,
     marginBottom: layout.spacing.lg,
   },
   googleBtnDark: { borderColor: colors.outlineDarkBorder },
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    borderWidth: 1,
+    borderWidth: layout.borderWidth.thin,
     borderRadius: layout.radii.sm,
     paddingHorizontal: layout.spacing.md,
     height: 44,
