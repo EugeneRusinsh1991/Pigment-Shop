@@ -85,7 +85,7 @@
 
 ### File: src/features/product/ProductInfoSubcomponents.js
 
-  - Line 125: `<QtySelector>`
+  - Line 122: `<QtySelector>`
 
 ### File: src/features/profile/ProfileFormCard.js
 
@@ -94,5 +94,5 @@
 
 ### File: src/features/shell/NavMenu.js
 
-  - Line 55: `<LanguageSelector>`
+  - Line 54: `<LanguageSelector>`
 

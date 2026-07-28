@@ -21,7 +21,7 @@
 
 ### File: src/components/Navigation/Breadcrumbs/Breadcrumb.js
 
-  - Line 62: `<HomeIcon>` (Icon: `[Unknown]`)
+  - Line 61: `<HomeIcon>` (Icon: `[Unknown]`)
 
 ### File: src/components/Search/SearchInput.js
 
@@ -148,11 +148,11 @@
 
 ### File: src/features/product/ProductInfoSubcomponents.js
 
-  - Line 25: `<IconButton>` (Icon: `[Unknown]`)
-  - Line 33: `<IconButton>` (Icon: `[Unknown]`)
-  - Line 100: `<CartIcon>` (Icon: `[Unknown]`)
-  - Line 135: `<IconButton>` (Icon: `[Unknown]`)
-  - Line 137: `<HeartIcon>` (Icon: `[Unknown]`)
+  - Line 22: `<IconButton>` (Icon: `[Unknown]`)
+  - Line 30: `<IconButton>` (Icon: `[Unknown]`)
+  - Line 97: `<CartIcon>` (Icon: `[Unknown]`)
+  - Line 132: `<IconButton>` (Icon: `[Unknown]`)
+  - Line 134: `<HeartIcon>` (Icon: `[Unknown]`)
 
 ### File: src/features/shell/AppHeader/AppHeaderControls.js
 
@@ -197,9 +197,9 @@
 
 ### File: src/features/shell/NavMenu/MainMenuContent.js
 
-  - Line 67: `<IconButton>` (Icon: `[Unknown]`)
-  - Line 68: `<ChevronDownIcon>` (Icon: `[Unknown]`)
-  - Line 68: `<ChevronRightIcon>` (Icon: `[Unknown]`)
+  - Line 66: `<IconButton>` (Icon: `[Unknown]`)
+  - Line 67: `<ChevronDownIcon>` (Icon: `[Unknown]`)
+  - Line 67: `<ChevronRightIcon>` (Icon: `[Unknown]`)
 
 ### File: src/features/shell/NavMenu/NavItemList.js
 

@@ -134,7 +134,7 @@
             "command": "node scripts/open-playwright.js http://localhost:8081",
             "presentation": {
                 "reveal": "always",
-                "panel": "new",
+                "panel": "shared",
                 "clear": true
             },
             "problemMatcher": []
@@ -147,7 +147,8 @@
             "isBackground": true,
             "presentation": {
                 "reveal": "always",
-                "panel": "shared"
+                "panel": "dedicated",
+                "focus": true
             },
             "problemMatcher": {
                 "pattern": {
@@ -213,8 +214,7 @@
             "command": "npx tsx .tools/browser-automation/run-admin-nav.ts",
             "presentation": {
                 "reveal": "always",
-                "panel": "dedicated",
-                "focus": true
+                "panel": "shared"
             },
             "problemMatcher": []
         },
@@ -232,7 +232,7 @@
             "command": "npx tsx .tools/browser-automation/run-smoke-guest.ts",
             "presentation": {
                 "reveal": "always",
-                "panel": "dedicated"
+                "panel": "shared"
             },
             "problemMatcher": []
         },
@@ -242,7 +242,8 @@
             "command": "npx tsx .tools/browser-automation/run-smoke-both-headless.ts",
             "presentation": {
                 "reveal": "always",
-                "panel": "shared"
+                "panel": "shared",
+                "focus": true
             },
             "problemMatcher": []
         },

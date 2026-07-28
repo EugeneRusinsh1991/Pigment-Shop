@@ -108,9 +108,9 @@
 
 ### File: src/components/Navigation/Breadcrumbs/Breadcrumb.js
 
-  - Line 20: `<Text>` -> `[Dynamic Content]`
-  - Line 29: `<Text>` -> `[Dynamic Content]`
-  - Line 69: `<Text>` -> `/`
+  - Line 19: `<Text>` -> `[Dynamic Content]`
+  - Line 28: `<Text>` -> `[Dynamic Content]`
+  - Line 68: `<Text>` -> `/`
 
 ### File: src/components/Navigation/Pagination/PageNavigation.js
 
@@ -464,11 +464,11 @@
 
 ### File: src/features/orders/components/OrderCard.helpers.js
 
-  - Line 34: `<Text>` -> `[Dynamic Content]`
-  - Line 37: `<Text>` -> `×`
-  - Line 41: `<Text>` -> `$`
-  - Line 98: `<Text>` -> `[Dynamic Content]`
-  - Line 101: `<Text>` -> `[Dynamic Content]`
+  - Line 33: `<Text>` -> `[Dynamic Content]`
+  - Line 36: `<Text>` -> `×`
+  - Line 40: `<Text>` -> `$`
+  - Line 97: `<Text>` -> `[Dynamic Content]`
+  - Line 100: `<Text>` -> `[Dynamic Content]`
 
 ### File: src/features/orders/components/OrderCard.js
 
@@ -498,15 +498,15 @@
 
 ### File: src/features/product/ProductInfoSubcomponents.js
 
-  - Line 27: `<Text>` -> `−`
-  - Line 32: `<Text>` -> `[Dynamic Content]`
-  - Line 35: `<Text>` -> `+`
-  - Line 51: `<Text>` -> `$`
-  - Line 53: `<Text>` -> `$`
+  - Line 24: `<Text>` -> `−`
+  - Line 29: `<Text>` -> `[Dynamic Content]`
+  - Line 32: `<Text>` -> `+`
+  - Line 48: `<Text>` -> `$`
+  - Line 50: `<Text>` -> `$`
+  - Line 68: `<Text>` -> `[Dynamic Content]`
   - Line 71: `<Text>` -> `[Dynamic Content]`
-  - Line 74: `<Text>` -> `[Dynamic Content]`
-  - Line 75: `<Text>` -> `:`
-  - Line 76: `<Text>` -> `[Dynamic Content]`
+  - Line 72: `<Text>` -> `:`
+  - Line 73: `<Text>` -> `[Dynamic Content]`
 
 ### File: src/features/product/ProductReviewSubcomponents.js
 
@@ -548,7 +548,7 @@
 
 ### File: src/features/shell/NavMenu/MainMenuContent.js
 
-  - Line 40: `<Text>` -> `[Dynamic Content]`
+  - Line 39: `<Text>` -> `[Dynamic Content]`
 
 ### File: src/features/shell/NavMenu/NavItemList.js
 

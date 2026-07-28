@@ -11,6 +11,7 @@ const { auditA11y } = require('./a11y-auditor');
 const { auditPerformance } = require('./performance-auditor');
 const { auditHardcodeUrl } = require('./hardcode-url-auditor');
 const { auditRawI18nKeys } = require('./12-raw-i18n-keys-auditor');
+const { runUniversalHardcodeSearch } = require('./universal-hardcode-searcher');
 const { runFallowAudit } = require('./fallow-auditor/run-audit.cjs');
 
 // Disable dynamic audit report generation
@@ -37,6 +38,7 @@ function runAllAudits() {
   try { auditPerformance(DISABLE_DYNAMIC_AUDITS); } catch (e) { console.error('Error 10:', e.message); }
   try { auditHardcodeUrl(DISABLE_DYNAMIC_AUDITS); } catch (e) { console.error('Error 11:', e.message); }
   try { auditRawI18nKeys(DISABLE_DYNAMIC_AUDITS); } catch (e) { console.error('Error 12:', e.message); }
+  try { runUniversalHardcodeSearch(DISABLE_DYNAMIC_AUDITS); } catch (e) { console.error('Error 13:', e.message); }
 
   console.log('-------------------------------------------------------------------');
   console.log('         RUNNING CODEBASE CATALOG GENERATOR                        ');

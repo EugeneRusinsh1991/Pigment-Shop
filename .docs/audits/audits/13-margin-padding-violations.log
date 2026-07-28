@@ -1,0 +1,19 @@
+===================================================================
+         MARGIN_PADDING - Хардкод отступов              
+Timestamp: 28.07.2026, 03:29:40
+===================================================================
+[PROMPT FOR AGENT]: Refactor hardcoded values to use design tokens.
+===================================================================
+
+Found 6 violation(s):
+
+File: src\features\contact\ContactPageStyles.js
+  src\features\contact\ContactPageStyles.js:18 | paddingHorizontal: 0 | paddingHorizontal: 0, /* tokens. */
+  src\features\contact\ContactPageStyles.js:18 | padding | paddingHorizontal: 0, /* tokens. */
+  src\features\contact\ContactPageStyles.js:18 | 0 | paddingHorizontal: 0, /* tokens. */
+
+File: src\features\favorites\FavoritesPageStyles.js
+  src\features\favorites\FavoritesPageStyles.js:17 | paddingHorizontal: 0 | paddingHorizontal: 0, /* tokens. */
+  src\features\favorites\FavoritesPageStyles.js:17 | padding | paddingHorizontal: 0, /* tokens. */
+  src\features\favorites\FavoritesPageStyles.js:17 | 0 | paddingHorizontal: 0, /* tokens. */
+

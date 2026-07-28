@@ -1,6 +1,6 @@
 # 🩺 Complexity Health Findings (Critical & High)
 
-*Generated on: 28.07.2026, 03:13:06*
+*Generated on: 28.07.2026, 03:29:47*
 
 ## 🔴 Critical (> 50 lines)
 
@@ -76,8 +76,8 @@
 #### 📁 [index.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/index.js)
 `.tools/auditor/index.js`
 
-- 🔴 **`runAllAudits`** [L23](file:///D:/Magazine/_PigmentShop/.tools/auditor/index.js#L23)
-  - Lines: 32 | Cyclomatic: 15 | Cognitive: 14 | CRAP: 240
+- 🔴 **`runAllAudits`** [L24](file:///D:/Magazine/_PigmentShop/.tools/auditor/index.js#L24)
+  - Lines: 33 | Cyclomatic: 16 | Cognitive: 15 | CRAP: 272
 
 #### 📁 [01-dynamic-ui-architecture-auditor.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/auditors/01-dynamic-ui-architecture-auditor.ts)
 `.tools/browser-automation/auditors/01-dynamic-ui-architecture-auditor.ts`
@@ -202,6 +202,12 @@
 
 - 🟠 **`walkDir`** [L56](file:///D:/Magazine/_PigmentShop/.tools/auditor/12-raw-i18n-keys-auditor.js#L56)
   - Lines: 13 | Cyclomatic: 9 | Cognitive: 7 | CRAP: 90
+
+#### 📁 [universal-hardcode-searcher.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/universal-hardcode-searcher.js)
+`.tools/auditor/universal-hardcode-searcher.js`
+
+- 🟠 **`walkDir`** [L145](file:///D:/Magazine/_PigmentShop/.tools/auditor/universal-hardcode-searcher.js#L145)
+  - Lines: 14 | Cyclomatic: 9 | Cognitive: 7 | CRAP: 90
 
 #### 📁 [DIContainer.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/di/DIContainer.ts)
 `.tools/browser-automation/explorer/di/DIContainer.ts`

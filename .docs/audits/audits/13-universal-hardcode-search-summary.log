@@ -1,0 +1,14 @@
+===================================================================
+         UNIVERSAL HARDCODE SEARCH SUMMARY                         
+Timestamp: 28.07.2026, 03:29:40
+===================================================================
+
+Found 578 hardcoded value(s) across 5 pattern type(s):
+
+- BORDER_COLOR: 15 violations
+- OPACITY: 13 violations
+- BORDER_WIDTH: 526 violations
+- Z_INDEX: 18 violations
+- MARGIN_PADDING: 6 violations
+
+Detailed reports available in individual category files.

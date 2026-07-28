@@ -1,0 +1,34 @@
+===================================================================
+         BORDER_COLOR - Хардкод цветов границ              
+Timestamp: 28.07.2026, 03:29:40
+===================================================================
+[PROMPT FOR AGENT]: Refactor hardcoded values to use design tokens.
+===================================================================
+
+Found 15 violation(s):
+
+File: src\components\Badge\BadgeStyles.js
+  src\components\Badge\BadgeStyles.js:118 | borderColor: 'transparent' | borderColor: 'transparent',
+  src\components\Badge\BadgeStyles.js:118 | borderColor: 'transparent' | borderColor: 'transparent',
+
+File: src\components\Button\ButtonStyles.js
+  src\components\Button\ButtonStyles.js:36 | borderColor: 'transparent' | ghostLight:       { container: { backgroundColor: 'transparent',      borderColor: 'transparent'       }, text: { color: dark   } },
+  src\components\Button\ButtonStyles.js:36 | borderColor: 'transparent' | ghostLight:       { container: { backgroundColor: 'transparent',      borderColor: 'transparent'       }, text: { color: dark   } },
+  src\components\Button\ButtonStyles.js:37 | borderColor: 'transparent' | ghostDark:        { container: { backgroundColor: 'transparent',      borderColor: 'transparent'       }, text: { color: white  } },
+  src\components\Button\ButtonStyles.js:37 | borderColor: 'transparent' | ghostDark:        { container: { backgroundColor: 'transparent',      borderColor: 'transparent'       }, text: { color: white  } },
+  src\components\Button\ButtonStyles.js:48 | borderColor: 'transparent' | borderColor: 'transparent',
+  src\components\Button\ButtonStyles.js:48 | borderColor: 'transparent' | borderColor: 'transparent',
+
+File: src\components\Media\MediaStyles.js
+  src\components\Media\MediaStyles.js:27 | borderRightColor: 'transparent' | borderRightColor: 'transparent',
+  src\components\Media\MediaStyles.js:28 | borderBottomColor: 'transparent' | borderBottomColor: 'transparent',
+  src\components\Media\MediaStyles.js:29 | borderTopColor: 'transparent' | borderTopColor: 'transparent',
+
+File: src\features\admin\Categories\CategoriesStyles.js
+  src\features\admin\Categories\CategoriesStyles.js:92 | borderLeftColor: 'transparent' | borderLeftColor: 'transparent',
+  src\features\admin\Categories\CategoriesStyles.js:223 | borderLeftColor: 'transparent' | borderLeftColor: 'transparent',
+
+File: src\features\admin\Media\MediaBrowserStyles.js
+  src\features\admin\Media\MediaBrowserStyles.js:108 | borderColor: 'transparent' | borderColor: 'transparent',
+  src\features\admin\Media\MediaBrowserStyles.js:108 | borderColor: 'transparent' | borderColor: 'transparent',
+

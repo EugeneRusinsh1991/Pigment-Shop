@@ -59,8 +59,8 @@
 
 ### File: src/components/Navigation/Breadcrumbs/Breadcrumb.js
 
-  - Line 28: `<AnimatedButton>`
-  - Line 61: `<AnimatedButton>`
+  - Line 27: `<AnimatedButton>`
+  - Line 60: `<AnimatedButton>`
 
 ### File: src/components/Navigation/Pagination/PageNavigation.js
 
@@ -299,11 +299,11 @@
 
 ### File: src/features/product/ProductInfoSubcomponents.js
 
-  - Line 25: `<IconButton>`
-  - Line 33: `<IconButton>`
-  - Line 94: `<Button>`
-  - Line 126: `<CartButton>`
-  - Line 135: `<IconButton>`
+  - Line 22: `<IconButton>`
+  - Line 30: `<IconButton>`
+  - Line 91: `<Button>`
+  - Line 123: `<CartButton>`
+  - Line 132: `<IconButton>`
 
 ### File: src/features/product/ProductReviewSubcomponents.js
 
@@ -368,8 +368,8 @@
 
 ### File: src/features/shell/NavMenu/MainMenuContent.js
 
-  - Line 30: `<Button>`
-  - Line 67: `<IconButton>`
+  - Line 29: `<Button>`
+  - Line 66: `<IconButton>`
 
 ### File: src/features/shell/NavMenu/NavItemList.js
 
