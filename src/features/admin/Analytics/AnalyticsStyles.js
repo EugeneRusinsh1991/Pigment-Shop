@@ -2,7 +2,7 @@
  * AnalyticsStyles.js
  */
 import { StyleSheet } from 'react-native';
-import { colors, layout, shadow, buttonTokens } from '../../../theme/tokens';
+import { buttonTokens, colors, layout, shadow } from '../../../theme/tokens';
 
 export default StyleSheet.create({
   container: {
@@ -200,7 +200,7 @@ export default StyleSheet.create({
     paddingHorizontal: layout.spacing.lg,
     borderRadius: layout.radii.lg,
     backgroundColor: colors.black,
-    borderWidth: 1.5,
+    borderWidth: layout.borderWidth.focus,
     borderColor: colors.black,
     alignItems: 'center',
     justifyContent: 'center',
@@ -227,7 +227,7 @@ export default StyleSheet.create({
     flex: 1,
     minWidth: 120,
     height: buttonTokens.sizes.md.height,
-    borderWidth: 1,
+    borderWidth: layout.borderWidth.thin,
     borderColor: colors.secondaryLightBorder,
     borderRadius: layout.radii.sm,
     paddingHorizontal: layout.spacing.md,

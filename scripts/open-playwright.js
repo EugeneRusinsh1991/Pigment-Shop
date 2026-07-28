@@ -1,7 +1,7 @@
 const fs = require('fs');
 const http = require('http');
 const { chromium } = require('playwright');
-const { execSync, spawn } = require('child_process');
+const { execSync } = require('child_process');
 const path = require('path');
 const { takeCompressedScreenshot } = require('./playwright.helpers');
 const { cleanOldFiles } = require('./cleanOldFiles');
@@ -30,24 +30,12 @@ function isServerRunning(urlStr) {
 }
 
 async function ensureDevServer(urlStr = 'http://localhost:8081', maxWaitSeconds = 60) {
-  const isUp = await isServerRunning(urlStr);
-  if (isUp) {
-    console.log(`✓ Dev server is already running at ${urlStr}`);
+  if (await isServerRunning(urlStr)) {
+    console.log(`✓ Dev server is active at ${urlStr}`);
     return;
   }
 
-  console.log(`⚠️ Dev server is not running at ${urlStr}. Starting 'npm run dev'...`);
-  const projectRoot = path.resolve(__dirname, '..');
-  const devProc = spawn('npm', ['run', 'dev'], {
-    cwd: projectRoot,
-    stdio: 'ignore',
-    shell: true,
-    detached: true,
-    windowsHide: true
-  });
-  devProc.unref();
-
-  console.log(`⏳ Waiting up to ${maxWaitSeconds}s for dev server to respond...`);
+  console.log(`⏳ Dev server not ready at ${urlStr}. Waiting up to ${maxWaitSeconds}s...`);
   const startTime = Date.now();
   while (Date.now() - startTime < maxWaitSeconds * 1000) {
     await new Promise((res) => setTimeout(res, 2000));
@@ -56,7 +44,7 @@ async function ensureDevServer(urlStr = 'http://localhost:8081', maxWaitSeconds 
       return;
     }
   }
-  console.warn(`⚠️ Timeout waiting for dev server at ${urlStr}. Proceeding anyway...`);
+  console.warn(`⚠️ Dev server at ${urlStr} did not respond within ${maxWaitSeconds}s.`);
 }
 
 function killExistingPlaywrightSessions() {

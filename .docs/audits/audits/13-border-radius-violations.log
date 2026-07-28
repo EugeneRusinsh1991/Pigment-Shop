@@ -1,0 +1,13 @@
+===================================================================
+         BORDER_RADIUS - Хардкод радиуса границ              
+Timestamp: 28.07.2026, 20:38:15
+===================================================================
+[PROMPT FOR AGENT]: Refactor hardcoded values to use design tokens.
+===================================================================
+
+Found 2 violation(s):
+
+File: src\components\Button\useButtonTheme.js
+  src\components\Button\useButtonTheme.js:31 | borderRadius: 6 | const defaultContainer = { padding: 10, borderRadius: 6 };
+  src\components\Button\useButtonTheme.js:31 | 6 | const defaultContainer = { padding: 10, borderRadius: 6 };
+

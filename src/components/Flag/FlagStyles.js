@@ -1,54 +1,54 @@
 import { StyleSheet } from 'react-native';
-import { colors, layout, buttonTokens } from '../../theme/tokens';
+import { buttonTokens, colors, layout } from '../../theme/tokens';
 
 export const HIT_SLOP_44 = { top: 10, bottom: 10, left: 10, right: 10 };
 
 export const colorSchemes = {
   sale: {
-    container: { backgroundColor: colors.dangerSoftLightBg, borderColor: colors.accent, borderWidth: 1 },
-    containerDark: { backgroundColor: colors.surfaceDark, borderColor: colors.accent, borderWidth: 1 },
+    container: { backgroundColor: colors.dangerSoftLightBg, borderColor: colors.accent, borderWidth: layout.borderWidth.thin },
+    containerDark: { backgroundColor: colors.surfaceDark, borderColor: colors.accent, borderWidth: layout.borderWidth.thin },
     text: { color: colors.accent },
     textDark: { color: colors.accent },
   },
   new: {
-    container: { backgroundColor: colors.infoBgMid, borderColor: colors.infoStrong, borderWidth: 1 },
-    containerDark: { backgroundColor: colors.surfaceDark, borderColor: colors.infoLight, borderWidth: 1 },
+    container: { backgroundColor: colors.infoBgMid, borderColor: colors.infoStrong, borderWidth: layout.borderWidth.thin },
+    containerDark: { backgroundColor: colors.surfaceDark, borderColor: colors.infoLight, borderWidth: layout.borderWidth.thin },
     text: { color: colors.infoStrong },
     textDark: { color: colors.infoLight },
   },
   featured: {
-    container: { backgroundColor: colors.purpleBgLight, borderColor: colors.purpleMid, borderWidth: 1 },
-    containerDark: { backgroundColor: colors.surfaceDark, borderColor: colors.purpleLight, borderWidth: 1 },
+    container: { backgroundColor: colors.purpleBgLight, borderColor: colors.purpleMid, borderWidth: layout.borderWidth.thin },
+    containerDark: { backgroundColor: colors.surfaceDark, borderColor: colors.purpleLight, borderWidth: layout.borderWidth.thin },
     text: { color: colors.purpleMid },
     textDark: { color: colors.purpleLight },
   },
   active: {
-    container: { backgroundColor: colors.successBgLight, borderColor: colors.successMid, borderWidth: 1 },
-    containerDark: { backgroundColor: colors.surfaceDark, borderColor: colors.successLight, borderWidth: 1 },
+    container: { backgroundColor: colors.successBgLight, borderColor: colors.successMid, borderWidth: layout.borderWidth.thin },
+    containerDark: { backgroundColor: colors.surfaceDark, borderColor: colors.successLight, borderWidth: layout.borderWidth.thin },
     text: { color: colors.successDark },
     textDark: { color: colors.successLight },
   },
   inactive: {
-    container: { backgroundColor: colors.secondaryLightBg, borderColor: colors.secondaryLightBorder, borderWidth: 1 },
-    containerDark: { backgroundColor: colors.secondaryDarkBg, borderColor: colors.secondaryDarkBorder, borderWidth: 1 },
+    container: { backgroundColor: colors.secondaryLightBg, borderColor: colors.secondaryLightBorder, borderWidth: layout.borderWidth.thin },
+    containerDark: { backgroundColor: colors.secondaryDarkBg, borderColor: colors.secondaryDarkBorder, borderWidth: layout.borderWidth.thin },
     text: { color: colors.textMutedLight },
     textDark: { color: colors.textMutedDark },
   },
   completed: {
-    container: { backgroundColor: colors.successBgLight, borderColor: colors.successMid, borderWidth: 1 },
-    containerDark: { backgroundColor: colors.surfaceDark, borderColor: colors.successLight, borderWidth: 1 },
+    container: { backgroundColor: colors.successBgLight, borderColor: colors.successMid, borderWidth: layout.borderWidth.thin },
+    containerDark: { backgroundColor: colors.surfaceDark, borderColor: colors.successLight, borderWidth: layout.borderWidth.thin },
     text: { color: colors.successDark },
     textDark: { color: colors.successLight },
   },
   pending: {
-    container: { backgroundColor: colors.warningBgMid, borderColor: colors.warningStrong, borderWidth: 1 },
-    containerDark: { backgroundColor: colors.surfaceDark, borderColor: colors.warningMid, borderWidth: 1 },
+    container: { backgroundColor: colors.warningBgMid, borderColor: colors.warningStrong, borderWidth: layout.borderWidth.thin },
+    containerDark: { backgroundColor: colors.surfaceDark, borderColor: colors.warningMid, borderWidth: layout.borderWidth.thin },
     text: { color: colors.warningDark },
     textDark: { color: colors.warningMid },
   },
   cancelled: {
-    container: { backgroundColor: colors.dangerBgLight, borderColor: colors.dangerLight, borderWidth: 1 },
-    containerDark: { backgroundColor: colors.surfaceDark, borderColor: colors.dangerLight, borderWidth: 1 },
+    container: { backgroundColor: colors.dangerBgLight, borderColor: colors.dangerLight, borderWidth: layout.borderWidth.thin },
+    containerDark: { backgroundColor: colors.surfaceDark, borderColor: colors.dangerLight, borderWidth: layout.borderWidth.thin },
     text: { color: colors.dangerMid },
     textDark: { color: colors.dangerLight },
   },
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     paddingVertical: layout.spacing.xs,
     minHeight: buttonTokens?.sizes?.sm?.height || 32,
     borderRadius: layout.radii.lg,
-    borderWidth: 1.5,
+    borderWidth: layout.borderWidth.focus,
     borderColor: colors.secondaryLightBorder,
     backgroundColor: colors.surfaceLight,
   },
@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
     width: 20,
     height: 20,
     borderRadius: layout.radii.xs,
-    borderWidth: 1.5,
+    borderWidth: layout.borderWidth.focus,
     borderColor: colors.inputBorderLight,
     backgroundColor: colors.inputBgLight,
     alignItems: 'center',

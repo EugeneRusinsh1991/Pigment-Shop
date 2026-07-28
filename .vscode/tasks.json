@@ -138,6 +138,7 @@
             "presentation": {
                 "reveal": "always",
                 "panel": "dedicated",
+                "focus": true,
                 "clear": true
             },
             "problemMatcher": []
@@ -235,10 +236,14 @@
         {
             "label": "Tools: Run All Automations",
             "type": "shell",
+            "dependsOn": [
+                "Run Dev"
+            ],
             "command": "npx tsx .tools/browser-automation/run-smoke-both.ts",
             "presentation": {
                 "reveal": "always",
-                "panel": "dedicated"
+                "panel": "dedicated",
+                "focus": true
             },
             "problemMatcher": []
         },
@@ -255,10 +260,14 @@
         {
             "label": "Tools: Run All Automations Headless",
             "type": "shell",
+            "dependsOn": [
+                "Run Dev"
+            ],
             "command": "npx tsx .tools/browser-automation/run-smoke-both-headless.ts",
             "presentation": {
                 "reveal": "always",
-                "panel": "dedicated"
+                "panel": "dedicated",
+                "focus": true
             },
             "problemMatcher": []
         },

@@ -1,0 +1,10 @@
+===================================================================
+               8. MAGIC NUMBERS REPORT                             
+Timestamp: 28.07.2026, 20:38:14
+===================================================================
+
+Found 1 magic number issue(s) across 1 file(s):
+
+File: src\components\Button\useButtonTheme.js
+  L31    Off-grid padding: 10px
+

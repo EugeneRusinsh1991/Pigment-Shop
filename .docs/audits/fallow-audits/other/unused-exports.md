@@ -1,6 +1,6 @@
 # 📦 Unused Exports
 
-*Generated on: 28.07.2026, 19:12:51*
+*Generated on: 28.07.2026, 20:38:21*
 
 Exports that are not imported or consumed by any other active file:
 
@@ -38,7 +38,7 @@ Exports that are not imported or consumed by any other active file:
 - [InteractionPolicyEngine.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/policy/InteractionPolicyEngine.ts): `InteractionPolicyEngine` ([L8](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/policy/InteractionPolicyEngine.ts#L8))
 - [SamplingStrategy.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/policy/SamplingStrategy.ts): `SamplingStrategy` ([L28](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/policy/SamplingStrategy.ts#L28))
 - [BoundedCollections.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/utils/BoundedCollections.ts): `BoundedSet` ([L1](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/utils/BoundedCollections.ts#L1)), `BoundedMap` ([L41](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/utils/BoundedCollections.ts#L41))
-- [devServerHelper.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/devServerHelper.ts): `isServerRunning` ([L5](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/devServerHelper.ts#L5)), `ensureDevServer` ([L18](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/devServerHelper.ts#L18))
+- [devServerHelper.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/devServerHelper.ts): `isServerRunning` ([L3](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/devServerHelper.ts#L3)), `ensureDevServer` ([L26](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/devServerHelper.ts#L26))
 - [dynamic-report-writer.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/dynamic-report-writer.ts): `clearSeenViolations` ([L15](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/dynamic-report-writer.ts#L15))
 - [envValidator.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/envValidator.ts): `validateAuthEnv` ([L6](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/envValidator.ts#L6))
 - [hoverInfoHelper.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/hoverInfoHelper.ts): `extractElementHoverInfo` ([L44](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/hoverInfoHelper.ts#L44))

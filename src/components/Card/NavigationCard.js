@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Text } from '../Text';
-import { ForwardArrowIcon } from '../Icons/ControlIcons';
-import Card from './Card';
 import { colors, layout } from '../../theme/tokens';
+import { ForwardArrowIcon } from '../Icons/ControlIcons';
+import { Text } from '../Text';
+import Card from './Card';
 
 const NavigationCard = React.forwardRef(({ type, isDark, text, style, ...rest }, ref) => {
   return (
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     width: 48,
     height: 48,
     borderRadius: layout.radii.xl,
-    borderWidth: 1,
+    borderWidth: layout.borderWidth.thin,
     justifyContent: 'center',
     alignItems: 'center',
   },

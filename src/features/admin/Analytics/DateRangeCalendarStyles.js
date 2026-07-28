@@ -7,7 +7,7 @@ export const localStyles = StyleSheet.create({
     top: 42,
     right: 0,
     zIndex: layout.zIndices.toast,
-    borderWidth: 1,
+    borderWidth: layout.borderWidth.thin,
     borderColor: colors.secondaryLightBorder,
     borderRadius: layout.spacing.md,
     padding: layout.spacing.md,

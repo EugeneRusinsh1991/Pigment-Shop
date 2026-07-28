@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { ScrollFadeUp } from '../Motion';
 import { colors, layout } from '../../theme/tokens';
+import { ScrollFadeUp } from '../Motion';
 
 function getStaticCardBorderColor(borderColor, isDark) {
   if (borderColor) return borderColor;
@@ -31,7 +31,7 @@ function computeStaticCardStyle({ isDark, lightBgColor, darkBgColor, borderColor
 
 const staticStyles = StyleSheet.create({
   card: {
-    borderWidth: 1,
+    borderWidth: layout.borderWidth.thin,
     overflow: 'visible',
   },
 });

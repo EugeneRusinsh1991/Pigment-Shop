@@ -8,7 +8,7 @@
 
 ### File: src/components/Badge/Badge.js
 
-  - Line 37: `<Text>` -> `[Dynamic Content]`
+  - Line 38: `<Text>` -> `[Dynamic Content]`
 
 ### File: src/components/Button/Button.js
 
@@ -130,7 +130,7 @@
 
 ### File: src/components/Text/Text.js
 
-  - Line 97: `<RNText>` -> `[Dynamic Content]`
+  - Line 98: `<RNText>` -> `[Dynamic Content]`
 
 ### File: src/components/TextField/TextField.js
 

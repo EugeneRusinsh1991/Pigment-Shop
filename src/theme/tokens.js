@@ -280,9 +280,14 @@ export const layout = {
     tooltip: 4000,
   },
   borderWidth: {
+    none: 0,
     thin: 1,
     focus: 1.5,
     thick: 2,
+    medium: 3,
+    heavy: 4,
+    xheavy: 10,
+    xxheavy: 16,
   },
   spacing: {
     none: 0,

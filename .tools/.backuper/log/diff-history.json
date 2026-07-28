@@ -6942,5 +6942,35 @@
         }
       ]
     }
+  },
+  "src_07-28_21-37_S_21-37-44_Admin.jpg_2157files": {
+    "timestamp": "2026-07-28T18:38:02.549Z",
+    "diff": {
+      "added": 2052,
+      "removed": 0,
+      "modified": 40,
+      "topFolders": [
+        {
+          "folder": "reports",
+          "count": 105
+        },
+        {
+          "folder": ".venv/Lib/site-packages/pip/_vendor/rich",
+          "count": 79
+        },
+        {
+          "folder": ".venv/Lib/site-packages/pip/_vendor/rich/__pycache__",
+          "count": 77
+        },
+        {
+          "folder": ".fallow/src/components",
+          "count": 42
+        },
+        {
+          "folder": ".fallow/scripts/smoke-test/failures",
+          "count": 33
+        }
+      ]
+    }
   }
 }

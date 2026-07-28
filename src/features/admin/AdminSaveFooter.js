@@ -1,8 +1,7 @@
-import React from 'react';
-import { View, StyleSheet, Platform, KeyboardAvoidingView } from 'react-native';
-import { useTheme } from '@/context/ThemeContext';
 import { Button } from '@/components/Button';
+import { useTheme } from '@/context/ThemeContext';
 import { colors, layout } from '@/theme/tokens';
+import { KeyboardAvoidingView, Platform, StyleSheet, View } from 'react-native';
 
 function getSaveButtonTitle(isSaving, t) {
   if (isSaving) {
@@ -53,7 +52,7 @@ const styles = StyleSheet.create({
   footer: {
     padding: layout.spacing.lg,
     backgroundColor: colors.surfaceLight,
-    borderTopWidth: 1,
+    borderTopWidth: layout.borderWidth.thin,
     borderTopColor: colors.borderSlateLight,
     shadowColor: colors.black,
     shadowOffset: { width: 0, height: -2 },

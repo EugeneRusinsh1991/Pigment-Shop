@@ -1,0 +1,14 @@
+===================================================================
+         MARGIN_PADDING - Хардкод отступов              
+Timestamp: 28.07.2026, 20:38:15
+===================================================================
+[PROMPT FOR AGENT]: Refactor hardcoded values to use design tokens.
+===================================================================
+
+Found 3 violation(s):
+
+File: src\components\Button\useButtonTheme.js
+  src\components\Button\useButtonTheme.js:31 | padding: 10 | const defaultContainer = { padding: 10, borderRadius: 6 };
+  src\components\Button\useButtonTheme.js:31 | padding | const defaultContainer = { padding: 10, borderRadius: 6 };
+  src\components\Button\useButtonTheme.js:31 | 10 | const defaultContainer = { padding: 10, borderRadius: 6 };
+

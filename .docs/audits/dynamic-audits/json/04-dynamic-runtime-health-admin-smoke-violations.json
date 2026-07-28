@@ -1,0 +1,13 @@
+{
+  "violations": {
+    "http://localhost:8081/admin": [
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Unhandled exception: layout is not defined"
+      }
+    ]
+  },
+  "urls": [
+    "http://localhost:8081/admin"
+  ]
+}

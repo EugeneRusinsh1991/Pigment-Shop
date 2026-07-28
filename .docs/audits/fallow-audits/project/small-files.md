@@ -1,6 +1,6 @@
 # 📄 Small & Pass-Through Files Findings
 
-*Generated on: 28.07.2026, 19:12:51*
+*Generated on: 28.07.2026, 20:38:21*
 
 ### Candidate Files for Refactoring/Elimination
 
@@ -120,12 +120,12 @@
   - Lines: 17 | Size: 597 B | Type: **Tiny Component**
   > 💡 This component is very small; consider declaring it inline within its parent component.
 
-- **[CardShadow.js](file:///D:/Magazine/_PigmentShop/src/components/Card/CardShadow.js)** (`src/components/Card/CardShadow.js`)
-  - Lines: 20 | Size: 659 B | Type: **Tiny Component**
+- **[useMotionTheme.js](file:///D:/Magazine/_PigmentShop/src/components/Motion/useMotionTheme.js)** (`src/components/Motion/useMotionTheme.js`)
+  - Lines: 20 | Size: 359 B | Type: **Tiny Component**
   > 💡 This component is very small; consider declaring it inline within its parent component.
 
-- **[useButtonTheme.js](file:///D:/Magazine/_PigmentShop/src/components/Button/useButtonTheme.js)** (`src/components/Button/useButtonTheme.js`)
-  - Lines: 21 | Size: 765 B | Type: **Tiny Component**
+- **[CardShadow.js](file:///D:/Magazine/_PigmentShop/src/components/Card/CardShadow.js)** (`src/components/Card/CardShadow.js`)
+  - Lines: 20 | Size: 659 B | Type: **Tiny Component**
   > 💡 This component is very small; consider declaring it inline within its parent component.
 
 - **[useNavigationTheme.js](file:///D:/Magazine/_PigmentShop/src/components/Navigation/useNavigationTheme.js)** (`src/components/Navigation/useNavigationTheme.js`)

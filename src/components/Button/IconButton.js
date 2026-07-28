@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
+import { buttonTokens, colors, layout } from '../../theme/tokens';
 import Button from './Button';
-import { buttonTokens, colors } from '../../theme/tokens';
 import { useButtonTheme } from './useButtonTheme';
 
 export function IconButton({
@@ -62,8 +62,8 @@ const iconStyles = StyleSheet.create({
   solidDark:        { backgroundColor: colors.textDark },
   glassLight:       { backgroundColor: colors.glassLightBg },
   glassDark:        { backgroundColor: colors.glassDarkBg },
-  outlineLight:     { backgroundColor: colors.surfaceLight, borderWidth: 1, borderColor: colors.borderLight },
-  outlineDark:      { backgroundColor: colors.surfaceDark,  borderWidth: 1, borderColor: colors.borderDark },
+  outlineLight:     { backgroundColor: colors.surfaceLight, borderWidth: layout.borderWidth.thin, borderColor: colors.borderLight },
+  outlineDark:      { backgroundColor: colors.surfaceDark,  borderWidth: layout.borderWidth.thin, borderColor: colors.borderDark },
   transparentLight: { backgroundColor: 'transparent' },
   transparentDark:  { backgroundColor: 'transparent' },
 });

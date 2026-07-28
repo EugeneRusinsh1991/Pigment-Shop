@@ -1,6 +1,6 @@
 # 🩺 Complexity Health Findings (Critical & High)
 
-*Generated on: 28.07.2026, 19:12:51*
+*Generated on: 28.07.2026, 20:38:21*
 
 ## 🟠 High (≤ 50 lines)
 
@@ -9,6 +9,12 @@
 
 - 🟠 **`handleCheckoutFailure`** [L98](file:///D:/Magazine/_PigmentShop/src/hooks/useCheckoutLogic.js#L98)
   - Lines: 12 | Cyclomatic: 9 | Cognitive: 6 | CRAP: 90
+
+#### 📁 [useButtonTheme.js](file:///D:/Magazine/_PigmentShop/src/components/Button/useButtonTheme.js)
+`src/components/Button/useButtonTheme.js`
+
+- 🟠 **`useButtonTheme`** [L13](file:///D:/Magazine/_PigmentShop/src/components/Button/useButtonTheme.js#L13)
+  - Lines: 26 | Cyclomatic: 9 | Cognitive: 7 | CRAP: 90
 
 #### 📁 [ContactQuestionForm.js](file:///D:/Magazine/_PigmentShop/src/features/contact/ContactQuestionForm.js)
 `src/features/contact/ContactQuestionForm.js`

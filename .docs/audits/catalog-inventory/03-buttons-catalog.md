@@ -8,7 +8,7 @@
 
 ### File: src/components/Badge/Badge.js
 
-  - Line 84: `<TouchableOpacity>`
+  - Line 85: `<TouchableOpacity>`
 
 ### File: src/components/Button/Button.js
 

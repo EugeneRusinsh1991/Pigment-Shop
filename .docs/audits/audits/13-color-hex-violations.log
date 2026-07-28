@@ -1,0 +1,12 @@
+===================================================================
+         COLOR_HEX - Хардкод HEX цветов              
+Timestamp: 28.07.2026, 20:38:15
+===================================================================
+[PROMPT FOR AGENT]: Refactor hardcoded values to use design tokens.
+===================================================================
+
+Found 1 violation(s):
+
+File: src\components\Button\useButtonTheme.js
+  src\components\Button\useButtonTheme.js:32 | #0a0a0a | const defaultText = { color: '#0a0a0a', fontSize: 14 };
+

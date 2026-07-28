@@ -69,7 +69,7 @@ export default StyleSheet.create({
     flexDirection: 'column',
     paddingHorizontal: layout.spacing.lg,
     paddingVertical: layout.spacing.sm,
-    borderBottomWidth: 1,
+    borderBottomWidth: layout.borderWidth.thin,
     borderBottomColor: colors.secondaryLightBorder,
     gap: layout.spacing.xs,
   },
@@ -91,7 +91,7 @@ export default StyleSheet.create({
   rowBottom: {
     flexDirection: 'row',
     gap: 0, // zero gap
-    borderTopWidth: 1,
+    borderTopWidth: layout.borderWidth.thin,
     borderTopColor: colors.secondaryLightBorder,
     paddingTop: layout.spacing.sm,
     marginTop: layout.elevation.sm,
@@ -164,7 +164,7 @@ export default StyleSheet.create({
     backgroundColor: colors.slateLight,
     borderRadius: layout.radii.sm,
     padding: layout.spacing.md,
-    borderWidth: 1,
+    borderWidth: layout.borderWidth.thin,
     borderColor: colors.secondaryLightBorder,
     marginBottom: layout.spacing.sm,
   },
@@ -190,7 +190,7 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingVertical: layout.spacing.xs,
-    borderBottomWidth: 1,
+    borderBottomWidth: layout.borderWidth.thin,
     borderBottomColor: colors.secondaryLightBorder,
   },
   itemLabel: {
@@ -219,14 +219,14 @@ export default StyleSheet.create({
     paddingBottom: layout.spacing.sm,
   },
   itemTotalRow: {
-    borderTopWidth: 1,
+    borderTopWidth: layout.borderWidth.thin,
     borderTopColor: colors.secondaryLightBorder,
-    borderBottomWidth: 0,
+    borderBottomWidth: layout.borderWidth.none,
     marginTop: layout.spacing.xxs,
   },
   statusDropdown: {
     backgroundColor: colors.surfaceLight,
-    borderWidth: 1,
+    borderWidth: layout.borderWidth.thin,
     borderColor: colors.secondaryLightBorder,
     borderRadius: layout.radii.sm,
     padding: layout.spacing.md,
@@ -234,7 +234,7 @@ export default StyleSheet.create({
   },
   statusOption: {
     paddingVertical: layout.spacing.sm,
-    borderBottomWidth: 1,
+    borderBottomWidth: layout.borderWidth.thin,
     borderBottomColor: colors.slateMid,
   },
   statusOptionText: {
@@ -255,7 +255,7 @@ export default StyleSheet.create({
     paddingHorizontal: layout.spacing.md,
     borderRadius: layout.radii.xs,
     marginBottom: layout.spacing.sm,
-    borderWidth: 1,
+    borderWidth: layout.borderWidth.thin,
   },
   feedbackSuccess: {
     backgroundColor: colors.successBgSoft,
@@ -322,7 +322,7 @@ export default StyleSheet.create({
     left: 0,
     right: 0,
     backgroundColor: colors.surfaceLight,
-    borderWidth: 1,
+    borderWidth: layout.borderWidth.thin,
     borderColor: colors.secondaryLightBorder,
     borderRadius: layout.radii.sm,
     elevation: layout.elevation.md,
@@ -336,7 +336,7 @@ export default StyleSheet.create({
     backgroundColor: colors.surfaceLight,
   },
   dropdownOptionBorder: {
-    borderBottomWidth: 1,
+    borderBottomWidth: layout.borderWidth.thin,
     borderBottomColor: colors.slateMid,
   },
   dropdownOptionRow: {

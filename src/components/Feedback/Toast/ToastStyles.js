@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
     paddingHorizontal: layout.spacing.lg + 4,
     paddingVertical: layout.spacing.md,
     borderRadius: layout.radii.md,
-    borderWidth: 1,
+    borderWidth: layout.borderWidth.thin,
     maxWidth: '90%',
     zIndex: layout.zIndices.toast,
     ...shadows.dropdownLight.web,

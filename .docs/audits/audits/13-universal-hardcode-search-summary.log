@@ -1,10 +1,14 @@
 ===================================================================
          UNIVERSAL HARDCODE SEARCH SUMMARY                         
-Timestamp: 28.07.2026, 19:12:44
+Timestamp: 28.07.2026, 20:38:15
 ===================================================================
 
-Found 526 hardcoded value(s) across 1 pattern type(s):
+Found 534 hardcoded value(s) across 5 pattern type(s):
 
 - BORDER_WIDTH: 526 violations
+- BORDER_RADIUS: 2 violations
+- MARGIN_PADDING: 3 violations
+- COLOR_HEX: 1 violations
+- FONT_SIZE: 2 violations
 
 Detailed reports available in individual category files.

@@ -2,7 +2,7 @@
  * AdminPanelStyles.js
  */
 import { StyleSheet } from 'react-native';
-import { colors, fonts, layout } from '../../theme/tokens';
+import { colors, layout } from '../../theme/tokens';
 
 export default StyleSheet.create({
   container: {
@@ -16,7 +16,7 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: layout.spacing.xl,
     backgroundColor: colors.surfaceLight,
-    borderBottomWidth: 1,
+    borderBottomWidth: layout.borderWidth.thin,
     borderBottomColor: colors.borderLightAlt,
   },
   headerLeft: {
@@ -48,7 +48,7 @@ export default StyleSheet.create({
   tabBar: {
     flexDirection: 'row',
     backgroundColor: colors.surfaceLight,
-    borderBottomWidth: 1,
+    borderBottomWidth: layout.borderWidth.thin,
     borderBottomColor: colors.borderLightAlt,
     paddingHorizontal: layout.spacing.xl,
   },

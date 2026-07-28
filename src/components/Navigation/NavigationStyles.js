@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
 import { colors, layout } from '@/theme/tokens';
+import { StyleSheet } from 'react-native';
 
 export const createBreadcrumbStyles = (isDark) => StyleSheet.create({
   scroll: {
@@ -44,7 +44,7 @@ export const createPaginationStyles = (isDark) => StyleSheet.create({
     maxWidth: layout.maxContentWidth,
     paddingHorizontal: layout.spacing.sm,
     paddingVertical: layout.spacing.xxs,
-    borderBottomWidth: 0,
+    borderBottomWidth: layout.borderWidth.none,
     minHeight: 36,
     backgroundColor: isDark ? colors.backgroundDark : colors.backgroundLight,
     borderBottomColor: isDark ? colors.borderDarkAlt : colors.borderLightAlt,

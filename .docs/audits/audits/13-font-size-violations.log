@@ -1,0 +1,13 @@
+===================================================================
+         FONT_SIZE - Хардкод размера шрифта              
+Timestamp: 28.07.2026, 20:38:15
+===================================================================
+[PROMPT FOR AGENT]: Refactor hardcoded values to use design tokens.
+===================================================================
+
+Found 2 violation(s):
+
+File: src\components\Button\useButtonTheme.js
+  src\components\Button\useButtonTheme.js:32 | fontSize: 14 | const defaultText = { color: '#0a0a0a', fontSize: 14 };
+  src\components\Button\useButtonTheme.js:32 | 14 | const defaultText = { color: '#0a0a0a', fontSize: 14 };
+

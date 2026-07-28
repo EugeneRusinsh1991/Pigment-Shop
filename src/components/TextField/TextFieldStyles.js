@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
   inputWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
-    borderWidth: 1,
+    borderWidth: layout.borderWidth.thin,
     borderColor: colors.inputBorderLight,
     backgroundColor: colors.inputBgLight,
     borderRadius: layout.radii.sm,

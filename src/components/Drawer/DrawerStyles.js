@@ -24,7 +24,7 @@ export const getDrawerStyles = (position = 'left') => {
     panelLight: { backgroundColor: colors.white },
     header: {
       padding: layout.spacing.lg,
-      borderBottomWidth: 1,
+      borderBottomWidth: layout.borderWidth.thin,
       borderBottomColor: colors.secondaryLightBorder,
       flexDirection: 'row',
       alignItems: 'center',
@@ -32,7 +32,7 @@ export const getDrawerStyles = (position = 'left') => {
     },
     footer: {
       padding: layout.spacing.lg,
-      borderTopWidth: 1,
+      borderTopWidth: layout.borderWidth.thin,
       borderTopColor: colors.secondaryLightBorder,
       marginTop: 'auto',
     },

@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors, layout, shadow, buttonTokens } from '../../../theme/tokens';
+import { buttonTokens, colors, layout, shadow } from '../../../theme/tokens';
 
 export default StyleSheet.create({
   overlay: {
@@ -23,7 +23,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: layout.spacing.xl,
     paddingVertical: layout.spacing.md,
-    borderBottomWidth: 1,
+    borderBottomWidth: layout.borderWidth.thin,
     borderBottomColor: colors.slateMid,
     gap: layout.spacing.sm,
   },
@@ -36,7 +36,7 @@ export default StyleSheet.create({
     paddingHorizontal: layout.spacing.md,
     borderRadius: layout.radii.sm,
     backgroundColor: colors.slateMid,
-    borderWidth: 1,
+    borderWidth: layout.borderWidth.thin,
     borderColor: colors.secondaryLightBorder,
   },
   refreshBtnText: {
@@ -53,7 +53,7 @@ export default StyleSheet.create({
     padding: layout.spacing.md,
     borderRadius: layout.radii.sm,
     backgroundColor: colors.warningBgLight,
-    borderWidth: 1,
+    borderWidth: layout.borderWidth.thin,
     borderColor: colors.warningLight,
   },
   outdatedBannerTitle: {
@@ -71,7 +71,7 @@ export default StyleSheet.create({
     paddingHorizontal: layout.spacing.xl,
     paddingVertical: layout.spacing.sm,
     gap: layout.spacing.sm,
-    borderBottomWidth: 1,
+    borderBottomWidth: layout.borderWidth.thin,
     borderBottomColor: colors.slateMid,
   },
   tab: {
@@ -79,7 +79,7 @@ export default StyleSheet.create({
     paddingHorizontal: layout.spacing.lg,
     borderRadius: layout.radii.sm,
     backgroundColor: colors.slateMid,
-    borderWidth: 1,
+    borderWidth: layout.borderWidth.thin,
     borderColor: colors.secondaryLightBorder,
   },
   tabActive: {
@@ -104,7 +104,7 @@ export default StyleSheet.create({
   itemBtn: {
     width: 100,
     borderRadius: layout.radii.sm,
-    borderWidth: 2,
+    borderWidth: layout.borderWidth.thick,
     borderColor: colors.transparent,
     overflow: 'hidden',
     backgroundColor: colors.slateLight,
@@ -145,7 +145,7 @@ export default StyleSheet.create({
     justifyContent: 'flex-end',
     gap: layout.spacing.sm,
     padding: layout.spacing.lg,
-    borderTopWidth: 1,
+    borderTopWidth: layout.borderWidth.thin,
     borderTopColor: colors.slateMid,
   },
   cancelBtn: {
@@ -153,7 +153,7 @@ export default StyleSheet.create({
     paddingHorizontal: buttonTokens.sizes.md.borderRadiusPill,
     borderRadius: layout.radii.sm,
     backgroundColor: colors.slateMid,
-    borderWidth: 1,
+    borderWidth: layout.borderWidth.thin,
     borderColor: colors.secondaryLightBorder,
   },
   cancelBtnText: {

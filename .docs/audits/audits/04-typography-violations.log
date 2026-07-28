@@ -1,0 +1,9 @@
+===================================================================
+               4. TYPOGRAPHY COMPLIANCE REPORT                     
+Timestamp: 28.07.2026, 21:38:05
+===================================================================
+
+Found 1 typography issue(s) across 1 file(s):
+
+File: src\components\Button\useButtonTheme.js
+  L32    const defaultText = { color: colors.textLight, fontSize: 

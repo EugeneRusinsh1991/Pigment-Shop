@@ -1,15 +1,15 @@
-import { StyleSheet, Platform } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 import { colors, layout, shadows } from '../../theme/tokens';
 export const styleMap = {
   containerLight: {
     backgroundColor: colors.surfaceLight,
     borderColor: colors.borderLight,
-    borderWidth: 1,
+    borderWidth: layout.borderWidth.thin,
   },
   containerDark: {
     backgroundColor: colors.surfaceDark,
     borderColor: colors.borderDark,
-    borderWidth: 1,
+    borderWidth: layout.borderWidth.thin,
   },
   cardBgLight: colors.productCardLight,
   cardBgDark: colors.productCardDark,

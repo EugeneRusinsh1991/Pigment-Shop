@@ -1,9 +1,8 @@
-import React from 'react';
-import { View } from 'react-native';
 import { Text } from '@/components/Text';
+import { View } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
-import { FieldTextarea } from '../SharedFormComponents';
 import { colors, layout } from '../../../theme/tokens';
+import { FieldTextarea } from '../SharedFormComponents';
 import styles from './OrdersStyles';
 
 export default function AdminNoteSection({ note, setNote }) {
@@ -23,7 +22,7 @@ export default function AdminNoteSection({ note, setNote }) {
             styles.adminNoteInput,
             {
               borderColor: colors.secondaryLightBorder,
-              borderWidth: 1,
+              borderWidth: layout.borderWidth.thin,
               borderRadius: layout.radii.xs,
               padding: layout.spacing.md,
               minHeight: 100,

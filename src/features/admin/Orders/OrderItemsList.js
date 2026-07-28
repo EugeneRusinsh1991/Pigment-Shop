@@ -4,6 +4,7 @@
 import { Text } from '@/components/Text';
 import { View } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
+import { layout } from '../../../theme/tokens';
 import styles from './OrdersStyles';
 
 function resolveItemName(item, lang) {
@@ -23,7 +24,7 @@ function ItemRow({ item, lang, t, isLast }) {
   const lineTotal = qty * unitPrice;
 
   return (
-    <View style={[styles.itemRow, isLast ? { borderBottomWidth: 0 } : null]}>
+    <View style={[styles.itemRow, isLast ? { borderBottomWidth: layout.borderWidth.none } : null]}>
       <Text style={styles.itemLabel} size={14} numberOfLines={2}>{name}</Text>
       <Text style={styles.itemQty} size={14}>{qty} {t('pcs')}</Text>
       <Text style={styles.itemUnitPrice} size={14}>${unitPrice.toLocaleString()}</Text>
