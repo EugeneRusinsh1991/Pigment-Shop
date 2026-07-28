@@ -1,33 +1,67 @@
-import React from 'react';
 import { Text as RNText } from 'react-native';
 import { useTextTheme } from './useTextTheme';
 
 const FONT_OVERRIDE_KEYS = ['fontSize', 'lineHeight', 'fontWeight', 'fontFamily'];
 
-function warnFontOverrides(style, children) {
-  if (!style) return;
-  const flattened = Array.isArray(style)
+function flattenStyle(style) {
+  if (!style) return null;
+  return Array.isArray(style)
     ? Object.assign({}, ...style.flat().filter(Boolean))
     : style;
-  const keys = Object.keys(flattened).filter((k) => FONT_OVERRIDE_KEYS.includes(k));
-  if (keys.length > 0) {
-    const textSnippet = typeof children === 'string' || typeof children === 'number' ? `"${children}"` : (Array.isArray(children) ? children.filter(c => typeof c === 'string' || typeof c === 'number').join(' ') : 'complex element');
-    const msg = `[Typography Warning] Custom font override(s) [${keys.join(', ')}] passed to Text via style prop. Text content: ${textSnippet}. Overriding style: ${JSON.stringify(flattened)}`;
-    console.warn(msg);
-    if (typeof window !== 'undefined') {
-      window.__TYPOGRAPHY_WARNINGS__ = window.__TYPOGRAPHY_WARNINGS__ || [];
-      const item = { time: new Date().toISOString(), textSnippet, keys, style: flattened, stack: new Error().stack };
-      window.__TYPOGRAPHY_WARNINGS__.push(item);
-      try {
-        const stored = JSON.parse(localStorage.getItem('typography_warnings') || '[]');
-        const isDup = stored.some((s) => s.textSnippet === textSnippet && JSON.stringify(s.keys) === JSON.stringify(keys) && JSON.stringify(s.style) === JSON.stringify(flattened));
-        if (!isDup) {
-          stored.push(item);
-          localStorage.setItem('typography_warnings', JSON.stringify(stored));
-        }
-      } catch (e) {}
-    }
+}
+
+function getTextSnippet(children) {
+  if (typeof children === 'string' || typeof children === 'number') {
+    return `"${children}"`;
   }
+
+  if (Array.isArray(children)) {
+    return children.filter((c) => typeof c === 'string' || typeof c === 'number').join(' ');
+  }
+
+  return 'complex element';
+}
+
+function collectWarningKeys(flattenedStyle) {
+  return Object.keys(flattenedStyle).filter((key) => FONT_OVERRIDE_KEYS.includes(key));
+}
+
+function persistTypographyWarning(item, flattenedStyle, keys, textSnippet) {
+  if (typeof window === 'undefined') return;
+
+  window.__TYPOGRAPHY_WARNINGS__ = window.__TYPOGRAPHY_WARNINGS__ || [];
+  window.__TYPOGRAPHY_WARNINGS__.push(item);
+
+  try {
+    const stored = JSON.parse(localStorage.getItem('typography_warnings') || '[]');
+    const isDup = stored.some((entry) => entry.textSnippet === textSnippet && JSON.stringify(entry.keys) === JSON.stringify(keys) && JSON.stringify(entry.style) === JSON.stringify(flattenedStyle));
+    if (!isDup) {
+      stored.push(item);
+      localStorage.setItem('typography_warnings', JSON.stringify(stored));
+    }
+  } catch (e) {}
+}
+
+function warnFontOverrides(style, children) {
+  const flattenedStyle = flattenStyle(style);
+  if (!flattenedStyle) return;
+
+  const keys = collectWarningKeys(flattenedStyle);
+  if (keys.length === 0) return;
+
+  const textSnippet = getTextSnippet(children);
+  const msg = `[Typography Warning] Custom font override(s) [${keys.join(', ')}] passed to Text via style prop. Text content: ${textSnippet}. Overriding style: ${JSON.stringify(flattenedStyle)}`;
+  console.warn(msg);
+
+  const item = {
+    time: new Date().toISOString(),
+    textSnippet,
+    keys,
+    style: flattenedStyle,
+    stack: new Error().stack,
+  };
+
+  persistTypographyWarning(item, flattenedStyle, keys, textSnippet);
 }
 
 /**

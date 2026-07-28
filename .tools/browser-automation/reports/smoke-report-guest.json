@@ -6,7 +6,7 @@
     "failedInteractions": 0,
     "warnings": 4,
     "errors": 0,
-    "executionDurationMs": 85798
+    "executionDurationMs": 81982
   },
   "failures": [],
   "warnings": [
@@ -15,7 +15,7 @@
       "interaction": "Initial Load",
       "elementIdentifier": "None",
       "event": "Runtime",
-      "timestamp": 1785247683875,
+      "timestamp": 1785249891151,
       "errorType": "Console Warning",
       "errorMessage": "\"shadow*\" style props are deprecated. Use \"boxShadow\"."
     },
@@ -24,7 +24,7 @@
       "interaction": "Click",
       "elementIdentifier": "btn|⚙️",
       "event": "Runtime",
-      "timestamp": 1785247684742,
+      "timestamp": 1785249891974,
       "errorType": "Console Error",
       "errorMessage": "Failed to load resource: the server responded with a status of 400 ()"
     },
@@ -33,7 +33,7 @@
       "interaction": "Click",
       "elementIdentifier": "btn|Capture Screenshot...",
       "event": "Runtime",
-      "timestamp": 1785247685884,
+      "timestamp": 1785249893164,
       "errorType": "Console Warning",
       "errorMessage": "Animated: `useNativeDriver` is not supported because the native animated module is missing. Falling back to JS-based animation. To resolve this, add `RCTAnimation` module to this app, or remove `useNativeDriver`. Make sure to run `bundle exec pod install` first. Read more about autolinking: https://github.com/react-native-community/cli/blob/master/docs/autolinking.md"
     },
@@ -42,7 +42,7 @@
       "interaction": "Click",
       "elementIdentifier": "btn|Capture Screenshot...",
       "event": "Runtime",
-      "timestamp": 1785247686090,
+      "timestamp": 1785249893394,
       "errorType": "Console Warning",
       "errorMessage": "props.pointerEvents is deprecated. Use style.pointerEvents"
     }

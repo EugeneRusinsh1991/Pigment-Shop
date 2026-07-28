@@ -16,23 +16,16 @@ function getErrorMessage(error, customMessage) {
   const message = error?.message || String(error);
   const lowerMessage = message.toLowerCase();
 
-  if (lowerMessage.includes('network') || lowerMessage.includes('fetch')) {
-    return DEFAULT_ERROR_MESSAGES.network;
-  }
-  if (lowerMessage.includes('timeout')) {
-    return DEFAULT_ERROR_MESSAGES.timeout;
-  }
-  if (lowerMessage.includes('permission') || lowerMessage.includes('unauthorized')) {
-    return DEFAULT_ERROR_MESSAGES.permission;
-  }
-  if (lowerMessage.includes('not found') || lowerMessage.includes('404')) {
-    return DEFAULT_ERROR_MESSAGES.notFound;
-  }
-  if (lowerMessage.includes('validation') || lowerMessage.includes('invalid')) {
-    return DEFAULT_ERROR_MESSAGES.validation;
-  }
+  const errorRules = [
+    { keys: ['network', 'fetch'], message: DEFAULT_ERROR_MESSAGES.network },
+    { keys: ['timeout'], message: DEFAULT_ERROR_MESSAGES.timeout },
+    { keys: ['permission', 'unauthorized'], message: DEFAULT_ERROR_MESSAGES.permission },
+    { keys: ['not found', '404'], message: DEFAULT_ERROR_MESSAGES.notFound },
+    { keys: ['validation', 'invalid'], message: DEFAULT_ERROR_MESSAGES.validation },
+  ];
 
-  return DEFAULT_ERROR_MESSAGES.default;
+  const matchedRule = errorRules.find(({ keys }) => keys.some((key) => lowerMessage.includes(key)));
+  return matchedRule?.message || DEFAULT_ERROR_MESSAGES.default;
 }
 
 export function useErrorHandler() {
