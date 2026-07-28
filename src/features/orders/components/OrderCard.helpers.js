@@ -1,12 +1,11 @@
-import { View } from 'react-native';
 import { Text } from '@/components/Text';
-import { useCatalog } from '@/context/CatalogContext';
 import { useTheme } from '@/context/ThemeContext';
-import { colors } from '@/theme/tokens';
-import styles from '../OrdersPageStyles';
-import { getLocalizedValue } from '@/utils/localization';
+import { useCatalog } from '@/features/catalog/CatalogContext';
 import { formatDateLong } from '@/utils/dateFormatting';
-import { resolveStatusKey, resolveStatusDef } from '@/utils/orderStatus';
+import { getLocalizedValue } from '@/utils/localization';
+import { resolveStatusDef, resolveStatusKey } from '@/utils/orderStatus';
+import { View } from 'react-native';
+import styles from '../OrdersPageStyles';
 export { resolveStatusKey };
 
 const JUST_NOW_TRANSLATIONS = {

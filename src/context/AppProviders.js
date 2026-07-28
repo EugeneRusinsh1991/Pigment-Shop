@@ -7,14 +7,13 @@
  *
  * Grouped into logical domain-specific wrappers with explicit boundaries.
  */
-import React from 'react';
-import { CatalogProvider } from './CatalogContext';
-import { ThemeProvider } from './ThemeContext';
-import { LanguageProvider } from './LanguageContext';
-import { AuthProvider } from './AuthContext';
-import { CartProvider } from './CartContext';
-import { FavoritesProvider } from './FavoritesContext';
 import BootstrapGate from '../bootstrap/BootstrapGate';
+import { CartProvider } from '../features/cart/CartContext';
+import { CatalogProvider } from '../features/catalog/CatalogContext';
+import { FavoritesProvider } from '../features/favorites/FavoritesContext';
+import { AuthProvider } from './AuthContext';
+import { LanguageProvider } from './LanguageContext';
+import { ThemeProvider } from './ThemeContext';
 
 import { GlobalToastProvider } from './ToastContext';
 

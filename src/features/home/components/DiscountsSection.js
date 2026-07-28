@@ -1,14 +1,14 @@
-import React, { useMemo } from 'react';
-import { StyleSheet, View, useWindowDimensions } from 'react-native';
-import { Text, Heading } from '@/components/Text';
+import { ScrollFadeUp } from '@/components/Motion';
+import { Heading, Text } from '@/components/Text';
+import { useCatalog } from '@/features/catalog/CatalogContext';
 import { PlaceholderGrid } from '@/features/catalog/PlaceholderCard';
-import { CountdownTimer } from './FeaturedSections';
-import { useCatalog } from '@/context/CatalogContext';
+import styles from '@/theme/appStyles';
+import { layout } from '@/theme/tokens';
 import { getDeviceTier } from '@/utils/layoutUtils';
 import { useRouter } from 'expo-router';
-import styles from '@/theme/appStyles';
-import { ScrollFadeUp } from '@/components/Motion';
-import { layout } from '@/theme/tokens';
+import { useMemo } from 'react';
+import { StyleSheet, View, useWindowDimensions } from 'react-native';
+import { CountdownTimer } from './FeaturedSections';
 
 function DiscountsHeader({ isWide, isDark, title }) {
   const headerStyle = {

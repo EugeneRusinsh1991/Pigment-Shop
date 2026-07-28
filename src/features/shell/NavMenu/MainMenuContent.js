@@ -1,17 +1,16 @@
-import { useState, useCallback } from 'react';
-import { Platform, UIManager, LayoutAnimation, View, StyleSheet } from 'react-native';
 import { Text } from '@/components/Text';
 import { useRouter } from 'expo-router';
+import { useCallback, useState } from 'react';
+import { LayoutAnimation, Platform, StyleSheet, UIManager, View } from 'react-native';
 
 import Button, { IconButton } from '../../../components/Button';
 import { ChevronDownIcon, ChevronRightIcon } from '../../../components/Icons';
-import { colors, motion } from '../../../theme/tokens';
-import { useTheme } from '../../../context/ThemeContext';
 import { useLanguage } from '../../../context/LanguageContext';
-import { useCatalog } from '../../../context/CatalogContext';
+import { colors, motion } from '../../../theme/tokens';
+import { useCatalog } from '../../catalog/CatalogContext';
+import CategoryTreeNode, { useExpandedIds } from './CategoryTreeNode';
 import { getNavItemIcon } from './NavItemList';
 import styles from './NavMenuStyles';
-import CategoryTreeNode, { useExpandedIds } from './CategoryTreeNode';
 import { useAutoExpandSelectedCategory } from './useExpandedIds';
 
 function MenuRowItem({ isDark, item, iconColor, onPress, style, href, onClose }) {

@@ -1,9 +1,9 @@
-import React, { useState, useMemo, useRef, useEffect } from 'react';
-import { View } from 'react-native';
 import { useRouter } from 'expo-router';
-import { useCatalog } from '../../context/CatalogContext';
-import SearchInput from './SearchInput';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { View } from 'react-native';
+import { useCatalog } from '../../features/catalog/CatalogContext';
 import SearchDropdown from './SearchDropdown';
+import SearchInput from './SearchInput';
 import SearchStyles from './SearchStyles';
 
 function matchItem(tokens, queryWords) {

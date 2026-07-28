@@ -1,18 +1,17 @@
-import { useState, useRef, useEffect } from 'react';
+import { useLocalSearchParams, useSegments } from 'expo-router';
 import { ScrollView, useWindowDimensions } from 'react-native';
-import { useSegments, useLocalSearchParams } from 'expo-router';
-import { useCatalog } from '../../context/CatalogContext';
-import { useTheme } from '../../context/ThemeContext';
 import { useLanguage } from '../../context/LanguageContext';
+import { useTheme } from '../../context/ThemeContext';
+import { useCatalog } from '../catalog/CatalogContext';
+import CatalogMenuContent from './NavMenu/CatalogMenuContent';
+import LanguageSelector from './NavMenu/LanguageSelector';
+import MainMenuContent from './NavMenu/MainMenuContent';
+import NavMenuHeader from './NavMenu/NavMenuHeader';
 import styles from './NavMenu/NavMenuStyles';
 import { useNavMenuController } from './useNavMenuController';
-import LanguageSelector from './NavMenu/LanguageSelector';
-import NavMenuHeader from './NavMenu/NavMenuHeader';
-import MainMenuContent from './NavMenu/MainMenuContent';
-import CatalogMenuContent from './NavMenu/CatalogMenuContent';
 
-import { useSlideAnimation } from '../../hooks/useSlideAnimation';
 import Drawer from '../../components/Drawer';
+import { useSlideAnimation } from '../../hooks/useSlideAnimation';
 
 
 function NavPanelContent({

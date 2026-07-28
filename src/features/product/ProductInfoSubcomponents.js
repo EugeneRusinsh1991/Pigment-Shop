@@ -1,15 +1,12 @@
-import React, { useRef } from 'react';
-import { Animated, View, Platform } from 'react-native';
-import { Text, Heading } from '../../components/Text';
 import { CartIcon, HeartIcon } from '@/components/Icons';
-import { useTheme } from '../../context/ThemeContext';
-import { useCartContext } from '../../context/CartContext';
 import { Link } from 'expo-router';
-import { Button } from '../../components/Button';
-import { IconButton } from '../../components/Button';
-import { AnimatedButton } from '../../components/Button';
-import { getLocalizedValue } from '../../utils/localization';
+import { View } from 'react-native';
+import { Button, IconButton } from '../../components/Button';
+import { Heading, Text } from '../../components/Text';
+import { useTheme } from '../../context/ThemeContext';
 import { colors } from '../../theme/tokens';
+import { getLocalizedValue } from '../../utils/localization';
+import { useCartContext } from '../cart/CartContext';
 import styles from './ProductPageStyles';
 
 export const getSafePrice = (price) => (typeof price === 'number' ? price : 0);

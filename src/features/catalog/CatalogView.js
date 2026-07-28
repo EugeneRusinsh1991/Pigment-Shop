@@ -1,10 +1,10 @@
 import { useRouter } from 'expo-router';
 import { useCallback } from 'react';
 import { FlatList, ScrollView, StyleSheet, View } from 'react-native';
-import { useFavoritesContext } from '../../context/FavoritesContext';
 import { useTheme } from '../../context/ThemeContext';
 import styles from '../../theme/appStyles';
 import { layout } from '../../theme/tokens';
+import { useFavoritesContext } from '../favorites/FavoritesContext';
 
 import { PageNavigation } from '@/components/Navigation';
 import CatalogHeader from './CatalogHeader';

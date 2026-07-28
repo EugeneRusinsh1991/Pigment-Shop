@@ -1,8 +1,8 @@
 import { View } from 'react-native';
-import { useCatalog } from '../../../context/CatalogContext';
+import { useCatalog } from '../../catalog/CatalogContext';
 import CategoryTreeNode, { useExpandedIds } from './CategoryTreeNode';
-import { useAutoExpandSelectedCategory } from './useExpandedIds';
 import styles from './NavMenuStyles';
+import { useAutoExpandSelectedCategory } from './useExpandedIds';
 
 export default function CatalogMenuContent({ isDark, onClose, selectedCategoryId }) {
   const { categoryTree } = useCatalog();

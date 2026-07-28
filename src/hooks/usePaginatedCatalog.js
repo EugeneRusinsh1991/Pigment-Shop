@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { useCatalog } from '../context/CatalogContext';
 import { useToast } from '../context/ToastContext';
+import { useCatalog } from '../features/catalog/CatalogContext';
 import { getFilterKey, getParamsState } from '../features/catalog/catalogParamsUtils';
 import { canUseServerPagination, fetchProductCount, fetchProductPage, MissingIndexError, PAGE_SIZE } from '../services/catalogPageService';
 import { applyFilters, applySort } from './useCatalogFilters';

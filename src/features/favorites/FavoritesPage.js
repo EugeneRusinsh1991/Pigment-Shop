@@ -1,16 +1,16 @@
 // Favorites page component displaying the user's saved items.
-import { ScrollView, View } from 'react-native';
-import { Heading } from '../../components/Text';
-import { useFavoritesContext } from '../../context/FavoritesContext';
-import { useRouter } from 'expo-router';
-import { useTheme } from '../../context/ThemeContext';
-import { colors } from '../../theme/tokens';
-import useGridLayout from '../../hooks/useGridLayout';
-import styles from './FavoritesPageStyles';
-import Footer from '../shell/components/Footer';
 import { HeartIcon } from '@/components/Icons';
-import PlaceholderCard, { PlaceholderGrid } from '../catalog/PlaceholderCard';
+import { useRouter } from 'expo-router';
+import { ScrollView, View } from 'react-native';
 import { ScrollFadeUp } from '../../components/Motion';
+import { Heading } from '../../components/Text';
+import { useTheme } from '../../context/ThemeContext';
+import useGridLayout from '../../hooks/useGridLayout';
+import { colors } from '../../theme/tokens';
+import PlaceholderCard, { PlaceholderGrid } from '../catalog/PlaceholderCard';
+import Footer from '../shell/components/Footer';
+import { useFavoritesContext } from './FavoritesContext';
+import styles from './FavoritesPageStyles';
 
 
 import { EmptyState } from '../../components/Feedback';

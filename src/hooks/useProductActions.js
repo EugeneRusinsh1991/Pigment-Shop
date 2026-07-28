@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
-import { useCartContext } from '../context/CartContext';
-import { useFavoritesContext } from '../context/FavoritesContext';
 import { useToast } from '../context/ToastContext';
+import { useCartContext } from '../features/cart/CartContext';
+import { useFavoritesContext } from '../features/favorites/FavoritesContext';
 
 export function useProductActions(product) {
   const { addItem } = useCartContext();

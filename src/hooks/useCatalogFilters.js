@@ -9,7 +9,7 @@
  * category also matches all products in its descendant categories.
  */
 import { useCallback, useEffect } from 'react';
-import { useCatalog } from '../context/CatalogContext';
+import { useCatalog } from '../features/catalog/CatalogContext';
 import { SORT_KEYS } from '../services/catalogPageService';
 import { getEffectivePrice } from '../utils/pricing';
 import { compareNumbers } from '../utils/sorting';

@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, Platform } from 'react-native';
+import { useEffect, useState } from 'react';
+import { Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import { useAuth } from '@/context/AuthContext';
-import { useCartContext } from '@/context/CartContext';
-import { useFavoritesContext } from '@/context/FavoritesContext';
 import { useTheme } from '@/context/ThemeContext';
-import { getTimestamp, getOverlayText, getAppStateDump } from '@/utils/appStateDump';
+import { useCartContext } from '@/features/cart/CartContext';
+import { useFavoritesContext } from '@/features/favorites/FavoritesContext';
+import { getAppStateDump, getOverlayText, getTimestamp } from '@/utils/appStateDump';
 
 import InspectorMenu from './components/InspectorMenu';
 

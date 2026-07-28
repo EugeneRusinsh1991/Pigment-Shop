@@ -5,7 +5,7 @@
  * can access cart state without prop drilling.
  */
 import { createContext, useContext, useMemo } from 'react';
-import useCartHook from '../features/cart/useCart';
+import useCartHook from './useCart';
 
 const CartContext = createContext(null);
 

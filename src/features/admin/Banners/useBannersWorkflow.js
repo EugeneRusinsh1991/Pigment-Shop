@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { useCatalog } from '../../../context/CatalogContext';
 import { useTheme } from '../../../context/ThemeContext';
 import { catalogStore } from '../../../data/catalogState';
 import { useErrorHandler } from '../../../hooks/useErrorHandler';
 import { useAdminActions } from '../../../services/adminDomain';
+import { useCatalog } from '../../catalog/CatalogContext';
 import { useCrudWorkflow } from '../useCrudWorkflow';
 
 export function useBannersWorkflow() {

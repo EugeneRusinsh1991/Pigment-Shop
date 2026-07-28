@@ -8,16 +8,16 @@
  * The catalogState subscription is kept to pick up external changes (e.g. from
  * catalogSync when Firestore updates) only while there are no unsaved local edits.
  */
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { View } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
-import { useCatalog } from '../../../context/CatalogContext';
+import { useFormModal } from '../../../hooks/useFormModal';
+import { useCatalog } from '../../catalog/CatalogContext';
+import AdminSaveFooter from '../AdminSaveFooter';
+import styles from './CategoriesStyles';
 import CategoryFormModal from './CategoryFormModal';
 import CategoryTree from './CategoryTree';
-import styles from './CategoriesStyles';
 import { useCategoriesWorkflow } from './useCategoriesWorkflow';
-import { useFormModal } from '../../../hooks/useFormModal';
-import AdminSaveFooter from '../AdminSaveFooter';
 
 export default function CategoriesManager() {
   const { tree, allCategories, handleAdd, handleUpdate, handleDelete, handleSaveToFirebase: handleBatchSave, isSaving, isDirty } = useCategoriesWorkflow();

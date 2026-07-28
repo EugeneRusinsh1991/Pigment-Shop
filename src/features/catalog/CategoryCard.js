@@ -1,12 +1,12 @@
 import React from 'react';
 import { Image, Platform, useWindowDimensions, View } from 'react-native';
-import { Text, Heading } from '../../components/Text';
-import { useTheme } from '../../context/ThemeContext';
-import { useCatalog } from '../../context/CatalogContext';
-import styles from './categoryCardStyles';
 import Card from '../../components/Card/Card';
+import { Heading, Text } from '../../components/Text';
+import { useTheme } from '../../context/ThemeContext';
 import { colors, layout } from '../../theme/tokens';
 import { getLocalizedValue } from '../../utils/localization';
+import { useCatalog } from './CatalogContext';
+import styles from './categoryCardStyles';
 
 
 const CATEGORY_PLACEHOLDER = 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=600&auto=format&fit=crop';

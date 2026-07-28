@@ -1,12 +1,11 @@
-import React from 'react';
-import { ScrollView, View } from 'react-native';
-import { Text } from '@/components/Text';
-import { Link, useSegments, useLocalSearchParams } from 'expo-router';
-import { useCatalog } from '@/context/CatalogContext';
-import { HomeIcon } from '@/components/Icons';
-import { buildBreadcrumbStack } from '@/utils/breadcrumbResolver';
-import { colors, layout } from '@/theme/tokens';
 import { AnimatedButton } from '@/components/Button';
+import { HomeIcon } from '@/components/Icons';
+import { Text } from '@/components/Text';
+import { useCatalog } from '@/features/catalog/CatalogContext';
+import { colors, layout } from '@/theme/tokens';
+import { buildBreadcrumbStack } from '@/utils/breadcrumbResolver';
+import { Link, useLocalSearchParams, useSegments } from 'expo-router';
+import { ScrollView, View } from 'react-native';
 import { useBreadcrumbTheme } from './useBreadcrumbTheme';
 
 function CrumbItem({ crumb, isLast, styles, testID }) {

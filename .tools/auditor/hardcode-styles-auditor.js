@@ -9,6 +9,9 @@ const LOG_FILE = path.join(AUDITS_DIR, '03-hardcode-styles-violations.log');
 const STRICT_LOG_FILE = path.join(AUDITS_DIR, '03-hardcode-styles-strict-violations.log');
 const FILES_LOG_FILE = path.join(AUDITS_DIR, '03-hardcode-styles-files.log');
 
+// Disable raw/legacy report generation (keep strict AST report only)
+const DISABLE_RAW_REPORTS = true;
+
 function isHardcodedValue(node) {
   if (!node) return false;
   // Literal numbers e.g. 12, 50, 100
@@ -211,25 +214,27 @@ function auditStyles(disableDynamicAudits = false) {
 
   const timestamp = new Date().toLocaleString('ru-RU');
 
-  // 1. Write Raw/Legacy Report
-  if (violations.length === 0) {
-    if (fs.existsSync(LOG_FILE)) try { fs.unlinkSync(LOG_FILE); } catch (_) {}
-  } else {
-    const { report, grouped, fileCount } = generateReportText('3. HARDCODED STYLES, COLORS & SPACING REPORT (RAW)', violations, timestamp);
-    fs.writeFileSync(LOG_FILE, report);
+  // 1. Write Raw/Legacy Report (disabled via DISABLE_RAW_REPORTS)
+  if (!DISABLE_RAW_REPORTS) {
+    if (violations.length === 0) {
+      if (fs.existsSync(LOG_FILE)) try { fs.unlinkSync(LOG_FILE); } catch (_) {}
+    } else {
+      const { report, grouped, fileCount } = generateReportText('3. HARDCODED STYLES, COLORS & SPACING REPORT (RAW)', violations, timestamp);
+      fs.writeFileSync(LOG_FILE, report);
 
-    if (fileCount > 10) {
-      let filesReport = "===================================================================\n";
-      filesReport += "               FILES WITH ISSUES REPORT                            \n";
-      filesReport += "Timestamp: " + timestamp + "\n";
-      filesReport += "===================================================================\n\n";
-      filesReport += "Found " + violations.length + " issue(s) across " + fileCount + " target(s):\n\n";
-      
-      Object.keys(grouped).forEach(filePath => {
-        filesReport += "- " + filePath + " (" + grouped[filePath].length + " issues)\n";
-      });
-      
-      fs.writeFileSync(FILES_LOG_FILE, filesReport);
+      if (fileCount > 10) {
+        let filesReport = "===================================================================\n";
+        filesReport += "               FILES WITH ISSUES REPORT                            \n";
+        filesReport += "Timestamp: " + timestamp + "\n";
+        filesReport += "===================================================================\n\n";
+        filesReport += "Found " + violations.length + " issue(s) across " + fileCount + " target(s):\n\n";
+        
+        Object.keys(grouped).forEach(filePath => {
+          filesReport += "- " + filePath + " (" + grouped[filePath].length + " issues)\n";
+        });
+        
+        fs.writeFileSync(FILES_LOG_FILE, filesReport);
+      }
     }
   }
 

@@ -4,18 +4,18 @@
  * Storefront-facing catalog context. Provides a stable read-only view model
  * of the product and category catalog to all public UI components.
  */
-import React, { createContext, useContext, useMemo, useSyncExternalStore } from 'react';
-import { getBanners, getCategories, getProducts, subscribe } from '../data/catalogState';
-import { useLanguage } from './LanguageContext';
-import { 
-  buildProductCategoryMap,
-  buildNormalizedProducts,
-  buildNormalizedCategories,
-  buildCategoryLookup,
-  buildFlatList,
-  buildCategoryTree,
-  buildCategorySubtreeMap
-} from '../services/catalogViewModel';
+import { createContext, useContext, useMemo, useSyncExternalStore } from 'react';
+import { useLanguage } from '../../context/LanguageContext';
+import { getBanners, getCategories, getProducts, subscribe } from '../../data/catalogState';
+import {
+    buildCategoryLookup,
+    buildCategorySubtreeMap,
+    buildCategoryTree,
+    buildFlatList,
+    buildNormalizedCategories,
+    buildNormalizedProducts,
+    buildProductCategoryMap
+} from '../../services/catalogViewModel';
 
 const CatalogContext = createContext(null);
 

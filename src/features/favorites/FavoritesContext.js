@@ -5,7 +5,7 @@
  * component can access favorites state without prop drilling.
  */
 import { createContext, useContext } from 'react';
-import useFavoritesHook from '../features/favorites/useFavorites';
+import useFavoritesHook from './useFavorites';
 
 const FavoritesContext = createContext(null);
 

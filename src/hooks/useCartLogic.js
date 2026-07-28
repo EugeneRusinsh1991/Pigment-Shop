@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
-import { useCartContext } from '../context/CartContext';
 import { useToast } from '../context/ToastContext';
+import { useCartContext } from '../features/cart/CartContext';
 
 /**
  * useCartLogic Hook

@@ -1,13 +1,13 @@
-import React, { useMemo } from 'react';
-import { View, StyleSheet, useWindowDimensions } from 'react-native';
-import { Text, Heading } from '@/components/Text';
+import { ScrollFadeUp } from '@/components/Motion';
+import { Heading, Text } from '@/components/Text';
+import { useCatalog } from '@/features/catalog/CatalogContext';
 import { PlaceholderGrid } from '@/features/catalog/PlaceholderCard';
-import { useCatalog } from '@/context/CatalogContext';
+import styles from '@/theme/appStyles';
+import { layout } from '@/theme/tokens';
 import { getDeviceTier } from '@/utils/layoutUtils';
 import { useRouter } from 'expo-router';
-import styles from '@/theme/appStyles';
-import { ScrollFadeUp } from '@/components/Motion';
-import { layout } from '@/theme/tokens';
+import { useMemo } from 'react';
+import { StyleSheet, useWindowDimensions, View } from 'react-native';
 
 function getColsAndLimit(tier) {
   if (tier === 'desktop') {

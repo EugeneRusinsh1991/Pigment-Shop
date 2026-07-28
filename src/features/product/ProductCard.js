@@ -1,15 +1,15 @@
-import React, { useEffect, useRef, useMemo, useCallback } from 'react';
-import { Image, View, StyleSheet, Platform } from 'react-native';
-import { Text } from '../../components/Text';
-import { useTheme, getThemedValue } from '../../context/ThemeContext';
-import useCardDimensions from '../../hooks/useCardDimensions';
-import { HeartIcon, CartIcon } from '@/components/Icons';
-import styles from './ProductCardStyles';
+import { CartIcon, HeartIcon } from '@/components/Icons';
+import React, { useCallback, useMemo } from 'react';
+import { Image, View } from 'react-native';
 import { IconButton } from '../../components/Button';
-import ProductBadges from './ProductBadges';
 import Card from '../../components/Card/Card';
-import { useCartContext } from '../../context/CartContext';
+import { Text } from '../../components/Text';
+import { getThemedValue, useTheme } from '../../context/ThemeContext';
+import useCardDimensions from '../../hooks/useCardDimensions';
 import { colors } from '../../theme/tokens';
+import { useCartContext } from '../cart/CartContext';
+import ProductBadges from './ProductBadges';
+import styles from './ProductCardStyles';
 
 import { PRODUCT_PLACEHOLDER } from '../../constants';
 import { getLocalizedValue } from '../../utils/localization';

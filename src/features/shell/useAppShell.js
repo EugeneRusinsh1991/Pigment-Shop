@@ -1,11 +1,11 @@
-import { useMemo, useState, useCallback } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { useWindowDimensions } from 'react-native';
 import { useAuth } from '../../context/AuthContext';
-import { useCart } from '../../context/CartContext';
-import { useTheme } from '../../context/ThemeContext';
 import { useLanguage } from '../../context/LanguageContext';
-import { useCatalog } from '../../context/CatalogContext';
+import { useTheme } from '../../context/ThemeContext';
 import { getContentGridWidth } from '../../utils/layoutUtils';
+import { useCart } from '../cart/CartContext';
+import { useCatalog } from '../catalog/CatalogContext';
 import { useMenuVisibilityState } from './useMenuVisibilityState';
 
 function buildMenuItems(t, catalogItems) {

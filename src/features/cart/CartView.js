@@ -2,15 +2,15 @@ import { Redirect, useRouter } from 'expo-router';
 import { useState } from 'react';
 import { useWindowDimensions } from 'react-native';
 import { useAuth } from '../../context/AuthContext';
-import { useCartContext } from '../../context/CartContext';
-import { useCatalog } from '../../context/CatalogContext';
 import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
 import { useToast } from '../../context/ToastContext';
 import { useCartLogic } from '../../hooks/useCartLogic';
 import { useCheckoutLogic } from '../../hooks/useCheckoutLogic';
 import { layout } from '../../theme/tokens';
+import { useCatalog } from '../catalog/CatalogContext';
 import { useProfile } from '../profile/useProfile';
+import { useCartContext } from './CartContext';
 import CartViewContent from './CartViewContent';
 import { useCartViewForm } from './useCartViewForm';
 

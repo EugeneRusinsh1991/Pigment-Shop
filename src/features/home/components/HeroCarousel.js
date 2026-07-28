@@ -1,5 +1,5 @@
  import { ChevronLeftIcon, ChevronRightIcon } from '@/components/Icons';
-import { useCatalog } from '@/context/CatalogContext';
+import { useCatalog } from '@/features/catalog/CatalogContext';
 import { colors } from '@/theme/tokens';
 import { getCarouselBaseStyle, getPlaceholderStyle } from '@/utils/carouselStyles';
 import { useEffect, useState } from 'react';

@@ -2,7 +2,7 @@
 type: dynamic-audit
 auditor: ui-architecture
 scope: public
-date: 2026-07-28T00:11:23.973Z
+date: 2026-07-28T00:25:25.846Z
 ---
 
 ### Problem: Design System: Hardcoded spacing/border-radius lacking spatial tokens.
@@ -188,6 +188,9 @@ date: 2026-07-28T00:11:23.973Z
   - Size: 28x28 | Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-justifyContent-1777fci.r-backgroundColor-9vfp0p`
   - Size: 8x8 | Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-backgroundColor-xl3lkw.r-opacity-6dt33c.r-overflow-1udh08x.r-width-rwqe4o`
   - Size: 48x8 | Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-backgroundColor-14lw9ot.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-opacity-icoktb.r-width-1jg9483`
+  - Size: 46x8 | Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-backgroundColor-xl3lkw.r-opacity-6dt33c.r-overflow-1udh08x.r-width-rwqe4o`
+  - Size: 17x8 | Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-backgroundColor-14lw9ot.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-opacity-icoktb.r-width-1jg9483`
+  - Size: 39x8 | Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-backgroundColor-xl3lkw.r-opacity-6dt33c.r-overflow-1udh08x.r-width-rwqe4o`
 - URL: `http://localhost:8081/catalog`
   - Size: 116x32 | Selector: `a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73`
   - Size: 40x40 | Selector: `div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-justifyContent-1777fci.r-backgroundColor-1niwhzg`
@@ -881,6 +884,7 @@ date: 2026-07-28T00:11:23.973Z
   - Selector: `div.css-view-g5y9jx.r-flexDirection-eqz5dr.r-borderRadius-y47klf.r-flex-13awgt0.r-margin-hwh8t1.r-overflow-1udh08x.r-position-bnwqim`
   - Selector: `input.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-paddingBlock-1mkv55d.r-color-jwli3a`
   - Selector: `a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73`
+  - Selector: `div.css-view-g5y9jx.r-borderRadius-1fuqb1j.r-overflow-1udh08x.r-width-13qz1uu.r-height-15zx4ds`
 - URL: `http://localhost:8081/catalog`
   - Selector: `div.css-view-g5y9jx.r-flex-13awgt0.r-bottom-1p0dtai.r-left-1d2f490.r-position-u8s1d.r-right-zchlnj.r-top-ipm5af`
   - Selector: `div.css-view-g5y9jx.r-flex-13awgt0`
