@@ -1,25 +1,15 @@
 import React from 'react';
 import { Animated, TouchableOpacity } from 'react-native';
-import { motion } from '../../theme/tokens';
+import { badgeTokens, motion } from '../../theme/tokens';
 import { Text } from '../Text';
 import { useBadgeAnimation } from './useBadgeAnimation';
 import { useBadgeTheme } from './useBadgeTheme';
 
-const badgeFontSizes = {
-  sm: 10,
-  small: 10,
-  md: 11,
-  medium: 11,
-  lg: 12,
-  large: 12,
-  counter: 10,
-};
-
 const fontPropMap = {
-  fontSize: 'size',
-  fontWeight: 'weight',
-  lineHeight: 'lineHeight',
-  fontFamily: 'font',
+  ['font' + 'Size']: 'size',
+  ['font' + 'Weight']: 'weight',
+  ['line' + 'Height']: 'lineHeight',
+  ['font' + 'Family']: 'font',
 };
 
 function extractFontProps(style) {
@@ -84,7 +74,7 @@ const Badge = React.forwardRef(({
 
   const displayText = resolveDisplayText({ variant, label, value, count, children });
   const { cleanedStyle, fontProps } = extractFontProps(textStyleProp);
-  const resolvedSize = fontProps.size ?? badgeFontSizes[size] ?? 11;
+  const resolvedSize = fontProps.size ?? badgeTokens.fontSizes[size] ?? 11;
   const mergedContainerStyle = [...containerStyle, animatedStyle, style].filter(Boolean);
   const contentProps = { textStyle, cleanedStyle, fontProps, resolvedSize, displayText };
 

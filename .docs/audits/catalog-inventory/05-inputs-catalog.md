@@ -16,7 +16,7 @@
 
 ### File: src/components/TextField/TextField.js
 
-  - Line 47: `<TextInput>`
+  - Line 69: `<TextInput>`
 
 ### File: src/features/admin/Categories/CategoryFormContent.js
 

@@ -15,7 +15,7 @@ export default StyleSheet.create({
   content: {
     flex: 1,
     paddingTop: layout.spacing.lg,
-    paddingHorizontal: 0, /* tokens. */
+    paddingHorizontal: layout.spacing.none,
     paddingBottom: layout.spacing.xxl * 2,
   },
   title: {

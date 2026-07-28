@@ -1,6 +1,6 @@
 ===================================================================
          BORDER_WIDTH - Хардкод ширины границ              
-Timestamp: 28.07.2026, 09:56:14
+Timestamp: 28.07.2026, 18:52:57
 ===================================================================
 [PROMPT FOR AGENT]: Refactor hardcoded values to use design tokens.
 ===================================================================
@@ -8,20 +8,20 @@ Timestamp: 28.07.2026, 09:56:14
 Found 526 violation(s):
 
 File: src\components\Button\ChipButton.js
-  src\components\Button\ChipButton.js:78 | borderWidth: 1 | borderWidth: 1.5,
-  src\components\Button\ChipButton.js:78 | 1 | borderWidth: 1.5,
-  src\components\Button\ChipButton.js:78 | borderWidth: 1 | borderWidth: 1.5,
-  src\components\Button\ChipButton.js:78 | 1 | borderWidth: 1.5,
+  src\components\Button\ChipButton.js:77 | borderWidth: 1 | borderWidth: 1.5,
+  src\components\Button\ChipButton.js:77 | 1 | borderWidth: 1.5,
+  src\components\Button\ChipButton.js:77 | borderWidth: 1 | borderWidth: 1.5,
+  src\components\Button\ChipButton.js:77 | 1 | borderWidth: 1.5,
 
 File: src\components\Button\IconButton.js
-  src\components\Button\IconButton.js:66 | borderWidth: 1 | outlineLight:     { backgroundColor: buttonColors.surfaceLight, borderWidth: 1, borderColor: buttonColors.borderLight },
-  src\components\Button\IconButton.js:66 | 1 | outlineLight:     { backgroundColor: buttonColors.surfaceLight, borderWidth: 1, borderColor: buttonColors.borderLight },
-  src\components\Button\IconButton.js:66 | borderWidth: 1 | outlineLight:     { backgroundColor: buttonColors.surfaceLight, borderWidth: 1, borderColor: buttonColors.borderLight },
-  src\components\Button\IconButton.js:66 | 1 | outlineLight:     { backgroundColor: buttonColors.surfaceLight, borderWidth: 1, borderColor: buttonColors.borderLight },
-  src\components\Button\IconButton.js:67 | borderWidth: 1 | outlineDark:      { backgroundColor: buttonColors.surfaceDark,  borderWidth: 1, borderColor: buttonColors.borderDark },
-  src\components\Button\IconButton.js:67 | 1 | outlineDark:      { backgroundColor: buttonColors.surfaceDark,  borderWidth: 1, borderColor: buttonColors.borderDark },
-  src\components\Button\IconButton.js:67 | borderWidth: 1 | outlineDark:      { backgroundColor: buttonColors.surfaceDark,  borderWidth: 1, borderColor: buttonColors.borderDark },
-  src\components\Button\IconButton.js:67 | 1 | outlineDark:      { backgroundColor: buttonColors.surfaceDark,  borderWidth: 1, borderColor: buttonColors.borderDark },
+  src\components\Button\IconButton.js:65 | borderWidth: 1 | outlineLight:     { backgroundColor: colors.surfaceLight, borderWidth: 1, borderColor: colors.borderLight },
+  src\components\Button\IconButton.js:65 | 1 | outlineLight:     { backgroundColor: colors.surfaceLight, borderWidth: 1, borderColor: colors.borderLight },
+  src\components\Button\IconButton.js:65 | borderWidth: 1 | outlineLight:     { backgroundColor: colors.surfaceLight, borderWidth: 1, borderColor: colors.borderLight },
+  src\components\Button\IconButton.js:65 | 1 | outlineLight:     { backgroundColor: colors.surfaceLight, borderWidth: 1, borderColor: colors.borderLight },
+  src\components\Button\IconButton.js:66 | borderWidth: 1 | outlineDark:      { backgroundColor: colors.surfaceDark,  borderWidth: 1, borderColor: colors.borderDark },
+  src\components\Button\IconButton.js:66 | 1 | outlineDark:      { backgroundColor: colors.surfaceDark,  borderWidth: 1, borderColor: colors.borderDark },
+  src\components\Button\IconButton.js:66 | borderWidth: 1 | outlineDark:      { backgroundColor: colors.surfaceDark,  borderWidth: 1, borderColor: colors.borderDark },
+  src\components\Button\IconButton.js:66 | 1 | outlineDark:      { backgroundColor: colors.surfaceDark,  borderWidth: 1, borderColor: colors.borderDark },
 
 File: src\components\Card\CardStyles.js
   src\components\Card\CardStyles.js:7 | borderWidth: 1 | borderWidth: 1,

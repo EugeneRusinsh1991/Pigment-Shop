@@ -39,10 +39,10 @@
 
 ### File: src/features/admin/Analytics/AnalyticsDashboard.js
 
-  - Line 38: `<DollarIcon>` (Icon: `[Unknown]`)
-  - Line 39: `<ClipboardIcon>` (Icon: `[Unknown]`)
-  - Line 40: `<TrendIcon>` (Icon: `[Unknown]`)
-  - Line 41: `<BoxIcon>` (Icon: `[Unknown]`)
+  - Line 36: `<DollarIcon>` (Icon: `[Unknown]`)
+  - Line 37: `<ClipboardIcon>` (Icon: `[Unknown]`)
+  - Line 38: `<TrendIcon>` (Icon: `[Unknown]`)
+  - Line 39: `<BoxIcon>` (Icon: `[Unknown]`)
 
 ### File: src/features/admin/Categories/CategoryFormFields.js
 

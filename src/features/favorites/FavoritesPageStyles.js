@@ -14,7 +14,7 @@ export default StyleSheet.create({
   containerLight: { backgroundColor: colors.backgroundLight },
   content: {
     paddingTop: layout.spacing.lg,
-    paddingHorizontal: 0, /* tokens. */
+    paddingHorizontal: layout.spacing.none,
     paddingBottom: layout.spacing.xxl * 2,
   },
   title: {

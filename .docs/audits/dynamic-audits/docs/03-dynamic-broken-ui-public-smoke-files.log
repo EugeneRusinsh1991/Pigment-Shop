@@ -2,7 +2,7 @@
 type: dynamic-audit-urls
 auditor: broken-ui
 scope: public
-date: 2026-07-28T13:39:24.116Z
+date: 2026-07-28T15:34:59.285Z
 ---
 
 - http://localhost:8081/
@@ -21,3 +21,4 @@ date: 2026-07-28T13:39:24.116Z
 - http://localhost:8081/catalog/cat-root-0-sub-1
 - http://localhost:8081/catalog/cat-root-0-sub-1-sub-0
 - http://localhost:8081/cart
+- http://localhost:8081/login

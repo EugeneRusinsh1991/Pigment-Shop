@@ -1,7 +1,5 @@
-import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
-import { COLLECTIONS } from '../../services/collections';
-import { db } from '../../services/firebase';
+import { getUserProfile, updateUserProfile } from '../../services/profileService';
 
 function parseDisplayName(displayName) {
   if (!displayName) return { firstName: '', lastName: '' };
@@ -31,9 +29,8 @@ export function useProfile(user) {
     const loadProfile = async () => {
       setLoading(true);
       try {
-        const docRef = doc(db, COLLECTIONS.USERS, user.uid);
-        const docSnap = await getDoc(docRef);
-        const saved = docSnap.exists() && docSnap.data().profile;
+        const res = await getUserProfile(user.uid);
+        const saved = res.success ? res.data : null;
         const normalizedProfile = saved ? { ...EMPTY_PROFILE, ...saved } : buildGoogleFallbackProfile(user);
         setProfile(normalizedProfile);
       } catch (error) {
@@ -50,9 +47,11 @@ export function useProfile(user) {
     if (!user) return;
     setSaving(true);
     try {
-      const docRef = doc(db, COLLECTIONS.USERS, user.uid);
       const nextProfile = { ...profile, ...newProfile };
-      await setDoc(docRef, { profile: nextProfile }, { merge: true });
+      const res = await updateUserProfile(user.uid, nextProfile);
+      if (!res.success) {
+        throw new Error(res.error || 'Failed to save profile');
+      }
       setProfile(nextProfile);
     } catch (error) {
       console.warn("Failed to save profile", error);

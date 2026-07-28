@@ -276,6 +276,58 @@
         "message": "Element has overflow clipping (`scrollWidth > clientWidth`).",
         "selector": "div.css-view-g5y9jx"
       }
+    ],
+    "http://localhost:8081/login": [
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Clickable element is overlapped or intercepted by another element.",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Clickable element is overlapped or intercepted by another element.",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Clickable element is overlapped or intercepted by another element.",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-justifyContent-1777fci.r-backgroundColor-1niwhzg"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Clickable element is overlapped or intercepted by another element.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-paddingInline-3pj75a.r-backgroundColor-1niwhzg.r-borderColor-m4suti.r-marginBottom-1ifxtd0"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Clickable element is overlapped or intercepted by another element.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Clickable element is overlapped or intercepted by another element.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1867qdf.r-height-h3s6tt.r-paddingInline-cxgwc0.r-backgroundColor-wt1z2b.r-borderColor-1jl7vqb.r-marginTop-knv0ih"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Clickable element is overlapped or intercepted by another element.",
+        "selector": "button.css-view-g5y9jx.r-display-xoduu5.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Element has overflow clipping (`scrollWidth > clientWidth`).",
+        "selector": "div.css-view-g5y9jx.r-marginBottom-6gpygo"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Element has overflow clipping (`scrollWidth > clientWidth`).",
+        "selector": "div.css-view-g5y9jx.r-marginBlock-l00any"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Element has overflow clipping (`scrollWidth > clientWidth`).",
+        "selector": "div.css-view-g5y9jx.r-flex-13awgt0"
+      }
     ]
   },
   "urls": [
@@ -294,6 +346,7 @@
     "http://localhost:8081/product/prod-1-2-1-1",
     "http://localhost:8081/catalog/cat-root-0-sub-1",
     "http://localhost:8081/catalog/cat-root-0-sub-1-sub-0",
-    "http://localhost:8081/cart"
+    "http://localhost:8081/cart",
+    "http://localhost:8081/login"
   ]
 }

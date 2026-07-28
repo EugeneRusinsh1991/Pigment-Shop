@@ -1,6 +1,6 @@
 ===================================================================
          OPACITY - Хардкод прозрачности              
-Timestamp: 28.07.2026, 09:56:14
+Timestamp: 28.07.2026, 18:52:57
 ===================================================================
 [PROMPT FOR AGENT]: Refactor hardcoded values to use design tokens.
 ===================================================================
@@ -8,8 +8,8 @@ Timestamp: 28.07.2026, 09:56:14
 Found 13 violation(s):
 
 File: src\components\Button\ButtonStyles.js
-  src\components\Button\ButtonStyles.js:78 | opacity: 0.5 | disabled:     { opacity: 0.5 },
-  src\components\Button\ButtonStyles.js:79 | opacity: 0.8 | textDisabled: { opacity: 0.8 },
+  src\components\Button\ButtonStyles.js:77 | opacity: 0.5 | disabled:     { opacity: 0.5 },
+  src\components\Button\ButtonStyles.js:78 | opacity: 0.8 | textDisabled: { opacity: 0.8 },
 
 File: src\components\Flag\FlagStyles.js
   src\components\Flag\FlagStyles.js:174 | opacity: 0.5 | opacity: 0.5,

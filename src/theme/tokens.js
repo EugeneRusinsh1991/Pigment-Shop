@@ -48,6 +48,8 @@ export const colors = {
   // Translucent / Overlays
   overlayLight: 'rgba(255, 255, 255, 0.8)',
   overlayDark: 'rgba(28, 28, 28, 0.7)',
+  glassLightBg: 'rgba(255, 255, 255, 0.8)',
+  glassDarkBg: 'rgba(28, 28, 28, 0.7)',
   overlayScrim: 'rgba(0, 0, 0, 0.45)',
   accentOverlayDark: 'rgba(227, 27, 35, 0.12)',
   accentOverlayLight: 'rgba(227, 27, 35, 0.05)',
@@ -232,6 +234,12 @@ export const typography = {
     semibold: '600',
     bold: '700',
   },
+  letterSpacing: {
+    tight: -0.5,
+    normal: 0,
+    wide: 0.5,
+    widest: 1,
+  },
   fonts,
 };
 
@@ -288,6 +296,18 @@ export const layout = {
   cardHeights: {
     categoryGrid: { desktop: 280, tablet: 250, mobile: 200 },
     categoryBanner: { desktop: 180, tablet: 160, mobile: 140 },
+  },
+};
+
+export const badgeTokens = {
+  fontSizes: {
+    sm: typography.sizes.xxs,
+    small: typography.sizes.xxs,
+    md: 11,
+    medium: 11,
+    lg: typography.sizes.xs,
+    large: typography.sizes.xs,
+    counter: typography.sizes.xxs,
   },
 };
 

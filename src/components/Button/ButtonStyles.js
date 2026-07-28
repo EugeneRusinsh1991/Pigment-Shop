@@ -1,6 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { buttonColors } from '../../theme/buttonCommon';
-import { buttonTokens, layout } from '../../theme/tokens';
+import { colors, buttonTokens, layout } from '../../theme/tokens';
 
 /**
  * Generates button styles dynamically from design tokens.
@@ -13,7 +12,7 @@ function createButtonStyles() {
     outlineLightBorder, outlineDarkBorder,
     dangerSoftLightBg, dangerSoftLightBorder, dangerSoftLightText,
     dangerSoftDarkBg, dangerSoftDarkBorder,
-  } = buttonColors;
+  } = colors;
 
   const variants = {
     // Light theme

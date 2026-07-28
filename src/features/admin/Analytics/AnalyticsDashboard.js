@@ -1,13 +1,11 @@
 import { BoxIcon, ClipboardIcon, DollarIcon, TrendIcon } from '@/components/Icons';
 import { Heading, Text } from '@/components/Text';
-import { collection, getDocs } from 'firebase/firestore';
 import { useEffect, useMemo, useState } from 'react';
 import { ActivityIndicator, View } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
 import { getOrderStatuses, getRevenueChartData, getSummaryStats, getTopProducts } from '../../../data/adminAnalytics';
 import { useErrorHandler } from '../../../hooks/useErrorHandler';
-import { COLLECTIONS } from '../../../services/collections';
-import { db } from '../../../services/firebase';
+import { loadAdminOrders } from '../../../services/adminOrdersService';
 import { colors } from '../../../theme/tokens';
 import styles from './AnalyticsStyles';
 import DateRangePicker from './DateRangePicker';
@@ -94,8 +92,8 @@ export default function AnalyticsDashboard() {
     async function fetchOrders() {
       setLoading(true);
       try {
-        const snap = await getDocs(collection(db, COLLECTIONS.ORDERS));
-        const fetched = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        const res = await loadAdminOrders();
+        const fetched = res.data || [];
         
         const startMs = dateRange.start.getTime();
         const endMs = dateRange.end.getTime();

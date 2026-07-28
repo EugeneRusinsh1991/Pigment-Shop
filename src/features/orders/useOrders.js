@@ -1,13 +1,5 @@
-import { collection, onSnapshot, query, where } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
-import { COLLECTIONS } from '../../services/collections';
-import { db } from '../../services/firebase';
-
-function sortByCreatedAtDesc(a, b) {
-  const timeA = a.createdAt?.toMillis ? a.createdAt.toMillis() : 0;
-  const timeB = b.createdAt?.toMillis ? b.createdAt.toMillis() : 0;
-  return timeB - timeA;
-}
+import { subscribeUserOrders } from '../../services/userOrdersService';
 
 /**
  * useOrders
@@ -30,14 +22,9 @@ export function useOrders(user) {
     }
 
     setLoading(true);
-    const q = query(collection(db, COLLECTIONS.ORDERS), where('userId', '==', user.uid));
-
-    const unsubscribe = onSnapshot(
-      q,
-      (snapshot) => {
-        const data = snapshot.docs
-          .map((doc) => ({ id: doc.id, ...doc.data() }))
-          .sort(sortByCreatedAtDesc);
+    const unsubscribe = subscribeUserOrders(
+      user.uid,
+      (data) => {
         setOrders(data);
         setLoading(false);
       },

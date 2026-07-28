@@ -21,10 +21,10 @@
 
 ### File: src/features/admin/Analytics/AnalyticsDashboard.js
 
+  - Line 36: `<StatCard>`
+  - Line 37: `<StatCard>`
   - Line 38: `<StatCard>`
   - Line 39: `<StatCard>`
-  - Line 40: `<StatCard>`
-  - Line 41: `<StatCard>`
 
 ### File: src/features/admin/Categories/CategoryTree.js
 
@@ -78,7 +78,7 @@
 
 ### File: src/features/contact/ContactQuestionForm.js
 
-  - Line 88: `<Card>`
+  - Line 81: `<Card>`
 
 ### File: src/features/favorites/FavoritesPage.js
 

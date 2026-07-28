@@ -1,15 +1,14 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import Button from './Button';
-import { buttonColors } from '../../theme/buttonCommon';
-import { buttonTokens, layout } from '../../theme/tokens';
+import { buttonTokens, layout, colors } from '../../theme/tokens';
 import { useButtonTheme } from './useButtonTheme';
 
 function resolveChipIconColor(active, isDark) {
   if (active) {
-    return isDark ? buttonColors.surfaceDark : buttonColors.surfaceLight;
+    return isDark ? colors.surfaceDark : colors.surfaceLight;
   }
-  return isDark ? buttonColors.textMutedDark : buttonColors.textMutedLight;
+  return isDark ? colors.textMutedDark : colors.textMutedLight;
 }
 
 function renderChipIcon(icon, defaultColor) {
@@ -78,12 +77,12 @@ const chipStyles = StyleSheet.create({
     borderWidth: 1.5,
   },
   textBase: {},
-  baseLightInactive: { backgroundColor: buttonColors.surfaceLight, borderColor: buttonColors.borderLight },
-  textLightInactive: { color: buttonColors.textMutedLight },
-  baseLightActive: { backgroundColor: buttonColors.textLight, borderColor: buttonColors.textLight },
-  textLightActive: { color: buttonColors.surfaceLight },
-  baseDarkInactive: { backgroundColor: buttonColors.surfaceDark, borderColor: buttonColors.borderDark },
-  textDarkInactive: { color: buttonColors.textMutedDark },
-  baseDarkActive: { backgroundColor: buttonColors.surfaceLight, borderColor: buttonColors.surfaceLight },
-  textDarkActive: { color: buttonColors.surfaceDark },
+  baseLightInactive: { backgroundColor: colors.surfaceLight, borderColor: colors.borderLight },
+  textLightInactive: { color: colors.textMutedLight },
+  baseLightActive: { backgroundColor: colors.textLight, borderColor: colors.textLight },
+  textLightActive: { color: colors.surfaceLight },
+  baseDarkInactive: { backgroundColor: colors.surfaceDark, borderColor: colors.borderDark },
+  textDarkInactive: { color: colors.textMutedDark },
+  baseDarkActive: { backgroundColor: colors.surfaceLight, borderColor: colors.surfaceLight },
+  textDarkActive: { color: colors.surfaceDark },
 });

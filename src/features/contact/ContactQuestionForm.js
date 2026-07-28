@@ -1,25 +1,12 @@
-import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import { useState } from 'react';
 import { Button } from '../../components/Button';
 import Card from '../../components/Card/Card';
 import { Text } from '../../components/Text';
 import { useAuth } from '../../context/AuthContext';
 import { useErrorHandler } from '../../hooks/useErrorHandler';
-import { COLLECTIONS } from '../../services/collections';
-import { db } from '../../services/firebase';
+import { sendSupportMessage } from '../../services/contactService';
 import { colors } from '../../theme/tokens';
 import styles from './ContactPageStyles';
-
-function buildSupportMessagePayload(questionText, user) {
-  const userId = user?.uid || 'guest';
-  const email = user?.email || 'guest';
-  return {
-    text: questionText,
-    userId,
-    email,
-    createdAt: serverTimestamp(),
-  };
-}
 
 function useContactQuestionForm(user) {
   const [questionText, setQuestionText] = useState('');
@@ -38,8 +25,14 @@ function useContactQuestionForm(user) {
     setSubmitting(true);
     setSubmitStatus(null);
     try {
-      const payload = buildSupportMessagePayload(questionText, user);
-      await addDoc(collection(db, COLLECTIONS.SUPPORT_MESSAGES), payload);
+      const res = await sendSupportMessage({
+        text: questionText,
+        userId: user?.uid,
+        email: user?.email,
+      });
+      if (!res.success) {
+        throw new Error(res.error || 'Failed to submit contact question');
+      }
       setQuestionText('');
       setSubmitStatus('success');
     } catch (error) {

@@ -1,6 +1,6 @@
 ===================================================================
          BORDER_COLOR - Хардкод цветов границ              
-Timestamp: 28.07.2026, 09:56:14
+Timestamp: 28.07.2026, 18:52:57
 ===================================================================
 [PROMPT FOR AGENT]: Refactor hardcoded values to use design tokens.
 ===================================================================
@@ -12,12 +12,12 @@ File: src\components\Badge\BadgeStyles.js
   src\components\Badge\BadgeStyles.js:118 | borderColor: 'transparent' | borderColor: 'transparent',
 
 File: src\components\Button\ButtonStyles.js
-  src\components\Button\ButtonStyles.js:36 | borderColor: 'transparent' | ghostLight:       { container: { backgroundColor: 'transparent',      borderColor: 'transparent'       }, text: { color: dark   } },
-  src\components\Button\ButtonStyles.js:36 | borderColor: 'transparent' | ghostLight:       { container: { backgroundColor: 'transparent',      borderColor: 'transparent'       }, text: { color: dark   } },
-  src\components\Button\ButtonStyles.js:37 | borderColor: 'transparent' | ghostDark:        { container: { backgroundColor: 'transparent',      borderColor: 'transparent'       }, text: { color: white  } },
-  src\components\Button\ButtonStyles.js:37 | borderColor: 'transparent' | ghostDark:        { container: { backgroundColor: 'transparent',      borderColor: 'transparent'       }, text: { color: white  } },
-  src\components\Button\ButtonStyles.js:48 | borderColor: 'transparent' | borderColor: 'transparent',
-  src\components\Button\ButtonStyles.js:48 | borderColor: 'transparent' | borderColor: 'transparent',
+  src\components\Button\ButtonStyles.js:35 | borderColor: 'transparent' | ghostLight:       { container: { backgroundColor: 'transparent',      borderColor: 'transparent'       }, text: { color: dark   } },
+  src\components\Button\ButtonStyles.js:35 | borderColor: 'transparent' | ghostLight:       { container: { backgroundColor: 'transparent',      borderColor: 'transparent'       }, text: { color: dark   } },
+  src\components\Button\ButtonStyles.js:36 | borderColor: 'transparent' | ghostDark:        { container: { backgroundColor: 'transparent',      borderColor: 'transparent'       }, text: { color: white  } },
+  src\components\Button\ButtonStyles.js:36 | borderColor: 'transparent' | ghostDark:        { container: { backgroundColor: 'transparent',      borderColor: 'transparent'       }, text: { color: white  } },
+  src\components\Button\ButtonStyles.js:47 | borderColor: 'transparent' | borderColor: 'transparent',
+  src\components\Button\ButtonStyles.js:47 | borderColor: 'transparent' | borderColor: 'transparent',
 
 File: src\components\Media\MediaStyles.js
   src\components\Media\MediaStyles.js:27 | borderRightColor: 'transparent' | borderRightColor: 'transparent',

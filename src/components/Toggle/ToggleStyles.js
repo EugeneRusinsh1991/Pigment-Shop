@@ -1,6 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { layout, buttonTokens } from '../../theme/tokens';
-import { buttonColors } from '../../theme/buttonCommon';
+import { layout, buttonTokens, colors } from '../../theme/tokens';
 
 const TOGGLE_PADDING = 2;
 
@@ -10,11 +9,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: TOGGLE_PADDING,
     borderRadius: layout.radii.sm,
-    backgroundColor: buttonColors.secondaryLightBg,
+    backgroundColor: colors.secondaryLightBg,
     position: 'relative',
   },
   containerDark: {
-    backgroundColor: buttonColors.secondaryDarkBg,
+    backgroundColor: colors.secondaryDarkBg,
   },
   sm: {
     height: buttonTokens.sizes.sm.height,
@@ -34,37 +33,37 @@ const styles = StyleSheet.create({
     zIndex: 1,
   },
   activeOption: {
-    backgroundColor: buttonColors.surfaceLight,
+    backgroundColor: colors.surfaceLight,
     borderRadius: layout.radii.xs,
   },
   activeOptionDark: {
-    backgroundColor: buttonColors.surfaceDark,
+    backgroundColor: colors.surfaceDark,
   },
   activeIndicator: {
     position: 'absolute',
     top: TOGGLE_PADDING,
     bottom: TOGGLE_PADDING,
     left: TOGGLE_PADDING,
-    backgroundColor: buttonColors.surfaceLight,
+    backgroundColor: colors.surfaceLight,
     borderRadius: layout.radii.xs,
     zIndex: 0,
   },
   activeIndicatorDark: {
-    backgroundColor: buttonColors.surfaceDark,
+    backgroundColor: colors.surfaceDark,
   },
   textBase: {
-    color: buttonColors.textMutedLight,
+    color: colors.textMutedLight,
   },
   textBaseDark: {
-    color: buttonColors.textMutedDark,
+    color: colors.textMutedDark,
   },
   text_sm: {},
   text_md: {},
   activeText: {
-    color: buttonColors.textLight,
+    color: colors.textLight,
   },
   activeTextDark: {
-    color: buttonColors.textDark,
+    color: colors.textDark,
   },
 });
 

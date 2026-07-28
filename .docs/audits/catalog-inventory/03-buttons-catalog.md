@@ -8,7 +8,7 @@
 
 ### File: src/components/Badge/Badge.js
 
-  - Line 79: `<TouchableOpacity>`
+  - Line 84: `<TouchableOpacity>`
 
 ### File: src/components/Button/Button.js
 
@@ -18,11 +18,11 @@
 
 ### File: src/components/Button/ChipButton.js
 
-  - Line 49: `<Button>`
+  - Line 48: `<Button>`
 
 ### File: src/components/Button/IconButton.js
 
-  - Line 45: `<Button>`
+  - Line 44: `<Button>`
 
 ### File: src/components/Card/Card.js
 
@@ -91,7 +91,7 @@
 
 ### File: src/features/admin/Analytics/CalendarDayCell.js
 
-  - Line 77: `<AnimatedButton>`
+  - Line 103: `<AnimatedButton>`
 
 ### File: src/features/admin/Analytics/DateRangeCalendar.js
 
@@ -201,8 +201,8 @@
 
 ### File: src/features/admin/Users/UserRow.js
 
-  - Line 12: `<AnimatedButton>`
-  - Line 39: `<AnimatedButton>`
+  - Line 11: `<AnimatedButton>`
+  - Line 46: `<AnimatedButton>`
 
 ### File: src/features/auth/LoginPage.js
 
@@ -261,7 +261,7 @@
 
 ### File: src/features/contact/ContactQuestionForm.js
 
-  - Line 101: `<Button>`
+  - Line 94: `<Button>`
 
 ### File: src/features/contact/SocialButtons.js
 

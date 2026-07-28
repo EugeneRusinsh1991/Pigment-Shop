@@ -2,13 +2,13 @@
 
 > Catalog of all Text, Typography, and related components rendering textual content.
 
-**Total items found:** 293
+**Total items found:** 291
 
 ---
 
 ### File: src/components/Badge/Badge.js
 
-  - Line 32: `<Text>` -> `[Dynamic Content]`
+  - Line 37: `<Text>` -> `[Dynamic Content]`
 
 ### File: src/components/Button/Button.js
 
@@ -130,7 +130,7 @@
 
 ### File: src/components/Text/Text.js
 
-  - Line 63: `<RNText>` -> `[Dynamic Content]`
+  - Line 97: `<RNText>` -> `[Dynamic Content]`
 
 ### File: src/components/TextField/TextField.js
 
@@ -143,11 +143,11 @@
 
 ### File: src/features/admin/Analytics/AnalyticsDashboard.js
 
-  - Line 22: `<Text>` -> `[Dynamic Content]`
+  - Line 20: `<Text>` -> `[Dynamic Content]`
 
 ### File: src/features/admin/Analytics/CalendarDayCell.js
 
-  - Line 84: `<Text>` -> `[Dynamic Content]`
+  - Line 110: `<Text>` -> `[Dynamic Content]`
 
 ### File: src/features/admin/Analytics/DateRangeCalendar.js
 
@@ -339,17 +339,15 @@
 
 ### File: src/features/admin/Users/UserRow.js
 
-  - Line 19: `<Text>` -> `[Dynamic Content]`
-  - Line 23: `<Text>` -> `·`
-  - Line 24: `<Text>` -> `[Dynamic Content]`
-  - Line 30: `<Text>` -> `[Dynamic Content]`
-  - Line 32: `<Text>` -> `›`
-  - Line 46: `<Text>` -> `[Dynamic Content]`
-  - Line 49: `<Text>` -> `[Dynamic Content]`
-  - Line 52: `<Text>` -> `[Dynamic Content]`
-  - Line 55: `<Text>` -> `[Dynamic Content]`
-  - Line 59: `<Text>` -> `[Dynamic Content]`
-  - Line 61: `<Text>` -> `›`
+  - Line 18: `<Text>` -> `[Dynamic Content]`
+  - Line 22: `<Text>` -> `·`
+  - Line 23: `<Text>` -> `[Dynamic Content]`
+  - Line 29: `<Text>` -> `[Dynamic Content]`
+  - Line 31: `<Text>` -> `›`
+  - Line 38: `<Text>` -> `[Dynamic Content]`
+  - Line 53: `<Text>` -> `[Dynamic Content]`
+  - Line 66: `<Text>` -> `[Dynamic Content]`
+  - Line 68: `<Text>` -> `›`
 
 ### File: src/features/admin/Users/UsersManager.js
 
@@ -418,7 +416,7 @@
 
 ### File: src/features/contact/ContactQuestionForm.js
 
-  - Line 70: `<Text>` -> `[Dynamic Content]`
+  - Line 63: `<Text>` -> `[Dynamic Content]`
 
 ### File: src/features/contact/SocialButtons.js
 

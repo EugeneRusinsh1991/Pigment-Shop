@@ -1,8 +1,7 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import Button from './Button';
-import { buttonColors } from '../../theme/buttonCommon';
-import { buttonTokens } from '../../theme/tokens';
+import { buttonTokens, colors } from '../../theme/tokens';
 import { useButtonTheme } from './useButtonTheme';
 
 export function IconButton({
@@ -36,7 +35,7 @@ export function IconButton({
   const dim = getDimension();
   const radius = dim / 2;
 
-  const defaultIconColor = isDark ? buttonColors.textDark : buttonColors.textLight;
+  const defaultIconColor = isDark ? colors.textDark : colors.textLight;
   const renderedIcon = React.isValidElement(icon) && icon.type !== React.Fragment
     ? React.cloneElement(icon, { color: icon.props?.color || defaultIconColor })
     : icon;
@@ -59,12 +58,12 @@ export function IconButton({
 
 const iconStyles = StyleSheet.create({
   base: { alignItems: 'center', justifyContent: 'center' },
-  solidLight:       { backgroundColor: buttonColors.textLight },
-  solidDark:        { backgroundColor: buttonColors.textDark },
-  glassLight:       { backgroundColor: buttonColors.glassLightBg },
-  glassDark:        { backgroundColor: buttonColors.glassDarkBg },
-  outlineLight:     { backgroundColor: buttonColors.surfaceLight, borderWidth: 1, borderColor: buttonColors.borderLight },
-  outlineDark:      { backgroundColor: buttonColors.surfaceDark,  borderWidth: 1, borderColor: buttonColors.borderDark },
+  solidLight:       { backgroundColor: colors.textLight },
+  solidDark:        { backgroundColor: colors.textDark },
+  glassLight:       { backgroundColor: colors.glassLightBg },
+  glassDark:        { backgroundColor: colors.glassDarkBg },
+  outlineLight:     { backgroundColor: colors.surfaceLight, borderWidth: 1, borderColor: colors.borderLight },
+  outlineDark:      { backgroundColor: colors.surfaceDark,  borderWidth: 1, borderColor: colors.borderDark },
   transparentLight: { backgroundColor: 'transparent' },
   transparentDark:  { backgroundColor: 'transparent' },
 });

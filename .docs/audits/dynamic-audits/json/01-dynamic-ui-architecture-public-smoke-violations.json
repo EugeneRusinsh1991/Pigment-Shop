@@ -605,6 +605,61 @@
         "url": "http://localhost:8081/",
         "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 42x8",
         "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-backgroundColor-14lw9ot.r-borderRadius-kdyh1x.r-height-3da1kt.r-transition-14jft3i.r-opacity-icoktb.r-width-1jg9483"
+      },
+      {
+        "url": "http://localhost:8081/",
+        "message": "Design System: Hardcoded spacing/border-radius lacking spatial tokens.",
+        "selector": "svg"
+      },
+      {
+        "url": "http://localhost:8081/",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "input.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-margin-crgep1.r-paddingBlock-1mkv55d.r-flex-13awgt0.r-height-1pi2tsx.r-outlineStyle-1ny4l3l.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/",
+        "message": "Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-paddingInline-3pj75a.r-backgroundColor-1niwhzg.r-borderColor-m4suti.r-marginBottom-1ifxtd0"
+      },
+      {
+        "url": "http://localhost:8081/",
+        "message": "Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.",
+        "selector": "input.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-margin-crgep1.r-paddingBlock-1mkv55d.r-flex-13awgt0.r-height-1pi2tsx.r-outlineStyle-1ny4l3l.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/",
+        "message": "Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/",
+        "message": "Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1867qdf.r-height-h3s6tt.r-paddingInline-cxgwc0.r-backgroundColor-wt1z2b.r-borderColor-1jl7vqb.r-marginTop-knv0ih"
+      },
+      {
+        "url": "http://localhost:8081/",
+        "message": "Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.",
+        "selector": "button.css-view-g5y9jx.r-display-xoduu5.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-paddingInline-3pj75a.r-backgroundColor-1niwhzg.r-borderColor-m4suti.r-marginBottom-1ifxtd0"
+      },
+      {
+        "url": "http://localhost:8081/",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1867qdf.r-height-h3s6tt.r-paddingInline-cxgwc0.r-backgroundColor-wt1z2b.r-borderColor-1jl7vqb.r-marginTop-knv0ih"
+      },
+      {
+        "url": "http://localhost:8081/",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "button.css-view-g5y9jx.r-display-xoduu5.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
       }
     ],
     "http://localhost:8081/catalog": [
@@ -957,6 +1012,66 @@
         "url": "http://localhost:8081/catalog",
         "message": "i18n: Potential hardcoded text string found: \"Valid email is required\" without data-i18n tracking.",
         "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-textAlign-q4m81j"
+      },
+      {
+        "url": "http://localhost:8081/catalog",
+        "message": "Design System: Hardcoded spacing/border-radius lacking spatial tokens.",
+        "selector": "div.css-view-g5y9jx.r-backgroundColor-1ins33t.r-borderColor-1w15a45.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-width-13qz1uu"
+      },
+      {
+        "url": "http://localhost:8081/catalog",
+        "message": "Design System: Hardcoded spacing/border-radius lacking spatial tokens.",
+        "selector": "svg"
+      },
+      {
+        "url": "http://localhost:8081/catalog",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "input.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-margin-crgep1.r-paddingBlock-1mkv55d.r-flex-13awgt0.r-height-1pi2tsx.r-outlineStyle-1ny4l3l.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/catalog",
+        "message": "Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-paddingInline-3pj75a.r-backgroundColor-1niwhzg.r-borderColor-m4suti.r-marginBottom-1ifxtd0"
+      },
+      {
+        "url": "http://localhost:8081/catalog",
+        "message": "Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.",
+        "selector": "input.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-margin-crgep1.r-paddingBlock-1mkv55d.r-flex-13awgt0.r-height-1pi2tsx.r-outlineStyle-1ny4l3l.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/catalog",
+        "message": "Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/catalog",
+        "message": "Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1867qdf.r-height-h3s6tt.r-paddingInline-cxgwc0.r-backgroundColor-wt1z2b.r-borderColor-1jl7vqb.r-marginTop-knv0ih"
+      },
+      {
+        "url": "http://localhost:8081/catalog",
+        "message": "Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.",
+        "selector": "button.css-view-g5y9jx.r-display-xoduu5.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/catalog",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-paddingInline-3pj75a.r-backgroundColor-1niwhzg.r-borderColor-m4suti.r-marginBottom-1ifxtd0"
+      },
+      {
+        "url": "http://localhost:8081/catalog",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/catalog",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1867qdf.r-height-h3s6tt.r-paddingInline-cxgwc0.r-backgroundColor-wt1z2b.r-borderColor-1jl7vqb.r-marginTop-knv0ih"
+      },
+      {
+        "url": "http://localhost:8081/catalog",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "button.css-view-g5y9jx.r-display-xoduu5.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
       }
     ],
     "http://localhost:8081/products": [
@@ -1399,6 +1514,61 @@
         "url": "http://localhost:8081/products",
         "message": "i18n: Potential hardcoded text string found: \"Subcategory 2-2 RU\" without data-i18n tracking.",
         "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-color-1dk24ck"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Design System: Hardcoded spacing/border-radius lacking spatial tokens.",
+        "selector": "svg"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "input.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-margin-crgep1.r-paddingBlock-1mkv55d.r-flex-13awgt0.r-height-1pi2tsx.r-outlineStyle-1ny4l3l.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-paddingInline-3pj75a.r-backgroundColor-1niwhzg.r-borderColor-m4suti.r-marginBottom-1ifxtd0"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.",
+        "selector": "input.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-margin-crgep1.r-paddingBlock-1mkv55d.r-flex-13awgt0.r-height-1pi2tsx.r-outlineStyle-1ny4l3l.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1867qdf.r-height-h3s6tt.r-paddingInline-cxgwc0.r-backgroundColor-wt1z2b.r-borderColor-1jl7vqb.r-marginTop-knv0ih"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.",
+        "selector": "button.css-view-g5y9jx.r-display-xoduu5.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-paddingInline-3pj75a.r-backgroundColor-1niwhzg.r-borderColor-m4suti.r-marginBottom-1ifxtd0"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1867qdf.r-height-h3s6tt.r-paddingInline-cxgwc0.r-backgroundColor-wt1z2b.r-borderColor-1jl7vqb.r-marginTop-knv0ih"
+      },
+      {
+        "url": "http://localhost:8081/products",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "button.css-view-g5y9jx.r-display-xoduu5.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
       }
     ],
     "http://localhost:8081/contact": [
@@ -1656,6 +1826,61 @@
         "url": "http://localhost:8081/contact",
         "message": "Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.",
         "selector": "textarea.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-paddingBlock-1mmae3n.r-borderRadius-1867qdf.r-minHeight-1rd2zbf.r-padding-xyw6el.r-verticalAlign-ad9o1y.r-backgroundColor-1ins33t.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/contact",
+        "message": "Design System: Hardcoded spacing/border-radius lacking spatial tokens.",
+        "selector": "svg"
+      },
+      {
+        "url": "http://localhost:8081/contact",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "input.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-margin-crgep1.r-paddingBlock-1mkv55d.r-flex-13awgt0.r-height-1pi2tsx.r-outlineStyle-1ny4l3l.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/contact",
+        "message": "Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-paddingInline-3pj75a.r-backgroundColor-1niwhzg.r-borderColor-m4suti.r-marginBottom-1ifxtd0"
+      },
+      {
+        "url": "http://localhost:8081/contact",
+        "message": "Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.",
+        "selector": "input.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-margin-crgep1.r-paddingBlock-1mkv55d.r-flex-13awgt0.r-height-1pi2tsx.r-outlineStyle-1ny4l3l.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/contact",
+        "message": "Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/contact",
+        "message": "Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1867qdf.r-height-h3s6tt.r-paddingInline-cxgwc0.r-backgroundColor-wt1z2b.r-borderColor-1jl7vqb.r-marginTop-knv0ih"
+      },
+      {
+        "url": "http://localhost:8081/contact",
+        "message": "Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.",
+        "selector": "button.css-view-g5y9jx.r-display-xoduu5.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/contact",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-paddingInline-3pj75a.r-backgroundColor-1niwhzg.r-borderColor-m4suti.r-marginBottom-1ifxtd0"
+      },
+      {
+        "url": "http://localhost:8081/contact",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/contact",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1867qdf.r-height-h3s6tt.r-paddingInline-cxgwc0.r-backgroundColor-wt1z2b.r-borderColor-1jl7vqb.r-marginTop-knv0ih"
+      },
+      {
+        "url": "http://localhost:8081/contact",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "button.css-view-g5y9jx.r-display-xoduu5.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
       }
     ],
     "http://localhost:8081/catalog/cat-root-0": [
@@ -3983,6 +4208,56 @@
         "url": "http://localhost:8081/cart",
         "message": "i18n: Potential hardcoded text string found: \"Valid email is required\" without data-i18n tracking.",
         "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-textAlign-q4m81j"
+      },
+      {
+        "url": "http://localhost:8081/cart",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "input.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-margin-crgep1.r-paddingBlock-1mkv55d.r-flex-13awgt0.r-height-1pi2tsx.r-outlineStyle-1ny4l3l.r-color-jwli3a"
+      },
+      {
+        "url": "http://localhost:8081/cart",
+        "message": "Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-paddingInline-3pj75a.r-backgroundColor-1niwhzg.r-borderColor-1ayp8ji.r-marginBottom-1ifxtd0"
+      },
+      {
+        "url": "http://localhost:8081/cart",
+        "message": "Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.",
+        "selector": "input.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-margin-crgep1.r-paddingBlock-1mkv55d.r-flex-13awgt0.r-height-1pi2tsx.r-outlineStyle-1ny4l3l.r-color-jwli3a"
+      },
+      {
+        "url": "http://localhost:8081/cart",
+        "message": "Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/cart",
+        "message": "Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1867qdf.r-height-h3s6tt.r-paddingInline-cxgwc0.r-backgroundColor-14lw9ot.r-borderColor-11mg6pl.r-marginTop-knv0ih"
+      },
+      {
+        "url": "http://localhost:8081/cart",
+        "message": "Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.",
+        "selector": "button.css-view-g5y9jx.r-display-xoduu5.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/cart",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-paddingInline-3pj75a.r-backgroundColor-1niwhzg.r-borderColor-1ayp8ji.r-marginBottom-1ifxtd0"
+      },
+      {
+        "url": "http://localhost:8081/cart",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/cart",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1867qdf.r-height-h3s6tt.r-paddingInline-cxgwc0.r-backgroundColor-14lw9ot.r-borderColor-11mg6pl.r-marginTop-knv0ih"
+      },
+      {
+        "url": "http://localhost:8081/cart",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "button.css-view-g5y9jx.r-display-xoduu5.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
       }
     ],
     "http://localhost:8081/product/prod-2-1-1-1": [
@@ -7624,6 +7899,333 @@
         "message": "i18n: Potential hardcoded text string found: \"Group 1-2-1 RU\" without data-i18n tracking.",
         "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-jwli3a"
       }
+    ],
+    "http://localhost:8081/login": [
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Design System: Hardcoded spacing/border-radius lacking spatial tokens.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-justifyContent-1777fci.r-backgroundColor-1niwhzg"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Design System: Hardcoded spacing/border-radius lacking spatial tokens.",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-justifyContent-1777fci.r-backgroundColor-1niwhzg"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "div.css-view-g5y9jx.r-flex-13awgt0.r-bottom-1p0dtai.r-left-1d2f490.r-position-u8s1d.r-right-zchlnj.r-top-ipm5af"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "div.css-view-g5y9jx.r-flex-13awgt0"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Design System: Hardcoded spacing/border-radius lacking spatial tokens.",
+        "selector": "div.css-view-g5y9jx.r-backgroundColor-1ins33t.r-borderColor-1w15a45.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-width-13qz1uu"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Design System: Hardcoded spacing/border-radius lacking spatial tokens.",
+        "selector": "svg"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "input.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-margin-crgep1.r-paddingBlock-1mkv55d.r-flex-13awgt0.r-height-1pi2tsx.r-outlineStyle-1ny4l3l.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Design System: Hardcoded spacing/border-radius lacking spatial tokens.",
+        "selector": "div"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-paddingInline-3pj75a.r-backgroundColor-1niwhzg.r-borderColor-m4suti.r-marginBottom-1ifxtd0"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.",
+        "selector": "input.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-margin-crgep1.r-paddingBlock-1mkv55d.r-flex-13awgt0.r-height-1pi2tsx.r-outlineStyle-1ny4l3l.r-color-kgv7a8"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1867qdf.r-height-h3s6tt.r-paddingInline-cxgwc0.r-backgroundColor-wt1z2b.r-borderColor-1jl7vqb.r-marginTop-knv0ih"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.",
+        "selector": "button.css-view-g5y9jx.r-display-xoduu5.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Architecture: Raw `<img>` element used without MediaRenderer/Icon wrapper.",
+        "selector": "img.css-accessibilityImage-9pa8cd"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 116x32",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 40x40",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-justifyContent-1777fci.r-backgroundColor-1niwhzg"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 77x32",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 75x32",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 98x32",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 86x32",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 275x40",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-paddingInline-3pj75a.r-backgroundColor-1niwhzg.r-borderColor-m4suti.r-marginBottom-1ifxtd0"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 156x32",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 32x32",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-justifyContent-1777fci.r-backgroundColor-1niwhzg"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 157x32",
+        "selector": "button.css-view-g5y9jx.r-display-xoduu5.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 80x17",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-justifyContent-1777fci.r-backgroundColor-1niwhzg"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-justifyContent-1777fci.r-backgroundColor-1niwhzg"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-paddingInline-3pj75a.r-backgroundColor-1niwhzg.r-borderColor-m4suti.r-marginBottom-1ifxtd0"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1867qdf.r-height-h3s6tt.r-paddingInline-cxgwc0.r-backgroundColor-wt1z2b.r-borderColor-1jl7vqb.r-marginTop-knv0ih"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "button.css-view-g5y9jx.r-display-xoduu5.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-backgroundColor-1gzzd1q.r-borderColor-1wq0cks.r-borderRadius-1fuqb1j.r-borderWidth-rs99b7.r-boxShadow-118c6o3.r-height-h3s6tt.r-justifyContent-1777fci.r-width-rwqe4o"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "i18n: Potential hardcoded text string found: \"Made by Noren Vox ©\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-color-1cucpzw.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-1cwl3u0"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "div.css-view-g5y9jx.r-bottom-1p0dtai.r-left-1d2f490.r-position-u8s1d.r-right-zchlnj.r-top-ipm5af"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Design System: Hardcoded spacing/border-radius lacking spatial tokens.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-justifyContent-1777fci.r-backgroundColor-1niwhzg.r-left-tceitz.r-padding-qpntkw.r-position-u8s1d"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Design System: Hardcoded spacing/border-radius lacking spatial tokens.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-justifyContent-1777fci.r-backgroundColor-1niwhzg.r-padding-qpntkw.r-position-u8s1d.r-right-e1k2in"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderWidth-rs99b7.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Design System: Hardcoded spacing/border-radius lacking spatial tokens.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderWidth-rs99b7.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderWidth-rs99b7.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.",
+        "selector": "button.css-view-g5y9jx.r-cursor-1loqt21.r-touchAction-1otgn73.r-flex-13awgt0"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 40x40",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-justifyContent-1777fci.r-backgroundColor-1niwhzg.r-left-tceitz.r-padding-qpntkw.r-position-u8s1d"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 140x32",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 40x40",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-justifyContent-1777fci.r-backgroundColor-1niwhzg.r-padding-qpntkw.r-position-u8s1d.r-right-e1k2in"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-justifyContent-1777fci.r-backgroundColor-1niwhzg.r-left-tceitz.r-padding-qpntkw.r-position-u8s1d"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-justifyContent-1777fci.r-backgroundColor-1niwhzg.r-padding-qpntkw.r-position-u8s1d.r-right-e1k2in"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-borderWidth-rs99b7.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-borderColor-42olwf"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Design System: Hardcoded spacing/border-radius lacking spatial tokens.",
+        "selector": "div.css-view-g5y9jx.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-width-13qz1uu.r-backgroundColor-1gzzd1q.r-borderColor-1wq0cks"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "input.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-margin-crgep1.r-paddingBlock-1mkv55d.r-flex-13awgt0.r-height-1pi2tsx.r-outlineStyle-1ny4l3l.r-color-jwli3a"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-paddingInline-3pj75a.r-backgroundColor-1niwhzg.r-borderColor-1ayp8ji.r-marginBottom-1ifxtd0"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.",
+        "selector": "input.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-margin-crgep1.r-paddingBlock-1mkv55d.r-flex-13awgt0.r-height-1pi2tsx.r-outlineStyle-1ny4l3l.r-color-jwli3a"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Architecture: Interactive/structural element missing `data-ui` or `data-component` tracking.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1867qdf.r-height-h3s6tt.r-paddingInline-cxgwc0.r-backgroundColor-14lw9ot.r-borderColor-11mg6pl.r-marginTop-knv0ih"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 275x40",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-paddingInline-3pj75a.r-backgroundColor-1niwhzg.r-borderColor-1ayp8ji.r-marginBottom-1ifxtd0"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-paddingInline-3pj75a.r-backgroundColor-1niwhzg.r-borderColor-1ayp8ji.r-marginBottom-1ifxtd0"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1867qdf.r-height-h3s6tt.r-paddingInline-cxgwc0.r-backgroundColor-14lw9ot.r-borderColor-11mg6pl.r-marginTop-knv0ih"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "i18n: Potential hardcoded text string found: \"Made by Noren Vox ©\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-color-1s06vhe.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-1cwl3u0"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Design System: Hardcoded spacing/border-radius lacking spatial tokens.",
+        "selector": "div.css-view-g5y9jx.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-width-13qz1uu.r-backgroundColor-1gzzd1q.r-borderColor-169eryd"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "div.css-view-g5y9jx.r-alignSelf-1kihuf0.r-borderRadius-1867qdf.r-borderWidth-rs99b7.r-boxShadow-rt4cey.r-maxWidth-bxbwst.r-paddingBlock-1mmae3n.r-paddingInline-u9wvl5.r-position-u8s1d.r-top-1ej1qmr.r-zIndex-1jvy7rh.r-pointerEvents-633pao"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Design System: Raw/hardcoded CSS color in inline style.",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-textAlign-q4m81j"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "i18n: Potential hardcoded text string found: \"Please enter a valid email add\" without data-i18n tracking.",
+        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-textAlign-q4m81j"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 264x40",
+        "selector": "button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-paddingInline-3pj75a.r-backgroundColor-1niwhzg.r-borderColor-1ayp8ji.r-marginBottom-1ifxtd0"
+      },
+      {
+        "url": "http://localhost:8081/login",
+        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 127x32",
+        "selector": "button.css-view-g5y9jx.r-display-xoduu5.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-kdyh1x.r-height-mabqd8.r-paddingInline-3o4zer.r-backgroundColor-1niwhzg.r-borderColor-42olwf"
+      }
     ]
   },
   "urls": [
@@ -7646,6 +8248,7 @@
     "http://localhost:8081/catalog/cat-root-0-sub-0-sub-1",
     "http://localhost:8081/product/prod-1-2-1-1",
     "http://localhost:8081/catalog/cat-root-0-sub-1",
-    "http://localhost:8081/catalog/cat-root-0-sub-1-sub-0"
+    "http://localhost:8081/catalog/cat-root-0-sub-1-sub-0",
+    "http://localhost:8081/login"
   ]
 }
