@@ -1,4 +1,5 @@
 import { Text as RNText } from 'react-native';
+import TextStyles from './TextStyles';
 import { useTextTheme } from './useTextTheme';
 
 const FONT_OVERRIDE_KEYS = ['fontSize', 'lineHeight', 'fontWeight', 'fontFamily'];

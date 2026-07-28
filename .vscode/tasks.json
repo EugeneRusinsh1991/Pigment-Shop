@@ -131,6 +131,9 @@
         {
             "label": "Open Playwright Browser",
             "type": "shell",
+            "dependsOn": [
+                "Run Dev"
+            ],
             "command": "node scripts/open-playwright.js http://localhost:8081",
             "presentation": {
                 "reveal": "always",

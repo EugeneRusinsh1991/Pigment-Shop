@@ -60,3 +60,11 @@ export function getTextStyle({
   return StyleSheet.create({ text: { ...baseVariant, color: textColor, ...filtered } });
 }
 
+export const TextStyles = {
+  VARIANTS,
+  getTextColor,
+  getTextStyle,
+};
+
+export default TextStyles;
+

@@ -1,4 +1,4 @@
-# Step-by-step Resolution — Fixing UI Architecture Violations | `🔴 G 3.1 P (H) — 7d | 8f | +12r`
+# Step-by-step Resolution — Fixing UI Architecture Violations | `� G 3.6 F (M) — 4d | 4f | +6r`
 
 Source report: .docs/audits/audits/01-ui-architecture-violations.log
 
@@ -12,36 +12,7 @@ Steps (with difficulty):
 - Create a separate branch / commit before changes: `git checkout -b fix/ui-architecture`.
 - Open the report file: `.docs/audits/audits/01-ui-architecture-violations.log`.
 
-2) Badge — `src/components/Badge/`  — Difficulty: Easy | `🟢 G 3.6 F (L) — 1d | 1f | +1r`
-- Open `src/components/Badge/Badge.js`.
-- Add the styles import if missing:
-
-```js
-import BadgeStyles from './BadgeStyles';
-```
-
-- Ensure the component uses `BadgeStyles`, e.g.:
-
-```jsx
-<View style={BadgeStyles.container}>...</View>
-```
-
-3) Button — `src/components/Button/`  — Difficulty: Medium | `🟢 G 3.6 F (L) — 1d | 1f | +1r`
-- Open `src/components/Button/useButtonTheme.js`.
-- Ensure the hook returns a valid theme object. Minimal example:
-
-```js
-export default function useButtonTheme() {
-  return {
-    container: { padding: 10, borderRadius: 6 },
-    text: { color: '#0a0a0a', fontSize: 14 },
-  };
-}
-```
-
-- If your codebase uses a theme context, integrate `useTheme()` and merge values accordingly.
-
-4) Motion — `src/components/Motion/`  — Difficulty: Medium | `🟡 G 3.6 F (M) — 1d | 3f | +2r`
+2) Motion — `src/components/Motion/`  — Difficulty: Medium | `🟡 G 3.6 F (M) — 1d | 2f | +2r` ✅ DONE
 - Create the missing files:
   - `src/components/Motion/MotionStyles.js`
   - `src/components/Motion/useMotionTheme.js`
@@ -64,20 +35,7 @@ export default function useMotionTheme() {
 }
 ```
 
-5) Search — `src/components/Search/`  — Difficulty: Easy | `🟢 G 3.6 F (L) — 1d | 1f | +1r`
-- Open `src/components/Search/useSearchTheme.js`.
-- Return a usable theme object, example:
-
-```js
-export default function useSearchTheme() {
-  return {
-    container: { padding: 8 },
-    input: { fontSize: 14, color: '#111' },
-  };
-}
-```
-
-6) Text — `src/components/Text/`  — Difficulty: Easy | `🟢 G 3.6 F (L) — 1d | 1f | +1r`
+3) Text — `src/components/Text/`  — Difficulty: Easy | `🟢 G 3.6 F (L) — 1d | 1f | +1r` ✅ DONE
 - Open `src/components/Text/Text.js`.
 - Add the styles import if missing:
 
@@ -91,7 +49,7 @@ import TextStyles from './TextStyles';
 <Text style={TextStyles.body}>...</Text>
 ```
 
-7) Check & Commit  — Difficulty: Easy | `🟢 G 3.6 F (L) — 1d | 0f | +2r`
+4) Check & Commit  — Difficulty: Easy | `🟢 G 3.6 F (L) — 1d | 0f | +2r`
 - Run linter / typecheck / build if available:
 
 ```bash
