@@ -4,7 +4,7 @@ const parser = require('@babel/parser');
 const traverse = require('@babel/traverse').default;
 const { deduplicate } = require('./auditor-utils');
 const AUDITS_DIR = path.join(__dirname, '../../.audits/audits');
-const SRC_DIR = path.join(__dirname, '../../src');
+const SRC_DIR = path.join(__dirname, '../../../src');
 const LOG_FILE = path.join(AUDITS_DIR, '03-hardcode-styles-violations.log');
 const STRICT_LOG_FILE = path.join(AUDITS_DIR, '03-hardcode-styles-strict-violations.log');
 const FILES_LOG_FILE = path.join(AUDITS_DIR, '03-hardcode-styles-files.log');
@@ -12,14 +12,14 @@ const FILES_LOG_FILE = path.join(AUDITS_DIR, '03-hardcode-styles-files.log');
 // Disable raw/legacy report generation (keep strict AST report only)
 const DISABLE_RAW_REPORTS = true;
 
-const NAMED_COLORS = new Set(['red', 'blue', 'green', 'black', 'white']);
+const HARDCODE_STYLE_PROPS = new Set([
+  'fontSize', 'lineHeight', 'padding', 'paddingTop', 'paddingBottom', 'paddingLeft', 'paddingRight', 'paddingHorizontal', 'paddingVertical',
+  'margin', 'marginTop', 'marginBottom', 'marginLeft', 'marginRight', 'marginHorizontal', 'marginVertical',
+  'gap', 'rowGap', 'columnGap', 'borderRadius', 'borderWidth', 'top', 'bottom', 'left', 'right', 'color', 'backgroundColor', 'borderColor'
+]);
 
-function isColorString(val) {
-  return val.startsWith('#') || val.startsWith('rgb') || NAMED_COLORS.has(val);
-}
-
-function isHardcodedValue(node) {
-  if (!node) return false;
+function isHardcodedValue(propName, node) {
+  if (!node || !HARDCODE_STYLE_PROPS.has(propName)) return false;
   if (node.type === 'NumericLiteral') return true;
   if (node.type === 'StringLiteral') return isColorString(node.value.trim());
   return false;
@@ -111,6 +111,32 @@ function scanFile(filePath, rawViolations, strictViolations, isFixMode = false) 
     traverse(ast, {
       JSXAttribute(astPath) {
         inspectJsxStyleAttribute(astPath, lines, relPath, strictViolations);
+      },
+      CallExpression(astPath) {
+        const callee = astPath.node.callee;
+        if (
+          callee.type === 'MemberExpression' &&
+          callee.object.name === 'StyleSheet' &&
+          callee.property.name === 'create'
+        ) {
+          const arg = astPath.node.arguments[0];
+          if (arg && arg.type === 'ObjectExpression') {
+            arg.properties.forEach(styleGroup => {
+              if (styleGroup.type === 'ObjectProperty' && styleGroup.value.type === 'ObjectExpression') {
+                styleGroup.value.properties.forEach(prop => {
+                  if (prop.type === 'ObjectProperty' && isHardcodedValue(prop.key.name, prop.value)) {
+                    const { lineNum, details } = getLineSnippet(lines, prop.loc);
+                    strictViolations.push({
+                      type: 'STYLESHEET_HARDCODE',
+                      location: `${relPath}:${lineNum}`,
+                      details
+                    });
+                  }
+                });
+              }
+            });
+          }
+        }
       }
     });
   } catch (_) {}
@@ -156,8 +182,7 @@ function generateReportText(title, violations, timestamp) {
     report += `File: ${filePath}\n`;
     items.forEach((item) => {
       const lineStr = item.lineNum ? `L${item.lineNum}` : '';
-      const typeStr = (item.type === 'INLINE_STYLE' || item.type === 'INLINE_STYLE_OBJECT') ? '' : `[${item.type}] `;
-      report += `  ${lineStr.padEnd(6)} ${typeStr}${item.details}\n`;
+      report += `  ${lineStr.padEnd(6)} ${item.details}\n`;
     });
     report += `\n`;
   });
