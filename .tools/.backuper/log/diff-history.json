@@ -7626,5 +7626,35 @@
         }
       ]
     }
+  },
+  "src_07-29_21-49_smoke-report.json_101files": {
+    "timestamp": "2026-07-29T18:49:52.017Z",
+    "diff": {
+      "added": 1,
+      "removed": 0,
+      "modified": 23,
+      "topFolders": [
+        {
+          "folder": ".audits/audits",
+          "count": 12
+        },
+        {
+          "folder": ".fallow",
+          "count": 4
+        },
+        {
+          "folder": ".todos",
+          "count": 2
+        },
+        {
+          "folder": ".audits/fallow-audits/other",
+          "count": 1
+        },
+        {
+          "folder": ".audits/fallow-audits/project",
+          "count": 1
+        }
+      ]
+    }
   }
 }

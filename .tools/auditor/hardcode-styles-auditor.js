@@ -4,6 +4,7 @@ const parser = require('@babel/parser');
 const traverse = require('@babel/traverse').default;
 const { deduplicate } = require('./auditor-utils');
 const AUDITS_DIR = path.join(__dirname, '../../.audits/audits');
+const SRC_DIR = path.join(__dirname, '../../src');
 const LOG_FILE = path.join(AUDITS_DIR, '03-hardcode-styles-violations.log');
 const STRICT_LOG_FILE = path.join(AUDITS_DIR, '03-hardcode-styles-strict-violations.log');
 const FILES_LOG_FILE = path.join(AUDITS_DIR, '03-hardcode-styles-files.log');
@@ -97,7 +98,9 @@ function scanFile(filePath, rawViolations, strictViolations, isFixMode = false) 
   }
   const lines = content.split('\n');
 
-  lines.forEach((line, index) => auditLineRaw(line, index, relPath, filePath, rawViolations));
+  if (!DISABLE_RAW_REPORTS && typeof auditLineRaw === 'function') {
+    lines.forEach((line, index) => auditLineRaw(line, index, relPath, filePath, rawViolations));
+  }
 
   try {
     const ast = parser.parse(content, {
