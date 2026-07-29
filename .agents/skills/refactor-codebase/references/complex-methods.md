@@ -22,10 +22,11 @@ Never process methods outside this report.
 
 # Execution Limits
 
-- Process exactly ONE method at a time.
-- Maximum methods per execution: 5.
+- Process sequentially ONE method at a time.
+- Upon completing and verifying a method refactor, immediately proceed to the next method without stopping.
+- Repeat sequentially up to a maximum of 5 methods per execution session.
 - Maximum attempts per method: 3.
-- Never refactor multiple methods simultaneously.
+- Never refactor multiple methods simultaneously in a single code edit.
 
 ---
 

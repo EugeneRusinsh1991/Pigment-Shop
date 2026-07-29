@@ -18,10 +18,11 @@ Never remove files outside this report.
 
 # Execution Limits
 
-- Process exactly ONE logical file at a time.
-- Maximum items per execution: 10.
+- Process sequentially ONE logical file at a time.
+- Upon completing and verifying a file deletion/cleanup, immediately proceed to the next item without stopping.
+- Repeat sequentially until reaching the maximum limit of 10 items per execution session.
 - Maximum attempts per item: 1.
-- Never chain multiple file deletions during the same pass.
+- Never chain multiple file deletions simultaneously in a single step.
 
 ---
 

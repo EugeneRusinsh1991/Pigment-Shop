@@ -2,7 +2,7 @@
 type: dynamic-audit
 auditor: broken-ui
 scope: admin
-date: 2026-07-29T14:31:24.482Z
+date: 2026-07-29T15:42:19.745Z
 ---
 
 ### Problem: Element has overflow clipping (`scrollWidth > clientWidth`).
@@ -23,6 +23,11 @@ date: 2026-07-29T14:31:24.482Z
   - Selector: `div.css-view-g5y9jx.r-flexDirection-18u37iz.r-flexWrap-1w6e6rj.r-gap-f4gmv6.r-marginBottom-1cad53l`
   - Selector: `div.css-view-g5y9jx.r-gap-1cmwbt1.r-marginBottom-6gpygo`
   - Selector: `input.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-paddingBlock-1mkv55d.r-backgroundColor-fj6wrk.r-borderRadius-1xfd6ze.r-color-kgv7a8.r-height-eu3ka.r-outlineStyle-1ny4l3l.r-paddingInline-3o4zer`
+  - Selector: `div.css-view-g5y9jx.r-bottom-1p0dtai.r-left-1d2f490.r-pointerEvents-633pao.r-position-u8s1d.r-top-ipm5af`
+  - Selector: `div.css-view-g5y9jx.r-backgroundColor-1ins33t.r-borderColor-1w15a45.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-width-13qz1uu`
+  - Selector: `div.css-view-g5y9jx.r-flex-13awgt0.r-marginBottom-6gpygo.r-minWidth-qtfnoi`
+  - Selector: `div.css-view-g5y9jx.r-backgroundColor-1ins33t.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-width-13qz1uu.r-borderColor-169eryd`
+  - Selector: `div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1dk24ck.r-paddingBlock-cnw61z.r-paddingInline-18c5d7m`
 
 ### Problem: Clickable element is overlapped or intercepted by another element.
 
@@ -34,3 +39,12 @@ date: 2026-07-29T14:31:24.482Z
   - Selector: `button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-paddingInline-3pj75a.r-backgroundColor-fj6wrk.r-borderColor-1wr2p1e`
   - Selector: `button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-paddingInline-3pj75a.r-backgroundColor-1bbz6r5.r-borderColor-1fvvsgw`
   - Selector: `button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1867qdf.r-height-h3s6tt.r-paddingInline-cxgwc0.r-backgroundColor-wt1z2b.r-borderColor-1jl7vqb.r-minWidth-19mqnvc`
+  - Selector: `button.css-view-g5y9jx.r-touchAction-1otgn73.r-alignItems-1awozwy.r-cursor-1loqt21.r-flexDirection-18u37iz.r-justifyContent-1777fci.r-borderRadius-y47klf.r-borderWidth-1rf8fdq.r-minHeight-15ysp7h.r-paddingBlock-vuvdlw.r-paddingInline-3o4zer.r-backgroundColor-wt1z2b.r-borderColor-1jl7vqb`
+  - Selector: `button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-paddingInline-3pj75a.r-backgroundColor-fj6wrk.r-borderColor-1wr2p1e.r-flex-13awgt0`
+  - Selector: `button.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-justifyContent-1777fci.r-borderRadius-1xfd6ze.r-height-eu3ka.r-paddingInline-3pj75a.r-backgroundColor-1bbz6r5.r-borderColor-1fvvsgw.r-flex-13awgt0`
+
+### Problem: Broken image resource (`naturalWidth === 0`).
+
+- URL: `http://localhost:8081/admin`
+  - Selector: `img`
+  - Selector: `img.css-accessibilityImage-9pa8cd`

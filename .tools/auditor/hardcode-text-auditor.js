@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { deduplicate, writeAuditReport } = require('./auditor-utils');
 
 const SRC_DIR = path.join(__dirname, '../../src');
 const AUDITS_DIR = path.join(__dirname, '../../.docs/audits/audits');
@@ -22,15 +23,7 @@ function scanFile(filePath, violations) {
   });
 }
 
-function deduplicate(violations) {
-  const seen = new Set();
-  return violations.filter(v => {
-    const key = `${v.location}|${v.details}`;
-    if (seen.has(key)) return false;
-    seen.add(key);
-    return true;
-  });
-}
+
 
 function walkDir(dirPath, violations) {
   if (!fs.existsSync(dirPath)) return;
@@ -46,69 +39,21 @@ function walkDir(dirPath, violations) {
   }
 }
 
-function auditTextLiterals(disableDynamicAudits = false) {
+function auditTextLiterals() {
   if (!fs.existsSync(AUDITS_DIR)) fs.mkdirSync(AUDITS_DIR, { recursive: true });
-  let rawViolations = [];
-  walkDir(SRC_DIR, rawViolations);
-  const violations = deduplicate(rawViolations);
-
-  if (disableDynamicAudits) {
-    console.log('[02 Text Literals Audit] Skipped (dynamic audits disabled)');
-    return;
-  }
+  const violations = [];
+  walkDir(SRC_DIR, violations);
+  const uniqueViolations = deduplicate(violations);
 
   const timestamp = new Date().toLocaleString('ru-RU');
-  let report = `===================================================================\n`;
-  report += `               2. HARDCODED TEXT LITERALS REPORT                   \n`;
-  report += `Timestamp: ${timestamp}\n`;
-  report += `===================================================================\n\n`;
-
-  if (violations.length === 0) {
-    if (fs.existsSync(LOG_FILE)) {
-      try { fs.unlinkSync(LOG_FILE); } catch (_) {}
-    }
-    console.log('[02 Text Literals Audit] Finished (0 unique issues) -> Clean');
-  } else {
-    const grouped = {};
-    violations.forEach(v => {
-      const [filePath, lineNum] = v.location.split(':');
-      if (!grouped[filePath]) grouped[filePath] = [];
-      grouped[filePath].push({ lineNum: lineNum || '', details: v.details });
-    });
-
-    const fileCount = Object.keys(grouped).length;
-    report += `Found ${violations.length} raw text issue(s) across ${fileCount} file(s):\n\n`;
-
-    Object.entries(grouped).forEach(([filePath, items]) => {
-      report += `File: ${filePath}\n`;
-      items.forEach((item) => {
-        const lineStr = item.lineNum ? `L${item.lineNum}` : '';
-        report += `  ${lineStr.padEnd(6)} ${item.details}\n`;
-      });
-      report += `\n`;
-    });
-
-    
-    if (fileCount > 10) {
-      let filesReport = "===================================================================\n";
-      filesReport += "               FILES WITH ISSUES REPORT                            \n";
-      filesReport += "Timestamp: " + timestamp + "\n";
-      filesReport += "===================================================================\n\n";
-      filesReport += "Found " + violations.length + " issue(s) across " + fileCount + " target(s):\n\n";
-      
-      Object.keys(grouped).forEach(filePath => {
-        filesReport += "- " + filePath + " (" + grouped[filePath].length + " issues)\n";
-      });
-      
-      fs.writeFileSync(FILES_LOG_FILE, filesReport);
-      console.log("  -> Also generated compact file list: " + path.basename(FILES_LOG_FILE));
-    } else {
-      if (fs.existsSync(FILES_LOG_FILE)) { try { fs.unlinkSync(FILES_LOG_FILE); } catch (_) {} }
-    }
-    
-    fs.writeFileSync(LOG_FILE, report);
-    console.log(`[02 Text Literals Audit] Finished (${violations.length} unique issues) -> .docs/audits/audits/02-hardcode-text-violations.log`);
-  }
+  writeAuditReport({
+    violations: uniqueViolations,
+    logFile: LOG_FILE,
+    filesLogFile: FILES_LOG_FILE,
+    auditName: '02 Text Literals Audit',
+    issueTypeName: 'raw text',
+    timestamp
+  });
 }
 
 module.exports = { auditTextLiterals };

@@ -22,32 +22,28 @@ function getAllFiles(dir, fileList = []) {
   return fileList;
 }
 
-function auditUnusedExports(disableDynamicAudits = false) {
-  if (!fs.existsSync(AUDITS_DIR)) fs.mkdirSync(AUDITS_DIR, { recursive: true });
-  const allFiles = getAllFiles(SRC_DIR);
+function checkComponentFolderViolations(allFiles) {
   const violations = [];
-
-  if (fs.existsSync(COMPONENTS_DIR)) {
-    const compEntries = fs.readdirSync(COMPONENTS_DIR, { withFileTypes: true });
-    for (const entry of compEntries) {
-      if (entry.isDirectory()) {
-        const compName = entry.name;
-        const isUsed = allFiles.some(f => !f.relPath.startsWith(`src/components/${compName}`) && (f.content.includes(compName) || f.content.includes(`components/${compName}`)));
-        if (!isUsed) {
-          violations.push({
-            location: `src/components/${compName}`,
-            details: `Isolated component folder '${compName}' is not referenced outside its directory`
-          });
-        }
-      }
+  if (!fs.existsSync(COMPONENTS_DIR)) return violations;
+  const compEntries = fs.readdirSync(COMPONENTS_DIR, { withFileTypes: true });
+  for (const entry of compEntries) {
+    if (!entry.isDirectory()) continue;
+    const compName = entry.name;
+    const isUsed = allFiles.some(f => !f.relPath.startsWith(`src/components/${compName}`) && (f.content.includes(compName) || f.content.includes(`components/${compName}`)));
+    if (!isUsed) {
+      violations.push({
+        location: `src/components/${compName}`,
+        details: `Isolated component folder '${compName}' is not referenced outside its directory`
+      });
     }
   }
+  return violations;
+}
 
-  const compFiles = allFiles.filter(f => f.relPath.startsWith('src/components/') && !f.relPath.endsWith('index.js'));
-  const ignoreExports = new Set(['default', 'VARIANTS', 'styles', 'getTextStyle', 'getTextColor', 'buttonTokens', 'layout', 'motion', 'shadows', 'colors', 'fonts', 'VARIANTS_MAP']);
-
+function checkExportedSymbolViolations(compFiles, allFiles, ignoreExports) {
+  const violations = [];
+  const exportRegex = /export\s+(?:const|function|let|class)\s+([a-zA-Z0-9_]+)/g;
   for (const file of compFiles) {
-    const exportRegex = /export\s+(?:const|function|let|class)\s+([a-zA-Z0-9_]+)/g;
     let match;
     while ((match = exportRegex.exec(file.content)) !== null) {
       const expName = match[1];
@@ -61,17 +57,24 @@ function auditUnusedExports(disableDynamicAudits = false) {
       }
     }
   }
+  return violations;
+}
+
+function auditUnusedExports(disableDynamicAudits = false) {
+  if (!fs.existsSync(AUDITS_DIR)) fs.mkdirSync(AUDITS_DIR, { recursive: true });
+  const allFiles = getAllFiles(SRC_DIR);
+  const compFiles = allFiles.filter(f => f.relPath.startsWith('src/components/') && !f.relPath.endsWith('index.js'));
+  const ignoreExports = new Set(['default', 'VARIANTS', 'styles', 'getTextStyle', 'getTextColor', 'buttonTokens', 'layout', 'motion', 'shadows', 'colors', 'fonts', 'VARIANTS_MAP']);
+
+  const violations = [
+    ...checkComponentFolderViolations(allFiles),
+    ...checkExportedSymbolViolations(compFiles, allFiles, ignoreExports)
+  ];
 
   if (disableDynamicAudits) {
     console.log('[06 Unused Exports Audit] Skipped (dynamic audits disabled)');
     return;
   }
-
-  const timestamp = new Date().toLocaleString('ru-RU');
-  let report = `===================================================================\n`;
-  report += `               6. UNUSED EXPORTS REPORT                            \n`;
-  report += `Timestamp: ${timestamp}\n`;
-  report += `===================================================================\n\n`;
 
   if (fs.existsSync(LOG_FILE)) { try { fs.unlinkSync(LOG_FILE); } catch (_) {} }
   if (fs.existsSync(FILES_LOG_FILE)) { try { fs.unlinkSync(FILES_LOG_FILE); } catch (_) {} }

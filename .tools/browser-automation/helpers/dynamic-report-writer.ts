@@ -18,35 +18,29 @@ export function clearSeenViolations() {
   Object.keys(memoryUrls).forEach(k => delete memoryUrls[k]);
 }
 
+const TITLE_PREFIX_MAP: Array<[string, string]> = [
+  ['i18n: Potential hardcoded text string found:', 'i18n: Potential hardcoded text string found without data-i18n tracking'],
+  ['Found raw camelCase i18n key:', 'Raw camelCase i18n key found'],
+  ['Found raw runtime fallback string:', 'Raw runtime fallback string found'],
+  ['Found placeholder string:', 'Placeholder string found'],
+  ['Found hardcoded text without i18n key:', 'Hardcoded text without i18n key'],
+  ['Browser console.error:', 'Browser console error'],
+  ['Unhandled exception:', 'Unhandled page exception'],
+  ['Network failure', 'Network request failure'],
+];
+
 export function getProblemTitleAndDetail(message: string): { title: string; detail?: string } {
   if (message.includes('. Size: ')) {
     const parts = message.split('. Size: ');
     return { title: parts[0], detail: `Size: ${parts[1]}` };
   }
-  if (message.startsWith('i18n: Potential hardcoded text string found:')) {
-    return { title: 'i18n: Potential hardcoded text string found without data-i18n tracking', detail: message };
+
+  for (const [prefix, title] of TITLE_PREFIX_MAP) {
+    if (message.startsWith(prefix)) {
+      return { title, detail: message };
+    }
   }
-  if (message.startsWith('Found raw camelCase i18n key:')) {
-    return { title: 'Raw camelCase i18n key found', detail: message };
-  }
-  if (message.startsWith('Found raw runtime fallback string:')) {
-    return { title: 'Raw runtime fallback string found', detail: message };
-  }
-  if (message.startsWith('Found placeholder string:')) {
-    return { title: 'Placeholder string found', detail: message };
-  }
-  if (message.startsWith('Found hardcoded text without i18n key:')) {
-    return { title: 'Hardcoded text without i18n key', detail: message };
-  }
-  if (message.startsWith('Browser console.error:')) {
-    return { title: 'Browser console error', detail: message };
-  }
-  if (message.startsWith('Unhandled exception:')) {
-    return { title: 'Unhandled page exception', detail: message };
-  }
-  if (message.startsWith('Network failure')) {
-    return { title: 'Network request failure', detail: message };
-  }
+
   return { title: message };
 }
 
@@ -99,49 +93,29 @@ export function formatProblemsReport(problemsMap: Map<string, { url: string; sel
   return reportContent;
 }
 
-export function writeDynamicReport(
-  auditorPrefix: string,
-  auditorName: string,
-  scope: 'public' | 'admin',
-  violations: Violation[],
-  sessionId?: string
-) {
-  const baseDir = path.resolve(process.cwd(), '.docs/audits/dynamic-audits');
-  const docsDir = path.join(baseDir, 'docs');
-  const jsonDir = path.join(baseDir, 'json');
-  
-  if (!fs.existsSync(docsDir)) {
-    fs.mkdirSync(docsDir, { recursive: true });
-  }
-  if (!fs.existsSync(jsonDir)) {
-    fs.mkdirSync(jsonDir, { recursive: true });
-  }
+function initReportState(baseFileName: string, jsonFilePath: string) {
+  if (loadedState.has(baseFileName)) return;
+  loadedState.add(baseFileName);
+  memoryViolations[baseFileName] = {};
+  memoryUrls[baseFileName] = new Set<string>();
 
-  const sessionSuffix = sessionId ? `-${sessionId}` : '';
-  const baseFileName = `${auditorPrefix}-dynamic-${auditorName}-${scope}${sessionSuffix}`;
-  const violationsFilePath = path.join(docsDir, `${baseFileName}-violations.log`);
-  const jsonFilePath = path.join(jsonDir, `${baseFileName}-violations.json`);
-  const filesFilePath = path.join(docsDir, `${baseFileName}-files.log`);
-
-  if (!loadedState.has(baseFileName)) {
-    loadedState.add(baseFileName);
-    memoryViolations[baseFileName] = {};
-    memoryUrls[baseFileName] = new Set<string>();
-    
-    if (fs.existsSync(jsonFilePath)) {
-      try {
-        const data = JSON.parse(fs.readFileSync(jsonFilePath, 'utf-8'));
-        memoryViolations[baseFileName] = data.violations || {};
-        const urls = data.urls || [];
-        urls.forEach((u: string) => memoryUrls[baseFileName].add(u));
-      } catch (e) {
-        console.error('Failed to parse existing dynamic audit state:', e);
-      }
+  if (fs.existsSync(jsonFilePath)) {
+    try {
+      const data = JSON.parse(fs.readFileSync(jsonFilePath, 'utf-8'));
+      memoryViolations[baseFileName] = data.violations || {};
+      const urls = data.urls || [];
+      urls.forEach((u: string) => memoryUrls[baseFileName].add(u));
+    } catch (e) {
+      console.error('Failed to parse existing dynamic audit state:', e);
     }
   }
+}
 
-  const state = memoryViolations[baseFileName];
-  const urlState = memoryUrls[baseFileName];
+function mergeViolationsState(
+  state: Record<string, Violation[]>,
+  urlState: Set<string>,
+  violations: Violation[]
+) {
   let hasNew = false;
   let hasNewUrls = false;
 
@@ -162,6 +136,37 @@ export function writeDynamicReport(
     }
   });
 
+  return { hasNew, hasNewUrls };
+}
+
+export function writeDynamicReport(
+  auditorPrefix: string,
+  auditorName: string,
+  scope: 'public' | 'admin',
+  violations: Violation[],
+  sessionId?: string
+) {
+  const baseDir = path.resolve(process.cwd(), '.docs/audits/dynamic-audits');
+  const docsDir = path.join(baseDir, 'docs');
+  const jsonDir = path.join(baseDir, 'json');
+  
+  if (!fs.existsSync(docsDir)) {
+    fs.mkdirSync(docsDir, { recursive: true });
+  }
+  if (!fs.existsSync(jsonDir)) {
+    fs.mkdirSync(jsonDir, { recursive: true });
+  }
+
+  const sessionSuffix = sessionId ? `-${sessionId}` : '';
+  const baseFileName = `${auditorPrefix}-dynamic-${auditorName}-${scope}${sessionSuffix}`;
+  const jsonFilePath = path.join(jsonDir, `${baseFileName}-violations.json`);
+
+  initReportState(baseFileName, jsonFilePath);
+
+  const state = memoryViolations[baseFileName];
+  const urlState = memoryUrls[baseFileName];
+  const { hasNew, hasNewUrls } = mergeViolationsState(state, urlState, violations);
+
   if (!hasNew && !hasNewUrls) {
     return;
   }
@@ -172,6 +177,7 @@ export function writeDynamicReport(
   }, null, 2), 'utf-8');
 
   if (hasNew) {
+    const violationsFilePath = path.join(docsDir, `${baseFileName}-violations.log`);
     const problemsMap = groupViolationsByProblemTitle(state);
 
     let reportContent = `---
@@ -185,6 +191,7 @@ date: ${new Date().toISOString()}
   }
 
   if (urlState.size > 10 && hasNewUrls) {
+    const filesFilePath = path.join(docsDir, `${baseFileName}-files.log`);
     let filesContent = `---
 type: dynamic-audit-urls
 auditor: ${auditorName}

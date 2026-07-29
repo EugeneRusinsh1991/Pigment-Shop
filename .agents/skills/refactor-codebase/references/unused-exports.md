@@ -18,10 +18,11 @@ Never remove exports outside this report.
 
 # Execution Limits
 
-- Process exactly ONE unused export at a time.
-- Maximum items per execution: 10.
+- Process sequentially ONE unused export at a time.
+- Upon completing and verifying an export removal, immediately proceed to the next item without stopping.
+- Repeat sequentially until reaching the maximum limit of 10 items per execution session.
 - Maximum attempts per item: 1.
-- Never chain multiple export removals during the same pass.
+- Never chain multiple export removals simultaneously in a single code edit.
 
 ---
 

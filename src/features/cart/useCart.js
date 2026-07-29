@@ -1,5 +1,6 @@
 import { useCallback, useMemo } from 'react';
 import useSessionState from '../../hooks/useSessionState';
+import { CartItemSchema, parseWithFallback } from '../../domain';
 
 function parseStringPrice(priceOrQty, fallbackPrice) {
   const numericPrice = parseFloat(String(priceOrQty).replace(/[^0-9.]/g, ''));
@@ -29,10 +30,11 @@ function updateItemQty(safePrev, product, price, qty) {
   const existing = safePrev.find((i) => i.id === product.id);
   if (existing) {
     return safePrev.map((i) =>
-      i.id === product.id ? { ...i, qty: Math.min(99, i.qty + qty) } : i
+      i.id === product.id ? { ...i, qty: Math.min(99, (i.qty || 1) + qty) } : i
     );
   }
-  const newItem = { id: product.id, label: product.label, price, qty };
+  const validated = parseWithFallback(CartItemSchema.partial(), product, { id: product.id, label: product.label || '' });
+  const newItem = { id: validated.id || product.id, label: validated.label || product.label || '', price, qty };
   if (product.image) newItem.image = product.image;
   if (product.icon) newItem.icon = product.icon;
   return [...safePrev, newItem];
@@ -41,14 +43,14 @@ function updateItemQty(safePrev, product, price, qty) {
 function incrementItem(prev, id) {
   const safePrev = Array.isArray(prev) ? prev : [];
   return safePrev.map((item) =>
-    item.id === id ? { ...item, qty: Math.min(99, item.qty + 1) } : item
+    item.id === id ? { ...item, qty: Math.min(99, (item.qty || 1) + 1) } : item
   );
 }
 
 function decrementItem(prev, id) {
   const safePrev = Array.isArray(prev) ? prev : [];
   return safePrev
-    .map((item) => (item.id === id ? { ...item, qty: item.qty - 1 } : item))
+    .map((item) => (item.id === id ? { ...item, qty: (item.qty || 1) - 1 } : item))
     .filter((item) => item.qty > 0);
 }
 
@@ -60,7 +62,7 @@ export default function useCart() {
   const [cartItems, setCartItems] = useSessionState('cart_items', []);
 
   const safeCartItems = useMemo(
-    () => (Array.isArray(cartItems) ? cartItems : []),
+    () => (Array.isArray(cartItems) ? cartItems.map((item) => parseWithFallback(CartItemSchema.partial(), item, item)) : []),
     [cartItems]
   );
 

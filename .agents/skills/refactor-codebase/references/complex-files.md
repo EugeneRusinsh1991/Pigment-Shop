@@ -22,10 +22,11 @@ Never process files outside these reports.
 
 # Execution Limits
 
-- Process exactly ONE file at a time.
-- Maximum files per execution: 3.
+- Process sequentially ONE file at a time.
+- Upon completing and verifying a file refactor, immediately proceed to the next file without stopping.
+- Repeat sequentially until reaching the maximum limit of 3 files per execution session.
 - Maximum attempts per file: 3.
-- Never process multiple files simultaneously.
+- Never process multiple files simultaneously in a single code edit.
 
 ---
 

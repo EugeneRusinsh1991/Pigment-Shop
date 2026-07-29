@@ -12,25 +12,24 @@ export async function auditBrokenUI(page: Page, url: string, scope: 'public' | '
   const issues = await page.evaluate(() => {
     const findings: { type: string; tagName: string; className: string }[] = [];
     
-    // Check text overflow clipping (scrollWidth > clientWidth)
+    const isOverflowing = (el: Element) => {
+      if (el === document.documentElement || el === document.body) return false;
+      if (el.scrollWidth <= el.clientWidth) return false;
+      const style = window.getComputedStyle(el);
+      return !/scroll|auto/.test(style.overflow) && !/scroll|auto/.test(style.overflowX);
+    };
+
     const allElements = document.querySelectorAll('*');
     allElements.forEach(el => {
-      // Exclude body and html to avoid false positives for page-level scroll
-      if (el === document.documentElement || el === document.body) return;
-      
-      if (el.scrollWidth > el.clientWidth) {
-        const style = window.getComputedStyle(el);
-        if (style.overflow !== 'scroll' && style.overflowX !== 'scroll' && style.overflow !== 'auto' && style.overflowX !== 'auto') {
-          findings.push({
-            type: 'overflow-clipping',
-            tagName: el.tagName.toLowerCase(),
-            className: el.className || ''
-          });
-        }
+      if (isOverflowing(el)) {
+        findings.push({
+          type: 'overflow-clipping',
+          tagName: el.tagName.toLowerCase(),
+          className: el.className || ''
+        });
       }
     });
 
-    // Broken images (404 images or naturalWidth === 0)
     const images = document.querySelectorAll('img');
     images.forEach(img => {
       if (img.naturalWidth === 0) {
@@ -42,21 +41,21 @@ export async function auditBrokenUI(page: Page, url: string, scope: 'public' | '
       }
     });
 
-    // Check for click interception/overlapping using elementFromPoint
-    const clickables = document.querySelectorAll('button, a, [role="button"]');
-    clickables.forEach(el => {
+    const isOverlapped = (el: Element) => {
       const rect = el.getBoundingClientRect();
-      if (rect.width === 0 || rect.height === 0 || rect.top < 0 || rect.left < 0) return;
+      if (rect.width === 0 || rect.height === 0 || rect.top < 0 || rect.left < 0) return false;
       
       const cx = rect.left + rect.width / 2;
       const cy = rect.top + rect.height / 2;
-      
-      // If the coordinate is outside viewport, don't test
-      if (cx > window.innerWidth || cy > window.innerHeight) return;
+      if (cx > window.innerWidth || cy > window.innerHeight) return false;
 
       const topElement = document.elementFromPoint(cx, cy);
-      
-      if (topElement && topElement !== el && !el.contains(topElement)) {
+      return Boolean(topElement && topElement !== el && !el.contains(topElement));
+    };
+
+    const clickables = document.querySelectorAll('button, a, [role="button"]');
+    clickables.forEach(el => {
+      if (isOverlapped(el)) {
         findings.push({
           type: 'overlapped-element',
           tagName: el.tagName.toLowerCase(),

@@ -1,0 +1,11 @@
+---
+type: dynamic-audit
+auditor: runtime-health
+scope: admin
+date: 2026-07-29T14:53:22.187Z
+---
+
+### Problem: Unhandled page exception
+
+- URL: `http://localhost:8081/admin`
+  - Unhandled exception: Maximum call stack size exceeded

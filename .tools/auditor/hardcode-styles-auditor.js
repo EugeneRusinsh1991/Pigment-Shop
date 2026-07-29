@@ -2,8 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const parser = require('@babel/parser');
 const traverse = require('@babel/traverse').default;
-
-const SRC_DIR = path.join(__dirname, '../../src');
+const { deduplicate } = require('./auditor-utils');
 const AUDITS_DIR = path.join(__dirname, '../../.docs/audits/audits');
 const LOG_FILE = path.join(AUDITS_DIR, '03-hardcode-styles-violations.log');
 const STRICT_LOG_FILE = path.join(AUDITS_DIR, '03-hardcode-styles-strict-violations.log');
@@ -71,42 +70,7 @@ function scanFile(filePath, rawViolations, strictViolations, isFixMode = false) 
   const lines = content.split('\n');
 
   // --- RAW REGEX AUDIT (Legacy functionality) ---
-  lines.forEach((line, index) => {
-    // 1. Inline style prop usage in JSX
-    if (line.includes('style={{') || (line.includes('style={') && !line.includes('styles.') && !line.includes('style={['))) {
-      rawViolations.push({
-        type: 'INLINE_STYLE',
-        location: `${relPath}:${index + 1}`,
-        details: line.trim()
-      });
-    }
-
-    // 2. Hardcoded colors outside tokens / theme definitions
-    if (!filePath.endsWith('tokens.js') && !filePath.endsWith('colors.js') && !filePath.endsWith('theme.js')) {
-      const hexMatches = line.match(/#(?:[0-9a-fA-F]{3}){1,2}\b/g);
-      const rgbMatches = line.match(/rgba?\([^)]+\)/gi);
-      if (hexMatches || rgbMatches) {
-        const found = [...(hexMatches || []), ...(rgbMatches || [])];
-        rawViolations.push({
-          type: 'HARDCODED_COLOR',
-          location: `${relPath}:${index + 1}`,
-          details: `${found.join(', ')} -> ${line.trim()}`
-        });
-      }
-    }
-
-    // 3. Hardcoded Magic Dimensions & Spacing
-    if (!filePath.endsWith('tokens.js') && !filePath.endsWith('theme.js')) {
-      const dimMatch = line.match(/\b(margin|marginTop|marginBottom|marginLeft|marginRight|marginVertical|marginHorizontal|padding|paddingTop|paddingBottom|paddingLeft|paddingRight|paddingVertical|paddingHorizontal|borderRadius|gap)\s*:\s*(\d+)/);
-      if (dimMatch && !line.includes('//') && !line.includes('tokens.')) {
-        rawViolations.push({
-          type: 'HARDCODED_SPACING',
-          location: `${relPath}:${index + 1}`,
-          details: `${dimMatch[1]} ${dimMatch[2]}px -> ${line.trim()}`
-        });
-      }
-    }
-  });
+  lines.forEach((line, index) => auditLineRaw(line, index, relPath, filePath, rawViolations));
 
   // --- STRICT AST AUDIT (Accurate functionality) ---
   try {
@@ -138,16 +102,6 @@ function scanFile(filePath, rawViolations, strictViolations, isFixMode = false) 
   } catch (_) {
     // Fallback if AST parsing fails
   }
-}
-
-function deduplicate(violations) {
-  const seen = new Set();
-  return violations.filter(v => {
-    const key = `${v.type}|${v.location}|${v.details}`;
-    if (seen.has(key)) return false;
-    seen.add(key);
-    return true;
-  });
 }
 
 function walkDir(dirPath, rawViolations, strictViolations, isFixMode = false) {
@@ -197,6 +151,39 @@ function generateReportText(title, violations, timestamp) {
   return { report, grouped, fileCount };
 }
 
+function writeRawReport(violations, timestamp) {
+  if (DISABLE_RAW_REPORTS) return;
+  if (violations.length === 0) {
+    if (fs.existsSync(LOG_FILE)) try { fs.unlinkSync(LOG_FILE); } catch (_) {}
+    return;
+  }
+  const { report, grouped, fileCount } = generateReportText('3. HARDCODED STYLES, COLORS & SPACING REPORT (RAW)', violations, timestamp);
+  fs.writeFileSync(LOG_FILE, report);
+
+  if (fileCount > 10) {
+    let filesReport = "===================================================================\n";
+    filesReport += "               FILES WITH ISSUES REPORT                            \n";
+    filesReport += "Timestamp: " + timestamp + "\n";
+    filesReport += "===================================================================\n\n";
+    filesReport += "Found " + violations.length + " issue(s) across " + fileCount + " target(s):\n\n";
+    
+    Object.keys(grouped).forEach(filePath => {
+      filesReport += "- " + filePath + " (" + grouped[filePath].length + " issues)\n";
+    });
+    
+    fs.writeFileSync(FILES_LOG_FILE, filesReport);
+  }
+}
+
+function writeStrictReport(strictDeduplicated, timestamp) {
+  if (strictDeduplicated.length === 0) {
+    if (fs.existsSync(STRICT_LOG_FILE)) try { fs.unlinkSync(STRICT_LOG_FILE); } catch (_) {}
+    return;
+  }
+  const { report } = generateReportText('3. HARDCODED STYLES REPORT (STRICT AST)', strictDeduplicated, timestamp);
+  fs.writeFileSync(STRICT_LOG_FILE, report);
+}
+
 function auditStyles(disableDynamicAudits = false) {
   const isFixMode = process.argv.includes('--fix');
   if (!fs.existsSync(AUDITS_DIR)) fs.mkdirSync(AUDITS_DIR, { recursive: true });
@@ -213,38 +200,8 @@ function auditStyles(disableDynamicAudits = false) {
   }
 
   const timestamp = new Date().toLocaleString('ru-RU');
-
-  // 1. Write Raw/Legacy Report (disabled via DISABLE_RAW_REPORTS)
-  if (!DISABLE_RAW_REPORTS) {
-    if (violations.length === 0) {
-      if (fs.existsSync(LOG_FILE)) try { fs.unlinkSync(LOG_FILE); } catch (_) {}
-    } else {
-      const { report, grouped, fileCount } = generateReportText('3. HARDCODED STYLES, COLORS & SPACING REPORT (RAW)', violations, timestamp);
-      fs.writeFileSync(LOG_FILE, report);
-
-      if (fileCount > 10) {
-        let filesReport = "===================================================================\n";
-        filesReport += "               FILES WITH ISSUES REPORT                            \n";
-        filesReport += "Timestamp: " + timestamp + "\n";
-        filesReport += "===================================================================\n\n";
-        filesReport += "Found " + violations.length + " issue(s) across " + fileCount + " target(s):\n\n";
-        
-        Object.keys(grouped).forEach(filePath => {
-          filesReport += "- " + filePath + " (" + grouped[filePath].length + " issues)\n";
-        });
-        
-        fs.writeFileSync(FILES_LOG_FILE, filesReport);
-      }
-    }
-  }
-
-  // 2. Write AST Strict Report
-  if (strictDeduplicated.length === 0) {
-    if (fs.existsSync(STRICT_LOG_FILE)) try { fs.unlinkSync(STRICT_LOG_FILE); } catch (_) {}
-  } else {
-    const { report } = generateReportText('3. HARDCODED STYLES REPORT (STRICT AST)', strictDeduplicated, timestamp);
-    fs.writeFileSync(STRICT_LOG_FILE, report);
-  }
+  writeRawReport(violations, timestamp);
+  writeStrictReport(strictDeduplicated, timestamp);
 
   console.log(`[03 Hardcode Styles Audit] Finished (Raw: ${violations.length}, Strict AST: ${strictDeduplicated.length}) -> .docs/audits/audits/`);
 }

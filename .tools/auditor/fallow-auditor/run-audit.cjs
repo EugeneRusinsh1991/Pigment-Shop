@@ -76,39 +76,27 @@ function cleanupAuditArtifacts(rawJsonPath) {
   }
 }
 
-function hasReportFindings(type, data) {
-  const h = data.health || {};
-  const c = data.check || {};
-  const d = data.dupes || {};
+const reportCheckers = {
+  complexity: (h) => (h.findings || []).length > 0,
+  largeFiles: (h) => (h.file_scores || []).some(f => (f.lines || 0) >= 500),
+  highComplexity: (h) => (h.file_scores || []).some(f => (f.lines || 0) < 500 && (f.crap_max || 0) >= 50),
+  targets: (h) => (h.targets || []).length > 0,
+  duplication: (h, c, d) => (d.clone_groups || []).length > 0,
+  deadFiles: (h, c) => (c.unused_files || []).length > 0,
+  unusedExports: (h, c) => (c.unused_exports || []).length > 0,
+  dependencyIssues: (h, c) => (
+    (c.unused_dependencies || []).length > 0 ||
+    (c.unlisted_dependencies || []).length > 0 ||
+    (c.circular_dependencies || []).length > 0
+  ),
+  smallFiles: (h) => (h.small_files || []).some(f => !f.isKept),
+  auditKept: (h) => (h.small_files || []).some(f => f.isKept)
+};
 
-  switch (type) {
-    case "complexity":
-      return (h.findings || []).length > 0;
-    case "largeFiles":
-      return (h.file_scores || []).some(f => (f.lines || 0) >= 500);
-    case "highComplexity":
-      return (h.file_scores || []).some(f => (f.lines || 0) < 500 && (f.crap_max || 0) >= 50);
-    case "targets":
-      return (h.targets || []).length > 0;
-    case "duplication":
-      return (d.clone_groups || []).length > 0;
-    case "deadFiles":
-      return (c.unused_files || []).length > 0;
-    case "unusedExports":
-      return (c.unused_exports || []).length > 0;
-    case "dependencyIssues":
-      return (
-        (c.unused_dependencies || []).length > 0 ||
-        (c.unlisted_dependencies || []).length > 0 ||
-        (c.circular_dependencies || []).length > 0
-      );
-    case "smallFiles":
-      return (h.small_files || []).filter(f => !f.isKept).length > 0;
-    case "auditKept":
-      return (h.small_files || []).filter(f => f.isKept).length > 0;
-    default:
-      return false;
-  }
+function hasReportFindings(type, data) {
+  const checker = reportCheckers[type];
+  if (!checker) return false;
+  return checker(data.health || {}, data.check || {}, data.dupes || {});
 }
 
 function writeAllReports(reports, subDir, data) {

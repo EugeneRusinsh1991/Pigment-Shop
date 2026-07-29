@@ -14,6 +14,7 @@
 import { createContext, useContext, useEffect, useState, useCallback, useMemo } from 'react';
 import { authService } from '../services/authService';
 import { shouldTreatAsAuthenticated, resolveUserSession } from '../services/authPolicy';
+import { UserProfileSchema, parseWithFallback } from '../domain';
 
 const AuthContext = createContext(null);
 
@@ -24,7 +25,9 @@ export function AuthProvider({ children }) {
 
   useEffect(() => {
     const unsubscribe = authService.subscribeToAuthChanges((firebaseUser) => {
-      setUser(resolveUserSession(firebaseUser));
+      const resolved = resolveUserSession(firebaseUser);
+      const safeUser = resolved ? parseWithFallback(UserProfileSchema.partial(), resolved, resolved) : null;
+      setUser(safeUser);
       setIsAuthenticated(shouldTreatAsAuthenticated(firebaseUser));
       setLoading(false);
     });

@@ -146,17 +146,20 @@ function getNormalizedImages(rest: Record<string, unknown>): string[] {
   return [];
 }
 
+import { CatalogItemSchema, parseWithFallback } from '../domain';
+
 export function normalizeProductEntity(product?: RawProductInput | null): NormalizedProductEntity {
   const safeProduct = product || {} as RawProductInput;
+  const validated = parseWithFallback(CatalogItemSchema.partial(), safeProduct, {});
   const { category, subcategory, categoryId, ...rest } = safeProduct;
 
   return {
     ...rest,
-    id: safeProduct.id || '',
+    id: validated.id || safeProduct.id || '',
     images: getNormalizedImages(rest as Record<string, unknown>),
-    sold: safeProduct.sold ?? 0,
-    stock: safeProduct.stock ?? 0,
-    active: safeProduct.active ?? true,
+    sold: validated.sold ?? safeProduct.sold ?? 0,
+    stock: validated.stock ?? safeProduct.stock ?? 0,
+    active: validated.active ?? safeProduct.active ?? true,
   };
 }
 

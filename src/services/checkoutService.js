@@ -2,6 +2,7 @@ import { COLLECTIONS } from './collections';
 import { createOrder } from './repositories/ordersRepository';
 import { notifyOrderCreated } from './telegramService';
 import { withServiceContract } from './serviceContract';
+import { OrderItemSchema, parseWithFallback } from '../domain';
 
 const ORDER_STATUS = {
   NEW: 'Новый заказ',
@@ -12,7 +13,8 @@ const ORDER_STATUS = {
 
 function getCleanItems(items) {
   return items.map(item => {
-    const cleanItem = { ...item };
+    const validated = parseWithFallback(OrderItemSchema.partial(), item, item);
+    const cleanItem = { ...validated };
     Object.keys(cleanItem).forEach(key => {
       if (cleanItem[key] === undefined) delete cleanItem[key];
     });

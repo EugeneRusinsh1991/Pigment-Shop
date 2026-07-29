@@ -22,10 +22,11 @@ Never process duplication outside this report.
 
 # Execution Limits
 
-- Process exactly ONE duplication at a time.
-- Maximum duplications per execution: 5.
+- Process sequentially ONE duplication at a time.
+- Upon completing and verifying a duplication, immediately proceed to the next duplication without stopping.
+- Repeat sequentially up to a maximum of 5 duplications per execution session.
 - Maximum attempts per duplication: 2.
-- Never resolve multiple duplications simultaneously.
+- Never resolve multiple duplications simultaneously in a single code edit.
 
 ---
 

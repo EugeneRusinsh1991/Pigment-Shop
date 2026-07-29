@@ -169,64 +169,23 @@ function auditComponentEntry(entry) {
   return violations;
 }
 
-function writeAuditReport(violations) {
-  const timestamp = new Date().toLocaleString('ru-RU');
-  let report = `===================================================================\n`;
-  report += `         1. UI ARCHITECTURE AUDIT REPORT                           \n`;
-  report += `Timestamp: ${timestamp}\n`;
-  report += `===================================================================\n`;
-  report += `[DESCRIPTION FOR USER]: Этот отчет находит нарушения структуры UI-компонентов.\n`;
-  report += `Например: компоненты с недопустимыми файлами, незаимпортированные стили (GHOST_IMPORT) или дублирование файлов стилей.\n`;
-  report += `-------------------------------------------------------------------\n`;
-  report += `[PROMPT FOR AGENT]: Fix UI component architecture violations in listed folders.\n`;
-  report += `Ensure component structure follows standard architecture (Styles, Hooks, Main Component).\n`;
-  report += `===================================================================\n\n`;
+const { deduplicate, writeAuditReport: saveAuditReport } = require('./auditor-utils');
 
-  if (violations.length === 0) {
-    if (fs.existsSync(LOG_FILE)) {
-      try { fs.unlinkSync(LOG_FILE); } catch (_) {}
-    }
-    console.log('[01 UI Architecture Audit] Finished (0 issues) -> Clean');
+function generateAndSaveReport(violations, disableDynamicAudits = false) {
+  if (disableDynamicAudits) {
+    console.log('[01 UI Architecture Audit] Skipped (dynamic audits disabled)');
     return;
   }
 
-  const grouped = {};
-  violations.forEach(v => {
-    const filePath = v.location;
-    if (!grouped[filePath]) grouped[filePath] = [];
-    grouped[filePath].push({ type: v.type, details: v.details });
+  const timestamp = new Date().toLocaleString('ru-RU');
+  saveAuditReport({
+    violations: deduplicate(violations),
+    logFile: LOG_FILE,
+    filesLogFile: FILES_LOG_FILE,
+    auditName: '01 UI Architecture Audit',
+    issueTypeName: 'architecture violation',
+    timestamp
   });
-
-  const fileCount = Object.keys(grouped).length;
-  report += `Found ${violations.length} architecture violation(s) across ${fileCount} target(s):\n\n`;
-
-  Object.entries(grouped).forEach(([filePath, items]) => {
-    report += `Target: ${filePath}\n`;
-    items.forEach((item) => {
-      report += `  [${item.type}] ${item.details}\n`;
-    });
-    report += `\n`;
-  });
-
-  if (fileCount > 10) {
-    let filesReport = "===================================================================\n";
-    filesReport += "               FILES WITH ISSUES REPORT                            \n";
-    filesReport += "Timestamp: " + timestamp + "\n";
-    filesReport += "===================================================================\n\n";
-    filesReport += "Found " + violations.length + " issue(s) across " + fileCount + " target(s):\n\n";
-
-    Object.keys(grouped).forEach(filePath => {
-      filesReport += "- " + filePath + " (" + grouped[filePath].length + " issues)\n";
-    });
-
-    fs.writeFileSync(FILES_LOG_FILE, filesReport);
-    console.log("  -> Also generated compact file list: " + path.basename(FILES_LOG_FILE));
-  } else {
-    if (fs.existsSync(FILES_LOG_FILE)) { try { fs.unlinkSync(FILES_LOG_FILE); } catch (_) {} }
-  }
-
-  fs.writeFileSync(LOG_FILE, report);
-  console.log(`[01 UI Architecture Audit] Finished (${violations.length} issues) -> .docs/audits/audits/01-ui-architecture-violations.log`);
 }
 
 function auditComponents(disableDynamicAudits = false) {
@@ -240,11 +199,7 @@ function auditComponents(disableDynamicAudits = false) {
     violations.push(...auditComponentEntry(entry));
   }
 
-  if (disableDynamicAudits) {
-    console.log('[01 UI Architecture Audit] Skipped (dynamic audits disabled)');
-    return;
-  }
-  writeAuditReport(violations);
+  generateAndSaveReport(violations, disableDynamicAudits);
 }
 
 module.exports = { auditComponents };

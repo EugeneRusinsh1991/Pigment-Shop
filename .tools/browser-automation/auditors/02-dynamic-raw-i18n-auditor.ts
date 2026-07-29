@@ -11,36 +11,38 @@ export async function auditRawI18n(page: Page, url: string, scope: 'public' | 'a
 
   // Evaluate on the page to find all elements with text
   const rawIssues = await page.evaluate(() => {
-    const issues: { text: string; tagName: string; className: string }[] = [];
+    const issues: { type: string; text: string; tagName: string; className: string }[] = [];
     
-    // Helper to get all text nodes
+    const FALLBACK_STRINGS = new Set(['undefined', 'null', 'NaN', '[object Object]']);
+    const IGNORED_TAGS = new Set(['SCRIPT', 'STYLE', 'NOSCRIPT']);
+
+    const classifyTextNode = (node: Node) => {
+      const text = node.nodeValue?.trim();
+      if (!text) return null;
+      const parent = node.parentElement;
+      if (!parent || IGNORED_TAGS.has(parent.tagName)) return null;
+
+      if (FALLBACK_STRINGS.has(text)) return { type: 'fallback', text, parent };
+      if (/^[a-z]+[A-Z][a-zA-Z]*$/.test(text) && text.length > 3) return { type: 'camelCase', text, parent };
+      if (/lorem ipsum|TODO|FIXME/i.test(text)) return { type: 'placeholder', text, parent };
+
+      const hasI18nAttr = Boolean(parent.closest('[data-i18n], [data-i18n-key], [data-translated]'));
+      if (!hasI18nAttr && text.length > 1 && /[a-zA-ZА-Яа-яЁё]/.test(text) && !/^[0-9\s$€₽%.,\-+/*#@()]+$/.test(text)) {
+        return { type: 'hardcoded', text, parent };
+      }
+      return null;
+    };
+
     const walk = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null);
     let node;
     while ((node = walk.nextNode())) {
-      const text = node.nodeValue?.trim();
-      if (!text) continue;
-      
-      const parent = node.parentElement;
-      if (!parent) continue;
-
-      // Ignore script and style tags
-      if (['SCRIPT', 'STYLE', 'NOSCRIPT'].includes(parent.tagName)) continue;
-
-      // Check for issues
-      const isCamelCase = /^[a-z]+[A-Z][a-zA-Z]*$/.test(text) && text.length > 3;
-      const isFallback = ['undefined', 'null', 'NaN', '[object Object]'].includes(text);
-      const isPlaceholder = text.toLowerCase().includes('lorem ipsum') || text.includes('TODO') || text.includes('FIXME');
-
-      const hasI18nAttr = Boolean(parent.closest('[data-i18n], [data-i18n-key], [data-translated]'));
-      const isNumericOrSymbol = /^[0-9\s$€₽%.,\-+/*#@()]+$/.test(text);
-      const isHardcodedText = !hasI18nAttr && !isNumericOrSymbol && text.length > 1 && /[a-zA-ZА-Яа-яЁё]/.test(text);
-
-      if (isCamelCase || isFallback || isPlaceholder || isHardcodedText) {
+      const item = classifyTextNode(node);
+      if (item) {
         issues.push({
-          type: isCamelCase ? 'camelCase' : isFallback ? 'fallback' : isPlaceholder ? 'placeholder' : 'hardcoded',
-          text,
-          tagName: parent.tagName.toLowerCase(),
-          className: parent.className || ''
+          type: item.type,
+          text: item.text,
+          tagName: item.parent.tagName.toLowerCase(),
+          className: item.parent.className || ''
         });
       }
     }

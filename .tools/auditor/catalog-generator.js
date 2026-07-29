@@ -72,6 +72,39 @@ function generateSubReport(title, description, items, formatter) {
   return md;
 }
 
+function extractTextContent(nodePath) {
+  let content = '';
+  nodePath.node.children.forEach((child) => {
+    if (child.type === 'JSXText') {
+      const text = child.value.trim();
+      if (text) content += text + ' ';
+    } else if (child.type === 'JSXExpressionContainer' && child.expression.type === 'StringLiteral') {
+      content += child.expression.value + ' ';
+    }
+  });
+  return content.trim() || '[Dynamic Content]';
+}
+
+function extractIconName(openingElement) {
+  const nameAttr = openingElement.attributes.find(a => a.name && a.name.name === 'name');
+  return nameAttr && nameAttr.value ? (nameAttr.value.value || '[Dynamic]') : '[Unknown]';
+}
+
+const IS_TEXT_RE = /^(Text|Typography)$|Text$/;
+const IS_CARD_RE = /Card|Container|Sheet/;
+const IS_BUTTON_RE = /Button|TouchableOpacity|Pressable/;
+const IS_ICON_RE = /Icon/;
+const IS_INPUT_RE = /Input|TextField|Select/;
+
+function categorizeJSXElement(name, nodePath, relPath, line, catalog) {
+  const item = { file: relPath, line, component: name };
+  if (IS_TEXT_RE.test(name)) catalog.texts.push({ ...item, content: extractTextContent(nodePath) });
+  if (IS_CARD_RE.test(name)) catalog.cards.push(item);
+  if (IS_BUTTON_RE.test(name)) catalog.buttons.push(item);
+  if (IS_ICON_RE.test(name)) catalog.icons.push({ ...item, iconName: extractIconName(nodePath.node.openingElement) });
+  if (IS_INPUT_RE.test(name)) catalog.inputs.push(item);
+}
+
 function runCatalogGenerator(disableDynamicAudits = false) {
   if (disableDynamicAudits) {
     console.log('[Catalog Generator] Skipped (dynamic audits disabled)');
@@ -98,44 +131,8 @@ function runCatalogGenerator(disableDynamicAudits = false) {
       JSXElement(nodePath) {
         const name = nodePath.node.openingElement.name.name;
         if (!name) return;
-
         const line = nodePath.node.loc ? nodePath.node.loc.start.line : 1;
-
-        // 1. Text elements
-        if (name === 'Text' || name.endsWith('Text') || name === 'Typography') {
-          let content = '';
-          nodePath.node.children.forEach((child) => {
-            if (child.type === 'JSXText') {
-              const text = child.value.trim();
-              if (text) content += text + ' ';
-            } else if (child.type === 'JSXExpressionContainer' && child.expression.type === 'StringLiteral') {
-              content += child.expression.value + ' ';
-            }
-          });
-          catalog.texts.push({ file: relPath, line, component: name, content: content.trim() || '[Dynamic Content]' });
-        }
-
-        // 2. Card elements
-        if (name.includes('Card') || name.includes('Container') || name.includes('Sheet')) {
-          catalog.cards.push({ file: relPath, line, component: name });
-        }
-
-        // 3. Button elements
-        if (name.includes('Button') || name.includes('TouchableOpacity') || name.includes('Pressable')) {
-          catalog.buttons.push({ file: relPath, line, component: name });
-        }
-
-        // 4. Icons
-        if (name.includes('Icon') || name.endsWith('Icon')) {
-          const nameAttr = nodePath.node.openingElement.attributes.find(a => a.name && a.name.name === 'name');
-          const iconName = nameAttr && nameAttr.value ? (nameAttr.value.value || '[Dynamic]') : '[Unknown]';
-          catalog.icons.push({ file: relPath, line, component: name, iconName });
-        }
-
-        // 5. Inputs
-        if (name.includes('Input') || name.includes('TextField') || name.includes('Select')) {
-          catalog.inputs.push({ file: relPath, line, component: name });
-        }
+        categorizeJSXElement(name, nodePath, relPath, line, catalog);
       }
     });
   });

@@ -149,42 +149,30 @@ function getPackageScripts(rootPath) {
   }
 }
 
+function isWhitelistedPath(normalized) {
+  return /^(\.tools\/|scripts\/|bin\/)/.test(normalized) || /\/index\.(ts|js|tsx|jsx)$/.test(normalized);
+}
+
+function hasKeepAnnotation(absPath) {
+  if (!fs.existsSync(absPath)) return false;
+  try {
+    const content = fs.readFileSync(absPath, "utf-8");
+    return /@audit-keep|@keep|^#!/.test(content);
+  } catch {
+    return false;
+  }
+}
+
 function shouldFilterUnusedFile(fileObj, rootPath, packageScriptsJson) {
   const relPath = fileObj.path || fileObj.file || "";
   if (!relPath) return false;
 
   const normalized = relPath.replace(/\\/g, "/");
-  
-  // Whitelist scripts/tools/bin directories and index/barrel files
-  if (
-    normalized.startsWith(".tools/") ||
-    normalized.startsWith("scripts/") ||
-    normalized.startsWith("bin/") ||
-    normalized.endsWith("/index.ts") ||
-    normalized.endsWith("/index.js") ||
-    normalized.endsWith("/index.tsx") ||
-    normalized.endsWith("/index.jsx")
-  ) {
-    return true;
-  }
-
-  // Check if mentioned in package.json scripts
-  if (packageScriptsJson && packageScriptsJson.includes(normalized)) {
-    return true;
-  }
+  if (isWhitelistedPath(normalized)) return true;
+  if (packageScriptsJson && packageScriptsJson.includes(normalized)) return true;
 
   const absPath = path.resolve(rootPath, relPath);
-  if (!fs.existsSync(absPath)) return false;
-
-  try {
-    const content = fs.readFileSync(absPath, "utf-8");
-    // Check for @audit-keep or hashbang CLI scripts
-    if (/@audit-keep|@keep|^#!/.test(content)) {
-      return true;
-    }
-  } catch {}
-
-  return false;
+  return hasKeepAnnotation(absPath);
 }
 
 function filterUnusedFiles(unusedFiles, rootPath) {
@@ -192,32 +180,29 @@ function filterUnusedFiles(unusedFiles, rootPath) {
   return unusedFiles.filter(f => !shouldFilterUnusedFile(f, rootPath, pkgScripts));
 }
 
+function isPublicOrIndexExport(relPath) {
+  return /\/index\.(ts|js|tsx|jsx)$/.test(relPath) || relPath.includes("src/components/");
+}
+
+function shouldKeepUnusedExport(item, rootPath) {
+  const relPath = (item.path || item.file || "").replace(/\\/g, "/");
+  if (!relPath) return true;
+
+  if (isPublicOrIndexExport(relPath)) return false;
+
+  const absPath = path.resolve(rootPath, relPath);
+  if (!fs.existsSync(absPath)) return true;
+
+  try {
+    const content = fs.readFileSync(absPath, "utf-8");
+    if (/@audit-keep|@keep/.test(content)) return false;
+  } catch {}
+
+  return true;
+}
+
 function filterUnusedExports(unusedExports, rootPath) {
-  return unusedExports.filter(item => {
-    const relPath = (item.path || item.file || "").replace(/\\/g, "/");
-    if (!relPath) return true;
-
-    // Exclude barrel/index exports and public UI library interfaces
-    if (
-      relPath.endsWith("/index.ts") ||
-      relPath.endsWith("/index.js") ||
-      relPath.endsWith("/index.tsx") ||
-      relPath.endsWith("/index.jsx") ||
-      relPath.includes("src/components/")
-    ) {
-      return false;
-    }
-
-    const absPath = path.resolve(rootPath, relPath);
-    if (!fs.existsSync(absPath)) return true;
-
-    try {
-      const content = fs.readFileSync(absPath, "utf-8");
-      if (/@audit-keep|@keep/.test(content)) return false;
-    } catch {}
-
-    return true;
-  });
+  return unusedExports.filter(item => shouldKeepUnusedExport(item, rootPath));
 }
 
 function filterData(rawData, rootPath) {

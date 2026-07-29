@@ -26,8 +26,9 @@ Never modify dependencies outside this report.
 
 # Execution Limits
 
-- Process exactly ONE dependency issue at a time.
-- Maximum items per execution: 10.
+- Process sequentially ONE dependency issue at a time.
+- Upon completing and verifying a fix, immediately proceed to the next item without stopping.
+- Repeat sequentially until reaching the maximum limit of 10 items per execution session.
 - Maximum attempts per item: 1.
 
 ---

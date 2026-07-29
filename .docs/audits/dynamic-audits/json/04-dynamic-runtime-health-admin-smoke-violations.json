@@ -1,0 +1,13 @@
+{
+  "violations": {
+    "http://localhost:8081/admin": [
+      {
+        "url": "http://localhost:8081/admin",
+        "message": "Unhandled exception: Maximum call stack size exceeded"
+      }
+    ]
+  },
+  "urls": [
+    "http://localhost:8081/admin"
+  ]
+}

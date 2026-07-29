@@ -22,47 +22,54 @@ const DISABLE_DYNAMIC_AUDITS = false;
  * Main Audit Suite Runner
  * Executes all domain auditors and generates individual report logs inside .docs/audits/
  */
-function runAllAudits() {
-  const AUDITS_DIR = path.join(__dirname, '../../.docs/audits');
-  
-  // Ensure audit directories exist without wiping existing files (preserves VS Code file handles)
-  if (!fs.existsSync(AUDITS_DIR)) {
-    fs.mkdirSync(AUDITS_DIR, { recursive: true });
+function ensureAuditDirs(auditsDir) {
+  if (!fs.existsSync(auditsDir)) {
+    fs.mkdirSync(auditsDir, { recursive: true });
   }
   ['audits', 'catalog-inventory', 'fallow-audits', 'fallow-audits/project', 'fallow-audits/other'].forEach(sub => {
-    const target = path.join(AUDITS_DIR, sub);
+    const target = path.join(auditsDir, sub);
     if (!fs.existsSync(target)) {
       fs.mkdirSync(target, { recursive: true });
     }
   });
+}
+
+function runAuditorSafe(fn, id) {
+  try {
+    fn(DISABLE_DYNAMIC_AUDITS);
+  } catch (e) {
+    console.error(`Error ${id}:`, e.message);
+  }
+}
+
+function runAllAudits() {
+  const AUDITS_DIR = path.join(__dirname, '../../.docs/audits');
+  ensureAuditDirs(AUDITS_DIR);
   
   console.log('===================================================================');
   console.log('         RUNNING FULL SYSTEM AUDIT SUITE (.tools/auditor)          ');
   console.log('===================================================================');
 
-  try { auditComponents(DISABLE_DYNAMIC_AUDITS); } catch (e) { console.error('Error 01:', e.message); }
-  try { auditTextLiterals(DISABLE_DYNAMIC_AUDITS); } catch (e) { console.error('Error 02:', e.message); }
-  try { auditStyles(DISABLE_DYNAMIC_AUDITS); } catch (e) { console.error('Error 03:', e.message); }
-  try { auditTypography(DISABLE_DYNAMIC_AUDITS); } catch (e) { console.error('Error 04:', e.message); }
-  try { auditServiceLayer(DISABLE_DYNAMIC_AUDITS); } catch (e) { console.error('Error 05:', e.message); }
-  try { auditUnusedExports(DISABLE_DYNAMIC_AUDITS); } catch (e) { console.error('Error 06:', e.message); }
-  try { auditLayerImports(DISABLE_DYNAMIC_AUDITS); } catch (e) { console.error('Error 07:', e.message); }
-  try { auditMagicNumbers(DISABLE_DYNAMIC_AUDITS); } catch (e) { console.error('Error 08:', e.message); }
-  try { auditA11y(DISABLE_DYNAMIC_AUDITS); } catch (e) { console.error('Error 09:', e.message); }
-  try { auditPerformance(DISABLE_DYNAMIC_AUDITS); } catch (e) { console.error('Error 10:', e.message); }
-  try { auditHardcodeUrl(DISABLE_DYNAMIC_AUDITS); } catch (e) { console.error('Error 11:', e.message); }
-  try { auditRawI18nKeys(DISABLE_DYNAMIC_AUDITS); } catch (e) { console.error('Error 12:', e.message); }
-  try { runUniversalHardcodeSearch(DISABLE_DYNAMIC_AUDITS); } catch (e) { console.error('Error 13:', e.message); }
+  const domainAuditors = [
+    [auditComponents, '01'], [auditTextLiterals, '02'], [auditStyles, '03'],
+    [auditTypography, '04'], [auditServiceLayer, '05'], [auditUnusedExports, '06'],
+    [auditLayerImports, '07'], [auditMagicNumbers, '08'], [auditA11y, '09'],
+    [auditPerformance, '10'], [auditHardcodeUrl, '11'], [auditRawI18nKeys, '12'],
+    [runUniversalHardcodeSearch, '13']
+  ];
+
+  domainAuditors.forEach(([auditor, id]) => runAuditorSafe(auditor, id));
 
   console.log('-------------------------------------------------------------------');
   console.log('         RUNNING CODEBASE CATALOG GENERATOR                        ');
   console.log('-------------------------------------------------------------------');
-  try { const { runCatalogGenerator } = require('./catalog-generator'); runCatalogGenerator(DISABLE_DYNAMIC_AUDITS); } catch (e) { console.error('Error Catalog Generator:', e.message); }
+  const { runCatalogGenerator } = require('./catalog-generator');
+  runAuditorSafe(runCatalogGenerator, 'Catalog Generator');
 
   console.log('-------------------------------------------------------------------');
   console.log('         RUNNING CODEBASE FALLOW AUDITOR                           ');
   console.log('-------------------------------------------------------------------');
-  try { runFallowAudit(DISABLE_DYNAMIC_AUDITS); } catch (e) { console.error('Error Fallow Auditor:', e.message); }
+  runAuditorSafe(runFallowAudit, 'Fallow Auditor');
 
   console.log('===================================================================');
   console.log('All audit reports generated inside .docs/audits/ directory.');
