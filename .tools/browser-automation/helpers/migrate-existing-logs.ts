@@ -50,7 +50,7 @@ total_problem_types: ${totalProblems}
   console.log(`Migrated: ${logName} (${totalProblems} problem types, ${totalViolations} violations)`);
 }
 
-const baseDir = path.resolve(process.cwd(), 'logs/dynamic-browser-log');
+const baseDir = path.resolve(process.cwd(), '.logs/dynamic-browser-log');
 const docsDir = path.join(baseDir, 'docs');
 const jsonDir = path.join(baseDir, 'json');
 

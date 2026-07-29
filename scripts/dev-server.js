@@ -5,7 +5,7 @@ const { cleanOldFiles } = require('./cleanOldFiles');
 const { generateMarkdownReport } = require('./devServerReport');
 
 const PORT = 8082;
-const BASE_LOG_DIR = process.env.LOG_DIR || path.join(__dirname, '..', 'logs');
+const BASE_LOG_DIR = process.env.LOG_DIR || path.join(__dirname, '..', '.logs');
 const SCREENSHOTS_DIR = path.join(BASE_LOG_DIR, 'screenshots');
 const LOGS_DIR = path.join(BASE_LOG_DIR, 'logs');
 const STATE_DIR = path.join(BASE_LOG_DIR, 'state');

@@ -64,7 +64,7 @@ yarn-error.*
 # Documentation & Logs
 /.docs/
 /.audits/
-/logs/
+/.logs/
 *.log
 *.jpg
 *.jpeg
