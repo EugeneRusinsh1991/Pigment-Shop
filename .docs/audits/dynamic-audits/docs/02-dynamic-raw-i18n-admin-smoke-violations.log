@@ -2,7 +2,7 @@
 type: dynamic-audit
 auditor: raw-i18n
 scope: admin
-date: 2026-07-29T08:22:29.304Z
+date: 2026-07-29T08:48:24.989Z
 ---
 
 ### Problem: Raw camelCase i18n key found
@@ -24,12 +24,16 @@ date: 2026-07-29T08:22:29.304Z
   - Found raw camelCase i18n key: "adminOrdersDate" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-b88u0q.r-letterSpacing-ud0q2t.r-lineHeight-1f529hi.r-textTransform-tsynxw.r-color-1s7ct43`
   - Found raw camelCase i18n key: "adminOrdersStatus" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-b88u0q.r-letterSpacing-ud0q2t.r-lineHeight-1f529hi.r-textTransform-tsynxw.r-color-1s7ct43`
   - Found raw camelCase i18n key: "adminOrdersTotal" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-b88u0q.r-letterSpacing-ud0q2t.r-lineHeight-1f529hi.r-textTransform-tsynxw.r-color-1s7ct43`
-  - Found raw camelCase i18n key: "orderStatusCancelled" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j`
+  - Found raw camelCase i18n key: "orderStatusCompleted" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j`
   - Found raw camelCase i18n key: "adminOrdersCustNote" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-b88u0q.r-letterSpacing-ud0q2t.r-lineHeight-1f529hi.r-textTransform-tsynxw.r-color-1npgj5g`
   - Found raw camelCase i18n key: "adminOrdersAdminNote" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-b88u0q.r-letterSpacing-ud0q2t.r-lineHeight-1f529hi.r-textTransform-tsynxw.r-color-1npgj5g`
   - Found raw camelCase i18n key: "orderStatusProcessing" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j`
   - Found raw camelCase i18n key: "orderStatusPending" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j`
-  - Found raw camelCase i18n key: "orderStatusCompleted" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j`
+  - Found raw camelCase i18n key: "orderStatusCancelled" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j`
+  - Found raw camelCase i18n key: "orderStatusPending" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-vw2c0b.r-lineHeight-135wba7.r-color-kgv7a8`
+  - Found raw camelCase i18n key: "orderStatusProcessing" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-vw2c0b.r-lineHeight-135wba7.r-color-kgv7a8`
+  - Found raw camelCase i18n key: "orderStatusCompleted" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-vw2c0b.r-lineHeight-135wba7.r-color-kgv7a8`
+  - Found raw camelCase i18n key: "orderStatusCancelled" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-vw2c0b.r-lineHeight-135wba7.r-color-kgv7a8`
   - Found raw camelCase i18n key: "adminOrdersBackBtn" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-135wba7.r-color-1dk24ck.r-marginLeft-1jkjb`
   - Found raw camelCase i18n key: "orderNumber" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1x35g6.r-fontWeight-vw2c0b.r-lineHeight-135wba7.r-color-kgv7a8`
   - Found raw camelCase i18n key: "adminOrdersCustomer" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-1kfrs79.r-lineHeight-135wba7.r-color-kgv7a8.r-marginBottom-f1odvy.r-marginTop-1s2bzr4`
@@ -46,12 +50,6 @@ date: 2026-07-29T08:22:29.304Z
   - Found raw camelCase i18n key: "adminOrdersTotal" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-vw2c0b.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0`
   - Found raw camelCase i18n key: "adminOrdersStatus" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-1kfrs79.r-lineHeight-135wba7.r-color-kgv7a8.r-marginBottom-f1odvy.r-marginTop-1s2bzr4`
   - Found raw camelCase i18n key: "adminUserNote" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-1kfrs79.r-lineHeight-135wba7.r-color-kgv7a8.r-marginBottom-f1odvy.r-marginTop-1s2bzr4`
-  - Found raw camelCase i18n key: "orderStatusPending" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-135wba7`
-  - Found raw camelCase i18n key: "orderStatusProcessing" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-135wba7`
-  - Found raw camelCase i18n key: "orderStatusCompleted" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-135wba7`
-  - Found raw camelCase i18n key: "orderStatusCancelled" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-135wba7`
-  - Found raw camelCase i18n key: "orderStatusCompleted" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-b88u0q.r-lineHeight-135wba7`
-  - Found raw camelCase i18n key: "orderStatusCancelled" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-vw2c0b.r-lineHeight-135wba7.r-color-kgv7a8`
   - Found raw camelCase i18n key: "adminTabOrders" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-color-1cucpzw`
   - Found raw camelCase i18n key: "adminTabProducts" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-vw2c0b.r-lineHeight-135wba7.r-color-kgv7a8`
   - Found raw camelCase i18n key: "adminProductsFilterDiscount" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1gkfh8e.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j`
@@ -87,9 +85,6 @@ date: 2026-07-29T08:22:29.304Z
   - Found raw camelCase i18n key: "adminProductsNewTitle" | Selector: `h1.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-adyw6z.r-fontWeight-1kfrs79.r-lineHeight-vrz42v.r-color-kgv7a8`
   - Found raw camelCase i18n key: "adminProductsRequiredField" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-1cwl3u0.r-marginBottom-5oul0u.r-marginTop-14gqq1x`
   - Found raw camelCase i18n key: "adminProductsInvalidPrice" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-1cwl3u0.r-marginBottom-5oul0u.r-marginTop-14gqq1x`
-  - Found raw camelCase i18n key: "orderStatusPending" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-vw2c0b.r-lineHeight-135wba7.r-color-kgv7a8`
-  - Found raw camelCase i18n key: "orderStatusProcessing" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-vw2c0b.r-lineHeight-135wba7.r-color-kgv7a8`
-  - Found raw camelCase i18n key: "orderStatusCompleted" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-vw2c0b.r-lineHeight-135wba7.r-color-kgv7a8`
   - Found raw camelCase i18n key: "adminTabCategories" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-vw2c0b.r-lineHeight-135wba7.r-color-kgv7a8`
   - Found raw camelCase i18n key: "adminCategoriesAddBtn" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-jwli3a`
   - Found raw camelCase i18n key: "adminCategoriesExpandAll" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n6v787.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-color-1cucpzw`
@@ -106,6 +101,10 @@ date: 2026-07-29T08:22:29.304Z
   - Found raw camelCase i18n key: "adminCategoriesFormUnassignedProducts" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-b88u0q.r-letterSpacing-ud0q2t.r-lineHeight-1f529hi.r-textTransform-tsynxw.r-color-1npgj5g.r-marginBottom-5oul0u.r-marginTop-14gqq1x`
   - Found raw camelCase i18n key: "adminCategoriesFormUnassignedProductsHint" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1s7ct43.r-marginBottom-5oul0u`
   - Found raw camelCase i18n key: "adminCategoriesFormNoUnassignedProducts" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1s7ct43`
+  - Found raw camelCase i18n key: "adminTabBanners" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-vw2c0b.r-lineHeight-135wba7.r-color-kgv7a8`
+  - Found raw camelCase i18n key: "adminBannersUploadBtn" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-jwli3a`
+  - Found raw camelCase i18n key: "adminBannersDeleteBtn" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-jwli3a`
+  - Found raw camelCase i18n key: "adminBannersAddBtn" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-ha6d2y.r-lineHeight-14yzgew.r-color-1dk24ck`
 
 ### Problem: Hardcoded text without i18n key
 
@@ -223,16 +222,23 @@ date: 2026-07-29T08:22:29.304Z
   - Found hardcoded text without i18n key: "26 июл. 2026 г. 23:28" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8`
   - Found hardcoded text without i18n key: "NAOQE" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-vw2c0b.r-lineHeight-135wba7.r-color-kgv7a8`
   - Found hardcoded text without i18n key: "27 июл. 2026 г. 22:39" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8`
-  - Found hardcoded text without i18n key: "profileFirstName / profileLastName" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1s7ct43.r-flexShrink-1q142lx`
-  - Found hardcoded text without i18n key: "Євген Русіньш" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0.r-flexShrink-1wbh5a2.r-textAlign-1ff274t`
-  - Found hardcoded text without i18n key: "Dnipro" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0.r-flexShrink-1wbh5a2.r-textAlign-1ff274t`
-  - Found hardcoded text without i18n key: "14 июля 2026 г. в 03:52" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0.r-flexShrink-1wbh5a2.r-textAlign-1ff274t`
-  - Found hardcoded text without i18n key: "Product 2-2-1-1 RU" | Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0`
-  - Found hardcoded text without i18n key: "pcs" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1s7ct43.r-textAlign-q4m81j.r-width-cfp7ip`
-  - Found hardcoded text without i18n key: "orderStatusPending ▼" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7`
-  - Found hardcoded text without i18n key: "orderStatusPending ▲" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7`
-  - Found hardcoded text without i18n key: "orderStatusCompleted ▲" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1qxivpv.r-lineHeight-135wba7`
   - Found hardcoded text without i18n key: "all" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-color-1cucpzw`
+  - Found hardcoded text without i18n key: "ME1ET" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1x35g6.r-fontWeight-vw2c0b.r-lineHeight-135wba7.r-color-kgv7a8`
+  - Found hardcoded text without i18n key: "profileFirstName / profileLastName" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1s7ct43.r-flexShrink-1q142lx`
+  - Found hardcoded text without i18n key: "ADMINxzczxc ADMINzxczxc" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0.r-flexShrink-1wbh5a2.r-textAlign-1ff274t`
+  - Found hardcoded text without i18n key: "111111zxcxzc" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0.r-flexShrink-1wbh5a2.r-textAlign-1ff274t`
+  - Found hardcoded text without i18n key: "ADMINzxcxz" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0.r-flexShrink-1wbh5a2.r-textAlign-1ff274t`
+  - Found hardcoded text without i18n key: "25 июля 2026 г. в 20:45" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0.r-flexShrink-1wbh5a2.r-textAlign-1ff274t`
+  - Found hardcoded text without i18n key: "Product 1-1-2-1 RU11111" | Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0`
+  - Found hardcoded text without i18n key: "pcs" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1s7ct43.r-textAlign-q4m81j.r-width-cfp7ip`
+  - Found hardcoded text without i18n key: "Product 1-2-1-1 RU" | Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0`
+  - Found hardcoded text without i18n key: "orderStatusCancelled ▼" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7`
+  - Found hardcoded text without i18n key: "LIV3L" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1x35g6.r-fontWeight-vw2c0b.r-lineHeight-135wba7.r-color-kgv7a8`
+  - Found hardcoded text without i18n key: "25 июля 2026 г. в 20:54" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0.r-flexShrink-1wbh5a2.r-textAlign-1ff274t`
+  - Found hardcoded text without i18n key: "Product 1-2-2-1 RU" | Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0`
+  - Found hardcoded text without i18n key: "Product 2-1-2-1 RU" | Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0`
+  - Found hardcoded text without i18n key: "Product 2-2-2-1 RU" | Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0`
+  - Found hardcoded text without i18n key: "Product 2-1-1-1 RU" | Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0`
   - Found hardcoded text without i18n key: "Product 1-1-1-1 EN" | Selector: `div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8`
   - Found hardcoded text without i18n key: "CHEYENNE" | Selector: `div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8`
   - Found hardcoded text without i18n key: "Product 1-1-2-1 EN" | Selector: `div.css-text-146c3p1.r-maxWidth-dnmrzs.r-overflow-1udh08x.r-textOverflow-1udbk01.r-whiteSpace-3s2u2q.r-wordWrap-1iln25a.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8`
@@ -264,20 +270,6 @@ date: 2026-07-29T08:22:29.304Z
   - Found hardcoded text without i18n key: "adminProductsFormDesc (EN)" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1dk24ck.r-marginBottom-d0pm55`
   - Found hardcoded text without i18n key: "Универсальный продукт для Product 2-1-1-1 EN" | Selector: `textarea.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-backgroundColor-fj6wrk.r-borderColor-1t4g3vi.r-borderRadius-1xfd6ze.r-borderWidth-rs99b7.r-color-kgv7a8.r-height-wy61xf.r-outlineStyle-1ny4l3l.r-paddingBlock-ytbthy.r-paddingInline-3o4zer.r-verticalAlign-ad9o1y`
   - Found hardcoded text without i18n key: "Универсальный продукт для Product 2-1-1-1 EN" | Selector: `textarea.css-textinput-11aywtz.r-placeholderTextColor-6taxm2.r-flex-13awgt0.r-margin-crgep1.r-backgroundColor-fj6wrk.r-borderRadius-1xfd6ze.r-color-kgv7a8.r-height-wy61xf.r-outlineStyle-1ny4l3l.r-paddingBlock-ytbthy.r-paddingInline-3o4zer.r-verticalAlign-ad9o1y`
-  - Found hardcoded text without i18n key: "ME1ET" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1x35g6.r-fontWeight-vw2c0b.r-lineHeight-135wba7.r-color-kgv7a8`
-  - Found hardcoded text without i18n key: "ADMINxzczxc ADMINzxczxc" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0.r-flexShrink-1wbh5a2.r-textAlign-1ff274t`
-  - Found hardcoded text without i18n key: "111111zxcxzc" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0.r-flexShrink-1wbh5a2.r-textAlign-1ff274t`
-  - Found hardcoded text without i18n key: "ADMINzxcxz" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0.r-flexShrink-1wbh5a2.r-textAlign-1ff274t`
-  - Found hardcoded text without i18n key: "25 июля 2026 г. в 20:45" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0.r-flexShrink-1wbh5a2.r-textAlign-1ff274t`
-  - Found hardcoded text without i18n key: "Product 1-1-2-1 RU11111" | Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0`
-  - Found hardcoded text without i18n key: "Product 1-2-1-1 RU" | Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0`
-  - Found hardcoded text without i18n key: "orderStatusCancelled ▼" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7`
-  - Found hardcoded text without i18n key: "LIV3L" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1x35g6.r-fontWeight-vw2c0b.r-lineHeight-135wba7.r-color-kgv7a8`
-  - Found hardcoded text without i18n key: "25 июля 2026 г. в 20:54" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0.r-flexShrink-1wbh5a2.r-textAlign-1ff274t`
-  - Found hardcoded text without i18n key: "Product 1-2-2-1 RU" | Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0`
-  - Found hardcoded text without i18n key: "Product 2-1-2-1 RU" | Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0`
-  - Found hardcoded text without i18n key: "Product 2-2-2-1 RU" | Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0`
-  - Found hardcoded text without i18n key: "Product 2-1-1-1 RU" | Selector: `div.css-text-146c3p1.r-WebkitBoxOrient-8akbws.r-display-krxsd3.r-maxWidth-dnmrzs.r-overflow-1qsk4np.r-textOverflow-1udbk01.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8.r-flex-13awgt0`
   - Found hardcoded text without i18n key: "Category 1 RU" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8`
   - Found hardcoded text without i18n key: "Category Holder" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-ha6d2y.r-lineHeight-1cwl3u0.r-includeFontPadding-1rsjblm.r-textAlign-q4m81j`
   - Found hardcoded text without i18n key: "Subcategory 1-1 RU" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-kgv7a8`

@@ -11,28 +11,7 @@ function getThemeToggleLabel(isDark) {
   return isDark ? 'Switch to light theme' : 'Switch to dark theme';
 }
 
-function getThemeToggleStyle(isDark) {
-  return {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: layout.spacing.sm,
-    paddingHorizontal: layout.spacing.sm,
-    minHeight: 44,
-    borderRadius: layout.radii.sm,
-    borderWidth: layout.borderWidth.thin,
-    borderColor: isDark ? colors.borderDarkAlt : colors.navItemHoverDark,
-    backgroundColor: isDark ? colors.surfaceFaintDark : colors.surfaceFaintLight,
-    marginBottom: layout.spacing.md,
-  };
-}
 
-function getThemeIconStyles(isDark) {
-  return {
-    container: { marginRight: layout.spacing.sm },
-    icon: { isDark, color: isDark ? colors.white : colors.dark, size: 16 },
-  };
-}
 
 
 
@@ -41,17 +20,17 @@ export default function LanguageSelector({ isDark, lang, onSelectLanguage, onTog
 
   if (!onSelectLanguage && !onToggleTheme) return null;
   const themeToggleLabel = getThemeToggleLabel(isDark);
-  const themeIconStyles = getThemeIconStyles(isDark);
+  const iconColor = isDark ? colors.white : colors.dark;
 
   return (
     <View style={[styles.menuFooter, isDark ? styles.menuFooterDark : styles.menuFooterLight]}>
       {onToggleTheme && (
         <AnimatedButton
-          style={getThemeToggleStyle(isDark)}
+          style={[styles.themeToggleBtn, isDark ? styles.themeToggleBtnDark : styles.themeToggleBtnLight]}
           onPress={onToggleTheme}
         >
-          <View style={themeIconStyles.container}>
-            <ThemeIcon {...themeIconStyles.icon} />
+          <View style={styles.themeIconContainer}>
+            <ThemeIcon isDark={isDark} color={iconColor} size={16} />
           </View>
           <Text variant="body2" weight="600" size={13}>
             {themeToggleLabel}

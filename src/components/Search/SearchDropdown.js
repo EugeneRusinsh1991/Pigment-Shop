@@ -1,6 +1,7 @@
 import React from 'react';
 import { ScrollView, View, Image } from 'react-native';
 import { Text } from '../../components/Text';
+import { EmptyState } from '../Feedback';
 import { Link } from 'expo-router';
 import { useTheme } from '../../context/ThemeContext';
 import { getLocalizedValue } from '../../utils/localization';
@@ -43,10 +44,10 @@ function EmptySearchState({ query, isDark, t }) {
   const message = template.replace('{query}', query);
 
   return (
-    <View style={[SearchStyles.dropdownOverlay, SearchStyles[isDark ? 'defaultDark' : 'defaultLight']]}>
-      <Text variant="body1" size={14} style={[SearchStyles.emptyText, SearchStyles[`text_${isDark ? 'defaultDark' : 'defaultLight'}`]]}>
-        {message}
-      </Text>
+    <View style={[SearchStyles.dropdownOverlay, SearchStyles[isDark ? 'defaultDark' : 'defaultLight'], { padding: layout.spacing.lg }]}>
+      <EmptyState
+        title={message}
+      />
     </View>
   );
 }

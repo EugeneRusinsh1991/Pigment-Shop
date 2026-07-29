@@ -1,5 +1,6 @@
 import { CartIcon } from '@/components/Icons';
 import { ScrollView, View } from 'react-native';
+import { EmptyState } from '../../components/Feedback';
 import { ScrollFadeUp } from '../../components/Motion';
 import { Heading, Text } from '../../components/Text';
 import useGridLayout from '../../hooks/useGridLayout';
@@ -12,10 +13,10 @@ import styles from './CartViewStyles';
 function EmptyCart({ isDark, t }) {
   return (
     <ScrollFadeUp style={[styles.emptyState, isDark ? styles.containerDark : styles.containerLight]}>
-      <CartIcon color={isDark ? colors.white : colors.dark} size={48} style={styles.emptyIcon} />
-      <Text variant="body1" color="muted">
-        {t('cartEmpty')}
-      </Text>
+      <EmptyState
+        icon={<CartIcon color={isDark ? colors.white : colors.dark} size={48} />}
+        title={t('cartEmpty') || 'Your cart is empty'}
+      />
     </ScrollFadeUp>
   );
 }

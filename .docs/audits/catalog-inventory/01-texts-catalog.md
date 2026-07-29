@@ -542,7 +542,7 @@
 
 ### File: src/features/shell/NavMenu/LanguageSelector.js
 
-  - Line 56: `<Text>` -> `[Dynamic Content]`
+  - Line 35: `<Text>` -> `[Dynamic Content]`
 
 ### File: src/features/shell/NavMenu/MainMenuContent.js
 

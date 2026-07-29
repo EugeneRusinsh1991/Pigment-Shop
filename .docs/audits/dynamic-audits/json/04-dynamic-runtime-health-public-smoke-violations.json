@@ -8,6 +8,10 @@
       {
         "url": "http://localhost:8081/",
         "message": "Browser console.error: Failed to load resource: the server responded with a status of 400 ()"
+      },
+      {
+        "url": "http://localhost:8081/",
+        "message": "Browser console.error: WebSocket is already in CLOSING or CLOSED state."
       }
     ]
   },

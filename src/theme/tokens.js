@@ -311,6 +311,8 @@ export const layout = {
   cardHeights: {
     categoryGrid: { desktop: 280, tablet: 250, mobile: 200 },
     categoryBanner: { desktop: 180, tablet: 160, mobile: 140 },
+    heroRightMobile: 220,
+    heroRightWide: 360,
   },
 };
 
@@ -335,6 +337,12 @@ export const buttonTokens = {
 };
 
 export const iconTokens = {
+  sizes: {
+    sm: 16,
+    md: 20,
+    lg: 24,
+    xl: 32,
+  },
   strokeWidth: {
     default: 2,
     bold: 2.5,

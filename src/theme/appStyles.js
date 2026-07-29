@@ -71,10 +71,10 @@ export default StyleSheet.create({
     overflow: 'hidden',
   },
   heroRightMobile: {
-    height: 220,
+    height: layout.cardHeights.heroRightMobile,
   },
   heroRightWide: {
-    height: 360,
+    height: layout.cardHeights.heroRightWide,
   },
   heroImage: {
     width: '100%',

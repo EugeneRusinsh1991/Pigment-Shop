@@ -1,6 +1,15 @@
 # 🩺 Complexity Health Findings (Critical & High)
 
-*Generated on: 29.07.2026, 11:19:51*
+*Generated on: 29.07.2026, 11:36:14*
+
+## 🟠 High (> 50 lines)
+
+#### 📁 [LanguageSelector.js](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/LanguageSelector.js)
+`src/features/shell/NavMenu/LanguageSelector.js`
+
+- 🟠 **`LanguageSelector`** [L18](file:///D:/Magazine/_PigmentShop/src/features/shell/NavMenu/LanguageSelector.js#L18)
+  - Lines: 59 | Cyclomatic: 8 | Cognitive: 8 | CRAP: 72
+
 
 ## 🟠 High (≤ 50 lines)
 

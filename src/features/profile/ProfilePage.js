@@ -1,6 +1,7 @@
 import { ScrollView, View } from 'react-native';
 import { ScrollFadeUp } from '../../components/Motion';
 import { Heading } from '../../components/Text';
+import { ProfileSkeleton } from '../../components/Feedback';
 import { useTheme } from '../../context/ThemeContext';
 import useGridLayout from '../../hooks/useGridLayout';
 import { useProfileForm } from '../../hooks/useProfileForm';
@@ -13,6 +14,18 @@ export default function ProfilePage({ isDark, auth }) {
   const selectTheme = (dark, light) => (isDark ? dark : light);
   const { isWide, gridWidth } = useGridLayout();
   const { form, loading, saving, updateField, handleSave } = useProfileForm(auth, t);
+
+  if (loading) {
+    return (
+      <ScrollView
+        style={[styles.container, isDark ? styles.containerDark : styles.containerLight]}
+        contentContainerStyle={[styles.scrollContent, styles.noPaddingBottom]}
+      >
+        <ProfileSkeleton />
+        <Footer />
+      </ScrollView>
+    );
+  }
 
   return (
     <ScrollView

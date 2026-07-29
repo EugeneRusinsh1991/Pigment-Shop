@@ -1,6 +1,7 @@
-import { motion } from './tokens';
+import { motion, buttonTokens } from './tokens';
 
 export const DEFAULT_ACTIVE_OPACITY = motion.press.activeOpacity;
+export const BUTTON_SIZES = buttonTokens.sizes;
 
 function getThemeKey(isDark) {
   return isDark ? 'Dark' : 'Light';
@@ -29,4 +30,5 @@ export function calculateHitSlop(width, height) {
     right: Math.max(0, Math.ceil((minTarget - width) / 2)),
   };
 }
+
 

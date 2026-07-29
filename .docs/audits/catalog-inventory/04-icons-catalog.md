@@ -193,7 +193,7 @@
 
 ### File: src/features/shell/NavMenu/LanguageSelector.js
 
-  - Line 54: `<ThemeIcon>` (Icon: `[Unknown]`)
+  - Line 33: `<ThemeIcon>` (Icon: `[Unknown]`)
 
 ### File: src/features/shell/NavMenu/MainMenuContent.js
 

@@ -1,6 +1,6 @@
 import { PageNavigation } from '@/components/Navigation';
 import { ScrollView, View } from 'react-native';
-import { SkeletonLoader } from '../../components/Feedback';
+import { SkeletonLoader, ProductDetailSkeleton } from '../../components/Feedback';
 import { ScrollFadeUp } from '../../components/Motion';
 import { useProductPageState } from '../../hooks/useProductPageState';
 import Footer from '../shell/components/Footer';
@@ -56,7 +56,7 @@ export default function ProductPage({ product: initialProduct, isDark, showNavig
   if (!state.product) {
     return (
       <View style={[styles.root, isDark ? styles.rootDark : styles.rootLight, styles.loadingRoot]}>
-        <SkeletonLoader count={4} height={40} width={300} />
+        <ProductDetailSkeleton />
       </View>
     );
   }

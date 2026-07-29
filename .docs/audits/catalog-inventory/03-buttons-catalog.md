@@ -362,9 +362,9 @@
 
 ### File: src/features/shell/NavMenu/LanguageSelector.js
 
-  - Line 49: `<AnimatedButton>`
-  - Line 67: `<ChipButton>`
-  - Line 82: `<ChipButton>`
+  - Line 28: `<AnimatedButton>`
+  - Line 46: `<ChipButton>`
+  - Line 61: `<ChipButton>`
 
 ### File: src/features/shell/NavMenu/MainMenuContent.js
 

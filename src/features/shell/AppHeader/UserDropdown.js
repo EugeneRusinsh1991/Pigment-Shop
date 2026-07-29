@@ -17,7 +17,7 @@ import { useAdminAuth } from '@/services/adminDomain';
 import { colors, layout, typography } from '@/theme/tokens';
 import { Link } from 'expo-router';
 import { Animated, StyleSheet, View } from 'react-native';
-import styles from './AppHeaderStyles';
+import styles from './UserDropdownStyles';
 
 const getTrimmedValue = (val) => {
   return typeof val === 'string' ? val.trim() : '';
@@ -42,7 +42,7 @@ const getUserDisplayName = (user, profile) => {
 const getDropdownStyles = (isDark) => {
   const ic = (dark, light) => isDark ? dark : light;
   return {
-    dropdown: [styles.dropdown, ic(styles.dropdownDark, styles.dropdownLight), { width: 180 }],
+    dropdown: [styles.dropdown, ic(styles.dropdownDark, styles.dropdownLight)],
     subtextText: [styles.dropdownText, ic(styles.subtextDark, styles.subtextLight)],
     itemText: [styles.dropdownText, ic(styles.textDark, styles.textLight)],
     borderBottomColor: isDark ? colors.borderDark : colors.secondaryLightBorder,
@@ -83,7 +83,7 @@ export default function UserDropdown({
     >
       {isAuthenticated ? (
         <>
-          <View style={[localStyles.userHeader, { borderBottomColor: dStyles.borderBottomColor }]}>
+          <View style={[styles.userHeader, { borderBottomColor: dStyles.borderBottomColor }]}>
             <Text variant="caption" color="secondary" weight="500" size={typography.sizes.xs - 1} numberOfLines={1} ellipsizeMode="tail">
               {getUserDisplayName(user, profile)}
             </Text>
@@ -95,7 +95,7 @@ export default function UserDropdown({
               fullWidth
               leftIcon={<UserIcon color={dStyles.iconColor} size={typography.sizes.sm} />}
               title={t('userProfile')}
-              style={StyleSheet.flatten([styles.dropdownItem, { justifyContent: 'flex-start' }])}
+              style={styles.dropdownItem}
               textStyle={dStyles.itemText}
               onPress={onToggleUserMenu}
             />
@@ -107,7 +107,7 @@ export default function UserDropdown({
               fullWidth
               leftIcon={<HeartIcon color={dStyles.iconColor} size={typography.sizes.sm} />}
               title={t('navFavorites')}
-              style={StyleSheet.flatten([styles.dropdownItem, { justifyContent: 'flex-start' }])}
+              style={styles.dropdownItem}
               textStyle={dStyles.itemText}
               onPress={onToggleUserMenu}
             />
@@ -119,7 +119,7 @@ export default function UserDropdown({
               fullWidth
               leftIcon={<ClipboardIcon color={dStyles.iconColor} size={typography.sizes.sm} />}
               title={t('userOrders')}
-              style={StyleSheet.flatten([styles.dropdownItem, { justifyContent: 'flex-start' }])}
+              style={styles.dropdownItem}
               textStyle={dStyles.itemText}
               onPress={onToggleUserMenu}
             />
@@ -132,7 +132,7 @@ export default function UserDropdown({
                 fullWidth
                 leftIcon={<AdminIcon color={dStyles.iconColor} size={typography.sizes.sm} />}
                 title={t('adminTitle')}
-                style={StyleSheet.flatten([styles.dropdownItem, { justifyContent: 'flex-start' }])}
+                style={styles.dropdownItem}
                 textStyle={dStyles.itemText}
                 onPress={onToggleUserMenu}
                 data-testid="admin-panel-link"
@@ -145,7 +145,7 @@ export default function UserDropdown({
             fullWidth
             leftIcon={<LogoutIcon color={dStyles.iconColor} size={typography.sizes.sm} />}
             title={t('userLogout')}
-            style={StyleSheet.flatten([styles.dropdownItem, { justifyContent: 'flex-start' }])}
+            style={styles.dropdownItem}
             textStyle={dStyles.itemText}
             onPress={() => { onLogout(); onToggleUserMenu(); }}
           />
@@ -159,7 +159,7 @@ export default function UserDropdown({
               fullWidth
               leftIcon={<LoginIcon color={dStyles.iconColor} size={typography.sizes.sm} />}
               title={t('userLogin')}
-              style={StyleSheet.flatten([styles.dropdownItem, { justifyContent: 'flex-start' }])}
+              style={styles.dropdownItem}
               textStyle={dStyles.itemText}
               onPress={onToggleUserMenu}
             />
@@ -171,7 +171,7 @@ export default function UserDropdown({
               fullWidth
               leftIcon={<UserIcon color={dStyles.iconColor} size={typography.sizes.sm} />}
               title={t('reviewsRegisterBtn')}
-              style={StyleSheet.flatten([styles.dropdownItem, { justifyContent: 'flex-start' }])}
+              style={styles.dropdownItem}
               textStyle={dStyles.itemText}
               onPress={onToggleUserMenu}
             />
@@ -182,11 +182,3 @@ export default function UserDropdown({
   );
 }
 
-const localStyles = StyleSheet.create({
-  userHeader: {
-    paddingVertical: layout.spacing.sm,
-    paddingHorizontal: layout.spacing.md,
-    borderBottomWidth: layout.borderWidth.thin,
-    marginBottom: layout.spacing.xxs,
-  },
-});

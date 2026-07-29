@@ -1,11 +1,11 @@
 # 📄 Small & Pass-Through Files Findings
 
-*Generated on: 29.07.2026, 11:19:51*
+*Generated on: 29.07.2026, 11:36:14*
 
 ### Candidate Files for Refactoring/Elimination
 
 - **[iconStyles.js](file:///D:/Magazine/_PigmentShop/src/theme/iconStyles.js)** (`src/theme/iconStyles.js`)
-  - Lines: 5 | Size: 139 B | Type: **Tiny File**
+  - Lines: 10 | Size: 288 B | Type: **Tiny File**
   > 💡 This file contains very few lines; review if it adds unnecessary system noise.
 
 - **[getTabData.js](file:///D:/Magazine/_PigmentShop/src/utils/getTabData.js)** (`src/utils/getTabData.js`)
@@ -48,10 +48,6 @@
   - Lines: 15 | Size: 364 B | Type: **Tiny File**
   > 💡 This file contains very few lines; review if it adds unnecessary system noise.
 
-- **[useThemeUtils.js](file:///D:/Magazine/_PigmentShop/src/theme/useThemeUtils.js)** (`src/theme/useThemeUtils.js`)
-  - Lines: 16 | Size: 369 B | Type: **Tiny File**
-  > 💡 This file contains very few lines; review if it adds unnecessary system noise.
-
 - **[profile.js](file:///D:/Magazine/_PigmentShop/app/(store)/profile.js)** (`app/(store)/profile.js`)
   - Lines: 16 | Size: 486 B | Type: **Tiny File**
   > 💡 This file contains very few lines; review if it adds unnecessary system noise.
@@ -70,6 +66,10 @@
 
 - **[DateRangePresets.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/DateRangePresets.js)** (`src/features/admin/Analytics/DateRangePresets.js`)
   - Lines: 18 | Size: 400 B | Type: **Tiny File**
+  > 💡 This file contains very few lines; review if it adds unnecessary system noise.
+
+- **[useFooterTheme.js](file:///D:/Magazine/_PigmentShop/src/features/shell/components/useFooterTheme.js)** (`src/features/shell/components/useFooterTheme.js`)
+  - Lines: 20 | Size: 456 B | Type: **Tiny File**
   > 💡 This file contains very few lines; review if it adds unnecessary system noise.
 
 - **[useCatalogTransition.js](file:///D:/Magazine/_PigmentShop/src/features/catalog/useCatalogTransition.js)** (`src/features/catalog/useCatalogTransition.js`)

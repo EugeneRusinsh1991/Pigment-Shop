@@ -2,17 +2,8 @@
 type: dynamic-audit
 auditor: broken-ui
 scope: public
-date: 2026-07-29T08:26:23.947Z
+date: 2026-07-29T08:48:52.780Z
 ---
-
-### Problem: Broken image resource (`naturalWidth === 0`).
-
-- URL: `http://localhost:8081/`
-  - Selector: `img.css-accessibilityImage-9pa8cd`
-- URL: `http://localhost:8081/catalog`
-  - Selector: `img.css-accessibilityImage-9pa8cd`
-- URL: `http://localhost:8081/products`
-  - Selector: `img.css-accessibilityImage-9pa8cd`
 
 ### Problem: Clickable element is overlapped or intercepted by another element.
 
@@ -23,6 +14,11 @@ date: 2026-07-29T08:26:23.947Z
   - Selector: `a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-height-1pi2tsx.r-position-bnwqim.r-width-13qz1uu`
 - URL: `http://localhost:8081/products`
   - Selector: `button.css-view-g5y9jx.r-touchAction-1otgn73.r-alignItems-1awozwy.r-cursor-1loqt21.r-flexDirection-18u37iz.r-justifyContent-1777fci.r-backgroundColor-14lw9ot.r-borderColor-1wr2p1e.r-borderRadius-y47klf.r-borderWidth-1rf8fdq.r-minHeight-15ysp7h.r-paddingBlock-vuvdlw.r-paddingInline-3o4zer`
+
+### Problem: Broken image resource (`naturalWidth === 0`).
+
+- URL: `http://localhost:8081/`
+  - Selector: `img.css-accessibilityImage-9pa8cd`
 
 ### Problem: Element has overflow clipping (`scrollWidth > clientWidth`).
 
@@ -41,10 +37,9 @@ date: 2026-07-29T08:26:23.947Z
   - Selector: `div.css-view-g5y9jx.r-borderRadius-1867qdf.r-flexDirection-eqz5dr.r-overflow-1udh08x.r-position-bnwqim.r-marginBottom-1ifxtd0.r-maxWidth-1ik5qf4`
   - Selector: `div.css-view-g5y9jx`
   - Selector: `div.css-view-g5y9jx.r-marginBlock-l00any`
-- URL: `http://localhost:8081/product/prod-2-1-1-1`
-  - Selector: `div.css-view-g5y9jx.r-alignItems-1awozwy.r-flexDirection-18u37iz.r-padding-zhp00w.r-position-bnwqim.r-borderRadius-1xfd6ze.r-height-eu3ka.r-backgroundColor-1gzzd1q.r-marginBottom-1ifxtd0`
 - URL: `http://localhost:8081/cart`
   - Selector: `div.css-view-g5y9jx.r-flex-13awgt0.r-justifyContent-1wtj0ep.r-marginInlineStart-1cwvpvk`
   - Selector: `div.css-view-g5y9jx.r-alignItems-1habvwh.r-flexDirection-18u37iz.r-justifyContent-1wtj0ep`
-- URL: `http://localhost:8081/product/prod-1-2-1-1`
-  - Selector: `div.css-view-g5y9jx.r-alignItems-1awozwy.r-flexDirection-18u37iz.r-padding-zhp00w.r-position-bnwqim.r-borderRadius-1xfd6ze.r-height-eu3ka.r-backgroundColor-1gzzd1q.r-marginBottom-1ifxtd0`
+  - Selector: `div.css-view-g5y9jx.r-marginBottom-5oul0u`
+  - Selector: `div.css-view-g5y9jx.r-marginBlock-l00any`
+  - Selector: `div.css-view-g5y9jx`
