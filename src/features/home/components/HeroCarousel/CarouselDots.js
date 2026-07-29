@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { View, Animated } from 'react-native';
 import { localStyles } from './carouselStyles';
 import { getMediaType } from '@/media/MediaTypeDetector';
-import { AnimatedButton } from '@/components/Button';
+import { AnimatedButton } from '@/components/ui/Button';
 import { colors, layout } from '@/theme/tokens';
 
 function ActiveDotProgress({ isVideo, videoProgress }) {

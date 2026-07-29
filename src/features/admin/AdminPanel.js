@@ -5,7 +5,7 @@
  */
 import { useState, useEffect } from 'react';
 import { ScrollView, View, useWindowDimensions } from 'react-native';
-import { Heading } from '@/components/Text';
+import { Heading } from '@/components/ui/Text';
 import { useTheme } from '../../context/ThemeContext';
 import { useAdminAuth, useAdminDrafts } from '../../services/adminDomain';
 import { BackArrowIcon, LogoutIcon } from '@/components/Icons';
@@ -17,10 +17,10 @@ import CategoriesManager from './Categories/CategoriesManager';
 import OrdersManager from './Orders/OrdersManager';
 import ProductsManager from './Products/ProductsManager';
 import UsersManager from './Users/UsersManager';
-import { PageTransition } from '@/components/Motion';
+import { PageTransition } from '@/components/ui/Motion';
 import { colors, layout } from '../../theme/tokens';
 
-import { Button, IconButton } from '@/components/Button';
+import { Button, IconButton } from '@/components/ui/Button';
 
 const TAB_COMPONENTS = {
   analytics: AnalyticsDashboard,

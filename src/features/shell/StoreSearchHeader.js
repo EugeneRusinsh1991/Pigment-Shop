@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { View, Animated } from 'react-native';
-import { AutocompleteSearch } from '../../components/Search';
+import { AutocompleteSearch } from '../../components/domain/Search';
 import { useHomeScrollHide } from '../../hooks/useHomeScrollHide';
 import { useTheme } from '../../context/ThemeContext';
 import { useCatalog } from '../catalog/CatalogContext';

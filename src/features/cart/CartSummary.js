@@ -1,7 +1,7 @@
 import { Link } from 'expo-router';
 import { View } from 'react-native';
-import { Button } from '../../components/Button';
-import { Text } from '../../components/Text';
+import { Button } from '../../components/ui/Button';
+import { Text } from '../../components/ui/Text';
 import { useTheme } from '../../context/ThemeContext';
 import { FieldInput, FieldTextarea } from '../admin/SharedFormComponents';
 import styles from './CartViewStyles';

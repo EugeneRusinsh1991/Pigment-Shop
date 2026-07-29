@@ -21,7 +21,7 @@ import styles from './ProductFormStyles';
 import { useDeleteConfirmation } from '../../../hooks/useDeleteConfirmation';
 import { useForm } from '../../../hooks/useForm';
 import { colors, layout } from '../../../theme/tokens';
-import { Button } from '@/components/Button';
+import { Button } from '@/components/ui/Button';
 import { FormModalLayout, LanguageTabs } from '../SharedFormComponents';
 import { buildInitialForm, parseFormToProduct, validateForm } from './productFormLogic';
 

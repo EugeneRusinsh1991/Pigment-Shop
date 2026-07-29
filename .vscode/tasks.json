@@ -134,7 +134,7 @@
             "dependsOn": [
                 "Run Dev"
             ],
-            "command": "node scripts/open-playwright.js http://localhost:8081",
+            "command": "node .tools/scripts/open-playwright.js http://localhost:8081",
             "presentation": {
                 "reveal": "always",
                 "panel": "dedicated",
@@ -196,7 +196,7 @@
         {
             "label": "Run Browser Automation Smoke",
             "type": "shell",
-            "command": "node scripts/smoke-test/smoke-test.js",
+            "command": "node .tools/scripts/smoke-test/smoke-test.js",
             "presentation": {
                 "reveal": "always",
                 "panel": "shared"
@@ -206,7 +206,7 @@
         {
             "label": "Run Smoke Test",
             "type": "shell",
-            "command": "node scripts/smoke-test/smoke-test.js",
+            "command": "node .tools/scripts/smoke-test/smoke-test.js",
             "presentation": {
                 "reveal": "always",
                 "panel": "shared"

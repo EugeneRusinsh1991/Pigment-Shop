@@ -1,6 +1,6 @@
 import { StyleSheet, View } from 'react-native';
-import { AnimatedButton } from '../../components/Button';
-import { Text } from '../../components/Text/Text';
+import { AnimatedButton } from '../../components/ui/Button';
+import { Text } from '../../components/ui/Text/Text';
 import { SORT_OPTIONS } from '../../hooks/useCatalogFilters';
 import { layout } from '../../theme/tokens';
 import sidebarStyles from './CatalogFilterSidebarStyles';

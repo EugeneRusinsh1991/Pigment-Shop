@@ -7,11 +7,11 @@
  * - NameField           (localized name input)
  * - DescriptionField    (localized description textarea)
  */
-import { AnimatedButton } from '@/components/Button';
-import { Flag, FlagGroup } from '@/components/Flag';
+import { AnimatedButton } from '@/components/ui/Button';
+import { Flag, FlagGroup } from '@/components/domain/Flag';
 import { ImageIcon, UploadIcon } from '@/components/Icons';
-import { Text } from '@/components/Text';
-import TextField from '@/components/TextField';
+import { Text } from '@/components/ui/Text';
+import TextField from '@/components/ui/TextField';
 import { useState } from 'react';
 import { View } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';

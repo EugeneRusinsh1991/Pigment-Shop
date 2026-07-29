@@ -1,6 +1,6 @@
 import { View } from 'react-native';
-import { Text } from '@/components/Text/Text';
-import Button from '@/components/Button';
+import { Text } from '@/components/ui/Text/Text';
+import Button from '@/components/ui/Button';
 import { colors, motion } from '../../../theme/tokens';
 import {
     BagIcon,

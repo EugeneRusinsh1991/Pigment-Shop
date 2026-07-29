@@ -1,6 +1,6 @@
 import { TouchableOpacity, View } from 'react-native';
-import { Text } from '@/components/Text';
-import { DataTableCell, DataTableRow } from '@/components/DataTable/DataTable';
+import { Text } from '@/components/ui/Text';
+import { DataTableCell, DataTableRow } from '@/components/domain/DataTable/DataTable';
 import {
   DiscountCell,
   getPlaceholderVal,

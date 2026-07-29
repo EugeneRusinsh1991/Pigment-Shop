@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { View } from 'react-native';
-import { Text } from '@/components/Text';
-import { AnimatedButton, ChipButton } from '@/components/Button';
+import { Text } from '@/components/ui/Text';
+import { AnimatedButton, ChipButton } from '@/components/ui/Button';
 import { ThemeIcon } from '@/components/Icons';
 import { colors, layout } from '../../../theme/tokens';
 import styles from './NavMenuStyles';

@@ -1,10 +1,10 @@
 import { View, useWindowDimensions } from 'react-native';
-import { Text } from '@/components/Text';
-import { AnimatedButton } from '@/components/Button';
+import { Text } from '@/components/ui/Text';
+import { AnimatedButton } from '@/components/ui/Button';
 import { useTheme } from '@/context/ThemeContext';
-import Card from '@/components/Card';
+import Card from '@/components/ui/Card';
 import { colors, layout, motion } from '@/theme/tokens';
-import { Badge } from '@/components/Badge';
+import { Badge } from '@/components/ui/Badge';
 import {
     ExpandedItemsList,
     getAdminBgStyle,

@@ -1,11 +1,11 @@
 import React, { useCallback } from 'react';
 import { View, Animated } from 'react-native';
-import { Text } from '../../components/Text/Text';
+import { Text } from '../../components/ui/Text/Text';
 import styles from './ProductPageStyles';
-import MediaRenderer from '../../components/Media/MediaRenderer';
+import MediaRenderer from '../../components/ui/Media/MediaRenderer';
 import { useCarouselState, getCarouselOpacity } from '../../hooks/useCarouselState';
 import { HeartIcon } from '@/components/Icons';
-import { AnimatedButton } from '../../components/Button';
+import { AnimatedButton } from '../../components/ui/Button';
 import ProductBadges from './ProductBadges';
 import { colors } from '../../theme/tokens';
 

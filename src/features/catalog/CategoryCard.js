@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image, Platform, useWindowDimensions, View } from 'react-native';
-import Card from '../../components/Card/Card';
-import { Heading, Text } from '../../components/Text';
+import Card from '../../components/ui/Card/Card';
+import { Heading, Text } from '../../components/ui/Text';
 import { useTheme } from '../../context/ThemeContext';
 import { colors, layout } from '../../theme/tokens';
 import { getLocalizedValue } from '../../utils/localization';

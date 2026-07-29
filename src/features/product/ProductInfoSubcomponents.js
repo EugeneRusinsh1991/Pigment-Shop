@@ -1,8 +1,8 @@
 import { CartIcon, HeartIcon } from '@/components/Icons';
 import { Link } from 'expo-router';
 import { View } from 'react-native';
-import { Button, IconButton } from '../../components/Button';
-import { Heading, Text } from '../../components/Text';
+import { Button, IconButton } from '../../components/ui/Button';
+import { Heading, Text } from '../../components/ui/Text';
 import { useTheme } from '../../context/ThemeContext';
 import { colors } from '../../theme/tokens';
 import { getLocalizedValue } from '../../utils/localization';

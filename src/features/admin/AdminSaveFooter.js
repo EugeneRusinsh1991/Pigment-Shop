@@ -1,4 +1,4 @@
-import { Button } from '@/components/Button';
+import { Button } from '@/components/ui/Button';
 import { useTheme } from '@/context/ThemeContext';
 import { colors, layout } from '@/theme/tokens';
 import { KeyboardAvoidingView, Platform, StyleSheet, View } from 'react-native';

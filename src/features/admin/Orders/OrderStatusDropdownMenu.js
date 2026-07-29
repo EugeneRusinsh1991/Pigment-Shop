@@ -1,6 +1,6 @@
 import { View } from 'react-native';
-import { Text } from '@/components/Text';
-import { AnimatedButton } from '@/components/Button';
+import { Text } from '@/components/ui/Text';
+import { AnimatedButton } from '@/components/ui/Button';
 import { colors, layout, shadow } from '../../../theme/tokens';
 import styles from './OrdersStyles';
 

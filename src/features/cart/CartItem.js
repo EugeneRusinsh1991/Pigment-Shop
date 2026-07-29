@@ -1,7 +1,7 @@
 import { CrossIcon } from '@/components/Icons';
 import { Image, StyleSheet, View } from 'react-native';
-import { IconButton } from '../../components/Button';
-import { Text } from '../../components/Text';
+import { IconButton } from '../../components/ui/Button';
+import { Text } from '../../components/ui/Text';
 import { useTheme } from '../../context/ThemeContext';
 import { useCartLogic } from '../../hooks/useCartLogic';
 import { colors, layout, shadow } from '../../theme/tokens';

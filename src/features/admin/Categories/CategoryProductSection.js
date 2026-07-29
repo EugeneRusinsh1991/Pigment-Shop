@@ -1,5 +1,5 @@
-import { AnimatedButton } from '@/components/Button';
-import { Text } from '@/components/Text';
+import { AnimatedButton } from '@/components/ui/Button';
+import { Text } from '@/components/ui/Text';
 import { useMemo } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { colors, layout, motion } from '../../../theme/tokens';

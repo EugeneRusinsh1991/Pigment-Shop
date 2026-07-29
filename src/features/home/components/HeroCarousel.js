@@ -8,7 +8,7 @@ import { CarouselLayers } from './HeroCarousel/CarouselLayers';
 import { localStyles, getCarouselBaseStyle, getPlaceholderStyle } from './HeroCarousel/carouselStyles';
 import { useCarouselData } from './HeroCarousel/useCarouselData';
 
-import { AnimatedButton } from '@/components/Button';
+import { AnimatedButton } from '@/components/ui/Button';
 
 function CarouselArrows({ show, onPrev, onNext }) {
   if (!show) return null;

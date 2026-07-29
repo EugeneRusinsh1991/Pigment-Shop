@@ -1,4 +1,4 @@
-import { PageTransition } from '@\/components\/Motion';
+import { PageTransition } from '@/components/ui/Motion';
 import CatalogView from '@/features/catalog/CatalogView';
 import { useCatalogRootData } from '@/features/catalog/useCatalogViewData';
 

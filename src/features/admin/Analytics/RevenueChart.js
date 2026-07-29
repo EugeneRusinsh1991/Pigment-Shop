@@ -5,7 +5,7 @@
  * Uses a fixed viewBox without preserveAspectRatio distortion.
  */
 import { Platform, View } from 'react-native';
-import { Text } from '@/components/Text';
+import { Text } from '@/components/ui/Text';
 import { useLanguage } from '../../../context/LanguageContext';
 import styles from './AnalyticsStyles';
 import { colors, layout } from '../../../theme/tokens';

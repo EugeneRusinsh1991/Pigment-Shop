@@ -1,5 +1,5 @@
-import { ScrollFadeUp } from '@/components/Motion';
-import { Heading, Text } from '@/components/Text';
+import { ScrollFadeUp } from '@/components/ui/Motion';
+import { Heading, Text } from '@/components/ui/Text';
 import { useCatalog } from '@/features/catalog/CatalogContext';
 import { PlaceholderGrid } from '@/features/catalog/PlaceholderCard';
 import styles from '@/theme/appStyles';

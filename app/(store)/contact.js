@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTheme } from '@/context/ThemeContext';
 import ContactPage from '@/features/contact/ContactPage';
-import { PageTransition } from '@\/components\/Motion';
+import { PageTransition } from '@/components/ui/Motion';
 
 export default function ContactRoute() {
   const { isDark } = useTheme();

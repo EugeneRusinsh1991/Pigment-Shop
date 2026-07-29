@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import { Link } from 'expo-router';
 import CategoryCard from './CategoryCard';
 import ProductCard from '../product/ProductCard';
-import NavigationCard from '../../components/Card/NavigationCard';
+import NavigationCard from '../../components/ui/Card/NavigationCard';
 
 /**
  * PlaceholderCard Component

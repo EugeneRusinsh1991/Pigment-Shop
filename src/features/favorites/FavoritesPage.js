@@ -2,8 +2,8 @@
 import { HeartIcon } from '@/components/Icons';
 import { useRouter } from 'expo-router';
 import { ScrollView, View } from 'react-native';
-import { ScrollFadeUp } from '../../components/Motion';
-import { Heading } from '../../components/Text';
+import { ScrollFadeUp } from '../../components/ui/Motion';
+import { Heading } from '../../components/ui/Text';
 import { useTheme } from '../../context/ThemeContext';
 import useGridLayout from '../../hooks/useGridLayout';
 import { colors } from '../../theme/tokens';
@@ -13,7 +13,7 @@ import { useFavoritesContext } from './FavoritesContext';
 import styles from './FavoritesPageStyles';
 
 
-import { EmptyState } from '../../components/Feedback';
+import { EmptyState } from '../../components/ui/Feedback';
 
 function FavoritesEmptyState({ isDark, t }) {
   return (

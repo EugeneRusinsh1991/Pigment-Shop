@@ -1,10 +1,10 @@
 import React from 'react';
 import { TouchableOpacity, View } from 'react-native';
-import { Text } from '@/components/Text';
+import { Text } from '@/components/ui/Text';
 import { useTheme } from '../../../context/ThemeContext';
-import { Button, IconButton } from '@/components/Button';
+import { Button, IconButton } from '@/components/ui/Button';
 import { EditIcon, TrashIcon } from '@/components/Icons';
-import { Badge } from '@/components/Badge';
+import { Badge } from '@/components/ui/Badge';
 import { colors, layout } from '../../../theme/tokens';
 import styles from './ProductsStyles';
 import { getLocalizedValue } from '../../../utils/localization';

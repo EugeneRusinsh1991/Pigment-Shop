@@ -5,7 +5,7 @@ import SharedLayoutWrapper from '@/features/shell/SharedLayoutWrapper';
 import StoreSearchHeader from '@/features/shell/StoreSearchHeader';
 import { useAppShell } from '@/features/shell/useAppShell';
 import styles from '@/theme/appStyles';
-import { ErrorBoundary } from '@/components/Feedback';
+import { ErrorBoundary } from '@/components/ui/Feedback';
 import { Stack, usePathname } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { Pressable, View } from 'react-native';

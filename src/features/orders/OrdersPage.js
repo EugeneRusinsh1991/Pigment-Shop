@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { ScrollFadeUp } from '../../components/Motion';
-import { Heading } from '../../components/Text';
+import { ScrollFadeUp } from '../../components/ui/Motion';
+import { Heading } from '../../components/ui/Text';
 import { useAuth } from '../../context/AuthContext';
 import { useTheme } from '../../context/ThemeContext';
 import useGridLayout from '../../hooks/useGridLayout';
@@ -9,7 +9,7 @@ import OrderCard from './components/OrderCard';
 import styles from './OrdersPageStyles';
 import { useOrders } from './useOrders';
 
-import EmptyState from '../../components/DataTable/EmptyState';
+import EmptyState from '../../components/domain/DataTable/EmptyState';
 import CatalogPagination from '../catalog/CatalogPagination';
 import { useOrdersPagination } from '../../hooks/useOrdersPagination';
 

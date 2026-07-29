@@ -1,5 +1,5 @@
-import Card from '@/components/Card';
-import { Text } from '@/components/Text';
+import Card from '@/components/ui/Card';
+import { Text } from '@/components/ui/Text';
 import { View } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
 import styles from './UsersStyles';

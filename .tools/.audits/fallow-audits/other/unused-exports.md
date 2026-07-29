@@ -1,6 +1,6 @@
 # 📦 Unused Exports
 
-*Generated on: 29.07.2026, 22:26:51*
+*Generated on: 29.07.2026, 23:19:52*
 
 Exports that are not imported or consumed by any other active file:
 
@@ -87,7 +87,7 @@ Exports that are not imported or consumed by any other active file:
 - [InspectorMenu.js](file:///d:/Magazine/_PigmentShop/.tools/automation/manual-browser-inspector/components/InspectorMenu.js): `default` ([L7](file:///d:/Magazine/_PigmentShop/.tools/automation/manual-browser-inspector/components/InspectorMenu.js#L7))
 - [setupManualInspector.ts](file:///d:/Magazine/_PigmentShop/.tools/automation/manual-browser-inspector/setupManualInspector.ts): `setupManualInspector` ([L121](file:///d:/Magazine/_PigmentShop/.tools/automation/manual-browser-inspector/setupManualInspector.ts#L121))
 - [core.js](file:///d:/Magazine/_PigmentShop/.tools/core/backuper/backup/core.js): `createBackup` ([L184](file:///d:/Magazine/_PigmentShop/.tools/core/backuper/backup/core.js#L184))
-- [backupConfig.js](file:///d:/Magazine/_PigmentShop/.tools/core/backuper/backupConfig.js): `ALWAYS_INCLUDED_ITEMS` ([L96](file:///d:/Magazine/_PigmentShop/.tools/core/backuper/backupConfig.js#L96)), `EXCLUDED_BACKUP_ITEMS` ([L97](file:///d:/Magazine/_PigmentShop/.tools/core/backuper/backupConfig.js#L97)), `getExcludedSet` ([L98](file:///d:/Magazine/_PigmentShop/.tools/core/backuper/backupConfig.js#L98)), `BACKUP_ITEMS` ([L99](file:///d:/Magazine/_PigmentShop/.tools/core/backuper/backupConfig.js#L99)), `REQUIRED_ITEMS` ([L100](file:///d:/Magazine/_PigmentShop/.tools/core/backuper/backupConfig.js#L100))
+- [backupConfig.js](file:///d:/Magazine/_PigmentShop/.tools/core/backuper/backupConfig.js): `ALWAYS_INCLUDED_ITEMS` ([L99](file:///d:/Magazine/_PigmentShop/.tools/core/backuper/backupConfig.js#L99)), `EXCLUDED_BACKUP_ITEMS` ([L100](file:///d:/Magazine/_PigmentShop/.tools/core/backuper/backupConfig.js#L100)), `getExcludedSet` ([L101](file:///d:/Magazine/_PigmentShop/.tools/core/backuper/backupConfig.js#L101)), `BACKUP_ITEMS` ([L102](file:///d:/Magazine/_PigmentShop/.tools/core/backuper/backupConfig.js#L102)), `REQUIRED_ITEMS` ([L103](file:///d:/Magazine/_PigmentShop/.tools/core/backuper/backupConfig.js#L103))
 - [core.js](file:///d:/Magazine/_PigmentShop/.tools/core/backuper/restore/core.js): `restoreFromBackup` ([L142](file:///d:/Magazine/_PigmentShop/.tools/core/backuper/restore/core.js#L142))
 - [diff-tracker.js](file:///d:/Magazine/_PigmentShop/.tools/core/backuper/utils/diff-tracker.js): `calculateDiff` ([L119](file:///d:/Magazine/_PigmentShop/.tools/core/backuper/utils/diff-tracker.js#L119)), `saveDiffLog` ([L120](file:///d:/Magazine/_PigmentShop/.tools/core/backuper/utils/diff-tracker.js#L120)), `getDiffLog` ([L121](file:///d:/Magazine/_PigmentShop/.tools/core/backuper/utils/diff-tracker.js#L121))
 - [fs-tools.js](file:///d:/Magazine/_PigmentShop/.tools/core/backuper/utils/fs-tools.js): `getTimestamp` ([L79](file:///d:/Magazine/_PigmentShop/.tools/core/backuper/utils/fs-tools.js#L79)), `copyDir` ([L80](file:///d:/Magazine/_PigmentShop/.tools/core/backuper/utils/fs-tools.js#L80)), `removeDir` ([L81](file:///d:/Magazine/_PigmentShop/.tools/core/backuper/utils/fs-tools.js#L81)), `copyFile` ([L82](file:///d:/Magazine/_PigmentShop/.tools/core/backuper/utils/fs-tools.js#L82)), `ensureDirExists` ([L83](file:///d:/Magazine/_PigmentShop/.tools/core/backuper/utils/fs-tools.js#L83))

@@ -1,11 +1,11 @@
 import { EyeIcon, EyeOffIcon, ForwardArrowIcon, LockIcon } from '@/components/Icons';
 import { View } from 'react-native';
-import { Heading, Text } from '../../components/Text';
+import { Heading, Text } from '../../components/ui/Text';
 import { useTheme } from '../../context/ThemeContext';
 import { colors } from '../../theme/tokens';
 import styles from './LoginPageStyles';
 
-import { Button, IconButton } from '../../components/Button';
+import { Button, IconButton } from '../../components/ui/Button';
 import { FieldInput } from '../admin/SharedFormComponents';
 
 const ic = (isDark, dark, light) => (isDark ? dark : light);

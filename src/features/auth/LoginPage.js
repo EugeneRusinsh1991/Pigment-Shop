@@ -1,8 +1,8 @@
 import { MailIcon } from '@/components/Icons';
 import { KeyboardAvoidingView, Platform, ScrollView, View } from 'react-native';
-import { Button } from '../../components/Button';
-import { PageTransition } from '../../components/Motion';
-import { Text } from '../../components/Text';
+import { Button } from '../../components/ui/Button';
+import { PageTransition } from '../../components/ui/Motion';
+import { Text } from '../../components/ui/Text';
 import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
 import { colors } from '../../theme/tokens';

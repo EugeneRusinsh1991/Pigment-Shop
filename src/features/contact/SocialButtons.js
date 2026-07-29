@@ -1,9 +1,9 @@
 import React from 'react';
 import { Platform, Linking } from 'react-native';
-import { Text } from '../../components/Text';
+import { Text } from '../../components/ui/Text';
 import styles from './ContactPageStyles';
-import { Button } from '../../components/Button';
-import { ScrollFadeUp } from '../../components/Motion';
+import { Button } from '../../components/ui/Button';
+import { ScrollFadeUp } from '../../components/ui/Motion';
 import { colors } from '../../theme/tokens';
 
 const INSTAGRAM_URL = 'https://instagram.com';

@@ -6,7 +6,7 @@ import styles from '../../theme/appStyles';
 import { layout } from '../../theme/tokens';
 import { useFavoritesContext } from '../favorites/FavoritesContext';
 
-import { PageNavigation } from '@/components/Navigation';
+import { PageNavigation } from '@/components/domain/Navigation';
 import CatalogHeader from './CatalogHeader';
 import CatalogListFooter from './CatalogListFooter';
 import PlaceholderCard from './PlaceholderCard';

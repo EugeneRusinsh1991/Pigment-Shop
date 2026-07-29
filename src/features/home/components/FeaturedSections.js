@@ -1,4 +1,4 @@
-import { Text } from '@/components/Text';
+import { Text } from '@/components/ui/Text';
 import { useTheme } from '@/context/ThemeContext';
 import { colors, layout, shadows } from '@/theme/tokens';
 import { useEffect, useRef } from 'react';

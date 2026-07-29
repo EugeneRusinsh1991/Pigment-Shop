@@ -4,7 +4,7 @@ import styles from './AnalyticsStyles';
 import { useTheme } from '../../../context/ThemeContext';
 import { formatDateCompact as formatCompactDate } from '../../../utils/dateFormatting';
 import { DateRangeCalendar } from './DateRangeCalendar';
-import Toggle from '@/components/Toggle';
+import Toggle from '@/components/ui/Toggle';
 import { layout } from '../../../theme/tokens';
 
 function calculatePresetDateRange(preset) {

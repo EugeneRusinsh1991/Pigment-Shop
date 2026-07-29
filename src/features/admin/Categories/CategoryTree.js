@@ -10,13 +10,13 @@
  */
 import React, { useCallback, useMemo, useState } from 'react';
 import { View } from 'react-native';
-import { Button } from '@/components/Button';
-import { ChipButton } from '@/components/Button';
+import { Button } from '@/components/ui/Button';
+import { ChipButton } from '@/components/ui/Button';
 import styles from './CategoriesStyles';
 import { ChevronRightIcon, ChevronDownIcon } from '@/components/Icons';
 import { DesktopCategoryRow, MobileCategoryCard } from './CategoryRow';
 import { useTheme } from '../../../context/ThemeContext';
-import DataTable from '@/components/DataTable/DataTable';
+import DataTable from '@/components/domain/DataTable/DataTable';
 
 /* ─── flatten tree respecting collapsed state ─────────────────── */
 

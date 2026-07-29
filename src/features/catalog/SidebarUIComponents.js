@@ -1,7 +1,7 @@
 import { View } from 'react-native';
-import { Text, Heading } from '../../components/Text';
-import Button from '../../components/Button';
-import { Flag } from '../../components/Flag';
+import { Text, Heading } from '../../components/ui/Text';
+import Button from '../../components/ui/Button';
+import { Flag } from '../../components/domain/Flag';
 import styles from './CatalogFilterSidebarStyles';
 import { FieldInput } from '../admin/SharedFormComponents';
 

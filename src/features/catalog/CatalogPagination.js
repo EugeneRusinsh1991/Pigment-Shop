@@ -1,6 +1,6 @@
 import { ActivityIndicator, StyleSheet, View } from 'react-native';
-import { AnimatedButton } from '../../components/Button';
-import { Text } from '../../components/Text';
+import { AnimatedButton } from '../../components/ui/Button';
+import { Text } from '../../components/ui/Text';
 import { useTheme } from '../../context/ThemeContext';
 import { colors, layout } from '../../theme/tokens';
 

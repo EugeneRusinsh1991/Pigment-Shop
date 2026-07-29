@@ -1,4 +1,4 @@
-import Button from '@/components/Button';
+import Button from '@/components/ui/Button';
 import {
     AdminIcon,
     ClipboardIcon,
@@ -7,7 +7,7 @@ import {
     LogoutIcon,
     UserIcon
 } from '@/components/Icons';
-import { Text } from '@/components/Text';
+import { Text } from '@/components/ui/Text';
 import { useAuth } from '@/context/AuthContext';
 import { useLanguage } from '@/context/LanguageContext';
 import { useTheme } from '@/context/ThemeContext';

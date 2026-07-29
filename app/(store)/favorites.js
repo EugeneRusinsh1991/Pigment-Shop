@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTheme } from '@/context/ThemeContext';
 import FavoritesPage from '@/features/favorites/FavoritesPage';
-import { PageTransition } from '@\/components\/Motion';
+import { PageTransition } from '@/components/ui/Motion';
 
 export default function FavoritesRoute() {
   const { isDark } = useTheme();

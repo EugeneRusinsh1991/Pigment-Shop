@@ -1,7 +1,7 @@
 import { Image, View } from 'react-native';
 import { Link } from 'expo-router';
-import { Text } from '@/components/Text';
-import Button, { IconButton } from '@/components/Button';
+import { Text } from '@/components/ui/Text';
+import Button, { IconButton } from '@/components/ui/Button';
 import { calculateHitSlop } from '@/theme/buttonCommon';
 import { layout, typography } from '@/theme/tokens';
 import styles from './AppHeaderStyles';

@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Text, Heading } from '../../components/Text';
-import { ScrollFadeUp } from '../../components/Motion';
+import { Text, Heading } from '../../components/ui/Text';
+import { ScrollFadeUp } from '../../components/ui/Motion';
 import { colors, layout } from '../../theme/tokens';
 
 export default function OrderHeader({ isDark, t }) {

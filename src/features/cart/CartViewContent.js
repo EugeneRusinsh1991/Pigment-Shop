@@ -1,8 +1,8 @@
 import { CartIcon } from '@/components/Icons';
 import { ScrollView, View } from 'react-native';
-import { EmptyState } from '../../components/Feedback';
-import { ScrollFadeUp } from '../../components/Motion';
-import { Heading, Text } from '../../components/Text';
+import { EmptyState } from '../../components/ui/Feedback';
+import { ScrollFadeUp } from '../../components/ui/Motion';
+import { Heading, Text } from '../../components/ui/Text';
 import useGridLayout from '../../hooks/useGridLayout';
 import { colors } from '../../theme/tokens';
 import Footer from '../shell/components/Footer';

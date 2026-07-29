@@ -2,7 +2,7 @@ import React from 'react';
 import { useTheme } from '@/context/ThemeContext';
 import { useLocalSearchParams } from 'expo-router';
 import OrderConfirmationPage from '@/features/orders/OrderConfirmationPage';
-import { PageTransition } from '@\/components\/Motion';
+import { PageTransition } from '@/components/ui/Motion';
 
 export default function OrderConfirmationRoute() {
   const { isDark } = useTheme();

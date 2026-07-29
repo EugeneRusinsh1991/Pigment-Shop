@@ -1,5 +1,5 @@
 import { Animated } from 'react-native';
-import MediaRenderer from '@/components/Media/MediaRenderer';
+import MediaRenderer from '@/components/ui/Media/MediaRenderer';
 import { localStyles } from './carouselStyles';
 import { getCarouselOpacity } from '@/hooks/useCarouselState';
 

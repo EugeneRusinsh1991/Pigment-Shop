@@ -1,13 +1,13 @@
 import React from 'react';
 import { View, useWindowDimensions } from 'react-native';
-import { Heading } from '../../components/Text';
+import { Heading } from '../../components/ui/Text';
 import styles from './CatalogFilterSidebarStyles';
 import { CrossIcon } from '../../components/Icons';
 import { useTheme } from '../../context/ThemeContext';
 import { useSlideAnimation } from '../../hooks/useSlideAnimation';
-import Drawer from '../../components/Drawer';
+import Drawer from '../../components/ui/Drawer';
 import SidebarContent from './SidebarContent';
-import { AnimatedButton } from '../../components/Button';
+import { AnimatedButton } from '../../components/ui/Button';
 import { colors } from '../../theme/tokens';
 
 function MobileFilterDrawer({ showModal, handleClose, scrimOpacity, panelWidth, slideAnim, isDark, t, children }) {

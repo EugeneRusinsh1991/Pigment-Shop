@@ -10,7 +10,7 @@
 import { useState } from 'react';
 import { View, useWindowDimensions } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
-import { SearchInput } from '@/components/Search';
+import { SearchInput } from '@/components/domain/Search';
 import ProductFormModal from './ProductFormModal';
 import ProductsFilterBar from './ProductsFilterBar';
 import styles from './ProductsStyles';

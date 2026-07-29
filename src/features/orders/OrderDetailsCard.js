@@ -1,6 +1,6 @@
 import { StyleSheet, View } from 'react-native';
-import Card from '../../components/Card/Card';
-import { Heading, Text } from '../../components/Text';
+import Card from '../../components/ui/Card/Card';
+import { Heading, Text } from '../../components/ui/Text';
 import { colors, layout } from '../../theme/tokens';
 import { formatDateLong } from '../../utils/dateFormatting';
 import { OrderItemRow, OrderMetaRow } from './OrderRows';

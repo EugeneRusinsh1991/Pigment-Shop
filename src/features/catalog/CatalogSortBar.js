@@ -4,8 +4,8 @@
  * Thin horizontal bar with a sort selector for the catalog product grid.
  */
 import { StyleSheet, View } from 'react-native';
-import { Text } from '../../components/Text';
-import Toggle from '../../components/Toggle';
+import { Text } from '../../components/ui/Text';
+import Toggle from '../../components/ui/Toggle';
 import { useTheme } from '../../context/ThemeContext';
 import { SORT_OPTIONS } from '../../hooks/useCatalogFilters';
 import { layout } from '../../theme/tokens';

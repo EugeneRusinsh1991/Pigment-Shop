@@ -7,7 +7,7 @@
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { PageTransition } from '../../components/Motion';
+import { PageTransition } from '../../components/ui/Motion';
 import { useTheme } from '../../context/ThemeContext';
 import useCatalogFilters from '../../hooks/useCatalogFilters';
 import useCatalogLayout from '../../hooks/useCatalogLayout';

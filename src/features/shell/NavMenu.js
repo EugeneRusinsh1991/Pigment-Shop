@@ -10,7 +10,7 @@ import NavMenuHeader from './NavMenu/NavMenuHeader';
 import styles from './NavMenu/NavMenuStyles';
 import { useNavMenuController } from './useNavMenuController';
 
-import Drawer from '../../components/Drawer';
+import Drawer from '../../components/ui/Drawer';
 import { useSlideAnimation } from '../../hooks/useSlideAnimation';
 
 

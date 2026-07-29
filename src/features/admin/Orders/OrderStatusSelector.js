@@ -3,7 +3,7 @@
  */
 import { useState } from 'react';
 import { View } from 'react-native';
-import { Flag } from '@/components/Flag';
+import { Flag } from '@/components/domain/Flag';
 import { colors, layout } from '../../../theme/tokens';
 import styles from './OrdersStyles';
 import OrderStatusDropdownMenu from './OrderStatusDropdownMenu';

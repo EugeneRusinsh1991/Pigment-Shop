@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { Modal, View, useWindowDimensions } from 'react-native';
-import { Text } from '@/components/Text';
-import { AnimatedButton } from '@/components/Button';
+import { Text } from '@/components/ui/Text';
+import { AnimatedButton } from '@/components/ui/Button';
 import { useTheme } from '../../../context/ThemeContext';
 import { fromMediaRef } from '../../../media';
-import MediaRenderer from '@/components/Media/MediaRenderer';
+import MediaRenderer from '@/components/ui/Media/MediaRenderer';
 import { triggerFileInput } from '../../../utils/fileInput';
 import MediaBrowser from '../Media/MediaBrowser';
 import styles from './BannersStyles';

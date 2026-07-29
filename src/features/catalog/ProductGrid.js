@@ -4,7 +4,7 @@ import { Link } from 'expo-router';
 import ProductCard from '../product/ProductCard';
 import { layout } from '../../theme/tokens';
 
-import { EmptyState as GlobalEmptyState } from '../../components/Feedback';
+import { EmptyState as GlobalEmptyState } from '../../components/ui/Feedback';
 
 function EmptyCatalogState({ isDark, label }) {
   return (

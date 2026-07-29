@@ -5,7 +5,7 @@
  * statusData: array of { labelKey, value, color } — raw counts, always 4 items.
  */
 import { Platform, View } from 'react-native';
-import { Text } from '@/components/Text';
+import { Text } from '@/components/ui/Text';
 import { useTheme } from '../../../context/ThemeContext';
 import styles from './AnalyticsStyles';
 import { colors, layout } from '../../../theme/tokens';

@@ -1,7 +1,7 @@
 import { useRouter } from 'expo-router';
 import { useEffect } from 'react';
-import { Button } from '../../components/Button';
-import { ScrollFadeUp } from '../../components/Motion';
+import { Button } from '../../components/ui/Button';
+import { ScrollFadeUp } from '../../components/ui/Motion';
 import { useTheme } from '../../context/ThemeContext';
 import useGridLayout from '../../hooks/useGridLayout';
 import { useCatalog } from '../catalog/CatalogContext';

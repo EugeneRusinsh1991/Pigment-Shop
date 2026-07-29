@@ -6,10 +6,10 @@
  * 
  * Displays a compact list of users. Clicking a user shows their details and orders.
  */
-import DataTable from '@/components/DataTable/DataTable';
-import EmptyState from '@/components/DataTable/EmptyState';
-import { SearchInput } from '@/components/Search';
-import { Text } from '@/components/Text';
+import DataTable from '@/components/domain/DataTable/DataTable';
+import EmptyState from '@/components/domain/DataTable/EmptyState';
+import { SearchInput } from '@/components/domain/Search';
+import { Text } from '@/components/ui/Text';
 import React, { useState } from 'react';
 import { ActivityIndicator, View } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';

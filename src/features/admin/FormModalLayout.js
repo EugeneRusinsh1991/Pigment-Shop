@@ -1,10 +1,10 @@
 import React from 'react';
 import { Modal, ScrollView, View } from 'react-native';
-import { Heading } from '@/components/Text';
+import { Heading } from '@/components/ui/Text';
 import { colors, layout } from '../../theme/tokens';
 import { useTheme } from '../../context/ThemeContext';
 import { CrossIcon } from '@/components/Icons';
-import { Button, IconButton } from '@/components/Button';
+import { Button, IconButton } from '@/components/ui/Button';
 
 function ModalHeader({ title, onClose, styles }) {
   return (

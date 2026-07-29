@@ -1,4 +1,4 @@
-import { Text } from '@/components/Text';
+import { Text } from '@/components/ui/Text';
 import { TouchableOpacity, View } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
 import { motion, typography } from '../../../theme/tokens';

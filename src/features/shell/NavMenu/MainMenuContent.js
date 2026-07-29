@@ -1,9 +1,9 @@
-import { Text } from '@/components/Text';
+import { Text } from '@/components/ui/Text';
 import { useRouter } from 'expo-router';
 import { useCallback, useState } from 'react';
 import { LayoutAnimation, Platform, StyleSheet, UIManager, View } from 'react-native';
 
-import Button, { IconButton } from '../../../components/Button';
+import Button, { IconButton } from '../../../components/ui/Button';
 import { ChevronDownIcon, ChevronRightIcon } from '../../../components/Icons';
 import { useLanguage } from '../../../context/LanguageContext';
 import { colors, motion } from '../../../theme/tokens';

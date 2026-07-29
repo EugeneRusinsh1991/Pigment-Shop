@@ -1,9 +1,9 @@
 import { CartIcon, HeartIcon } from '@/components/Icons';
 import React, { useCallback, useMemo } from 'react';
 import { Image, View } from 'react-native';
-import { IconButton } from '../../components/Button';
-import Card from '../../components/Card/Card';
-import { Text } from '../../components/Text';
+import { IconButton } from '../../components/ui/Button';
+import Card from '../../components/ui/Card/Card';
+import { Text } from '../../components/ui/Text';
 import { getThemedValue, useTheme } from '../../context/ThemeContext';
 import useCardDimensions from '../../hooks/useCardDimensions';
 import { colors } from '../../theme/tokens';

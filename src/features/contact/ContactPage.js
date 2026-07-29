@@ -1,9 +1,9 @@
 import { ScrollView, View, useWindowDimensions } from 'react-native';
-import { Heading } from '../../components/Text';
+import { Heading } from '../../components/ui/Text';
 import { useTheme } from '../../context/ThemeContext';
 import commonStyles from '../../theme/commonStyles';
 import Footer from '../shell/components/Footer';
-import { ScrollFadeUp } from '../../components/Motion';
+import { ScrollFadeUp } from '../../components/ui/Motion';
 import { getContentGridWidth } from '../../utils/layoutUtils';
 import SocialButtons from './SocialButtons';
 import ContactQuestionForm from './ContactQuestionForm';

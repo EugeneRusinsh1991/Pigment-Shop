@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { useTheme } from '../../context/ThemeContext';
-import { Badge } from '../../components/Badge';
+import { Badge } from '../../components/ui/Badge';
 import { layout } from '../../theme/tokens';
 
 function renderNewBadge(isNew, t) {

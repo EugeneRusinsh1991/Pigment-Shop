@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { Text } from '../../../components/Text/Text';
+import { Text } from '../../../components/ui/Text/Text';
 import { useRouter } from 'expo-router';
-import Button, { IconButton } from '../../../components/Button';
+import Button, { IconButton } from '../../../components/ui/Button';
 import { ChevronDownIcon, ChevronRightIcon } from '../../../components/Icons';
 import { getNavItemIcon } from './NavItemList';
 import { layout, motion } from '../../../theme/tokens';

@@ -1,5 +1,5 @@
 import { BoxIcon, ClipboardIcon, DollarIcon, TrendIcon } from '@/components/Icons';
-import { Heading, Text } from '@/components/Text';
+import { Heading, Text } from '@/components/ui/Text';
 import { useEffect, useMemo, useState } from 'react';
 import { ActivityIndicator, View } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';

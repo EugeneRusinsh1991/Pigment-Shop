@@ -1,8 +1,8 @@
 import { Link } from 'expo-router';
 import { StyleSheet, View } from 'react-native';
-import Button, { AnimatedButton } from '../../components/Button';
-import { Heading, Text } from '../../components/Text';
-import Toggle from '../../components/Toggle';
+import Button, { AnimatedButton } from '../../components/ui/Button';
+import { Heading, Text } from '../../components/ui/Text';
+import Toggle from '../../components/ui/Toggle';
 import { useTheme } from '../../context/ThemeContext';
 import { FieldTextarea } from '../admin/SharedFormComponents';
 import styles from './ProductReviewsStyles';

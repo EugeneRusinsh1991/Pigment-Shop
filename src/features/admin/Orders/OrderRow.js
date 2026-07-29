@@ -1,10 +1,10 @@
 /**
  * OrderRow.js
  */
-import { Badge } from '@/components/Badge';
-import { AnimatedButton } from '@/components/Button';
-import { DataTableCell, DataTableRow } from '@/components/DataTable/DataTable';
-import { Text } from '@/components/Text';
+import { Badge } from '@/components/ui/Badge';
+import { AnimatedButton } from '@/components/ui/Button';
+import { DataTableCell, DataTableRow } from '@/components/domain/DataTable/DataTable';
+import { Text } from '@/components/ui/Text';
 import { View } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
 import { formatDateShortWithTime } from '../../../utils/dateFormatting';

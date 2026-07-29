@@ -3,7 +3,7 @@ import { useWindowDimensions } from 'react-native';
 import { useLocalSearchParams } from 'expo-router';
 import { useTheme } from '@/context/ThemeContext';
 import CatalogView from '@/features/catalog/CatalogView';
-import { PageTransition } from '@/components/Motion';
+import { PageTransition } from '@/components/ui/Motion';
 
 export default function CatalogCategoryRoute() {
   const { isDark } = useTheme();

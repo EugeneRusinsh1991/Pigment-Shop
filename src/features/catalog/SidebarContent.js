@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, ScrollView } from 'react-native';
-import { Heading } from '../../components/Text';
+import { Heading } from '../../components/ui/Text';
 import PriceRangeSlider from './PriceRangeSlider';
 import styles from './CatalogFilterSidebarStyles';
 import { SectionTitle, Checkbox, PriceInputs, ResetButton, ApplyButton } from './SidebarUIComponents';

@@ -1,4 +1,4 @@
-import { PageTransition } from '@/components/Motion';
+import { PageTransition } from '@/components/ui/Motion';
 import { useTheme } from '@/context/ThemeContext';
 import { useCatalog } from '@/features/catalog/CatalogContext';
 import ProductPage from '@/features/product/ProductPage';

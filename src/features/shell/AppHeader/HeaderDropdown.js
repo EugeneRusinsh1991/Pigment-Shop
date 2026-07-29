@@ -1,6 +1,6 @@
 import React from 'react';
 import { Animated, StyleSheet } from 'react-native';
-import { ChipButton } from '@/components/Button';
+import { ChipButton } from '@/components/ui/Button';
 import { layout } from '@/theme/tokens';
 import styles from './AppHeaderStyles';
 import { useDropdownAnimation } from '../../../hooks/useDropdownAnimation';

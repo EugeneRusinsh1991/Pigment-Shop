@@ -1,8 +1,8 @@
 import { Image, View } from 'react-native';
-import { Text } from '../../../components/Text/Text';
+import { Text } from '../../../components/ui/Text/Text';
 import { useRouter } from 'expo-router';
 import { BackArrowIcon, CrossIcon } from '../../../components/Icons';
-import Button, { IconButton } from '../../../components/Button';
+import Button, { IconButton } from '../../../components/ui/Button';
 import { calculateHitSlop } from '../../../theme/buttonCommon';
 import { ACCENT_COLOR } from './constants';
 import { colors } from '../../../theme/tokens';

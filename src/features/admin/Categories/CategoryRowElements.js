@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Text } from '@/components/Text';
+import { Text } from '@/components/ui/Text';
 import { useTheme } from '../../../context/ThemeContext';
 import { ChevronDownIcon, ChevronRightIcon, CheckIcon, CrossIcon } from '@/components/Icons';
-import { IconButton } from '@/components/Button';
+import { IconButton } from '@/components/ui/Button';
 import { colors, layout } from '../../../theme/tokens';
 import styles from './CategoriesStyles';
 

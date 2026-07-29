@@ -1,7 +1,7 @@
 import { Image, View } from 'react-native';
-import { Text } from '@/components/Text';
+import { Text } from '@/components/ui/Text';
 import { Link } from 'expo-router';
-import { AnimatedButton } from '@/components/Button';
+import { AnimatedButton } from '@/components/ui/Button';
 import { layout } from '@/theme/tokens';
 import styles from './FooterStyles';
 import { useFooterTheme } from './useFooterTheme';

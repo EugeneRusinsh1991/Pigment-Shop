@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react';
-import { ConfirmationModal } from '../components/Modal';
+import { ConfirmationModal } from '../components/ui/Modal';
 import { useTheme } from '../context/ThemeContext';
 
 /**

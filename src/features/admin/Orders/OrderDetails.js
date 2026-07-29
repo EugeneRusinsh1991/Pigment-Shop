@@ -8,9 +8,9 @@
  * 4. Order status
  * 5. Admin notes
  */
-import { AnimatedButton } from '@/components/Button';
+import { AnimatedButton } from '@/components/ui/Button';
 import { BackArrowIcon } from '@/components/Icons';
-import { Text } from '@/components/Text';
+import { Text } from '@/components/ui/Text';
 import React, { useState } from 'react';
 import { ScrollView, View } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';

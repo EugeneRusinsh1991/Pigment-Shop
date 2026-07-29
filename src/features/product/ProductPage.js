@@ -1,7 +1,7 @@
-import { PageNavigation } from '@/components/Navigation';
+import { PageNavigation } from '@/components/domain/Navigation';
 import { ScrollView, View } from 'react-native';
-import { SkeletonLoader, ProductDetailSkeleton } from '../../components/Feedback';
-import { ScrollFadeUp } from '../../components/Motion';
+import { SkeletonLoader, ProductDetailSkeleton } from '../../components/ui/Feedback';
+import { ScrollFadeUp } from '../../components/ui/Motion';
 import { useProductPageState } from '../../hooks/useProductPageState';
 import Footer from '../shell/components/Footer';
 import { ProductImagePanel } from './ProductImagePanel';

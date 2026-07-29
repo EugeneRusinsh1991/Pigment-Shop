@@ -1,7 +1,7 @@
 import { ScrollView, View } from 'react-native';
-import { ScrollFadeUp } from '../../components/Motion';
-import { Heading } from '../../components/Text';
-import { ProfileSkeleton } from '../../components/Feedback';
+import { ScrollFadeUp } from '../../components/ui/Motion';
+import { Heading } from '../../components/ui/Text';
+import { ProfileSkeleton } from '../../components/ui/Feedback';
 import { useTheme } from '../../context/ThemeContext';
 import useGridLayout from '../../hooks/useGridLayout';
 import { useProfileForm } from '../../hooks/useProfileForm';

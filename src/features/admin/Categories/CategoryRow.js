@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Text } from '@/components/Text';
-import { AnimatedButton } from '@/components/Button';
+import { Text } from '@/components/ui/Text';
+import { AnimatedButton } from '@/components/ui/Button';
 import { useTheme } from '../../../context/ThemeContext';
-import { Badge } from '@/components/Badge';
+import { Badge } from '@/components/ui/Badge';
 import { layout, motion } from '../../../theme/tokens';
 import styles, { CATEGORY_TYPE_COLORS } from './CategoriesStyles';
 import {

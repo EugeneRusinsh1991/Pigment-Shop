@@ -1,4 +1,4 @@
-import { Text } from '@/components/Text';
+import { Text } from '@/components/ui/Text';
 import { useTheme } from '@/context/ThemeContext';
 import { useCatalog } from '@/features/catalog/CatalogContext';
 import { formatDateLong } from '@/utils/dateFormatting';

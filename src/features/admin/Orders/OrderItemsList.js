@@ -1,7 +1,7 @@
 /**
  * OrderItemsList.js — redesigned with aligned columns + order total
  */
-import { Text } from '@/components/Text';
+import { Text } from '@/components/ui/Text';
 import { View } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
 import { layout } from '../../../theme/tokens';

@@ -1,8 +1,8 @@
 import { StyleSheet, View } from 'react-native';
 import { Link } from 'expo-router';
-import { IconButton } from '@/components/Button';
+import { IconButton } from '@/components/ui/Button';
 import { BagIcon, CurrencyIcon, GlobeIcon, ThemeIcon, UserIcon } from '@/components/Icons';
-import { Badge } from '@/components/Badge';
+import { Badge } from '@/components/ui/Badge';
 import { layout } from '@/theme/tokens';
 import styles from './AppHeaderStyles';
 import LangDropdown from './LangDropdown';
