@@ -1,118 +1,14 @@
 # 🩺 Complexity Health Findings (Critical & High)
 
-*Generated on: 29.07.2026, 18:42:28*
-
-## 🔴 Critical (≤ 50 lines)
-
-#### 📁 [analyzer.cjs](file:///d:/Magazine/_PigmentShop/.tools/auditor/fallow-auditor/src/analyzer.cjs)
-`.tools/auditor/fallow-auditor/src/analyzer.cjs`
-
-- 🔴 **`shouldFilterUnusedFile`** [L152](file:///d:/Magazine/_PigmentShop/.tools/auditor/fallow-auditor/src/analyzer.cjs#L152)
-  - Lines: 37 | Cyclomatic: 16 | Cognitive: 9 | CRAP: 272
-- 🔴 **`<arrow>`** [L196](file:///d:/Magazine/_PigmentShop/.tools/auditor/fallow-auditor/src/analyzer.cjs#L196)
-  - Lines: 25 | Cyclomatic: 12 | Cognitive: 7 | CRAP: 156
-
-#### 📁 [01-dynamic-ui-architecture-auditor.ts](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/auditors/01-dynamic-ui-architecture-auditor.ts)
-`.tools/browser-automation/auditors/01-dynamic-ui-architecture-auditor.ts`
-
-- 🔴 **`<arrow>`** [L99](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/auditors/01-dynamic-ui-architecture-auditor.ts#L99)
-  - Lines: 24 | Cyclomatic: 15 | Cognitive: 5 | CRAP: 240
-- 🔴 **`checkElementTokensAndTheme`** [L24](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/auditors/01-dynamic-ui-architecture-auditor.ts#L24)
-  - Lines: 16 | Cyclomatic: 14 | Cognitive: 15 | CRAP: 210
-- 🔴 **`<arrow>`** [L57](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/auditors/01-dynamic-ui-architecture-auditor.ts#L57)
-  - Lines: 14 | Cyclomatic: 14 | Cognitive: 15 | CRAP: 210
-- 🔴 **`checkI18nText`** [L73](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/auditors/01-dynamic-ui-architecture-auditor.ts#L73)
-  - Lines: 15 | Cyclomatic: 10 | Cognitive: 13 | CRAP: 110
-
-#### 📁 [catalog-generator.js](file:///d:/Magazine/_PigmentShop/.tools/auditor/catalog-generator.js)
-`.tools/auditor/catalog-generator.js`
-
-- 🔴 **`categorizeJSXElement`** [L93](file:///d:/Magazine/_PigmentShop/.tools/auditor/catalog-generator.js#L93)
-  - Lines: 17 | Cyclomatic: 15 | Cognitive: 10 | CRAP: 240
-
-#### 📁 [02-dynamic-raw-i18n-auditor.ts](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/auditors/02-dynamic-raw-i18n-auditor.ts)
-`.tools/browser-automation/auditors/02-dynamic-raw-i18n-auditor.ts`
-
-- 🔴 **`classifyTextNode`** [L16](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/auditors/02-dynamic-raw-i18n-auditor.ts#L16)
-  - Lines: 20 | Cyclomatic: 14 | Cognitive: 10 | CRAP: 210
-
-#### 📁 [03-dynamic-broken-ui-auditor.ts](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/auditors/03-dynamic-broken-ui-auditor.ts)
-`.tools/browser-automation/auditors/03-dynamic-broken-ui-auditor.ts`
-
-- 🔴 **`<arrow>`** [L47](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/auditors/03-dynamic-broken-ui-auditor.ts#L47)
-  - Lines: 20 | Cyclomatic: 11 | Cognitive: 7 | CRAP: 132
-
-#### 📁 [dynamic-report-writer.ts](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/helpers/dynamic-report-writer.ts)
-`.tools/browser-automation/helpers/dynamic-report-writer.ts`
-
-- 🔴 **`getProblemTitleAndDetail`** [L21](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/helpers/dynamic-report-writer.ts#L21)
-  - Lines: 31 | Cyclomatic: 10 | Cognitive: 9 | CRAP: 110
-
-
-## 🟠 High (> 50 lines)
-
-#### 📁 [auditor-utils.js](file:///d:/Magazine/_PigmentShop/.tools/auditor/auditor-utils.js)
-`.tools/auditor/auditor-utils.js`
-
-- 🟠 **`writeAuditReport`** [L14](file:///d:/Magazine/_PigmentShop/.tools/auditor/auditor-utils.js#L14)
-  - Lines: 52 | Cyclomatic: 9 | Cognitive: 19 | CRAP: 90
-
-#### 📁 [dynamic-report-writer.ts](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/helpers/dynamic-report-writer.ts)
-`.tools/browser-automation/helpers/dynamic-report-writer.ts`
-
-- 🟠 **`writeDynamicReport`** [L148](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/helpers/dynamic-report-writer.ts#L148)
-  - Lines: 67 | Cyclomatic: 9 | Cognitive: 8 | CRAP: 90
-
-#### 📁 [hardcode-styles-auditor.js](file:///d:/Magazine/_PigmentShop/.tools/auditor/hardcode-styles-auditor.js)
-`.tools/auditor/hardcode-styles-auditor.js`
-
-- 🟠 **`scanFile`** [L49](file:///d:/Magazine/_PigmentShop/.tools/auditor/hardcode-styles-auditor.js#L49)
-  - Lines: 57 | Cyclomatic: 8 | Cognitive: 5 | CRAP: 72
-
+*Generated on: 29.07.2026, 18:56:01*
 
 ## 🟠 High (≤ 50 lines)
 
-#### 📁 [hardcode-styles-auditor.js](file:///d:/Magazine/_PigmentShop/.tools/auditor/hardcode-styles-auditor.js)
-`.tools/auditor/hardcode-styles-auditor.js`
-
-- 🟠 **`JSXAttribute`** [L83](file:///d:/Magazine/_PigmentShop/.tools/auditor/hardcode-styles-auditor.js#L83)
-  - Lines: 18 | Cyclomatic: 9 | Cognitive: 20 | CRAP: 90
-- 🟠 **`walkDir`** [L107](file:///d:/Magazine/_PigmentShop/.tools/auditor/hardcode-styles-auditor.js#L107)
-  - Lines: 13 | Cyclomatic: 9 | Cognitive: 7 | CRAP: 90
-- 🟠 **`isHardcodedValue`** [L14](file:///d:/Magazine/_PigmentShop/.tools/auditor/hardcode-styles-auditor.js#L14)
-  - Lines: 13 | Cyclomatic: 7 | Cognitive: 6 | CRAP: 56
-
-#### 📁 [typography-auditor.js](file:///d:/Magazine/_PigmentShop/.tools/auditor/typography-auditor.js)
-`.tools/auditor/typography-auditor.js`
-
-- 🟠 **`<arrow>`** [L15](file:///d:/Magazine/_PigmentShop/.tools/auditor/typography-auditor.js#L15)
-  - Lines: 18 | Cyclomatic: 9 | Cognitive: 3 | CRAP: 90
-- 🟠 **`walkDir`** [L37](file:///d:/Magazine/_PigmentShop/.tools/auditor/typography-auditor.js#L37)
-  - Lines: 13 | Cyclomatic: 9 | Cognitive: 7 | CRAP: 90
-
-#### 📁 [magic-numbers-auditor.js](file:///d:/Magazine/_PigmentShop/.tools/auditor/magic-numbers-auditor.js)
-`.tools/auditor/magic-numbers-auditor.js`
-
-- 🟠 **`walkDir`** [L49](file:///d:/Magazine/_PigmentShop/.tools/auditor/magic-numbers-auditor.js#L49)
-  - Lines: 13 | Cyclomatic: 9 | Cognitive: 7 | CRAP: 90
-
-#### 📁 [ui-architecture-audit.js](file:///d:/Magazine/_PigmentShop/.tools/auditor/ui-architecture-audit.js)
-`.tools/auditor/ui-architecture-audit.js`
-
-- 🟠 **`auditComponentEntry`** [L127](file:///d:/Magazine/_PigmentShop/.tools/auditor/ui-architecture-audit.js#L127)
-  - Lines: 44 | Cyclomatic: 9 | Cognitive: 9 | CRAP: 90
-
-#### 📁 [hardcode-text-auditor.js](file:///d:/Magazine/_PigmentShop/.tools/auditor/hardcode-text-auditor.js)
-`.tools/auditor/hardcode-text-auditor.js`
-
-- 🟠 **`walkDir`** [L28](file:///d:/Magazine/_PigmentShop/.tools/auditor/hardcode-text-auditor.js#L28)
-  - Lines: 13 | Cyclomatic: 9 | Cognitive: 7 | CRAP: 90
-
 #### 📁 [03-dynamic-broken-ui-auditor.ts](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/auditors/03-dynamic-broken-ui-auditor.ts)
 `.tools/browser-automation/auditors/03-dynamic-broken-ui-auditor.ts`
 
-- 🟠 **`<arrow>`** [L17](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/auditors/03-dynamic-broken-ui-auditor.ts#L17)
-  - Lines: 15 | Cyclomatic: 9 | Cognitive: 7 | CRAP: 90
+- 🟠 **`isOverlapped`** [L26](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/auditors/03-dynamic-broken-ui-auditor.ts#L26)
+  - Lines: 10 | Cyclomatic: 9 | Cognitive: 5 | CRAP: 90
 
 #### 📁 [service-layer-auditor.js](file:///d:/Magazine/_PigmentShop/.tools/auditor/service-layer-auditor.js)
 `.tools/auditor/service-layer-auditor.js`
@@ -184,10 +80,28 @@
 - 🟠 **`shouldExcludeElement`** [L49](file:///d:/Magazine/_PigmentShop/.tools/manual-browser-inspector/utils/domHelpers.js#L49)
   - Lines: 6 | Cyclomatic: 7 | Cognitive: 6 | CRAP: 56
 
+#### 📁 [ui-architecture-audit.js](file:///d:/Magazine/_PigmentShop/.tools/auditor/ui-architecture-audit.js)
+`.tools/auditor/ui-architecture-audit.js`
+
+- 🟠 **`auditFolderEntry`** [L136](file:///d:/Magazine/_PigmentShop/.tools/auditor/ui-architecture-audit.js#L136)
+  - Lines: 33 | Cyclomatic: 7 | Cognitive: 6 | CRAP: 56
+
+#### 📁 [dynamic-report-writer.ts](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/helpers/dynamic-report-writer.ts)
+`.tools/browser-automation/helpers/dynamic-report-writer.ts`
+
+- 🟠 **`writeDynamicReport`** [L155](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/helpers/dynamic-report-writer.ts#L155)
+  - Lines: 36 | Cyclomatic: 7 | Cognitive: 6 | CRAP: 56
+
 #### 📁 [maintenance-reports.cjs](file:///d:/Magazine/_PigmentShop/.tools/auditor/fallow-auditor/src/maintenance-reports.cjs)
 `.tools/auditor/fallow-auditor/src/maintenance-reports.cjs`
 
 - 🟠 **`generateDependencyIssuesReport`** [L39](file:///d:/Magazine/_PigmentShop/.tools/auditor/fallow-auditor/src/maintenance-reports.cjs#L39)
   - Lines: 10 | Cyclomatic: 7 | Cognitive: 6 | CRAP: 56
+
+#### 📁 [01-dynamic-ui-architecture-auditor.ts](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/auditors/01-dynamic-ui-architecture-auditor.ts)
+`.tools/browser-automation/auditors/01-dynamic-ui-architecture-auditor.ts`
+
+- 🟠 **`checkStyleTokens`** [L53](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/auditors/01-dynamic-ui-architecture-auditor.ts#L53)
+  - Lines: 8 | Cyclomatic: 7 | Cognitive: 5 | CRAP: 56
 
 

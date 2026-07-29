@@ -6,9 +6,13 @@ export interface Violation {
   selector?: string;
 }
 
-export async function auditBrokenUI(page: Page, url: string, scope: 'public' | 'admin'): Promise<Violation[]> {
-  const violations: Violation[] = [];
+const BROKEN_UI_MESSAGES: Record<string, string> = {
+  'overflow-clipping': 'Element has overflow clipping (`scrollWidth > clientWidth`).',
+  'broken-image': 'Broken image resource (`naturalWidth === 0`).',
+  'overlapped-element': 'Clickable element is overlapped or intercepted by another element.'
+};
 
+export async function auditBrokenUI(page: Page, url: string, scope: 'public' | 'admin'): Promise<Violation[]> {
   const issues = await page.evaluate(() => {
     const findings: { type: string; tagName: string; className: string }[] = [];
     
@@ -19,32 +23,9 @@ export async function auditBrokenUI(page: Page, url: string, scope: 'public' | '
       return !/scroll|auto/.test(style.overflow) && !/scroll|auto/.test(style.overflowX);
     };
 
-    const allElements = document.querySelectorAll('*');
-    allElements.forEach(el => {
-      if (isOverflowing(el)) {
-        findings.push({
-          type: 'overflow-clipping',
-          tagName: el.tagName.toLowerCase(),
-          className: el.className || ''
-        });
-      }
-    });
-
-    const images = document.querySelectorAll('img');
-    images.forEach(img => {
-      if (img.naturalWidth === 0) {
-        findings.push({
-          type: 'broken-image',
-          tagName: img.tagName.toLowerCase(),
-          className: img.className || ''
-        });
-      }
-    });
-
     const isOverlapped = (el: Element) => {
       const rect = el.getBoundingClientRect();
       if (rect.width === 0 || rect.height === 0 || rect.top < 0 || rect.left < 0) return false;
-      
       const cx = rect.left + rect.width / 2;
       const cy = rect.top + rect.height / 2;
       if (cx > window.innerWidth || cy > window.innerHeight) return false;
@@ -53,39 +34,34 @@ export async function auditBrokenUI(page: Page, url: string, scope: 'public' | '
       return Boolean(topElement && topElement !== el && !el.contains(topElement));
     };
 
-    const clickables = document.querySelectorAll('button, a, [role="button"]');
-    clickables.forEach(el => {
+    document.querySelectorAll('*').forEach(el => {
+      if (isOverflowing(el)) {
+        findings.push({ type: 'overflow-clipping', tagName: el.tagName.toLowerCase(), className: el.className || '' });
+      }
+    });
+
+    document.querySelectorAll('img').forEach(img => {
+      if (img.naturalWidth === 0) {
+        findings.push({ type: 'broken-image', tagName: img.tagName.toLowerCase(), className: img.className || '' });
+      }
+    });
+
+    document.querySelectorAll('button, a, [role="button"]').forEach(el => {
       if (isOverlapped(el)) {
-        findings.push({
-          type: 'overlapped-element',
-          tagName: el.tagName.toLowerCase(),
-          className: el.className || ''
-        });
+        findings.push({ type: 'overlapped-element', tagName: el.tagName.toLowerCase(), className: el.className || '' });
       }
     });
 
     return findings;
   });
 
-  issues.forEach(issue => {
-    let message = '';
-    if (issue.type === 'overflow-clipping') {
-      message = 'Element has overflow clipping (`scrollWidth > clientWidth`).';
-    } else if (issue.type === 'broken-image') {
-      message = 'Broken image resource (`naturalWidth === 0`).';
-    } else if (issue.type === 'overlapped-element') {
-      message = 'Clickable element is overlapped or intercepted by another element.';
-    }
-
-    const classNameClean = (issue.className || '').trim().split(/\s+/).join('.');
-    const selector = classNameClean ? `${issue.tagName}.${classNameClean}` : issue.tagName;
-
-    violations.push({
+  return issues.map(issue => {
+    const cleanClass = (issue.className || '').trim().split(/\s+/).filter(Boolean).join('.');
+    const selector = cleanClass ? `${issue.tagName}.${cleanClass}` : issue.tagName;
+    return {
       url,
-      message,
+      message: BROKEN_UI_MESSAGES[issue.type] || `UI issue: ${issue.type}`,
       selector
-    });
+    };
   });
-
-  return violations;
 }

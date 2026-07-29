@@ -11,17 +11,16 @@ const FILES_LOG_FILE = path.join(AUDITS_DIR, '03-hardcode-styles-files.log');
 // Disable raw/legacy report generation (keep strict AST report only)
 const DISABLE_RAW_REPORTS = true;
 
+const NAMED_COLORS = new Set(['red', 'blue', 'green', 'black', 'white']);
+
+function isColorString(val) {
+  return val.startsWith('#') || val.startsWith('rgb') || NAMED_COLORS.has(val);
+}
+
 function isHardcodedValue(node) {
   if (!node) return false;
-  // Literal numbers e.g. 12, 50, 100
   if (node.type === 'NumericLiteral') return true;
-  // String colors e.g. '#fff', 'red', 'rgba(...)'
-  if (node.type === 'StringLiteral') {
-    const val = node.value.trim();
-    if (val.startsWith('#') || val.startsWith('rgb') || ['red', 'blue', 'green', 'black', 'white'].includes(val)) {
-      return true;
-    }
-  }
+  if (node.type === 'StringLiteral') return isColorString(node.value.trim());
   return false;
 }
 
@@ -46,33 +45,60 @@ function checkInlineStyleViolations(node) {
   return false;
 }
 
+const COLOR_FIX_MAP = {
+  '#ffffff': 'colors.white', '#fff': 'colors.white', '#FFFFFF': 'colors.white', '#FFF': 'colors.white',
+  '#000000': 'colors.black', '#000': 'colors.black',
+  '#E31B23': 'colors.accent', '#e31b23': 'colors.accent',
+  '#EF4444': 'colors.danger', '#ef4444': 'colors.danger',
+  '#16A34A': 'colors.success', '#16a34a': 'colors.success',
+};
+
+function applyColorFixes(content, filePath) {
+  if (!content.includes('colors.') || filePath.endsWith('tokens.js') || filePath.endsWith('colors.js') || filePath.endsWith('theme.js')) {
+    return content;
+  }
+  let modified = content;
+  Object.entries(COLOR_FIX_MAP).forEach(([hex, token]) => {
+    modified = modified.replace(new RegExp(`['"]${hex}['"]`, 'g'), token);
+  });
+  if (modified !== content) {
+    fs.writeFileSync(filePath, modified, 'utf8');
+  }
+  return modified;
+}
+
+function getLineSnippet(lines, loc) {
+  const lineNum = loc?.start?.line || 0;
+  if (!lineNum) return { lineNum: 0, details: '' };
+  const rawLine = (lines[lineNum - 1] || '').trim();
+  const details = rawLine.length > 80 ? rawLine.slice(0, 80) + '...' : rawLine;
+  return { lineNum, details };
+}
+
+function inspectJsxStyleAttribute(astPath, lines, relPath, strictViolations) {
+  if (astPath.node.name?.name !== 'style') return;
+  const value = astPath.node.value;
+  if (value?.type !== 'JSXExpressionContainer') return;
+  if (!checkInlineStyleViolations(value.expression)) return;
+
+  const { lineNum, details } = getLineSnippet(lines, astPath.node.loc);
+  strictViolations.push({
+    type: 'INLINE_STYLE_OBJECT',
+    location: `${relPath}:${lineNum}`,
+    details
+  });
+}
+
 function scanFile(filePath, rawViolations, strictViolations, isFixMode = false) {
   const relPath = path.relative(path.join(__dirname, '../..'), filePath);
   let content = fs.readFileSync(filePath, 'utf8');
-  if (isFixMode && content.includes('colors.') && !filePath.endsWith('tokens.js') && !filePath.endsWith('colors.js') && !filePath.endsWith('theme.js')) {
-    const map = {
-      '#ffffff': 'colors.white', '#fff': 'colors.white', '#FFFFFF': 'colors.white', '#FFF': 'colors.white',
-      '#000000': 'colors.black', '#000': 'colors.black',
-      '#E31B23': 'colors.accent', '#e31b23': 'colors.accent',
-      '#EF4444': 'colors.danger', '#ef4444': 'colors.danger',
-      '#16A34A': 'colors.success', '#16a34a': 'colors.success',
-    };
-    let modified = content;
-    Object.entries(map).forEach(([hex, token]) => {
-      const regex = new RegExp(`['"]${hex}['"]`, 'g');
-      modified = modified.replace(regex, token);
-    });
-    if (modified !== content) {
-      fs.writeFileSync(filePath, modified, 'utf8');
-      content = modified;
-    }
+  if (isFixMode) {
+    content = applyColorFixes(content, filePath);
   }
   const lines = content.split('\n');
 
-  // --- RAW REGEX AUDIT (Legacy functionality) ---
   lines.forEach((line, index) => auditLineRaw(line, index, relPath, filePath, rawViolations));
 
-  // --- STRICT AST AUDIT (Accurate functionality) ---
   try {
     const ast = parser.parse(content, {
       sourceType: 'module',
@@ -81,28 +107,13 @@ function scanFile(filePath, rawViolations, strictViolations, isFixMode = false) 
 
     traverse(ast, {
       JSXAttribute(astPath) {
-        if (astPath.node.name.name === 'style') {
-          const value = astPath.node.value;
-          if (value && value.type === 'JSXExpressionContainer') {
-            const expr = value.expression;
-            if (checkInlineStyleViolations(expr)) {
-              const lineNum = astPath.node.loc ? astPath.node.loc.start.line : 0;
-              const rawLine = lineNum ? (lines[lineNum - 1] || '').trim() : '';
-              const cleanCode = rawLine.length > 80 ? rawLine.slice(0, 80) + '...' : rawLine;
-              strictViolations.push({
-                type: 'INLINE_STYLE_OBJECT',
-                location: `${relPath}:${lineNum}`,
-                details: cleanCode
-              });
-            }
-          }
-        }
+        inspectJsxStyleAttribute(astPath, lines, relPath, strictViolations);
       }
     });
-  } catch (_) {
-    // Fallback if AST parsing fails
-  }
+  } catch (_) {}
 }
+
+const CODE_FILE_EXT_RE = /\.(js|jsx|ts|tsx)$/;
 
 function walkDir(dirPath, rawViolations, strictViolations, isFixMode = false) {
   if (!fs.existsSync(dirPath)) return;
@@ -112,7 +123,7 @@ function walkDir(dirPath, rawViolations, strictViolations, isFixMode = false) {
     const fullPath = path.join(dirPath, entry.name);
     if (entry.isDirectory()) {
       walkDir(fullPath, rawViolations, strictViolations, isFixMode);
-    } else if (entry.isFile() && (entry.name.endsWith('.js') || entry.name.endsWith('.jsx') || entry.name.endsWith('.tsx') || entry.name.endsWith('.ts'))) {
+    } else if (entry.isFile() && CODE_FILE_EXT_RE.test(entry.name)) {
       scanFile(fullPath, rawViolations, strictViolations, isFixMode);
     }
   }

@@ -96,13 +96,21 @@ const IS_BUTTON_RE = /Button|TouchableOpacity|Pressable/;
 const IS_ICON_RE = /Icon/;
 const IS_INPUT_RE = /Input|TextField|Select/;
 
+const CATEGORY_CHECKERS = [
+  { match: (name) => IS_TEXT_RE.test(name), add: (catalog, item, nodePath) => catalog.texts.push({ ...item, content: extractTextContent(nodePath) }) },
+  { match: (name) => IS_CARD_RE.test(name), add: (catalog, item) => catalog.cards.push(item) },
+  { match: (name) => IS_BUTTON_RE.test(name), add: (catalog, item) => catalog.buttons.push(item) },
+  { match: (name) => IS_ICON_RE.test(name), add: (catalog, item, nodePath) => catalog.icons.push({ ...item, iconName: extractIconName(nodePath.node.openingElement) }) },
+  { match: (name) => IS_INPUT_RE.test(name), add: (catalog, item) => catalog.inputs.push(item) }
+];
+
 function categorizeJSXElement(name, nodePath, relPath, line, catalog) {
   const item = { file: relPath, line, component: name };
-  if (IS_TEXT_RE.test(name)) catalog.texts.push({ ...item, content: extractTextContent(nodePath) });
-  if (IS_CARD_RE.test(name)) catalog.cards.push(item);
-  if (IS_BUTTON_RE.test(name)) catalog.buttons.push(item);
-  if (IS_ICON_RE.test(name)) catalog.icons.push({ ...item, iconName: extractIconName(nodePath.node.openingElement) });
-  if (IS_INPUT_RE.test(name)) catalog.inputs.push(item);
+  for (let i = 0; i < CATEGORY_CHECKERS.length; i++) {
+    if (CATEGORY_CHECKERS[i].match(name)) {
+      CATEGORY_CHECKERS[i].add(catalog, item, nodePath);
+    }
+  }
 }
 
 function runCatalogGenerator(disableDynamicAudits = false) {

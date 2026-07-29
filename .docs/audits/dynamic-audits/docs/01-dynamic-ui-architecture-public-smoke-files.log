@@ -2,7 +2,7 @@
 type: dynamic-audit-urls
 auditor: ui-architecture
 scope: public
-date: 2026-07-29T14:43:47.607Z
+date: 2026-07-29T15:51:14.794Z
 ---
 
 - http://localhost:8081/
@@ -19,3 +19,5 @@ date: 2026-07-29T14:43:47.607Z
 - http://localhost:8081/login?isRegister=true
 - http://localhost:8081/product/prod-1-1-2-1
 - http://localhost:8081/product/prod-1-2-1-1
+- http://localhost:8081/product/prod-1-1-1-1
+- http://localhost:8081/product/prod-2-2-2-1

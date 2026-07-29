@@ -25,6 +25,11 @@ function scanFile(filePath, violations) {
 
 
 
+function isCodeEntry(entry) {
+  if (!entry.isFile()) return false;
+  return /\.[jt]sx?$/.test(entry.name);
+}
+
 function walkDir(dirPath, violations) {
   if (!fs.existsSync(dirPath)) return;
   const entries = fs.readdirSync(dirPath, { withFileTypes: true });
@@ -33,7 +38,7 @@ function walkDir(dirPath, violations) {
     const fullPath = path.join(dirPath, entry.name);
     if (entry.isDirectory()) {
       walkDir(fullPath, violations);
-    } else if (entry.isFile() && (entry.name.endsWith('.js') || entry.name.endsWith('.jsx') || entry.name.endsWith('.tsx') || entry.name.endsWith('.ts'))) {
+    } else if (isCodeEntry(entry)) {
       scanFile(fullPath, violations);
     }
   }

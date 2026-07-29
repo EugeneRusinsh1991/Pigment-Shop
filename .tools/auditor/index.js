@@ -60,11 +60,9 @@ function runAllAudits() {
 
   domainAuditors.forEach(([auditor, id]) => runAuditorSafe(auditor, id));
 
-  console.log('-------------------------------------------------------------------');
-  console.log('         RUNNING CODEBASE CATALOG GENERATOR                        ');
-  console.log('-------------------------------------------------------------------');
-  const { runCatalogGenerator } = require('./catalog-generator');
-  runAuditorSafe(runCatalogGenerator, 'Catalog Generator');
+  // Catalog Generator temporarily disabled
+  // const { runCatalogGenerator } = require('./catalog-generator');
+  // runAuditorSafe(runCatalogGenerator, 'Catalog Generator');
 
   console.log('-------------------------------------------------------------------');
   console.log('         RUNNING CODEBASE FALLOW AUDITOR                           ');

@@ -149,15 +149,17 @@ function getPackageScripts(rootPath) {
   }
 }
 
+const WHITELIST_REGEX = /^(\.tools\/|scripts\/|bin\/)|index\.(ts|js|tsx|jsx)$/;
+const KEEP_REGEX = /@audit-keep|@keep|^#!/;
+
 function isWhitelistedPath(normalized) {
-  return /^(\.tools\/|scripts\/|bin\/)/.test(normalized) || /\/index\.(ts|js|tsx|jsx)$/.test(normalized);
+  return WHITELIST_REGEX.test(normalized);
 }
 
 function hasKeepAnnotation(absPath) {
   if (!fs.existsSync(absPath)) return false;
   try {
-    const content = fs.readFileSync(absPath, "utf-8");
-    return /@audit-keep|@keep|^#!/.test(content);
+    return KEEP_REGEX.test(fs.readFileSync(absPath, "utf-8"));
   } catch {
     return false;
   }
@@ -169,10 +171,9 @@ function shouldFilterUnusedFile(fileObj, rootPath, packageScriptsJson) {
 
   const normalized = relPath.replace(/\\/g, "/");
   if (isWhitelistedPath(normalized)) return true;
-  if (packageScriptsJson && packageScriptsJson.includes(normalized)) return true;
+  if (packageScriptsJson?.includes(normalized)) return true;
 
-  const absPath = path.resolve(rootPath, relPath);
-  return hasKeepAnnotation(absPath);
+  return hasKeepAnnotation(path.resolve(rootPath, relPath));
 }
 
 function filterUnusedFiles(unusedFiles, rootPath) {
@@ -180,25 +181,27 @@ function filterUnusedFiles(unusedFiles, rootPath) {
   return unusedFiles.filter(f => !shouldFilterUnusedFile(f, rootPath, pkgScripts));
 }
 
+const EXPORT_WHITELIST_REGEX = /index\.(ts|js|tsx|jsx)$|src\/components\//;
+
 function isPublicOrIndexExport(relPath) {
-  return /\/index\.(ts|js|tsx|jsx)$/.test(relPath) || relPath.includes("src/components/");
+  return EXPORT_WHITELIST_REGEX.test(relPath);
+}
+
+function hasKeepTag(absPath) {
+  if (!fs.existsSync(absPath)) return false;
+  try {
+    return /@audit-keep|@keep/.test(fs.readFileSync(absPath, "utf-8"));
+  } catch {
+    return false;
+  }
 }
 
 function shouldKeepUnusedExport(item, rootPath) {
   const relPath = (item.path || item.file || "").replace(/\\/g, "/");
   if (!relPath) return true;
-
   if (isPublicOrIndexExport(relPath)) return false;
 
-  const absPath = path.resolve(rootPath, relPath);
-  if (!fs.existsSync(absPath)) return true;
-
-  try {
-    const content = fs.readFileSync(absPath, "utf-8");
-    if (/@audit-keep|@keep/.test(content)) return false;
-  } catch {}
-
-  return true;
+  return !hasKeepTag(path.resolve(rootPath, relPath));
 }
 
 function filterUnusedExports(unusedExports, rootPath) {

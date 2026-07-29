@@ -124,18 +124,16 @@ function checkHookReturnsEmpty(compName, compDir, files) {
   return violations;
 }
 
-function auditComponentEntry(entry) {
-  if (!entry.isDirectory()) {
-    if (!ROOT_FILE_WHITELIST.includes(entry.name)) {
-      return [{
-        type: 'DOMAIN_RELOCATION',
-        location: `src/components/${entry.name}`,
-        details: 'Root level component file should be moved into src/features/ or encapsulated in a component folder.'
-      }];
-    }
-    return [];
-  }
+function auditFileEntry(entry) {
+  if (ROOT_FILE_WHITELIST.includes(entry.name)) return [];
+  return [{
+    type: 'DOMAIN_RELOCATION',
+    location: `src/components/${entry.name}`,
+    details: 'Root level component file should be moved into src/features/ or encapsulated in a component folder.'
+  }];
+}
 
+function auditFolderEntry(entry) {
   const compName = entry.name;
   const compDir = path.join(COMPONENTS_DIR, compName);
   const files = scanDirectory(compDir).map(f => f.name);
@@ -167,6 +165,10 @@ function auditComponentEntry(entry) {
   violations.push(...checkHookReturnsEmpty(compName, compDir, files));
 
   return violations;
+}
+
+function auditComponentEntry(entry) {
+  return entry.isDirectory() ? auditFolderEntry(entry) : auditFileEntry(entry);
 }
 
 const { deduplicate, writeAuditReport: saveAuditReport } = require('./auditor-utils');

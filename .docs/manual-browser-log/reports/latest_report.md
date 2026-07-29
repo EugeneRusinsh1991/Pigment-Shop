@@ -1,4 +1,4 @@
-# AI Debug Report - S_18-46-22_Home
+# AI Debug Report - S_18-55-24_Home
 
 ## 📊 Environment & Diagnostics
 | Parameter | Value |
@@ -11,11 +11,11 @@
 | **DOM Size** | 26 elements |
 
 ## 🖼️ Screenshot
-![Screenshot](../screenshots/S_18-46-22_Home.jpg)
+![Screenshot](../screenshots/S_18-55-24_Home.jpg)
 
 ## 📂 Quick Links
-* [Open Full Screenshot](file:///D:/Magazine/_PigmentShop/.docs/manual-browser-log/screenshots/S_18-46-22_Home.jpg)
-* [Open Raw State JSON](file:///D:/Magazine/_PigmentShop/.docs/manual-browser-log/state/state_S_18-46-22_Home.json)
+* [Open Full Screenshot](file:///D:/Magazine/_PigmentShop/.docs/manual-browser-log/screenshots/S_18-55-24_Home.jpg)
+* [Open Raw State JSON](file:///D:/Magazine/_PigmentShop/.docs/manual-browser-log/state/state_S_18-55-24_Home.json)
 
 ## 📜 Console Warnings & Errors (Recent 0)
 | Timestamp | Type | Message |

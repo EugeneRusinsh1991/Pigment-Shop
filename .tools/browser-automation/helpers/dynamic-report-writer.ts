@@ -31,17 +31,12 @@ const TITLE_PREFIX_MAP: Array<[string, string]> = [
 
 export function getProblemTitleAndDetail(message: string): { title: string; detail?: string } {
   if (message.includes('. Size: ')) {
-    const parts = message.split('. Size: ');
-    return { title: parts[0], detail: `Size: ${parts[1]}` };
+    const [title, size] = message.split('. Size: ');
+    return { title, detail: `Size: ${size}` };
   }
 
-  for (const [prefix, title] of TITLE_PREFIX_MAP) {
-    if (message.startsWith(prefix)) {
-      return { title, detail: message };
-    }
-  }
-
-  return { title: message };
+  const match = TITLE_PREFIX_MAP.find(([prefix]) => message.startsWith(prefix));
+  return match ? { title: match[1], detail: message } : { title: message };
 }
 
 export function groupViolationsByProblemTitle(state: Record<string, Violation[]>): Map<string, { url: string; selector?: string; detail?: string }[]> {
@@ -139,6 +134,24 @@ function mergeViolationsState(
   return { hasNew, hasNewUrls };
 }
 
+function ensureReportDirs(...dirs: string[]) {
+  dirs.forEach(d => {
+    if (!fs.existsSync(d)) fs.mkdirSync(d, { recursive: true });
+  });
+}
+
+function makeYamlHeader(type: string, auditorName: string, scope: string) {
+  return `---\ntype: ${type}\nauditor: ${auditorName}\nscope: ${scope}\ndate: ${new Date().toISOString()}\n---\n`;
+}
+
+function writeUrlListLog(filesFilePath: string, auditorName: string, scope: string, urlState: Set<string>) {
+  let filesContent = makeYamlHeader('dynamic-audit-urls', auditorName, scope) + '\n';
+  urlState.forEach(url => {
+    filesContent += `- ${url}\n`;
+  });
+  fs.writeFileSync(filesFilePath, filesContent, 'utf-8');
+}
+
 export function writeDynamicReport(
   auditorPrefix: string,
   auditorName: string,
@@ -149,60 +162,29 @@ export function writeDynamicReport(
   const baseDir = path.resolve(process.cwd(), '.docs/audits/dynamic-audits');
   const docsDir = path.join(baseDir, 'docs');
   const jsonDir = path.join(baseDir, 'json');
-  
-  if (!fs.existsSync(docsDir)) {
-    fs.mkdirSync(docsDir, { recursive: true });
-  }
-  if (!fs.existsSync(jsonDir)) {
-    fs.mkdirSync(jsonDir, { recursive: true });
-  }
+  ensureReportDirs(docsDir, jsonDir);
 
   const sessionSuffix = sessionId ? `-${sessionId}` : '';
   const baseFileName = `${auditorPrefix}-dynamic-${auditorName}-${scope}${sessionSuffix}`;
   const jsonFilePath = path.join(jsonDir, `${baseFileName}-violations.json`);
 
   initReportState(baseFileName, jsonFilePath);
-
   const state = memoryViolations[baseFileName];
   const urlState = memoryUrls[baseFileName];
   const { hasNew, hasNewUrls } = mergeViolationsState(state, urlState, violations);
 
-  if (!hasNew && !hasNewUrls) {
-    return;
-  }
+  if (!hasNew && !hasNewUrls) return;
 
-  fs.writeFileSync(jsonFilePath, JSON.stringify({
-    violations: state,
-    urls: Array.from(urlState)
-  }, null, 2), 'utf-8');
+  fs.writeFileSync(jsonFilePath, JSON.stringify({ violations: state, urls: Array.from(urlState) }, null, 2), 'utf-8');
 
   if (hasNew) {
     const violationsFilePath = path.join(docsDir, `${baseFileName}-violations.log`);
     const problemsMap = groupViolationsByProblemTitle(state);
-
-    let reportContent = `---
-type: dynamic-audit
-auditor: ${auditorName}
-scope: ${scope}
-date: ${new Date().toISOString()}
----\n` + formatProblemsReport(problemsMap);
-
+    const reportContent = makeYamlHeader('dynamic-audit', auditorName, scope) + formatProblemsReport(problemsMap);
     fs.writeFileSync(violationsFilePath, reportContent, 'utf-8');
   }
 
   if (urlState.size > 10 && hasNewUrls) {
-    const filesFilePath = path.join(docsDir, `${baseFileName}-files.log`);
-    let filesContent = `---
-type: dynamic-audit-urls
-auditor: ${auditorName}
-scope: ${scope}
-date: ${new Date().toISOString()}
----\n\n`;
-
-    Array.from(urlState).forEach(url => {
-      filesContent += `- ${url}\n`;
-    });
-    
-    fs.writeFileSync(filesFilePath, filesContent, 'utf-8');
+    writeUrlListLog(path.join(docsDir, `${baseFileName}-files.log`), auditorName, scope, urlState);
   }
 }

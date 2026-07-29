@@ -49,3 +49,10 @@ yarn-error.*
 /playwright/user-data/
 /.playwright/
 
+# Backup logs & audit heavy output
+.docs/backup-errors.log
+*.jpg
+*.jpeg
+*.png
+
+

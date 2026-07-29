@@ -2,7 +2,7 @@
 type: dynamic-audit
 auditor: broken-ui
 scope: public
-date: 2026-07-29T14:52:26.948Z
+date: 2026-07-29T15:53:13.389Z
 ---
 
 ### Problem: Clickable element is overlapped or intercepted by another element.
@@ -36,6 +36,11 @@ date: 2026-07-29T14:52:26.948Z
 - URL: `http://localhost:8081/cart`
   - Selector: `div.css-view-g5y9jx.r-flex-13awgt0.r-justifyContent-1wtj0ep.r-marginInlineStart-1cwvpvk`
   - Selector: `div.css-view-g5y9jx.r-alignItems-1habvwh.r-flexDirection-18u37iz.r-justifyContent-1wtj0ep`
+  - Selector: `div.css-view-g5y9jx.r-marginBottom-5oul0u`
+  - Selector: `div.css-view-g5y9jx.r-marginBlock-l00any`
+  - Selector: `div.css-view-g5y9jx`
+- URL: `http://localhost:8081/product/prod-1-1-2-1`
+  - Selector: `div.css-view-g5y9jx.r-alignItems-1awozwy.r-flexDirection-18u37iz.r-padding-zhp00w.r-position-bnwqim.r-borderRadius-1xfd6ze.r-height-eu3ka.r-backgroundColor-1gzzd1q.r-marginBottom-1ifxtd0`
 
 ### Problem: Broken image resource (`naturalWidth === 0`).
 

@@ -7251,5 +7251,65 @@
         }
       ]
     }
+  },
+  "src_07-29_18-55_S_18-55-54_Admin.jpg_114files": {
+    "timestamp": "2026-07-29T15:56:00.948Z",
+    "diff": {
+      "added": 4,
+      "removed": 6,
+      "modified": 45,
+      "topFolders": [
+        {
+          "folder": ".docs/audits/audits",
+          "count": 8
+        },
+        {
+          "folder": ".tools/auditor",
+          "count": 8
+        },
+        {
+          "folder": ".docs/audits/fallow-audits/other",
+          "count": 6
+        },
+        {
+          "folder": ".docs/audits/catalog-inventory",
+          "count": 6
+        },
+        {
+          "folder": ".docs/audits/dynamic-audits/docs",
+          "count": 5
+        }
+      ]
+    }
+  },
+  "src_07-29_18-57_todo.md_81files": {
+    "timestamp": "2026-07-29T15:57:38.432Z",
+    "diff": {
+      "added": 0,
+      "removed": 0,
+      "modified": 16,
+      "topFolders": [
+        {
+          "folder": ".docs/audits/fallow-audits/other",
+          "count": 6
+        },
+        {
+          "folder": ".docs/audits/fallow-audits/project",
+          "count": 4
+        },
+        {
+          "folder": ".fallow",
+          "count": 3
+        },
+        {
+          "folder": "(root)",
+          "count": 1
+        },
+        {
+          "folder": ".todos/github-backup-diagnostics",
+          "count": 1
+        }
+      ]
+    }
   }
 }

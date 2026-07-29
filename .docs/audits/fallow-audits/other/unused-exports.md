@@ -1,6 +1,6 @@
 # 📦 Unused Exports
 
-*Generated on: 29.07.2026, 18:42:28*
+*Generated on: 29.07.2026, 18:56:01*
 
 Exports that are not imported or consumed by any other active file:
 
@@ -38,7 +38,7 @@ Exports that are not imported or consumed by any other active file:
 - [SamplingStrategy.ts](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/explorer/policy/SamplingStrategy.ts): `SamplingStrategy` ([L28](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/explorer/policy/SamplingStrategy.ts#L28))
 - [BoundedCollections.ts](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/explorer/utils/BoundedCollections.ts): `BoundedSet` ([L1](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/explorer/utils/BoundedCollections.ts#L1)), `BoundedMap` ([L41](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/explorer/utils/BoundedCollections.ts#L41))
 - [devServerHelper.ts](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/helpers/devServerHelper.ts): `isServerRunning` ([L3](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/helpers/devServerHelper.ts#L3)), `ensureDevServer` ([L29](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/helpers/devServerHelper.ts#L29))
-- [dynamic-report-writer.ts](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/helpers/dynamic-report-writer.ts): `clearSeenViolations` ([L15](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/helpers/dynamic-report-writer.ts#L15)), `getProblemTitleAndDetail` ([L21](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/helpers/dynamic-report-writer.ts#L21))
+- [dynamic-report-writer.ts](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/helpers/dynamic-report-writer.ts): `clearSeenViolations` ([L15](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/helpers/dynamic-report-writer.ts#L15)), `getProblemTitleAndDetail` ([L32](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/helpers/dynamic-report-writer.ts#L32))
 - [envValidator.ts](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/helpers/envValidator.ts): `validateAuthEnv` ([L6](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/helpers/envValidator.ts#L6))
 - [hoverInfoHelper.ts](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/helpers/hoverInfoHelper.ts): `extractElementHoverInfo` ([L44](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/helpers/hoverInfoHelper.ts#L44))
 - [processRunner.ts](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/helpers/processRunner.ts): `colors` ([L3](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/helpers/processRunner.ts#L3)), `attachPrefixedLogging` ([L10](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/helpers/processRunner.ts#L10)), `runProcess` ([L21](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/helpers/processRunner.ts#L21))
