@@ -181,7 +181,7 @@ export function writeDynamicReport(
   violations: Violation[],
   sessionId?: string
 ) {
-  const baseDir = path.resolve(process.cwd(), '.docs/audits/dynamic-audits');
+  const baseDir = path.resolve(process.cwd(), '.logs/dynamic-browser-log');
   const docsDir = path.join(baseDir, 'docs');
   const jsonDir = path.join(baseDir, 'json');
   ensureReportDirs(docsDir, jsonDir);

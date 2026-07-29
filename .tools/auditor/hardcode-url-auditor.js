@@ -3,7 +3,7 @@ const path = require('path');
 const { walkDir, writeAuditReport, getFileLines, isCommentLine } = require('./auditor-utils');
 
 const SRC_DIR = path.join(__dirname, '../../src');
-const AUDITS_DIR = path.join(__dirname, '../../.docs/audits/audits');
+const AUDITS_DIR = path.join(__dirname, '../../.audits/audits');
 const LOG_FILE = path.join(AUDITS_DIR, '11-hardcode-url-violations.log');
 const FILES_LOG_FILE = path.join(AUDITS_DIR, '11-hardcode-url-files.log');
 

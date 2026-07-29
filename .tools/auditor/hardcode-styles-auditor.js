@@ -3,7 +3,7 @@ const path = require('path');
 const parser = require('@babel/parser');
 const traverse = require('@babel/traverse').default;
 const { deduplicate } = require('./auditor-utils');
-const AUDITS_DIR = path.join(__dirname, '../../.docs/audits/audits');
+const AUDITS_DIR = path.join(__dirname, '../../.audits/audits');
 const LOG_FILE = path.join(AUDITS_DIR, '03-hardcode-styles-violations.log');
 const STRICT_LOG_FILE = path.join(AUDITS_DIR, '03-hardcode-styles-strict-violations.log');
 const FILES_LOG_FILE = path.join(AUDITS_DIR, '03-hardcode-styles-files.log');
@@ -214,7 +214,7 @@ function auditStyles(disableDynamicAudits = false) {
   writeRawReport(violations, timestamp);
   writeStrictReport(strictDeduplicated, timestamp);
 
-  console.log(`[03 Hardcode Styles Audit] Finished (Raw: ${violations.length}, Strict AST: ${strictDeduplicated.length}) -> .docs/audits/audits/`);
+  console.log(`[03 Hardcode Styles Audit] Finished (Raw: ${violations.length}, Strict AST: ${strictDeduplicated.length}) -> .audits/audits/`);
 }
 
 module.exports = { auditStyles };

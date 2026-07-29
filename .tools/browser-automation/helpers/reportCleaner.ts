@@ -3,7 +3,7 @@ import * as path from 'path';
 
 const MAX_REPORTS_PER_TYPE = 3; // Keep 3 reports per type (admin/guest)
 
-function clearReportsDirectory(reportsDir: string): void {
+export function clearReportsDirectory(reportsDir: string): void {
   if (!fs.existsSync(reportsDir)) {
     fs.mkdirSync(reportsDir, { recursive: true });
     return;
@@ -44,7 +44,7 @@ function getSortedJsonFiles(reportsDir: string): { name: string; path: string; t
     .sort((a, b) => b.time - a.time);
 }
 
-function cleanOldReportsByType(reportsDir: string, maxFiles: number = MAX_REPORTS_PER_TYPE): void {
+export function cleanOldReportsByType(reportsDir: string, maxFiles: number = MAX_REPORTS_PER_TYPE): void {
   const files = getSortedJsonFiles(reportsDir).map(f => ({
     ...f,
     type: f.name.includes('admin') ? 'admin' : 'guest'
@@ -62,7 +62,7 @@ function cleanOldReportsByType(reportsDir: string, maxFiles: number = MAX_REPORT
   }
 }
 
-function cleanOldJsonReports(reportsDir: string, maxFiles: number = MAX_REPORTS_PER_TYPE): void {
+export function cleanOldJsonReports(reportsDir: string, maxFiles: number = MAX_REPORTS_PER_TYPE): void {
   const files = getSortedJsonFiles(reportsDir);
 
   if (files.length > maxFiles) {

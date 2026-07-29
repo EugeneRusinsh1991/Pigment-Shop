@@ -5,7 +5,7 @@ const traverse = require('@babel/traverse').default;
 
 const ROOT = path.resolve(__dirname, '../../');
 const SRC_DIR = path.resolve(ROOT, 'src');
-const AUDITS_DIR = path.resolve(ROOT, '.docs/audits/catalog-inventory');
+const AUDITS_DIR = path.resolve(ROOT, '.audits/catalog-inventory');
 
 function ensureDir(dir) {
   if (!fs.existsSync(dir)) {
@@ -205,7 +205,7 @@ function runCatalogGenerator(disableDynamicAudits = false) {
     fs.unlinkSync(path.join(AUDITS_DIR, 'catalog-inventory.md'));
   }
 
-  console.log(`[Catalog Generator] Clean sub-reports generated inside .docs/audits/catalog-inventory/`);
+  console.log(`[Catalog Generator] Clean sub-reports generated inside .audits/catalog-inventory/`);
 }
 
 if (require.main === module) {

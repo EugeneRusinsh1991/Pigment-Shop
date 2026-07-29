@@ -20,7 +20,7 @@ const {
 const { generateReports } = require("./src/reporter.cjs");
 
 const ROOT = path.resolve(__dirname, "../../..");
-const REPORTS_DIR = path.resolve(ROOT, ".docs/audits/fallow-audits");
+const REPORTS_DIR = path.resolve(ROOT, ".audits/fallow-audits");
 const RAW_JSON = path.resolve(REPORTS_DIR, "fallow-raw.json");
 
 // Resolve project name dynamically

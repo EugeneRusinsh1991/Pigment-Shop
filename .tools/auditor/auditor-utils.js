@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const AUDITS_DIR = path.join(__dirname, '../../.docs/audits/audits');
+const AUDITS_DIR = path.join(__dirname, '../../.audits/audits');
 
 function getAuditLogPaths(prefix, name) {
   const logFile = path.join(AUDITS_DIR, `${prefix}-${name}-violations.log`);
@@ -175,7 +175,7 @@ function finishAuditReport({ auditName, disableDynamicAudits, violations, logFil
   });
 }
 
-function runAuditorScan({ auditName, disableDynamicAudits, logFile, filesLogFile, issueTypeName, scanFile, srcDir = path.join(__dirname, '../../src'), auditsDir = path.join(__dirname, '../../.docs/audits/audits') }) {
+function runAuditorScan({ auditName, disableDynamicAudits, logFile, filesLogFile, issueTypeName, scanFile, srcDir = path.join(__dirname, '../../src'), auditsDir = path.join(__dirname, '../../.audits/audits') }) {
   if (!fs.existsSync(auditsDir)) fs.mkdirSync(auditsDir, { recursive: true });
   const rawViolations = [];
   walkDir(srcDir, (filePath) => scanFile(filePath, rawViolations));

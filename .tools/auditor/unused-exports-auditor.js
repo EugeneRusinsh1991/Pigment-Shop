@@ -4,7 +4,7 @@ const { getAllFiles } = require('./auditor-utils');
 
 const SRC_DIR = path.join(__dirname, '../../src');
 const COMPONENTS_DIR = path.join(__dirname, '../../src/components');
-const AUDITS_DIR = path.join(__dirname, '../../.docs/audits/audits');
+const AUDITS_DIR = path.join(__dirname, '../../.audits/audits');
 const LOG_FILE = path.join(AUDITS_DIR, '06-unused-exports-violations.log');
 const FILES_LOG_FILE = path.join(AUDITS_DIR, '06-unused-exports-violations.log'.replace('violations', 'files'));
 

@@ -7,7 +7,7 @@ const colors = {
   yellow: '\x1b[33m'
 };
 
-function attachPrefixedLogging(proc: { stdout: any; stderr: any }, prefix: string) {
+export function attachPrefixedLogging(proc: { stdout: any; stderr: any }, prefix: string) {
   const handler = (data: any) => {
     const lines = data.toString().split('\n').filter((line: string) => line.trim());
     lines.forEach((line: string) => {
@@ -18,7 +18,7 @@ function attachPrefixedLogging(proc: { stdout: any; stderr: any }, prefix: strin
   proc.stderr?.on('data', handler);
 }
 
-function runProcess(name: string, script: string, color: string, extraEnv: Record<string, string> = {}) {
+export function runProcess(name: string, script: string, color: string, extraEnv: Record<string, string> = {}) {
   return new Promise<void>((resolve) => {
     const isHeadless = !!extraEnv.SMOKE_HEADLESS;
     const proc = spawn('npx', ['tsx', script], {

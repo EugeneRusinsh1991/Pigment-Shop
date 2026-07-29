@@ -60,7 +60,7 @@ async function runDynamicAudits() {
     // Run admin scope
     await runAuditsForScope(adminPage, adminUrl, 'admin');
 
-    console.log('Dynamic audits completed successfully. Check .docs/audits/dynamic-audits/ for logs.');
+    console.log('Dynamic audits completed successfully. Check logs/dynamic-browser-log/ for logs.');
   } catch (err) {
     console.error('Error running dynamic audits:', err);
   } finally {

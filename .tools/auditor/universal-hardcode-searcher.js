@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const SRC_DIR = path.join(__dirname, '../../src');
-const AUDITS_DIR = path.join(__dirname, '../../.docs/audits/audits');
+const AUDITS_DIR = path.join(__dirname, '../../.audits/audits');
 const CONFIG_FILE = path.join(__dirname, 'hardcode-search-patterns.json');
 
 // Конфигурация паттернов для поиска
@@ -267,7 +267,7 @@ function runUniversalHardcodeSearch(disableDynamicAudits = false) {
     fs.writeFileSync(summaryFile, summaryReport);
   }
 
-  console.log(`[13 Universal Hardcode Search] Finished (${violations.length} violations across ${Object.keys(groupedByType).length} categories) -> .docs/audits/audits/`);
+  console.log(`[13 Universal Hardcode Search] Finished (${violations.length} violations across ${Object.keys(groupedByType).length} categories) -> .audits/audits/`);
 }
 
 module.exports = { runUniversalHardcodeSearch };

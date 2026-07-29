@@ -1,7 +1,7 @@
 const path = require('path');
 const { runAuditorScan, getFileLines } = require('./auditor-utils');
 
-const AUDITS_DIR = path.join(__dirname, '../../.docs/audits/audits');
+const AUDITS_DIR = path.join(__dirname, '../../.audits/audits');
 const LOG_FILE = path.join(AUDITS_DIR, '04-typography-violations.log');
 const FILES_LOG_FILE = path.join(AUDITS_DIR, '04-typography-violations.log'.replace('violations', 'files'));
 

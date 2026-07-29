@@ -43,7 +43,7 @@ function runAuditorSafe(fn, id) {
 }
 
 function runAllAudits() {
-  const AUDITS_DIR = path.join(__dirname, '../../.docs/audits');
+  const AUDITS_DIR = path.join(__dirname, '../../.audits');
   ensureAuditDirs(AUDITS_DIR);
   
   console.log('===================================================================');
@@ -70,7 +70,7 @@ function runAllAudits() {
   runAuditorSafe(runFallowAudit, 'Fallow Auditor');
 
   console.log('===================================================================');
-  console.log('All audit reports generated inside .docs/audits/ directory.');
+  console.log('All audit reports generated inside .audits/ directory.');
   console.log('===================================================================');
 }
 

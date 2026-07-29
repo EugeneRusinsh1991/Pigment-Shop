@@ -3,7 +3,7 @@ const path = require('path');
 const { deduplicate, writeAuditReport, getAllFiles } = require('./auditor-utils');
 
 const SRC_DIR = path.join(__dirname, '../../src');
-const AUDITS_DIR = path.join(__dirname, '../../.docs/audits/audits');
+const AUDITS_DIR = path.join(__dirname, '../../.audits/audits');
 const LOG_FILE = path.join(AUDITS_DIR, '07-layer-imports-violations.log');
 const FILES_LOG_FILE = path.join(AUDITS_DIR, '07-layer-imports-violations.log'.replace('violations', 'files'));
 

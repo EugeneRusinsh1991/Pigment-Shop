@@ -67,7 +67,7 @@ function generateMainReport(cleaned, dateStr, projectName, paths) {
 
 function generateReports(cleaned, rootPath, projectName, subDir = "") {
   const dateStr = new Date().toLocaleString();
-  const baseDir = subDir ? `.docs/audits/fallow-audits/${subDir}` : `.docs/audits/fallow-audits`;
+  const baseDir = subDir ? `.audits/fallow-audits/${subDir}` : `.audits/fallow-audits`;
   const paths = {
     complexity:       cleanPath(rootPath, `${baseDir}/complexity-health-findings.md`),
     largeFiles:       cleanPath(rootPath, `${baseDir}/large-files.md`),

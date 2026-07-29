@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const COMPONENTS_DIR = path.join(__dirname, '../../src/components');
-const AUDITS_DIR = path.join(__dirname, '../../.docs/audits/audits');
+const AUDITS_DIR = path.join(__dirname, '../../.audits/audits');
 const LOG_FILE = path.join(AUDITS_DIR, '01-ui-architecture-violations.log');
 const FILES_LOG_FILE = path.join(AUDITS_DIR, '01-ui-architecture-violations.log'.replace('violations', 'files'));
 
