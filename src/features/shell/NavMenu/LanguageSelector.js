@@ -20,7 +20,7 @@ function getThemeToggleStyle(isDark) {
     paddingHorizontal: layout.spacing.sm,
     minHeight: 44,
     borderRadius: layout.radii.sm,
-    borderWidth: 1,
+    borderWidth: layout.borderWidth.thin,
     borderColor: isDark ? colors.borderDarkAlt : colors.navItemHoverDark,
     backgroundColor: isDark ? colors.surfaceFaintDark : colors.surfaceFaintLight,
     marginBottom: layout.spacing.md,

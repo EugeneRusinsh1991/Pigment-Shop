@@ -32,7 +32,7 @@ export default StyleSheet.create({
     borderRadius: layout.radii.md,
     padding: layout.spacing.lg,
     marginBottom: layout.spacing.lg,
-    borderWidth: 1,
+    borderWidth: layout.borderWidth.thin,
   },
   formDark: {
     backgroundColor: colors.navSurfaceDark,
@@ -47,7 +47,7 @@ export default StyleSheet.create({
   },
   input: {
     borderRadius: layout.radii.sm,
-    borderWidth: 1,
+    borderWidth: layout.borderWidth.thin,
     height: 40,
     paddingHorizontal: layout.spacing.md,
     marginBottom: layout.spacing.sm,
@@ -97,7 +97,7 @@ export default StyleSheet.create({
   reviewCard: {
     borderRadius: layout.radii.sm + 4,
     padding: layout.spacing.lg,
-    borderWidth: 1,
+    borderWidth: layout.borderWidth.thin,
   },
   reviewCardDark: {
     backgroundColor: colors.surfaceNeutralDark,

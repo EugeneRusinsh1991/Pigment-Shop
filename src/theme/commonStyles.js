@@ -45,7 +45,7 @@ export default StyleSheet.create({
   card: {
     borderRadius: layout.radii.md,
     padding: layout.spacing.xl,
-    borderWidth: 1,
+    borderWidth: layout.borderWidth.thin,
   },
   cardDark: {
     backgroundColor: colors.surfaceDark,

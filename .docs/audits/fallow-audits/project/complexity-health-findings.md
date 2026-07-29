@@ -1,6 +1,6 @@
 # 🩺 Complexity Health Findings (Critical & High)
 
-*Generated on: 28.07.2026, 22:10:26*
+*Generated on: 29.07.2026, 11:19:51*
 
 ## 🟠 High (≤ 50 lines)
 
@@ -14,7 +14,7 @@
 `src/components/Button/useButtonTheme.js`
 
 - 🟠 **`useButtonTheme`** [L13](file:///D:/Magazine/_PigmentShop/src/components/Button/useButtonTheme.js#L13)
-  - Lines: 26 | Cyclomatic: 9 | Cognitive: 7 | CRAP: 90
+  - Lines: 31 | Cyclomatic: 9 | Cognitive: 7 | CRAP: 90
 
 #### 📁 [ContactQuestionForm.js](file:///D:/Magazine/_PigmentShop/src/features/contact/ContactQuestionForm.js)
 `src/features/contact/ContactQuestionForm.js`

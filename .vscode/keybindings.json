@@ -37,6 +37,6 @@
   {
     "key": "alt+9",
     "command": "workbench.action.tasks.runTask",
-    "args": "Tools: Run All Automations Headless"
+    "args": "Tools: Run All Automations Loop"
   }
 ]

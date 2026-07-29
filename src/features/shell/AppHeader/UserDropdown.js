@@ -186,7 +186,7 @@ const localStyles = StyleSheet.create({
   userHeader: {
     paddingVertical: layout.spacing.sm,
     paddingHorizontal: layout.spacing.md,
-    borderBottomWidth: 1,
+    borderBottomWidth: layout.borderWidth.thin,
     marginBottom: layout.spacing.xxs,
   },
 });

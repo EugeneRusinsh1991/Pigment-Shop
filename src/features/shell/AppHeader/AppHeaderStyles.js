@@ -8,7 +8,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    borderBottomWidth: 0,
+    borderBottomWidth: layout.borderWidth.none,
     zIndex: layout.zIndices.header,
   },
   headerDark: {
@@ -88,12 +88,12 @@ export default StyleSheet.create({
   },
   dropdownDark: {
     backgroundColor: colors.navSurfaceDark,
-    borderWidth: 1,
+    borderWidth: layout.borderWidth.thin,
     borderColor: colors.borderDarkAlt,
   },
   dropdownLight: {
     backgroundColor: colors.white,
-    borderWidth: 1,
+    borderWidth: layout.borderWidth.thin,
     borderColor: colors.navItemHoverDark,
   },
   dropdownItem: {
@@ -146,7 +146,7 @@ export default StyleSheet.create({
     paddingVertical: layout.spacing.xs,
     paddingHorizontal: layout.spacing.xs + 4,
     borderRadius: layout.radii.sm,
-    borderWidth: 1,
+    borderWidth: layout.borderWidth.thin,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
@@ -174,7 +174,7 @@ export default StyleSheet.create({
     paddingHorizontal: layout.spacing.xs + 4,
     paddingVertical: layout.spacing.xxs,
     borderRadius: layout.radii.iconBtn,
-    borderWidth: 1.5,
+    borderWidth: layout.borderWidth.focus,
     marginLeft: -8,
   },
   betaBadgeDark: {

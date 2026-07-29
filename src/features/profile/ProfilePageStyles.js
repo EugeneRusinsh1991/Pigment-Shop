@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
   },
   cardSpecific: {
     marginBottom: layout.spacing.lg,
-    borderWidth: 0,
+    borderWidth: layout.borderWidth.none,
   },
   label: {
     marginBottom: layout.spacing.xxs,
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     marginBottom: layout.spacing.sm,
   },
   inputContainer: {
-    borderWidth: 1,
+    borderWidth: layout.borderWidth.thin,
     borderRadius: layout.radii.sm,
     paddingHorizontal: layout.spacing.md,
     height: 40,

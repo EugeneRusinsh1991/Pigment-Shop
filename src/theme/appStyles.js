@@ -44,7 +44,7 @@ export default StyleSheet.create({
   },
 
   breadcrumbBar: {
-    borderBottomWidth: 1,
+    borderBottomWidth: layout.borderWidth.thin,
     paddingHorizontal: layout.spacing.sm,
     paddingVertical: layout.spacing.sm,
   },
@@ -136,12 +136,12 @@ export default StyleSheet.create({
   },
   stickySearchContainerDark: {
     backgroundColor: colors.backgroundDark,
-    borderBottomWidth: 0,
+    borderBottomWidth: layout.borderWidth.none,
     borderBottomColor: colors.borderDarkAlt,
   },
   stickySearchContainerLight: {
     backgroundColor: colors.backgroundLight,
-    borderBottomWidth: 0,
+    borderBottomWidth: layout.borderWidth.none,
     borderBottomColor: colors.borderLightAlt,
   },
   searchInner: {

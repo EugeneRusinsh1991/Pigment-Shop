@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     paddingTop: layout.spacing.xs,
     paddingBottom: layout.spacing.xxs,
     paddingHorizontal: layout.spacing.lg,
-    borderTopWidth: 0,
+    borderTopWidth: layout.borderWidth.none,
     width: '100%',
     alignItems: 'center',
     justifyContent: 'center',

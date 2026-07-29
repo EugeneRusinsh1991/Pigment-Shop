@@ -257,10 +257,16 @@ function runUniversalHardcodeSearch(disableDynamicAudits = false) {
     fs.writeFileSync(logFile, report);
   });
 
-  // Создание суммарного отчета
+  // Создание суммарного отчета (только при наличии ошибок)
   const summaryFile = path.join(AUDITS_DIR, '13-universal-hardcode-search-summary.log');
-  const summaryReport = generateSummaryReport(violations, patterns);
-  fs.writeFileSync(summaryFile, summaryReport);
+  if (violations.length === 0) {
+    if (fs.existsSync(summaryFile)) {
+      try { fs.unlinkSync(summaryFile); } catch (_) {}
+    }
+  } else {
+    const summaryReport = generateSummaryReport(violations, patterns);
+    fs.writeFileSync(summaryFile, summaryReport);
+  }
 
   console.log(`[13 Universal Hardcode Search] Finished (${violations.length} violations across ${Object.keys(groupedByType).length} categories) -> .docs/audits/audits/`);
 }

@@ -22,7 +22,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: layout.spacing.lg,
-    borderBottomWidth: 1,
+    borderBottomWidth: layout.borderWidth.thin,
     position: 'relative',
   },
   panelHeaderDark: { borderBottomColor: colors.borderDarkAlt },
@@ -101,7 +101,7 @@ export default StyleSheet.create({
     paddingHorizontal: layout.spacing.lg,
     paddingTop: layout.spacing.lg,
     paddingBottom: layout.spacing.xxl,
-    borderTopWidth: 1,
+    borderTopWidth: layout.borderWidth.thin,
     marginTop: 'auto',
   },
   menuFooterDark: {
