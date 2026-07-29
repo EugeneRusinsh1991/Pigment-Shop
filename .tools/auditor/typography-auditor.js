@@ -1,8 +1,6 @@
-const fs = require('fs');
 const path = require('path');
-const { deduplicate, writeAuditReport, walkDir, getFileLines, finishAuditReport } = require('./auditor-utils');
+const { runAuditorScan, getFileLines } = require('./auditor-utils');
 
-const SRC_DIR = path.join(__dirname, '../../src');
 const AUDITS_DIR = path.join(__dirname, '../../.docs/audits/audits');
 const LOG_FILE = path.join(AUDITS_DIR, '04-typography-violations.log');
 const FILES_LOG_FILE = path.join(AUDITS_DIR, '04-typography-violations.log'.replace('violations', 'files'));
@@ -31,18 +29,13 @@ function scanFile(filePath, violations) {
 }
 
 function auditTypography(disableDynamicAudits = false) {
-  if (!fs.existsSync(AUDITS_DIR)) fs.mkdirSync(AUDITS_DIR, { recursive: true });
-  let rawViolations = [];
-  walkDir(SRC_DIR, (fullPath) => scanFile(fullPath, rawViolations));
-  const violations = deduplicate(rawViolations);
-
-  finishAuditReport({
+  runAuditorScan({
     auditName: '04 Typography Audit',
     disableDynamicAudits,
-    violations,
     logFile: LOG_FILE,
     filesLogFile: FILES_LOG_FILE,
-    issueTypeName: 'typography'
+    issueTypeName: 'typography',
+    scanFile
   });
 }
 

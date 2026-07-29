@@ -1,52 +1,29 @@
-const fs = require('fs');
-const path = require('path');
-const { deduplicate, writeAuditReport, walkDir, getFileLines } = require('./auditor-utils');
+const { runAuditorScan, scanFileLines, getAuditLogPaths } = require('./auditor-utils');
 
-const SRC_DIR = path.join(__dirname, '../../src');
-const AUDITS_DIR = path.join(__dirname, '../../.docs/audits/audits');
-const LOG_FILE = path.join(AUDITS_DIR, '09-a11y-violations.log');
-const FILES_LOG_FILE = path.join(AUDITS_DIR, '09-a11y-files.log');
+const { logFile: LOG_FILE, filesLogFile: FILES_LOG_FILE } = getAuditLogPaths('09', 'a11y');
 
 function scanFile(filePath, violations) {
-  const { relPath, lines } = getFileLines(filePath);
-
-  lines.forEach((line, index) => {
-    // Basic check for interactive elements without accessibilityLabel
-    if (/(<TouchableOpacity|<Pressable|<Button|<TextInput)/.test(line)) {
-      if (!line.includes('accessibilityLabel') && !line.includes('accessible')) {
-        // Look ahead for multiline props is tricky with just regex line-by-line,
-        // but this catches inline declarations missing a11y.
-        // To reduce false positives, we only flag if the element closes on the same line or is a simple tag.
-        if (line.includes('>')) {
-           violations.push({
-             location: `${relPath}:${index + 1}`,
-             details: `Interactive element missing accessibilityLabel: ${line.trim().substring(0, 50)}...`
-           });
-        }
-      }
+  scanFileLines(filePath, violations, (line, index, relPath) => {
+    if (/(<TouchableOpacity|<Pressable|<Button|<TextInput)/.test(line) &&
+        !line.includes('accessibilityLabel') &&
+        !line.includes('accessible') &&
+        line.includes('>')) {
+      violations.push({
+        location: `${relPath}:${index + 1}`,
+        details: `Interactive element missing accessibilityLabel: ${line.trim().substring(0, 50)}...`
+      });
     }
   });
 }
 
 function auditA11y(disableDynamicAudits = false) {
-  if (!fs.existsSync(AUDITS_DIR)) fs.mkdirSync(AUDITS_DIR, { recursive: true });
-  const rawViolations = [];
-  walkDir(SRC_DIR, (filePath) => scanFile(filePath, rawViolations));
-  const violations = deduplicate(rawViolations);
-
-  if (disableDynamicAudits) {
-    console.log('[09 Accessibility Audit] Skipped (dynamic audits disabled)');
-    return;
-  }
-
-  const timestamp = new Date().toLocaleString('ru-RU');
-  writeAuditReport({
-    violations,
+  runAuditorScan({
+    auditName: '09 Accessibility Audit',
+    disableDynamicAudits,
     logFile: LOG_FILE,
     filesLogFile: FILES_LOG_FILE,
-    auditName: '09 Accessibility Audit',
     issueTypeName: 'accessibility',
-    timestamp
+    scanFile
   });
 }
 

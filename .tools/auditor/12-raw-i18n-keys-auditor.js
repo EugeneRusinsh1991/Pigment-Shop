@@ -1,8 +1,6 @@
-const fs = require('fs');
 const path = require('path');
-const { deduplicate, writeAuditReport, walkDir, getFileLines, finishAuditReport } = require('./auditor-utils');
+const { runAuditorScan, getFileLines } = require('./auditor-utils');
 
-const SRC_DIR = path.join(__dirname, '../../src');
 const AUDITS_DIR = path.join(__dirname, '../../.docs/audits/audits');
 const LOG_FILE = path.join(AUDITS_DIR, '12-raw-i18n-keys-violations.log');
 const FILES_LOG_FILE = path.join(AUDITS_DIR, '12-raw-i18n-keys-files.log');
@@ -44,18 +42,13 @@ function scanFile(filePath, violations) {
 
 
 function auditRawI18nKeys(disableDynamicAudits = false) {
-  if (!fs.existsSync(AUDITS_DIR)) fs.mkdirSync(AUDITS_DIR, { recursive: true });
-  let rawViolations = [];
-  walkDir(SRC_DIR, (fullPath) => scanFile(fullPath, rawViolations));
-  const violations = deduplicate(rawViolations);
-
-  finishAuditReport({
+  runAuditorScan({
     auditName: '12 Raw i18n Keys Audit',
     disableDynamicAudits,
-    violations,
     logFile: LOG_FILE,
     filesLogFile: FILES_LOG_FILE,
-    issueTypeName: 'raw i18n key'
+    issueTypeName: 'raw i18n key',
+    scanFile
   });
 }
 

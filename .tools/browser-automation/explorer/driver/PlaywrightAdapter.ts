@@ -2,7 +2,7 @@ import { Browser, BrowserContext, Page, Locator } from 'playwright';
 import { IWebBrowser, IWebBrowserContext, IWebPage, IWebElement } from './DriverInterfaces';
 import { ElementHoverInfo, extractElementHoverInfo } from '../../helpers/hoverInfoHelper';
 
-export class PlaywrightElement implements IWebElement {
+class PlaywrightElement implements IWebElement {
   constructor(public locatorInstance: Locator, public parentPage?: PlaywrightPage) {}
 
   async click(options?: { force?: boolean }): Promise<void> {
@@ -135,7 +135,7 @@ export class PlaywrightPage implements IWebPage {
   }
 }
 
-export class PlaywrightContext implements IWebBrowserContext {
+class PlaywrightContext implements IWebBrowserContext {
   constructor(public context: BrowserContext) {}
 
   async newPage(): Promise<IWebPage> {
@@ -148,7 +148,7 @@ export class PlaywrightContext implements IWebBrowserContext {
   }
 }
 
-export class PlaywrightBrowser implements IWebBrowser {
+class PlaywrightBrowser implements IWebBrowser {
   constructor(public browser: Browser) {}
 
   async close(): Promise<void> {

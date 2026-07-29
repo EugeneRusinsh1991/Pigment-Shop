@@ -5,7 +5,7 @@ export function generateStableId(type: string, input: string): string {
   return crypto.createHash('sha256').update(`${type}:${input}`).digest('hex').substring(0, 12);
 }
 
-export function inferSemanticName(route: string): string {
+function inferSemanticName(route: string): string {
   if (!route || route === '/') return 'Home';
   const parts = route.split('/').filter(Boolean);
   if (parts.length === 0) return 'Home';

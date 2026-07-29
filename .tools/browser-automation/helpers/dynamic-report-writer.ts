@@ -12,7 +12,7 @@ const loadedState = new Set<string>();
 const memoryViolations: Record<string, Record<string, Violation[]>> = {};
 const memoryUrls: Record<string, Set<string>> = {};
 
-export function clearSeenViolations() {
+function clearSeenViolations() {
   loadedState.clear();
   Object.keys(memoryViolations).forEach(k => delete memoryViolations[k]);
   Object.keys(memoryUrls).forEach(k => delete memoryUrls[k]);
@@ -29,7 +29,7 @@ const TITLE_PREFIX_MAP: Array<[string, string]> = [
   ['Network failure', 'Network request failure'],
 ];
 
-export function getProblemTitleAndDetail(message: string): { title: string; detail?: string } {
+function getProblemTitleAndDetail(message: string): { title: string; detail?: string } {
   if (message.includes('. Size: ')) {
     const [title, size] = message.split('. Size: ');
     return { title, detail: `Size: ${size}` };

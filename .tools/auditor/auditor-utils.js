@@ -1,6 +1,15 @@
 const fs = require('fs');
 const path = require('path');
 
+const AUDITS_DIR = path.join(__dirname, '../../.docs/audits/audits');
+
+function getAuditLogPaths(prefix, name) {
+  const logFile = path.join(AUDITS_DIR, `${prefix}-${name}-violations.log`);
+  const filesLogFile = path.join(AUDITS_DIR, `${prefix}-${name}-files.log`);
+  return { logFile, filesLogFile };
+}
+
+
 function deduplicate(violations) {
   const seen = new Set();
   return violations.filter(v => {
@@ -138,6 +147,13 @@ function getFileLines(filePath) {
   return { relPath, content, lines };
 }
 
+function scanFileLines(filePath, violations, lineChecker) {
+  const { relPath, lines } = getFileLines(filePath);
+  lines.forEach((line, index) => {
+    lineChecker(line, index, relPath, violations);
+  });
+}
+
 function isCommentLine(line) {
   const trimmed = line.trim();
   return trimmed.startsWith('//') || trimmed.startsWith('*');
@@ -159,13 +175,32 @@ function finishAuditReport({ auditName, disableDynamicAudits, violations, logFil
   });
 }
 
+function runAuditorScan({ auditName, disableDynamicAudits, logFile, filesLogFile, issueTypeName, scanFile, srcDir = path.join(__dirname, '../../src'), auditsDir = path.join(__dirname, '../../.docs/audits/audits') }) {
+  if (!fs.existsSync(auditsDir)) fs.mkdirSync(auditsDir, { recursive: true });
+  const rawViolations = [];
+  walkDir(srcDir, (filePath) => scanFile(filePath, rawViolations));
+  const violations = deduplicate(rawViolations);
+
+  finishAuditReport({
+    auditName,
+    disableDynamicAudits,
+    violations,
+    logFile,
+    filesLogFile,
+    issueTypeName
+  });
+}
+
 module.exports = {
+  getAuditLogPaths,
   deduplicate,
   writeAuditReport,
   walkDir,
   getAllFiles,
   getFileLines,
+  scanFileLines,
   isCommentLine,
-  finishAuditReport
+  finishAuditReport,
+  runAuditorScan
 };
 

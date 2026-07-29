@@ -22,6 +22,35 @@ function RetryButton({ onRetry, styles }) {
   );
 }
 
+function renderIcon(icon, styles) {
+  if (!icon) return null;
+  return <View style={styles.iconWrapper}>{icon}</View>;
+}
+
+function renderTitle(title, titleStyle, styles) {
+  if (!title) return null;
+  return (
+    <Heading level={4} style={[styles.title, titleStyle]}>
+      {title}
+    </Heading>
+  );
+}
+
+function renderBody(bodyText, descriptionStyle, styles) {
+  if (!bodyText) return null;
+  return (
+    <Text variant="body2" color="muted" style={[styles.description, descriptionStyle]}>
+      {bodyText}
+    </Text>
+  );
+}
+
+function renderAction(action, onRetry, styles) {
+  if (action) return <View style={styles.actionWrapper}>{action}</View>;
+  if (onRetry) return <View style={styles.actionWrapper}><RetryButton onRetry={onRetry} styles={styles} /></View>;
+  return null;
+}
+
 export default function EmptyState({
   title,
   description,
@@ -36,23 +65,14 @@ export default function EmptyState({
 }) {
   const { mutedColor, styles } = useEmptyStateTheme();
   const bodyText = description || message;
-  const resolvedAction = action || (onRetry ? <RetryButton onRetry={onRetry} styles={styles} /> : null);
 
   return (
     <View style={[styles.container, style]}>
-      {icon && <View style={styles.iconWrapper}>{icon}</View>}
-      {title && (
-        <Heading level={4} style={[styles.title, titleStyle]}>
-          {title}
-        </Heading>
-      )}
-      {bodyText && (
-        <Text variant="body2" color="muted" style={[styles.description, descriptionStyle]}>
-          {bodyText}
-        </Text>
-      )}
+      {renderIcon(icon, styles)}
+      {renderTitle(title, titleStyle, styles)}
+      {renderBody(bodyText, descriptionStyle, styles)}
       {renderChildren(children, descriptionStyle, mutedColor)}
-      {resolvedAction && <View style={styles.actionWrapper}>{resolvedAction}</View>}
+      {renderAction(action, onRetry, styles)}
     </View>
   );
 }

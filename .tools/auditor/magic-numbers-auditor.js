@@ -1,8 +1,6 @@
-const fs = require('fs');
 const path = require('path');
-const { deduplicate, writeAuditReport, walkDir, getFileLines, isCommentLine, finishAuditReport } = require('./auditor-utils');
+const { runAuditorScan, getFileLines, isCommentLine } = require('./auditor-utils');
 
-const SRC_DIR = path.join(__dirname, '../../src');
 const AUDITS_DIR = path.join(__dirname, '../../.docs/audits/audits');
 const LOG_FILE = path.join(AUDITS_DIR, '08-magic-numbers-violations.log');
 const FILES_LOG_FILE = path.join(AUDITS_DIR, '08-magic-numbers-violations.log'.replace('violations', 'files'));
@@ -44,18 +42,13 @@ function scanFile(filePath, violations) {
 
 
 function auditMagicNumbers(disableDynamicAudits = false) {
-  if (!fs.existsSync(AUDITS_DIR)) fs.mkdirSync(AUDITS_DIR, { recursive: true });
-  let rawViolations = [];
-  walkDir(SRC_DIR, (fullPath) => scanFile(fullPath, rawViolations));
-  const violations = deduplicate(rawViolations);
-
-  finishAuditReport({
+  runAuditorScan({
     auditName: '08 Magic Numbers Audit',
     disableDynamicAudits,
-    violations,
     logFile: LOG_FILE,
     filesLogFile: FILES_LOG_FILE,
-    issueTypeName: 'magic number'
+    issueTypeName: 'magic number',
+    scanFile
   });
 }
 

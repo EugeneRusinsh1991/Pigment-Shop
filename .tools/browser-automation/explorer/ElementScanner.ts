@@ -9,7 +9,7 @@ export interface ScannedElement {
   metadata: ElementMetadata;
 }
 
-export const SELECTABLE_ELEMENTS_QUERY =
+const SELECTABLE_ELEMENTS_QUERY =
   'button, a, input, select, textarea, [role="button"], [role="link"], [role="tab"], [role="menuitem"], [role="checkbox"], [role="radio"], [data-testid], [tabindex], [class*="r-cursor"], [style*="cursor"]';
 
 export class ElementScanner {

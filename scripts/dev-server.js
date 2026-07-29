@@ -1,7 +1,8 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
-const { cleanOldFiles, generateMarkdownReport } = require('./devServerReport');
+const { cleanOldFiles } = require('./cleanOldFiles');
+const { generateMarkdownReport } = require('./devServerReport');
 
 const PORT = 8082;
 const BASE_LOG_DIR = process.env.LOG_DIR || path.join(__dirname, '..', '.docs', 'browserLog');

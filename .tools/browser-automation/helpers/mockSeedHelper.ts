@@ -42,7 +42,7 @@ export function withMockMode(options: MockSeedOptions = {}): void {
 /**
  * Deactivates mock mode (restores live Firebase). Use between test suites if needed.
  */
-export function withLiveMode(): void {
+function withLiveMode(): void {
   process.env.EXPO_PUBLIC_USE_MOCKS = 'false';
   delete process.env.EXPO_PUBLIC_MOCK_DELAY_MS;
   delete process.env.EXPO_PUBLIC_MOCK_SIMULATE_ERRORS;
@@ -52,7 +52,7 @@ export function withLiveMode(): void {
 /**
  * Throws if mock mode is not active. Use as a guard at the top of mock-only tests.
  */
-export function assertMockMode(): void {
+function assertMockMode(): void {
   if (process.env.EXPO_PUBLIC_USE_MOCKS !== 'true') {
     throw new Error(
       '[mockSeedHelper] This test requires EXPO_PUBLIC_USE_MOCKS=true. ' +
@@ -64,6 +64,6 @@ export function assertMockMode(): void {
 /**
  * Returns whether mock mode is currently active.
  */
-export function isMockMode(): boolean {
+function isMockMode(): boolean {
   return process.env.EXPO_PUBLIC_USE_MOCKS === 'true';
 }

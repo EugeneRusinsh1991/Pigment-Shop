@@ -1,6 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-const { cleanOldFiles } = require('./cleanOldFiles');
 
 function generateMarkdownReport(timestamp, diagnostics, state, screenshotsDir, stateDir) {
   const screenshotFilename = `screenshot_${timestamp}.jpg`;
@@ -45,6 +44,5 @@ ${JSON.stringify(state, null, 2)}
 }
 
 module.exports = {
-  cleanOldFiles,
   generateMarkdownReport,
 };

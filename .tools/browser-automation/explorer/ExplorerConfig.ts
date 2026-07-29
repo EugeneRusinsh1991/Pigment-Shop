@@ -68,7 +68,7 @@ export const defaultConfig: ExplorerConfig = {
   },
 };
 
-export function getProfileConfig(profile: ExplorationProfile): Partial<ExplorerConfig> {
+function getProfileConfig(profile: ExplorationProfile): Partial<ExplorerConfig> {
   switch (profile) {
     case 'quick':
       return {

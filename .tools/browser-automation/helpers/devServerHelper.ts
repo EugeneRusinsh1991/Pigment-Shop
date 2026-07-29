@@ -1,6 +1,6 @@
 import http from 'http';
 
-export async function isServerRunning(urlStr: string): Promise<boolean> {
+async function isServerRunning(urlStr: string): Promise<boolean> {
   return new Promise((resolve) => {
     try {
       const u = new URL(urlStr);

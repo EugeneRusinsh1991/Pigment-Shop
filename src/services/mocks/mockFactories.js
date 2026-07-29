@@ -18,7 +18,7 @@ export function delay(ms = 200) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-export function createMockProduct(overrides = {}) {
+function createMockProduct(overrides = {}) {
   _productCounter++;
   const base = {
     id: `mock-product-${_productCounter}`,
@@ -38,7 +38,7 @@ export function createMockProduct(overrides = {}) {
   return deepClone({ ...base, ...overrides });
 }
 
-export function createMockCategory(overrides = {}) {
+function createMockCategory(overrides = {}) {
   _categoryCounter++;
   const base = {
     id: `mock-category-${_categoryCounter}`,
@@ -47,27 +47,6 @@ export function createMockCategory(overrides = {}) {
     icon: 'tag',
     productIds: [],
     parentId: null,
-  };
-  return deepClone({ ...base, ...overrides });
-}
-
-export function createMockOrder(overrides = {}) {
-  _orderCounter++;
-  const base = {
-    id: `mock-order-${_orderCounter}`,
-    userId: 'mock-user-1',
-    items: [{ productId: 'mock-product-1', title: 'Product 1', price: 110, quantity: 1 }],
-    totalItems: 1,
-    totalPrice: 110,
-    status: 'Новый заказ',
-    createdAt: new Date().toISOString(),
-    customerInfo: {
-      email: 'test@example.com',
-      firstName: 'Test',
-      lastName: 'User',
-      phone: '+380000000000',
-      city: 'Kyiv',
-    },
   };
   return deepClone({ ...base, ...overrides });
 }

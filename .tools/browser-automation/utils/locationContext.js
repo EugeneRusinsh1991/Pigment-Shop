@@ -68,7 +68,7 @@ function _enrichFromDom(hierarchy) {
   } catch {}
 }
 
-export function getLocationHierarchy(stateDump) {
+function getLocationHierarchy(stateDump) {
   const hierarchy = _resolveUrlSegments(stateDump);
   _enrichFromDom(hierarchy);
   return hierarchy.length > 0 ? hierarchy : ['App'];
