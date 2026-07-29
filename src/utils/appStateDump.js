@@ -1,4 +1,4 @@
-export { getLocationContext, getOverlayText, getTimestamp } from '../../.tools/browser-automation/utils/locationContext.js';
+export { getLocationContext, getOverlayText, getTimestamp } from '../../.tools/automation/browser-automation/utils/locationContext.js';
 
 function getGlobalEnv() {
   const isWeb = typeof window !== 'undefined';

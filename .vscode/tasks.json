@@ -186,7 +186,7 @@
         {
             "label": "Run Browser Automation Smoke (TSX)",
             "type": "shell",
-            "command": "npx tsx .tools/browser-automation/run-smoke.ts",
+            "command": "npx tsx .tools/automation/browser-automation/run-smoke.ts",
             "presentation": {
                 "reveal": "always",
                 "panel": "shared"
@@ -226,7 +226,7 @@
         {
             "label": "Tools: Automation Admin Explorer",
             "type": "shell",
-            "command": "npx tsx .tools/browser-automation/run-admin-nav.ts",
+            "command": "npx tsx .tools/automation/browser-automation/run-admin-nav.ts",
             "presentation": {
                 "reveal": "always",
                 "panel": "dedicated"
@@ -239,7 +239,7 @@
             "dependsOn": [
                 "Run Dev"
             ],
-            "command": "npx tsx .tools/browser-automation/run-smoke-both.ts",
+            "command": "npx tsx .tools/automation/browser-automation/run-smoke-both.ts",
             "presentation": {
                 "reveal": "always",
                 "panel": "dedicated",
@@ -250,7 +250,7 @@
         {
             "label": "Tools: Automation Guest Explorer",
             "type": "shell",
-            "command": "npx tsx .tools/browser-automation/run-smoke-guest.ts",
+            "command": "npx tsx .tools/automation/browser-automation/run-smoke-guest.ts",
             "presentation": {
                 "reveal": "always",
                 "panel": "dedicated"
@@ -263,7 +263,7 @@
             "dependsOn": [
                 "Run Dev"
             ],
-            "command": "npx tsx .tools/browser-automation/run-smoke-both-headless.ts",
+            "command": "npx tsx .tools/automation/browser-automation/run-smoke-both-headless.ts",
             "presentation": {
                 "reveal": "always",
                 "panel": "dedicated",
@@ -274,7 +274,7 @@
         {
             "label": "Tools: Run All Automations Loop",
             "type": "shell",
-            "command": "npx tsx .tools/browser-automation/run-smoke-both-loop.ts",
+            "command": "npx tsx .tools/automation/browser-automation/run-smoke-both-loop.ts",
             "presentation": {
                 "reveal": "always",
                 "panel": "shared"

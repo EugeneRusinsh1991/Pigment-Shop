@@ -1,0 +1,58 @@
+# 📄 Small & Pass-Through Files Findings
+
+*Generated on: 29.07.2026, 22:26:51*
+
+### Candidate Files for Refactoring/Elimination
+
+- **[JSONExporter.ts](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/plugins/knowledge-graph/exporters/JSONExporter.ts)** (`automation/browser-automation/plugins/knowledge-graph/exporters/JSONExporter.ts`)
+  - Lines: 8 | Size: 206 B | Type: **Tiny File**
+  > 💡 This file contains very few lines; review if it adds unnecessary system noise.
+
+- **[run.ts](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/run.ts)** (`automation/browser-automation/run.ts`)
+  - Lines: 10 | Size: 325 B | Type: **Tiny File**
+  > 💡 This file contains very few lines; review if it adds unnecessary system noise.
+
+- **[GuestContext.ts](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/execution-context/GuestContext.ts)** (`automation/browser-automation/execution-context/GuestContext.ts`)
+  - Lines: 15 | Size: 549 B | Type: **Tiny File**
+  > 💡 This file contains very few lines; review if it adds unnecessary system noise.
+
+- **[backupConfig.test.js](file:///d:/Magazine/_PigmentShop/.tools/core/backuper/backupConfig.test.js)** (`core/backuper/backupConfig.test.js`)
+  - Lines: 16 | Size: 633 B | Type: **Tiny File**
+  > 💡 This file contains very few lines; review if it adds unnecessary system noise.
+
+- **[FilesystemWriter.ts](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/plugins/knowledge-graph/pipeline/writers/FilesystemWriter.ts)** (`automation/browser-automation/plugins/knowledge-graph/pipeline/writers/FilesystemWriter.ts`)
+  - Lines: 16 | Size: 485 B | Type: **Tiny File**
+  > 💡 This file contains very few lines; review if it adds unnecessary system noise.
+
+- **[AnalyzerOrchestrator.ts](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/plugins/knowledge-graph/analyzers/AnalyzerOrchestrator.ts)** (`automation/browser-automation/plugins/knowledge-graph/analyzers/AnalyzerOrchestrator.ts`)
+  - Lines: 17 | Size: 431 B | Type: **Tiny File**
+  > 💡 This file contains very few lines; review if it adds unnecessary system noise.
+
+- **[KnowledgePipeline.ts](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/plugins/knowledge-graph/pipeline/KnowledgePipeline.ts)** (`automation/browser-automation/plugins/knowledge-graph/pipeline/KnowledgePipeline.ts`)
+  - Lines: 17 | Size: 447 B | Type: **Tiny File**
+  > 💡 This file contains very few lines; review if it adds unnecessary system noise.
+
+- **[run-smoke-both-headless.ts](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/run-smoke-both-headless.ts)** (`automation/browser-automation/run-smoke-both-headless.ts`)
+  - Lines: 17 | Size: 667 B | Type: **Tiny File**
+  > 💡 This file contains very few lines; review if it adds unnecessary system noise.
+
+- **[envValidator.ts](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/helpers/envValidator.ts)** (`automation/browser-automation/helpers/envValidator.ts`)
+  - Lines: 18 | Size: 451 B | Type: **Tiny File**
+  > 💡 This file contains very few lines; review if it adds unnecessary system noise.
+
+- **[devServerHelper.ts](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/helpers/devServerHelper.ts)** (`automation/browser-automation/helpers/devServerHelper.ts`)
+  - Lines: 49 | Size: 1327 B | Type: **Helper File**
+  > 💡 Consider merging this helper file into the main component that consumes it.
+
+- **[mockSeedHelper.ts](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/helpers/mockSeedHelper.ts)** (`automation/browser-automation/helpers/mockSeedHelper.ts`)
+  - Lines: 70 | Size: 2313 B | Type: **Helper File**
+  > 💡 Consider merging this helper file into the main component that consumes it.
+
+- **[hoverInfoHelper.ts](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/helpers/hoverInfoHelper.ts)** (`automation/browser-automation/helpers/hoverInfoHelper.ts`)
+  - Lines: 72 | Size: 1876 B | Type: **Helper File**
+  > 💡 Consider merging this helper file into the main component that consumes it.
+
+- **[domHelpers.js](file:///d:/Magazine/_PigmentShop/.tools/automation/manual-browser-inspector/utils/domHelpers.js)** (`automation/manual-browser-inspector/utils/domHelpers.js`)
+  - Lines: 84 | Size: 2752 B | Type: **Helper File**
+  > 💡 Consider merging this helper file into the main component that consumes it.
+

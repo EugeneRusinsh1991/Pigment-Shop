@@ -52,7 +52,7 @@
 ### 8. Application Bootstrap (`src/bootstrap/`)
 - [src/bootstrap/](file:///d:/Magazine/_PigmentShop/src/bootstrap/): Application bootstrap coordination (auth, app bootstrap).
 
-- [architecture-standards/](file:///d:/Magazine/_PigmentShop/architecture-standards/): Canonical architecture specifications (UI, Services, Domain standards).
+- [.docs/architecture-standards/](file:///d:/Magazine/_PigmentShop/.docs/architecture-standards/): Canonical architecture specifications (UI, Services, Domain standards).
 
 ---
 
