@@ -7665,19 +7665,5 @@
       "modified": 0,
       "topFolders": []
     }
-  },
-  "src_07-29_22-33_backup-history.log_2files": {
-    "timestamp": "2026-07-29T19:33:28.892Z",
-    "diff": {
-      "added": 0,
-      "removed": 0,
-      "modified": 2,
-      "topFolders": [
-        {
-          "folder": "core/backuper/log",
-          "count": 2
-        }
-      ]
-    }
   }
 }
