@@ -3,6 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import Button, { AnimatedButton } from '../../components/ui/Button';
 import { Heading, Text } from '../../components/ui/Text';
 import Toggle from '../../components/ui/Toggle';
+import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
 import { FieldTextarea } from '../admin/SharedFormComponents';
 import styles from './ProductReviewsStyles';
@@ -34,7 +35,7 @@ export function ReviewCard({ rev, isDark }) {
 }
 
 export function RegistrationPrompt({ isDark }) {
-  const { t } = useTheme();
+  const { t } = useLanguage();
   return (
     <View style={[styles.reviewForm, isDark ? styles.formDark : styles.formLight, styles.registrationPrompt]}>
       <Text variant="body2" align="center" style={styles.comment}>
@@ -100,7 +101,7 @@ export function ReviewForm({
   hideHeading,
   showModeToggle,
 }) {
-  const { t } = useTheme();
+  const { t } = useLanguage();
   const isQuestion = submitMode === 'question';
 
   const modeOptions = [

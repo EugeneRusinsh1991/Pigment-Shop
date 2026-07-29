@@ -2,6 +2,7 @@ import { Link } from 'expo-router';
 import { View } from 'react-native';
 import { Button } from '../../components/ui/Button';
 import { Text } from '../../components/ui/Text';
+import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
 import { FieldInput, FieldTextarea } from '../admin/SharedFormComponents';
 import styles from './CartViewStyles';
@@ -18,7 +19,7 @@ export default function CartSummary({ totalItems, totalPrice, isWide, isDark, no
   email, firstName, lastName, phone, city,
   onEmailChange, onFirstNameChange, onLastNameChange, onPhoneChange, onCityChange,
 }) {
-  const { t } = useTheme();
+  const { t } = useLanguage();
   const ic = (dark, light) => (isDark ? dark : light);
 
   const fieldValues = { email, firstName, lastName, phone, city };

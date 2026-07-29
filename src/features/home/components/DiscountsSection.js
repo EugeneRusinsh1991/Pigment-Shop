@@ -1,5 +1,6 @@
 import { ScrollFadeUp } from '@/components/ui/Motion';
 import { Heading, Text } from '@/components/ui/Text';
+import { useLanguage } from '@/context/LanguageContext';
 import { useCatalog } from '@/features/catalog/CatalogContext';
 import { PlaceholderGrid } from '@/features/catalog/PlaceholderCard';
 import useUnifiedCardGrid from '@/hooks/useUnifiedCardGrid';
@@ -29,7 +30,9 @@ function DiscountsHeader({ isWide, isDark, title }) {
   );
 }
 
-export default function DiscountsSection({ isDark, isWide, t, onCardPress, favs }) {
+export default function DiscountsSection({ isDark, isWide, t: propT, onCardPress, favs }) {
+  const { t: langT } = useLanguage();
+  const t = typeof propT === 'function' ? propT : langT;
   const { cols, gap, tier } = useUnifiedCardGrid();
   const router = useRouter();
   const { flatList } = useCatalog();
@@ -46,20 +49,20 @@ export default function DiscountsSection({ isDark, isWide, t, onCardPress, favs 
             id: 'nav-card-discounts',
             isNavigationCard: true,
             type: 'discounts',
-            text: t.viewAllDiscounts,
+            text: t('viewAllDiscounts'),
             href: { pathname: '/products', params: { onSale: 'true' } },
           },
         ]
       : discountedProducts;
-  }, [discountedProducts, tier, t.viewAllDiscounts]);
+  }, [discountedProducts, tier, t]);
 
   return (
     <View style={styles.footerProductsSection}>
-      <DiscountsHeader isWide={isWide} isDark={isDark} title={t.discounts} />
+      <DiscountsHeader isWide={isWide} isDark={isDark} title={t('discounts')} />
       {discountedProducts.length === 0 ? (
         <View style={localStyles.emptyContainer}>
           <Text variant="body1" color="muted" style={localStyles.emptyText}>
-            {t.emptyDiscounts}
+            {t('emptyDiscounts')}
           </Text>
         </View>
       ) : (

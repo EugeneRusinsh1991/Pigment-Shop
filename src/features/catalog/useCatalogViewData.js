@@ -1,6 +1,7 @@
 import { useLocalSearchParams } from 'expo-router';
 import { useMemo } from 'react';
 import { useWindowDimensions } from 'react-native';
+import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
 import useUnifiedCardGrid from '../../hooks/useUnifiedCardGrid';
 import { findCategoryPath } from '../../utils/categoryTreeUtils';
@@ -17,7 +18,7 @@ export function useCatalogViewData({
   hasFilterSidebar = false,
 }) {
   const { width: windowWidth } = useWindowDimensions();
-  const { t } = useTheme();
+  const { t } = useLanguage();
   const { categoryId } = useLocalSearchParams();
   const { categoryTree } = useCatalog();
 
@@ -68,7 +69,8 @@ export function useCatalogViewData({
 }
 
 export function useCatalogRootData() {
-  const { isDark, t } = useTheme();
+  const { isDark } = useTheme();
+  const { t } = useLanguage();
   const { categoryTree } = useCatalog();
   const { width } = useWindowDimensions();
   const isWide = width >= 768;

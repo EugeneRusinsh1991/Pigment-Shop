@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { useTheme } from '../../context/ThemeContext';
+import { useLanguage } from '../../context/LanguageContext';
 import { Badge } from '../../components/ui/Badge';
 import { layout } from '../../theme/tokens';
 
@@ -26,7 +26,7 @@ function renderDiscountBadge(discountPercent) {
 }
 
 export default function ProductBadges({ isNew, isFeatured, discountPercent, containerStyle }) {
-  const { t } = useTheme();
+  const { t } = useLanguage();
   
   const hasBadges = isNew || isFeatured || discountPercent > 0;
   if (!hasBadges) return null;

@@ -3,6 +3,7 @@ import { View, useWindowDimensions } from 'react-native';
 import { Heading } from '../../components/ui/Text';
 import styles from './CatalogFilterSidebarStyles';
 import { CrossIcon } from '../../components/Icons';
+import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
 import { useSlideAnimation } from '../../hooks/useSlideAnimation';
 import Drawer from '../../components/ui/Drawer';
@@ -38,7 +39,7 @@ export default function CatalogFilterSidebar({
   mobileVisible, onMobileToggle, isNarrow,
   sortKey, onSortChange,
 }) {
-  const { t } = useTheme();
+  const { t } = useLanguage();
   const { width: windowWidth } = useWindowDimensions();
   const panelWidth = windowWidth * 0.85;
 

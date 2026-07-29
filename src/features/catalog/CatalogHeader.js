@@ -6,6 +6,7 @@ import HeroCarousel from '../home/components/HeroCarousel';
 import Button from '../../components/ui/Button';
 import { ScrollFadeUp } from '../../components/ui/Motion';
 import { colors } from '../../theme/tokens';
+import { useLanguage } from '../../context/LanguageContext';
 
 function HeroBanner({ isDark, isWide, t, isTransitionReady }) {
   return (
@@ -17,7 +18,7 @@ function HeroBanner({ isDark, isWide, t, isTransitionReady }) {
       )}
       <Link href="/catalog" asChild>
         <Button
-          title={t.heroBtn}
+          title={t('heroBtn')}
           variant="accent"
           size="lg"
         />
@@ -29,7 +30,7 @@ function HeroBanner({ isDark, isWide, t, isTransitionReady }) {
 function SectionTitleRow({ isDark, depth, currentLevel, t, showSectionTitle }) {
   if (!showSectionTitle) return null;
   const tc = isDark ? styles.textDark : styles.textLight;
-  const sectionLabel = depth === 0 ? t.categories : currentLevel.label;
+  const sectionLabel = depth === 0 ? t('categories') : currentLevel.label;
   return (
     <ScrollFadeUp style={styles.sectionTitleRow}>
       <Text style={[styles.sectionTitle, tc]}>{sectionLabel}</Text>
@@ -37,7 +38,10 @@ function SectionTitleRow({ isDark, depth, currentLevel, t, showSectionTitle }) {
   );
 }
 
-export default function CatalogHeader({ isDark, isWide, depth, currentLevel, crumbs, t, onCrumbPress, showSectionTitle = true, showHeroBanner = true, isTransitionReady = true }) {
+export default function CatalogHeader({ isDark, isWide, depth, currentLevel, crumbs, t: propT, onCrumbPress, showSectionTitle = true, showHeroBanner = true, isTransitionReady = true }) {
+  const { t: langT } = useLanguage();
+  const t = typeof propT === 'function' ? propT : langT;
+
   return (
     <>
       {depth === 0 && showHeroBanner && <HeroBanner isDark={isDark} isWide={isWide} t={t} isTransitionReady={isTransitionReady} />}

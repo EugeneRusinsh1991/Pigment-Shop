@@ -1,5 +1,6 @@
 import { useCallback, useState } from 'react';
 import { ConfirmationModal } from '../components/ui/Modal';
+import { useLanguage } from '../context/LanguageContext';
 import { useTheme } from '../context/ThemeContext';
 
 /**
@@ -7,7 +8,7 @@ import { useTheme } from '../context/ThemeContext';
  * Uses custom themed ConfirmationModal.
  */
 export function useDeleteConfirmation() {
-  const { t } = useTheme();
+  const { t } = useLanguage();
   const [dialogState, setDialogState] = useState({
     visible: false,
     title: '',

@@ -1,6 +1,7 @@
 import React from 'react';
 import { TouchableOpacity, View } from 'react-native';
 import { Text } from '@/components/ui/Text';
+import { useLanguage } from '../../../context/LanguageContext';
 import { useTheme } from '../../../context/ThemeContext';
 import { Button, IconButton } from '@/components/ui/Button';
 import { EditIcon, TrashIcon } from '@/components/Icons';
@@ -32,14 +33,14 @@ export function getHighlightStyle(isNew, discountPercent) {
 }
 
 export function NewBadge() {
-  const { t } = useTheme();
+  const { t } = useLanguage();
   return (
     <Badge variant="new" label={t('badgeNew')} size="sm" />
   );
 }
 
 export function StatusBadge({ active }) {
-  const { t } = useTheme();
+  const { t } = useLanguage();
   return (
     <Badge
       variant="status"

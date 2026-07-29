@@ -1,6 +1,7 @@
 import { View, useWindowDimensions } from 'react-native';
 import { Text } from '../../components/ui/Text/Text';
 import { useAuth } from '../../context/AuthContext';
+import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
 import { useProfile } from '../profile/useProfile';
 import styles from './ProductReviewsStyles';
@@ -31,7 +32,7 @@ function MobileFormArea({ isDark, isAuthenticated, state }) {
 }
 
 export default function ProductReviews({ product, isDark, reviewsState: parentState }) {
-  const { t } = useTheme();
+  const { t } = useLanguage();
   const { width } = useWindowDimensions();
   const isDesktop = width >= 768;
   const { isAuthenticated, user } = useAuth();

@@ -2,6 +2,7 @@ import { useRouter } from 'expo-router';
 import { useEffect } from 'react';
 import { Button } from '../../components/ui/Button';
 import { ScrollFadeUp } from '../../components/ui/Motion';
+import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
 import useGridLayout from '../../hooks/useGridLayout';
 import { useCatalog } from '../catalog/CatalogContext';
@@ -10,7 +11,7 @@ import OrderDetailsCard from './OrderDetailsCard';
 import OrderHeader from './OrderHeader';
 
 export default function OrderConfirmationPage({ isDark, params }) {
-  const { t, lang } = useTheme();
+  const { t, lang } = useLanguage();
   const router = useRouter();
   const { flatList } = useCatalog();
   const { isWide, gridWidth } = useGridLayout();

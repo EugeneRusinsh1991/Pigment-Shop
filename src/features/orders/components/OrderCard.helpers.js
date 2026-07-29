@@ -1,4 +1,5 @@
 import { Text } from '@/components/ui/Text';
+import { useLanguage } from '@/context/LanguageContext';
 import { useTheme } from '@/context/ThemeContext';
 import { useCatalog } from '@/features/catalog/CatalogContext';
 import { formatDateLong } from '@/utils/dateFormatting';
@@ -19,7 +20,7 @@ function getItemLabel(labelObj, lang) {
 }
 
 function OrderItemRow({ item, idx, getStyle }) {
-  const { t, lang } = useTheme();
+  const { t, lang } = useLanguage();
   const { flatList } = useCatalog();
   const matched = flatList.find((p) => p.id === item.id);
   const labelObj = matched ? matched.label : item.label;
@@ -81,7 +82,7 @@ export function getToggleText(isExpanded, t) {
 
 export function ExpandedItemsList({ show, items, getStyle, order }) {
   if (!show || !items) return null;
-  const theme = useTheme();
+  const { lang } = useLanguage();
   return (
     <View style={[styles.itemsList, getStyle(styles.itemsListDark, styles.itemsListLight)]}>
       {items.map((item, idx) => (
@@ -95,7 +96,7 @@ export function ExpandedItemsList({ show, items, getStyle, order }) {
       {order.note ? (
         <View style={[styles.noteSection, getStyle(styles.itemBorderDark, styles.itemBorderLight)]}>
           <Text variant="caption" color="muted" style={[styles.itemLabel, styles.noteTitle]}> 
-            {getItemLabel({ en: 'Order Note', ru: 'Комментарий к заказу', uk: 'Коментар до замовлення' }, theme.lang)}
+            {getItemLabel({ en: 'Order Note', ru: 'Комментарий к заказу', uk: 'Коментар до замовлення' }, lang)}
           </Text>
           <Text style={styles.itemLabel}>
             {order.note}

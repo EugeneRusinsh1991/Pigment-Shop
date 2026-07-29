@@ -1,6 +1,7 @@
 import { ActivityIndicator, StyleSheet, View } from 'react-native';
 import { AnimatedButton } from '../../components/ui/Button';
 import { Text } from '../../components/ui/Text';
+import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
 import { colors, layout } from '../../theme/tokens';
 
@@ -55,7 +56,7 @@ function PageIndicator({ loading, isDark, infoText }) {
 }
 
 export default function CatalogPagination({ currentPage, totalPages, onPrev, onNext, loading, isDark }) {
-  const { t } = useTheme();
+  const { t } = useLanguage();
 
   if (totalPages <= 1) return null;
 

@@ -1,4 +1,5 @@
 import { Text } from '@/components/ui/Text';
+import { useLanguage } from '@/context/LanguageContext';
 import { useTheme } from '@/context/ThemeContext';
 import { colors, layout, shadows } from '@/theme/tokens';
 import { useEffect, useRef } from 'react';
@@ -16,7 +17,7 @@ const setElementText = (ref, text) => {
 // ─── Countdown Timer Component ──────────────────────────────────────────────
 
 export function CountdownTimer({ isDark }) {
-  const { t } = useTheme();
+  const { t } = useLanguage();
   const daysRef = useRef(null);
   const hoursRef = useRef(null);
   const minutesRef = useRef(null);

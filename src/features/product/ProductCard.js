@@ -4,6 +4,7 @@ import { Image, View } from 'react-native';
 import { IconButton } from '../../components/ui/Button';
 import Card from '../../components/ui/Card/Card';
 import { Text } from '../../components/ui/Text';
+import { useLanguage } from '../../context/LanguageContext';
 import { getThemedValue, useTheme } from '../../context/ThemeContext';
 import useCardDimensions from '../../hooks/useCardDimensions';
 import { colors } from '../../theme/tokens';
@@ -56,7 +57,7 @@ function getCardStyle(cardHeight, overrideWidth) {
 
 const ProductCardInner = React.forwardRef(({ item, isDark, depth = 1, isFavorite, onToggleFavorite, overrideWidth, ...rest }, ref) => {
   const [imgError, setImgError] = React.useState(false);
-  const { t, lang } = useTheme();
+  const { t, lang } = useLanguage();
   const { addItem } = useCartContext();
   const { cardHeight, imgContainerHeight } = useCardDimensions(depth);
 

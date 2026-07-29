@@ -12,6 +12,7 @@ import { SearchInput } from '@/components/domain/Search';
 import { Text } from '@/components/ui/Text';
 import React, { useState } from 'react';
 import { ActivityIndicator, View } from 'react-native';
+import { useLanguage } from '../../../context/LanguageContext';
 import { useTheme } from '../../../context/ThemeContext';
 import useSort from '../../../hooks/useSort';
 import { loadUsers } from '../../../services/adminUsersService';
@@ -21,7 +22,6 @@ import { useCrudWorkflow } from '../useCrudWorkflow';
 import UserDetails from './UserDetails';
 import { DesktopUserRow, MobileUserCard } from './UserRow';
 import styles from './UsersStyles';
-
 
 function sortUsers(users, sortField, sortDirection) {
   if (!sortField) return users;
@@ -113,7 +113,7 @@ function UsersTable({ t, sortField, sortDirection, handleSort, users, onSelectUs
 }
 
 export default function UsersManager() {
-  const { t } = useTheme();
+  const { t } = useLanguage();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedUser, setSelectedUser] = useState(null);
 

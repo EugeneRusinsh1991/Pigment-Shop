@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ScrollFadeUp } from '../../components/ui/Motion';
 import { Heading } from '../../components/ui/Text';
 import { useAuth } from '../../context/AuthContext';
+import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
 import useGridLayout from '../../hooks/useGridLayout';
 import PageScrollLayout from '../shell/PageScrollLayout';
@@ -53,7 +54,7 @@ function OrdersList({ orders, paginatedOrders, expandedOrders, toggleExpand, cur
 }
 
 export default function OrdersPage({ isDark }) {
-  const { t } = useTheme();
+  const { t } = useLanguage();
   const { user } = useAuth();
   const { orders = [] } = useOrders(user);
   const [expandedOrders, setExpandedOrders] = useState({});

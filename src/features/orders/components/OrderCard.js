@@ -1,6 +1,7 @@
 import { View, useWindowDimensions } from 'react-native';
 import { Text } from '@/components/ui/Text';
 import { AnimatedButton } from '@/components/ui/Button';
+import { useLanguage } from '@/context/LanguageContext';
 import { useTheme } from '@/context/ThemeContext';
 import Card from '@/components/ui/Card';
 import { colors, layout, motion } from '@/theme/tokens';
@@ -88,7 +89,7 @@ function DefaultOrderHeader({ order, t, lang, isExpanded, getStyle, isAdminView 
 }
 
 export default function OrderCard({ order, isDark, isExpanded, onToggle, getStyle, isAdminView = false }) {
-  const { t, lang } = useTheme();
+  const { t, lang } = useLanguage();
   const { width: windowWidth } = useWindowDimensions();
   const isMobile = windowWidth < 768;
 

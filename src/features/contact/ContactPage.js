@@ -1,5 +1,6 @@
 import { ScrollView, View, useWindowDimensions } from 'react-native';
 import { Heading } from '../../components/ui/Text';
+import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
 import commonStyles from '../../theme/commonStyles';
 import Footer from '../shell/components/Footer';
@@ -10,7 +11,8 @@ import ContactQuestionForm from './ContactQuestionForm';
 import styles from './ContactPageStyles';
 
 export default function ContactPage({ isDark }) {
-  const { t, ic } = useTheme();
+  const { ic } = useTheme();
+  const { t } = useLanguage();
   const { width: windowWidth } = useWindowDimensions();
   const isMobile = windowWidth < 768;
   const contentWidth = getContentGridWidth(windowWidth);

@@ -1,5 +1,6 @@
 import { Flag } from '@/components/domain/Flag';
 import { View } from 'react-native';
+import { useLanguage } from '../../../context/LanguageContext';
 import { useTheme } from '../../../context/ThemeContext';
 import { layout } from '../../../theme/tokens';
 import styles from './ProductFormStyles';
@@ -25,7 +26,7 @@ function FieldCheckbox({ label, value, onChange }) {
 
 
 export const NameField = ({ form, onChange, errors, activeLang = 'uk' }) => {
-  const { t } = useTheme();
+  const { t } = useLanguage();
   const safeLang = activeLang || 'uk';
   const langLabel = safeLang === 'uk' ? 'UA' : safeLang.toUpperCase();
   return (
@@ -40,7 +41,7 @@ export const NameField = ({ form, onChange, errors, activeLang = 'uk' }) => {
 };
 
 export const DescriptionField = ({ form, onChange, activeLang = 'uk' }) => {
-  const { t } = useTheme();
+  const { t } = useLanguage();
   const safeLang = activeLang || 'uk';
   const langLabel = safeLang === 'uk' ? 'UA' : safeLang.toUpperCase();
   return (
@@ -54,7 +55,7 @@ export const DescriptionField = ({ form, onChange, activeLang = 'uk' }) => {
 };
 
 export const PriceDiscountRow = ({ form, onChange, errors }) => {
-  const { t } = useTheme();
+  const { t } = useLanguage();
   return (
     <View style={styles.fieldRow}>
       <FieldInput label={t('adminProductsFormPrice') + ' (₴) *'} value={form.price} onChangeText={(v) => onChange('price', v)} placeholder="0" keyboardType="numeric" error={errors.price} />
@@ -64,7 +65,7 @@ export const PriceDiscountRow = ({ form, onChange, errors }) => {
 };
 
 export const BrandSkuRow = ({ form, onChange }) => {
-  const { t } = useTheme();
+  const { t } = useLanguage();
   return (
     <View style={styles.fieldRow}>
       <FieldInput label={t('adminProductsFormBrand')} value={form.brand} onChangeText={(v) => onChange('brand', v)} placeholder={t('adminProductsFormBrand')} />
@@ -74,7 +75,7 @@ export const BrandSkuRow = ({ form, onChange }) => {
 };
 
 export const CategoryStockRow = ({ form, onChange }) => {
-  const { t } = useTheme();
+  const { t } = useLanguage();
   return (
     <View style={styles.fieldRow}>
       <FieldInput label={t('adminProductsFormStock')} value={form.stock} onChangeText={(v) => onChange('stock', v)} placeholder="0" keyboardType="numeric" />
@@ -83,7 +84,7 @@ export const CategoryStockRow = ({ form, onChange }) => {
 };
 
 export const ImageFields = ({ form, onChange }) => {
-  const { t } = useTheme();
+  const { t } = useLanguage();
   return (
     <View style={styles.imageFieldsGroup}>
       <FieldInput label={`${t('adminProductsFormImage')} 1 *`} value={form.image1} onChangeText={(v) => onChange('image1', v)} placeholder="https://..." />
@@ -94,7 +95,7 @@ export const ImageFields = ({ form, onChange }) => {
 };
 
 export const FlagsSection = ({ form, onChange }) => {
-  const { t } = useTheme();
+  const { t } = useLanguage();
   return (
     <>
       <FieldCheckbox label={t('adminProductsFormNew')} value={!!form.isNew} onChange={(v) => onChange('isNew', v)} />

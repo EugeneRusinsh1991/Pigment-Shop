@@ -8,6 +8,7 @@ import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { PageTransition } from '../../components/ui/Motion';
+import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
 import useCatalogFilters from '../../hooks/useCatalogFilters';
 import useCatalogLayout from '../../hooks/useCatalogLayout';
@@ -102,7 +103,7 @@ export default function CatalogPage({ isDark }) {
   const favs = useFavoritesContext();
   const router = useRouter();
   const navParams = useLocalSearchParams();
-  const { t } = useTheme();
+  const { t } = useLanguage();
 
   const [mobileFiltersVisible, setMobileFiltersVisible] = useState(false);
   const [sortDropdownVisible, setSortDropdownVisible] = useState(false);

@@ -1,6 +1,7 @@
 import { useRouter } from 'expo-router';
 import { useCallback } from 'react';
 import { FlatList, ScrollView, StyleSheet, View } from 'react-native';
+import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
 import styles from '../../theme/appStyles';
 import { layout } from '../../theme/tokens';
@@ -48,7 +49,7 @@ export default function CatalogView({
   showHeroBanner = false,
   showNavigation = false,
 }) {
-  const { t } = useTheme();
+  const { t } = useLanguage();
   const favs = useFavoritesContext();
   const router = useRouter();
 

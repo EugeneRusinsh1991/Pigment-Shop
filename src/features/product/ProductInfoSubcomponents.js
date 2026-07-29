@@ -3,6 +3,7 @@ import { Link } from 'expo-router';
 import { View } from 'react-native';
 import { Button, IconButton } from '../../components/ui/Button';
 import { Heading, Text } from '../../components/ui/Text';
+import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
 import { colors } from '../../theme/tokens';
 import { getLocalizedValue } from '../../utils/localization';
@@ -56,7 +57,7 @@ function ProductInfoPrice({ price, discountPercent }) {
 }
 
 export function ProductMetaInfo({ product }) {
-  const { t, lang } = useTheme();
+  const { t, lang } = useLanguage();
   const desc = getLocalizedValue(product.description, lang, t('productNoDesc'));
   const label = getLocalizedValue(product.label, lang);
   const brand = product.brand || 'BEAUTY';
@@ -110,7 +111,7 @@ function useIsProductInCart(productId) {
 }
 
 export function ProductActionRow({ product, qty, isDark, isWide, onDecrease, onIncrease, onAddToCart, isFavorite, onToggleFavorite }) {
-  const { t } = useTheme();
+  const { t } = useLanguage();
   const isInCart = useIsProductInCart(product?.id);
   const finalPrice = calcFinalPrice(getSafePrice(product?.price), product?.discountPercent);
   const heartColor = getHeartColor(isFavorite, isDark);

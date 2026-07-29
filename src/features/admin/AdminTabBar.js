@@ -1,6 +1,7 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
 import styles from './AdminPanelStyles';
+import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
 import Toggle from '@/components/ui/Toggle';
 import { layout } from '../../theme/tokens';
@@ -15,7 +16,7 @@ const ADMIN_TABS = [
 ];
 
 export default function AdminTabBar({ activeTab, onSelect, isDark }) {
-  const { t } = useTheme();
+  const { t } = useLanguage();
 
   const options = ADMIN_TABS.map((tab) => ({
     value: tab.id,

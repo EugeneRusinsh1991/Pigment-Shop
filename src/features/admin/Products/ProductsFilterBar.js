@@ -8,6 +8,7 @@ import React from 'react';
 import { View } from 'react-native';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
+import { useLanguage } from '../../../context/LanguageContext';
 import { useTheme } from '../../../context/ThemeContext';
 import { layout } from '../../../theme/tokens';
 import styles from './ProductsStyles';
@@ -19,7 +20,7 @@ export default function ProductsFilterBar({
   onToggleNew,
   onAdd,
 }) {
-  const { t } = useTheme();
+  const { t } = useLanguage();
   return (
     <View style={styles.filterBar}>
       <Badge
