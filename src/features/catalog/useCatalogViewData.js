@@ -18,7 +18,7 @@ export function useCatalogViewData({
   hasFilterSidebar = false,
 }) {
   const { width: windowWidth } = useWindowDimensions();
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const { categoryId } = useLocalSearchParams();
   const { categoryTree } = useCatalog();
 
@@ -47,7 +47,7 @@ export function useCatalogViewData({
       }));
     }
     return { computedDepth: depth, computedCurrentLevel: currentLevel, computedItems: items, computedCrumbs: crumbs };
-  }, [computedPath, categoryTree, t]);
+  }, [computedPath, categoryTree, t, lang]);
 
   const depth = overrideDepth !== undefined ? overrideDepth : computedDepth;
   const currentLevel = overrideCurrentLevel !== undefined ? overrideCurrentLevel : computedCurrentLevel;

@@ -1,17 +1,17 @@
 import { useRouter } from 'expo-router';
 import { useCallback } from 'react';
-import { FlatList, ScrollView, StyleSheet, View } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
 import { useLanguage } from '../../context/LanguageContext';
-import { useTheme } from '../../context/ThemeContext';
 import styles from '../../theme/appStyles';
 import { layout } from '../../theme/tokens';
 import { useFavoritesContext } from '../favorites/FavoritesContext';
 
 import { PageNavigation } from '@/components/domain/Navigation';
+import UnifiedCardGrid from '../../components/ui/Grid/UnifiedCardGrid';
 import CatalogHeader from './CatalogHeader';
 import CatalogListFooter from './CatalogListFooter';
 import PlaceholderCard from './PlaceholderCard';
-import UnifiedCardGrid from '../../components/ui/Grid/UnifiedCardGrid';
+import { useCatalog } from './CatalogContext';
 import { useCatalogTransition } from './useCatalogTransition';
 import { useCatalogViewData } from './useCatalogViewData';
 
@@ -22,13 +22,13 @@ function renderCatalogItem({ item, isDark, depth, favs, cols }) {
   const isLeaf = !item.isCategory;
   return (
     <PlaceholderCard
-        item={item}
-        isDark={isDark}
-        isLeaf={isLeaf}
-        depth={depth}
-        isFavorite={favs?.isFavorite(item.id)}
-        onToggleFavorite={favs?.toggleFavorite}
-      />
+      item={item}
+      isDark={isDark}
+      isLeaf={isLeaf}
+      depth={depth}
+      isFavorite={favs?.isFavorite(item.id)}
+      onToggleFavorite={favs?.toggleFavorite}
+    />
   );
 }
 
@@ -52,6 +52,7 @@ export default function CatalogView({
   const { t } = useLanguage();
   const favs = useFavoritesContext();
   const router = useRouter();
+  const { flatList, categoryLookup } = useCatalog();
 
   const {
     depth,
@@ -97,6 +98,8 @@ export default function CatalogView({
             onBack={handleBackPress}
             showBack={true}
             showBreadcrumbs={true}
+            flatList={flatList}
+            categoryLookup={categoryLookup}
           />
         </View>
       )}
