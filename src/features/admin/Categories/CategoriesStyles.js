@@ -107,7 +107,7 @@ export default StyleSheet.create({
     backgroundColor: colors.infoBgAlt,
   },
   treeRowDepth2: {
-    backgroundColor: colors.neutralLightMax,
+    backgroundColor: colors.surfaceSubtleLight,
   },
 
   /* Cell widths */

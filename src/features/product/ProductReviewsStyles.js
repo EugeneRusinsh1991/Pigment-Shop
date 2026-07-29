@@ -101,7 +101,7 @@ export default StyleSheet.create({
   },
   reviewCardDark: {
     backgroundColor: colors.surfaceNeutralDark,
-    borderColor: colors.borderDarkAlt,
+    borderColor: colors.borderDark,
   },
   reviewCardLight: {
     backgroundColor: colors.white,

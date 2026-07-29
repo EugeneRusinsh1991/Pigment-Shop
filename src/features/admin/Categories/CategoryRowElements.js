@@ -92,7 +92,7 @@ export function DepthBars({ depth, leftOffset = 16 }) {
             elem_styles.depthBarBase,
             {
               left: leftOffset + i * INDENT_PER_LEVEL,
-              backgroundColor: i === depth - 1 ? colors.slateStrong : colors.neutralLightStrong,
+              backgroundColor: i === depth - 1 ? colors.slateStrong : colors.borderLight,
             },
           ]}
         />

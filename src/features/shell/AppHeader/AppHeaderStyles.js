@@ -13,11 +13,11 @@ export default StyleSheet.create({
   },
   headerDark: {
     backgroundColor: colors.backgroundDark,
-    borderBottomColor: colors.borderDarkAlt,
+    borderBottomColor: colors.borderDark,
   },
   headerLight: {
     backgroundColor: colors.backgroundLight,
-    borderBottomColor: colors.borderLightAlt,
+    borderBottomColor: colors.borderLight,
   },
   innerRow: {
     width: '100%',
@@ -89,7 +89,7 @@ export default StyleSheet.create({
   dropdownDark: {
     backgroundColor: colors.navSurfaceDark,
     borderWidth: layout.borderWidth.thin,
-    borderColor: colors.borderDarkAlt,
+    borderColor: colors.borderDark,
   },
   dropdownLight: {
     backgroundColor: colors.white,
@@ -102,7 +102,7 @@ export default StyleSheet.create({
     borderRadius: layout.radii.sm,
   },
   dropdownItemActiveDark: {
-    backgroundColor: colors.borderDarkAlt,
+    backgroundColor: colors.borderDark,
   },
   dropdownItemActiveLight: {
     backgroundColor: colors.backgroundLight,

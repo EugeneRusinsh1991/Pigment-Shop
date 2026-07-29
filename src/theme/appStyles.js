@@ -50,11 +50,11 @@ export default StyleSheet.create({
   },
   breadcrumbBarDark: {
     backgroundColor: colors.backgroundDark,
-    borderBottomColor: colors.borderDarkAlt,
+    borderBottomColor: colors.borderDark,
   },
   breadcrumbBarLight: {
     backgroundColor: colors.backgroundLight,
-    borderBottomColor: colors.borderLightAlt,
+    borderBottomColor: colors.borderLight,
   },
 
   // Hero Section Styles
@@ -137,12 +137,12 @@ export default StyleSheet.create({
   stickySearchContainerDark: {
     backgroundColor: colors.backgroundDark,
     borderBottomWidth: layout.borderWidth.none,
-    borderBottomColor: colors.borderDarkAlt,
+    borderBottomColor: colors.borderDark,
   },
   stickySearchContainerLight: {
     backgroundColor: colors.backgroundLight,
     borderBottomWidth: layout.borderWidth.none,
-    borderBottomColor: colors.borderLightAlt,
+    borderBottomColor: colors.borderLight,
   },
   searchInner: {
     width: '100%',

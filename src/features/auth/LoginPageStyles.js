@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     marginBottom: layout.spacing.lg,
   },
   googleBtnDark: { borderColor: colors.outlineDarkBorder },
-  googleBtnLight: { borderColor: colors.neutralLightMid },
+  googleBtnLight: { borderColor: colors.borderLight },
   googleIcon: {
     marginRight: layout.spacing.sm,
     color: colors.googleRed,
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     height: 1,
   },
   dividerLineDark: { backgroundColor: colors.outlineDarkBorder },
-  dividerLineLight: { backgroundColor: colors.neutralLightMid },
+  dividerLineLight: { backgroundColor: colors.borderLight },
   dividerText: {
     marginHorizontal: layout.spacing.md,
   },
@@ -97,8 +97,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: layout.spacing.md,
     height: 44,
   },
-  inputContainerDark: { borderColor: colors.outlineDarkBorder, backgroundColor: colors.borderDarkAlt },
-  inputContainerLight: { borderColor: colors.neutralLightMid, backgroundColor: colors.inputBgLight },
+  inputContainerDark: { borderColor: colors.outlineDarkBorder, backgroundColor: colors.borderDark },
+  inputContainerLight: { borderColor: colors.borderLight, backgroundColor: colors.inputBgLight },
   inputIcon: {
     marginRight: layout.spacing.sm,
     color: colors.textSubtleLight,

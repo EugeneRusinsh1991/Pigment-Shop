@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
     ...shadow.dropdown(),
     elevation: layout.elevation.sm,
   },
-  cardDark: { backgroundColor: colors.surfaceNeutralDark, borderColor: colors.borderDarkAlt },
+  cardDark: { backgroundColor: colors.surfaceNeutralDark, borderColor: colors.borderDark },
   cardLight: { backgroundColor: colors.surfaceLight, borderColor: colors.secondaryLightBorder },
 
   imageWrap: {

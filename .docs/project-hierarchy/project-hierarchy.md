@@ -57,7 +57,8 @@
 - [src/hooks/](file:///d:/Magazine/_PigmentShop/src/hooks/): React custom hooks.
 - [src/utils/](file:///d:/Magazine/_PigmentShop/src/utils/): Utility functions and helpers.
 - [src/types/](file:///d:/Magazine/_PigmentShop/src/types/): TypeScript type definitions.
-- [src/theme/](file:///d:/Magazine/_PigmentShop/src/theme/): Tokenized color palettes, typography, and styling helpers.
+- **Theme & Design System**: Modular tokenized design system (`src/theme/colors.js`, `typography.js`, `layout.js`, `shadows.js` re-exported via `tokens.js`)
+- [src/theme/](file:///d:/Magazine/_PigmentShop/src/theme/): Modular design system tokens (`colors.js`, `typography.js`, `layout.js`, `shadows.js`) barrel re-exported via `tokens.js`.
 
 ### 8. Application Bootstrap (`src/bootstrap/`)
 - [src/bootstrap/](file:///d:/Magazine/_PigmentShop/src/bootstrap/): Application bootstrap coordination (auth, app bootstrap).

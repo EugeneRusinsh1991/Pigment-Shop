@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
   },
   circleDark: {
     backgroundColor: colors.borderDark,
-    borderColor: colors.neutralDarkMid,
+    borderColor: colors.surfaceSubtleDark,
   },
   circleLight: {
     backgroundColor: colors.backgroundLight,

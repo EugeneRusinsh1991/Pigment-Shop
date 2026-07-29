@@ -25,7 +25,7 @@ export default StyleSheet.create({
     borderBottomWidth: layout.borderWidth.thin,
     position: 'relative',
   },
-  panelHeaderDark: { borderBottomColor: colors.borderDarkAlt },
+  panelHeaderDark: { borderBottomColor: colors.borderDark },
   panelHeaderLight: { borderBottomColor: colors.navItemHoverDark },
 
   panelTitle: {},
@@ -70,7 +70,7 @@ export default StyleSheet.create({
     paddingHorizontal: layout.spacing.lg,
     paddingVertical: layout.spacing.sm,
   },
-  dividerDark: { backgroundColor: colors.borderDarkAlt },
+  dividerDark: { backgroundColor: colors.borderDark },
   dividerLight: { backgroundColor: colors.navItemHoverDark },
 
   itemRow: {
@@ -105,7 +105,7 @@ export default StyleSheet.create({
     marginTop: 'auto',
   },
   menuFooterDark: {
-    borderTopColor: colors.borderDarkAlt,
+    borderTopColor: colors.borderDark,
     backgroundColor: colors.surfaceNeutralDark,
   },
   menuFooterLight: {
@@ -130,7 +130,7 @@ export default StyleSheet.create({
     marginBottom: layout.spacing.md,
   },
   themeToggleBtnDark: {
-    borderColor: colors.borderDarkAlt,
+    borderColor: colors.borderDark,
     backgroundColor: colors.surfaceFaintDark,
   },
   themeToggleBtnLight: {

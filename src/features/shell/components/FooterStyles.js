@@ -13,11 +13,11 @@ const FooterStyles = StyleSheet.create({
   },
   footerDark: {
     backgroundColor: colors.backgroundDark,
-    borderTopColor: colors.borderDarkAlt,
+    borderTopColor: colors.borderDark,
   },
   footerLight: {
     backgroundColor: colors.backgroundLight,
-    borderTopColor: colors.borderLightAlt,
+    borderTopColor: colors.borderLight,
   },
   contentRow: {
     flexDirection: 'row',

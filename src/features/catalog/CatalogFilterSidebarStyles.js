@@ -59,8 +59,8 @@ const styles = StyleSheet.create({
   expandChevron: {},
 
   divider: { height: 1, marginVertical: layout.spacing.lg },
-  dividerDark: { backgroundColor: colors.borderDarkAlt },
-  dividerLight: { backgroundColor: colors.borderLightAlt },
+  dividerDark: { backgroundColor: colors.borderDark },
+  dividerLight: { backgroundColor: colors.borderLight },
 
   resetBtn: {
     backgroundColor: colors.dark,
@@ -170,7 +170,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: layout.borderWidth.thin,
     position: 'relative',
   },
-  panelHeaderDark: { borderBottomColor: colors.borderDarkAlt },
+  panelHeaderDark: { borderBottomColor: colors.borderDark },
   panelHeaderLight: { borderBottomColor: colors.navItemHoverDark },
 
   panelTitle: {

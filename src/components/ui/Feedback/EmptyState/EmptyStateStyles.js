@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { layout } from '../../../../theme/tokens';
+import { colors, layout } from '../../../../theme/tokens';
 
 export const styles = StyleSheet.create({
   container: {
@@ -26,11 +26,11 @@ export const styles = StyleSheet.create({
     marginTop: layout.spacing.md,
     paddingVertical: 10,
     paddingHorizontal: 24,
-    backgroundColor: '#E91E8C',
-    borderRadius: 8,
+    backgroundColor: colors.accent,
+    borderRadius: layout.radii.sm,
   },
   retryText: {
-    color: '#fff',
+    color: colors.white,
     fontWeight: '600',
   },
 });

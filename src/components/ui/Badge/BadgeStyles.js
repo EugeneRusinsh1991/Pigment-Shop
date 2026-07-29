@@ -70,7 +70,7 @@ const statusColorMap = {
     bgLight: colors.dangerBgLight,
     textLight: colors.dangerStrong,
     borderLight: colors.dangerLight,
-    bgDark: colors.dangerSoftDarkBgAlt,
+    bgDark: colors.dangerSoftDarkBg,
     textDark: colors.dangerLight,
     borderDark: colors.dangerSoftDarkBorderAlt,
   },
@@ -162,7 +162,7 @@ const variantColorResolvers = {
     return {
       bg: isDark ? colors.chipDarkInactiveBg : colors.surfaceLight,
       text: isDark ? colors.chipDarkInactiveText : colors.chipLightInactiveText,
-      border: isDark ? colors.chipDarkInactiveBorder : colors.chipLightInactiveBorder,
+      border: isDark ? colors.chipDarkInactiveBorder : colors.borderLight,
     };
   },
   outline: ({ isDark }) => ({

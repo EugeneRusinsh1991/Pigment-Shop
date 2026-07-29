@@ -93,7 +93,7 @@ export default StyleSheet.create({
     backgroundColor: colors.accent,
   },
   submitBtnDisabledDark: {
-    backgroundColor: colors.neutralDarkFaint,
+    backgroundColor: colors.surfaceSubtleDark,
   },
   submitBtnDisabledLight: {
     backgroundColor: colors.inputBorderLight,
@@ -103,7 +103,7 @@ export default StyleSheet.create({
     color: colors.white,
   },
   submitBtnTextDisabledDark: {
-    color: colors.neutralDarkMid,
+    color: colors.surfaceSubtleDark,
   },
   submitBtnTextDisabledLight: {
     color: colors.textSubtleLight,

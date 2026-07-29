@@ -32,7 +32,7 @@ export default StyleSheet.create({
     paddingTop: layout.spacing.xl,
     paddingBottom: layout.spacing.lg,
     borderBottomWidth: layout.borderWidth.thin,
-    borderBottomColor: colors.borderLightAlt,
+    borderBottomColor: colors.borderLight,
   },
   modalTitle: {
     color: colors.textLight,
@@ -53,7 +53,7 @@ export default StyleSheet.create({
     paddingBottom: layout.spacing.xl,
     paddingTop: layout.spacing.md,
     borderTopWidth: layout.borderWidth.thin,
-    borderTopColor: colors.borderLightAlt,
+    borderTopColor: colors.borderLight,
   },
 
   /* Form fields */
@@ -161,7 +161,7 @@ export default StyleSheet.create({
   deleteSection: {
     marginTop: layout.spacing.xl,
     borderTopWidth: layout.borderWidth.thin,
-    borderTopColor: colors.borderLightAlt,
+    borderTopColor: colors.borderLight,
     paddingTop: layout.spacing.xl,
   },
 });

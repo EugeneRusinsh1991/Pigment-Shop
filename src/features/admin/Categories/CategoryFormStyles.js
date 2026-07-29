@@ -33,7 +33,7 @@ export default StyleSheet.create({
     paddingTop: layout.spacing.xl,
     paddingBottom: layout.spacing.lg,
     borderBottomWidth: layout.borderWidth.thin,
-    borderBottomColor: colors.borderLightAlt,
+    borderBottomColor: colors.borderLight,
   },
   modalTitle: {
     color: colors.textLight,
@@ -55,7 +55,7 @@ export default StyleSheet.create({
     paddingBottom: layout.spacing.xl,
     paddingTop: layout.spacing.md,
     borderTopWidth: layout.borderWidth.thin,
-    borderTopColor: colors.borderLightAlt,
+    borderTopColor: colors.borderLight,
   },
   modalFooterRight: {
     flexDirection: 'row',
@@ -202,7 +202,7 @@ export default StyleSheet.create({
     paddingBottom: layout.spacing.xl,
     paddingTop: layout.spacing.lg,
     borderTopWidth: layout.borderWidth.thin,
-    borderTopColor: colors.borderLightAlt,
+    borderTopColor: colors.borderLight,
     gap: layout.spacing.md,
   },
   modalFooterRow: {

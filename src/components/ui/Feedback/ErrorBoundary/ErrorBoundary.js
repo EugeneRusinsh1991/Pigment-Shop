@@ -1,5 +1,6 @@
 import React from 'react';
 import EmptyState from '../EmptyState/EmptyState';
+import { colors, layout } from '../../../../theme/tokens';
 
 /**
  * ErrorBoundary
@@ -18,7 +19,6 @@ export default class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
     this.state = { hasError: false, error: null };
-    this.resetError = this.resetError.bind(this);
   }
 
   static getDerivedStateFromError(error) {
@@ -26,47 +26,39 @@ export default class ErrorBoundary extends React.Component {
   }
 
   componentDidCatch(error, errorInfo) {
-    const { onError } = this.props;
-    console.error('[ErrorBoundary]', error, errorInfo);
-    if (onError) onError(error, errorInfo);
+    if (this.props.onError) {
+      this.props.onError(error, errorInfo);
+    }
   }
 
-  resetError() {
-    const { onReset } = this.props;
+  resetError = () => {
+    if (this.props.onReset) {
+      this.props.onReset();
+    }
     this.setState({ hasError: false, error: null });
-    if (onReset) onReset();
-  }
+  };
 
   render() {
-    const { hasError, error } = this.state;
-    const {
-      fallback,
-      children,
-      title = 'Something went wrong',
-      description = 'An unexpected error occurred. Please try again.',
-    } = this.props;
-
-    if (!hasError) return children;
-
-    if (fallback) {
-      return typeof fallback === 'function'
-        ? fallback({ error, resetError: this.resetError })
-        : fallback;
+    if (!this.state.hasError) {
+      return this.props.children;
     }
 
-    const { Text: RNText, TouchableOpacity, StyleSheet } = require('react-native');
+    const { fallback, title, description } = this.props;
 
-    const retryAction = (
-      <TouchableOpacity onPress={this.resetError} style={styles.retryButton}>
-        <RNText style={styles.retryText}>Try Again</RNText>
-      </TouchableOpacity>
-    );
+    if (typeof fallback === 'function') {
+      return fallback({ error: this.state.error, resetError: this.resetError });
+    }
+
+    if (fallback) {
+      return fallback;
+    }
 
     return (
       <EmptyState
-        title={title}
-        description={description}
-        action={retryAction}
+        title={title || 'Произошла ошибка'}
+        description={description || (this.state.error?.message ? String(this.state.error.message) : 'Что-то пошло не так при отображении страницы.')}
+        actionLabel="Попробовать снова"
+        onAction={this.resetError}
       />
     );
   }
@@ -77,11 +69,11 @@ const styles = {
     marginTop: 12,
     paddingVertical: 10,
     paddingHorizontal: 24,
-    backgroundColor: '#E91E8C',
-    borderRadius: 8,
+    backgroundColor: colors.accent,
+    borderRadius: layout.radii.sm,
   },
   retryText: {
-    color: '#fff',
+    color: colors.white,
     fontWeight: '600',
     fontSize: 14,
   },

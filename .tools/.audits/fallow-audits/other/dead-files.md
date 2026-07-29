@@ -1,6 +1,6 @@
 # 💀 Dead Files (Unused)
 
-*Generated on: 29.07.2026, 23:19:52*
+*Generated on: 30.07.2026, 00:46:23*
 
 Files that are not reachable or imported by any other codebase file:
 
@@ -116,6 +116,7 @@ Files that are not reachable or imported by any other codebase file:
 - [locationContext.js](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/utils/locationContext.js) (`automation/browser-automation/utils/locationContext.js`)
 - [ManualBrowserInspector.js](file:///d:/Magazine/_PigmentShop/.tools/automation/manual-browser-inspector/ManualBrowserInspector.js) (`automation/manual-browser-inspector/ManualBrowserInspector.js`)
 - [InspectorMenu.js](file:///d:/Magazine/_PigmentShop/.tools/automation/manual-browser-inspector/components/InspectorMenu.js) (`automation/manual-browser-inspector/components/InspectorMenu.js`)
+- [setupManualInspector.js](file:///d:/Magazine/_PigmentShop/.tools/automation/manual-browser-inspector/setupManualInspector.js) (`automation/manual-browser-inspector/setupManualInspector.js`)
 - [setupManualInspector.ts](file:///d:/Magazine/_PigmentShop/.tools/automation/manual-browser-inspector/setupManualInspector.ts) (`automation/manual-browser-inspector/setupManualInspector.ts`)
 - [domHelpers.js](file:///d:/Magazine/_PigmentShop/.tools/automation/manual-browser-inspector/utils/domHelpers.js) (`automation/manual-browser-inspector/utils/domHelpers.js`)
 - [core.js](file:///d:/Magazine/_PigmentShop/.tools/core/backuper/backup/core.js) (`core/backuper/backup/core.js`)

@@ -291,7 +291,7 @@ export default StyleSheet.create({
     paddingHorizontal: layout.spacing.md,
     borderRadius: layout.radii.sm,
     borderWidth: layout.borderWidth.thin,
-    borderColor: colors.borderLightAlt,
+    borderColor: colors.borderLight,
     backgroundColor: colors.surfaceLight,
     alignItems: 'center',
     justifyContent: 'center',
@@ -310,7 +310,7 @@ export default StyleSheet.create({
   deleteSection: {
     marginTop: layout.spacing.xl,
     borderTopWidth: layout.borderWidth.thin,
-    borderTopColor: colors.borderLightAlt,
+    borderTopColor: colors.borderLight,
     paddingTop: layout.spacing.xl,
   },
 });

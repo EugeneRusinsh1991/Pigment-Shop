@@ -7,7 +7,7 @@ export function useSkeletonTheme() {
   const { isDark } = useTheme();
 
   return {
-    backgroundColor: isDark ? colors.surfaceSubtleDark : colors.neutralLightStrong,
+    backgroundColor: isDark ? colors.surfaceSubtleDark : colors.borderLight,
     styles,
   };
 }

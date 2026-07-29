@@ -28,7 +28,7 @@ const sec_styles = StyleSheet.create({
     backgroundColor: colors.successBgSoft,
   },
   productOptionUnselected: {
-    borderColor: colors.chipLightInactiveBorder,
+    borderColor: colors.borderLight,
     backgroundColor: colors.slateLight,
   },
   productCheckBase: {

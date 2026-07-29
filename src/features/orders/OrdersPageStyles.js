@@ -93,7 +93,7 @@ export default StyleSheet.create({
   },
   itemBorderDark: {
     borderTopWidth: layout.borderWidth.thin,
-    borderTopColor: colors.neutralDarkFaint,
+    borderTopColor: colors.surfaceSubtleDark,
   },
   itemBorderLight: {
     borderTopWidth: layout.borderWidth.thin,

@@ -47,7 +47,7 @@ export const createPaginationStyles = (isDark) => StyleSheet.create({
     borderBottomWidth: layout.borderWidth.none,
     minHeight: 36,
     backgroundColor: isDark ? colors.backgroundDark : colors.backgroundLight,
-    borderBottomColor: isDark ? colors.borderDarkAlt : colors.borderLightAlt,
+    borderBottomColor: isDark ? colors.borderDark : colors.borderLight,
   },
   navRow: {
     flexDirection: 'row',
@@ -70,6 +70,6 @@ export const createPaginationStyles = (isDark) => StyleSheet.create({
     flex: 1,
     minHeight: 24,
     minWidth: 0,
-    borderBottomColor: isDark ? colors.borderDarkAlt : colors.borderLightAlt,
+    borderBottomColor: isDark ? colors.borderDark : colors.borderLight,
   },
 });

@@ -84,7 +84,7 @@ export default function PriceRangeSlider({
   );
 
   const activeColor = colors.accent;
-  const inactiveColor = isDark ? colors.borderDarkAlt : colors.warmNeutralSoft;
+  const inactiveColor = isDark ? colors.borderDark : colors.warmNeutralSoft;
 
   return (
     <View style={styles.container}>

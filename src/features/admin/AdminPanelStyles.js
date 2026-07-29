@@ -17,7 +17,7 @@ export default StyleSheet.create({
     paddingHorizontal: layout.spacing.xl,
     backgroundColor: colors.surfaceLight,
     borderBottomWidth: layout.borderWidth.thin,
-    borderBottomColor: colors.borderLightAlt,
+    borderBottomColor: colors.borderLight,
   },
   headerLeft: {
     flexDirection: 'row',
@@ -49,7 +49,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: colors.surfaceLight,
     borderBottomWidth: layout.borderWidth.thin,
-    borderBottomColor: colors.borderLightAlt,
+    borderBottomColor: colors.borderLight,
     paddingHorizontal: layout.spacing.xl,
   },
   content: {

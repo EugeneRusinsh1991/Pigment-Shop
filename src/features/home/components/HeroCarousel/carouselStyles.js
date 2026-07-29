@@ -84,7 +84,7 @@ export function getCarouselBaseStyle(isWide, windowWidth) {
 
 export function getPlaceholderStyle(isWide, isDark, windowWidth) {
   const baseStyle = getCarouselBaseStyle(isWide, windowWidth);
-  const backgroundColor = isDark ? colors.borderDarkAlt : colors.borderSlateLight;
+  const backgroundColor = isDark ? colors.borderDark : colors.borderSlateLight;
   return [baseStyle, { backgroundColor }];
 }
 

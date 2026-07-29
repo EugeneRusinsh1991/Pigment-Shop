@@ -82,7 +82,7 @@ export default StyleSheet.create({
     padding: layout.spacing.xl,
     borderWidth: layout.borderWidth.thin,
   },
-  summaryPanelDark: { backgroundColor: colors.surfaceNeutralDark, borderColor: colors.borderDarkAlt },
+  summaryPanelDark: { backgroundColor: colors.surfaceNeutralDark, borderColor: colors.borderDark },
   summaryPanelLight: { backgroundColor: colors.white, borderColor: colors.secondaryLightBorder },
 
   summaryPanelMobile: {
