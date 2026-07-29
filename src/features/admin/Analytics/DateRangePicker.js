@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { View } from 'react-native';
 import styles from './AnalyticsStyles';
 import { useTheme } from '../../../context/ThemeContext';
@@ -100,11 +100,14 @@ export default function DateRangePicker({ startDate, endDate, onChange }) {
     return t('adminAnalyticsDateCustom') || 'Custom';
   };
 
-  const options = [
-    { value: '7days', label: t('adminAnalyticsDateLast7') },
-    { value: '30days', label: t('adminAnalyticsDateLast30') },
-    { value: 'custom', label: getCustomButtonLabel() },
-  ];
+  const options = useMemo(
+    () => [
+      { value: '7days', label: t('adminAnalyticsDateLast7') },
+      { value: '30days', label: t('adminAnalyticsDateLast30') },
+      { value: 'custom', label: getCustomButtonLabel() },
+    ],
+    [t, mode, startDate, endDate]
+  );
 
   return (
     <View style={styles.datePickerContainer}>

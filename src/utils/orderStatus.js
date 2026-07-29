@@ -42,20 +42,26 @@ const ORDER_STATUS_BY_KEY = Object.fromEntries(
  */
 const STATUS_RAW_TO_KEY = {
   // pending
-  'Новый заказ': 'pending',
-  'New':         'pending',
-  'Pending':     'pending',
-  'pending':     'pending',
+  'Новый заказ':      'pending',
+  'Нове замовлення':  'pending',
+  'Новий замовлення': 'pending',
+  'Новий':            'pending',
+  'New':              'pending',
+  'Pending':          'pending',
+  'pending':          'pending',
   // processing
-  'В обработке': 'processing',
-  'Processing':  'processing',
+  'В обработке':      'processing',
+  'В обробці':        'processing',
+  'Processing':       'processing',
   // completed
-  'Выполнен':    'completed',
-  'Completed':   'completed',
+  'Выполнен':         'completed',
+  'Виконано':         'completed',
+  'Completed':        'completed',
   // cancelled
-  'Отменён':     'cancelled',
-  'Отменен':     'cancelled',
-  'Cancelled':   'cancelled',
+  'Отменён':          'cancelled',
+  'Отменен':          'cancelled',
+  'Скасовано':        'cancelled',
+  'Cancelled':        'cancelled',
 };
 
 /**
@@ -63,11 +69,15 @@ const STATUS_RAW_TO_KEY = {
  * (used when writing back to Firestore via OrderStatusSelector).
  */
 const STATUS_RAW_TO_CANONICAL = {
-  'Новый заказ': 'New',
-  'В обработке': 'Processing',
-  'Выполнен':    'Completed',
-  'Отменён':     'Completed',
-  'Отменен':     'Cancelled',
+  'Новый заказ':      'New',
+  'Нове замовлення':  'New',
+  'В обработке':      'Processing',
+  'В обробці':        'Processing',
+  'Выполнен':         'Completed',
+  'Виконано':         'Completed',
+  'Отменён':          'Cancelled',
+  'Отменен':          'Cancelled',
+  'Скасовано':        'Cancelled',
 };
 
 // ---------------------------------------------------------------------------
@@ -79,9 +89,9 @@ const STATUS_RAW_TO_CANONICAL = {
  * found in STATUS_RAW_TO_KEY.
  */
 const STATUS_KEYWORDS = {
-  completed:  ['complet', 'выполн'],
-  cancelled:  ['cancel',  'отмен'],
-  processing: ['process', 'обработ'],
+  completed:  ['complet', 'выполн', 'викон'],
+  cancelled:  ['cancel',  'отмен', 'скас'],
+  processing: ['process', 'обработ', 'оброб'],
 };
 
 // ---------------------------------------------------------------------------

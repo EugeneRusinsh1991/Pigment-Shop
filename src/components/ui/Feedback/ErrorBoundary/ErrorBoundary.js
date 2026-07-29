@@ -1,6 +1,23 @@
 import React from 'react';
 import EmptyState from '../EmptyState/EmptyState';
 import { colors, layout } from '../../../../theme/tokens';
+import { useLanguage } from '../../../../context/LanguageContext';
+
+function ErrorBoundaryContent({ title, description, error, resetError }) {
+  const { t } = useLanguage();
+
+  return (
+    <EmptyState
+      title={title || t('errorOccurred')}
+      description={
+        description ||
+        (error?.message ? String(error.message) : t('errorDefaultMsg'))
+      }
+      actionLabel={t('tryAgain')}
+      onAction={resetError}
+    />
+  );
+}
 
 /**
  * ErrorBoundary
@@ -54,11 +71,11 @@ export default class ErrorBoundary extends React.Component {
     }
 
     return (
-      <EmptyState
-        title={title || 'Произошла ошибка'}
-        description={description || (this.state.error?.message ? String(this.state.error.message) : 'Что-то пошло не так при отображении страницы.')}
-        actionLabel="Попробовать снова"
-        onAction={this.resetError}
+      <ErrorBoundaryContent
+        title={title}
+        description={description}
+        error={this.state.error}
+        resetError={this.resetError}
       />
     );
   }

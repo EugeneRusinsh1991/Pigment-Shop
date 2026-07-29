@@ -82,7 +82,7 @@ export function getToggleText(isExpanded, t) {
 
 export function ExpandedItemsList({ show, items, getStyle, order }) {
   if (!show || !items) return null;
-  const { lang } = useLanguage();
+  const { t } = useLanguage();
   return (
     <View style={[styles.itemsList, getStyle(styles.itemsListDark, styles.itemsListLight)]}>
       {items.map((item, idx) => (
@@ -96,7 +96,7 @@ export function ExpandedItemsList({ show, items, getStyle, order }) {
       {order.note ? (
         <View style={[styles.noteSection, getStyle(styles.itemBorderDark, styles.itemBorderLight)]}>
           <Text variant="caption" color="muted" style={[styles.itemLabel, styles.noteTitle]}> 
-            {getItemLabel({ en: 'Order Note', ru: 'Комментарий к заказу', uk: 'Коментар до замовлення' }, lang)}
+            {t('cartOrderNote')}
           </Text>
           <Text style={styles.itemLabel}>
             {order.note}

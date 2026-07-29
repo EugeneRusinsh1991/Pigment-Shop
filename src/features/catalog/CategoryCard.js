@@ -2,6 +2,7 @@ import React from 'react';
 import { Image, Platform, useWindowDimensions, View } from 'react-native';
 import Card from '../../components/ui/Card/Card';
 import { Heading, Text } from '../../components/ui/Text';
+import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
 import { colors, layout } from '../../theme/tokens';
 import { getLocalizedValue } from '../../utils/localization';
@@ -113,7 +114,7 @@ function getDescStyle(computedStyles, activeIsBanner) {
 
 const CategoryCardInner = React.forwardRef(({ item, isDark, depth = 1, isBanner = false, style, ...rest }, ref) => {
   const [imgError, setImgError] = React.useState(false);
-  const { lang } = useTheme();
+  const { lang } = useLanguage();
   const { width: windowWidth } = useWindowDimensions();
   
   const isMobile = windowWidth < 768;

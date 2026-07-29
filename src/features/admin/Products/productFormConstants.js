@@ -13,7 +13,7 @@ export const EMPTY_FORM = {
   isNew: false,
   brand: '',
   sku: '',
-  category: 'Другое',
+  category: 'Other',
   stock: '',
   image1: '',
   image2: '',

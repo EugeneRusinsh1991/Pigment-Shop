@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { View } from 'react-native';
 import { Text } from '@/components/ui/Text';
 import { layout } from '../../../theme/tokens';
@@ -15,10 +15,14 @@ export const STATUS_FILTERS = [
 ];
 
 export function StatusFilterBar({ t, activeFilter, onSelectFilter, count, isDark }) {
-  const options = STATUS_FILTERS.map((sf) => ({
-    value: sf.key,
-    label: t(sf.localeKey) || sf.key,
-  }));
+  const options = useMemo(
+    () =>
+      STATUS_FILTERS.map((sf) => ({
+        value: sf.key,
+        label: t(sf.localeKey) || sf.key,
+      })),
+    [t]
+  );
 
   return (
     <View style={styles.filterBarContainer}>

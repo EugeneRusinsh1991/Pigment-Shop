@@ -14,7 +14,7 @@ import { Text } from '@/components/ui/Text';
 import TextField from '@/components/ui/TextField';
 import { useState } from 'react';
 import { View } from 'react-native';
-import { useTheme } from '../../../context/ThemeContext';
+import { useLanguage } from '../../../context/LanguageContext';
 import { fromMediaRef } from '../../../media';
 import { colors, layout, motion } from '../../../theme/tokens';
 import { triggerFileInput } from '../../../utils/fileInput';
@@ -72,7 +72,7 @@ export function CategoryTypeSelect({ value, onChange, disabled }) {
 /* ─── ImagePickerField ──────────────────────────────────────── */
 
 export function ImagePickerField({ value, onChange }) {
-  const { t } = useTheme();
+  const { t } = useLanguage();
   const [browserOpen, setBrowserOpen] = useState(false);
 
   function handleMediaSelect(item) {
@@ -113,7 +113,7 @@ export function ImagePickerField({ value, onChange }) {
 /* ─── NameField ───────────────────────────────────────────── */
 
 export function NameField({ form, onChange, errors, activeLang = 'uk' }) {
-  const { t } = useTheme();
+  const { t } = useLanguage();
   const safeLang = activeLang || 'uk';
   const langLabel = safeLang === 'uk' ? 'UA' : safeLang.toUpperCase();
   const placeholders = { uk: 'Назва українською', ru: 'Название на русском', en: 'Name in English' };
@@ -131,7 +131,7 @@ export function NameField({ form, onChange, errors, activeLang = 'uk' }) {
 /* ─── DescriptionField ────────────────────────────────────── */
 
 export function DescriptionField({ form, onChange, activeLang = 'uk' }) {
-  const { t } = useTheme();
+  const { t } = useLanguage();
   const safeLang = activeLang || 'uk';
   const langLabel = safeLang === 'uk' ? 'UA' : safeLang.toUpperCase();
   const placeholders = { uk: 'Опис українською...', ru: 'Описание на русском...', en: 'Description in English...' };

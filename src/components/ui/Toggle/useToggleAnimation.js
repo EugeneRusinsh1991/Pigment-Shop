@@ -1,11 +1,12 @@
 import { useRef, useEffect, useState } from 'react';
 import { Animated, Platform } from 'react-native';
 
-export function useToggleAnimation({ animated = true, value }) {
+export function useToggleAnimation({ animated = true, options = [], value }) {
   const layoutsRef = useRef({});
   const translateX = useRef(new Animated.Value(0)).current;
   const widthAnim = useRef(new Animated.Value(0)).current;
   const [hasInitialLayout, setHasInitialLayout] = useState(false);
+  const prevValueRef = useRef(value);
 
   const updateIndicator = (layout, isAnimated) => {
     if (!layout) return;
@@ -35,16 +36,24 @@ export function useToggleAnimation({ animated = true, value }) {
   const setOptionLayout = (val, layout) => {
     layoutsRef.current[val] = layout;
     if (val === value) {
-      updateIndicator(layout, false);
-      setHasInitialLayout(true);
+      if (!hasInitialLayout) {
+        updateIndicator(layout, false);
+        setHasInitialLayout(true);
+      }
     }
   };
 
   useEffect(() => {
-    if (layoutsRef.current[value]) {
-      updateIndicator(layoutsRef.current[value], true);
+    const layout = layoutsRef.current[value];
+    if (layout) {
+      const isValueChange = prevValueRef.current !== value;
+      updateIndicator(layout, isValueChange || hasInitialLayout);
+      if (!hasInitialLayout) {
+        setHasInitialLayout(true);
+      }
     }
-  }, [value]);
+    prevValueRef.current = value;
+  }, [value, hasInitialLayout]);
 
   return {
     setOptionLayout,

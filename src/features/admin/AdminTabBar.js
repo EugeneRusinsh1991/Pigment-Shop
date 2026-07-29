@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { ScrollView } from 'react-native';
 import styles from './AdminPanelStyles';
 import { useLanguage } from '../../context/LanguageContext';
@@ -18,10 +18,14 @@ const ADMIN_TABS = [
 export default function AdminTabBar({ activeTab, onSelect, isDark }) {
   const { t } = useLanguage();
 
-  const options = ADMIN_TABS.map((tab) => ({
-    value: tab.id,
-    label: t(tab.labelKey),
-  }));
+  const options = useMemo(
+    () =>
+      ADMIN_TABS.map((tab) => ({
+        value: tab.id,
+        label: t(tab.labelKey),
+      })),
+    [t]
+  );
 
   return (
     <ScrollView

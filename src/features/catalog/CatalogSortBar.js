@@ -3,6 +3,7 @@
  *
  * Thin horizontal bar with a sort selector for the catalog product grid.
  */
+import React, { useMemo } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Text } from '../../components/ui/Text';
 import Toggle from '../../components/ui/Toggle';
@@ -15,10 +16,14 @@ export default function CatalogSortBar({ sortKey, onSortChange, resultCount, isD
   const { t } = useLanguage();
   const productWord = resultCount === 1 ? t('catalogProduct') : t('catalogProducts');
 
-  const toggleOptions = SORT_OPTIONS.map((opt) => ({
-    label: t(opt.labelKey),
-    value: opt.key,
-  }));
+  const toggleOptions = useMemo(
+    () =>
+      SORT_OPTIONS.map((opt) => ({
+        label: t(opt.labelKey),
+        value: opt.key,
+      })),
+    [t]
+  );
 
   return (
     <View style={styles.bar}>

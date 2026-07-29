@@ -7,14 +7,14 @@ import { layout } from '../../theme/tokens';
 function renderNewBadge(isNew, t) {
   if (!isNew) return null;
   return (
-    <Badge variant="new" label={t('badgeNew') || 'NEW'} size="sm" />
+    <Badge variant="new" label={t('badgeNew')} size="sm" />
   );
 }
 
 function renderFeaturedBadge(isFeatured, t) {
   if (!isFeatured) return null;
   return (
-    <Badge variant="featured" label={t('badgeFeatured') || 'FEATURED'} size="sm" />
+    <Badge variant="featured" label={t('badgeFeatured')} size="sm" />
   );
 }
 

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Pressable, View } from 'react-native';
+import React, { useRef, useEffect } from 'react';
+import { Pressable, View, Animated, Platform } from 'react-native';
 import { Text } from '../../ui/Text';
 import styles, { HIT_SLOP_44, colorSchemes } from './FlagStyles';
 import { useFlagTheme } from './useFlagTheme';
@@ -29,13 +29,6 @@ function getSwitchTrackStyle(isDark, checked) {
     styles.switchTrack,
     isDark ? styles.switchTrackDark : null,
     checked ? (isDark ? styles.switchTrackActiveDark : styles.switchTrackActive) : null,
-  ];
-}
-
-function getSwitchThumbStyle(checked) {
-  return [
-    styles.switchThumb,
-    checked ? styles.switchThumbActive : styles.switchThumbInactive,
   ];
 }
 
@@ -83,6 +76,19 @@ export function Flag({
 }) {
   const { isDark } = useFlagTheme({ isDarkProp });
   const isInteractive = !disabled && !readOnly;
+
+  const thumbTranslateX = useRef(new Animated.Value(checked ? 20 : 0)).current;
+
+  useEffect(() => {
+    if (variant === 'switch') {
+      Animated.spring(thumbTranslateX, {
+        toValue: checked ? 20 : 0,
+        friction: 8,
+        tension: 50,
+        useNativeDriver: Platform.OS !== 'web',
+      }).start();
+    }
+  }, [checked, variant]);
 
   const handlePress = () => {
     if (isInteractive && onChange) {
@@ -135,7 +141,7 @@ export function Flag({
         style={[styles.baseContainer, disabled ? styles.disabledOpacity : null, style]}
       >
         <View style={[getSwitchTrackStyle(isDark, checked)]}>
-          <View style={[getSwitchThumbStyle(checked)]} />
+          <Animated.View style={[styles.switchThumb, { transform: [{ translateX: thumbTranslateX }] }]} />
         </View>
         {renderChildren(children, getSwitchLabelStyle(isDark, textStyle), "sm", "medium")}
       </Pressable>
