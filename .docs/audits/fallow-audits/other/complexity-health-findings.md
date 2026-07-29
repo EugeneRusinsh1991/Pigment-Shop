@@ -1,8 +1,14 @@
 # 🩺 Complexity Health Findings (Critical & High)
 
-*Generated on: 29.07.2026, 18:56:01*
+*Generated on: 29.07.2026, 19:02:26*
 
 ## 🟠 High (≤ 50 lines)
+
+#### 📁 [auditor-utils.js](file:///d:/Magazine/_PigmentShop/.tools/auditor/auditor-utils.js)
+`.tools/auditor/auditor-utils.js`
+
+- 🟠 **`writeAuditReport`** [L60](file:///d:/Magazine/_PigmentShop/.tools/auditor/auditor-utils.js#L60)
+  - Lines: 40 | Cyclomatic: 9 | Cognitive: 17 | CRAP: 90
 
 #### 📁 [03-dynamic-broken-ui-auditor.ts](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/auditors/03-dynamic-broken-ui-auditor.ts)
 `.tools/browser-automation/auditors/03-dynamic-broken-ui-auditor.ts`

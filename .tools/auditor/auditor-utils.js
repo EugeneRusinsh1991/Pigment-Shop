@@ -60,7 +60,18 @@ function writeFilesSummaryReport(filesLogFile, fileCount, violationsCount, group
 function writeAuditReport({ violations, logFile, filesLogFile, auditName, issueTypeName, timestamp }) {
   if (violations.length === 0) {
     cleanFilesLog(filesLogFile);
-    fs.writeFileSync(logFile, generateReportHeader(auditName, timestamp) + `No ${issueTypeName} issues found.\n`);
+    if (fs.existsSync(logFile)) {
+      try { fs.unlinkSync(logFile); } catch (_) {}
+    }
+    const logDir = path.dirname(logFile);
+    if (fs.existsSync(logDir)) {
+      try {
+        const files = fs.readdirSync(logDir);
+        if (files.length === 0) {
+          fs.rmdirSync(logDir);
+        }
+      } catch (_) {}
+    }
     console.log(`[${auditName}] Finished (0 unique issues) -> Clean`);
     return;
   }
@@ -71,6 +82,11 @@ function writeAuditReport({ violations, logFile, filesLogFile, auditName, issueT
   let report = generateReportHeader(auditName, timestamp);
   report += `Found ${violations.length} ${issueTypeName} issue(s) across ${fileCount} file(s):\n\n`;
   report += formatGroupedViolations(grouped);
+
+  const logDir = path.dirname(logFile);
+  if (!fs.existsSync(logDir)) {
+    fs.mkdirSync(logDir, { recursive: true });
+  }
 
   if (fileCount > 10) {
     writeFilesSummaryReport(filesLogFile, fileCount, violations.length, grouped, timestamp);
