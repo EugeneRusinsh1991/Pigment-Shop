@@ -28,6 +28,7 @@
     "audit": "node .tools/auditor/fallow-auditor/run-audit.cjs",
     "audit:ui": "node .tools/auditor/index.js",
     "audit:dynamic": "npx tsx .tools/browser-automation/run-dynamic-audit.ts",
+    "smoke:mocks": "npx tsx .tools/browser-automation/run-smoke-mocks.ts",
     "clean": "node .tools/.cleaner/run-clean.cjs",
     "health": "node .tools/.health/run-health.cjs",
     "pack": "node .tools/.packer/run-pack.cjs",

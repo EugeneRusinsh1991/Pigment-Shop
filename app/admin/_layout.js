@@ -1,6 +1,7 @@
 import React from 'react';
 import { Slot, Redirect } from 'expo-router';
 import { useAdminAuth } from '@/services/adminDomain';
+import { ErrorBoundary } from '@/components/Feedback';
 
 export default function AdminLayout() {
   const { isAdmin } = useAdminAuth();
@@ -10,5 +11,9 @@ export default function AdminLayout() {
     return <Redirect href="/login" />;
   }
 
-  return <Slot />;
+  return (
+    <ErrorBoundary>
+      <Slot />
+    </ErrorBoundary>
+  );
 }

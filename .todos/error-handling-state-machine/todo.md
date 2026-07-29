@@ -75,29 +75,29 @@ Ensure all primitives (`EmptyState`, `SkeletonLoader`, `FieldError`, `ErrorBound
 ## 3. Implementation Roadmap & Execution Checklist
 
 ### Phase 1: Audit & Enhance UI Primitives
-- [ ] Verify `EmptyState.js` props (`title`, `description`, `icon`, `action`, `children`).
-- [ ] Add `onRetry` prop support to `EmptyState.js` as convenient shorthand for standard retry button action.
-- [ ] Verify `SkeletonLoader.js` and `FieldError.js` exports.
-- [ ] Re-export all primitives cleanly in `src/components/Feedback/index.js`.
+- [x] Verify `EmptyState.js` props (`title`, `description`, `icon`, `action`, `children`).
+- [x] Add `onRetry` prop support to `EmptyState.js` as convenient shorthand for standard retry button action.
+- [x] Verify `SkeletonLoader.js` and `FieldError.js` exports.
+- [x] Re-export all primitives cleanly in `src/components/Feedback/index.js`.
 
 ### Phase 2: Core State Machine & Hooks
-- [ ] Create `src/constants/uiStates.js` with `UI_STATES` frozen object.
-- [ ] Create `src/hooks/useAsyncState.js` with unmounted ref protection (`isMounted` flag).
-- [ ] Connect `useAsyncState` with `useErrorHandler` optional toast logging.
+- [x] Create `src/constants/uiStates.js` with `UI_STATES` frozen object.
+- [x] Create `src/hooks/useAsyncState.js` with unmounted ref protection (`isMounted` flag).
+- [x] Connect `useAsyncState` with `useErrorHandler` optional toast logging.
 
 ### Phase 3: Error Boundary Implementation
-- [ ] Create `src/components/Feedback/ErrorBoundary/ErrorBoundary.js` class component.
-- [ ] Implement default fallback rendering `EmptyState` with `onRetry` / `resetError`.
-- [ ] Export `ErrorBoundary` via `src/components/Feedback/index.js`.
+- [x] Create `src/components/Feedback/ErrorBoundary/ErrorBoundary.js` class component.
+- [x] Implement default fallback rendering `EmptyState` with `onRetry` / `resetError`.
+- [x] Export `ErrorBoundary` via `src/components/Feedback/index.js`.
 
 ### Phase 4: Route & Screen Migration
-- [ ] Wrap root layouts (`app/_layout.js`, `app/(store)/_layout.js`, `app/admin/_layout.js`) with `ErrorBoundary`.
+- [x] Wrap root layouts (`app/_layout.js`, `app/(store)/_layout.js`, `app/admin/_layout.js`) with `ErrorBoundary`.
 - [ ] Refactor store screens (`app/(store)/index.js`, `cart.js`, `favorites.js`, `orders.js`) to handle 4 UI states (`loading`, `error`, `empty`, `data`) explicitly using `SkeletonLoader` and `EmptyState`.
 
 ### Phase 5: Edge Case & Safety Rules
-- [ ] **Unmounted Updates**: Prevent state updates after unmount in `useAsyncState`.
-- [ ] **Event Handler Errors**: Remember `ErrorBoundary` catches render errors, NOT event handlers (use `useErrorHandler` / `useAsyncState` for async event handlers).
-- [ ] **Empty Data Validation**: Ensure `isEmpty` correctly identifies empty arrays `[]`, `null`, and empty objects `{}`.
+- [x] **Unmounted Updates**: Prevent state updates after unmount in `useAsyncState`.
+- [x] **Event Handler Errors**: Remember `ErrorBoundary` catches render errors, NOT event handlers (use `useErrorHandler` / `useAsyncState` for async event handlers).
+- [x] **Empty Data Validation**: Ensure `isEmpty` correctly identifies empty arrays `[]`, `null`, and empty objects `{}`.
 
 ### Phase 6: Automated Verification & Health Checks
 - [ ] Run `npm run health` to verify no broken relative imports.

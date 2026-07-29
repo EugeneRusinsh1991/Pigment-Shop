@@ -66,31 +66,31 @@ Generates deterministic surrogate entities matching [catalogEntityContract.ts](f
 
 ## 3. Implementation Roadmap & Execution Checklist
 
-### Phase 1: Audit Repository Public Interfaces
+### Phase 1: Audit Repository Public Interfaces ✅
 > **Recommended Model:** 🟢 G 3.6 F (L) — 1d | 0f | +4r
 
-- [ ] Audit public function signatures in `catalogRepository.js`, `ordersRepository.js`, `authRepository.js`.
-- [ ] Document required method parameters, return shapes, and error response codes.
+- [x] Audit public function signatures in `catalogRepository.js`, `ordersRepository.js`, `authRepository.js`.
+- [x] Document required method parameters, return shapes, and error response codes.
 
-### Phase 2: Implement Mock Data Factories & Repositories
+### Phase 2: Implement Mock Data Factories & Repositories ✅
 > **Recommended Model:** 🟠 G 3.6 F (H) — 2d | 4f | +5r
 
-- [ ] Create `src/services/mocks/mockFactories.js` with deterministic dummy datasets for catalog, categories, orders, and user profiles.
-- [ ] Create `src/services/mocks/mockCatalogRepository.js` implementing all catalog functions wrapped with `withServiceContract`.
-- [ ] Create `src/services/mocks/mockOrdersRepository.js` and `mockAuthRepository.js`.
-- [ ] Add async delay helper `delay(ms)` to simulate loading states.
+- [x] Create `src/services/mocks/mockFactories.js` with deterministic dummy datasets for catalog, categories, orders, and user profiles.
+- [x] Create `src/services/mocks/mockCatalogRepository.js` implementing all catalog functions wrapped with `withServiceContract`.
+- [x] Create `src/services/mocks/mockOrdersRepository.js` and `mockAuthRepository.js`.
+- [x] Add async delay helper `delay(ms)` to simulate loading states.
 
-### Phase 3: Dynamic Data Switcher & Registry Integration
+### Phase 3: Dynamic Data Switcher & Registry Integration ✅
 > **Recommended Model:** 🟡 G 3.6 F (M) — 1d | 3f | +4r
 
-- [ ] Create/update `src/services/repositories/index.js` to dynamically re-export live vs. mock repositories based on `process.env.EXPO_PUBLIC_USE_MOCKS`.
-- [ ] Update consumption sites across services (`catalogPageService.js`, `checkoutService.js`, etc.) to import from repository registry instead of direct file references.
+- [x] Create/update `src/services/repositories/index.js` to dynamically re-export live vs. mock repositories based on `process.env.EXPO_PUBLIC_USE_MOCKS`.
+- [x] Update consumption sites across services (`catalogPageService.js`, `checkoutService.js`, `authService.js`, `adminCatalogService.js`, `adminOrdersService.js`, `catalogDatabaseRegenerator.js`) to import from repository registry instead of direct file references.
 
-### Phase 4: Edge Case & Automation Support
+### Phase 4: Edge Case & Automation Support ✅
 > **Recommended Model:** 🟡 G 3.6 F (M) — 1d | 2f | +3r
 
-- [ ] Add deterministic seed options for Playwright / E2E testing in `.tools/browser-automation/`.
-- [ ] Ensure mock repositories return immutably cloned objects (`JSON.parse(JSON.stringify(...))`) to prevent accidental in-memory state contamination across tests.
+- [x] Add deterministic seed options for Playwright / E2E testing in `.tools/browser-automation/`.
+- [x] Ensure mock repositories return immutably cloned objects (`JSON.parse(JSON.stringify(...))`) to prevent accidental in-memory state contamination across tests.
 
 ### Phase 5: Verification & System Audits
 > **Recommended Model:** 🟢 G 3.6 F (L) — 1d | 0f | +2r

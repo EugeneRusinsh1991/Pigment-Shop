@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
 import { Text, Heading } from '../../Text';
 import { useEmptyStateTheme } from './useEmptyStateTheme';
 
@@ -14,12 +14,21 @@ function renderChildren(children, descriptionStyle, mutedColor) {
   return children;
 }
 
+function RetryButton({ onRetry, styles }) {
+  return (
+    <TouchableOpacity onPress={onRetry} style={styles.retryButton}>
+      <Text variant="body2" style={styles.retryText}>Try Again</Text>
+    </TouchableOpacity>
+  );
+}
+
 export default function EmptyState({
   title,
   description,
   message,
   icon,
   action,
+  onRetry,
   children,
   style,
   titleStyle,
@@ -27,6 +36,7 @@ export default function EmptyState({
 }) {
   const { mutedColor, styles } = useEmptyStateTheme();
   const bodyText = description || message;
+  const resolvedAction = action || (onRetry ? <RetryButton onRetry={onRetry} styles={styles} /> : null);
 
   return (
     <View style={[styles.container, style]}>
@@ -42,7 +52,7 @@ export default function EmptyState({
         </Text>
       )}
       {renderChildren(children, descriptionStyle, mutedColor)}
-      {action && <View style={styles.actionWrapper}>{action}</View>}
+      {resolvedAction && <View style={styles.actionWrapper}>{resolvedAction}</View>}
     </View>
   );
 }

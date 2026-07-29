@@ -5,6 +5,7 @@ import SharedLayoutWrapper from '@/features/shell/SharedLayoutWrapper';
 import StoreSearchHeader from '@/features/shell/StoreSearchHeader';
 import { useAppShell } from '@/features/shell/useAppShell';
 import styles from '@/theme/appStyles';
+import { ErrorBoundary } from '@/components/Feedback';
 import { Stack, usePathname } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { Pressable, View } from 'react-native';
@@ -55,7 +56,9 @@ export default function StoreLayout() {
         <SharedLayoutWrapper
           contentContainerStyle={styles.mainContentBody}
         >
-          <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: 'transparent' } }} />
+          <ErrorBoundary>
+            <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: 'transparent' } }} />
+          </ErrorBoundary>
         </SharedLayoutWrapper>
       </View>
     </Pressable>

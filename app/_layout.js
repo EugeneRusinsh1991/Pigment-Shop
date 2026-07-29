@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { GATING_PENDING_STATES } from '@/bootstrap/startupContract';
 import { useBootstrapStatus } from '@/bootstrap/useBootstrapStatus';
 import AppProviders from '@/context/AppProviders';
+import { ErrorBoundary } from '@/components/Feedback';
 import ManualBrowserInspector from '../.tools/manual-browser-inspector/ManualBrowserInspector';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
@@ -20,7 +21,9 @@ export default function Layout() {
 
   return (
     <AppProviders>
-      {!isStartupPending ? <Slot /> : null}
+      <ErrorBoundary>
+        {!isStartupPending ? <Slot /> : null}
+      </ErrorBoundary>
       {__DEV__ ? <ManualBrowserInspector /> : null}
     </AppProviders>
   );

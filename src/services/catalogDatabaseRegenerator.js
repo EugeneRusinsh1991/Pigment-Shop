@@ -1,5 +1,6 @@
 import { createRandomCatalogDataset, generateOrdersDataset } from './catalogDatabaseRegenerator.helpers.js';
-import { fetchExistingCatalogData, replaceCatalogData, signInAsAdmin } from './repositories/catalogRepository.js';
+import { catalogRepository } from './repositories/index.js';
+const { fetchExistingCatalogData, replaceCatalogData, signInAsAdmin } = catalogRepository;
 import { withServiceContract } from './serviceContract.js';
 
 function assertSuccess(res, fallbackMsg) {

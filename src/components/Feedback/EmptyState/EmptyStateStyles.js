@@ -22,4 +22,15 @@ export const styles = StyleSheet.create({
   actionWrapper: {
     marginTop: layout.spacing.lg + 4,
   },
+  retryButton: {
+    marginTop: layout.spacing.md,
+    paddingVertical: 10,
+    paddingHorizontal: 24,
+    backgroundColor: '#E91E8C',
+    borderRadius: 8,
+  },
+  retryText: {
+    color: '#fff',
+    fontWeight: '600',
+  },
 });

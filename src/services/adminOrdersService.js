@@ -5,7 +5,8 @@
  * and update order statuses.
  */
 import { COLLECTIONS } from './collections';
-import { updateOrderStatus as updateStatusRepo, updateAdminNote as updateNoteRepo } from './repositories/ordersRepository';
+import { ordersRepository } from './repositories/index.js';
+const { updateOrderStatus: updateStatusRepo, updateAdminNote: updateNoteRepo } = ordersRepository;
 import { fetchUsersAndOrders } from './adminSharedService';
 import { withServiceContract } from './serviceContract';
 
