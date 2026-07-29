@@ -11,7 +11,7 @@ export const LocalizedStringSchema = z.object({
 export type LocalizedString = z.infer<typeof LocalizedStringSchema>;
 
 export const CatalogItemSchema = z.object({
-  id: z.string(),
+  id: z.coerce.string(),
   label: z.union([z.string(), LocalizedStringSchema]).default(''),
   brand: z.string().optional().default(''),
   price: z.coerce.number().default(0),
@@ -23,8 +23,8 @@ export const CatalogItemSchema = z.object({
   images: z.array(z.string()).nullish().transform((val) => val ?? []),
   stock: z.coerce.number().default(0),
   sold: z.coerce.number().default(0),
-  category: z.string().default(''),
-  categoryId: z.string().nullish().default(null),
+  category: z.union([z.string(), z.record(z.unknown())]).optional().default(''),
+  categoryId: z.union([z.string(), z.number()]).nullish().transform((val) => val != null ? String(val) : null),
   subcategory: z.string().default(''),
   isCategory: z.boolean().default(false),
   active: z.boolean().default(true),
@@ -33,7 +33,7 @@ export const CatalogItemSchema = z.object({
 export type CatalogItem = z.infer<typeof CatalogItemSchema>;
 
 export const CartItemSchema = z.object({
-  id: z.string(),
+  id: z.coerce.string(),
   productId: z.string().optional(),
   label: z.string().default(''),
   price: z.coerce.number().default(0),
