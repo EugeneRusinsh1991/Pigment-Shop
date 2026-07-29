@@ -2,7 +2,7 @@
 type: dynamic-audit
 auditor: broken-ui
 scope: public
-date: 2026-07-29T11:41:01.519Z
+date: 2026-07-29T12:57:37.095Z
 ---
 
 ### Problem: Clickable element is overlapped or intercepted by another element.
@@ -28,3 +28,10 @@ date: 2026-07-29T11:41:01.519Z
   - Selector: `div.css-view-g5y9jx.r-flex-13awgt0.r-overflow-1udh08x.r-width-13qz1uu`
   - Selector: `div.css-view-g5y9jx.r-alignItems-1awozwy.r-flexDirection-18u37iz.r-flexWrap-1w6e6rj.r-gap-1cmwbt1.r-justifyContent-1wtj0ep.r-marginBottom-1ifxtd0`
   - Selector: `div.css-view-g5y9jx.r-alignItems-1awozwy.r-backgroundColor-fj6wrk.r-flexDirection-18u37iz.r-padding-zhp00w.r-position-bnwqim.r-borderRadius-kdyh1x.r-height-mabqd8`
+- URL: `http://localhost:8081/contact`
+  - Selector: `div.css-view-g5y9jx.r-borderRadius-1867qdf.r-flexDirection-eqz5dr.r-overflow-1udh08x.r-position-bnwqim.r-marginBottom-1ifxtd0.r-maxWidth-1ik5qf4`
+  - Selector: `div.css-view-g5y9jx`
+  - Selector: `div.css-view-g5y9jx.r-marginBlock-l00any`
+- URL: `http://localhost:8081/cart`
+  - Selector: `div.css-view-g5y9jx.r-flex-13awgt0.r-justifyContent-1wtj0ep.r-marginInlineStart-1cwvpvk`
+  - Selector: `div.css-view-g5y9jx.r-alignItems-1habvwh.r-flexDirection-18u37iz.r-justifyContent-1wtj0ep`

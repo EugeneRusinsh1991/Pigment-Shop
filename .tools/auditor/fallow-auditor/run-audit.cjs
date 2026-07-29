@@ -142,9 +142,8 @@ function writeAllReports(reports, subDir, data) {
     if (hasReportFindings(key, data)) {
       if (content) writeReportFile(reportPath, content);
     } else {
-      if (fs.existsSync(reportPath)) {
-        try { fs.unlinkSync(reportPath); } catch (_) {}
-      }
+      const cleanContent = `# 📄 Audit Report\n\n✅ No issues found for this category.\n`;
+      writeReportFile(reportPath, cleanContent);
     }
   });
 }
@@ -243,6 +242,19 @@ function main(disableDynamicAudits = false) {
   saveCleanedJSON(cleanedJSON, RAW_JSON);
 
   const { project, other } = splitData(cleanedJSON);
+
+  // Clean up legacy top-level report files (only project/ and other/ subfolders are kept)
+  const rootReportFiles = [
+    'complexity-health-findings.md', 'large-files.md', 'high-complexity-files.md',
+    'code-duplication.md', 'dead-files.md', 'unused-exports.md',
+    'dependency-issues.md', 'small-files.md', 'audit-kept-inventory.md'
+  ];
+  rootReportFiles.forEach(fileName => {
+    const filePath = path.resolve(REPORTS_DIR, fileName);
+    if (fs.existsSync(filePath)) {
+      try { fs.unlinkSync(filePath); } catch (_) {}
+    }
+  });
 
   const projReports = generateReports(project, ROOT, projectName + " (Project)", "project");
   writeAllReports(projReports, "project", project);

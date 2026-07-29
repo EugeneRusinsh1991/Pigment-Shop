@@ -1,3 +1,4 @@
+// @audit-keep
 import { useState, useEffect } from 'react';
 
 export function useCatalogTransition(showPromotionalSections, showHeroBanner) {

@@ -55,7 +55,7 @@ export function useAutoExpandSelectedCategory(selectedCategoryId, categoryTree, 
   }, [selectedCategoryId, categoryTree]);
 }
 
-export { findCategoryPath, getParentCategoryIds };
+
 
 
 

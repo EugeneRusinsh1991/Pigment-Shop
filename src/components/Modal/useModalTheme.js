@@ -1,3 +1,4 @@
+// @audit-keep
 import { Platform } from 'react-native';
 import { useTheme } from '../../context/ThemeContext';
 import { colors, shadows } from '../../theme/tokens';

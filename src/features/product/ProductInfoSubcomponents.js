@@ -9,14 +9,14 @@ import { getLocalizedValue } from '../../utils/localization';
 import { useCartContext } from '../cart/CartContext';
 import styles from './ProductPageStyles';
 
-export const getSafePrice = (price) => (typeof price === 'number' ? price : 0);
+const getSafePrice = (price) => (typeof price === 'number' ? price : 0);
 
-export const calcFinalPrice = (price, discountPercent) => {
+const calcFinalPrice = (price, discountPercent) => {
   const pct = discountPercent || 0;
   return pct > 0 ? Math.round(price * (1 - pct / 100)) : price;
 };
 
-export function QtySelector({ qty, isDark, onDecrease, onIncrease }) {
+function QtySelector({ qty, isDark, onDecrease, onIncrease }) {
   return (
     <View style={[styles.qtyRow, isDark ? styles.qtyRowDark : styles.qtyRowLight]}>
       <IconButton
@@ -38,7 +38,7 @@ export function QtySelector({ qty, isDark, onDecrease, onIncrease }) {
   );
 }
 
-export function ProductInfoPrice({ price, discountPercent }) {
+function ProductInfoPrice({ price, discountPercent }) {
   const safePrice = getSafePrice(price);
   const finalPrice = calcFinalPrice(safePrice, discountPercent);
   const hasDiscount = (discountPercent || 0) > 0;
@@ -80,7 +80,7 @@ function getHeartColor(isFavorite, isDark) {
   return isDark ? colors.white : colors.dark;
 }
 
-export function CartButton({ isInCart, isWide, finalPrice, qty, product, onAddToCart, t }) {
+function CartButton({ isInCart, isWide, finalPrice, qty, product, onAddToCart, t }) {
   const handlePress = () => {
     if (!isInCart) onAddToCart({ ...product, price: finalPrice }, qty);
   };

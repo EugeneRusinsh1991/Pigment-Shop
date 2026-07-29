@@ -1,3 +1,4 @@
+// @audit-keep
 import React from 'react';
 import { Animated, Platform, StyleSheet } from 'react-native';
 import { colors, layout, shadows } from '../../theme/tokens';

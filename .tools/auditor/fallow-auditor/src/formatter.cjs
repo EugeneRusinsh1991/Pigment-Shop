@@ -9,7 +9,10 @@
 const path = require("path");
 const { LARGE_FILE_LINES, MIN_CLONE_LINES, severityEmoji, effortLabel } = require("./utils.cjs");
 
-const cleanPath = (root, ...args) => path.resolve(root, ...args).replace(/\\/g, "/");
+const cleanPath = (root, ...args) => {
+  const p = path.resolve(root, ...args).replace(/\\/g, "/");
+  return p.length > 1 && p[1] === ":" ? p[0].toLowerCase() + p.slice(1) : p;
+};
 const fmtNum    = (val, dec = 0)  => val != null ? val.toFixed(dec) : "—";
 const getProp   = (obj, key, fb)  => (!obj || obj[key] === undefined) ? fb : obj[key];
 const getLabel  = (sev)           => sev ? sev.charAt(0).toUpperCase() + sev.slice(1) : "—";

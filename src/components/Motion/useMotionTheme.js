@@ -1,3 +1,4 @@
+// @audit-keep
 import { useTheme } from '../../context/ThemeContext';
 
 function useMotionTheme() {

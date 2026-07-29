@@ -15,7 +15,7 @@ import { GlobalToastProvider } from './ToastContext';
 /**
  * 1. Core infrastructure domain (Theme, Language, Toast)
  */
-export function CoreInfrastructureProviders({ children }) {
+function CoreInfrastructureProviders({ children }) {
   return (
     <ThemeProvider>
       <LanguageProvider>
@@ -30,7 +30,7 @@ export function CoreInfrastructureProviders({ children }) {
 /**
  * 2. Session and Authentication domain
  */
-export function SessionProviders({ children }) {
+function SessionProviders({ children }) {
   return (
     <AuthProvider>
       <BootstrapGate>

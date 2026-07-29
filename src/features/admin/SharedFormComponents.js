@@ -109,7 +109,6 @@ export function FieldTextarea({ label, labelIcon, value, onChangeText, placehold
   );
 }
 
-export { FieldTextarea as FieldTextArea };
 
 export { LanguageTabs } from './LanguageTabs';
 export { FormModalLayout } from './FormModalLayout';

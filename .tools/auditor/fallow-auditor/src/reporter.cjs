@@ -48,16 +48,16 @@ function generateMainReport(cleaned, dateStr, projectName, paths) {
 
 ### Detailed Audit Reports
 
-- [🩺 Complexity Health Findings](file:///${paths.complexity})
-- [📁 Large Files](file:///${paths.largeFiles})
-- [🧠 Highly Complex Files](file:///${paths.highComplexity})
-- [🎯 Priority Refactoring Targets](file:///${paths.targets})
-- [👥 Code Duplication Groups](file:///${paths.duplication})
-- [💀 Dead Files (Unused)](file:///${paths.deadFiles})
-- [📦 Unused Exports](file:///${paths.unusedExports})
-- [🔗 Dependency Issues](file:///${paths.dependencyIssues})
-- [📄 Small & Pass-Through Files](file:///${paths.smallFiles})
-- [🛡️ Audit Kept Inventory](file:///${paths.auditKept})
+- [🩺 Complexity Health Findings](./complexity-health-findings.md) ([Full Path](file:///${paths.complexity}))
+- [📁 Large Files](./large-files.md) ([Full Path](file:///${paths.largeFiles}))
+- [🧠 Highly Complex Files](./high-complexity-files.md) ([Full Path](file:///${paths.highComplexity}))
+- [🎯 Priority Refactoring Targets](./priority-refactor-targets.md) ([Full Path](file:///${paths.targets}))
+- [👥 Code Duplication Groups](./code-duplication.md) ([Full Path](file:///${paths.duplication}))
+- [💀 Dead Files](./dead-files.md) ([Full Path](file:///${paths.deadFiles}))
+- [📦 Unused Exports](./unused-exports.md) ([Full Path](file:///${paths.unusedExports}))
+- [🔗 Dependency Issues](./dependency-issues.md) ([Full Path](file:///${paths.dependencyIssues}))
+- [📄 Small & Pass-Through Files](./small-files.md) ([Full Path](file:///${paths.smallFiles}))
+- [🛡️ Audit Kept Inventory](./audit-kept-inventory.md) ([Full Path](file:///${paths.auditKept}))
 `;
 }
 
@@ -67,7 +67,7 @@ function generateMainReport(cleaned, dateStr, projectName, paths) {
 
 function generateReports(cleaned, rootPath, projectName, subDir = "") {
   const dateStr = new Date().toLocaleString();
-  const baseDir = subDir ? `.docs/auditor-reports/${subDir}` : `.docs/auditor-reports`;
+  const baseDir = subDir ? `.docs/audits/fallow-audits/${subDir}` : `.docs/audits/fallow-audits`;
   const paths = {
     complexity:       cleanPath(rootPath, `${baseDir}/complexity-health-findings.md`),
     largeFiles:       cleanPath(rootPath, `${baseDir}/large-files.md`),

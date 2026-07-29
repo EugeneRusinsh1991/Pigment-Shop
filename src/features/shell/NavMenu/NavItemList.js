@@ -90,7 +90,7 @@ function NavItem({ item, isDark, onSelect }) {
   );
 }
 
-export default function NavItemList({ items, isDark, accentLabels, onSelect }) {
+function NavItemList({ items, isDark, accentLabels, onSelect }) {
   if (!items || items.length === 0) return null;
 
   return (

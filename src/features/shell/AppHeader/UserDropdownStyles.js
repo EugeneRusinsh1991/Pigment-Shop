@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 import { colors, layout } from '../../../theme/tokens';
 import appHeaderStyles from './AppHeaderStyles';
 
-export const UserDropdownStyles = StyleSheet.create({
+const UserDropdownStyles = StyleSheet.create({
   dropdown: {
     ...appHeaderStyles.dropdown,
     width: 180,

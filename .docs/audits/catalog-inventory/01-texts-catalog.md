@@ -39,7 +39,7 @@
 
 ### File: src/components/Feedback/InlineError/FieldError.js
 
-  - Line 11: `<Text>` -> `[Dynamic Content]`
+  - Line 12: `<Text>` -> `[Dynamic Content]`
 
 ### File: src/components/Feedback/Toast/ToastView.js
 

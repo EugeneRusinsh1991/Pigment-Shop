@@ -124,7 +124,7 @@ export async function startAppBootstrap({ isAuthenticated, user }) {
 /**
  * Stop the application startup sequence, tear down active sync listeners, and reset status.
  */
-export function stopAppBootstrap() {
+function stopAppBootstrap() {
   _status = STARTUP_STATES.IDLE;
   _error = null;
   stopStartupSteps();
@@ -135,7 +135,7 @@ export function stopAppBootstrap() {
  * Resets the bootstrap state and clears all listener subscriptions.
  * Useful for development Fast Refresh / HMR reloads and test teardowns.
  */
-export function resetAppBootstrap() {
+function resetAppBootstrap() {
   _status = STARTUP_STATES.IDLE;
   _error = null;
   stopStartupSteps();

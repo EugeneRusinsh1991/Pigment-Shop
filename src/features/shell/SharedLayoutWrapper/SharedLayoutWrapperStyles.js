@@ -31,4 +31,4 @@ export const sharedLayoutWrapperStyles = StyleSheet.create({
   },
 });
 
-export default sharedLayoutWrapperStyles;
+

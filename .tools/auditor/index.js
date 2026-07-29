@@ -25,11 +25,16 @@ const DISABLE_DYNAMIC_AUDITS = false;
 function runAllAudits() {
   const AUDITS_DIR = path.join(__dirname, '../../.docs/audits');
   
-  // Clean up old audit reports
-  if (fs.existsSync(AUDITS_DIR)) {
-    fs.rmSync(AUDITS_DIR, { recursive: true, force: true });
-    console.log('Cleaned up previous audit reports');
+  // Ensure audit directories exist without wiping existing files (preserves VS Code file handles)
+  if (!fs.existsSync(AUDITS_DIR)) {
+    fs.mkdirSync(AUDITS_DIR, { recursive: true });
   }
+  ['audits', 'catalog-inventory', 'fallow-audits', 'fallow-audits/project', 'fallow-audits/other'].forEach(sub => {
+    const target = path.join(AUDITS_DIR, sub);
+    if (!fs.existsSync(target)) {
+      fs.mkdirSync(target, { recursive: true });
+    }
+  });
   
   console.log('===================================================================');
   console.log('         RUNNING FULL SYSTEM AUDIT SUITE (.tools/auditor)          ');

@@ -22,7 +22,7 @@ export function calculateTotals(items) {
   return { totalPrice, totalItems };
 }
 
-export async function handleCheckoutProcess({ user, items, totalItems, totalPrice, note, customerInfo, clearCart, t, openScreen, showToast }) {
+async function handleCheckoutProcess({ user, items, totalItems, totalPrice, note, customerInfo, clearCart, t, openScreen, showToast }) {
   const result = await checkoutService.processCheckout({
     user,
     items,

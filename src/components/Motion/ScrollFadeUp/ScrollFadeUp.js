@@ -1,3 +1,4 @@
+// @audit-keep
 import React from 'react';
 import { Animated } from 'react-native';
 import { useMotionAnimation } from './useMotionAnimation';

@@ -75,7 +75,7 @@ export function LoginFooter({ isRegister, isDark, setIsRegister }) {
   );
 }
 
-export function ErrorText({ error }) {
+function ErrorText({ error }) {
   const { t } = useTheme();
   if (!error) return null;
 

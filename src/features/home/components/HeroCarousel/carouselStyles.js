@@ -71,7 +71,7 @@ export const localStyles = StyleSheet.create({
   },
 });
 
-export function getBreakoutStyle(isWide, windowWidth) {
+function getBreakoutStyle(isWide, windowWidth) {
   if (isWide) return {};
   return { width: windowWidth, alignSelf: 'center', borderRadius: layout.radii.none };
 }
