@@ -142,18 +142,23 @@ function scanFile(filePath, patterns) {
   return violations;
 }
 
+const CODE_FILE_REGEX = /\.(js|jsx|ts|tsx)$/;
+
+function processEntry(entry, dirPath, patterns, violations) {
+  const fullPath = path.join(dirPath, entry.name);
+  if (entry.isDirectory()) {
+    walkDir(fullPath, patterns, violations);
+  } else if (entry.isFile() && CODE_FILE_REGEX.test(entry.name)) {
+    const fileViolations = scanFile(fullPath, patterns);
+    violations.push(...fileViolations);
+  }
+}
+
 function walkDir(dirPath, patterns, violations) {
   if (!fs.existsSync(dirPath)) return;
   const entries = fs.readdirSync(dirPath, { withFileTypes: true });
-
   for (const entry of entries) {
-    const fullPath = path.join(dirPath, entry.name);
-    if (entry.isDirectory()) {
-      walkDir(fullPath, patterns, violations);
-    } else if (entry.isFile() && (entry.name.endsWith('.js') || entry.name.endsWith('.jsx') || entry.name.endsWith('.tsx') || entry.name.endsWith('.ts'))) {
-      const fileViolations = scanFile(fullPath, patterns);
-      violations.push(...fileViolations);
-    }
+    processEntry(entry, dirPath, patterns, violations);
   }
 }
 

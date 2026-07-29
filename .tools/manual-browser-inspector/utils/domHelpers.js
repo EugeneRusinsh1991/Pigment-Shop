@@ -46,8 +46,12 @@ function isHeaderOrDrawer(el) {
   return Boolean(el.closest('#app-drawer'));
 }
 
+function isInspectorOrOverlay(el) {
+  return Boolean(el.closest('#manual-browser-inspector') || el.closest('#dev-debug-overlay'));
+}
+
 function shouldExcludeElement(el, excludeHeaderAndDrawer, excludeAdmin) {
-  if (el.closest('#manual-browser-inspector') || el.closest('#dev-debug-overlay')) return true;
+  if (isInspectorOrOverlay(el)) return true;
   if (excludeHeaderAndDrawer && isHeaderOrDrawer(el)) return true;
   if (excludeAdmin && isAdminElement(el)) return true;
   return !isElementVisible(el);

@@ -57,21 +57,25 @@ function writeFilesSummaryReport(filesLogFile, fileCount, violationsCount, group
   console.log("  -> Also generated compact file list: " + path.basename(filesLogFile));
 }
 
+function cleanupEmptyLogs(logFile, filesLogFile) {
+  cleanFilesLog(filesLogFile);
+  if (fs.existsSync(logFile)) {
+    try { fs.unlinkSync(logFile); } catch (_) {}
+  }
+  const logDir = path.dirname(logFile);
+  if (fs.existsSync(logDir)) {
+    try {
+      const files = fs.readdirSync(logDir);
+      if (files.length === 0) {
+        fs.rmdirSync(logDir);
+      }
+    } catch (_) {}
+  }
+}
+
 function writeAuditReport({ violations, logFile, filesLogFile, auditName, issueTypeName, timestamp }) {
   if (violations.length === 0) {
-    cleanFilesLog(filesLogFile);
-    if (fs.existsSync(logFile)) {
-      try { fs.unlinkSync(logFile); } catch (_) {}
-    }
-    const logDir = path.dirname(logFile);
-    if (fs.existsSync(logDir)) {
-      try {
-        const files = fs.readdirSync(logDir);
-        if (files.length === 0) {
-          fs.rmdirSync(logDir);
-        }
-      } catch (_) {}
-    }
+    cleanupEmptyLogs(logFile, filesLogFile);
     console.log(`[${auditName}] Finished (0 unique issues) -> Clean`);
     return;
   }

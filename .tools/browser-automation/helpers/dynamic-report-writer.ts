@@ -152,6 +152,28 @@ function writeUrlListLog(filesFilePath: string, auditorName: string, scope: stri
   fs.writeFileSync(filesFilePath, filesContent, 'utf-8');
 }
 
+function writeLogOutputs(
+  docsDir: string,
+  baseFileName: string,
+  auditorName: string,
+  scope: string,
+  state: Violation[],
+  urlState: Set<string>,
+  hasNew: boolean,
+  hasNewUrls: boolean
+) {
+  if (hasNew) {
+    const violationsFilePath = path.join(docsDir, `${baseFileName}-violations.log`);
+    const problemsMap = groupViolationsByProblemTitle(state);
+    const reportContent = makeYamlHeader('dynamic-audit', auditorName, scope) + formatProblemsReport(problemsMap);
+    fs.writeFileSync(violationsFilePath, reportContent, 'utf-8');
+  }
+
+  if (urlState.size > 10 && hasNewUrls) {
+    writeUrlListLog(path.join(docsDir, `${baseFileName}-files.log`), auditorName, scope, urlState);
+  }
+}
+
 export function writeDynamicReport(
   auditorPrefix: string,
   auditorName: string,
@@ -176,15 +198,5 @@ export function writeDynamicReport(
   if (!hasNew && !hasNewUrls) return;
 
   fs.writeFileSync(jsonFilePath, JSON.stringify({ violations: state, urls: Array.from(urlState) }, null, 2), 'utf-8');
-
-  if (hasNew) {
-    const violationsFilePath = path.join(docsDir, `${baseFileName}-violations.log`);
-    const problemsMap = groupViolationsByProblemTitle(state);
-    const reportContent = makeYamlHeader('dynamic-audit', auditorName, scope) + formatProblemsReport(problemsMap);
-    fs.writeFileSync(violationsFilePath, reportContent, 'utf-8');
-  }
-
-  if (urlState.size > 10 && hasNewUrls) {
-    writeUrlListLog(path.join(docsDir, `${baseFileName}-files.log`), auditorName, scope, urlState);
-  }
+  writeLogOutputs(docsDir, baseFileName, auditorName, scope, state, urlState, hasNew, hasNewUrls);
 }

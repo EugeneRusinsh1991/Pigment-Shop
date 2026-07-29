@@ -60,6 +60,12 @@ function checkExportedSymbolViolations(compFiles, allFiles, ignoreExports) {
   return violations;
 }
 
+function clearLogFile(filePath) {
+  if (fs.existsSync(filePath)) {
+    try { fs.unlinkSync(filePath); } catch (_) {}
+  }
+}
+
 function auditUnusedExports(disableDynamicAudits = false) {
   if (!fs.existsSync(AUDITS_DIR)) fs.mkdirSync(AUDITS_DIR, { recursive: true });
   const allFiles = getAllFiles(SRC_DIR);
@@ -76,14 +82,12 @@ function auditUnusedExports(disableDynamicAudits = false) {
     return;
   }
 
-  if (fs.existsSync(LOG_FILE)) { try { fs.unlinkSync(LOG_FILE); } catch (_) {} }
-  if (fs.existsSync(FILES_LOG_FILE)) { try { fs.unlinkSync(FILES_LOG_FILE); } catch (_) {} }
+  clearLogFile(LOG_FILE);
+  clearLogFile(FILES_LOG_FILE);
 
-  if (violations.length === 0) {
-    console.log('[06 Unused Exports Audit] Finished (0 issues) -> Clean');
-  } else {
-    console.log(`[06 Unused Exports Audit] Finished (${violations.length} issues)`);
-  }
+  const issueCount = violations.length;
+  const statusMsg = issueCount === 0 ? '0 issues) -> Clean' : `${issueCount} issues)`;
+  console.log(`[06 Unused Exports Audit] Finished (${statusMsg}`);
 }
 
 module.exports = { auditUnusedExports };

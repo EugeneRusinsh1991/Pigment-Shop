@@ -45,6 +45,12 @@ function walkDir(dirPath, violations) {
   }
 }
 
+function clearLogFile(filePath) {
+  if (fs.existsSync(filePath)) {
+    try { fs.unlinkSync(filePath); } catch (_) {}
+  }
+}
+
 function auditHardcodeUrl(disableDynamicAudits = false) {
   if (!fs.existsSync(AUDITS_DIR)) fs.mkdirSync(AUDITS_DIR, { recursive: true });
   const violations = [];
@@ -55,20 +61,12 @@ function auditHardcodeUrl(disableDynamicAudits = false) {
     return;
   }
 
-  const timestamp = new Date().toLocaleString('ru-RU');
-  let report = `===================================================================\n`;
-  report += `               11. HARDCODED URL & CONFIG REPORT                   \n`;
-  report += `Timestamp: ${timestamp}\n`;
-  report += `===================================================================\n\n`;
+  clearLogFile(LOG_FILE);
+  clearLogFile(FILES_LOG_FILE);
 
-  if (fs.existsSync(LOG_FILE)) { try { fs.unlinkSync(LOG_FILE); } catch (_) {} }
-  if (fs.existsSync(FILES_LOG_FILE)) { try { fs.unlinkSync(FILES_LOG_FILE); } catch (_) {} }
-
-  if (violations.length === 0) {
-    console.log('[11 Hardcoded URL Audit] Finished (0 issues) -> Clean');
-  } else {
-    console.log(`[11 Hardcoded URL Audit] Finished (${violations.length} issues)`);
-  }
+  const issueCount = violations.length;
+  const statusMsg = issueCount === 0 ? '0 issues) -> Clean' : `${issueCount} issues)`;
+  console.log(`[11 Hardcoded URL Audit] Finished (${statusMsg}`);
 }
 
 module.exports = { auditHardcodeUrl };

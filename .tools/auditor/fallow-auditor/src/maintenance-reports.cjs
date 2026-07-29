@@ -36,10 +36,14 @@ function generateUnusedExportsReport(cleaned, dateStr, rootPath, backLink = "") 
   return md + backLink;
 }
 
+function hasAnyDependencyIssues(unused, unlisted, circular) {
+  return Boolean((unused && unused.length) || (unlisted && unlisted.length) || (circular && circular.length));
+}
+
 function generateDependencyIssuesReport(cleaned, dateStr, rootPath, backLink = "") {
   const { unused_dependencies, unlisted_dependencies, circular_dependencies } = cleaned.check;
   let md = `# 🔗 Dependency Issues\n\n*Generated on: ${dateStr}*\n\n`;
-  if ((unused_dependencies && unused_dependencies.length > 0) || (unlisted_dependencies && unlisted_dependencies.length > 0) || (circular_dependencies && circular_dependencies.length > 0)) {
+  if (hasAnyDependencyIssues(unused_dependencies, unlisted_dependencies, circular_dependencies)) {
     md += formatDependencyIssues(unused_dependencies, unlisted_dependencies, circular_dependencies, rootPath);
   } else {
     md += `*No dependency issues found.*\n\n`;

@@ -41,9 +41,13 @@ export class ConsoleReporter implements Reporter {
     return SEMANTIC_TAGS.has(tag) || SEMANTIC_ROLES.has(role) || el.type === 'checkbox' || Boolean(el.testId) || Boolean(el.ariaLabel);
   }
 
+  private hasDirectIdentifier(el: any, text: string): boolean {
+    return Boolean(text || el.ariaLabel || el.testId || el.id || el.href);
+  }
+
   private hasIdentifiableContent(el: any): boolean {
     const text = (el.text || '').trim();
-    if (text || el.ariaLabel || el.testId || el.id || el.href) return true;
+    if (this.hasDirectIdentifier(el, text)) return true;
     return Boolean(el.selector && !el.selector.startsWith('/'));
   }
 
@@ -54,11 +58,17 @@ export class ConsoleReporter implements Reporter {
     return this.hasIdentifiableContent(el);
   }
 
-  private resolveSemanticType(tag: string, role: string, el: any): string {
+  private resolveMappedType(tag: string, role: string, el: any): string | null {
     if (TAG_TYPE_MAP[tag]) return TAG_TYPE_MAP[tag];
     if (ROLE_TYPE_MAP[role]) return ROLE_TYPE_MAP[role];
     if (el.type === 'checkbox') return 'Checkbox';
     if (el.testId || el.ariaLabel) return 'Interactive';
+    return null;
+  }
+
+  private resolveSemanticType(tag: string, role: string, el: any): string {
+    const mapped = this.resolveMappedType(tag, role, el);
+    if (mapped) return mapped;
     return tag ? tag.charAt(0).toUpperCase() + tag.slice(1) : 'Element';
   }
 
@@ -67,13 +77,18 @@ export class ConsoleReporter implements Reporter {
     catch { return href; }
   }
 
-  private resolveDescription(el: any): string {
-    const text = el.text?.trim();
+  private resolvePrimaryLabel(el: any, text: string): string | null {
     if (text) return `"${text}"`;
     if (el.ariaLabel) return `[${el.ariaLabel}]`;
     if (el.testId) return `<${el.testId}>`;
     if (el.id) return `#${el.id}`;
     if (el.href) return `-> ${this.getHrefPath(el.href)}`;
+    return null;
+  }
+
+  private resolveDescription(el: any): string {
+    const label = this.resolvePrimaryLabel(el, el.text?.trim() || '');
+    if (label) return label;
     
     const selector = el.selector || 'Unknown';
     return !selector.includes('/') ? selector : `at ${selector}`;

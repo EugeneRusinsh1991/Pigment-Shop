@@ -1,6 +1,6 @@
 # 📦 Unused Exports
 
-*Generated on: 29.07.2026, 19:09:52*
+*Generated on: 29.07.2026, 19:18:17*
 
 Exports that are not imported or consumed by any other active file:
 
@@ -18,7 +18,7 @@ Exports that are not imported or consumed by any other active file:
 - [StateCacheManager.ts](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/explorer/StateCacheManager.ts): `StateCacheManager` ([L17](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/explorer/StateCacheManager.ts#L17))
 - [StateRecoveryManager.ts](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/explorer/StateRecoveryManager.ts): `StateRecoveryManager` ([L10](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/explorer/StateRecoveryManager.ts#L10))
 - [UIExplorer.ts](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/explorer/UIExplorer.ts): `UIExplorer` ([L25](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/explorer/UIExplorer.ts#L25))
-- [DIContainer.ts](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/explorer/di/DIContainer.ts): `createDefaultContainer` ([L132](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/explorer/di/DIContainer.ts#L132))
+- [DIContainer.ts](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/explorer/di/DIContainer.ts): `createDefaultContainer` ([L136](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/explorer/di/DIContainer.ts#L136))
 - [ExecutionWatchdog.ts](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/explorer/diagnostics/ExecutionWatchdog.ts): `ExecutionWatchdog` ([L5](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/explorer/diagnostics/ExecutionWatchdog.ts#L5))
 - [InteractionDiagnostics.ts](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/explorer/diagnostics/InteractionDiagnostics.ts): `InteractionDiagnostics` ([L1](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/explorer/diagnostics/InteractionDiagnostics.ts#L1))
 - [PlaywrightAdapter.ts](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/explorer/driver/PlaywrightAdapter.ts): `PlaywrightElement` ([L5](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/explorer/driver/PlaywrightAdapter.ts#L5)), `PlaywrightPage` ([L64](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/explorer/driver/PlaywrightAdapter.ts#L64)), `PlaywrightContext` ([L138](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/explorer/driver/PlaywrightAdapter.ts#L138)), `PlaywrightBrowser` ([L151](file:///d:/Magazine/_PigmentShop/.tools/browser-automation/explorer/driver/PlaywrightAdapter.ts#L151))

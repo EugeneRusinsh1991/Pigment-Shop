@@ -154,9 +154,17 @@ function runInteractiveMenu() {
     }
   }
 
+  function isCancelKey(key) {
+    return key.name === 'escape' || Boolean(key.ctrl && key.name === 'c');
+  }
+
+  function isArrowKey(keyName) {
+    return keyName === 'up' || keyName === 'down';
+  }
+
   function onKeypress(str, key) {
-    if (key.name === 'escape' || (key.ctrl && key.name === 'c')) return handleEscapeKey();
-    if (key.name === 'up' || key.name === 'down') return handleArrowNavigation(key.name);
+    if (isCancelKey(key)) return handleEscapeKey();
+    if (isArrowKey(key.name)) return handleArrowNavigation(key.name);
     if (key.name === 'return') return handleEnterKey();
   }
 

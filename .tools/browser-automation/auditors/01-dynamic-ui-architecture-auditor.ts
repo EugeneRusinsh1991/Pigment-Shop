@@ -50,13 +50,22 @@ export async function auditUIArchitecture(page: Page, url: string, scope: 'publi
     const MOTION_RE = /(?:transition|animation).*:/i;
     const TYPO_STYLE_RE = /(?:font-size|font-family|line-height)/i;
 
+    const isNonTokenTypography = (el: Element, styleAttr: string) => {
+      if (!TYPO_STYLE_RE.test(styleAttr) || !TYPO_TAG_RE.test(el.tagName)) return false;
+      return !el.closest('[data-component="Typography"], [data-ui="Typography"]');
+    };
+
+    const STYLE_TOKEN_RULES: Array<[RegExp, string]> = [
+      [COLOR_RE, 'hardcoded-color'],
+      [SPACING_RE, 'hardcoded-spacing'],
+      [MOTION_RE, 'hardcoded-motion']
+    ];
+
     const checkStyleTokens = (el: Element, styleAttr: string) => {
-      if (COLOR_RE.test(styleAttr)) report('hardcoded-color', el);
-      if (SPACING_RE.test(styleAttr)) report('hardcoded-spacing', el);
-      if (MOTION_RE.test(styleAttr)) report('hardcoded-motion', el);
-      if (TYPO_STYLE_RE.test(styleAttr) && TYPO_TAG_RE.test(el.tagName) && !el.closest('[data-component="Typography"], [data-ui="Typography"]')) {
-        report('non-token-typography', el);
-      }
+      STYLE_TOKEN_RULES.forEach(([regex, type]) => {
+        if (regex.test(styleAttr)) report(type, el);
+      });
+      if (isNonTokenTypography(el, styleAttr)) report('non-token-typography', el);
     };
 
     const isHardcodedTheme = (el: Element) => {

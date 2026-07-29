@@ -133,6 +133,20 @@ function auditFileEntry(entry) {
   }];
 }
 
+function checkMissingModules(compName, hasIndex, hasStyles, hasThemeHook) {
+  const missing = [];
+  if (!hasIndex) missing.push('index.js');
+  if (!hasStyles) missing.push(`${compName}Styles.js`);
+  if (!hasThemeHook) missing.push(`use${compName}Theme.js`);
+
+  if (missing.length === 0) return [];
+  return [{
+    type: 'MISSING_MODULES',
+    location: `src/components/${compName}/`,
+    details: `Missing: ${missing.join(', ')}`
+  }];
+}
+
 function auditFolderEntry(entry) {
   const compName = entry.name;
   const compDir = path.join(COMPONENTS_DIR, compName);
@@ -142,19 +156,7 @@ function auditFolderEntry(entry) {
   const hasStyles = files.some(f => f.endsWith('Styles.js'));
   const hasThemeHook = files.some(f => f.startsWith('use') && f.endsWith('Theme.js'));
 
-  const violations = [];
-  const missingModules = [];
-  if (!hasIndex) missingModules.push('index.js');
-  if (!hasStyles) missingModules.push(`${compName}Styles.js`);
-  if (!hasThemeHook) missingModules.push(`use${compName}Theme.js`);
-
-  if (missingModules.length > 0) {
-    violations.push({
-      type: 'MISSING_MODULES',
-      location: `src/components/${compName}/`,
-      details: `Missing: ${missingModules.join(', ')}`
-    });
-  }
+  const violations = checkMissingModules(compName, hasIndex, hasStyles, hasThemeHook);
 
   if (hasStyles || hasThemeHook) {
     violations.push(...checkGhostImports(compName, compDir, files));

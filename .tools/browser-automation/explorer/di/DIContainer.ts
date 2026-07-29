@@ -68,15 +68,19 @@ function createExplorerContext(): ExplorerContext {
   };
 }
 
+function resolveService<T>(value: T | undefined, fallback: () => T): T {
+  return value !== undefined ? value : fallback();
+}
+
 function createBaseServices(context: ExplorerContext, config: ExplorerConfig, overrides: DIFactoryOverrides) {
   return {
-    tracker: overrides.tracker ?? new NavigationTracker(context),
-    scanner: overrides.scanner ?? new ElementScanner(),
-    interactor: overrides.interactor ?? new ElementInteractor(config),
-    policyEngine: overrides.policyEngine ?? new InteractionPolicyEngine(config.interactionPolicyConfig),
-    actionTracker: overrides.actionTracker ?? new ActionDepthTracker(),
-    readiness: overrides.readiness ?? new ReadinessManager(config),
-    stateGraph: overrides.stateGraph ?? new ExecutionStateGraph()
+    tracker: resolveService(overrides.tracker, () => new NavigationTracker(context)),
+    scanner: resolveService(overrides.scanner, () => new ElementScanner()),
+    interactor: resolveService(overrides.interactor, () => new ElementInteractor(config)),
+    policyEngine: resolveService(overrides.policyEngine, () => new InteractionPolicyEngine(config.interactionPolicyConfig)),
+    actionTracker: resolveService(overrides.actionTracker, () => new ActionDepthTracker()),
+    readiness: resolveService(overrides.readiness, () => new ReadinessManager(config)),
+    stateGraph: resolveService(overrides.stateGraph, () => new ExecutionStateGraph())
   };
 }
 

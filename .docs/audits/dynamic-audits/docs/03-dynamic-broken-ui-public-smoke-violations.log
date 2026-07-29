@@ -2,7 +2,7 @@
 type: dynamic-audit
 auditor: broken-ui
 scope: public
-date: 2026-07-29T16:09:53.012Z
+date: 2026-07-29T16:15:00.492Z
 ---
 
 ### Problem: Clickable element is overlapped or intercepted by another element.
@@ -47,4 +47,8 @@ date: 2026-07-29T16:09:53.012Z
   - Selector: `div.css-view-g5y9jx.r-marginBlock-l00any`
   - Selector: `div.css-view-g5y9jx`
 - URL: `http://localhost:8081/product/prod-1-1-2-1`
+  - Selector: `div.css-view-g5y9jx.r-alignItems-1awozwy.r-flexDirection-18u37iz.r-padding-zhp00w.r-position-bnwqim.r-borderRadius-1xfd6ze.r-height-eu3ka.r-backgroundColor-1gzzd1q.r-marginBottom-1ifxtd0`
+- URL: `http://localhost:8081/product/prod-2-1-1-1`
+  - Selector: `div.css-view-g5y9jx.r-alignItems-1awozwy.r-flexDirection-18u37iz.r-padding-zhp00w.r-position-bnwqim.r-borderRadius-1xfd6ze.r-height-eu3ka.r-backgroundColor-1gzzd1q.r-marginBottom-1ifxtd0`
+- URL: `http://localhost:8081/product/prod-1-2-1-1`
   - Selector: `div.css-view-g5y9jx.r-alignItems-1awozwy.r-flexDirection-18u37iz.r-padding-zhp00w.r-position-bnwqim.r-borderRadius-1xfd6ze.r-height-eu3ka.r-backgroundColor-1gzzd1q.r-marginBottom-1ifxtd0`

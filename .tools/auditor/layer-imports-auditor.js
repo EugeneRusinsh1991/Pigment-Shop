@@ -22,20 +22,26 @@ function getAllFiles(dir, fileList = []) {
   return fileList;
 }
 
+function tryAppendExtension(basePath) {
+  for (const ext of ['.js', '.jsx', '.ts', '.tsx']) {
+    if (fs.existsSync(basePath + ext)) return basePath + ext;
+  }
+  return basePath;
+}
+
+function resolveExistingPath(dir, importStr) {
+  const resolved = path.resolve(dir, importStr);
+  if (fs.existsSync(resolved)) {
+    return fs.statSync(resolved).isDirectory() ? path.join(resolved, 'index.js') : resolved;
+  }
+  return tryAppendExtension(resolved);
+}
+
 function resolveImport(fromFullPath, importStr) {
   if (!importStr.startsWith('.')) return null;
-  const dir = path.dirname(fromFullPath);
-  let resolved = path.resolve(dir, importStr);
-  if (fs.existsSync(resolved) && fs.statSync(resolved).isDirectory()) {
-    resolved = path.join(resolved, 'index.js');
-  } else if (!fs.existsSync(resolved)) {
-    if (fs.existsSync(resolved + '.js')) resolved += '.js';
-    else if (fs.existsSync(resolved + '.jsx')) resolved += '.jsx';
-  }
-  if (fs.existsSync(resolved)) {
-    return path.relative(path.join(__dirname, '../..'), resolved).replace(/\\/g, '/');
-  }
-  return null;
+  const resolved = resolveExistingPath(path.dirname(fromFullPath), importStr);
+  if (!fs.existsSync(resolved)) return null;
+  return path.relative(path.join(__dirname, '../..'), resolved).replace(/\\/g, '/');
 }
 
 function checkImportViolations(relPath, imp) {

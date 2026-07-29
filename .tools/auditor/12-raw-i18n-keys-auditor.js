@@ -45,17 +45,22 @@ function scanFile(filePath, violations) {
 }
 
 
+const CODE_FILE_REGEX = /\.(js|jsx|ts|tsx)$/;
+
+function processEntry(entry, dirPath, violations) {
+  const fullPath = path.join(dirPath, entry.name);
+  if (entry.isDirectory()) {
+    walkDir(fullPath, violations);
+  } else if (entry.isFile() && CODE_FILE_REGEX.test(entry.name)) {
+    scanFile(fullPath, violations);
+  }
+}
+
 function walkDir(dirPath, violations) {
   if (!fs.existsSync(dirPath)) return;
   const entries = fs.readdirSync(dirPath, { withFileTypes: true });
-
   for (const entry of entries) {
-    const fullPath = path.join(dirPath, entry.name);
-    if (entry.isDirectory()) {
-      walkDir(fullPath, violations);
-    } else if (entry.isFile() && (entry.name.endsWith('.js') || entry.name.endsWith('.jsx') || entry.name.endsWith('.tsx') || entry.name.endsWith('.ts'))) {
-      scanFile(fullPath, violations);
-    }
+    processEntry(entry, dirPath, violations);
   }
 }
 

@@ -23,12 +23,15 @@ export async function auditBrokenUI(page: Page, url: string, scope: 'public' | '
       return !/scroll|auto/.test(style.overflow) && !/scroll|auto/.test(style.overflowX);
     };
 
+    const isInvalidRect = (rect: DOMRect) => rect.width === 0 || rect.height === 0 || rect.top < 0 || rect.left < 0;
+    const isOutOfBounds = (cx: number, cy: number) => cx > window.innerWidth || cy > window.innerHeight;
+
     const isOverlapped = (el: Element) => {
       const rect = el.getBoundingClientRect();
-      if (rect.width === 0 || rect.height === 0 || rect.top < 0 || rect.left < 0) return false;
+      if (isInvalidRect(rect)) return false;
       const cx = rect.left + rect.width / 2;
       const cy = rect.top + rect.height / 2;
-      if (cx > window.innerWidth || cy > window.innerHeight) return false;
+      if (isOutOfBounds(cx, cy)) return false;
 
       const topElement = document.elementFromPoint(cx, cy);
       return Boolean(topElement && topElement !== el && !el.contains(topElement));
