@@ -1,6 +1,5 @@
 import { View, useWindowDimensions } from 'react-native';
 import { useTheme } from '../../context/ThemeContext';
-import { useLanguage } from '../../context/LanguageContext';
 import { colors, layout } from '../../theme/tokens';
 import AppHeaderControls from './AppHeader/AppHeaderControls';
 import AppHeaderLogo from './AppHeader/AppHeaderLogo';
@@ -42,7 +41,6 @@ function getHeaderTheme(isDark) {
 
 export default function AppHeader(props) {
   const { isDark: isDarkContext } = useTheme();
-  const { t } = useLanguage();
   const isDark = props.isDark ?? isDarkContext;
   const theme = getHeaderTheme(isDark);
   const { width } = useWindowDimensions();
@@ -62,13 +60,11 @@ export default function AppHeader(props) {
           isMobile={isMobile}
           onMenuPress={props.onMenuPress}
           theme={theme}
-          t={t}
         />
         <AppHeaderControls
           isMobile={isMobile}
           theme={theme}
           isDark={props.isDark}
-          t={t}
           onToggleTheme={props.onToggleTheme}
           onToggleLangMenu={props.onToggleLangMenu}
           showLangMenu={props.showLangMenu}

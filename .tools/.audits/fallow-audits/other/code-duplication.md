@@ -1,6 +1,6 @@
 # 👥 Significant Code Duplication (≥ 8 lines)
 
-*Generated on: 30.07.2026, 00:46:23*
+*Generated on: 30.07.2026, 01:15:37*
 
 ### Clone Group 1 — 37 lines, 107 tokens · `dup:11d7f12a`
 > 💡 Extract duplicated code (37 lines, 2 instances) into a shared function
@@ -31,5 +31,11 @@
 
 - [devServerHelper.ts:L33–L47](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/helpers/devServerHelper.ts#L33-L47) (`automation/browser-automation/helpers/devServerHelper.ts`)
 - [open-playwright.js:L36–L50](file:///d:/Magazine/_PigmentShop/.tools/scripts/open-playwright.js#L36-L50) (`scripts/open-playwright.js`)
+
+### Clone Group 6 — 9 lines, 82 tokens · `dup:f8484dc2`
+> 💡 Extract duplicated code (9 lines, 2 instances) into a shared function
+
+- [i18n-audit.js:L13–L21](file:///d:/Magazine/_PigmentShop/.tools/i18n-audit.js#L13-L21) (`i18n-audit.js`)
+- [generateMediaManifest.js:L22–L30](file:///d:/Magazine/_PigmentShop/.tools/scripts/generateMediaManifest.js#L22-L30) (`scripts/generateMediaManifest.js`)
 
 

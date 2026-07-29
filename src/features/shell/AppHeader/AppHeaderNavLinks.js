@@ -13,10 +13,8 @@ export default function AppHeaderNavLinks({
   onAllProductsPress,
   onContactPress,
   theme,
-  t: propT,
 }) {
-  const { t: langT } = useLanguage();
-  const t = propT || langT;
+  const { t } = useLanguage();
   if (isMobile) return null;
 
   return (

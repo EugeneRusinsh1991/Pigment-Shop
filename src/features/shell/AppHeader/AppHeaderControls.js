@@ -14,7 +14,6 @@ export default function AppHeaderControls({
   isMobile,
   theme,
   isDark,
-  t,
   onToggleTheme,
   onToggleLangMenu,
   showLangMenu,

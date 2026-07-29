@@ -2,6 +2,7 @@ import React from 'react';
 import { View, TouchableOpacity } from 'react-native';
 import { Text, Heading } from '../../Text';
 import { useEmptyStateTheme } from './useEmptyStateTheme';
+import { useLanguage } from '../../../../context/LanguageContext';
 
 /**
  * Global EmptyState component for empty catalog, cart, favorites, orders, and tables.
@@ -15,9 +16,10 @@ function renderChildren(children, descriptionStyle, mutedColor) {
 }
 
 function RetryButton({ onRetry, styles }) {
+  const { t } = useLanguage();
   return (
     <TouchableOpacity onPress={onRetry} style={styles.retryButton}>
-      <Text variant="body2" style={styles.retryText}>Try Again</Text>
+      <Text variant="body2" style={styles.retryText}>{t('tryAgain')}</Text>
     </TouchableOpacity>
   );
 }

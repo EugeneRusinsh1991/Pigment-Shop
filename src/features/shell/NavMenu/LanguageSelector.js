@@ -3,16 +3,14 @@ import { View } from 'react-native';
 import { Text } from '@/components/ui/Text';
 import { AnimatedButton, ChipButton } from '@/components/ui/Button';
 import { ThemeIcon } from '@/components/Icons';
+import { useLanguage } from '@/context/LanguageContext';
 import { colors, layout } from '../../../theme/tokens';
 import styles from './NavMenuStyles';
 import { LANGUAGES, CURRENCIES } from './constants';
 
-function getThemeToggleLabel(isDark) {
-  return isDark ? 'Switch to light theme' : 'Switch to dark theme';
-}
-
 function ThemeToggleButton({ isDark, onToggleTheme }) {
-  const themeToggleLabel = getThemeToggleLabel(isDark);
+  const { t } = useLanguage();
+  const themeToggleLabel = isDark ? t('switchToLightTheme') : t('switchToDarkTheme');
   const iconColor = isDark ? colors.white : colors.dark;
 
   return (

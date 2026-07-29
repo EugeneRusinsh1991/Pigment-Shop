@@ -17,8 +17,8 @@ function buildMenuItems(t, catalogItems) {
     ],
     categoryItems: catalogItems || [],
     contactItems: [
-      { id: 'contact-instagram', label: 'Instagram', icon: '📸', action: 'instagram' },
-      { id: 'contact-telegram', label: 'Telegram', icon: '✈️', action: 'telegram' },
+      { id: 'contact-instagram', label: t('contactInstagram'), icon: '📸', action: 'instagram' },
+      { id: 'contact-telegram', label: t('contactTelegram'), icon: '✈️', action: 'telegram' },
     ],
   };
 }

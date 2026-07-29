@@ -8,26 +8,31 @@ import { TRANSLATIONS } from '../data/translations';
 
 const LanguageContext = createContext(null);
 
-const getTranslation = (key, lang) => {
+const getTranslation = (key, lang, params) => {
   const dicts = [TRANSLATIONS[lang], TRANSLATIONS.en, TRANSLATIONS.ru];
   const match = dicts.find((dict) => dict && dict[key] !== undefined);
-  return match ? match[key] : key;
+  if (!match) {
+    if (process.env.NODE_ENV !== 'production') {
+      console.warn(`[i18n] Missing translation key "${key}" for language "${lang}".`);
+    }
+    return key;
+  }
+  let res = match[key];
+  if (params && typeof params === 'object' && typeof res === 'string') {
+    Object.keys(params).forEach((paramKey) => {
+      res = res.replace(new RegExp(`\\{${paramKey}\\}`, 'g'), params[paramKey]);
+    });
+  }
+  return res;
 };
 
 export function LanguageProvider({ children }) {
   const [lang, setLang] = useState('ru');
 
-  const t = useMemo(() => {
-    const tFunc = (key) => getTranslation(key, lang);
-    return new Proxy(tFunc, {
-      get(target, prop) {
-        if (typeof prop === 'string' && !(prop in target)) {
-          return getTranslation(prop, lang);
-        }
-        return Reflect.get(target, prop);
-      },
-    });
-  }, [lang]);
+  const t = useCallback(
+    (key, params) => getTranslation(key, lang, params),
+    [lang]
+  );
 
   const selectLanguage = useCallback((code) => setLang(code), []);
 

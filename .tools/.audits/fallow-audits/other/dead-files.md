@@ -1,6 +1,6 @@
 # 💀 Dead Files (Unused)
 
-*Generated on: 30.07.2026, 00:46:23*
+*Generated on: 30.07.2026, 01:15:37*
 
 Files that are not reachable or imported by any other codebase file:
 
@@ -130,4 +130,5 @@ Files that are not reachable or imported by any other codebase file:
 - [run-clean.cjs](file:///d:/Magazine/_PigmentShop/.tools/core/cleaner/run-clean.cjs) (`core/cleaner/run-clean.cjs`)
 - [run-health.cjs](file:///d:/Magazine/_PigmentShop/.tools/core/health/run-health.cjs) (`core/health/run-health.cjs`)
 - [run-pack.cjs](file:///d:/Magazine/_PigmentShop/.tools/core/packer/run-pack.cjs) (`core/packer/run-pack.cjs`)
+- [i18n-audit.js](file:///d:/Magazine/_PigmentShop/.tools/i18n-audit.js) (`i18n-audit.js`)
 
