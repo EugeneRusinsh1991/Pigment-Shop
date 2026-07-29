@@ -10,4 +10,4 @@ export function useBreadcrumbTheme(isDarkProps) {
   };
 }
 
-export default useBreadcrumbTheme;
+

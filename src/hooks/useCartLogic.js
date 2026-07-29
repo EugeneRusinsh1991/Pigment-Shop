@@ -14,17 +14,23 @@ export function useCartLogic() {
   const { items, updateQuantity, removeFromCart, addItem } = useCartContext();
   const { showToast } = useToast();
 
+  const findCartItem = useCallback((itemId) => {
+    const item = items.find((i) => i.id === itemId);
+    if (!item) {
+      showToast('Item not found in cart', 'error');
+      return null;
+    }
+    return item;
+  }, [items, showToast]);
+
   /**
    * Increase item quantity by 1
    * @param {string} itemId - Product ID
    */
   const increaseQty = useCallback((itemId) => {
     try {
-      const item = items.find((i) => i.id === itemId);
-      if (!item) {
-        showToast('Item not found in cart', 'error');
-        return;
-      }
+      const item = findCartItem(itemId);
+      if (!item) return;
       
       if (item.qty >= 99) {
         showToast('Maximum quantity reached (99)', 'error');
@@ -36,7 +42,7 @@ export function useCartLogic() {
       showToast('Failed to update quantity', 'error');
       console.error('increaseQty error:', error);
     }
-  }, [items, updateQuantity, showToast]);
+  }, [findCartItem, updateQuantity, showToast]);
 
   /**
    * Decrease item quantity by 1 (minimum 1)
@@ -44,11 +50,8 @@ export function useCartLogic() {
    */
   const decreaseQty = useCallback((itemId) => {
     try {
-      const item = items.find((i) => i.id === itemId);
-      if (!item) {
-        showToast('Item not found in cart', 'error');
-        return;
-      }
+      const item = findCartItem(itemId);
+      if (!item) return;
       
       if (item.qty <= 1) {
         showToast('Minimum quantity is 1', 'error');
@@ -60,7 +63,7 @@ export function useCartLogic() {
       showToast('Failed to update quantity', 'error');
       console.error('decreaseQty error:', error);
     }
-  }, [items, updateQuantity, showToast]);
+  }, [findCartItem, updateQuantity, showToast]);
 
   /**
    * Remove item from cart
@@ -68,11 +71,8 @@ export function useCartLogic() {
    */
   const removeItem = useCallback((itemId) => {
     try {
-      const item = items.find((i) => i.id === itemId);
-      if (!item) {
-        showToast('Item not found in cart', 'error');
-        return;
-      }
+      const item = findCartItem(itemId);
+      if (!item) return;
       
       removeFromCart(itemId);
       showToast('Item removed from cart', 'success');
@@ -80,7 +80,7 @@ export function useCartLogic() {
       showToast('Failed to remove item', 'error');
       console.error('removeItem error:', error);
     }
-  }, [items, removeFromCart, showToast]);
+  }, [findCartItem, removeFromCart, showToast]);
 
   /**
    * Add item to cart with validation

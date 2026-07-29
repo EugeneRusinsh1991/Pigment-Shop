@@ -78,4 +78,4 @@ export function useCardAnimation({
   };
 }
 
-export default useCardAnimation;
+

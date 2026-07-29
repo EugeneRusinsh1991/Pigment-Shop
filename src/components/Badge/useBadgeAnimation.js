@@ -72,4 +72,4 @@ export function useBadgeAnimation({
   };
 }
 
-export default useBadgeAnimation;
+

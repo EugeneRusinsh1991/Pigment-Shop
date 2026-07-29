@@ -29,4 +29,4 @@ export function useDrawerTheme({ isDarkProp, styleMap } = {}) {
   };
 }
 
-export default useDrawerTheme;
+

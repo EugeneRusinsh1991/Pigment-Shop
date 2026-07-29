@@ -2,7 +2,6 @@ import { View, useWindowDimensions } from 'react-native';
 import { Text } from '../../components/Text/Text';
 import { useAuth } from '../../context/AuthContext';
 import { useTheme } from '../../context/ThemeContext';
-import { getTabData } from '../../utils/getTabData';
 import { useProfile } from '../profile/useProfile';
 import styles from './ProductReviewsStyles';
 import {
@@ -13,6 +12,16 @@ import {
     getAccountName,
     useReviewsState,
 } from './ProductReviewSubcomponents';
+
+function getTabData(state, t) {
+  const isQuestions = state.contentTab === 'questions';
+  const displayList = (isQuestions ? state.questionsList : state.reviewsList) || [];
+  const template = isQuestions ? t('questionsCount') : t('reviewsCount');
+  return {
+    displayList,
+    countText: template.replace('{count}', displayList.length),
+  };
+}
 
 function MobileFormArea({ isDark, isAuthenticated, state }) {
   if (isAuthenticated) {

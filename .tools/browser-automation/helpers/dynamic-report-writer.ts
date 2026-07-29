@@ -18,7 +18,7 @@ export function clearSeenViolations() {
   Object.keys(memoryUrls).forEach(k => delete memoryUrls[k]);
 }
 
-function getProblemTitleAndDetail(message: string): { title: string; detail?: string } {
+export function getProblemTitleAndDetail(message: string): { title: string; detail?: string } {
   if (message.includes('. Size: ')) {
     const parts = message.split('. Size: ');
     return { title: parts[0], detail: `Size: ${parts[1]}` };
@@ -48,6 +48,35 @@ function getProblemTitleAndDetail(message: string): { title: string; detail?: st
     return { title: 'Network request failure', detail: message };
   }
   return { title: message };
+}
+
+export function formatProblemsReport(problemsMap: Map<string, { url: string; selector?: string; detail?: string }[]>): string {
+  let reportContent = '';
+  problemsMap.forEach((items, problemTitle) => {
+    reportContent += `\n### Problem: ${problemTitle}\n\n`;
+
+    const urlGroup: Record<string, { selector?: string; detail?: string }[]> = {};
+    items.forEach(item => {
+      if (!urlGroup[item.url]) {
+        urlGroup[item.url] = [];
+      }
+      urlGroup[item.url].push(item);
+    });
+
+    Object.keys(urlGroup).forEach(url => {
+      reportContent += `- URL: \`${url}\`\n`;
+      urlGroup[url].forEach(entry => {
+        const infoParts: string[] = [];
+        if (entry.detail) infoParts.push(entry.detail);
+        if (entry.selector) infoParts.push(`Selector: \`${entry.selector}\``);
+
+        if (infoParts.length > 0) {
+          reportContent += `  - ${infoParts.join(' | ')}\n`;
+        }
+      });
+    });
+  });
+  return reportContent;
 }
 
 export function writeDynamicReport(
@@ -145,33 +174,7 @@ type: dynamic-audit
 auditor: ${auditorName}
 scope: ${scope}
 date: ${new Date().toISOString()}
----\n`;
-
-    problemsMap.forEach((items, problemTitle) => {
-      reportContent += `\n### Problem: ${problemTitle}\n\n`;
-      
-      // Group items by URL within each problem
-      const urlGroup: Record<string, { selector?: string; detail?: string }[]> = {};
-      items.forEach(item => {
-        if (!urlGroup[item.url]) {
-          urlGroup[item.url] = [];
-        }
-        urlGroup[item.url].push(item);
-      });
-
-      Object.keys(urlGroup).forEach(url => {
-        reportContent += `- URL: \`${url}\`\n`;
-        urlGroup[url].forEach(entry => {
-          const infoParts: string[] = [];
-          if (entry.detail) infoParts.push(entry.detail);
-          if (entry.selector) infoParts.push(`Selector: \`${entry.selector}\``);
-          
-          if (infoParts.length > 0) {
-            reportContent += `  - ${infoParts.join(' | ')}\n`;
-          }
-        });
-      });
-    });
+---\n` + formatProblemsReport(problemsMap);
 
     fs.writeFileSync(violationsFilePath, reportContent, 'utf-8');
   }

@@ -108,4 +108,4 @@ export function useDrawerAnimation(props = {}) {
   return buildDrawerAnimationResult({ shouldRender, slideAnim, backdropOpacity, handleClose, anim });
 }
 
-export default useDrawerAnimation;
+

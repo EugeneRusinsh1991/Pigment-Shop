@@ -62,12 +62,13 @@ export default function SkeletonLoader({ count = 3, width, height, borderRadius,
 }
 
 export function CatalogSkeleton({ count = 6, cols = 3 }) {
+  const { styles } = useSkeletonTheme();
   return (
-    <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 16, padding: 16, width: '100%' }}>
+    <View style={styles.catalogGrid}>
       {Array.from({ length: count }).map((_, index) => (
-        <View key={index} style={{ width: `${Math.floor(100 / cols) - 3}%`, marginBottom: 16 }}>
-          <SkeletonItem height={160} borderRadius={layout.radii.md} style={{ marginBottom: 8 }} />
-          <SkeletonItem height={18} width="80%" style={{ marginBottom: 6 }} />
+        <View key={index} style={[{ width: `${Math.floor(100 / cols) - 3}%` }, styles.catalogItem]}>
+          <SkeletonItem height={160} borderRadius={layout.radii.md} style={styles.catalogCardItem} />
+          <SkeletonItem height={18} width="80%" style={styles.catalogTitleItem} />
           <SkeletonItem height={14} width="40%" />
         </View>
       ))}
@@ -76,28 +77,31 @@ export function CatalogSkeleton({ count = 6, cols = 3 }) {
 }
 
 export function ProductDetailSkeleton() {
+  const { styles } = useSkeletonTheme();
   return (
-    <View style={{ flexDirection: 'row', gap: 24, padding: 24, flexWrap: 'wrap', width: '100%' }}>
+    <View style={styles.productDetailContainer}>
       <SkeletonItem height={320} width={320} borderRadius={layout.radii.lg} />
-      <View style={{ flex: 1, minWidth: 260, gap: 12 }}>
+      <View style={styles.productDetailInfo}>
         <SkeletonItem height={32} width="70%" />
         <SkeletonItem height={24} width="40%" />
         <SkeletonItem height={80} width="100%" borderRadius={layout.radii.md} />
-        <SkeletonItem height={48} width={160} borderRadius={layout.radii.md} style={{ marginTop: 12 }} />
+        <SkeletonItem height={48} width={160} borderRadius={layout.radii.md} style={styles.productDetailButton} />
       </View>
     </View>
   );
 }
 
 export function ProfileSkeleton() {
+  const { styles } = useSkeletonTheme();
   return (
-    <View style={{ padding: 24, gap: 16, maxWidth: 580, alignSelf: 'center', width: '100%' }}>
-      <SkeletonItem height={36} width={200} style={{ marginBottom: 12 }} />
+    <View style={styles.profileContainer}>
+      <SkeletonItem height={36} width={200} style={styles.profileHeaderItem} />
       <SkeletonItem height={52} width="100%" borderRadius={layout.radii.md} />
       <SkeletonItem height={52} width="100%" borderRadius={layout.radii.md} />
       <SkeletonItem height={52} width="100%" borderRadius={layout.radii.md} />
-      <SkeletonItem height={44} width={140} borderRadius={layout.radii.md} style={{ marginTop: 12 }} />
+      <SkeletonItem height={44} width={140} borderRadius={layout.radii.md} style={styles.profileButtonItem} />
     </View>
   );
 }
+
 

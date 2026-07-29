@@ -11,6 +11,7 @@ import { useOrders } from './useOrders';
 
 import EmptyState from '../../components/DataTable/EmptyState';
 import CatalogPagination from '../catalog/CatalogPagination';
+import { useOrdersPagination } from '../../hooks/useOrdersPagination';
 
 const PAGE_SIZE = 10;
 

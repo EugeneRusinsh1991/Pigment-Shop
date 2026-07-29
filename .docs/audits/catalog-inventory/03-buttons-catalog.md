@@ -28,10 +28,6 @@
 
   - Line 43: `<TouchableOpacity>`
 
-### File: src/components/Card/InteractiveCard.js
-
-  - Line 79: `<TouchableOpacity>`
-
 ### File: src/components/DataTable/DataTable.js
 
   - Line 40: `<AnimatedButton>`
@@ -69,7 +65,7 @@
 
 ### File: src/components/Search/SearchDropdown.js
 
-  - Line 22: `<AnimatedButton>`
+  - Line 23: `<AnimatedButton>`
 
 ### File: src/components/Search/SearchInput.js
 
@@ -261,7 +257,7 @@
 
 ### File: src/features/contact/ContactQuestionForm.js
 
-  - Line 94: `<Button>`
+  - Line 98: `<Button>`
 
 ### File: src/features/contact/SocialButtons.js
 
@@ -362,9 +358,10 @@
 
 ### File: src/features/shell/NavMenu/LanguageSelector.js
 
-  - Line 28: `<AnimatedButton>`
-  - Line 46: `<ChipButton>`
-  - Line 61: `<ChipButton>`
+  - Line 19: `<AnimatedButton>`
+  - Line 38: `<ChipButton>`
+  - Line 51: `<ChipButton>`
+  - Line 74: `<ThemeToggleButton>`
 
 ### File: src/features/shell/NavMenu/MainMenuContent.js
 

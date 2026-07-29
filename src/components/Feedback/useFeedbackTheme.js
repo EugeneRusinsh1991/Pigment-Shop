@@ -13,7 +13,7 @@ function getIsDarkContext() {
 /**
  * Hook for resolving theme context and styles for Feedback module.
  */
-export function useFeedbackTheme({ isDarkProp } = {}) {
+function useFeedbackTheme({ isDarkProp } = {}) {
   const isDark = isDarkProp ?? getIsDarkContext();
   const styles = getFeedbackStyle({ isDark });
 

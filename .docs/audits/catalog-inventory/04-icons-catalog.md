@@ -115,7 +115,7 @@
 
 ### File: src/features/cart/CartViewContent.js
 
-  - Line 15: `<CartIcon>` (Icon: `[Unknown]`)
+  - Line 17: `<CartIcon>` (Icon: `[Unknown]`)
 
 ### File: src/features/catalog/CatalogFilterSidebar.js
 
@@ -193,7 +193,7 @@
 
 ### File: src/features/shell/NavMenu/LanguageSelector.js
 
-  - Line 33: `<ThemeIcon>` (Icon: `[Unknown]`)
+  - Line 24: `<ThemeIcon>` (Icon: `[Unknown]`)
 
 ### File: src/features/shell/NavMenu/MainMenuContent.js
 

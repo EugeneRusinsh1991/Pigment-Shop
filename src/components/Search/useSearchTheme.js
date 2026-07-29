@@ -30,4 +30,4 @@ export function useSearchTheme({ isDarkProp, variant = 'default', state = '', fa
   };
 }
 
-export default useSearchTheme;
+

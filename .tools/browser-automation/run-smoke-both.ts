@@ -1,29 +1,7 @@
-import { spawn } from 'child_process';
 import * as path from 'path';
 import { clearReportsDirectory } from './helpers/reportCleaner';
+import { colors, runProcess } from './helpers/processRunner';
 
-const colors = {
-  reset: '\x1b[0m',
-  cyan: '\x1b[36m',
-  green: '\x1b[32m',
-  yellow: '\x1b[33m'
-};
-
-function runProcess(name: string, script: string, color: string) {
-  return new Promise<void>((resolve) => {
-    const proc = spawn('npx', ['tsx', script], {
-      cwd: process.cwd(),
-      stdio: 'inherit',
-      shell: true,
-      windowsHide: true
-    });
-
-    proc.on('close', (code) => {
-      console.log(`${color}[${name}] Process exited with code ${code}${colors.reset}`);
-      resolve();
-    });
-  });
-}
 
 (async () => {
   console.log(`${colors.cyan}--- Starting Dual Smoke Test (Admin + Guest) ---${colors.reset}\n`);

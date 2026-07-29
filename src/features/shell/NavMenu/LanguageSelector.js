@@ -11,65 +11,75 @@ function getThemeToggleLabel(isDark) {
   return isDark ? 'Switch to light theme' : 'Switch to dark theme';
 }
 
+function ThemeToggleButton({ isDark, onToggleTheme }) {
+  const themeToggleLabel = getThemeToggleLabel(isDark);
+  const iconColor = isDark ? colors.white : colors.dark;
 
+  return (
+    <AnimatedButton
+      style={[styles.themeToggleBtn, isDark ? styles.themeToggleBtnDark : styles.themeToggleBtnLight]}
+      onPress={onToggleTheme}
+    >
+      <View style={styles.themeIconContainer}>
+        <ThemeIcon isDark={isDark} color={iconColor} size={16} />
+      </View>
+      <Text variant="body2" weight="600" size={13}>
+        {themeToggleLabel}
+      </Text>
+    </AnimatedButton>
+  );
+}
 
-
+function LanguageCurrencyRow({ isDark, lang, selectedCurrency, onSelectLanguage, setSelectedCurrency }) {
+  return (
+    <View style={styles.langRow}>
+      <View style={styles.langColumn}>
+        {LANGUAGES.map((item) => (
+          <ChipButton
+            key={item.code}
+            label={item.label}
+            active={lang === item.code}
+            isDark={isDark}
+            onPress={() => onSelectLanguage(item.code)}
+            variant="rect"
+            style={styles.chipWidth}
+          />
+        ))}
+      </View>
+      <View style={styles.langColumn}>
+        {CURRENCIES.map((item) => (
+          <ChipButton
+            key={item.code}
+            label={item.label}
+            active={selectedCurrency === item.code}
+            isDark={isDark}
+            onPress={() => setSelectedCurrency(item.code)}
+            variant="rect"
+            style={styles.chipWidth}
+          />
+        ))}
+      </View>
+    </View>
+  );
+}
 
 export default function LanguageSelector({ isDark, lang, onSelectLanguage, onToggleTheme }) {
   const [selectedCurrency, setSelectedCurrency] = useState('UAH');
 
   if (!onSelectLanguage && !onToggleTheme) return null;
-  const themeToggleLabel = getThemeToggleLabel(isDark);
-  const iconColor = isDark ? colors.white : colors.dark;
+  const footerStyle = [styles.menuFooter, isDark ? styles.menuFooterDark : styles.menuFooterLight];
 
   return (
-    <View style={[styles.menuFooter, isDark ? styles.menuFooterDark : styles.menuFooterLight]}>
-      {onToggleTheme && (
-        <AnimatedButton
-          style={[styles.themeToggleBtn, isDark ? styles.themeToggleBtnDark : styles.themeToggleBtnLight]}
-          onPress={onToggleTheme}
-        >
-          <View style={styles.themeIconContainer}>
-            <ThemeIcon isDark={isDark} color={iconColor} size={16} />
-          </View>
-          <Text variant="body2" weight="600" size={13}>
-            {themeToggleLabel}
-          </Text>
-        </AnimatedButton>
-      )}
-
+    <View style={footerStyle}>
+      {onToggleTheme && <ThemeToggleButton isDark={isDark} onToggleTheme={onToggleTheme} />}
       {onSelectLanguage && (
-        <View style={styles.langRow}>
-          {/* Column 1: Language buttons (RU, UKR, ENG) */}
-          <View style={styles.langColumn}>
-            {LANGUAGES.map((item) => (
-              <ChipButton
-                key={item.code}
-                label={item.label}
-                active={lang === item.code}
-                isDark={isDark}
-                onPress={() => onSelectLanguage(item.code)}
-                variant="rect"
-                style={styles.chipWidth}
-              />
-            ))}
-          </View>
-
-          {/* Column 2: Currency buttons (UAH, USD) */}
-          <View style={styles.langColumn}>
-            {CURRENCIES.map((item) => (
-              <ChipButton
-                key={item.code}
-                label={item.label}
-                active={selectedCurrency === item.code}
-                isDark={isDark}
-                onPress={() => setSelectedCurrency(item.code)}
-                variant="rect"
-                style={styles.chipWidth}
-              />
-            ))}
-          </View>
-        </View>
+        <LanguageCurrencyRow
+          isDark={isDark}
+          lang={lang}
+          selectedCurrency={selectedCurrency}
+          onSelectLanguage={onSelectLanguage}
+          setSelectedCurrency={setSelectedCurrency}
+        />
       )}
     </View>
   );

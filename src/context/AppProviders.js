@@ -1,24 +1,19 @@
 /**
  * AppProviders.js
  *
- * Composes all application-level context providers in the correct dependency
- * order. The root App component renders this once, keeping the app shell free
- * of any provider nesting or orchestration logic.
- *
- * Grouped into logical domain-specific wrappers with explicit boundaries.
+ * Composes application-level infrastructure providers (Theme, Language, Toast, Auth, Bootstrap)
+ * in dependency order. Feature-level providers (Storefront domain) are isolated in StorefrontProviders.
  */
+import React from 'react';
 import BootstrapGate from '../bootstrap/BootstrapGate';
-import { CartProvider } from '../features/cart/CartContext';
-import { CatalogProvider } from '../features/catalog/CatalogContext';
-import { FavoritesProvider } from '../features/favorites/FavoritesContext';
+import StorefrontProviders from '../features/shell/StorefrontProviders';
 import { AuthProvider } from './AuthContext';
 import { LanguageProvider } from './LanguageContext';
 import { ThemeProvider } from './ThemeContext';
-
 import { GlobalToastProvider } from './ToastContext';
 
 /**
- * 1. Core infrastructure domain (independent of session/auth)
+ * 1. Core infrastructure domain (Theme, Language, Toast)
  */
 export function CoreInfrastructureProviders({ children }) {
   return (
@@ -33,45 +28,30 @@ export function CoreInfrastructureProviders({ children }) {
 }
 
 /**
- * 2. Session/Authentication and Data Catalog domain
+ * 2. Session and Authentication domain
  */
-export function SessionAndCatalogProviders({ children }) {
+export function SessionProviders({ children }) {
   return (
-    <CatalogProvider>
-      <AuthProvider>
-        <BootstrapGate>
-          {children}
-        </BootstrapGate>
-      </AuthProvider>
-    </CatalogProvider>
-  );
-}
-
-/**
- * 3. User features/Storefront context domain
- */
-export function UserFeatureProviders({ children }) {
-  return (
-    <CartProvider>
-      <FavoritesProvider>
+    <AuthProvider>
+      <BootstrapGate>
         {children}
-      </FavoritesProvider>
-    </CartProvider>
+      </BootstrapGate>
+    </AuthProvider>
   );
 }
 
-
 /**
- * Composes all provider boundaries in dependency order.
+ * Composes root infrastructure and feature provider boundaries in dependency order.
  */
 export default function AppProviders({ children }) {
   return (
     <CoreInfrastructureProviders>
-      <SessionAndCatalogProviders>
-        <UserFeatureProviders>
+      <SessionProviders>
+        <StorefrontProviders>
           {children}
-        </UserFeatureProviders>
-      </SessionAndCatalogProviders>
+        </StorefrontProviders>
+      </SessionProviders>
     </CoreInfrastructureProviders>
   );
 }
+

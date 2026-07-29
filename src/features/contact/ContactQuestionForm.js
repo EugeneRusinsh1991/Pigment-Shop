@@ -8,6 +8,17 @@ import { sendSupportMessage } from '../../services/contactService';
 import { colors } from '../../theme/tokens';
 import styles from './ContactPageStyles';
 
+async function executeSupportSubmission(questionText, user) {
+  const res = await sendSupportMessage({
+    text: questionText,
+    userId: user?.uid,
+    email: user?.email,
+  });
+  if (!res.success) {
+    throw new Error(res.error || 'Failed to submit contact question');
+  }
+}
+
 function useContactQuestionForm(user) {
   const [questionText, setQuestionText] = useState('');
   const [submitting, setSubmitting] = useState(false);
@@ -25,14 +36,7 @@ function useContactQuestionForm(user) {
     setSubmitting(true);
     setSubmitStatus(null);
     try {
-      const res = await sendSupportMessage({
-        text: questionText,
-        userId: user?.uid,
-        email: user?.email,
-      });
-      if (!res.success) {
-        throw new Error(res.error || 'Failed to submit contact question');
-      }
+      await executeSupportSubmission(questionText, user);
       setQuestionText('');
       setSubmitStatus('success');
     } catch (error) {

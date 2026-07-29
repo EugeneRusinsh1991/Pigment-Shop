@@ -1,23 +1,11 @@
 # 📄 Small & Pass-Through Files Findings
 
-*Generated on: 29.07.2026, 11:36:14*
+*Generated on: 29.07.2026, 13:15:12*
 
 ### Candidate Files for Refactoring/Elimination
 
-- **[iconStyles.js](file:///D:/Magazine/_PigmentShop/src/theme/iconStyles.js)** (`src/theme/iconStyles.js`)
-  - Lines: 10 | Size: 288 B | Type: **Tiny File**
-  > 💡 This file contains very few lines; review if it adds unnecessary system noise.
-
-- **[getTabData.js](file:///D:/Magazine/_PigmentShop/src/utils/getTabData.js)** (`src/utils/getTabData.js`)
-  - Lines: 10 | Size: 353 B | Type: **Tiny File**
-  > 💡 This file contains very few lines; review if it adds unnecessary system noise.
-
 - **[index.js](file:///D:/Magazine/_PigmentShop/app/admin/index.js)** (`app/admin/index.js`)
   - Lines: 10 | Size: 241 B | Type: **Tiny File**
-  > 💡 This file contains very few lines; review if it adds unnecessary system noise.
-
-- **[authErrorMessages.js](file:///D:/Magazine/_PigmentShop/src/utils/authErrorMessages.js)** (`src/utils/authErrorMessages.js`)
-  - Lines: 12 | Size: 415 B | Type: **Tiny File**
   > 💡 This file contains very few lines; review if it adds unnecessary system noise.
 
 - **[cart.js](file:///D:/Magazine/_PigmentShop/app/(store)/cart.js)** (`app/(store)/cart.js`)
@@ -52,20 +40,20 @@
   - Lines: 16 | Size: 486 B | Type: **Tiny File**
   > 💡 This file contains very few lines; review if it adds unnecessary system noise.
 
-- **[useProductNavigation.js](file:///D:/Magazine/_PigmentShop/src/hooks/useProductNavigation.js)** (`src/hooks/useProductNavigation.js`)
-  - Lines: 17 | Size: 341 B | Type: **Tiny File**
-  > 💡 This file contains very few lines; review if it adds unnecessary system noise.
-
 - **[contactService.js](file:///D:/Magazine/_PigmentShop/src/services/contactService.js)** (`src/services/contactService.js`)
   - Lines: 17 | Size: 585 B | Type: **Tiny File**
+  > 💡 This file contains very few lines; review if it adds unnecessary system noise.
+
+- **[useProductNavigation.js](file:///D:/Magazine/_PigmentShop/src/hooks/useProductNavigation.js)** (`src/hooks/useProductNavigation.js`)
+  - Lines: 17 | Size: 341 B | Type: **Tiny File**
   > 💡 This file contains very few lines; review if it adds unnecessary system noise.
 
 - **[useSharedLayoutWrapperTheme.js](file:///D:/Magazine/_PigmentShop/src/features/shell/SharedLayoutWrapper/useSharedLayoutWrapperTheme.js)** (`src/features/shell/SharedLayoutWrapper/useSharedLayoutWrapperTheme.js`)
   - Lines: 18 | Size: 395 B | Type: **Tiny File**
   > 💡 This file contains very few lines; review if it adds unnecessary system noise.
 
-- **[DateRangePresets.js](file:///D:/Magazine/_PigmentShop/src/features/admin/Analytics/DateRangePresets.js)** (`src/features/admin/Analytics/DateRangePresets.js`)
-  - Lines: 18 | Size: 400 B | Type: **Tiny File**
+- **[iconStyles.js](file:///D:/Magazine/_PigmentShop/src/theme/iconStyles.js)** (`src/theme/iconStyles.js`)
+  - Lines: 18 | Size: 384 B | Type: **Tiny File**
   > 💡 This file contains very few lines; review if it adds unnecessary system noise.
 
 - **[useFooterTheme.js](file:///D:/Magazine/_PigmentShop/src/features/shell/components/useFooterTheme.js)** (`src/features/shell/components/useFooterTheme.js`)

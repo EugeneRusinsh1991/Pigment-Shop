@@ -1,11 +1,11 @@
-import { useLocalSearchParams, useRouter } from 'expo-router';
-import { useCallback } from 'react';
+import { useLocalSearchParams } from 'expo-router';
 import { useAuth } from '../context/AuthContext';
 import { useCatalog } from '../features/catalog/CatalogContext';
 import { getAccountName, useReviewsState } from '../features/product/ProductReviewSubcomponents';
 import { useProfile } from '../features/profile/useProfile';
 import useGridLayout from './useGridLayout';
 import { useProductActions } from './useProductActions';
+import { useBackHandler } from './useProductNavigation';
 
 function resolveProduct(initialProduct, flatList) {
   if (!initialProduct) return null;
@@ -38,7 +38,6 @@ export function useProductPageState({ initialProduct, onBack, isFromAllProductsP
   const { isAuthenticated, user } = useAuth();
   const { profile } = useProfile(user);
   const { isWide, gridWidth } = useGridLayout();
-  const router = useRouter();
   const params = useLocalSearchParams();
 
   const isFromAllProducts = isFromAllProductsProp ?? (params?.from === 'all' || params?.isFromAllProducts === 'true');
@@ -48,15 +47,7 @@ export function useProductPageState({ initialProduct, onBack, isFromAllProductsP
   const accountName = getAccountName(user, profile);
   const reviewsState = useReviewsState(product, isAuthenticated, accountName);
 
-  const handleBackPress = useCallback(() => {
-    if (onBack) {
-      onBack();
-    } else if (router.canGoBack()) {
-      router.back();
-    } else {
-      router.push('/');
-    }
-  }, [onBack, router]);
+  const handleBackPress = useBackHandler(onBack);
 
   return {
     qty,

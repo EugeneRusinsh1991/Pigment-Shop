@@ -206,4 +206,4 @@ export const getBadgeStyle = ({
   };
 };
 
-export default baseBadgeStyles;
+// baseBadgeStyles is used locally

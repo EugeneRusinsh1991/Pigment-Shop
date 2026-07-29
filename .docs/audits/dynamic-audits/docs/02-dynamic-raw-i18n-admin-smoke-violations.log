@@ -2,7 +2,7 @@
 type: dynamic-audit
 auditor: raw-i18n
 scope: admin
-date: 2026-07-29T08:48:24.989Z
+date: 2026-07-29T10:22:53.873Z
 ---
 
 ### Problem: Raw camelCase i18n key found
@@ -101,10 +101,6 @@ date: 2026-07-29T08:48:24.989Z
   - Found raw camelCase i18n key: "adminCategoriesFormUnassignedProducts" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-b88u0q.r-letterSpacing-ud0q2t.r-lineHeight-1f529hi.r-textTransform-tsynxw.r-color-1npgj5g.r-marginBottom-5oul0u.r-marginTop-14gqq1x`
   - Found raw camelCase i18n key: "adminCategoriesFormUnassignedProductsHint" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1s7ct43.r-marginBottom-5oul0u`
   - Found raw camelCase i18n key: "adminCategoriesFormNoUnassignedProducts" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1s7ct43`
-  - Found raw camelCase i18n key: "adminTabBanners" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-vw2c0b.r-lineHeight-135wba7.r-color-kgv7a8`
-  - Found raw camelCase i18n key: "adminBannersUploadBtn" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-jwli3a`
-  - Found raw camelCase i18n key: "adminBannersDeleteBtn" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-jwli3a`
-  - Found raw camelCase i18n key: "adminBannersAddBtn" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-ha6d2y.r-lineHeight-14yzgew.r-color-1dk24ck`
 
 ### Problem: Hardcoded text without i18n key
 

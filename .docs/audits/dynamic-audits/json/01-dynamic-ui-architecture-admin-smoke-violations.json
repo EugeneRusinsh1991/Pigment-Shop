@@ -1070,36 +1070,6 @@
         "url": "http://localhost:8081/admin",
         "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
         "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-borderRadius-1xfd6ze.r-borderWidth-rs99b7.r-flexDirection-18u37iz.r-gap-1cmwbt1.r-paddingBlock-11f147o.r-paddingInline-is05cd.r-backgroundColor-og65ln.r-borderColor-1fvvsgw"
-      },
-      {
-        "url": "http://localhost:8081/admin",
-        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 226x40",
-        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-backgroundColor-wt1z2b.r-borderRadius-1xfd6ze.r-height-eu3ka.r-justifyContent-1777fci.r-paddingInline-3pj75a"
-      },
-      {
-        "url": "http://localhost:8081/admin",
-        "message": "Observability: Clickable element touch target is smaller than 44x44px. Size: 226x40",
-        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-backgroundColor-dpkc41.r-borderRadius-1xfd6ze.r-height-eu3ka.r-justifyContent-1777fci.r-paddingInline-3pj75a"
-      },
-      {
-        "url": "http://localhost:8081/admin",
-        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
-        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-backgroundColor-pgx3k3.r-borderColor-1w15a45.r-borderRadius-1xfd6ze.r-borderWidth-rs99b7.r-height-1wztat5.r-overflow-1udh08x.r-width-13qz1uu"
-      },
-      {
-        "url": "http://localhost:8081/admin",
-        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
-        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-backgroundColor-wt1z2b.r-borderRadius-1xfd6ze.r-height-eu3ka.r-justifyContent-1777fci.r-paddingInline-3pj75a"
-      },
-      {
-        "url": "http://localhost:8081/admin",
-        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
-        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-backgroundColor-dpkc41.r-borderRadius-1xfd6ze.r-height-eu3ka.r-justifyContent-1777fci.r-paddingInline-3pj75a"
-      },
-      {
-        "url": "http://localhost:8081/admin",
-        "message": "Theme/Motion: Custom CSS transition/animation defined outside token system.",
-        "selector": "div.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-alignItems-1awozwy.r-backgroundColor-1uavh4e.r-borderColor-1ropktw.r-borderRadius-t23y2h.r-borderStyle-eg6o18.r-borderWidth-d045u9.r-justifyContent-1777fci.r-minHeight-g8fybc.r-padding-nsbfu8.r-width-8upyzv"
       }
     ]
   },

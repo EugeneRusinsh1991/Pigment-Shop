@@ -1,6 +1,6 @@
 import { useTheme } from '../../context/ThemeContext';
 
-export function useMotionTheme() {
+function useMotionTheme() {
   let isDark = false;
   try {
     const themeCtx = useTheme();

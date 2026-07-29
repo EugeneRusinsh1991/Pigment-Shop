@@ -10,4 +10,4 @@ export function usePaginationTheme(isDarkProps) {
   };
 }
 
-export default usePaginationTheme;
+

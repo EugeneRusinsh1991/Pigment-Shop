@@ -18,4 +18,4 @@ export function useNavigationTheme(isDarkProps) {
   };
 }
 
-export default useNavigationTheme;
+

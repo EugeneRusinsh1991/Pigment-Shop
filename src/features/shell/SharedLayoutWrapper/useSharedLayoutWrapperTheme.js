@@ -14,4 +14,4 @@ export function useSharedLayoutWrapperTheme({ isDarkProp } = {}) {
   return { isDark };
 }
 
-export default useSharedLayoutWrapperTheme;
+

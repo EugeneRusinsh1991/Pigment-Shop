@@ -1,7 +1,28 @@
 import { useCallback } from 'react';
 import { Alert } from 'react-native';
 import { useToast } from '../context/ToastContext';
+import { calculateTotals as calculateCartTotals } from '../features/cart/cartCheckoutLogic';
 import { checkoutService } from '../services/checkoutService';
+
+function getIncompleteProfileContent(tValues) {
+  return {
+    title: tValues('cartIncompleteProfileTitle') || 'Incomplete Profile',
+    message: tValues('cartIncompleteProfileMsg') || 'Your profile contains incomplete required information. You must complete your profile before placing an order.',
+  };
+}
+
+function getGenericCheckoutFailureContent(result, tValues) {
+  return {
+    title: tValues('cartErrorTitle') || 'Checkout Failed',
+    message: result.error?.message || tValues('cartErrorAlert') || 'An error occurred during checkout',
+  };
+}
+
+function getFailureAlertContent(result, tValues) {
+  return result.code === 'INCOMPLETE_PROFILE'
+    ? getIncompleteProfileContent(tValues)
+    : getGenericCheckoutFailureContent(result, tValues);
+}
 
 /**
  * useCheckoutLogic Hook
@@ -34,16 +55,7 @@ export function useCheckoutLogic({ user, items, clearCart, t }) {
    * Calculate cart totals
    * @returns {Object} { totalPrice, totalItems }
    */
-  const calculateTotals = useCallback(() => {
-    const totalPrice = items.reduce((sum, item) => {
-      const numPrice = parseFloat(String(item.price).replace(/[^0-9.]/g, '')) || 0;
-      return sum + numPrice * item.qty;
-    }, 0);
-
-    const totalItems = items.reduce((sum, item) => sum + item.qty, 0);
-
-    return { totalPrice, totalItems };
-  }, [items]);
+  const calculateTotals = useCallback(() => calculateCartTotals(items), [items]);
 
   const validationRules = [
     {
@@ -96,14 +108,7 @@ export function useCheckoutLogic({ user, items, clearCart, t }) {
   }, [clearCart]);
 
   const handleCheckoutFailure = useCallback((result, tValues) => {
-    const isIncompleteProfile = result.code === 'INCOMPLETE_PROFILE';
-    const title = isIncompleteProfile
-      ? tValues('cartIncompleteProfileTitle') || 'Incomplete Profile'
-      : tValues('cartErrorTitle') || 'Checkout Failed';
-    const message = isIncompleteProfile
-      ? tValues('cartIncompleteProfileMsg') || 'Your profile contains incomplete required information. You must complete your profile before placing an order.'
-      : result.error?.message || tValues('cartErrorAlert') || 'An error occurred during checkout';
-
+    const { title, message } = getFailureAlertContent(result, tValues);
     showAlert(title, message);
     return false;
   }, [showAlert]);

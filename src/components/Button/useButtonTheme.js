@@ -10,6 +10,16 @@ function resolveStyle(styleMap, keys) {
   return undefined;
 }
 
+function resolveIsDark(isDarkProp) {
+  if (typeof isDarkProp === 'boolean') return isDarkProp;
+  try {
+    const themeCtx = useTheme();
+    return Boolean(themeCtx?.isDark);
+  } catch {
+    return false;
+  }
+}
+
 export function useButtonTheme({
   isDarkProp,
   variant = 'primary',
@@ -17,13 +27,7 @@ export function useButtonTheme({
   fallbackVariant = 'primary',
   styleMap = ButtonStyles,
 } = {}) {
-  let isDark = false;
-  try {
-    const themeCtx = useTheme();
-    isDark = isDarkProp ?? themeCtx?.isDark ?? false;
-  } catch (e) {
-    isDark = isDarkProp ?? false;
-  }
+  const isDark = resolveIsDark(isDarkProp);
 
   const themeKey = isDark ? 'Dark' : 'Light';
   const suffix = `${themeKey}${state}`;
@@ -42,4 +46,4 @@ export function useButtonTheme({
   };
 }
 
-export default useButtonTheme;
+

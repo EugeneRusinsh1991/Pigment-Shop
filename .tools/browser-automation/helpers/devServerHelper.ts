@@ -1,17 +1,20 @@
-import * as http from 'http';
+import http from 'http';
 
 export async function isServerRunning(urlStr: string): Promise<boolean> {
   return new Promise((resolve) => {
     try {
       const u = new URL(urlStr);
-      const req = http.get({
-        hostname: u.hostname,
-        port: u.port,
-        path: u.pathname,
-        timeout: 2000
-      }, (res) => {
-        resolve(res.statusCode !== undefined && res.statusCode < 500);
-      });
+      const req = http.get(
+        {
+          hostname: u.hostname,
+          port: u.port,
+          path: u.pathname,
+          timeout: 2000,
+        },
+        (res) => {
+          resolve(res.statusCode !== undefined && res.statusCode < 500);
+        }
+      );
       req.on('error', () => resolve(false));
       req.on('timeout', () => {
         req.destroy();
@@ -23,7 +26,10 @@ export async function isServerRunning(urlStr: string): Promise<boolean> {
   });
 }
 
-export async function ensureDevServer(urlStr: string = 'http://localhost:8081', maxWaitSeconds = 50): Promise<void> {
+export async function ensureDevServer(
+  urlStr: string = 'http://localhost:8081',
+  maxWaitSeconds = 50
+): Promise<void> {
   if (await isServerRunning(urlStr)) {
     console.log(`✓ Dev server is active at ${urlStr}`);
     return;

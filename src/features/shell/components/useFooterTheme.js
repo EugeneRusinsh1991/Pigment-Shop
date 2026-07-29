@@ -16,4 +16,4 @@ export function useFooterTheme({ isDarkProp } = {}) {
   };
 }
 
-export default useFooterTheme;
+

@@ -1,6 +1,6 @@
 # 🩺 Complexity Health Findings (Critical & High)
 
-*Generated on: 29.07.2026, 11:36:14*
+*Generated on: 29.07.2026, 13:15:12*
 
 ## 🔴 Critical (> 50 lines)
 
@@ -20,7 +20,7 @@
 `.tools/browser-automation/helpers/dynamic-report-writer.ts`
 
 - 🔴 **`writeDynamicReport`** [L53](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/dynamic-report-writer.ts#L53)
-  - Lines: 141 | Cyclomatic: 14 | Cognitive: 16 | CRAP: 210
+  - Lines: 144 | Cyclomatic: 14 | Cognitive: 16 | CRAP: 210
 
 #### 📁 [12-raw-i18n-keys-auditor.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/12-raw-i18n-keys-auditor.js)
 `.tools/auditor/12-raw-i18n-keys-auditor.js`
@@ -95,12 +95,6 @@
 - 🔴 **`<arrow>`** [L47](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/auditors/03-dynamic-broken-ui-auditor.ts#L47)
   - Lines: 20 | Cyclomatic: 11 | Cognitive: 7 | CRAP: 132
 
-#### 📁 [migrate-existing-logs.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/migrate-existing-logs.ts)
-`.tools/browser-automation/helpers/migrate-existing-logs.ts`
-
-- 🔴 **`getProblemTitleAndDetail`** [L11](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/migrate-existing-logs.ts#L11)
-  - Lines: 31 | Cyclomatic: 10 | Cognitive: 9 | CRAP: 110
-
 #### 📁 [dynamic-report-writer.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/dynamic-report-writer.ts)
 `.tools/browser-automation/helpers/dynamic-report-writer.ts`
 
@@ -131,7 +125,7 @@
 #### 📁 [typography-auditor.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/typography-auditor.js)
 `.tools/auditor/typography-auditor.js`
 
-- 🟠 **`auditTypography`** [L57](file:///D:/Magazine/_PigmentShop/.tools/auditor/typography-auditor.js#L57)
+- 🟠 **`auditTypography`** [L58](file:///D:/Magazine/_PigmentShop/.tools/auditor/typography-auditor.js#L58)
   - Lines: 64 | Cyclomatic: 9 | Cognitive: 19 | CRAP: 90
 
 #### 📁 [hardcode-styles-auditor.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-styles-auditor.js)
@@ -162,10 +156,10 @@
 #### 📁 [typography-auditor.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/typography-auditor.js)
 `.tools/auditor/typography-auditor.js`
 
-- 🟠 **`walkDir`** [L43](file:///D:/Magazine/_PigmentShop/.tools/auditor/typography-auditor.js#L43)
-  - Lines: 13 | Cyclomatic: 9 | Cognitive: 7 | CRAP: 90
 - 🟠 **`<arrow>`** [L14](file:///D:/Magazine/_PigmentShop/.tools/auditor/typography-auditor.js#L14)
-  - Lines: 17 | Cyclomatic: 8 | Cognitive: 3 | CRAP: 72
+  - Lines: 18 | Cyclomatic: 9 | Cognitive: 3 | CRAP: 90
+- 🟠 **`walkDir`** [L44](file:///D:/Magazine/_PigmentShop/.tools/auditor/typography-auditor.js#L44)
+  - Lines: 13 | Cyclomatic: 9 | Cognitive: 7 | CRAP: 90
 
 #### 📁 [magic-numbers-auditor.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/magic-numbers-auditor.js)
 `.tools/auditor/magic-numbers-auditor.js`
@@ -212,7 +206,7 @@
 #### 📁 [DIContainer.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/di/DIContainer.ts)
 `.tools/browser-automation/explorer/di/DIContainer.ts`
 
-- 🟠 **`createBaseServices`** [L84](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/di/DIContainer.ts#L84)
+- 🟠 **`createBaseServices`** [L71](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/explorer/di/DIContainer.ts#L71)
   - Lines: 11 | Cyclomatic: 8 | Cognitive: 7 | CRAP: 72
 
 #### 📁 [hardcode-url-auditor.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-url-auditor.js)

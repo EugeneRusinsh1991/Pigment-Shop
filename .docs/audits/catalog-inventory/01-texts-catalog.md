@@ -2,7 +2,7 @@
 
 > Catalog of all Text, Typography, and related components rendering textual content.
 
-**Total items found:** 291
+**Total items found:** 289
 
 ---
 
@@ -118,11 +118,10 @@
 
 ### File: src/components/Search/SearchDropdown.js
 
-  - Line 31: `<Text>` -> `[Dynamic Content]`
-  - Line 33: `<Text>` -> `[Dynamic Content]`
-  - Line 36: `<Text>` -> `›`
-  - Line 47: `<Text>` -> `[Dynamic Content]`
-  - Line 58: `<Text>` -> `[Dynamic Content]`
+  - Line 32: `<Text>` -> `[Dynamic Content]`
+  - Line 34: `<Text>` -> `[Dynamic Content]`
+  - Line 37: `<Text>` -> `›`
+  - Line 59: `<Text>` -> `[Dynamic Content]`
 
 ### File: src/components/Text/Heading.js
 
@@ -383,10 +382,6 @@
   - Line 95: `<Text>` -> `[Dynamic Content]`
   - Line 98: `<Text>` -> `$`
 
-### File: src/features/cart/CartViewContent.js
-
-  - Line 16: `<Text>` -> `[Dynamic Content]`
-
 ### File: src/features/catalog/CatalogHeader.js
 
   - Line 35: `<Text>` -> `[Dynamic Content]`
@@ -416,7 +411,7 @@
 
 ### File: src/features/contact/ContactQuestionForm.js
 
-  - Line 63: `<Text>` -> `[Dynamic Content]`
+  - Line 67: `<Text>` -> `[Dynamic Content]`
 
 ### File: src/features/contact/SocialButtons.js
 
@@ -516,7 +511,7 @@
 
 ### File: src/features/product/ProductReviews.js
 
-  - Line 52: `<Text>` -> `[Dynamic Content]`
+  - Line 61: `<Text>` -> `[Dynamic Content]`
 
 ### File: src/features/profile/ProfileFormCard.js
 
@@ -542,7 +537,7 @@
 
 ### File: src/features/shell/NavMenu/LanguageSelector.js
 
-  - Line 35: `<Text>` -> `[Dynamic Content]`
+  - Line 26: `<Text>` -> `[Dynamic Content]`
 
 ### File: src/features/shell/NavMenu/MainMenuContent.js
 

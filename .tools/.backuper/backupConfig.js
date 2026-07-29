@@ -33,15 +33,19 @@ function getProjectRoot() {
   return path.resolve(__dirname, '../..');
 }
 
-function getExcludedSet() {
+function getCustomConfig() {
   const projectRoot = getProjectRoot();
-  let customConfig = {};
   const configPath = path.join(projectRoot, '.backuper.json');
   if (fs.existsSync(configPath)) {
     try {
-      customConfig = JSON.parse(fs.readFileSync(configPath, 'utf8'));
+      return JSON.parse(fs.readFileSync(configPath, 'utf8'));
     } catch (e) {}
   }
+  return {};
+}
+
+function getExcludedSet() {
+  const customConfig = getCustomConfig();
   return new Set([
     ...DEFAULT_EXCLUDED,
     ...(customConfig.exclude || [])
@@ -50,13 +54,7 @@ function getExcludedSet() {
 
 function getBackupItems() {
   const projectRoot = getProjectRoot();
-  let customConfig = {};
-  const configPath = path.join(projectRoot, '.backuper.json');
-  if (fs.existsSync(configPath)) {
-    try {
-      customConfig = JSON.parse(fs.readFileSync(configPath, 'utf8'));
-    } catch (e) {}
-  }
+  const customConfig = getCustomConfig();
 
   const excluded = getExcludedSet();
 

@@ -2,18 +2,9 @@
 
 > Catalog of structural layout cards, containers, modal sheets, and wrappers.
 
-**Total items found:** 35
+**Total items found:** 32
 
 ---
-
-### File: src/components/Card/BaseCard.js
-
-  - Line 43: `<InteractiveCard>`
-  - Line 64: `<StaticCard>`
-
-### File: src/components/Card/InteractiveCard.js
-
-  - Line 97: `<CardShadow>`
 
 ### File: src/components/Card/NavigationCard.js
 
@@ -78,7 +69,7 @@
 
 ### File: src/features/contact/ContactQuestionForm.js
 
-  - Line 81: `<Card>`
+  - Line 85: `<Card>`
 
 ### File: src/features/favorites/FavoritesPage.js
 
@@ -94,7 +85,7 @@
 
 ### File: src/features/orders/OrdersPage.js
 
-  - Line 31: `<OrderCard>`
+  - Line 32: `<OrderCard>`
 
 ### File: src/features/orders/components/OrderCard.js
 
@@ -106,7 +97,7 @@
 
 ### File: src/features/product/ProductReviews.js
 
-  - Line 67: `<ReviewCard>`
+  - Line 76: `<ReviewCard>`
 
 ### File: src/features/profile/ProfileFormCard.js
 
@@ -114,5 +105,5 @@
 
 ### File: src/features/profile/ProfilePage.js
 
-  - Line 41: `<ProfileFormCard>`
+  - Line 54: `<ProfileFormCard>`
 

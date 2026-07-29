@@ -38,20 +38,7 @@ export interface DIContainer {
   observability: ObservabilityManager;
 }
 
-export interface DIFactoryOverrides {
-  tracker?: NavigationTracker;
-  scanner?: ElementScanner;
-  interactor?: ElementInteractor;
-  policyEngine?: InteractionPolicyEngine;
-  actionTracker?: ActionDepthTracker;
-  readiness?: ReadinessManager;
-  stateGraph?: ExecutionStateGraph;
-  watchdog?: ExecutionWatchdog;
-  cacheManager?: StateCacheManager;
-  navHandler?: NavigationHandler;
-  recoveryManager?: StateRecoveryManager;
-  interactionProcessor?: InteractionProcessor;
-  observability?: ObservabilityManager;
+export type DIFactoryOverrides = Partial<Omit<DIContainer, 'config' | 'emitter' | 'context'>> & {
   createInteractionProcessor?: (
     emitter: ExplorerEventEmitter,
     context: ExplorerContext,
@@ -64,7 +51,7 @@ export interface DIFactoryOverrides {
     maxInteractions: number,
     navHandler: NavigationHandler
   ) => InteractionProcessor;
-}
+};
 
 import { AutomationScreenshotListener } from '../observability/AutomationScreenshotListener';
 

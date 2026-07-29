@@ -19,6 +19,7 @@ function scanFile(filePath, violations) {
       normalizedPath.endsWith('typography.js') ||
       normalizedPath.endsWith('TextStyles.js') ||
       normalizedPath.endsWith('TextFieldStyles.js') ||
+      normalizedPath.endsWith('iconStyles.js') ||
       normalizedPath.includes('src/components/icons/');
 
     if (typoMatch && !isWhitelisted && !line.includes('//')) {

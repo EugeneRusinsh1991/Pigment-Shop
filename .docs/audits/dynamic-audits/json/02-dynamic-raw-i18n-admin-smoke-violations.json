@@ -1475,26 +1475,6 @@
         "url": "http://localhost:8081/admin",
         "message": "Found raw camelCase i18n key: \"adminCategoriesFormNoUnassignedProducts\"",
         "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1s7ct43"
-      },
-      {
-        "url": "http://localhost:8081/admin",
-        "message": "Found raw camelCase i18n key: \"adminTabBanners\"",
-        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-vw2c0b.r-lineHeight-135wba7.r-color-kgv7a8"
-      },
-      {
-        "url": "http://localhost:8081/admin",
-        "message": "Found raw camelCase i18n key: \"adminBannersUploadBtn\"",
-        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-jwli3a"
-      },
-      {
-        "url": "http://localhost:8081/admin",
-        "message": "Found raw camelCase i18n key: \"adminBannersDeleteBtn\"",
-        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-jwli3a"
-      },
-      {
-        "url": "http://localhost:8081/admin",
-        "message": "Found raw camelCase i18n key: \"adminBannersAddBtn\"",
-        "selector": "div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-ha6d2y.r-lineHeight-14yzgew.r-color-1dk24ck"
       }
     ]
   },

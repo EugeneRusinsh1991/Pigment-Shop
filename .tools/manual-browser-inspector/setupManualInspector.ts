@@ -1,6 +1,6 @@
+import fs from 'fs';
+import path from 'path';
 import { Page } from 'playwright';
-import * as fs from 'fs';
-import * as path from 'path';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { takeCompressedScreenshot } = require('../../scripts/playwright.helpers');
@@ -9,7 +9,7 @@ const { cleanOldFiles } = require('../../scripts/cleanOldFiles');
 
 const BASE_LOG_DIR = path.join(process.cwd(), '.docs', 'manual-browser-log');
 
-function ensureDirs(dirs: string[]): void {
+function ensureDirs(dirs: string[]) {
   dirs.forEach((dir) => {
     if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
   });
@@ -21,7 +21,9 @@ function buildFilePaths(timestamp: string) {
   const reportsDir = path.join(BASE_LOG_DIR, 'reports');
   const nameToken = timestamp.startsWith('S_') ? timestamp : `S_${timestamp}`;
   return {
-    screenshotsDir, stateDir, reportsDir,
+    screenshotsDir,
+    stateDir,
+    reportsDir,
     screenshotPath: path.join(screenshotsDir, `${nameToken}.jpg`),
     statePath: path.join(stateDir, `state_${nameToken}.json`),
     reportPath: path.join(reportsDir, `report_${nameToken}.md`),
@@ -44,7 +46,7 @@ function formatScreen(screen: any) {
   if (!screen) return { viewport: 'Unknown', resolution: 'Unknown' };
   return {
     viewport: `${screen.viewportWidth}x${screen.viewportHeight} (PixelRatio: ${screen.devicePixelRatio})`,
-    resolution: `${screen.width}x${screen.height}`
+    resolution: `${screen.width}x${screen.height}`,
   };
 }
 
@@ -58,7 +60,13 @@ function formatDom(dom: any) {
   return `${dom.elementCount} elements`;
 }
 
-function buildReport(timestamp: string, stateDump: any, screenshotFilename: string, screenshotPath: string, statePath: string): string {
+function buildReport(
+  timestamp: string,
+  stateDump: any,
+  screenshotFilename: string,
+  screenshotPath: string,
+  statePath: string
+) {
   const logsRows = '| N/A | No warnings or errors logged | |';
   const screen = formatScreen(stateDump.screen);
   const network = formatNetwork(stateDump.network);
@@ -94,7 +102,14 @@ ${JSON.stringify(stateDump, null, 2)}
 `;
 }
 
-function saveLatestFiles(screenshotsDir: string, stateDir: string, reportsDir: string, screenshotPath: string, stateDump: any, reportContent: string): void {
+function saveLatestFiles(
+  screenshotsDir: string,
+  stateDir: string,
+  reportsDir: string,
+  screenshotPath: string,
+  stateDump: any,
+  reportContent: string
+) {
   fs.writeFileSync(path.join(stateDir, 'state.json'), JSON.stringify(stateDump, null, 2), 'utf8');
   fs.copyFileSync(screenshotPath, path.join(screenshotsDir, 'screenshot.jpg'));
   fs.writeFileSync(path.join(reportsDir, 'latest_report.md'), reportContent, 'utf8');
@@ -115,21 +130,31 @@ export async function setupManualInspector(page: Page): Promise<void> {
   }
 
   try {
-    await page.exposeFunction('__playwright_takeScreenshotAndDumpState', async (timestamp: string, stateDump: any, overlayText?: string, hoverInfo?: any) => {
-      const { screenshotsDir, stateDir, reportsDir, screenshotPath, statePath, reportPath, screenshotFilename } = buildFilePaths(timestamp);
-      ensureDirs([screenshotsDir, stateDir, reportsDir]);
+    await page.exposeFunction(
+      '__playwright_takeScreenshotAndDumpState',
+      async (timestamp: string, stateDump: any, overlayText?: string, hoverInfo?: any) => {
+        const { screenshotsDir, stateDir, reportsDir, screenshotPath, statePath, reportPath, screenshotFilename } =
+          buildFilePaths(timestamp);
+        ensureDirs([screenshotsDir, stateDir, reportsDir]);
 
-      const base64Data = await takeCompressedScreenshot(page, { captureQuality: 70, exportQuality: 0.3, scale: 0.5, overlayText, hoverInfo });
-      fs.writeFileSync(screenshotPath, base64Data);
-      fs.writeFileSync(statePath, JSON.stringify(stateDump, getCircularReplacer(), 2), 'utf8');
+        const base64Data = await takeCompressedScreenshot(page, {
+          captureQuality: 70,
+          exportQuality: 0.3,
+          scale: 0.5,
+          overlayText,
+          hoverInfo,
+        });
+        fs.writeFileSync(screenshotPath, base64Data);
+        fs.writeFileSync(statePath, JSON.stringify(stateDump, getCircularReplacer(), 2), 'utf8');
 
-      const reportContent = buildReport(timestamp, stateDump, screenshotFilename, screenshotPath, statePath);
-      fs.writeFileSync(reportPath, reportContent, 'utf8');
-      saveLatestFiles(screenshotsDir, stateDir, reportsDir, screenshotPath, stateDump, reportContent);
+        const reportContent = buildReport(timestamp, stateDump, screenshotFilename, screenshotPath, statePath);
+        fs.writeFileSync(reportPath, reportContent, 'utf8');
+        saveLatestFiles(screenshotsDir, stateDir, reportsDir, screenshotPath, stateDump, reportContent);
 
-      console.log(`[PlaywrightDebug] Saved debug report to ${reportPath}`);
-      return { success: true };
-    });
+        console.log(`[PlaywrightDebug] Saved debug report to ${reportPath}`);
+        return { success: true };
+      }
+    );
   } catch (err) {
     // Function may already be exposed on this page instance
   }

@@ -14,7 +14,7 @@ function chooseColor(isDark, darkColor, lightColor) {
   return isDark ? darkColor : lightColor;
 }
 
-export function useDataTableTheme({ isDarkProp } = {}) {
+function useDataTableTheme({ isDarkProp } = {}) {
   const isDark = isDarkProp ?? getIsDarkContext();
 
   const surfaceColor = chooseColor(isDark, colors.surfaceDark, colors.surfaceLight);
