@@ -2,22 +2,59 @@
   "summary": {
     "visitedScreens": 0,
     "visitedInteractions": 0,
-    "successfulInteractions": 63,
+    "successfulInteractions": 32,
     "failedInteractions": 0,
-    "warnings": 0,
+    "warnings": 4,
     "errors": 1,
     "executionDurationMs": 0
   },
   "failures": [
     {
-      "screen": "http://localhost:8081/admin",
+      "screen": "http://localhost:8081/contact",
       "interaction": "Click",
-      "elementIdentifier": "btn|adminCategoriesFor...",
-      "event": "AfterInteraction",
-      "timestamp": 1785347350778,
+      "elementIdentifier": "link|/contact|Контакты",
+      "event": "ScreenEntered",
+      "timestamp": 1785347704724,
       "errorType": "Health Check Evaluation Failed",
-      "errorMessage": "[Application Bug] page.evaluate: Target crashed "
+      "errorMessage": "[Application Bug] page.evaluate: Target page, context or browser has been closed"
     }
   ],
-  "warnings": []
+  "warnings": [
+    {
+      "screen": "http://localhost:8081/",
+      "interaction": "Initial Load",
+      "elementIdentifier": "None",
+      "event": "Runtime",
+      "timestamp": 1785347675897,
+      "errorType": "Console Warning",
+      "errorMessage": "\"shadow*\" style props are deprecated. Use \"boxShadow\"."
+    },
+    {
+      "screen": "http://localhost:8081/",
+      "interaction": "Click",
+      "elementIdentifier": "btn|⚙️",
+      "event": "Runtime",
+      "timestamp": 1785347676726,
+      "errorType": "Console Error",
+      "errorMessage": "Failed to load resource: the server responded with a status of 400 ()"
+    },
+    {
+      "screen": "http://localhost:8081/",
+      "interaction": "Click",
+      "elementIdentifier": "btn|Capture Screenshot...",
+      "event": "Runtime",
+      "timestamp": 1785347677968,
+      "errorType": "Console Warning",
+      "errorMessage": "Animated: `useNativeDriver` is not supported because the native animated module is missing. Falling back to JS-based animation. To resolve this, add `RCTAnimation` module to this app, or remove `useNativeDriver`. Make sure to run `bundle exec pod install` first. Read more about autolinking: https://github.com/react-native-community/cli/blob/master/docs/autolinking.md"
+    },
+    {
+      "screen": "http://localhost:8081/",
+      "interaction": "Click",
+      "elementIdentifier": "btn|Capture Screenshot...",
+      "event": "Runtime",
+      "timestamp": 1785347678135,
+      "errorType": "Console Warning",
+      "errorMessage": "props.pointerEvents is deprecated. Use style.pointerEvents"
+    }
+  ]
 }

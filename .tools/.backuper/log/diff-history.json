@@ -7454,5 +7454,31 @@
         }
       ]
     }
+  },
+  "src_07-29_20-55_smoke-report.json_75files": {
+    "timestamp": "2026-07-29T17:55:11.356Z",
+    "diff": {
+      "added": 5,
+      "removed": 0,
+      "modified": 5,
+      "topFolders": [
+        {
+          "folder": "src/services",
+          "count": 4
+        },
+        {
+          "folder": "src/services/mocks",
+          "count": 4
+        },
+        {
+          "folder": ".tools/browser-automation/reports",
+          "count": 1
+        },
+        {
+          "folder": "src/services/repositories",
+          "count": 1
+        }
+      ]
+    }
   }
 }

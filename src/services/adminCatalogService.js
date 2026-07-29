@@ -8,7 +8,8 @@
 import { SEED_BANNERS } from '../data/catalogState';
 import { regenerateCatalogDatabase } from './catalogDatabaseRegenerator';
 import { withServiceContract } from './serviceContract';
-import { saveCatalogDrafts, saveBanners } from './repositories/catalogRepository';
+import { catalogRepository } from './repositories/index.js';
+const { saveCatalogDrafts, saveBanners } = catalogRepository;
 
 async function _saveDrafts(draftProducts, draftCategories, oldProducts, oldCategories) {
   const res = await saveCatalogDrafts(draftProducts, draftCategories, oldProducts, oldCategories);

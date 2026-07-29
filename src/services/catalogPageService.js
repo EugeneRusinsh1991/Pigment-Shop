@@ -1,4 +1,5 @@
-import { fetchProductPage, fetchProductCount, MissingIndexError, SORT_KEYS } from './repositories/catalogRepository';
+import { catalogRepository } from './repositories/index.js';
+const { fetchProductPage, fetchProductCount, MissingIndexError, SORT_KEYS } = catalogRepository;
 
 export const PAGE_SIZE = 15;
 

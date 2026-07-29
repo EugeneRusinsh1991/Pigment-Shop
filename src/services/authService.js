@@ -5,13 +5,14 @@
  * Exposes named functions and an authService singleton container.
  */
 
-import {
-  subscribeToAuthChanges as repoSubscribe,
+import { authRepository } from './repositories/index.js';
+const {
+  subscribeToAuthChanges: repoSubscribe,
   loginWithEmail,
   registerWithEmail,
   loginWithGoogle,
   logoutUser,
-} from './repositories/authRepository';
+} = authRepository;
 import { withServiceContract } from './serviceContract';
 
 let pendingGoogleSignIn = null;

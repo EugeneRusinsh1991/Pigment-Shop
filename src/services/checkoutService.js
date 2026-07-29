@@ -1,5 +1,6 @@
 import { COLLECTIONS } from './collections';
-import { createOrder } from './repositories/ordersRepository';
+import { ordersRepository } from './repositories/index.js';
+const { createOrder } = ordersRepository;
 import { notifyOrderCreated } from './telegramService';
 import { withServiceContract } from './serviceContract';
 import { OrderItemSchema, parseWithFallback } from '../domain';
