@@ -24,6 +24,9 @@ const DEFAULT_EXCLUDED = [
   'tmp',
   '.auditor',
   '.backuper',
+  '.audits',
+  '.fallow',
+  '.logs',
   'fallow-raw.json',
   'automation-browser-log',
   'manual-browser-log'

@@ -7709,5 +7709,35 @@
         }
       ]
     }
+  },
+  "src_07-29_22-40_ui-component-hierarchy-guide.md_51files": {
+    "timestamp": "2026-07-29T19:40:56.697Z",
+    "diff": {
+      "added": 4,
+      "removed": 504,
+      "modified": 3,
+      "topFolders": [
+        {
+          "folder": ".fallow/src/components",
+          "count": 42
+        },
+        {
+          "folder": ".fallow/scripts/smoke-test/failures",
+          "count": 33
+        },
+        {
+          "folder": ".fallow/scripts",
+          "count": 22
+        },
+        {
+          "folder": ".fallow/src/services",
+          "count": 22
+        },
+        {
+          "folder": ".fallow/src/hooks",
+          "count": 21
+        }
+      ]
+    }
   }
 }
