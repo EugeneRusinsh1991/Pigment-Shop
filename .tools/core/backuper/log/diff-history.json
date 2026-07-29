@@ -7769,5 +7769,35 @@
         }
       ]
     }
+  },
+  "src_07-29_23-39_project-hierarchy.md_33files": {
+    "timestamp": "2026-07-29T20:39:26.990Z",
+    "diff": {
+      "added": 2,
+      "removed": 1,
+      "modified": 23,
+      "topFolders": [
+        {
+          "folder": ".docs/architecture-standards/ui",
+          "count": 18
+        },
+        {
+          "folder": ".docs/project-hierarchy",
+          "count": 3
+        },
+        {
+          "folder": ".tools/core/backuper/log",
+          "count": 2
+        },
+        {
+          "folder": ".agents/skills/project-hierarchy",
+          "count": 1
+        },
+        {
+          "folder": ".docs/architecture-standards",
+          "count": 1
+        }
+      ]
+    }
   }
 }

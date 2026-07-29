@@ -6,6 +6,10 @@
 - **Theme & Design System**: Tokenized design system (`src/theme/tokens.js`, `AppStyles.js`)
 - **Routing Shell**: Expo Router (`app/` directory)
 
+## 🗺️ Multi-Dimensional Navigation Maps
+- **Route-Based Map**: [route-hierarchy.md](file:///d:/Magazine/_PigmentShop/.docs/project-hierarchy/route-hierarchy.md) — Screen routes mapped to components, hooks & services.
+- **Flow-Based Map**: [flow-hierarchy.md](file:///d:/Magazine/_PigmentShop/.docs/project-hierarchy/flow-hierarchy.md) — End-to-end data pipelines (UI -> Hook -> Service -> DB).
+
 ---
 
 ## 📂 Primary Physical Navigation
@@ -16,19 +20,25 @@
 - [app/admin/](file:///d:/Magazine/_PigmentShop/app/admin/): Administrative dashboard & management interfaces.
 
 ### 2. UI Components & Visual Primitives (`src/components/`)
-- [src/components/Text/](file:///d:/Magazine/_PigmentShop/src/components/Text/): Unified typography primitives (`Text`, `Heading`).
-- [src/components/Feedback/](file:///d:/Magazine/_PigmentShop/src/components/Feedback/): Toast, Skeleton, EmptyState, InlineError.
-- [src/components/Media/](file:///d:/Magazine/_PigmentShop/src/components/Media/): Image, Video, Media galleries.
-- [src/components/Navigation/](file:///d:/Magazine/_PigmentShop/src/components/Navigation/): Breadcrumbs, Pagination.
-- [src/components/Motion/](file:///d:/Magazine/_PigmentShop/src/components/Motion/): Page transition & animation wrappers (`ScrollFadeUp`, `PageTransition`).
-- [src/components/Card/](file:///d:/Magazine/_PigmentShop/src/components/Card/): Card container primitives.
-- [src/components/Button/](file:///d:/Magazine/_PigmentShop/src/components/Button/): Button & IconButton primitives.
-- [src/components/Badge/](file:///d:/Magazine/_PigmentShop/src/components/Badge/): Badge status primitives.
-- [src/components/Admin/](file:///d:/Magazine/_PigmentShop/src/components/Admin/): Admin management presentation components.
-- [src/components/DataTable/](file:///d:/Magazine/_PigmentShop/src/components/DataTable/): Data tables.
-- [src/components/Drawer/](file:///d:/Magazine/_PigmentShop/src/components/Drawer/): Side drawers and modals.
-- [src/components/TextField/](file:///d:/Magazine/_PigmentShop/src/components/TextField/), [Toggle/](file:///d:/Magazine/_PigmentShop/src/components/Toggle/), [Search/](file:///d:/Magazine/_PigmentShop/src/components/Search/): Form and input primitives.
-- [src/components/Flag/](file:///d:/Magazine/_PigmentShop/src/components/Flag/), [Modal/](file:///d:/Magazine/_PigmentShop/src/components/Modal/): Other primitives.
+- **UI Primitives (`src/components/ui/`)**:
+  - [Badge/](file:///d:/Magazine/_PigmentShop/src/components/ui/Badge/): Status indicators & pills.
+  - [Button/](file:///d:/Magazine/_PigmentShop/src/components/ui/Button/): Button & IconButton primitives.
+  - [Card/](file:///d:/Magazine/_PigmentShop/src/components/ui/Card/): Card container primitives.
+  - [Drawer/](file:///d:/Magazine/_PigmentShop/src/components/ui/Drawer/): Side sliding overlay drawers.
+  - [Feedback/](file:///d:/Magazine/_PigmentShop/src/components/ui/Feedback/): Toast, Skeleton, EmptyState, InlineError.
+  - [Media/](file:///d:/Magazine/_PigmentShop/src/components/ui/Media/): Image, Video, Media galleries.
+  - [Modal/](file:///d:/Magazine/_PigmentShop/src/components/ui/Modal/): Dialog overlay modals.
+  - [Motion/](file:///d:/Magazine/_PigmentShop/src/components/ui/Motion/): Page transition & animation wrappers (`ScrollFadeUp`, `PageTransition`).
+  - [Text/](file:///d:/Magazine/_PigmentShop/src/components/ui/Text/): Unified typography primitives (`Text`, `Heading`).
+  - [TextField/](file:///d:/Magazine/_PigmentShop/src/components/ui/TextField/): Input & textarea fields.
+  - [Toggle/](file:///d:/Magazine/_PigmentShop/src/components/ui/Toggle/): Multi-option selection toggles.
+- **Domain Components (`src/components/domain/`)**:
+  - [DataTable/](file:///d:/Magazine/_PigmentShop/src/components/domain/DataTable/): Data grid tables.
+  - [Flag/](file:///d:/Magazine/_PigmentShop/src/components/domain/Flag/): Feature & boolean flags.
+  - [Navigation/](file:///d:/Magazine/_PigmentShop/src/components/domain/Navigation/): Breadcrumbs & Pagination.
+  - [Search/](file:///d:/Magazine/_PigmentShop/src/components/domain/Search/): Instant search inputs & filters.
+- **Icons (`src/components/Icons/`)**:
+  - [Icons/](file:///d:/Magazine/_PigmentShop/src/components/Icons/): Vector SVG icon wrappers.
 
 ### 3. State Management (`src/context/`)
 - [src/context/](file:///d:/Magazine/_PigmentShop/src/context/): Global providers (Theme, Cart, Auth, Language, Toast).

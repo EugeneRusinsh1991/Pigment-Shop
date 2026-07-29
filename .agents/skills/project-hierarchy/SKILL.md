@@ -1,13 +1,12 @@
 ---
 name: project-hierarchy
-description: create project hierarchy
+description: create and maintain project hierarchy and architectural knowledge
 ---
 
 
-Create and maintain a safe project knowledge map for AI agents.
+Create and maintain a safe project navigation hierarchy and architectural knowledge map for AI agents.
 
-The skill documents the project only. It must never modify the project
-itself.
+The skill documents the project hierarchy and architectural knowledge. It must never modify the project itself.
 
 ------------------------------------------------------------------------
 
@@ -28,9 +27,10 @@ This skill is READ ONLY. Executing this skill proceeds directly without promptin
 
 This skill is READ ONLY.
 
-Its only allowed output is Project Hierarchy documentation inside:
+Its only allowed output is Project Hierarchy and Knowledge documentation inside:
 
 `.docs/project-hierarchy/`
+`.docs/project-knowledge/`
 
 No other project files or directories may be modified.
 
@@ -116,10 +116,12 @@ The project source tree is READ ONLY.
 The skill may write only inside:
 
 `.docs/project-hierarchy/`
+`.docs/project-knowledge/`
 
 Optional cache:
 
 `.ai/project-hierarchy/`
+`.ai/project-knowledge/`
 
 No other directory may ever be modified.
 
@@ -127,12 +129,12 @@ No other directory may ever be modified.
 
 # Hierarchy Strategy
 
-Prioritize:
+Prioritize multi-dimensional navigation maps:
 
-1.  Business domains
-2.  Architecture
-3.  Debug & Automation tooling (e.g. `browser-automation`, test utilities, dev diagnostics)
-4.  Physical folders
+1. **Route-based Navigation (`route-hierarchy.md`)**: Map all `app/` routes directly to their consumed UI components, state contexts, custom hooks, and service layers.
+2. **Flow-based Pipelines (`flow-hierarchy.md`)**: Trace complete end-to-end data flows (User Action -> UI -> Hook -> Service -> DB Repository) for key business scenarios.
+3. **Domain & Feature Hierarchy**: Business domain boundaries, architecture layers, and physical folder structures.
+4. **Debug & Automation Tooling**: `.tools/`, Playwright test suites, and audit frameworks.
 
 Knowledge hierarchy is primary. Physical hierarchy is navigation only.
 
