@@ -14,11 +14,11 @@ export function getStyle(styleMap, isDark, darkKey, lightKey) {
   return isDark ? styleMap[darkKey] : styleMap[lightKey];
 }
 
-export function resolveThemeColor(isDark, darkColor, lightColor) {
+function resolveThemeColor(isDark, darkColor, lightColor) {
   return isDark ? darkColor : lightColor;
 }
 
-export function useResolvedTheme() {
+function useResolvedTheme() {
   const isDark = getIsDarkContext();
   return {
     isDark,

@@ -40,7 +40,7 @@ const ORDER_STATUS_BY_KEY = Object.fromEntries(
  * Maps every known raw status string (English, Russian) to its canonical key.
  * Defined in exactly one place — used for grouping, filtering, and matching.
  */
-export const STATUS_RAW_TO_KEY = {
+const STATUS_RAW_TO_KEY = {
   // pending
   'Новый заказ': 'pending',
   'New':         'pending',
@@ -62,7 +62,7 @@ export const STATUS_RAW_TO_KEY = {
  * Maps every known raw status string to its canonical English selector value
  * (used when writing back to Firestore via OrderStatusSelector).
  */
-export const STATUS_RAW_TO_CANONICAL = {
+const STATUS_RAW_TO_CANONICAL = {
   'Новый заказ': 'New',
   'В обработке': 'Processing',
   'Выполнен':    'Completed',

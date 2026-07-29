@@ -13,7 +13,7 @@ export function resolveLocalizedValue(value, lang) {
   return getLocalizedValue(value, lang);
 }
 
-export function getCategoryChain(categoryMatch, categoryLookup) {
+function getCategoryChain(categoryMatch, categoryLookup) {
   const chain = [categoryMatch];
   let current = categoryMatch;
   while (current.parentId) {

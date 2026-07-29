@@ -9,7 +9,7 @@ import { CartProvider } from '../cart/CartContext';
 import { CatalogProvider } from '../catalog/CatalogContext';
 import { FavoritesProvider } from '../favorites/FavoritesContext';
 
-export function StorefrontProviders({ children }) {
+function StorefrontProviders({ children }) {
   return (
     <CatalogProvider>
       <CartProvider>

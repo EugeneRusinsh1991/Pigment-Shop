@@ -21,7 +21,7 @@ let pendingGoogleSignIn = null;
  * @param {(user: Object|null) => void} callback
  * @returns {Function}
  */
-export function subscribeToAuthChanges(callback) {
+function subscribeToAuthChanges(callback) {
   return repoSubscribe(callback);
 }
 
@@ -35,7 +35,7 @@ async function _login(email, password) {
   return loginWithEmail(email, password);
 }
 
-export const login = withServiceContract(_login, 'Login failed');
+const login = withServiceContract(_login, 'Login failed');
 
 /**
  * Register a new user with email and password.
@@ -47,7 +47,7 @@ async function _register(email, password) {
   return registerWithEmail(email, password);
 }
 
-export const register = withServiceContract(_register, 'Registration failed');
+const register = withServiceContract(_register, 'Registration failed');
 
 /**
  * Log in using Google Provider popup.
@@ -63,7 +63,7 @@ async function _signInWithGoogle() {
   return pendingGoogleSignIn;
 }
 
-export const signInWithGoogle = withServiceContract(_signInWithGoogle, 'Google sign-in failed');
+const signInWithGoogle = withServiceContract(_signInWithGoogle, 'Google sign-in failed');
 
 /**
  * Log out the current user session.
@@ -73,7 +73,7 @@ async function _logout() {
   return logoutUser();
 }
 
-export const logout = withServiceContract(_logout, 'Logout failed');
+const logout = withServiceContract(_logout, 'Logout failed');
 
 export const authService = {
   subscribeToAuthChanges,

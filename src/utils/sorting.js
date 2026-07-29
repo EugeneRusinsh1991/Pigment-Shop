@@ -13,7 +13,7 @@
  * @param {any} val
  * @returns {number}
  */
-export function coerceToNumber(val) {
+function coerceToNumber(val) {
   if (typeof val === 'boolean') return val ? 1 : 0;
   return Number(val) || 0;
 }
@@ -76,7 +76,7 @@ export function compareValues(valA, valB, direction) {
  * @param {(item: T) => any} [getValue] - Optional accessor; defaults to `item[field]`.
  * @returns {T[]} A new sorted array.
  */
-export function sortByField(array, field, direction, getValue) {
+function sortByField(array, field, direction, getValue) {
   if (!field || !array.length) return array;
   const accessor = getValue || ((item) => item[field]);
   return [...array].sort((a, b) => compareValues(accessor(a), accessor(b), direction));

@@ -2,7 +2,7 @@
   "summary": {
     "visitedScreens": 0,
     "visitedInteractions": 0,
-    "successfulInteractions": 20,
+    "successfulInteractions": 39,
     "failedInteractions": 1,
     "warnings": 4,
     "errors": 1,
@@ -10,11 +10,11 @@
   },
   "failures": [
     {
-      "screen": "http://localhost:8081/products",
+      "screen": "http://localhost:8081/",
       "interaction": "Click",
-      "elementIdentifier": "testid|filter-outofstock",
+      "elementIdentifier": "card|Card|/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/input[1]",
       "event": "AfterInteraction",
-      "timestamp": 1785330215556,
+      "timestamp": 1785335479415,
       "errorType": "Health Check Evaluation Failed",
       "errorMessage": "[Application Bug] page.evaluate: Target crashed "
     }
@@ -25,7 +25,7 @@
       "interaction": "Initial Load",
       "elementIdentifier": "None",
       "event": "Runtime",
-      "timestamp": 1785330192348,
+      "timestamp": 1785335443606,
       "errorType": "Console Warning",
       "errorMessage": "\"shadow*\" style props are deprecated. Use \"boxShadow\"."
     },
@@ -34,7 +34,7 @@
       "interaction": "Click",
       "elementIdentifier": "btn|⚙️",
       "event": "Runtime",
-      "timestamp": 1785330193179,
+      "timestamp": 1785335444408,
       "errorType": "Console Error",
       "errorMessage": "Failed to load resource: the server responded with a status of 400 ()"
     },
@@ -43,7 +43,7 @@
       "interaction": "Click",
       "elementIdentifier": "btn|Capture Screenshot...",
       "event": "Runtime",
-      "timestamp": 1785330194286,
+      "timestamp": 1785335445526,
       "errorType": "Console Warning",
       "errorMessage": "Animated: `useNativeDriver` is not supported because the native animated module is missing. Falling back to JS-based animation. To resolve this, add `RCTAnimation` module to this app, or remove `useNativeDriver`. Make sure to run `bundle exec pod install` first. Read more about autolinking: https://github.com/react-native-community/cli/blob/master/docs/autolinking.md"
     },
@@ -52,7 +52,7 @@
       "interaction": "Click",
       "elementIdentifier": "btn|Capture Screenshot...",
       "event": "Runtime",
-      "timestamp": 1785330194470,
+      "timestamp": 1785335445751,
       "errorType": "Console Warning",
       "errorMessage": "props.pointerEvents is deprecated. Use style.pointerEvents"
     }

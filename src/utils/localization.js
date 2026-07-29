@@ -5,7 +5,7 @@
  *
  * Defined in exactly one place — import from here wherever fallback order is needed.
  */
-export const LANGUAGE_FALLBACK = ['en', 'ru', 'uk'];
+const LANGUAGE_FALLBACK = ['en', 'ru', 'uk'];
 
 /**
  * Resolves localized text from a potentially multilingual object or simple string.

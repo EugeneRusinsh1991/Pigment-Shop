@@ -16,7 +16,7 @@ import { getProducts } from '../data/catalogState';
 
 
 /** Returns all products (current snapshot). */
-export function getAllProducts() {
+function getAllProducts() {
   return getProducts();
 }
 

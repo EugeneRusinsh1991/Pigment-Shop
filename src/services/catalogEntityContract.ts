@@ -42,7 +42,7 @@ export type LocalizedString = Record<SupportedLocale, string>;
  * Returns a blank LocalizedString with all locales set to empty string.
  * Use this as the initial value for any new localized text field.
  */
-export function emptyLocalizedString(): LocalizedString {
+function emptyLocalizedString(): LocalizedString {
   return { uk: '', ru: '', en: '' };
 }
 
@@ -58,7 +58,7 @@ export function emptyLocalizedString(): LocalizedString {
  * @param lang  - The requested locale (e.g. 'uk').
  * @returns The resolved string, or '' if no translation exists.
  */
-export function getLocale(value: LocalizedString, lang: SupportedLocale): string {
+function getLocale(value: LocalizedString, lang: SupportedLocale): string {
   if (value[lang]) return value[lang];
   for (const locale of SUPPORTED_LOCALES) {
     if (value[locale]) return value[locale];
@@ -77,11 +77,11 @@ export interface SortState {
   direction: SortDirection;
 }
 
-export function makeSortState(field: string, direction: SortDirection = DEFAULT_SORT_DIRECTION): SortState {
+function makeSortState(field: string, direction: SortDirection = DEFAULT_SORT_DIRECTION): SortState {
   return { field, direction };
 }
 
-export function toggleSortState(current: SortState, field: string): SortState {
+function toggleSortState(current: SortState, field: string): SortState {
   if (current.field === field) {
     return { field, direction: current.direction === 'asc' ? 'desc' : 'asc' };
   }

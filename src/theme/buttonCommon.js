@@ -1,7 +1,7 @@
 import { motion, buttonTokens } from './tokens';
 
 export const DEFAULT_ACTIVE_OPACITY = motion.press.activeOpacity;
-export const BUTTON_SIZES = buttonTokens.sizes;
+const BUTTON_SIZES = buttonTokens.sizes;
 
 function getThemeKey(isDark) {
   return isDark ? 'Dark' : 'Light';

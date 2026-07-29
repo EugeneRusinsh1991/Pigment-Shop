@@ -14,6 +14,7 @@ Execute **EXACTLY ONE** audit stage per invocation.
 - **STRICT NO-TRUNCATION MANDATE (100% FILE COVERAGE)**: Generated task files (`tasks/task-*.md`) MUST list EVERY SINGLE AFFECTED FILE in `Target Files`. It is strictly forbidden to truncate or limit the file list to 3–5 sample files.
 - **SINGLE ARCHITECTURE & PRIMITIVE UNITY**: All layers (`app/`, `src/`, contexts, API calls, primitives) MUST be cross-analyzed together. Architectural violations or UI primitives are audited across the entire project at once.
 - **100% COVERAGE IN TASKS**: Refactoring tasks generated for "Whole Project" audits MUST encompass every single file in the repository affected by the finding.
+- **NO EMPTY AUDIT REPORT FILES**: NEVER create category report markdown files if 0 issues are found for that category. Only write report files for categories that contain active issues, ensuring that the existence of a file guarantees issues inside.
 
 ---
 

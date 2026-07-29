@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { colors, layout } from '../../../theme/tokens';
 
-export const FooterStyles = StyleSheet.create({
+const FooterStyles = StyleSheet.create({
   footer: {
     paddingTop: layout.spacing.xs,
     paddingBottom: layout.spacing.xxs,

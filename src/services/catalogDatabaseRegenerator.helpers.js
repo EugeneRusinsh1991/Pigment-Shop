@@ -1,6 +1,6 @@
 import { PRODUCT_IMAGES } from './catalogSeedData.js';
 
-export function toSlug(value) {
+function toSlug(value) {
   return String(value)
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')

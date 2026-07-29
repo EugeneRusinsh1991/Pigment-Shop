@@ -6,7 +6,7 @@ export const SORT_KEYS = {
   RATING: 'rating',
 };
 
-export function getInequalityField(filters) {
+function getInequalityField(filters) {
   if (filters.priceMin !== '' || filters.priceMax !== '') return 'price';
   if (filters.onSale) return 'discountPercent';
   if (filters.inStock || filters.outOfStock) return 'stock';
@@ -38,7 +38,7 @@ export function addWhereConstraints(constraints, filters) {
   });
 }
 
-export function getSortOrdering(sortKey, inequalityField) {
+function getSortOrdering(sortKey, inequalityField) {
   const sortStrategies = {
     [SORT_KEYS.PRICE_ASC]: () => [orderBy('price', 'asc')],
     [SORT_KEYS.PRICE_DESC]: () => [orderBy('price', 'desc')],
@@ -56,7 +56,7 @@ export function getSortOrdering(sortKey, inequalityField) {
   return strategy ? strategy() : [];
 }
 
-export function addSortConstraints(constraints, sortKey, inequalityField) {
+function addSortConstraints(constraints, sortKey, inequalityField) {
   if (inequalityField && inequalityField !== 'price' && sortKey.startsWith('price')) {
     constraints.push(orderBy(inequalityField, 'desc'));
   }

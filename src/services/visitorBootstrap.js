@@ -36,7 +36,7 @@ import { withServiceContract } from './serviceContract';
 /**
  * Generates an isolated session token for guest users as fallback.
  */
-export function getOrCreateGuestSessionId() {
+function getOrCreateGuestSessionId() {
   if (typeof window !== 'undefined' && window.localStorage) {
     let sid = window.localStorage.getItem('guest_session_id');
     if (!sid) {
@@ -69,7 +69,7 @@ async function _bootstrapVisitorSession() {
   }
 }
 
-export const bootstrapVisitorSession = withServiceContract(_bootstrapVisitorSession, 'Failed to bootstrap visitor session');
+const bootstrapVisitorSession = withServiceContract(_bootstrapVisitorSession, 'Failed to bootstrap visitor session');
 
 /**
  * Lifecycle service for visitor session bootstrap.

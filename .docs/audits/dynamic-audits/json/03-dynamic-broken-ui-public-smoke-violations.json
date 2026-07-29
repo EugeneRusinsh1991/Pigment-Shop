@@ -95,24 +95,11 @@
         "message": "Element has overflow clipping (`scrollWidth > clientWidth`).",
         "selector": "div.css-view-g5y9jx.r-marginBlock-l00any"
       }
-    ],
-    "http://localhost:8081/cart": [
-      {
-        "url": "http://localhost:8081/cart",
-        "message": "Element has overflow clipping (`scrollWidth > clientWidth`).",
-        "selector": "div.css-view-g5y9jx.r-flex-13awgt0.r-justifyContent-1wtj0ep.r-marginInlineStart-1cwvpvk"
-      },
-      {
-        "url": "http://localhost:8081/cart",
-        "message": "Element has overflow clipping (`scrollWidth > clientWidth`).",
-        "selector": "div.css-view-g5y9jx.r-alignItems-1habvwh.r-flexDirection-18u37iz.r-justifyContent-1wtj0ep"
-      }
     ]
   },
   "urls": [
     "http://localhost:8081/",
     "http://localhost:8081/products",
-    "http://localhost:8081/contact",
-    "http://localhost:8081/cart"
+    "http://localhost:8081/contact"
   ]
 }

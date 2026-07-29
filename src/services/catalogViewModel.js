@@ -8,7 +8,7 @@ import {
   collectSubtreeIds,
 } from './catalogViewModel.helpers';
 
-export { CATEGORY_IMAGES };
+
 
 export function buildProductCategoryMap(rawCategories = []) {
   const map = new Map();

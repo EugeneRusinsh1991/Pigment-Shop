@@ -94,7 +94,7 @@ async function _processCheckout({ user, items, totalItems, totalPrice, note, cus
   return result.data.id;
 }
 
-export const processCheckout = withServiceContract(_processCheckout, 'Order creation failed');
+const processCheckout = withServiceContract(_processCheckout, 'Order creation failed');
 
 export const checkoutService = {
   processCheckout,

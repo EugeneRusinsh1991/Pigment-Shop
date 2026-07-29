@@ -142,8 +142,9 @@ function writeAllReports(reports, subDir, data) {
     if (hasReportFindings(key, data)) {
       if (content) writeReportFile(reportPath, content);
     } else {
-      const cleanContent = `# 📄 Audit Report\n\n✅ No issues found for this category.\n`;
-      writeReportFile(reportPath, cleanContent);
+      if (fs.existsSync(reportPath)) {
+        try { fs.unlinkSync(reportPath); } catch (_) {}
+      }
     }
   });
 }

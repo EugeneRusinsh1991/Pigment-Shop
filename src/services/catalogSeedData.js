@@ -4,7 +4,7 @@ export const PRODUCT_IMAGES = [
   'https://images.unsplash.com/photo-1582201942988-13e60e4556ee?w=600&auto=format&fit=crop',
 ];
 
-export const SEED_BANNERS = PRODUCT_IMAGES.slice(0, 2);
+const SEED_BANNERS = PRODUCT_IMAGES.slice(0, 2);
 
 const LOCALE_NAMES = {
   ru: {
@@ -33,7 +33,7 @@ const LOCALE_NAMES = {
   },
 };
 
-export const topLevelConfigs = [
+const topLevelConfigs = [
   {
     id: 'cat-essentials',
     name: LOCALE_NAMES.en.essentials,

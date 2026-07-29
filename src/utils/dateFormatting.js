@@ -10,7 +10,7 @@
  * Maps application language codes to BCP-47 locale strings for Intl APIs.
  * Defined in exactly one place — import from here wherever a locale tag is needed.
  */
-export const LANG_TO_LOCALE = {
+const LANG_TO_LOCALE = {
   uk: 'uk-UA',
   en: 'en-US',
   ru: 'ru-RU',
@@ -28,7 +28,7 @@ function resolveLocale(lang) {
  * @param {any} raw - Firestore Timestamp, JS Date, ISO string, or null/undefined.
  * @returns {Date|null}
  */
-export function toDate(raw) {
+function toDate(raw) {
   if (!raw) return null;
   try {
     return raw.toDate ? raw.toDate() : new Date(raw);

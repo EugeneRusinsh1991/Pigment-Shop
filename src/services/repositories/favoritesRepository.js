@@ -64,7 +64,7 @@ export function removeFavorite(uid, item) {
  * @param {boolean} [isAdding] - optional flag if passing target item
  * @returns {Promise<void>}
  */
-export function saveFavorites(uid, payload, isAdding) {
+function saveFavorites(uid, payload, isAdding) {
   if (isAdding !== undefined) {
     return isAdding ? addFavorite(uid, payload) : removeFavorite(uid, payload);
   }
@@ -73,7 +73,7 @@ export function saveFavorites(uid, payload, isAdding) {
   return setDoc(docRef, { favorites: sanitized }, { merge: true });
 }
 
-export const favoritesRepository = {
+const favoritesRepository = {
   subscribeFavorites,
   addFavorite,
   removeFavorite,

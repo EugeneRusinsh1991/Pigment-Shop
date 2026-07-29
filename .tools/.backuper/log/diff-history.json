@@ -7161,5 +7161,35 @@
         }
       ]
     }
+  },
+  "src_07-29_17-31_S_17-31-24_Admin.jpg_115files": {
+    "timestamp": "2026-07-29T14:31:38.398Z",
+    "diff": {
+      "added": 1,
+      "removed": 15,
+      "modified": 52,
+      "topFolders": [
+        {
+          "folder": ".docs/audits/dynamic-audits/docs",
+          "count": 9
+        },
+        {
+          "folder": ".docs/audits/fallow-audits/other",
+          "count": 9
+        },
+        {
+          "folder": ".docs/audits/fallow-audits/project",
+          "count": 9
+        },
+        {
+          "folder": "src/services",
+          "count": 9
+        },
+        {
+          "folder": ".docs/audits/dynamic-audits/json",
+          "count": 7
+        }
+      ]
+    }
   }
 }
