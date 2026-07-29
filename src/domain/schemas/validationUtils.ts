@@ -2,6 +2,22 @@ import { ZodSchema } from 'zod';
 
 declare const __DEV__: boolean | undefined;
 
+const SENSITIVE_KEY_REGEX = /token|password|auth|secret|credential/i;
+
+function sanitizeValue(key: string, val: unknown, seen: WeakSet<object>, depth: number): unknown {
+  if (SENSITIVE_KEY_REGEX.test(key)) return '[REDACTED]';
+  if (typeof val === 'object' && val !== null) return sanitizeForLog(val, seen, depth + 1);
+  return val;
+}
+
+function sanitizeObject(data: Record<string, unknown>, seen: WeakSet<object>, depth: number): Record<string, unknown> {
+  const sanitized: Record<string, unknown> = {};
+  for (const key of Object.keys(data)) {
+    sanitized[key] = sanitizeValue(key, data[key], seen, depth);
+  }
+  return sanitized;
+}
+
 function sanitizeForLog(data: unknown, seen = new WeakSet<object>(), depth = 0): unknown {
   if (!data || typeof data !== 'object') return data;
   if (depth > 3) return '[Truncated]';
@@ -13,18 +29,7 @@ function sanitizeForLog(data: unknown, seen = new WeakSet<object>(), depth = 0):
     return data.map((item) => sanitizeForLog(item, seen, depth + 1));
   }
 
-  const sanitized: Record<string, unknown> = {};
-  for (const key of Object.keys(data as Record<string, unknown>)) {
-    const val = (data as Record<string, unknown>)[key];
-    if (/token|password|auth|secret|credential/i.test(key)) {
-      sanitized[key] = '[REDACTED]';
-    } else if (typeof val === 'object' && val !== null) {
-      sanitized[key] = sanitizeForLog(val, seen, depth + 1);
-    } else {
-      sanitized[key] = val;
-    }
-  }
-  return sanitized;
+  return sanitizeObject(data as Record<string, unknown>, seen, depth);
 }
 
 /**
@@ -55,25 +60,3 @@ export function parseWithFallback<T>(
   return fallbackValue;
 }
 
-/**
- * Safely deserializes and parses a JSON string (e.g. from AsyncStorage or LocalStorage).
- * If JSON parsing or validation fails, returns fallbackValue.
- */
-export function parseStorageJsonWithFallback<T>(
-  schema: ZodSchema<T>,
-  rawJson: string | null | undefined,
-  fallbackValue: T
-): T {
-  if (!rawJson || typeof rawJson !== 'string') {
-    return fallbackValue;
-  }
-  try {
-    const parsedObj = JSON.parse(rawJson);
-    return parseWithFallback(schema, parsedObj, fallbackValue);
-  } catch {
-    if (typeof __DEV__ !== 'undefined' && __DEV__) {
-      console.warn('[Validation Warning] Invalid JSON string in storage deserialization.');
-    }
-    return fallbackValue;
-  }
-}

@@ -20,6 +20,11 @@
         "url": "http://localhost:8081/",
         "message": "Clickable element is overlapped or intercepted by another element.",
         "selector": "a.css-view-g5y9jx.r-transitionProperty-1i6wzkk.r-userSelect-lrvibr.r-cursor-1loqt21.r-touchAction-1otgn73.r-height-1pi2tsx.r-position-bnwqim.r-width-13qz1uu"
+      },
+      {
+        "url": "http://localhost:8081/",
+        "message": "Broken image resource (`naturalWidth === 0`).",
+        "selector": "img.css-accessibilityImage-9pa8cd"
       }
     ],
     "http://localhost:8081/products": [

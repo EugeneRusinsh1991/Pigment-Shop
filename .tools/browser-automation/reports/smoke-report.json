@@ -2,9 +2,9 @@
   "summary": {
     "visitedScreens": 0,
     "visitedInteractions": 0,
-    "successfulInteractions": 53,
-    "failedInteractions": 0,
-    "warnings": 1,
+    "successfulInteractions": 34,
+    "failedInteractions": 1,
+    "warnings": 2,
     "errors": 1,
     "executionDurationMs": 0
   },
@@ -14,7 +14,7 @@
       "interaction": "Click",
       "elementIdentifier": "btn|adminProductsFormN...",
       "event": "AfterInteraction",
-      "timestamp": 1785340571357,
+      "timestamp": 1785341432480,
       "errorType": "Health Check Evaluation Failed",
       "errorMessage": "[Application Bug] page.evaluate: Target crashed "
     }
@@ -22,12 +22,21 @@
   "warnings": [
     {
       "screen": "http://localhost:8081/admin",
-      "interaction": "Click",
-      "elementIdentifier": "btn|adminTabProducts",
+      "interaction": "Initial Load",
+      "elementIdentifier": "None",
       "event": "Runtime",
-      "timestamp": 1785340548810,
+      "timestamp": 1785341401418,
       "errorType": "Console Warning",
-      "errorMessage": "Disconnected from Metro (1006)\nTo reconnect:\n- Ensure that Metro is running and available on the same network\n- Reload this app (will trigger further help if Metro cannot be connected to)"
+      "errorMessage": "\"shadow*\" style props are deprecated. Use \"boxShadow\"."
+    },
+    {
+      "screen": "http://localhost:8081/admin",
+      "interaction": "Initial Load",
+      "elementIdentifier": "None",
+      "event": "Runtime",
+      "timestamp": 1785341401764,
+      "errorType": "Console Warning",
+      "errorMessage": "[Validation Warning] Payload schema validation failed. Falling back to default. {issues: Array(2), rawData: Object}"
     }
   ]
 }

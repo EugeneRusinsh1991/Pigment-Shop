@@ -2,7 +2,7 @@
 type: dynamic-audit
 auditor: raw-i18n
 scope: admin
-date: 2026-07-29T14:42:22.519Z
+date: 2026-07-29T16:10:02.408Z
 ---
 
 ### Problem: Raw camelCase i18n key found
@@ -101,6 +101,8 @@ date: 2026-07-29T14:42:22.519Z
   - Found raw camelCase i18n key: "adminCategoriesFormUnassignedProducts" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-10x49cs.r-fontWeight-b88u0q.r-letterSpacing-ud0q2t.r-lineHeight-1f529hi.r-textTransform-tsynxw.r-color-1npgj5g.r-marginBottom-5oul0u.r-marginTop-14gqq1x`
   - Found raw camelCase i18n key: "adminCategoriesFormUnassignedProductsHint" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1s7ct43.r-marginBottom-5oul0u`
   - Found raw camelCase i18n key: "adminCategoriesFormNoUnassignedProducts" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1enofrn.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1s7ct43`
+  - Found raw camelCase i18n key: "adminTabAnalytics" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-vw2c0b.r-lineHeight-135wba7.r-color-kgv7a8`
+  - Found raw camelCase i18n key: "adminAnalyticsDateCustom" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-color-1cucpzw`
 
 ### Problem: Hardcoded text without i18n key
 
@@ -307,3 +309,8 @@ date: 2026-07-29T14:42:22.519Z
   - Found hardcoded text without i18n key: "Select" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-rk4zbf.r-fontWeight-ha6d2y.r-lineHeight-135wba7.r-textAlign-q4m81j.r-color-jwli3a`
   - Found hardcoded text without i18n key: "adminCategoriesFormNameSection (EN) *" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1dk24ck.r-marginBottom-f1odvy`
   - Found hardcoded text without i18n key: "adminCategoriesFormDescSection (EN)" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-color-1dk24ck.r-marginBottom-f1odvy`
+  - Found hardcoded text without i18n key: "adminAnalyticsDateLast7" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-vw2c0b.r-lineHeight-135wba7.r-color-kgv7a8`
+  - Found hardcoded text without i18n key: "adminAnalyticsDateLast30" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-n62j09.r-fontWeight-1y8rou7.r-lineHeight-135wba7.r-color-1cucpzw`
+  - Found hardcoded text without i18n key: "Manual Browser Inspector" | Selector: `div.css-text-146c3p1.r-color-1npgj5g.r-fontSize-1enofrn.r-fontWeight-vw2c0b.r-letterSpacing-ud0q2t.r-textTransform-tsynxw`
+  - Found hardcoded text without i18n key: "Capture Screenshot & State" | Selector: `div.css-text-146c3p1.r-color-1gnjku.r-fontSize-n6v787.r-fontWeight-majxgm`
+  - Found hardcoded text without i18n key: "Alt+1" | Selector: `div.css-text-146c3p1.r-backgroundColor-1tl8prc.r-borderColor-11unwc4.r-borderRadius-z2wwpe.r-borderWidth-rs99b7.r-color-ox415g.r-fontSize-1gkfh8e.r-fontWeight-vw2c0b.r-paddingBlock-1559e4e.r-paddingInline-18c5d7m`

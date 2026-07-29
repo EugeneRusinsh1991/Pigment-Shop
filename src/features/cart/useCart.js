@@ -26,6 +26,28 @@ function parseAddParameters(product, priceOrQty, maybeQty) {
   return { price: prodPrice, qty: numQty };
 }
 
+function getMediaProps(product) {
+  const media = {};
+  if (product.image) media.image = product.image;
+  if (product.icon) media.icon = product.icon;
+  return media;
+}
+
+function createNewCartItem(product, price, qty) {
+  const label = product.label || '';
+  const validated = parseWithFallback(CartItemSchema.partial(), product, { id: product.id, label });
+  const itemId = validated.id || product.id;
+  const itemLabel = validated.label || label;
+
+  return {
+    id: itemId,
+    label: itemLabel,
+    price,
+    qty,
+    ...getMediaProps(product),
+  };
+}
+
 function updateItemQty(safePrev, product, price, qty) {
   const existing = safePrev.find((i) => i.id === product.id);
   if (existing) {
@@ -33,11 +55,7 @@ function updateItemQty(safePrev, product, price, qty) {
       i.id === product.id ? { ...i, qty: Math.min(99, (i.qty || 1) + qty) } : i
     );
   }
-  const validated = parseWithFallback(CartItemSchema.partial(), product, { id: product.id, label: product.label || '' });
-  const newItem = { id: validated.id || product.id, label: validated.label || product.label || '', price, qty };
-  if (product.image) newItem.image = product.image;
-  if (product.icon) newItem.icon = product.icon;
-  return [...safePrev, newItem];
+  return [...safePrev, createNewCartItem(product, price, qty)];
 }
 
 function incrementItem(prev, id) {
