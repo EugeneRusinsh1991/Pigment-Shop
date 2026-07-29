@@ -27,7 +27,7 @@ function EmptyArrivalsMessage({ isDark, text }) {
 }
 
 export default function NewArrivalsFooter({ isDark, isWide, t, onCardPress, favs }) {
-  const { cols, tier } = useUnifiedCardGrid();
+  const { cols, gap, tier } = useUnifiedCardGrid();
   const limit = tier === 'desktop' ? 4 : 5;
   const router = useRouter();
   const { flatList } = useCatalog();
@@ -52,6 +52,7 @@ export default function NewArrivalsFooter({ isDark, isWide, t, onCardPress, favs
         <PlaceholderGrid
           data={displayData}
           cols={cols}
+          gap={gap}
           gridKey="prod-grid"
           isDark={isDark}
           onCardPress={onCardPress}

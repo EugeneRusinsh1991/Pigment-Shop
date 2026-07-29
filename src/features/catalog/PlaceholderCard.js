@@ -4,6 +4,7 @@ import { Link } from 'expo-router';
 import CategoryCard from './CategoryCard';
 import ProductCard from '../product/ProductCard';
 import NavigationCard from '../../components/ui/Card/NavigationCard';
+import UnifiedCardGrid from '../../components/ui/Grid/UnifiedCardGrid';
 
 /**
  * PlaceholderCard Component
@@ -35,36 +36,23 @@ const PlaceholderCard = React.memo(function PlaceholderCard({ item, isDark, isLe
 
 export default PlaceholderCard;
 
-/**
- * PlaceholderGrid Component
- * Renders a flat grid of Leaf PlaceholderCards.
- */
-function getItemStyle(itemWidth) {
-  return { width: itemWidth };
-}
-
-export const PlaceholderGrid = React.memo(function PlaceholderGrid({ data, cols, gridKey, isDark, favs }) {
-  const itemWidth = `${(100 / cols).toFixed(4)}%`;
+export const PlaceholderGrid = React.memo(function PlaceholderGrid({ data, cols, gap, gridKey, isDark, favs }) {
   return (
-    <View style={styles.gridRow} key={`${gridKey}-${cols}`}>
-      {data.map((item) => (
-        <View key={item.id} style={getItemStyle(itemWidth)}>
-          <PlaceholderCard
-            item={item}
-            isDark={isDark}
-            isLeaf={true}
-            isFavorite={favs?.isFavorite ? favs.isFavorite(item.id) : false}
-            onToggleFavorite={favs?.toggleFavorite}
-          />
-        </View>
-      ))}
-    </View>
+    <UnifiedCardGrid
+      key={`${gridKey}-${cols}`}
+      data={data}
+      cols={cols}
+      gap={gap}
+      variant="flex"
+      renderItem={({ item }) => (
+        <PlaceholderCard
+          item={item}
+          isDark={isDark}
+          isLeaf={true}
+          isFavorite={favs?.isFavorite ? favs.isFavorite(item.id) : false}
+          onToggleFavorite={favs?.toggleFavorite}
+        />
+      )}
+    />
   );
-});
-
-const styles = StyleSheet.create({
-  gridRow: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-  },
 });

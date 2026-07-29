@@ -10,6 +10,7 @@ import { PageNavigation } from '@/components/domain/Navigation';
 import CatalogHeader from './CatalogHeader';
 import CatalogListFooter from './CatalogListFooter';
 import PlaceholderCard from './PlaceholderCard';
+import UnifiedCardGrid from '../../components/ui/Grid/UnifiedCardGrid';
 import { useCatalogTransition } from './useCatalogTransition';
 import { useCatalogViewData } from './useCatalogViewData';
 
@@ -18,11 +19,8 @@ import { useCatalogViewData } from './useCatalogViewData';
  */
 function renderCatalogItem({ item, isDark, depth, favs, cols }) {
   const isLeaf = !item.isCategory;
-  const isBanner = Boolean(item?.isBanner || item?.isSingleSubcategory);
-  const itemWidth = isBanner ? '100%' : `${(100 / cols).toFixed(4)}%`;
   return (
-    <View style={[layoutStyles.itemWrapper, { width: itemWidth }]}>
-      <PlaceholderCard
+    <PlaceholderCard
         item={item}
         isDark={isDark}
         isLeaf={isLeaf}
@@ -30,7 +28,6 @@ function renderCatalogItem({ item, isDark, depth, favs, cols }) {
         isFavorite={favs?.isFavorite(item.id)}
         onToggleFavorite={favs?.toggleFavorite}
       />
-    </View>
   );
 }
 
@@ -61,6 +58,7 @@ export default function CatalogView({
     items,
     crumbs,
     cols,
+    gap,
     gridWidth,
   } = useCatalogViewData({
     overrideDepth,
@@ -102,7 +100,8 @@ export default function CatalogView({
         </View>
       )}
       {showCategoryGrid ? (
-        <FlatList
+        <UnifiedCardGrid
+          variant="flatlist"
           ListHeaderComponent={
             <CatalogHeader
               isDark={isDark}
@@ -119,7 +118,8 @@ export default function CatalogView({
           }
           data={items}
           keyExtractor={(item) => item.id}
-          numColumns={cols}
+          cols={cols}
+          gap={gap}
           key={`grid-${cols}`}
           renderItem={renderItem}
           contentContainerStyle={gridContentStyle}

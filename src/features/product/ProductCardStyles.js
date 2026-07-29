@@ -4,7 +4,6 @@ import { colors, layout } from '../../theme/tokens';
 export default StyleSheet.create({
   prodCard: {
     flex: 1,
-    margin: layout.spacing.sm,
     borderRadius: layout.radii.lg,
     overflow: 'hidden',
   },

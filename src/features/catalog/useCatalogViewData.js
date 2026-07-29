@@ -53,7 +53,7 @@ export function useCatalogViewData({
   const items = overrideItems !== undefined ? overrideItems : computedItems;
   const crumbs = overrideCrumbs !== undefined ? overrideCrumbs : computedCrumbs;
 
-  const { cols } = useUnifiedCardGrid({ hasFilterSidebar });
+  const { cols, gap } = useUnifiedCardGrid({ hasFilterSidebar });
   const gridWidth = getContentGridWidth(windowWidth, depth);
 
   return {
@@ -62,6 +62,7 @@ export function useCatalogViewData({
     items,
     crumbs,
     cols,
+    gap,
     gridWidth,
   };
 }

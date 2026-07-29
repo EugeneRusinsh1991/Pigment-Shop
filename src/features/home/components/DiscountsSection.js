@@ -30,7 +30,7 @@ function DiscountsHeader({ isWide, isDark, title }) {
 }
 
 export default function DiscountsSection({ isDark, isWide, t, onCardPress, favs }) {
-  const { cols, tier } = useUnifiedCardGrid();
+  const { cols, gap, tier } = useUnifiedCardGrid();
   const router = useRouter();
   const { flatList } = useCatalog();
   
@@ -66,6 +66,7 @@ export default function DiscountsSection({ isDark, isWide, t, onCardPress, favs 
         <PlaceholderGrid
           data={displayData}
           cols={cols}
+          gap={gap}
           gridKey="sale-grid"
           isDark={isDark}
           onCardPress={onCardPress}

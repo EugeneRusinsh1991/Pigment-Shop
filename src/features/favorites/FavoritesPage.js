@@ -27,7 +27,7 @@ function FavoritesEmptyState({ isDark, t }) {
   );
 }
 
-function FavoritesList({ favorites, isDark, onToggleFavorite, cols, isWide }) {
+function FavoritesList({ favorites, isDark, onToggleFavorite, cols, gap, isWide }) {
   const favs = {
     isFavorite: () => true,
     toggleFavorite: onToggleFavorite,
@@ -54,6 +54,7 @@ function FavoritesList({ favorites, isDark, onToggleFavorite, cols, isWide }) {
     <PlaceholderGrid
       data={favorites}
       cols={cols}
+      gap={gap}
       gridKey="fav-grid"
       isDark={isDark}
       favs={{ isFavorite: () => true, toggleFavorite: favs.toggleFavorite }}
@@ -65,7 +66,7 @@ export default function FavoritesPage({ isDark }) {
   const { t } = useTheme();
   const { favorites, toggleFavorite } = useFavoritesContext();
   const router = useRouter();
-  const { isWide, gridWidth, cols } = useGridLayout();
+  const { isWide, gridWidth, cols, cardMargin } = useGridLayout();
 
   const ic = (dark, light) => (isDark ? dark : light);
 
@@ -83,7 +84,7 @@ export default function FavoritesPage({ isDark }) {
 
           {favorites.length === 0
             ? <FavoritesEmptyState isDark={isDark} t={t} />
-            : <FavoritesList favorites={favorites} isDark={isDark} onToggleFavorite={toggleFavorite} cols={cols} isWide={isWide} />
+            : <FavoritesList favorites={favorites} isDark={isDark} onToggleFavorite={toggleFavorite} cols={cols} gap={cardMargin} isWide={isWide} />
           }
         </View>
       </View>
