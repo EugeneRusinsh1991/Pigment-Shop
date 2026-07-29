@@ -102,7 +102,70 @@ function writeAuditReport({ violations, logFile, filesLogFile, auditName, issueT
   console.log(`[${auditName}] Finished (${violations.length} unique issues) -> ${path.relative(path.join(__dirname, '../..'), logFile)}`);
 }
 
+function walkDir(dirPath, callback) {
+  if (!fs.existsSync(dirPath)) return;
+  const entries = fs.readdirSync(dirPath, { withFileTypes: true });
+
+  for (const entry of entries) {
+    const fullPath = path.join(dirPath, entry.name);
+    if (entry.isDirectory()) {
+      walkDir(fullPath, callback);
+    } else if (entry.isFile() && /\.(js|jsx|ts|tsx)$/.test(entry.name)) {
+      callback(fullPath);
+    }
+  }
+}
+
+function getAllFiles(dir, fileList = [], rootDir = path.join(__dirname, '../..')) {
+  if (!fs.existsSync(dir)) return fileList;
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+  for (const entry of entries) {
+    const fullPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      getAllFiles(fullPath, fileList, rootDir);
+    } else if (/\.(js|jsx|ts|tsx)$/.test(entry.name)) {
+      const relPath = path.relative(rootDir, fullPath).replace(/\\/g, '/');
+      fileList.push({ relPath, fullPath, content: fs.readFileSync(fullPath, 'utf8') });
+    }
+  }
+  return fileList;
+}
+
+function getFileLines(filePath) {
+  const relPath = path.relative(path.join(__dirname, '../..'), filePath).replace(/\\/g, '/');
+  const content = fs.readFileSync(filePath, 'utf8');
+  const lines = content.split('\n');
+  return { relPath, content, lines };
+}
+
+function isCommentLine(line) {
+  const trimmed = line.trim();
+  return trimmed.startsWith('//') || trimmed.startsWith('*');
+}
+
+function finishAuditReport({ auditName, disableDynamicAudits, violations, logFile, filesLogFile, issueTypeName }) {
+  if (disableDynamicAudits) {
+    console.log(`[${auditName}] Skipped (dynamic audits disabled)`);
+    return;
+  }
+  const timestamp = new Date().toLocaleString('ru-RU');
+  writeAuditReport({
+    violations,
+    logFile,
+    filesLogFile,
+    auditName,
+    issueTypeName,
+    timestamp
+  });
+}
+
 module.exports = {
   deduplicate,
-  writeAuditReport
+  writeAuditReport,
+  walkDir,
+  getAllFiles,
+  getFileLines,
+  isCommentLine,
+  finishAuditReport
 };
+

@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { deduplicate, writeAuditReport } = require('./auditor-utils');
+const { deduplicate, writeAuditReport, walkDir, getFileLines, finishAuditReport } = require('./auditor-utils');
 
 const SRC_DIR = path.join(__dirname, '../../src');
 const AUDITS_DIR = path.join(__dirname, '../../.docs/audits/audits');
@@ -10,9 +10,7 @@ const FILES_LOG_FILE = path.join(AUDITS_DIR, '12-raw-i18n-keys-files.log');
 const camelCaseKeyRegex = /[a-z][a-z0-9]*[A-Z][a-zA-Z0-9]*/;
 
 function scanFile(filePath, violations) {
-  const relPath = path.relative(path.join(__dirname, '../..'), filePath);
-  const content = fs.readFileSync(filePath, 'utf8');
-  const lines = content.split('\n');
+  const { relPath, lines } = getFileLines(filePath);
 
   lines.forEach((line, index) => {
     // Check JSX text nodes like >productAddToCart<
@@ -45,45 +43,19 @@ function scanFile(filePath, violations) {
 }
 
 
-const CODE_FILE_REGEX = /\.(js|jsx|ts|tsx)$/;
-
-function processEntry(entry, dirPath, violations) {
-  const fullPath = path.join(dirPath, entry.name);
-  if (entry.isDirectory()) {
-    walkDir(fullPath, violations);
-  } else if (entry.isFile() && CODE_FILE_REGEX.test(entry.name)) {
-    scanFile(fullPath, violations);
-  }
-}
-
-function walkDir(dirPath, violations) {
-  if (!fs.existsSync(dirPath)) return;
-  const entries = fs.readdirSync(dirPath, { withFileTypes: true });
-  for (const entry of entries) {
-    processEntry(entry, dirPath, violations);
-  }
-}
-
-
 function auditRawI18nKeys(disableDynamicAudits = false) {
   if (!fs.existsSync(AUDITS_DIR)) fs.mkdirSync(AUDITS_DIR, { recursive: true });
   let rawViolations = [];
-  walkDir(SRC_DIR, rawViolations);
+  walkDir(SRC_DIR, (fullPath) => scanFile(fullPath, rawViolations));
   const violations = deduplicate(rawViolations);
 
-  if (disableDynamicAudits) {
-    console.log('[12 Raw i18n Keys Audit] Skipped (dynamic audits disabled)');
-    return;
-  }
-
-  const timestamp = new Date().toLocaleString('ru-RU');
-  writeAuditReport({
+  finishAuditReport({
+    auditName: '12 Raw i18n Keys Audit',
+    disableDynamicAudits,
     violations,
     logFile: LOG_FILE,
     filesLogFile: FILES_LOG_FILE,
-    auditName: '12 Raw i18n Keys Audit',
-    issueTypeName: 'raw i18n key',
-    timestamp
+    issueTypeName: 'raw i18n key'
   });
 }
 

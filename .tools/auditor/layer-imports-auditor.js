@@ -1,26 +1,11 @@
 const fs = require('fs');
 const path = require('path');
-const { deduplicate, writeAuditReport } = require('./auditor-utils');
+const { deduplicate, writeAuditReport, getAllFiles } = require('./auditor-utils');
 
 const SRC_DIR = path.join(__dirname, '../../src');
 const AUDITS_DIR = path.join(__dirname, '../../.docs/audits/audits');
 const LOG_FILE = path.join(AUDITS_DIR, '07-layer-imports-violations.log');
 const FILES_LOG_FILE = path.join(AUDITS_DIR, '07-layer-imports-violations.log'.replace('violations', 'files'));
-
-function getAllFiles(dir, fileList = []) {
-  if (!fs.existsSync(dir)) return fileList;
-  const entries = fs.readdirSync(dir, { withFileTypes: true });
-  for (const entry of entries) {
-    const fullPath = path.join(dir, entry.name);
-    if (entry.isDirectory()) {
-      getAllFiles(fullPath, fileList);
-    } else if (/\.(js|jsx|ts|tsx)$/.test(entry.name)) {
-      const relPath = path.relative(path.join(__dirname, '../..'), fullPath).replace(/\\/g, '/');
-      fileList.push({ relPath, fullPath, content: fs.readFileSync(fullPath, 'utf8') });
-    }
-  }
-  return fileList;
-}
 
 function tryAppendExtension(basePath) {
   for (const ext of ['.js', '.jsx', '.ts', '.tsx']) {

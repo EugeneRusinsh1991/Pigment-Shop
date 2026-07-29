@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { walkDir, writeAuditReport, getFileLines } = require('./auditor-utils');
 
 const SRC_DIR = path.join(__dirname, '../../src');
 const AUDITS_DIR = path.join(__dirname, '../../.docs/audits/audits');
@@ -7,9 +8,7 @@ const LOG_FILE = path.join(AUDITS_DIR, '10-performance-violations.log');
 const FILES_LOG_FILE = path.join(AUDITS_DIR, '10-performance-files.log');
 
 function scanFile(filePath, violations) {
-  const relPath = path.relative(path.join(__dirname, '../..'), filePath).replace(/\\/g, '/');
-  const content = fs.readFileSync(filePath, 'utf8');
-  const lines = content.split('\n');
+  const { relPath, lines } = getFileLines(filePath);
 
   lines.forEach((line, index) => {
     // Check for useEffect without dependency array
@@ -36,42 +35,25 @@ function scanFile(filePath, violations) {
   });
 }
 
-function walkDir(dirPath, violations) {
-  if (!fs.existsSync(dirPath)) return;
-  const entries = fs.readdirSync(dirPath, { withFileTypes: true });
-
-  for (const entry of entries) {
-    const fullPath = path.join(dirPath, entry.name);
-    if (entry.isDirectory()) {
-      walkDir(fullPath, violations);
-    } else if (entry.isFile() && /\.(js|jsx|ts|tsx)$/.test(entry.name)) {
-      scanFile(fullPath, violations);
-    }
-  }
-}
-
-function clearLogFile(filePath) {
-  if (fs.existsSync(filePath)) {
-    try { fs.unlinkSync(filePath); } catch (_) {}
-  }
-}
-
 function auditPerformance(disableDynamicAudits = false) {
   if (!fs.existsSync(AUDITS_DIR)) fs.mkdirSync(AUDITS_DIR, { recursive: true });
   const violations = [];
-  walkDir(SRC_DIR, violations);
+  walkDir(SRC_DIR, (filePath) => scanFile(filePath, violations));
 
   if (disableDynamicAudits) {
     console.log('[10 Performance Audit] Skipped (dynamic audits disabled)');
     return;
   }
 
-  clearLogFile(LOG_FILE);
-  clearLogFile(FILES_LOG_FILE);
-
-  const issueCount = violations.length;
-  const statusMsg = issueCount === 0 ? '0 issues) -> Clean' : `${issueCount} issues)`;
-  console.log(`[10 Performance Audit] Finished (${statusMsg}`);
+  const timestamp = new Date().toLocaleString('ru-RU');
+  writeAuditReport({
+    violations,
+    logFile: LOG_FILE,
+    filesLogFile: FILES_LOG_FILE,
+    auditName: '10 Performance Audit',
+    issueTypeName: 'performance',
+    timestamp
+  });
 }
 
 module.exports = { auditPerformance };

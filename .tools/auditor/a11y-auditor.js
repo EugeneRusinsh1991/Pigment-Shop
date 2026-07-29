@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { deduplicate, writeAuditReport } = require('./auditor-utils');
+const { deduplicate, writeAuditReport, walkDir, getFileLines } = require('./auditor-utils');
 
 const SRC_DIR = path.join(__dirname, '../../src');
 const AUDITS_DIR = path.join(__dirname, '../../.docs/audits/audits');
@@ -8,9 +8,7 @@ const LOG_FILE = path.join(AUDITS_DIR, '09-a11y-violations.log');
 const FILES_LOG_FILE = path.join(AUDITS_DIR, '09-a11y-files.log');
 
 function scanFile(filePath, violations) {
-  const relPath = path.relative(path.join(__dirname, '../..'), filePath).replace(/\\/g, '/');
-  const content = fs.readFileSync(filePath, 'utf8');
-  const lines = content.split('\n');
+  const { relPath, lines } = getFileLines(filePath);
 
   lines.forEach((line, index) => {
     // Basic check for interactive elements without accessibilityLabel
@@ -30,25 +28,10 @@ function scanFile(filePath, violations) {
   });
 }
 
-function walkDir(dirPath, violations) {
-  if (!fs.existsSync(dirPath)) return;
-  const entries = fs.readdirSync(dirPath, { withFileTypes: true });
-
-  for (const entry of entries) {
-    const fullPath = path.join(dirPath, entry.name);
-    if (entry.isDirectory()) {
-      walkDir(fullPath, violations);
-    } else if (entry.isFile() && /\.(js|jsx|ts|tsx)$/.test(entry.name)) {
-      scanFile(fullPath, violations);
-    }
-  }
-}
-
-
 function auditA11y(disableDynamicAudits = false) {
   if (!fs.existsSync(AUDITS_DIR)) fs.mkdirSync(AUDITS_DIR, { recursive: true });
   const rawViolations = [];
-  walkDir(SRC_DIR, rawViolations);
+  walkDir(SRC_DIR, (filePath) => scanFile(filePath, rawViolations));
   const violations = deduplicate(rawViolations);
 
   if (disableDynamicAudits) {

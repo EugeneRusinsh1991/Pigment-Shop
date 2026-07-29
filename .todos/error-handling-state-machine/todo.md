@@ -1,20 +1,70 @@
 # Unified Error Handling & State Machine UI Patterns
 
 ## Objective
-Standardize UI error boundaries, loading skeletons, and empty state representations across all routing modules.
+Standardize UI error boundaries, loading skeletons, and empty state representations across all routing modules using a deterministic 4-state UI pattern (`loading` | `error` | `empty` | `data`).
 
-## Target Components & Reference Locations
+---
+
+## 1. Architectural Specifications & Component Contracts
+
+### 1.1 UI State Constants (`src/constants/uiStates.js`)
+Define standard state values to prevent magic strings across hooks and screens:
+```javascript
+export const UI_STATES = {
+  IDLE: 'idle',
+  LOADING: 'loading',
+  ERROR: 'error',
+  EMPTY: 'empty',
+  DATA: 'data',
+};
+```
+
+### 1.2 Custom Hook: `useAsyncState` (`src/hooks/useAsyncState.js`)
+- **Purpose**: Manage async data fetching with automatic state transitions and error logging.
+- **Signature**: `useAsyncState(asyncFn, options = {})`
+  - `options`: `{ initialData = null, immediate = false, onError = null, emptyChecker = (data) => Array.isArray(data) ? data.length === 0 : !data }`
+- **Return Object**:
+  - `state`: `'idle' | 'loading' | 'error' | 'empty' | 'data'`
+  - `data`: `any`
+  - `error`: `Error | null`
+  - `isLoading`: `boolean`
+  - `isError`: `boolean`
+  - `isEmpty`: `boolean`
+  - `isSuccess`: `boolean`
+  - `execute`: `(...args) => Promise<any>` (memoized with `useCallback`, safe against unmounted updates)
+  - `reset`: `() => void`
+  - `setData`: `(data | (prev) => next) => void`
+- **Integration**: Works seamlessly with `useErrorHandler` to display optional toast notifications while storing component-level error state.
+
+### 1.3 Error Boundary Component (`src/components/Feedback/ErrorBoundary/ErrorBoundary.js`)
+- **Type**: React Class Component.
+- **Props**:
+  - `fallback`: `ReactNode | ((props: { error: Error, resetError: () => void }) => ReactNode)`
+  - `onReset`: `() => void` (optional callback executed when retrying)
+  - `onError`: `(error: Error, errorInfo: React.ErrorInfo) => void`
+  - `title`: `string` (default: "Something went wrong")
+  - `description`: `string` (default: "An unexpected error occurred. Please try again.")
+- **Behavior**:
+  - Catches render phase errors in child component tree (`getDerivedStateFromError`, `componentDidCatch`).
+  - Renders fallback UI (defaults to `<EmptyState>` with a retry button calling `resetError`).
+  - Logs error via `console.error` or custom `onError` handler.
+
+### 1.4 Feedback Primitives Re-exports (`src/components/Feedback/index.js`)
+Ensure all primitives (`EmptyState`, `SkeletonLoader`, `FieldError`, `ErrorBoundary`) are exported from `src/components/Feedback/index.js`.
+
+---
+
+## 2. Target Components & Reference Locations
 1. **Feedback Primitives**:
-   - EmptyState: [EmptyState.js](file:///d:/Magazine/_PigmentShop/src/components/Feedback/EmptyState/EmptyState.js)
-   - Skeleton: [SkeletonLoader.js](file:///d:/Magazine/_PigmentShop/src/components/Feedback/Skeleton/SkeletonLoader.js)
-   - Inline Error: [FieldError.js](file:///d:/Magazine/_PigmentShop/src/components/Feedback/InlineError/FieldError.js)
+   - `EmptyState`: [EmptyState.js](file:///d:/Magazine/_PigmentShop/src/components/Feedback/EmptyState/EmptyState.js)
+   - `SkeletonLoader`: [SkeletonLoader.js](file:///d:/Magazine/_PigmentShop/src/components/Feedback/Skeleton/SkeletonLoader.js)
+   - `FieldError`: [FieldError.js](file:///d:/Magazine/_PigmentShop/src/components/Feedback/InlineError/FieldError.js)
+   - `ErrorBoundary`: [ErrorBoundary.js](file:///d:/Magazine/_PigmentShop/src/components/Feedback/ErrorBoundary/ErrorBoundary.js) *(NEW)*
    - Barrel Export: [index.js](file:///d:/Magazine/_PigmentShop/src/components/Feedback/index.js)
 2. **Error Handler & Async State Hooks**:
-   - Error Handler: [useErrorHandler.js](file:///d:/Magazine/_PigmentShop/src/hooks/useErrorHandler.js)
-   - New Hook to create: [useAsyncState.js](file:///d:/Magazine/_PigmentShop/src/hooks/useAsyncState.js)
-3. **Error Boundary Components**:
-   - New component to create: [ErrorBoundary.js](file:///d:/Magazine/_PigmentShop/src/components/Feedback/ErrorBoundary/ErrorBoundary.js)
-4. **App Routing & Layouts**:
+   - `useErrorHandler`: [useErrorHandler.js](file:///d:/Magazine/_PigmentShop/src/hooks/useErrorHandler.js)
+   - `useAsyncState`: [useAsyncState.js](file:///d:/Magazine/_PigmentShop/src/hooks/useAsyncState.js) *(NEW)*
+3. **App Routing & Layouts**:
    - Root Layout: [app/_layout.js](file:///d:/Magazine/_PigmentShop/app/_layout.js)
    - Store Layout: [app/(store)/_layout.js](file:///d:/Magazine/_PigmentShop/app/\(store\)/_layout.js)
    - Admin Layout: [app/admin/_layout.js](file:///d:/Magazine/_PigmentShop/app/admin/_layout.js)
@@ -22,26 +72,43 @@ Standardize UI error boundaries, loading skeletons, and empty state representati
 
 ---
 
-## Roadmap & Execution Steps
+## 3. Implementation Roadmap & Execution Checklist
 
-### Phase 1: Audit & Enhance UI Primitives `🟡 G 3.6 F (M) — 1d | 3f | +4r`
-- [ ] Audit [EmptyState.js](file:///d:/Magazine/_PigmentShop/src/components/Feedback/EmptyState/EmptyState.js), [SkeletonLoader.js](file:///d:/Magazine/_PigmentShop/src/components/Feedback/Skeleton/SkeletonLoader.js), [FieldError.js](file:///d:/Magazine/_PigmentShop/src/components/Feedback/InlineError/FieldError.js). `🟢 G 3.6 F (L) — 1d | 0f | +3r`
-- [ ] Ensure [EmptyState.js](file:///d:/Magazine/_PigmentShop/src/components/Feedback/EmptyState/EmptyState.js) supports standard props: `title`, `description`, `icon`, `action` (`onRetry` handler wrapped in Button component). `🟡 G 3.6 F (M) — 1d | 1f | +2r`
-- [ ] Re-export all primitives cleanly in [index.js](file:///d:/Magazine/_PigmentShop/src/components/Feedback/index.js). `🟢 G 3.6 F (L) — 1d | 1f | +1r`
+### Phase 1: Audit & Enhance UI Primitives
+- [ ] Verify `EmptyState.js` props (`title`, `description`, `icon`, `action`, `children`).
+- [ ] Add `onRetry` prop support to `EmptyState.js` as convenient shorthand for standard retry button action.
+- [ ] Verify `SkeletonLoader.js` and `FieldError.js` exports.
+- [ ] Re-export all primitives cleanly in `src/components/Feedback/index.js`.
 
-### Phase 2: Standardized Custom Hook & 4-State Machine `🟡 G 3.6 F (M) — 1d | 2f | +4r`
-- [ ] Define standard UI state type `UIState = 'loading' | 'error' | 'empty' | 'data'` in [src/types/](file:///d:/Magazine/_PigmentShop/src/types/). `🟢 G 3.6 F (L) — 1d | 1f | +1r`
-- [ ] Create `useAsyncState` hook in [useAsyncState.js](file:///d:/Magazine/_PigmentShop/src/hooks/useAsyncState.js) wrapping `status`, `error`, `data`, and integrating with [useErrorHandler.js](file:///d:/Magazine/_PigmentShop/src/hooks/useErrorHandler.js). `🟢 G 3.6 F (L) — 1d | 1f | +2r`
+### Phase 2: Core State Machine & Hooks
+- [ ] Create `src/constants/uiStates.js` with `UI_STATES` frozen object.
+- [ ] Create `src/hooks/useAsyncState.js` with unmounted ref protection (`isMounted` flag).
+- [ ] Connect `useAsyncState` with `useErrorHandler` optional toast logging.
 
-### Phase 3: Error Boundary Components `🟡 G 3.6 F (M) — 1d | 2f | +4r`
-- [ ] Create class component `ErrorBoundary` in [ErrorBoundary.js](file:///d:/Magazine/_PigmentShop/src/components/Feedback/ErrorBoundary/ErrorBoundary.js) with `getDerivedStateFromError` and `componentDidCatch`. `🟢 G 3.6 F (L) — 1d | 1f | +2r`
-- [ ] Fallback UI in `ErrorBoundary` must render [EmptyState.js](file:///d:/Magazine/_PigmentShop/src/components/Feedback/EmptyState/EmptyState.js) with reset/retry button. `🟢 G 3.6 F (L) — 1d | 1f | +2r`
-- [ ] Export `ErrorBoundary` via [index.js](file:///d:/Magazine/_PigmentShop/src/components/Feedback/index.js). `🟢 G 3.6 F (L) — 1d | 1f | +1r`
+### Phase 3: Error Boundary Implementation
+- [ ] Create `src/components/Feedback/ErrorBoundary/ErrorBoundary.js` class component.
+- [ ] Implement default fallback rendering `EmptyState` with `onRetry` / `resetError`.
+- [ ] Export `ErrorBoundary` via `src/components/Feedback/index.js`.
 
-### Phase 4: Route & Screen Migration `🟠 G 3.6 F (H) — 2d | 6f | +8r`
-- [ ] Wrap root layout [app/_layout.js](file:///d:/Magazine/_PigmentShop/app/_layout.js), [app/(store)/_layout.js](file:///d:/Magazine/_PigmentShop/app/\(store\)/_layout.js), and [app/admin/_layout.js](file:///d:/Magazine/_PigmentShop/app/admin/_layout.js) with `ErrorBoundary`. `🟠 G 3.6 F (H) — 2d | 3f | +4r`
-- [ ] Apply 4-state pattern (`loading`, `error`, `empty`, `data`) with `SkeletonLoader` and `EmptyState` to core screen components: [app/(store)/index.js](file:///d:/Magazine/_PigmentShop/app/\(store\)/index.js), [app/(store)/cart.js](file:///d:/Magazine/_PigmentShop/app/\(store\)/cart.js), [app/(store)/favorites.js](file:///d:/Magazine/_PigmentShop/app/\(store\)/favorites.js), [app/(store)/orders.js](file:///d:/Magazine/_PigmentShop/app/\(store\)/orders.js). `🟡 G 3.6 F (M) — 1d | 4f | +4r`
+### Phase 4: Route & Screen Migration
+- [ ] Wrap root layouts (`app/_layout.js`, `app/(store)/_layout.js`, `app/admin/_layout.js`) with `ErrorBoundary`.
+- [ ] Refactor store screens (`app/(store)/index.js`, `cart.js`, `favorites.js`, `orders.js`) to handle 4 UI states (`loading`, `error`, `empty`, `data`) explicitly using `SkeletonLoader` and `EmptyState`.
 
-### Phase 5: Verification & Testing `🟢 G 3.6 F (L) — 1d | 0f | +4r`
-- [ ] Verify error boundary rendering by simulating thrown errors. `🟢 G 3.6 F (L) — 1d | 0f | +2r`
-- [ ] Run health & audit scripts (`npm run health`, `npm run audit:ui`) to ensure clean state. `🟢 G 3.6 F (L) — 1d | 0f | +2r`
+### Phase 5: Edge Case & Safety Rules
+- [ ] **Unmounted Updates**: Prevent state updates after unmount in `useAsyncState`.
+- [ ] **Event Handler Errors**: Remember `ErrorBoundary` catches render errors, NOT event handlers (use `useErrorHandler` / `useAsyncState` for async event handlers).
+- [ ] **Empty Data Validation**: Ensure `isEmpty` correctly identifies empty arrays `[]`, `null`, and empty objects `{}`.
+
+### Phase 6: Automated Verification & Health Checks
+- [ ] Run `npm run health` to verify no broken relative imports.
+- [ ] Run `npm run audit:ui` to ensure no lint/audit violations.
+- [ ] Execute smoke test on layout components.
+
+---
+
+## 4. Verification Commands
+```bash
+npm run health
+npm run audit:ui
+```
+

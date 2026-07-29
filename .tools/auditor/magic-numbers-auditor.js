@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { deduplicate, writeAuditReport } = require('./auditor-utils');
+const { deduplicate, writeAuditReport, walkDir, getFileLines, isCommentLine, finishAuditReport } = require('./auditor-utils');
 
 const SRC_DIR = path.join(__dirname, '../../src');
 const AUDITS_DIR = path.join(__dirname, '../../.docs/audits/audits');
@@ -13,12 +13,10 @@ function scanFile(filePath, violations) {
   const fileName = path.basename(filePath);
   if (ALLOWED_FILES.some(allowed => fileName.endsWith(allowed))) return;
 
-  const relPath = path.relative(path.join(__dirname, '../..'), filePath);
-  const content = fs.readFileSync(filePath, 'utf8');
-  const lines = content.split('\n');
+  const { relPath, lines } = getFileLines(filePath);
 
   lines.forEach((line, index) => {
-    if (line.trim().startsWith('//') || line.trim().startsWith('*')) return;
+    if (isCommentLine(line)) return;
 
     // 1. Hardcoded timeouts in setTimeout / setInterval
     const timeoutMatch = line.match(/\b(setTimeout|setInterval)\s*\([^,]+,\s*(\d{3,})\)/);
@@ -45,46 +43,19 @@ function scanFile(filePath, violations) {
 }
 
 
-
-function isTargetFile(entry) {
-  if (!entry.isFile()) return false;
-  return /\.[jt]sx?$/.test(entry.name);
-}
-
-function walkDir(dirPath, violations) {
-  if (!fs.existsSync(dirPath)) return;
-  const entries = fs.readdirSync(dirPath, { withFileTypes: true });
-
-  for (const entry of entries) {
-    const fullPath = path.join(dirPath, entry.name);
-    if (entry.isDirectory()) {
-      walkDir(fullPath, violations);
-    } else if (isTargetFile(entry)) {
-      scanFile(fullPath, violations);
-    }
-  }
-}
-
-
 function auditMagicNumbers(disableDynamicAudits = false) {
   if (!fs.existsSync(AUDITS_DIR)) fs.mkdirSync(AUDITS_DIR, { recursive: true });
   let rawViolations = [];
-  walkDir(SRC_DIR, rawViolations);
+  walkDir(SRC_DIR, (fullPath) => scanFile(fullPath, rawViolations));
   const violations = deduplicate(rawViolations);
 
-  if (disableDynamicAudits) {
-    console.log('[08 Magic Numbers Audit] Skipped (dynamic audits disabled)');
-    return;
-  }
-
-  const timestamp = new Date().toLocaleString('ru-RU');
-  writeAuditReport({
+  finishAuditReport({
+    auditName: '08 Magic Numbers Audit',
+    disableDynamicAudits,
     violations,
     logFile: LOG_FILE,
     filesLogFile: FILES_LOG_FILE,
-    auditName: '08 Magic Numbers Audit',
-    issueTypeName: 'magic number',
-    timestamp
+    issueTypeName: 'magic number'
   });
 }
 

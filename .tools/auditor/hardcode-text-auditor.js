@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { deduplicate, writeAuditReport } = require('./auditor-utils');
+const { deduplicate, writeAuditReport, walkDir, getFileLines } = require('./auditor-utils');
 
 const SRC_DIR = path.join(__dirname, '../../src');
 const AUDITS_DIR = path.join(__dirname, '../../.docs/audits/audits');
@@ -8,9 +8,7 @@ const LOG_FILE = path.join(AUDITS_DIR, '02-hardcode-text-violations.log');
 const FILES_LOG_FILE = path.join(AUDITS_DIR, '02-hardcode-text-violations.log'.replace('violations', 'files'));
 
 function scanFile(filePath, violations) {
-  const relPath = path.relative(path.join(__dirname, '../..'), filePath);
-  const content = fs.readFileSync(filePath, 'utf8');
-  const lines = content.split('\n');
+  const { relPath, lines } = getFileLines(filePath);
 
   lines.forEach((line, index) => {
     const rawTextMatch = line.match(/>\s*([A-Za-zА-Яа-я0-9_\s]{3,})\s*</);
@@ -23,31 +21,10 @@ function scanFile(filePath, violations) {
   });
 }
 
-
-
-function isCodeEntry(entry) {
-  if (!entry.isFile()) return false;
-  return /\.[jt]sx?$/.test(entry.name);
-}
-
-function walkDir(dirPath, violations) {
-  if (!fs.existsSync(dirPath)) return;
-  const entries = fs.readdirSync(dirPath, { withFileTypes: true });
-
-  for (const entry of entries) {
-    const fullPath = path.join(dirPath, entry.name);
-    if (entry.isDirectory()) {
-      walkDir(fullPath, violations);
-    } else if (isCodeEntry(entry)) {
-      scanFile(fullPath, violations);
-    }
-  }
-}
-
 function auditTextLiterals() {
   if (!fs.existsSync(AUDITS_DIR)) fs.mkdirSync(AUDITS_DIR, { recursive: true });
   const violations = [];
-  walkDir(SRC_DIR, violations);
+  walkDir(SRC_DIR, (fullPath) => scanFile(fullPath, violations));
   const uniqueViolations = deduplicate(violations);
 
   const timestamp = new Date().toLocaleString('ru-RU');
