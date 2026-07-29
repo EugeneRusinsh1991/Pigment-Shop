@@ -2,7 +2,7 @@
 type: dynamic-audit
 auditor: raw-i18n
 scope: public
-date: 2026-07-29T08:21:48.974Z
+date: 2026-07-29T08:24:15.008Z
 ---
 
 ### Problem: Hardcoded text without i18n key
@@ -352,6 +352,7 @@ date: 2026-07-29T08:21:48.974Z
   - Found hardcoded text without i18n key: "ADMIN ADMIN" | Selector: `div.css-text-146c3p1.r-color-jwli3a.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7`
   - Found hardcoded text without i18n key: "123123sadsad" | Selector: `div.css-text-146c3p1.r-color-1npgj5g.r-fontFamily-36nht7.r-fontSize-ubezar.r-fontWeight-16dba41.r-lineHeight-135wba7.r-marginBottom-15zivkp`
   - Found hardcoded text without i18n key: "Removed from favorites" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-textAlign-q4m81j`
+  - Found hardcoded text without i18n key: "Added to favorites" | Selector: `div.css-text-146c3p1.r-fontFamily-36nht7.r-fontSize-1b43r93.r-fontWeight-majxgm.r-lineHeight-14yzgew.r-textAlign-q4m81j`
 
 ### Problem: Raw camelCase i18n key found
 

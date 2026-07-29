@@ -7002,5 +7002,35 @@
         }
       ]
     }
+  },
+  "src_07-29_11-30_run-2026-07-29-083028.md_146files": {
+    "timestamp": "2026-07-29T08:30:41.275Z",
+    "diff": {
+      "added": 37,
+      "removed": 6,
+      "modified": 44,
+      "topFolders": [
+        {
+          "folder": "reports",
+          "count": 25
+        },
+        {
+          "folder": ".docs/audits/dynamic-audits/docs",
+          "count": 9
+        },
+        {
+          "folder": ".docs/audits/dynamic-audits/json",
+          "count": 7
+        },
+        {
+          "folder": ".docs/audits/fallow-audits/project",
+          "count": 7
+        },
+        {
+          "folder": ".docs/audits/catalog-inventory",
+          "count": 6
+        }
+      ]
+    }
   }
 }
