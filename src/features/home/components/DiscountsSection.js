@@ -2,12 +2,12 @@ import { ScrollFadeUp } from '@/components/ui/Motion';
 import { Heading, Text } from '@/components/ui/Text';
 import { useCatalog } from '@/features/catalog/CatalogContext';
 import { PlaceholderGrid } from '@/features/catalog/PlaceholderCard';
+import useUnifiedCardGrid from '@/hooks/useUnifiedCardGrid';
 import styles from '@/theme/appStyles';
 import { layout } from '@/theme/tokens';
-import { getDeviceTier } from '@/utils/layoutUtils';
 import { useRouter } from 'expo-router';
 import { useMemo } from 'react';
-import { StyleSheet, View, useWindowDimensions } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { CountdownTimer } from './FeaturedSections';
 
 function DiscountsHeader({ isWide, isDark, title }) {
@@ -29,17 +29,9 @@ function DiscountsHeader({ isWide, isDark, title }) {
   );
 }
 
-function getColumnCount(tier) {
-  if (tier === 'desktop') return 5;
-  if (tier === 'tablet') return 3;
-  return 2;
-}
-
 export default function DiscountsSection({ isDark, isWide, t, onCardPress, favs }) {
-  const { width: windowWidth } = useWindowDimensions();
+  const { cols, tier } = useUnifiedCardGrid();
   const router = useRouter();
-  const tier = getDeviceTier(windowWidth);
-  const cols = getColumnCount(tier);
   const { flatList } = useCatalog();
   
   const discountedProducts = useMemo(() => flatList.filter((item) => item.discountPercent > 0), [flatList]);

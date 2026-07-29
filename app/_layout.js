@@ -24,7 +24,7 @@ export default function Layout() {
       <ErrorBoundary>
         {!isStartupPending ? <Slot /> : null}
       </ErrorBoundary>
-      {__DEV__ ? <ManualBrowserInspector /> : null}
+      <ManualBrowserInspector />
     </AppProviders>
   );
 }

@@ -51,7 +51,7 @@ export async function runUIExplorer(
     if (text.includes('[Typography Warning]')) {
       const fs = require('fs');
       const path = require('path');
-      const logDir = path.join(process.cwd(), '.docs');
+      const logDir = path.join(process.cwd(), '.logs');
       if (!fs.existsSync(logDir)) fs.mkdirSync(logDir, { recursive: true });
       const logFile = path.join(logDir, 'typography-warnings.log');
       const existingContent = fs.existsSync(logFile) ? fs.readFileSync(logFile, 'utf8') : '';

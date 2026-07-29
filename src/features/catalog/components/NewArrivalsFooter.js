@@ -2,54 +2,34 @@ import { ScrollFadeUp } from '@/components/ui/Motion';
 import { Heading, Text } from '@/components/ui/Text';
 import { useCatalog } from '@/features/catalog/CatalogContext';
 import { PlaceholderGrid } from '@/features/catalog/PlaceholderCard';
+import useUnifiedCardGrid from '@/hooks/useUnifiedCardGrid';
 import styles from '@/theme/appStyles';
 import { layout } from '@/theme/tokens';
-import { getDeviceTier } from '@/utils/layoutUtils';
 import { useRouter } from 'expo-router';
 import { useMemo } from 'react';
-import { StyleSheet, useWindowDimensions, View } from 'react-native';
-
-function getColsAndLimit(tier) {
-  if (tier === 'desktop') {
-    return { cols: 5, limit: 4 };
-  }
-  if (tier === 'tablet') {
-    return { cols: 3, limit: 5 };
-  }
-  return { cols: 2, limit: 5 };
-}
+import { StyleSheet, View } from 'react-native';
 
 function getDisplayData(newArrivals, limit, viewAllNewText, onNavPress) {
   const showNav = newArrivals.length > limit;
-  if (!showNav) {
-    return newArrivals;
-  }
+  if (!showNav) return newArrivals;
   return [
     ...newArrivals.slice(0, limit),
-    {
-      id: 'nav-card-new',
-      isNavigationCard: true,
-      type: 'new',
-      text: viewAllNewText,
-      href: onNavPress,
-    },
+    { id: 'nav-card-new', isNavigationCard: true, type: 'new', text: viewAllNewText, href: onNavPress },
   ];
 }
 
 function EmptyArrivalsMessage({ isDark, text }) {
   return (
     <View style={localStyles.emptyContainer}>
-      <Text variant="body1" color="muted" style={localStyles.emptyText}>
-        {text}
-      </Text>
+      <Text variant="body1" color="muted" style={localStyles.emptyText}>{text}</Text>
     </View>
   );
 }
 
 export default function NewArrivalsFooter({ isDark, isWide, t, onCardPress, favs }) {
-  const { width: windowWidth } = useWindowDimensions();
+  const { cols, tier } = useUnifiedCardGrid();
+  const limit = tier === 'desktop' ? 4 : 5;
   const router = useRouter();
-  const { cols, limit } = getColsAndLimit(getDeviceTier(windowWidth));
   const { flatList } = useCatalog();
   
   const newArrivals = useMemo(() => flatList.filter((item) => item.isNew), [flatList]);

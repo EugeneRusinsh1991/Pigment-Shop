@@ -1,21 +1,18 @@
-import fs from 'fs';
-import path from 'path';
-import { Page } from 'playwright';
+const fs = require('fs');
+const path = require('path');
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const { takeCompressedScreenshot } = require('../../scripts/playwright.helpers');
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const { cleanOldFiles } = require('../../scripts/cleanOldFiles');
 
 const BASE_LOG_DIR = path.join(process.cwd(), '.logs', 'manual-browser-log');
 
-function ensureDirs(dirs: string[]) {
+function ensureDirs(dirs) {
   dirs.forEach((dir) => {
     if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
   });
 }
 
-function buildFilePaths(timestamp: string) {
+function buildFilePaths(timestamp) {
   const screenshotsDir = path.join(BASE_LOG_DIR, 'screenshots');
   const stateDir = path.join(BASE_LOG_DIR, 'state');
   const reportsDir = path.join(BASE_LOG_DIR, 'reports');
@@ -33,7 +30,7 @@ function buildFilePaths(timestamp: string) {
 
 function getCircularReplacer() {
   const seen = new WeakSet();
-  return (_key: string, value: any) => {
+  return (_key, value) => {
     if (typeof value === 'object' && value !== null) {
       if (seen.has(value)) return '[Circular]';
       seen.add(value);
@@ -42,7 +39,7 @@ function getCircularReplacer() {
   };
 }
 
-function formatScreen(screen: any) {
+function formatScreen(screen) {
   if (!screen) return { viewport: 'Unknown', resolution: 'Unknown' };
   return {
     viewport: `${screen.viewportWidth}x${screen.viewportHeight} (PixelRatio: ${screen.devicePixelRatio})`,
@@ -50,22 +47,22 @@ function formatScreen(screen: any) {
   };
 }
 
-function formatNetwork(network: any) {
+function formatNetwork(network) {
   if (!network) return 'Unknown';
   return `Online: \`${network.online}\`, Type: \`${network.effectiveType}\``;
 }
 
-function formatDom(dom: any) {
+function formatDom(dom) {
   if (!dom) return 'Unknown elements';
   return `${dom.elementCount} elements`;
 }
 
 function buildReport(
-  timestamp: string,
-  stateDump: any,
-  screenshotFilename: string,
-  screenshotPath: string,
-  statePath: string
+  timestamp,
+  stateDump,
+  screenshotFilename,
+  screenshotPath,
+  statePath
 ) {
   const logsRows = '| N/A | No warnings or errors logged | |';
   const screen = formatScreen(stateDump.screen);
@@ -103,12 +100,12 @@ ${JSON.stringify(stateDump, null, 2)}
 }
 
 function saveLatestFiles(
-  screenshotsDir: string,
-  stateDir: string,
-  reportsDir: string,
-  screenshotPath: string,
-  stateDump: any,
-  reportContent: string
+  screenshotsDir,
+  stateDir,
+  reportsDir,
+  screenshotPath,
+  stateDump,
+  reportContent
 ) {
   fs.writeFileSync(path.join(stateDir, 'state.json'), JSON.stringify(stateDump, null, 2), 'utf8');
   fs.copyFileSync(screenshotPath, path.join(screenshotsDir, 'screenshot.jpg'));
@@ -118,12 +115,12 @@ function saveLatestFiles(
   cleanOldFiles(reportsDir, 10, '.md');
 }
 
-export async function setupManualInspector(page: Page): Promise<void> {
+async function setupManualInspector(page) {
   if (!page) return;
 
   try {
     await page.addInitScript(() => {
-      (window as any).__isPlaywright = true;
+      window.__isPlaywright = true;
     });
   } catch (err) {
     // Init script may already be attached
@@ -132,7 +129,7 @@ export async function setupManualInspector(page: Page): Promise<void> {
   try {
     await page.exposeFunction(
       '__playwright_takeScreenshotAndDumpState',
-      async (timestamp: string, stateDump: any, overlayText?: string, hoverInfo?: any) => {
+      async (timestamp, stateDump, overlayText, hoverInfo) => {
         const { screenshotsDir, stateDir, reportsDir, screenshotPath, statePath, reportPath, screenshotFilename } =
           buildFilePaths(timestamp);
         ensureDirs([screenshotsDir, stateDir, reportsDir]);
@@ -159,3 +156,5 @@ export async function setupManualInspector(page: Page): Promise<void> {
     // Function may already be exposed on this page instance
   }
 }
+
+module.exports = { setupManualInspector };

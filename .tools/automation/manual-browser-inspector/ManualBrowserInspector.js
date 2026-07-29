@@ -24,9 +24,25 @@ export default function ManualBrowserInspector() {
   const contexts = useSafeContexts();
 
   useEffect(() => {
-    if (Platform.OS === 'web' && (window.__isPlaywright || window.__playwright_takeScreenshotAndDumpState)) {
-      setIsPlaywright(true);
-    }
+    if (Platform.OS !== 'web') return;
+
+    const checkPlaywright = () => {
+      if (typeof window !== 'undefined' && (window.__isPlaywright || window.__playwright_takeScreenshotAndDumpState)) {
+        setIsPlaywright(true);
+        return true;
+      }
+      return false;
+    };
+
+    if (checkPlaywright()) return;
+
+    const interval = setInterval(() => {
+      if (checkPlaywright()) {
+        clearInterval(interval);
+      }
+    }, 300);
+
+    return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
@@ -114,7 +130,7 @@ export default function ManualBrowserInspector() {
 
 const styles = StyleSheet.create({
   container: {
-    position: 'absolute',
+    position: Platform.OS === 'web' ? 'fixed' : 'absolute',
     bottom: 20,
     right: 20,
     zIndex: 999999,

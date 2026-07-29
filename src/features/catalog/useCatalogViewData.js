@@ -2,15 +2,11 @@ import { useLocalSearchParams } from 'expo-router';
 import { useMemo } from 'react';
 import { useWindowDimensions } from 'react-native';
 import { useTheme } from '../../context/ThemeContext';
+import useUnifiedCardGrid from '../../hooks/useUnifiedCardGrid';
 import { findCategoryPath } from '../../utils/categoryTreeUtils';
-import { getContentGridWidth, getGridCols } from '../../utils/layoutUtils';
+import { getContentGridWidth } from '../../utils/layoutUtils';
 import { useCatalog } from './CatalogContext';
 
-function getCatalogLayout(isWide, depth, windowWidth, hasFilterSidebar = false) {
-  const cols = getGridCols(windowWidth, hasFilterSidebar);
-  const gridWidth = getContentGridWidth(windowWidth, depth, hasFilterSidebar);
-  return { cols, gridWidth };
-}
 
 export function useCatalogViewData({
   overrideDepth,
@@ -57,7 +53,8 @@ export function useCatalogViewData({
   const items = overrideItems !== undefined ? overrideItems : computedItems;
   const crumbs = overrideCrumbs !== undefined ? overrideCrumbs : computedCrumbs;
 
-  const { cols, gridWidth } = getCatalogLayout(isWide, depth, windowWidth, hasFilterSidebar);
+  const { cols } = useUnifiedCardGrid({ hasFilterSidebar });
+  const gridWidth = getContentGridWidth(windowWidth, depth);
 
   return {
     depth,

@@ -101,7 +101,7 @@ Enables on-demand UI state snapshotting and diagnostics directly from the browse
 - **Key Features**:
   - **Descriptive File Naming**: Generates filesystem-safe, timestamped names formatted as `S_HH-MM-SS_Section_Page_View.jpg`.
   - **On-Image Text Overlay**: Automatically renders a crisp location context banner (`Location > Hierarchy | HH:MM:SS`) on the captured screenshot.
-  - **State & Report Dumps**: Saves raw JSON application state dumps and Markdown debug reports to `.docs/browserLog/`.
+  - **State & Report Dumps**: Saves raw JSON application state dumps and Markdown debug reports to `.logs/manual-browser-log/`.
   - **Auto Retention**: Retains up to 10 recent screenshots, state dumps, and debug reports automatically.
 
 ---

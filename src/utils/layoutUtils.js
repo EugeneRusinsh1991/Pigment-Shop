@@ -5,32 +5,46 @@ import { layout as layoutTokens } from '../theme/tokens';
  * Used by CatalogView, AppShell, and AppHeader to ensure consistent alignment.
  */
 
-const COLS_MAP = {
-  desktop: { depth0: 5, depthRest: 5 },
-  tablet: { depth0: 3, depthRest: 3 },
-  mobile: { depth0: 2, depthRest: 2 },
+// ---------------------------------------------------------------------------
+// Unified Grid Tokens — single source of truth for ALL card grids
+// ---------------------------------------------------------------------------
+
+/** Number of columns per device tier for the standard (no-sidebar) grid. */
+export const GRID_COLS = {
+  desktop: 5,
+  tablet: 3,
+  mobile: 2,
 };
 
-const FILTERED_COLS_MAP = {
+/** Number of columns per device tier when a filter sidebar is visible. */
+export const GRID_COLS_FILTERED = {
   desktop: 4,
   tablet: 2,
   mobile: 2,
 };
 
-export const SIDEBAR_WIDTH = 240;
-export const CARD_MARGIN = 8;
-export const MAIN_PADDING = 32;
-
-const CARD_WIDTH_MAP = {
-  depth0: { desktop: 250, tablet: 220, mobile: 165 },
-  depthRest: { desktop: 250, tablet: 220, mobile: 165 },
-};
-
-const CARD_MARGIN_MAP = {
+/** Inter-card gap (px) used uniformly across every grid. */
+export const GRID_GAP = {
   desktop: 8,
   tablet: 8,
   mobile: 4,
 };
+
+// ---------------------------------------------------------------------------
+// Legacy internal maps (kept for backward-compat — prefer GRID_COLS above)
+// ---------------------------------------------------------------------------
+const COLS_MAP = {
+  desktop: { depth0: GRID_COLS.desktop, depthRest: GRID_COLS.desktop },
+  tablet:  { depth0: GRID_COLS.tablet,  depthRest: GRID_COLS.tablet  },
+  mobile:  { depth0: GRID_COLS.mobile,  depthRest: GRID_COLS.mobile  },
+};
+
+const FILTERED_COLS_MAP = { ...GRID_COLS_FILTERED };
+
+/** @deprecated Use GRID_COLS_FILTERED for card grids. Retained for useCatalogLayout sidebar math. */
+export const SIDEBAR_WIDTH = 240;
+/** @deprecated Retained for useCatalogLayout sidebar math. */
+export const MAIN_PADDING = 32;
 
 /**
  * Returns the device tier for a given window width.

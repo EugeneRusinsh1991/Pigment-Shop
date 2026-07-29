@@ -16,7 +16,7 @@ export class SmokeConsoleListener {
   private static logTypographyWarning(text: string) {
     if (!text.includes('[Typography Warning]')) return;
     try {
-      const logPath = path.resolve(process.cwd(), '.docs', 'typography-warnings.log');
+      const logPath = path.resolve(process.cwd(), '.logs', 'typography-warnings.log');
       const dir = path.dirname(logPath);
       if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir, { recursive: true });

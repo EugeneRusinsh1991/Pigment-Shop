@@ -12,7 +12,7 @@ const { cleanOldFiles } = require('../../../../scripts/cleanOldFiles');
 const { getLocationContext, getOverlayText } = require('../../../../../src/utils/appStateDump');
 
 export class AutomationScreenshotListener {
-  private autoDir = path.join(process.cwd(), '.docs', 'automation-browser-log', 'screenshots');
+  private autoDir = path.join(process.cwd(), '.logs', 'automation-browser-log', 'screenshots');
   private page: IWebPage | null = null;
   private lastCapturedUrl = '';
   private currentHoverInfo: ElementHoverInfo | null = null;
