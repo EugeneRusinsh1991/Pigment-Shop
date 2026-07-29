@@ -40,7 +40,7 @@ yarn-error.*
 /ios
 /android
 
-# Playwright
+# Playwright & Browser Logs
 /test-results/
 /playwright-report/
 /blob-report/
@@ -48,11 +48,25 @@ yarn-error.*
 /playwright/.auth/
 /playwright/user-data/
 /.playwright/
+/.browserLog/
 
-# Backup logs & audit heavy output
-.docs/backup-errors.log
+# Agent & AI metadata folders
+/.agents/
+/.claude/
+/.junie/
+/.fallow/
+/.todos/
+/.idea/
+/.vscode/
+/.venv/
+/reports/
+
+# Documentation & Logs
+/.docs/
+*.log
 *.jpg
 *.jpeg
 *.png
+
 
 
