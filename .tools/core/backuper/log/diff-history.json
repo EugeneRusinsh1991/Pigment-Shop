@@ -7679,5 +7679,35 @@
         }
       ]
     }
+  },
+  "src_07-29_22-36_smartSave.ps1_358files": {
+    "timestamp": "2026-07-29T19:36:14.213Z",
+    "diff": {
+      "added": 269,
+      "removed": 246,
+      "modified": 12,
+      "topFolders": [
+        {
+          "folder": ".tools/scripts/smoke-test/failures",
+          "count": 33
+        },
+        {
+          "folder": "scripts/smoke-test/failures",
+          "count": 33
+        },
+        {
+          "folder": ".docs/architecture-standards/ui",
+          "count": 20
+        },
+        {
+          "folder": "architecture-standards/ui",
+          "count": 20
+        },
+        {
+          "folder": ".tools/auditors/ui-auditor",
+          "count": 18
+        }
+      ]
+    }
   }
 }

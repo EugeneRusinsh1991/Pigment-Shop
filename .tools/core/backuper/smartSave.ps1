@@ -133,7 +133,7 @@ function Invoke-RestoreBackup {
     [PSCustomObject]$selectedBackup
   )
 
-  $projectRoot = Split-Path -Path $PSScriptRoot -Parent
+  $projectRoot = Split-Path -Path (Split-Path -Path (Split-Path -Path $PSScriptRoot -Parent) -Parent) -Parent
   $parentDir = Split-Path -Path $projectRoot -Parent
   $backupFolder = Join-Path $parentDir $selectedBackup.Name
 

@@ -149,7 +149,7 @@ function printDiffReport(backupPath, diffData) {
 }
 
 function createBackup({ stepLabel, name } = {}) {
-  const projectRoot = path.resolve(__dirname, '../../..');
+  const projectRoot = path.resolve(__dirname, '../../../..');
   const parentDir = path.dirname(projectRoot);
   const latestBackupDir = findLatestBackupDir(parentDir);
   const finalStepLabel = stepLabel || getAutoStepLabel(projectRoot);

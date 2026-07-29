@@ -30,7 +30,7 @@ const DEFAULT_EXCLUDED = [
 ];
 
 function getProjectRoot() {
-  return path.resolve(__dirname, '../..');
+  return path.resolve(__dirname, '../../..');
 }
 
 function getCustomConfig() {
