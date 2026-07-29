@@ -1,6 +1,6 @@
 # 🩺 Complexity Health Findings (Critical & High)
 
-*Generated on: 29.07.2026, 13:15:12*
+*Generated on: 29.07.2026, 14:38:16*
 
 ## 🔴 Critical (> 50 lines)
 
@@ -19,8 +19,8 @@
 #### 📁 [dynamic-report-writer.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/dynamic-report-writer.ts)
 `.tools/browser-automation/helpers/dynamic-report-writer.ts`
 
-- 🔴 **`writeDynamicReport`** [L53](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/dynamic-report-writer.ts#L53)
-  - Lines: 144 | Cyclomatic: 14 | Cognitive: 16 | CRAP: 210
+- 🔴 **`writeDynamicReport`** [L82](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/dynamic-report-writer.ts#L82)
+  - Lines: 120 | Cyclomatic: 14 | Cognitive: 16 | CRAP: 210
 
 #### 📁 [12-raw-i18n-keys-auditor.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/12-raw-i18n-keys-auditor.js)
 `.tools/auditor/12-raw-i18n-keys-auditor.js`
@@ -53,7 +53,7 @@
 `.tools/auditor/fallow-auditor/run-audit.cjs`
 
 - 🔴 **`hasReportFindings`** [L79](file:///D:/Magazine/_PigmentShop/.tools/auditor/fallow-auditor/run-audit.cjs#L79)
-  - Lines: 32 | Cyclomatic: 26 | Cognitive: 15 | CRAP: 702
+  - Lines: 34 | Cyclomatic: 28 | Cognitive: 16 | CRAP: 812
 
 #### 📁 [catalog-generator.js](file:///D:/Magazine/_PigmentShop/.tools/auditor/catalog-generator.js)
 `.tools/auditor/catalog-generator.js`
@@ -78,6 +78,14 @@
 
 - 🔴 **`<arrow>`** [L74](file:///D:/Magazine/_PigmentShop/.tools/auditor/hardcode-styles-auditor.js#L74)
   - Lines: 36 | Cyclomatic: 17 | Cognitive: 15 | CRAP: 306
+
+#### 📁 [analyzer.cjs](file:///D:/Magazine/_PigmentShop/.tools/auditor/fallow-auditor/src/analyzer.cjs)
+`.tools/auditor/fallow-auditor/src/analyzer.cjs`
+
+- 🔴 **`shouldFilterUnusedFile`** [L152](file:///D:/Magazine/_PigmentShop/.tools/auditor/fallow-auditor/src/analyzer.cjs#L152)
+  - Lines: 37 | Cyclomatic: 16 | Cognitive: 9 | CRAP: 272
+- 🔴 **`<arrow>`** [L196](file:///D:/Magazine/_PigmentShop/.tools/auditor/fallow-auditor/src/analyzer.cjs#L196)
+  - Lines: 25 | Cyclomatic: 12 | Cognitive: 7 | CRAP: 156
 
 #### 📁 [01-dynamic-ui-architecture-auditor.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/auditors/01-dynamic-ui-architecture-auditor.ts)
 `.tools/browser-automation/auditors/01-dynamic-ui-architecture-auditor.ts`

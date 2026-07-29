@@ -87,7 +87,7 @@ function generateTargetsReport(cleaned, dateStr, rootPath, backLink = "") {
 }
 
 function generateSmallFilesReport(cleaned, dateStr, rootPath, backLink = "") {
-  const smallFiles = cleaned.health?.small_files || [];
+  const smallFiles = (cleaned.health?.small_files || []).filter(f => !f.isKept);
   const header = `# 📄 Small & Pass-Through Files Findings\n\n*Generated on: ${dateStr}*\n\n`;
   if (smallFiles.length === 0) return header + `*No redundant, small, or pass-through files identified.*\n\n${backLink}`;
 
@@ -112,10 +112,22 @@ function generateSmallFilesReport(cleaned, dateStr, rootPath, backLink = "") {
   return `${header}### Candidate Files for Refactoring/Elimination\n\n${rows}\n\n${backLink}`;
 }
 
+function generateAuditKeptReport(cleaned, dateStr, rootPath, backLink = "") {
+  const keptFiles = (cleaned.health?.small_files || []).filter(f => f.isKept);
+  const header = `# 🛡️ Audit Kept Inventory (Preserved via @audit-keep)\n\n*Generated on: ${dateStr}*\n\n`;
+  if (keptFiles.length === 0) return header + `*No files preserved via @audit-keep annotation.*\n\n${backLink}`;
+
+  const rows = keptFiles
+    .map(f => `- **[${path.basename(f.path)}](file:///${cleanPath(rootPath, f.path)})** (\`${f.path}\`)\n  - Lines: ${f.lines} | Status: Preserved`)
+    .join("\n\n");
+  return `${header}### Preserved Files\n\n${rows}\n\n${backLink}`;
+}
+
 module.exports = {
   generateComplexityReport,
   generateLargeFilesReport,
   generateHighComplexityFilesReport,
   generateTargetsReport,
   generateSmallFilesReport,
+  generateAuditKeptReport,
 };

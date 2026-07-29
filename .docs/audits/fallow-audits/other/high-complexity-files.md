@@ -1,6 +1,6 @@
 # 🧠 Highly Complex Files
 
-*Generated on: 29.07.2026, 13:15:12*
+*Generated on: 29.07.2026, 14:38:16*
 
 ### Highly Complex Files (< 200 lines)
 
@@ -18,9 +18,6 @@
 
 - **[01-dynamic-ui-architecture-auditor.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/auditors/01-dynamic-ui-architecture-auditor.ts)** (`.tools/browser-automation/auditors/01-dynamic-ui-architecture-auditor.ts`)
   - Lines: 153 | CRAP Max: 240 | Complex Funcs: 6 | Density: 44%
-
-- **[dynamic-report-writer.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/helpers/dynamic-report-writer.ts)** (`.tools/browser-automation/helpers/dynamic-report-writer.ts`)
-  - Lines: 199 | CRAP Max: 210 | Complex Funcs: 2 | Density: 24%
 
 - **[03-dynamic-broken-ui-auditor.ts](file:///D:/Magazine/_PigmentShop/.tools/browser-automation/auditors/03-dynamic-broken-ui-auditor.ts)** (`.tools/browser-automation/auditors/03-dynamic-broken-ui-auditor.ts`)
   - Lines: 93 | CRAP Max: 132 | Complex Funcs: 3 | Density: 33%

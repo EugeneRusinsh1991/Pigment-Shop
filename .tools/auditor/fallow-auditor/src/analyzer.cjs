@@ -138,6 +138,88 @@ function detectSmallFiles(fileScores, rootPath) {
 // Main data filter
 // ---------------------------------------------------------------------------
 
+function getPackageScripts(rootPath) {
+  try {
+    const pkgPath = path.resolve(rootPath, "package.json");
+    if (!fs.existsSync(pkgPath)) return "";
+    const pkg = JSON.parse(fs.readFileSync(pkgPath, "utf-8"));
+    return JSON.stringify(pkg.scripts || {});
+  } catch {
+    return "";
+  }
+}
+
+function shouldFilterUnusedFile(fileObj, rootPath, packageScriptsJson) {
+  const relPath = fileObj.path || fileObj.file || "";
+  if (!relPath) return false;
+
+  const normalized = relPath.replace(/\\/g, "/");
+  
+  // Whitelist scripts/tools/bin directories and index/barrel files
+  if (
+    normalized.startsWith(".tools/") ||
+    normalized.startsWith("scripts/") ||
+    normalized.startsWith("bin/") ||
+    normalized.endsWith("/index.ts") ||
+    normalized.endsWith("/index.js") ||
+    normalized.endsWith("/index.tsx") ||
+    normalized.endsWith("/index.jsx")
+  ) {
+    return true;
+  }
+
+  // Check if mentioned in package.json scripts
+  if (packageScriptsJson && packageScriptsJson.includes(normalized)) {
+    return true;
+  }
+
+  const absPath = path.resolve(rootPath, relPath);
+  if (!fs.existsSync(absPath)) return false;
+
+  try {
+    const content = fs.readFileSync(absPath, "utf-8");
+    // Check for @audit-keep or hashbang CLI scripts
+    if (/@audit-keep|@keep|^#!/.test(content)) {
+      return true;
+    }
+  } catch {}
+
+  return false;
+}
+
+function filterUnusedFiles(unusedFiles, rootPath) {
+  const pkgScripts = getPackageScripts(rootPath);
+  return unusedFiles.filter(f => !shouldFilterUnusedFile(f, rootPath, pkgScripts));
+}
+
+function filterUnusedExports(unusedExports, rootPath) {
+  return unusedExports.filter(item => {
+    const relPath = (item.path || item.file || "").replace(/\\/g, "/");
+    if (!relPath) return true;
+
+    // Exclude barrel/index exports and public UI library interfaces
+    if (
+      relPath.endsWith("/index.ts") ||
+      relPath.endsWith("/index.js") ||
+      relPath.endsWith("/index.tsx") ||
+      relPath.endsWith("/index.jsx") ||
+      relPath.includes("src/components/")
+    ) {
+      return false;
+    }
+
+    const absPath = path.resolve(rootPath, relPath);
+    if (!fs.existsSync(absPath)) return true;
+
+    try {
+      const content = fs.readFileSync(absPath, "utf-8");
+      if (/@audit-keep|@keep/.test(content)) return false;
+    } catch {}
+
+    return true;
+  });
+}
+
 function filterData(rawData, rootPath) {
   const health = getProp(rawData, "health", {});
   const dupes = getProp(rawData, "dupes", {});
@@ -155,8 +237,8 @@ function filterData(rawData, rootPath) {
       clone_groups: filterCloneGroups(getProp(dupes, "clone_groups", [])),
     },
     check: {
-      unused_files: getProp(check, "unused_files", []),
-      unused_exports: getProp(check, "unused_exports", []),
+      unused_files: filterUnusedFiles(getProp(check, "unused_files", []), rootPath || "."),
+      unused_exports: filterUnusedExports(getProp(check, "unused_exports", []), rootPath || "."),
       unused_dependencies: getProp(check, "unused_dependencies", []),
       unlisted_dependencies: getProp(check, "unlisted_dependencies", []),
       circular_dependencies: getProp(check, "circular_dependencies", []),

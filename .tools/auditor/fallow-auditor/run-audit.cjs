@@ -103,7 +103,9 @@ function hasReportFindings(type, data) {
         (c.circular_dependencies || []).length > 0
       );
     case "smallFiles":
-      return (h.small_files || []).length > 0;
+      return (h.small_files || []).filter(f => !f.isKept).length > 0;
+    case "auditKept":
+      return (h.small_files || []).filter(f => f.isKept).length > 0;
     default:
       return false;
   }
@@ -133,6 +135,7 @@ function writeAllReports(reports, subDir, data) {
     ["unusedExports", path.resolve(base, "unused-exports.md"), reports.unusedExports],
     ["dependencyIssues", path.resolve(base, "dependency-issues.md"), reports.dependencyIssues],
     ["smallFiles", path.resolve(base, "small-files.md"), reports.smallFiles],
+    ["auditKept", path.resolve(base, "audit-kept-inventory.md"), reports.auditKept],
   ];
 
   reportMap.forEach(([key, reportPath, content]) => {

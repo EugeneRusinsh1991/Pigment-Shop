@@ -1,12 +1,11 @@
  import { ChevronLeftIcon, ChevronRightIcon } from '@/components/Icons';
 import { useCatalog } from '@/features/catalog/CatalogContext';
 import { colors } from '@/theme/tokens';
-import { getCarouselBaseStyle, getPlaceholderStyle } from '@/utils/carouselStyles';
 import { useEffect, useState } from 'react';
 import { useWindowDimensions, View } from 'react-native';
 import { CarouselDots } from './HeroCarousel/CarouselDots';
 import { CarouselLayers } from './HeroCarousel/CarouselLayers';
-import { localStyles } from './HeroCarousel/carouselStyles';
+import { localStyles, getCarouselBaseStyle, getPlaceholderStyle } from './HeroCarousel/carouselStyles';
 import { useCarouselData } from './HeroCarousel/useCarouselData';
 
 import { AnimatedButton } from '@/components/Button';

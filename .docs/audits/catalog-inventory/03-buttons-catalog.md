@@ -266,8 +266,8 @@
 
 ### File: src/features/home/components/HeroCarousel.js
 
-  - Line 18: `<AnimatedButton>`
-  - Line 24: `<AnimatedButton>`
+  - Line 17: `<AnimatedButton>`
+  - Line 23: `<AnimatedButton>`
 
 ### File: src/features/home/components/HeroCarousel/CarouselDots.js
 

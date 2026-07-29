@@ -11,6 +11,7 @@ const {
   generateHighComplexityFilesReport,
   generateTargetsReport,
   generateSmallFilesReport,
+  generateAuditKeptReport,
 } = require("./health-reports.cjs");
 const {
   generateDuplicationReport,
@@ -40,7 +41,8 @@ function generateMainReport(cleaned, dateStr, projectName, paths) {
 > - **Unused Dependencies:** ${unused_dependencies.length}
 > - **Unlisted Dependencies:** ${unlisted_dependencies.length}
 > - **Circular Dependencies:** ${circular_dependencies.length}
-> - **Small / Pass-Through Files:** ${small_files ? small_files.length : 0}
+> - **Small / Pass-Through Files:** ${small_files ? small_files.filter(f => !f.isKept).length : 0}
+> - **Preserved Files (@audit-keep):** ${small_files ? small_files.filter(f => f.isKept).length : 0}
 
 ---
 
@@ -55,6 +57,7 @@ function generateMainReport(cleaned, dateStr, projectName, paths) {
 - [📦 Unused Exports](file:///${paths.unusedExports})
 - [🔗 Dependency Issues](file:///${paths.dependencyIssues})
 - [📄 Small & Pass-Through Files](file:///${paths.smallFiles})
+- [🛡️ Audit Kept Inventory](file:///${paths.auditKept})
 `;
 }
 
@@ -75,6 +78,7 @@ function generateReports(cleaned, rootPath, projectName, subDir = "") {
     unusedExports:    cleanPath(rootPath, `${baseDir}/unused-exports.md`),
     dependencyIssues: cleanPath(rootPath, `${baseDir}/dependency-issues.md`),
     smallFiles:       cleanPath(rootPath, `${baseDir}/small-files.md`),
+    auditKept:        cleanPath(rootPath, `${baseDir}/audit-kept-inventory.md`),
   };
 
   return {
@@ -88,6 +92,7 @@ function generateReports(cleaned, rootPath, projectName, subDir = "") {
     unusedExports:    generateUnusedExportsReport(cleaned, dateStr, rootPath),
     dependencyIssues: generateDependencyIssuesReport(cleaned, dateStr, rootPath),
     smallFiles:       generateSmallFilesReport(cleaned, dateStr, rootPath),
+    auditKept:        generateAuditKeptReport(cleaned, dateStr, rootPath),
   };
 }
 

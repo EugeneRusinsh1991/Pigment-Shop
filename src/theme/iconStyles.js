@@ -1,3 +1,6 @@
+/**
+ * @audit-keep Theme icon size resolver and text style helper
+ */
 import { iconTokens } from './tokens';
 
 export const ICON_SIZES = iconTokens.sizes;

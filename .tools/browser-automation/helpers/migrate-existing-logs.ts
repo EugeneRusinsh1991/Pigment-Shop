@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { getProblemTitleAndDetail, formatProblemsReport } from './dynamic-report-writer';
+import { getProblemTitleAndDetail, formatProblemsReport, groupViolationsByProblemTitle } from './dynamic-report-writer';
 
 interface Violation {
   url: string;
@@ -32,17 +32,7 @@ function migrateJsonToGroupedLog(jsonFilePath: string, logFilePath: string) {
   const scope = match ? match[3] : 'unknown';
 
   // Build problem groups
-  const problemsMap: Map<string, { url: string; selector?: string; detail?: string }[]> = new Map();
-
-  Object.keys(state).forEach(url => {
-    state[url].forEach((v: Violation) => {
-      const { title, detail } = getProblemTitleAndDetail(v.message);
-      if (!problemsMap.has(title)) {
-        problemsMap.set(title, []);
-      }
-      problemsMap.get(title)!.push({ url, selector: v.selector, detail });
-    });
-  });
+  const problemsMap = groupViolationsByProblemTitle(state);
 
   const totalViolations = Object.values(state).reduce((sum, arr) => sum + arr.length, 0);
   const totalProblems = problemsMap.size;

@@ -1,3 +1,6 @@
+/**
+ * @audit-keep Reusable navigation back-handler hook
+ */
 import { useRouter } from 'expo-router';
 import { useCallback } from 'react';
 

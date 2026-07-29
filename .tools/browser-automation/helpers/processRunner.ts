@@ -7,6 +7,17 @@ export const colors = {
   yellow: '\x1b[33m'
 };
 
+export function attachPrefixedLogging(proc: { stdout: any; stderr: any }, prefix: string) {
+  const handler = (data: any) => {
+    const lines = data.toString().split('\n').filter((line: string) => line.trim());
+    lines.forEach((line: string) => {
+      console.log(`${prefix} ${line}`);
+    });
+  };
+  proc.stdout?.on('data', handler);
+  proc.stderr?.on('data', handler);
+}
+
 export function runProcess(name: string, script: string, color: string, extraEnv: Record<string, string> = {}) {
   return new Promise<void>((resolve) => {
     const isHeadless = !!extraEnv.SMOKE_HEADLESS;
@@ -19,19 +30,7 @@ export function runProcess(name: string, script: string, color: string, extraEnv
     });
 
     if (isHeadless) {
-      proc.stdout?.on('data', (data) => {
-        const lines = data.toString().split('\n').filter((line: string) => line.trim());
-        lines.forEach((line: string) => {
-          console.log(`${color}[${name}]${colors.reset} ${line}`);
-        });
-      });
-
-      proc.stderr?.on('data', (data) => {
-        const lines = data.toString().split('\n').filter((line: string) => line.trim());
-        lines.forEach((line: string) => {
-          console.log(`${color}[${name}]${colors.reset} ${line}`);
-        });
-      });
+      attachPrefixedLogging(proc, `${color}[${name}]${colors.reset}`);
     }
 
     proc.on('close', (code) => {

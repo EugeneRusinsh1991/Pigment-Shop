@@ -132,8 +132,8 @@
 
 ### File: src/features/home/components/HeroCarousel.js
 
-  - Line 22: `<ChevronLeftIcon>` (Icon: `[Unknown]`)
-  - Line 28: `<ChevronRightIcon>` (Icon: `[Unknown]`)
+  - Line 21: `<ChevronLeftIcon>` (Icon: `[Unknown]`)
+  - Line 27: `<ChevronRightIcon>` (Icon: `[Unknown]`)
 
 ### File: src/features/product/ProductCard.js
 

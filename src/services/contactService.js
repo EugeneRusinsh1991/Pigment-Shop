@@ -1,3 +1,6 @@
+/**
+ * @audit-keep Standalone contact & support firebase service
+ */
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import { COLLECTIONS } from './collections';
 import { db } from './firebase';

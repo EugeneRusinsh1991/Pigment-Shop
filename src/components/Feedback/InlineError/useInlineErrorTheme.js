@@ -1,3 +1,6 @@
+/**
+ * @audit-keep Theme hook for InlineError component
+ */
 import { useTheme } from '../../../context/ThemeContext';
 import { colors } from '../../../theme/tokens';
 import { styles } from './FieldErrorStyles';

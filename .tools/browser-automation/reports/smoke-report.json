@@ -2,32 +2,22 @@
   "summary": {
     "visitedScreens": 0,
     "visitedInteractions": 0,
-    "successfulInteractions": 68,
+    "successfulInteractions": 0,
     "failedInteractions": 0,
     "warnings": 1,
-    "errors": 1,
+    "errors": 0,
     "executionDurationMs": 0
   },
-  "failures": [
-    {
-      "screen": "http://localhost:8081/admin",
-      "interaction": "Click",
-      "elementIdentifier": "btn|Videos",
-      "event": "AfterInteraction",
-      "timestamp": 1785320975364,
-      "errorType": "Health Check Evaluation Failed",
-      "errorMessage": "[Application Bug] page.evaluate: Target crashed "
-    }
-  ],
+  "failures": [],
   "warnings": [
     {
       "screen": "http://localhost:8081/admin",
-      "interaction": "Click",
-      "elementIdentifier": "btn|Browse",
+      "interaction": "Initial Load",
+      "elementIdentifier": "None",
       "event": "Runtime",
-      "timestamp": 1785320972327,
+      "timestamp": 1785325254767,
       "errorType": "Console Warning",
-      "errorMessage": "props.pointerEvents is deprecated. Use style.pointerEvents"
+      "errorMessage": "\"shadow*\" style props are deprecated. Use \"boxShadow\"."
     }
   ]
 }

@@ -50,6 +50,26 @@ export function getProblemTitleAndDetail(message: string): { title: string; deta
   return { title: message };
 }
 
+export function groupViolationsByProblemTitle(state: Record<string, Violation[]>): Map<string, { url: string; selector?: string; detail?: string }[]> {
+  const problemsMap: Map<string, { url: string; selector?: string; detail?: string }[]> = new Map();
+
+  Object.keys(state).forEach(url => {
+    state[url].forEach((v: Violation) => {
+      const { title, detail } = getProblemTitleAndDetail(v.message);
+      if (!problemsMap.has(title)) {
+        problemsMap.set(title, []);
+      }
+      problemsMap.get(title)!.push({
+        url,
+        selector: v.selector,
+        detail
+      });
+    });
+  });
+
+  return problemsMap;
+}
+
 export function formatProblemsReport(problemsMap: Map<string, { url: string; selector?: string; detail?: string }[]>): string {
   let reportContent = '';
   problemsMap.forEach((items, problemTitle) => {
@@ -152,22 +172,7 @@ export function writeDynamicReport(
   }, null, 2), 'utf-8');
 
   if (hasNew) {
-    // Group violations by Problem Title
-    const problemsMap: Map<string, { url: string; selector?: string; detail?: string }[]> = new Map();
-
-    Object.keys(state).forEach(url => {
-      state[url].forEach((v: Violation) => {
-        const { title, detail } = getProblemTitleAndDetail(v.message);
-        if (!problemsMap.has(title)) {
-          problemsMap.set(title, []);
-        }
-        problemsMap.get(title)!.push({
-          url,
-          selector: v.selector,
-          detail
-        });
-      });
-    });
+    const problemsMap = groupViolationsByProblemTitle(state);
 
     let reportContent = `---
 type: dynamic-audit
@@ -194,5 +199,3 @@ date: ${new Date().toISOString()}
     fs.writeFileSync(filesFilePath, filesContent, 'utf-8');
   }
 }
-
-

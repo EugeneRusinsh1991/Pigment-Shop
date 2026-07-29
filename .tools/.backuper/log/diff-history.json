@@ -7101,5 +7101,35 @@
       "modified": 0,
       "topFolders": []
     }
+  },
+  "src_07-29_14-41_03-dynamic-broken-ui-admin-smoke-violations.log_152files": {
+    "timestamp": "2026-07-29T11:41:37.418Z",
+    "diff": {
+      "added": 36,
+      "removed": 7,
+      "modified": 51,
+      "topFolders": [
+        {
+          "folder": "reports",
+          "count": 35
+        },
+        {
+          "folder": ".docs/audits/dynamic-audits/docs",
+          "count": 9
+        },
+        {
+          "folder": ".docs/audits/dynamic-audits/json",
+          "count": 7
+        },
+        {
+          "folder": ".docs/audits/catalog-inventory",
+          "count": 6
+        },
+        {
+          "folder": ".docs/audits/fallow-audits/other",
+          "count": 6
+        }
+      ]
+    }
   }
 }

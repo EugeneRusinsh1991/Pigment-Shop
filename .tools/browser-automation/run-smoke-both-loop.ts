@@ -1,5 +1,6 @@
+import path from 'path';
 import { spawn } from 'child_process';
-import * as path from 'path';
+import { attachPrefixedLogging } from './helpers/processRunner';
 import { cleanOldReportsByType, clearReportsDirectory } from './helpers/reportCleaner';
 
 const colors = {
@@ -26,19 +27,7 @@ function runProcess(name: string, script: string, color: string) {
     }
   });
 
-  proc.stdout?.on('data', (data) => {
-    const lines = data.toString().split('\n').filter((line: string) => line.trim());
-    lines.forEach((line: string) => {
-      console.log(`${color}[${name}]${colors.reset} ${line}`);
-    });
-  });
-
-  proc.stderr?.on('data', (data) => {
-    const lines = data.toString().split('\n').filter((line: string) => line.trim());
-    lines.forEach((line: string) => {
-      console.log(`${color}[${name}]${colors.reset} ${line}`);
-    });
-  });
+  attachPrefixedLogging(proc, `${color}[${name}]${colors.reset}`);
 
   return proc;
 }

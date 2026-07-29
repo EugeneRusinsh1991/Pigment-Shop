@@ -77,7 +77,9 @@ function detectTiny(relPath, lines, base) {
   return isUnclassified(base) && relPath.startsWith("src/components/") && lines <= 25;
 }
 
-function detectSmall(lines, base) {
+function detectSmall(relPath, lines, base) {
+  const norm = relPath.replace(/\\/g, "/");
+  if (norm.startsWith("app/")) return false;
   return isUnclassified(base) && !base.isTiny && lines <= 20;
 }
 
@@ -85,13 +87,15 @@ function detectSmall(lines, base) {
 // Flag builder
 // ---------------------------------------------------------------------------
 
-function buildFlags(relPath, lines, clean) {
+function buildFlags(relPath, lines, clean, rawContent = "") {
+  const isKept = /@audit-keep|@keep/.test(rawContent);
   const base = {
     isBarrel:  detectBarrel(clean),
     isWrapper: detectWrapper(relPath, clean),
     isHelper:  detectHelper(relPath),
+    isKept:    isKept
   };
-  return { ...base, isTiny: detectTiny(relPath, lines, base), isSmall: detectSmall(lines, base) };
+  return { ...base, isTiny: detectTiny(relPath, lines, base), isSmall: detectSmall(relPath, lines, base) };
 }
 
 // ---------------------------------------------------------------------------
@@ -110,8 +114,12 @@ function classifyFile(relPath, absPath, reportedLines) {
   try { content = fs.readFileSync(absPath, "utf-8"); }
   catch { return null; }
 
+  if (/@audit-keep|@keep/.test(content)) {
+    return { isKept: true, type: "Preserved Helper", recommendation: "Kept via @audit-keep annotation." };
+  }
+
   const lines = reportedLines || content.split("\n").length;
-  const flags = buildFlags(relPath, lines, stripComments(content));
+  const flags = buildFlags(relPath, lines, stripComments(content), content);
   const match = ARCHETYPES.find((a) => flags[a.key]);
   return match ? { type: match.type, recommendation: match.recommendation } : null;
 }

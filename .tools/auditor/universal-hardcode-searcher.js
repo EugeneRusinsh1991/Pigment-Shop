@@ -191,6 +191,20 @@ function generateCategoryReport(type, description, violations) {
   return report;
 }
 
+function groupViolationsByPatternType(violations) {
+  const groupedByType = {};
+  violations.forEach(v => {
+    if (!groupedByType[v.type]) {
+      groupedByType[v.type] = {
+        description: v.description,
+        violations: []
+      };
+    }
+    groupedByType[v.type].violations.push(v);
+  });
+  return groupedByType;
+}
+
 function generateSummaryReport(violations, patterns) {
   let report = '===================================================================\n';
   report += '         UNIVERSAL HARDCODE SEARCH SUMMARY                         \n';
@@ -202,17 +216,7 @@ function generateSummaryReport(violations, patterns) {
     return report;
   }
 
-  // Группировка по типам паттернов
-  const groupedByType = {};
-  violations.forEach(v => {
-    if (!groupedByType[v.type]) {
-      groupedByType[v.type] = {
-        description: v.description,
-        violations: []
-      };
-    }
-    groupedByType[v.type].violations.push(v);
-  });
+  const groupedByType = groupViolationsByPatternType(violations);
 
   report += `Found ${violations.length} hardcoded value(s) across ${Object.keys(groupedByType).length} pattern type(s):\n\n`;
 
@@ -237,17 +241,7 @@ function runUniversalHardcodeSearch(disableDynamicAudits = false) {
   const violations = [];
   walkDir(SRC_DIR, patterns, violations);
 
-  // Группировка по типам паттернов
-  const groupedByType = {};
-  violations.forEach(v => {
-    if (!groupedByType[v.type]) {
-      groupedByType[v.type] = {
-        description: v.description,
-        violations: []
-      };
-    }
-    groupedByType[v.type].violations.push(v);
-  });
+  const groupedByType = groupViolationsByPatternType(violations);
 
   // Создание отдельных файлов для каждой категории
   Object.entries(groupedByType).forEach(([type, data]) => {
