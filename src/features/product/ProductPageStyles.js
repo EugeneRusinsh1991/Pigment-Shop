@@ -27,13 +27,10 @@ export default StyleSheet.create({
     paddingBottom: layout.spacing.none,
   },
   imageArea: {
-    height: 300,
-    borderRadius: layout.radii.xl,
-    overflow: 'hidden',
+    width: '100%',
   },
   imageAreaWide: {
     flex: 1,
-    height: 500,
   },
   prodImage: {
     width: '100%',
@@ -156,8 +153,13 @@ export default StyleSheet.create({
   favOverlayLight: { backgroundColor: colors.overlayLight },
   carouselContainer: {
     width: '100%',
-    height: '100%',
+    height: 300,
+    borderRadius: layout.radii.xl,
+    overflow: 'hidden',
     position: 'relative',
+  },
+  carouselContainerWide: {
+    height: 500,
   },
   imageFill: {
     position: 'absolute',
@@ -269,5 +271,50 @@ export default StyleSheet.create({
   },
   bottomSpacer: {
     height: layout.spacing.xxl + layout.spacing.sm,
+  },
+
+  // Thumbnail Slot & Bar Styles
+  thumbnailsRowContainer: {
+    flexDirection: 'row',
+    gap: layout.spacing.sm,
+    marginTop: layout.spacing.md,
+    width: '100%',
+  },
+  thumbnailSlot: {
+    flex: 1,
+    height: 80,
+    borderRadius: layout.radii.md,
+    overflow: 'hidden',
+    borderWidth: layout.borderWidth.thin,
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'relative',
+  },
+  thumbnailSlotLight: {
+    backgroundColor: colors.cardBgLight,
+    borderColor: colors.secondaryLightBorder,
+  },
+  thumbnailSlotDark: {
+    backgroundColor: colors.cardBgDark,
+    borderColor: colors.secondaryDarkBorder,
+  },
+  thumbnailActiveIndicator: {
+    position: 'absolute',
+    inset: 0,
+    borderWidth: layout.borderWidth.medium,
+    borderColor: colors.accent,
+    borderRadius: layout.radii.md,
+    zIndex: layout.zIndices.active,
+  },
+  thumbnailEmptySlot: {
+    opacity: layout.opacity.disabled,
+  },
+  thumbnailEmptySlotLight: {
+    backgroundColor: colors.backgroundLight,
+    borderColor: colors.outlineLightBorder,
+  },
+  thumbnailEmptySlotDark: {
+    backgroundColor: colors.backgroundDark,
+    borderColor: colors.outlineDarkBorder,
   },
 });

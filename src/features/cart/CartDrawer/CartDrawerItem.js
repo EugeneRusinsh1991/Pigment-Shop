@@ -3,7 +3,7 @@ import { StyleSheet, View, Image } from 'react-native';
 import { Text } from '@/components/ui/Text';
 import { IconButton } from '@/components/ui/Button';
 import { CloseIcon, MinusIcon, PlusIcon } from '@/components/Icons';
-import { colors, layout } from '@/theme/tokens';
+import { colors, layout, typography } from '@/theme/tokens';
 import { formatCurrency } from '@/utils/currency';
 
 export default function CartDrawerItem({ item, isDark, onUpdateQuantity, onRemove }) {
@@ -84,12 +84,12 @@ const styles = StyleSheet.create({
   },
   containerLight: {
     backgroundColor: colors.backgroundLight,
-    borderWidth: 1,
+    borderWidth: layout.borderWidth.thin,
     borderColor: colors.borderLight,
   },
   containerDark: {
     backgroundColor: colors.backgroundDark,
-    borderWidth: 1,
+    borderWidth: layout.borderWidth.thin,
     borderColor: colors.borderDark,
   },
   image: {
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
   },
   title: {
     flex: 1,
-    fontSize: 14,
+    fontSize: typography.sizes.sm,
   },
   subtextLight: {
     color: colors.textDescLight,
@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     borderRadius: layout.radii.full,
-    borderWidth: 1,
+    borderWidth: layout.borderWidth.thin,
   },
   quantityControlLight: {
     borderColor: colors.borderLight,
@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
   quantityText: {
     width: 24,
     textAlign: 'center',
-    fontSize: 14,
+    fontSize: typography.sizes.sm,
     fontWeight: 'bold',
   },
   price: {

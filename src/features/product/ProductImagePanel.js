@@ -9,16 +9,19 @@ import { useCarouselState, getCarouselOpacity } from '../../hooks/useCarouselSta
 import { HeartIcon, ChevronLeftIcon, ChevronRightIcon } from '@/components/Icons';
 import { AnimatedButton } from '../../components/ui/Button';
 import ProductBadges from './ProductBadges';
+import ProductThumbnails from './ProductThumbnails';
 import { colors } from '../../theme/tokens';
 
 import { PRODUCT_PLACEHOLDER } from '../../constants';
 
-const getImages = (product) => {
+const getRawProductImages = (product) => {
   if (product?.images && product.images.length > 0) {
-    return product.images;
+    return product.images.slice(0, 3);
   }
-  const mainImage = product?.image || PRODUCT_PLACEHOLDER;
-  return [mainImage, PRODUCT_PLACEHOLDER, PRODUCT_PLACEHOLDER];
+  if (product?.image) {
+    return [product.image];
+  }
+  return [PRODUCT_PLACEHOLDER];
 };
 
 
@@ -79,7 +82,7 @@ function ProductFavoriteBtn({ isWide, isDark, isFavorite, onToggleFavorite, prod
 }
 
 export function ProductImagePanel({ product, isWide, isFavorite, onToggleFavorite, isDark }) {
-  const images = getImages(product);
+  const images = getRawProductImages(product);
   const {
     currentIndex,
     prevIndex,
@@ -93,7 +96,7 @@ export function ProductImagePanel({ product, isWide, isFavorite, onToggleFavorit
 
   return (
     <View style={[styles.imageArea, isWide && styles.imageAreaWide]}>
-      <View style={styles.carouselContainer}>
+      <View style={[styles.carouselContainer, isWide && styles.carouselContainerWide]}>
         <ProductGalleryLayers
           images={images}
           currentIndex={currentIndex}
@@ -123,6 +126,13 @@ export function ProductImagePanel({ product, isWide, isFavorite, onToggleFavorit
           product={product}
         />
       </View>
+
+      <ProductThumbnails
+        images={images}
+        currentIndex={currentIndex}
+        onSelectImage={handleSwitchWithTransition}
+        isDark={isDark}
+      />
     </View>
   );
 }

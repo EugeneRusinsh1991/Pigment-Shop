@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import { DrawerHeader } from '@/components/ui/Drawer';
 import { IconButton } from '@/components/ui/Button';
 import { CloseIcon } from '@/components/Icons';
-import { colors, layout } from '@/theme/tokens';
+import { colors, layout, typography } from '@/theme/tokens';
 import { Text } from '@/components/ui/Text';
 
 export default function CartDrawerHeader({ onClose, cartCount, isDark }) {
@@ -46,12 +46,12 @@ const styles = StyleSheet.create({
     gap: layout.spacing.sm,
   },
   title: {
-    margin: 0,
+    margin: layout.spacing.none,
   },
   badge: {
     borderRadius: layout.radii.sm,
     paddingHorizontal: layout.spacing.xs,
-    paddingVertical: 2,
+    paddingVertical: layout.spacing.xxxs,
   },
   badgeDark: {
     backgroundColor: colors.white,
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.dark,
   },
   badgeText: {
-    fontSize: 12,
+    fontSize: typography.sizes.xs,
     fontWeight: 'bold',
   },
   badgeTextDark: {

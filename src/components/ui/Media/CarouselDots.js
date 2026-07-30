@@ -8,8 +8,8 @@ export const dotStyles = StyleSheet.create({
   dotsContainer: {
     position: 'absolute',
     bottom: layout.spacing.lg,
-    left: 0,
-    right: 0,
+    left: layout.spacing.none,
+    right: layout.spacing.none,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
