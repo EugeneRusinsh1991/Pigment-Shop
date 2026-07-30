@@ -16,7 +16,7 @@ function ensureDirs(dirs: string[]) {
 }
 
 function buildFilePaths(timestamp: string) {
-  const screenshotsDir = path.join(BASE_LOG_DIR, 'screenshots');
+  const screenshotsDir = BASE_LOG_DIR;
   const stateDir = path.join(BASE_LOG_DIR, 'state');
   const reportsDir = path.join(BASE_LOG_DIR, 'reports');
   const nameToken = timestamp.startsWith('S_') ? timestamp : `S_${timestamp}`;
@@ -24,7 +24,7 @@ function buildFilePaths(timestamp: string) {
     screenshotsDir,
     stateDir,
     reportsDir,
-    screenshotPath: path.join(screenshotsDir, `${nameToken}.jpg`),
+    screenshotPath: path.join(BASE_LOG_DIR, `${nameToken}.jpg`),
     statePath: path.join(stateDir, `state_${nameToken}.json`),
     reportPath: path.join(reportsDir, `report_${nameToken}.md`),
     screenshotFilename: `${nameToken}.jpg`,
@@ -84,7 +84,7 @@ function buildReport(
 | **DOM Size** | ${dom} |
 
 ## 🖼️ Screenshot
-![Screenshot](../screenshots/${screenshotFilename})
+![Screenshot](./${screenshotFilename})
 
 ## 📂 Quick Links
 * [Open Full Screenshot](file:///${screenshotPath.replace(/\\/g, '/')})
@@ -104,18 +104,14 @@ ${JSON.stringify(stateDump, null, 2)}
 
 function saveLatestFiles(
   screenshotsDir: string,
-  stateDir: string,
-  reportsDir: string,
+  _stateDir: string,
+  _reportsDir: string,
   screenshotPath: string,
-  stateDump: any,
-  reportContent: string
+  _stateDump: any,
+  _reportContent: string
 ) {
-  fs.writeFileSync(path.join(stateDir, 'state.json'), JSON.stringify(stateDump, null, 2), 'utf8');
   fs.copyFileSync(screenshotPath, path.join(screenshotsDir, 'screenshot.jpg'));
-  fs.writeFileSync(path.join(reportsDir, 'latest_report.md'), reportContent, 'utf8');
-  cleanOldFiles(screenshotsDir, 10, '.jpg');
-  cleanOldFiles(stateDir, 10, '.json');
-  cleanOldFiles(reportsDir, 10, '.md');
+  cleanOldFiles(screenshotsDir, 20, '.jpg');
 }
 
 export async function setupManualInspector(page: Page): Promise<void> {
@@ -138,7 +134,7 @@ export async function setupManualInspector(page: Page): Promise<void> {
       async (timestamp: string, stateDump: any, overlayText?: string, hoverInfo?: any) => {
         const { screenshotsDir, stateDir, reportsDir, screenshotPath, statePath, reportPath, screenshotFilename } =
           buildFilePaths(timestamp);
-        ensureDirs([screenshotsDir, stateDir, reportsDir]);
+        ensureDirs([BASE_LOG_DIR]);
 
         const base64Data = await takeCompressedScreenshot(page, {
           captureQuality: 70,
@@ -148,13 +144,15 @@ export async function setupManualInspector(page: Page): Promise<void> {
           hoverInfo,
         });
         fs.writeFileSync(screenshotPath, base64Data);
-        fs.writeFileSync(statePath, JSON.stringify(stateDump, getCircularReplacer(), 2), 'utf8');
 
-        const reportContent = buildReport(timestamp, stateDump, screenshotFilename, screenshotPath, statePath);
-        fs.writeFileSync(reportPath, reportContent, 'utf8');
-        saveLatestFiles(screenshotsDir, stateDir, reportsDir, screenshotPath, stateDump, reportContent);
+        // State dump and report saving temporarily disabled per requirements, but logic retained
+        // fs.writeFileSync(statePath, JSON.stringify(stateDump, getCircularReplacer(), 2), 'utf8');
+        // const reportContent = buildReport(timestamp, stateDump, screenshotFilename, screenshotPath, statePath);
+        // fs.writeFileSync(reportPath, reportContent, 'utf8');
 
-        console.log(`[PlaywrightDebug] Saved debug report to ${reportPath}`);
+        saveLatestFiles(screenshotsDir, stateDir, reportsDir, screenshotPath, stateDump, '');
+
+        console.log(`[PlaywrightDebug] Saved screenshot to ${screenshotPath}`);
         return { success: true };
       }
     );
