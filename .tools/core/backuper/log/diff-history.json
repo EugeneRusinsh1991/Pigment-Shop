@@ -7889,5 +7889,35 @@
         }
       ]
     }
+  },
+  "src_07-30_12-13_setupManualInspector.ts_61files": {
+    "timestamp": "2026-07-30T09:13:25.655Z",
+    "diff": {
+      "added": 26,
+      "removed": 2,
+      "modified": 26,
+      "topFolders": [
+        {
+          "folder": "reports",
+          "count": 25
+        },
+        {
+          "folder": ".todos",
+          "count": 3
+        },
+        {
+          "folder": ".tools/automation/manual-browser-inspector",
+          "count": 3
+        },
+        {
+          "folder": "src/features/admin/Analytics",
+          "count": 3
+        },
+        {
+          "folder": "src/features/shell/AppHeader",
+          "count": 3
+        }
+      ]
+    }
   }
 }
