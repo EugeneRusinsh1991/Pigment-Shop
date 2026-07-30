@@ -8,10 +8,7 @@ export default function CardShadow({ hoverAnim, isDark, lightBgColor = colors.pr
     ...StyleSheet.absoluteFillObject,
     borderRadius: layout.radii.lg,
     backgroundColor: isDark ? colors.productCardDark : lightBgColor,
-    ...Platform.select({
-      web: shadows.cardHover.web,
-      default: shadows.cardHover.native,
-    }),
+    ...shadows.cardHover,
     elevation: layout.elevation.md,
     opacity: hoverAnim,
   };

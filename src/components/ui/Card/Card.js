@@ -39,7 +39,7 @@ const Card = React.forwardRef(({
 
   if (isInteractive) {
     return (
-      <Animated.View style={combinedStyle}>
+      <Animated.View style={combinedStyle} onMouseEnter={bind.onMouseEnter} onMouseLeave={bind.onMouseLeave}>
         <TouchableOpacity
           ref={ref}
           activeOpacity={motion.press.activeOpacity}

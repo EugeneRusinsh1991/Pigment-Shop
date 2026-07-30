@@ -8,7 +8,7 @@ import Card from './Card';
 
 const NavigationCard = React.forwardRef(({ type, isDark, text, depth = 1, style, ...rest }, ref) => {
   const { cardHeight } = useCardDimensions(depth);
-  const displayText = text && !text.includes('→') ? `${text} →` : text;
+  const displayText = text ? text.replace(/→/g, '').trim() : text;
 
   return (
     <Card
@@ -22,9 +22,6 @@ const NavigationCard = React.forwardRef(({ type, isDark, text, depth = 1, style,
       <View style={styles.overlayContainer}>
         <View style={[styles.accentBanner, isDark ? styles.bannerDark : styles.bannerLight]} />
         <View style={styles.content}>
-          <View style={[styles.circle, isDark ? styles.circleDark : styles.circleLight]}>
-            <ForwardArrowIcon color={colors.white} size={22} />
-          </View>
           <Heading level={3} style={[styles.text, isDark ? styles.textDark : styles.textLight]}>
             {displayText}
           </Heading>
@@ -39,7 +36,7 @@ export default NavigationCard;
 const styles = StyleSheet.create({
   root: {
     width: '100%',
-    overflow: 'hidden',
+    overflow: 'visible',
     justifyContent: 'center',
     alignItems: 'center',
   },

@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { Animated, Platform } from 'react-native';
-import { motion } from '../../../theme/tokens';
+import { motion, shadows } from '../../../theme/tokens';
 import { useAnimatedTransition } from '../../../hooks/useAnimatedTransition';
 
 /**
@@ -8,7 +8,7 @@ import { useAnimatedTransition } from '../../../hooks/useAnimatedTransition';
  */
 export function useCardAnimation({
   interactive = false,
-  hoverTranslateY = -2,
+  hoverTranslateY = -6,
   pressScale = motion?.press?.scale || 0.98,
   duration = motion?.press?.duration || 150,
 } = {}) {
@@ -29,7 +29,7 @@ export function useCardAnimation({
 
   const shadowOpacity = hoverAnim.interpolate({
     inputRange: [0, 1],
-    outputRange: [0.06, 0.18],
+    outputRange: [0.06, 0.22],
   });
 
   const handleMouseEnter = (e) => {
@@ -66,7 +66,7 @@ export function useCardAnimation({
   const animatedStyle = interactive
     ? {
         transform: [{ translateY }, { scale: scaleAnim }],
-        shadowOpacity,
+        ...(hovered ? shadows.cardHover : shadows.cardRest),
       }
     : null;
 

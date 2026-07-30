@@ -5,7 +5,7 @@ export default StyleSheet.create({
   catCard: {
     flex: 1,
     borderRadius: layout.radii.lg,
-    overflow: 'hidden',
+    overflow: 'visible',
     position: 'relative',
   },
   catCardDark: {

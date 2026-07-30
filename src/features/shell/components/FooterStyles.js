@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 import { colors, layout } from '../../../theme/tokens';
 
 const FooterStyles = StyleSheet.create({
@@ -10,13 +10,23 @@ const FooterStyles = StyleSheet.create({
     width: '100%',
     alignItems: 'center',
     justifyContent: 'center',
+    ...Platform.select({
+      web: {
+        width: '100vw',
+        position: 'relative',
+        left: '50%',
+        right: '50%',
+        marginLeft: '-50vw',
+        marginRight: '-50vw',
+      },
+    }),
   },
   footerDark: {
-    backgroundColor: colors.backgroundDark,
+    backgroundColor: colors.surfaceDark,
     borderTopColor: colors.borderDark,
   },
   footerLight: {
-    backgroundColor: colors.backgroundLight,
+    backgroundColor: colors.productCardLight,
     borderTopColor: colors.borderLight,
   },
   contentRow: {

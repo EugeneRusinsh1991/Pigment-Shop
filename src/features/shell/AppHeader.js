@@ -45,9 +45,10 @@ export default function AppHeader(props) {
   const theme = getHeaderTheme(isDark);
   const { width } = useWindowDimensions();
   const isMobile = width < 768;
+  const isDropdownOpen = Boolean(props.showUserMenu || props.showLangMenu || props.showCurrencyMenu);
 
   return (
-    <View id="app-header" style={[styles.header, theme.headerStyle, { justifyContent: 'center' }]}>
+    <View id="app-header" style={[styles.header, theme.headerStyle, { justifyContent: 'center' }, isDropdownOpen && { zIndex: layout.zIndices.tooltip + 1 }]}>
       <View style={[styles.innerRow, { maxWidth: props.contentWidth }]}>
         <AppHeaderLogo
           isDark={props.isDark}

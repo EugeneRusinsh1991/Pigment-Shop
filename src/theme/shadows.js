@@ -41,9 +41,31 @@ export const shadows = {
     web: { boxShadow: '0px 1px 1.5px rgba(0, 0, 0, 0.2)' },
     native: { shadowColor: '#000', shadowOffset: { width: 0, height: 1 }, shadowOpacity: 0.2, shadowRadius: 1.5 },
   },
+  cardRest: {
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowRadius: 8,
+    shadowOpacity: 0.08,
+    elevation: 4,
+  },
   cardHover: {
-    web: { boxShadow: '0px 6px 10px rgba(0, 0, 0, 0.15)' },
-    native: { shadowColor: '#000000', shadowOffset: { width: 0, height: 6 }, shadowOpacity: 0.15, shadowRadius: 10 },
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 12 },
+    shadowRadius: 16,
+    shadowOpacity: 0.18,
+    elevation: 12,
+    native: {
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 12 },
+      shadowRadius: 16,
+      shadowOpacity: 0.18,
+    },
+    web: {
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 12 },
+      shadowRadius: 16,
+      shadowOpacity: 0.18,
+    },
   },
 };
 

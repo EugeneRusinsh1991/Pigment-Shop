@@ -1,6 +1,6 @@
 # 📦 Unused Exports
 
-*Generated on: 30.07.2026, 15:11:28*
+*Generated on: 30.07.2026, 16:53:53*
 
 Exports that are not imported or consumed by any other active file:
 
@@ -94,7 +94,7 @@ Exports that are not imported or consumed by any other active file:
 - [cleanOldFiles.js](file:///d:/Magazine/_PigmentShop/.tools/scripts/cleanOldFiles.js): `cleanOldFiles` ([L29](file:///d:/Magazine/_PigmentShop/.tools/scripts/cleanOldFiles.js#L29))
 - [devServerReport.js](file:///d:/Magazine/_PigmentShop/.tools/scripts/devServerReport.js): `generateMarkdownReport` ([L47](file:///d:/Magazine/_PigmentShop/.tools/scripts/devServerReport.js#L47))
 - [manifestSettings.js](file:///d:/Magazine/_PigmentShop/.tools/scripts/manifestSettings.js): `shouldScanSubdirectories` ([L60](file:///d:/Magazine/_PigmentShop/.tools/scripts/manifestSettings.js#L60))
-- [playwright.helpers.js](file:///d:/Magazine/_PigmentShop/.tools/scripts/playwright.helpers.js): `takeCompressedScreenshot` ([L115](file:///d:/Magazine/_PigmentShop/.tools/scripts/playwright.helpers.js#L115))
+- [playwright.helpers.js](file:///d:/Magazine/_PigmentShop/.tools/scripts/playwright.helpers.js): `takeCompressedScreenshot` ([L189](file:///d:/Magazine/_PigmentShop/.tools/scripts/playwright.helpers.js#L189))
 - [smoke-test.helpers.js](file:///d:/Magazine/_PigmentShop/.tools/scripts/smoke-test/smoke-test.helpers.js): `safeClick` ([L42](file:///d:/Magazine/_PigmentShop/.tools/scripts/smoke-test/smoke-test.helpers.js#L42)), `safeFill` ([L43](file:///d:/Magazine/_PigmentShop/.tools/scripts/smoke-test/smoke-test.helpers.js#L43))
 - [smoke-test.report.js](file:///d:/Magazine/_PigmentShop/.tools/scripts/smoke-test/smoke-test.report.js): `saveSmokeTestReport` ([L85](file:///d:/Magazine/_PigmentShop/.tools/scripts/smoke-test/smoke-test.report.js#L85))
 - [smoke-test.runner.js](file:///d:/Magazine/_PigmentShop/.tools/scripts/smoke-test/smoke-test.runner.js): `runWithConcurrency` ([L161](file:///d:/Magazine/_PigmentShop/.tools/scripts/smoke-test/smoke-test.runner.js#L161)), `testPage` ([L161](file:///d:/Magazine/_PigmentShop/.tools/scripts/smoke-test/smoke-test.runner.js#L161))

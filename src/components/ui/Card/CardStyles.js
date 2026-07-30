@@ -19,20 +19,20 @@ export const variantStyles = StyleSheet.create({
   grid: {
     flexDirection: 'column',
     borderRadius: layout.radii.md,
-    overflow: 'hidden',
+    overflow: 'visible',
     position: 'relative',
   },
   compact: {
     flexDirection: 'column',
     borderRadius: layout.radii.sm,
-    overflow: 'hidden',
+    overflow: 'visible',
     position: 'relative',
   },
   list: {
     flexDirection: 'row',
     borderRadius: layout.radii.md,
     alignItems: 'center',
-    overflow: 'hidden',
+    overflow: 'visible',
     position: 'relative',
   },
 });
@@ -88,12 +88,8 @@ export const slotStyles = StyleSheet.create({
 
 export const getShadowStyle = (isDark, elevated = false) => {
   if (!elevated) return {};
-  const shadow = Platform.select({
-    web: shadows.cardHover.web,
-    default: shadows.cardHover.native,
-  });
   return {
-    ...shadow,
+    ...shadows.cardHover,
     elevation: layout.elevation.md,
   };
 };

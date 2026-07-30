@@ -128,7 +128,7 @@ export default StyleSheet.create({
   stickySearchContainer: {
     ...(Platform.OS === 'web' ? { position: 'sticky' } : { position: 'relative' }),
     top: layout.spacing.none,
-    zIndex: layout.zIndices.header,
+    zIndex: layout.zIndices.sticky,
     width: '100%',
     paddingVertical: layout.spacing.xs,
     alignItems: 'center',

@@ -1,13 +1,14 @@
-import { StyleSheet, View } from 'react-native';
-import { Link } from 'expo-router';
-import { IconButton } from '@/components/ui/Button';
 import { BagIcon, CurrencyIcon, GlobeIcon, ThemeIcon, UserIcon } from '@/components/Icons';
 import { Badge } from '@/components/ui/Badge';
+import { IconButton } from '@/components/ui/Button';
+import { useCart } from '@/features/cart/CartContext';
 import { layout } from '@/theme/tokens';
-import styles from './AppHeaderStyles';
-import LangDropdown from './LangDropdown';
+import { Link } from 'expo-router';
+import { StyleSheet, View } from 'react-native';
 import CurrencyDropdown from './CurrencyDropdown';
+import LangDropdown from './LangDropdown';
 import UserDropdown from './UserDropdown';
+import styles from './AppHeaderStyles';
 
 
 export default function AppHeaderControls({
@@ -27,6 +28,9 @@ export default function AppHeaderControls({
   showUserMenu,
   isAuthenticated,
 }) {
+  const cart = useCart();
+  const effectiveCartCount = cartCount !== undefined ? cartCount : (cart?.totalCount || 0);
+
   return (
     <View style={[styles.rightSec, isMobile && { gap: layout.spacing.sm }]}>
 
@@ -80,10 +84,11 @@ export default function AppHeaderControls({
           icon={(
             <View style={localStyles.bagIconWrapper}>
               <BagIcon color={theme.iconColor} size={18} />
-              {cartCount > 0 && (
+              {effectiveCartCount > 0 && (
                 <Badge
                   variant="counter"
-                  count={cartCount}
+                  size="counter"
+                  count={effectiveCartCount}
                   animated
                   style={localStyles.badgePosition}
                 />
@@ -126,7 +131,7 @@ const localStyles = StyleSheet.create({
   },
   badgePosition: {
     position: 'absolute',
-    top: -layout.spacing.xs,
-    right: -(layout.spacing.xs + layout.spacing.xxs),
+    top: -5,
+    right: -7,
   },
 });

@@ -1,6 +1,15 @@
 # 🩺 Complexity Health Findings (Critical & High)
 
-*Generated on: 30.07.2026, 15:11:28*
+*Generated on: 30.07.2026, 16:53:53*
+
+## 🔴 Critical (> 50 lines)
+
+#### 📁 [playwright.helpers.js](file:///d:/Magazine/_PigmentShop/.tools/scripts/playwright.helpers.js)
+`scripts/playwright.helpers.js`
+
+- 🔴 **`<arrow>`** [L65](file:///d:/Magazine/_PigmentShop/.tools/scripts/playwright.helpers.js#L65)
+  - Lines: 108 | Cyclomatic: 18 | Cognitive: 22 | CRAP: 342
+
 
 ## 🔴 Critical (≤ 50 lines)
 
@@ -8,7 +17,7 @@
 `automation/manual-browser-inspector/ManualBrowserInspector.js`
 
 - 🔴 **`handleKeyDown`** [L190](file:///d:/Magazine/_PigmentShop/.tools/automation/manual-browser-inspector/ManualBrowserInspector.js#L190)
-  - Lines: 12 | Cyclomatic: 13 | Cognitive: 6 | CRAP: 182
+  - Lines: 16 | Cyclomatic: 19 | Cognitive: 9 | CRAP: 380
 
 
 ## 🟠 High (> 50 lines)

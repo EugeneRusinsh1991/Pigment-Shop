@@ -34,16 +34,16 @@ function getMediaProps(product) {
 }
 
 function createNewCartItem(product, price, qty) {
-  const label = product.label || '';
-  const validated = parseWithFallback(CartItemSchema.partial(), product, { id: product.id, label });
-  const itemId = validated.id || product.id;
-  const itemLabel = validated.label || label;
+  const rawId = product.id ?? product._id ?? product.sku ?? product.productId;
+  const itemId = String(rawId);
+  const rawLabel = product.label || product.name || product.title || '';
+  const itemLabel = typeof rawLabel === 'string' ? rawLabel : (rawLabel?.uk || rawLabel?.ru || rawLabel?.en || '');
 
   return {
     id: itemId,
     label: itemLabel,
-    price,
-    qty,
+    price: typeof price === 'number' && !isNaN(price) ? price : (product.price || 0),
+    qty: Math.max(1, qty || 1),
     ...getMediaProps(product),
   };
 }
@@ -86,12 +86,14 @@ export default function useCart() {
 
   const addToCart = useCallback(
     (product, priceOrQty, maybeQty) => {
-      if (!product || !product.id) return;
-      const { price, qty } = parseAddParameters(product, priceOrQty, maybeQty);
+      const prodId = product?.id ?? product?._id ?? product?.sku ?? product?.productId;
+      if (!product || prodId == null) return;
+      const normalizedProduct = { ...product, id: String(prodId) };
+      const { price, qty } = parseAddParameters(normalizedProduct, priceOrQty, maybeQty);
 
       setCartItems((prev) => {
         const safePrev = Array.isArray(prev) ? prev : [];
-        return updateItemQty(safePrev, product, price, qty);
+        return updateItemQty(safePrev, normalizedProduct, price, qty);
       });
     },
     [setCartItems]

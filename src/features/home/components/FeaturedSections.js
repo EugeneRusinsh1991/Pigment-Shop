@@ -1,4 +1,4 @@
-import { Text } from '@/components/ui/Text';
+import { Heading, Text } from '@/components/ui/Text';
 import { useLanguage } from '@/context/LanguageContext';
 import { useTheme } from '@/context/ThemeContext';
 import { colors, layout, shadows } from '@/theme/tokens';
@@ -16,7 +16,7 @@ const setElementText = (ref, text) => {
 
 // ─── Countdown Timer Component ──────────────────────────────────────────────
 
-export function CountdownTimer({ isDark }) {
+export function CountdownTimer({ isDark, showLabel = true }) {
   const { t } = useLanguage();
   const daysRef = useRef(null);
   const hoursRef = useRef(null);
@@ -55,33 +55,35 @@ export function CountdownTimer({ isDark }) {
 
   return (
     <View style={styles.compactTimerRow}>
-      <Text variant="caption" style={[styles.compactTimerLabel, ic(styles.compactTimerLabelDark, styles.compactTimerLabelLight)]}>
-        {t('offerEndsIn')}:
-      </Text>
-      <Text ref={daysRef} variant="caption" weight="bold" style={[styles.compactTimerValue, ic(styles.compactTimerValueDark, styles.compactTimerValueLight)]}>
+      {showLabel && (
+        <Text variant="caption" style={[styles.compactTimerLabel, ic(styles.compactTimerLabelDark, styles.compactTimerLabelLight)]}>
+          {t('offerEndsIn')}:
+        </Text>
+      )}
+      <Heading level={2} ref={daysRef} style={[styles.compactTimerValue, ic(styles.compactTimerValueDark, styles.compactTimerValueLight)]}>
         07
-      </Text>
-      <Text variant="caption" style={[styles.compactTimerUnit, ic(styles.compactTimerUnitDark, styles.compactTimerUnitLight)]}>
-        {' D '}
-      </Text>
-      <Text ref={hoursRef} variant="caption" weight="bold" style={[styles.compactTimerValue, ic(styles.compactTimerValueDark, styles.compactTimerValueLight)]}>
+      </Heading>
+      <Heading level={2} style={[styles.compactTimerUnit, ic(styles.compactTimerUnitDark, styles.compactTimerUnitLight)]}>
+        {'d '}
+      </Heading>
+      <Heading level={2} ref={hoursRef} style={[styles.compactTimerValue, ic(styles.compactTimerValueDark, styles.compactTimerValueLight)]}>
         00
-      </Text>
-      <Text variant="caption" style={[styles.compactTimerUnit, ic(styles.compactTimerUnitDark, styles.compactTimerUnitLight)]}>
-        {' H '}
-      </Text>
-      <Text ref={minutesRef} variant="caption" weight="bold" style={[styles.compactTimerValue, ic(styles.compactTimerValueDark, styles.compactTimerValueLight)]}>
+      </Heading>
+      <Heading level={2} style={[styles.compactTimerUnit, ic(styles.compactTimerUnitDark, styles.compactTimerUnitLight)]}>
+        {'h '}
+      </Heading>
+      <Heading level={2} ref={minutesRef} style={[styles.compactTimerValue, ic(styles.compactTimerValueDark, styles.compactTimerValueLight)]}>
         00
-      </Text>
-      <Text variant="caption" style={[styles.compactTimerUnit, ic(styles.compactTimerUnitDark, styles.compactTimerUnitLight)]}>
-        {' M '}
-      </Text>
-      <Text ref={secondsRef} variant="caption" weight="bold" style={[styles.compactTimerValue, ic(styles.compactTimerValueDark, styles.compactTimerValueLight)]}>
+      </Heading>
+      <Heading level={2} style={[styles.compactTimerUnit, ic(styles.compactTimerUnitDark, styles.compactTimerUnitLight)]}>
+        {'m '}
+      </Heading>
+      <Heading level={2} ref={secondsRef} style={[styles.compactTimerValue, ic(styles.compactTimerValueDark, styles.compactTimerValueLight)]}>
         00
-      </Text>
-      <Text variant="caption" style={[styles.compactTimerUnit, ic(styles.compactTimerUnitDark, styles.compactTimerUnitLight)]}>
-        {' S'}
-      </Text>
+      </Heading>
+      <Heading level={2} style={[styles.compactTimerUnit, ic(styles.compactTimerUnitDark, styles.compactTimerUnitLight)]}>
+        {'s'}
+      </Heading>
     </View>
   );
 }

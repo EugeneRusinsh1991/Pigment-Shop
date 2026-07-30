@@ -8,7 +8,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    borderBottomWidth: layout.borderWidth.thin,
+    borderBottomWidth: layout.borderWidth.none,
     zIndex: layout.zIndices.header,
   },
   headerDark: {

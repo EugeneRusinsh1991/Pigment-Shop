@@ -13,19 +13,18 @@ import { CountdownTimer } from './FeaturedSections';
 
 function DiscountsHeader({ isWide, isDark, title }) {
   const headerStyle = {
-    flexDirection: isWide ? 'row' : 'column',
-    justifyContent: 'space-between',
-    alignItems: isWide ? 'center' : 'flex-start',
+    flexDirection: 'row',
+    alignItems: 'baseline',
     paddingHorizontal: layout.spacing.sm,
     marginBottom: layout.spacing.lg,
-    gap: isWide ? 0 : layout.spacing.sm,
+    gap: layout.spacing.xs,
   };
   return (
     <ScrollFadeUp style={headerStyle}>
       <Heading level={2} style={styles.sectionTitle} isDark={isDark}>
         {title}
       </Heading>
-      <CountdownTimer isDark={isDark} />
+      <CountdownTimer isDark={isDark} showLabel={false} />
     </ScrollFadeUp>
   );
 }

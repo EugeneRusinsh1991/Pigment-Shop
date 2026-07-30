@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
   // --- Variant: Chip ---
   chipContainer: {
     paddingHorizontal: layout.spacing.md,
-    paddingVertical: 0,
+    paddingVertical: layout.spacing.none,
     height: buttonTokens.sizes.sm.height,
     minHeight: buttonTokens.sizes.sm.height,
     minWidth: 80,

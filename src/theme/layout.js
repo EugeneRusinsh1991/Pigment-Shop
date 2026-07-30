@@ -66,7 +66,9 @@ export const layout = {
     full: 1,
   },
   cardHeights: {
-    categoryGrid: { desktop: 280, tablet: 250, mobile: 200 },
+    grid: { desktop: 340, tablet: 280, mobile: 240 },
+    gridImage: { desktop: 230, tablet: 180, mobile: 135 },
+    categoryGrid: { desktop: 340, tablet: 280, mobile: 240 },
     categoryBanner: { desktop: 180, tablet: 160, mobile: 140 },
     heroRightMobile: 220,
     heroRightWide: 360,

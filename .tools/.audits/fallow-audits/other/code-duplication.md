@@ -1,6 +1,6 @@
 # 👥 Significant Code Duplication (≥ 8 lines)
 
-*Generated on: 30.07.2026, 15:11:28*
+*Generated on: 30.07.2026, 16:53:53*
 
 ### Clone Group 1 — 37 lines, 107 tokens · `dup:ce9a6b6b`
 > 💡 Extract duplicated code (37 lines, 2 instances) into a shared function
@@ -8,11 +8,11 @@
 - [setupManualInspector.js:L67–L103](file:///d:/Magazine/_PigmentShop/.tools/automation/manual-browser-inspector/setupManualInspector.js#L67-L103) (`automation/manual-browser-inspector/setupManualInspector.js`)
 - [setupManualInspector.ts:L70–L106](file:///d:/Magazine/_PigmentShop/.tools/automation/manual-browser-inspector/setupManualInspector.ts#L70-L106) (`automation/manual-browser-inspector/setupManualInspector.ts`)
 
-### Clone Group 2 — 27 lines, 101 tokens · `dup:f3cafc46`
-> 💡 Extract duplicated code (27 lines, 2 instances) into a shared function
+### Clone Group 2 — 30 lines, 114 tokens · `dup:a427ba18`
+> 💡 Extract duplicated code (30 lines, 2 instances) into a shared function
 
-- [setupManualInspector.js:L132–L158](file:///d:/Magazine/_PigmentShop/.tools/automation/manual-browser-inspector/setupManualInspector.js#L132-L158) (`automation/manual-browser-inspector/setupManualInspector.js`)
-- [setupManualInspector.ts:L135–L161](file:///d:/Magazine/_PigmentShop/.tools/automation/manual-browser-inspector/setupManualInspector.ts#L135-L161) (`automation/manual-browser-inspector/setupManualInspector.ts`)
+- [setupManualInspector.js:L132–L161](file:///d:/Magazine/_PigmentShop/.tools/automation/manual-browser-inspector/setupManualInspector.js#L132-L161) (`automation/manual-browser-inspector/setupManualInspector.js`)
+- [setupManualInspector.ts:L135–L164](file:///d:/Magazine/_PigmentShop/.tools/automation/manual-browser-inspector/setupManualInspector.ts#L135-L164) (`automation/manual-browser-inspector/setupManualInspector.ts`)
 
 ### Clone Group 3 — 23 lines, 125 tokens · `dup:225200ee`
 > 💡 Extract duplicated code (23 lines, 2 instances) into a shared function

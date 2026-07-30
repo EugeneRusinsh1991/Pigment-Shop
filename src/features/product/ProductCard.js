@@ -5,6 +5,7 @@ import { IconButton } from '../../components/ui/Button';
 import Card from '../../components/ui/Card/Card';
 import { Text } from '../../components/ui/Text';
 import { useLanguage } from '../../context/LanguageContext';
+import { useToast } from '../../context/ToastContext';
 import { getThemedValue, useTheme } from '../../context/ThemeContext';
 import useCardDimensions from '../../hooks/useCardDimensions';
 import { colors } from '../../theme/tokens';
@@ -42,8 +43,14 @@ const ProductPrice = React.memo(function ProductPrice({ price, discountPercent }
 });
 
 function safeStopPropagation(e) {
-  if (e && e.preventDefault) e.preventDefault();
-  if (e && e.stopPropagation) e.stopPropagation();
+  if (!e) return;
+  if (e.preventDefault) e.preventDefault();
+  if (e.stopPropagation) e.stopPropagation();
+  if (e.nativeEvent) {
+    if (e.nativeEvent.preventDefault) e.nativeEvent.preventDefault();
+    if (e.nativeEvent.stopPropagation) e.nativeEvent.stopPropagation();
+    if (e.nativeEvent.stopImmediatePropagation) e.nativeEvent.stopImmediatePropagation();
+  }
 }
 
 function getImageSource(item, imgError) {
@@ -72,6 +79,7 @@ const ProductCardInner = React.forwardRef(({ item, isDark, depth = 1, isFavorite
 
   const handleCartPress = useCallback((e) => {
     safeStopPropagation(e);
+    if (!item) return;
     const effectivePrice = getEffectivePrice(item.price, item.discountPercent);
     addItem(item, effectivePrice, 1);
   }, [addItem, item]);
@@ -96,9 +104,9 @@ const ProductCardInner = React.forwardRef(({ item, isDark, depth = 1, isFavorite
         <View style={styles.topOverlayWrapper} pointerEvents="auto">
           <IconButton
             testID="product-fav-button"
-            icon={<HeartIcon filled={isFavorite} color={heartColor} size={14} />}
+            icon={<HeartIcon filled={isFavorite} color={heartColor} size={18} />}
             onPress={handleFavPress}
-            size={28}
+            size={36}
             variant="glass"
             animated={true}
           />
@@ -106,9 +114,9 @@ const ProductCardInner = React.forwardRef(({ item, isDark, depth = 1, isFavorite
         <View style={styles.bottomOverlayWrapper} pointerEvents="auto">
           <IconButton
             testID="product-cart-button"
-            icon={<CartIcon color={colors.white} size={14} />}
+            icon={<CartIcon color={colors.white} size={18} />}
             onPress={handleCartPress}
-            size={28}
+            size={36}
             variant="solid"
             animated={true}
             style={styles.cartBtnSolidStyle}

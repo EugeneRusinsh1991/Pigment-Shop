@@ -6,8 +6,8 @@ const WIDTH_MAP = {
   depthRest: { desktop: 250, tablet: 220, mobile: 165 },
 };
 
-const STANDARD_HEIGHTS = { desktop: 340, tablet: 280, mobile: 240 };
-const IMG_HEIGHTS = { desktop: 230, tablet: 180, mobile: 135 };
+const STANDARD_HEIGHTS = layout.cardHeights.grid;
+const IMG_HEIGHTS = layout.cardHeights.gridImage;
 
 function getDevice(windowWidth) {
   if (windowWidth >= layout.breakpoints.desktop) return 'desktop';
