@@ -9,6 +9,7 @@ import { ErrorBoundary } from '@/components/ui/Feedback';
 import { Stack, usePathname } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { Pressable, View } from 'react-native';
+import CartDrawer from '@/features/cart/CartDrawer/CartDrawer';
 
 const ic = (isDark, dark, light) => (isDark ? dark : light);
 
@@ -39,6 +40,8 @@ export default function StoreLayout() {
         isAuthenticated={shellData.auth.isAuthenticated}
         onLogout={shellData.handleLogout}
         contentWidth={shellData.contentWidth}
+        onToggleCartDrawer={shellData.menuState.toggleCartDrawer}
+        showCartDrawer={shellData.menuState.showCartDrawer}
       />
       <NavMenu
         visible={shellData.menuState.showNavMenu}
@@ -50,6 +53,10 @@ export default function StoreLayout() {
         onSelectLanguage={shellData.handleSelectLanguage}
         lang={shellData.lang}
         onToggleTheme={shellData.toggleTheme}
+      />
+      <CartDrawer
+        visible={shellData.menuState.showCartDrawer}
+        onClose={() => shellData.menuState.setShowCartDrawer(false)}
       />
       <StoreSearchHeader isHome={isHome} contentWidth={shellData.contentWidth} />
       <View style={styles.mainContent}>

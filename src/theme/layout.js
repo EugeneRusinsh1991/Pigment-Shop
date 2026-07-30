@@ -1,4 +1,6 @@
 import { typography } from './typography.js';
+import { colors } from './colors.js';
+
 
 export const layout = {
   maxContentWidth: 1330,
@@ -135,3 +137,18 @@ export const motion = {
     scaleFrom: 0.96,
   },
 };
+
+export const carouselTokens = {
+  dots: {
+    height: 8,
+    activeWidth: 52,
+    inactiveWidth: layout.spacing.sm,
+    activeColor: colors.accent,
+    inactiveColor: colors.accent,
+    activeBgColor: 'rgba(227, 27, 35, 0.3)',
+    borderRadius: layout.radii.full,
+    gap: layout.spacing.sm,
+  },
+};
+
+

@@ -43,6 +43,31 @@ export const CrossIcon = ({ color, size = 16, style, ...props }) => {
   return <RNText style={getTextStyle(color, size, style)} {...props}>✗</RNText>;
 };
 
+export const CloseIcon = CrossIcon;
+
+export const MinusIcon = ({ color, size = 16, style, ...props }) => {
+  if (Platform.OS === 'web') {
+    return (
+      <svg width={size} height={size} viewBox={iconTokens.viewBox} fill={iconTokens.fillNone} stroke={getThemeColor(color)} strokeWidth={iconTokens.strokeWidth.default} strokeLinecap="round" strokeLinejoin="round" style={getSvgStyle(style)} {...props}>
+        <line x1="5" y1="12" x2="19" y2="12" />
+      </svg>
+    );
+  }
+  return <RNText style={getTextStyle(color, size, style)} {...props}>−</RNText>;
+};
+
+export const PlusIcon = ({ color, size = 16, style, ...props }) => {
+  if (Platform.OS === 'web') {
+    return (
+      <svg width={size} height={size} viewBox={iconTokens.viewBox} fill={iconTokens.fillNone} stroke={getThemeColor(color)} strokeWidth={iconTokens.strokeWidth.default} strokeLinecap="round" strokeLinejoin="round" style={getSvgStyle(style)} {...props}>
+        <line x1="12" y1="5" x2="12" y2="19" />
+        <line x1="5" y1="12" x2="19" y2="12" />
+      </svg>
+    );
+  }
+  return <RNText style={getTextStyle(color, size, style)} {...props}>+</RNText>;
+};
+
 
 export const BackArrowIcon = ({ color, size = 16, style, ...props }) => {
   if (Platform.OS === 'web') {

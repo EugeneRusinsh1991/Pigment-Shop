@@ -14,12 +14,10 @@ export default StyleSheet.create({
   headerDark: {
     backgroundColor: colors.backgroundDark,
     borderBottomColor: colors.borderDark,
-    ...shadow.header(),
   },
   headerLight: {
     backgroundColor: colors.backgroundLight,
     borderBottomColor: colors.borderLight,
-    ...shadow.header(),
   },
   innerRow: {
     width: '100%',

@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors, layout } from '@/theme/tokens';
+import { colors, layout, carouselTokens } from '@/theme/tokens';
 import globalStyles from '@/theme/appStyles';
 
 export const localStyles = StyleSheet.create({
@@ -49,31 +49,32 @@ export const localStyles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     zIndex: layout.zIndices.dropdown,
-    gap: layout.spacing.sm,
+    gap: carouselTokens.dots.gap,
   },
   dot: {
-    height: 4,
-    borderRadius: layout.radii.full,
-    backgroundColor: 'rgba(255,255,255,0.45)',
+    height: carouselTokens.dots.height,
+    borderRadius: carouselTokens.dots.borderRadius,
+    backgroundColor: carouselTokens.dots.inactiveColor,
     transition: 'width 0.3s ease, opacity 0.3s ease',
   },
   dotActive: {
-    width: 52,
+    width: carouselTokens.dots.activeWidth,
     opacity: layout.opacity.full,
-    backgroundColor: 'rgba(255,255,255,0.25)',
+    backgroundColor: carouselTokens.dots.activeBgColor,
     overflow: 'hidden',
-    borderRadius: layout.radii.full,
+    borderRadius: carouselTokens.dots.borderRadius,
   },
   dotInactive: {
-    width: layout.spacing.sm,
-    opacity: layout.opacity.muted,
+    width: carouselTokens.dots.inactiveWidth,
+    opacity: layout.opacity.full,
   },
   progressBar: {
-    backgroundColor: colors.accent,
+    backgroundColor: carouselTokens.dots.activeColor,
     height: '100%',
-    borderRadius: layout.radii.full,
+    borderRadius: carouselTokens.dots.borderRadius,
   },
 });
+
 
 function getBreakoutStyle(isWide, windowWidth) {
   if (isWide) return {};

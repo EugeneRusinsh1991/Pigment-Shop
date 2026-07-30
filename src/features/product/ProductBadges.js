@@ -7,21 +7,21 @@ import { layout } from '../../theme/tokens';
 function renderNewBadge(isNew, t) {
   if (!isNew) return null;
   return (
-    <Badge variant="new" label={t('badgeNew')} size="sm" />
+    <Badge variant="new" label={t('badgeNew')} size="sm" style={styles.badgeFixed} />
   );
 }
 
 function renderFeaturedBadge(isFeatured, t) {
   if (!isFeatured) return null;
   return (
-    <Badge variant="featured" label={t('badgeFeatured')} size="sm" />
+    <Badge variant="featured" label={t('badgeFeatured')} size="sm" style={styles.badgeFixed} />
   );
 }
 
 function renderDiscountBadge(discountPercent) {
   if (!(discountPercent > 0)) return null;
   return (
-    <Badge variant="discount" value={discountPercent} size="sm" />
+    <Badge variant="discount" value={discountPercent} size="sm" style={styles.badgeFixed} />
   );
 }
 
@@ -48,6 +48,11 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'flex-start',
     gap: layout.spacing.xxs,
+  },
+  badgeFixed: {
+    minWidth: 68,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 

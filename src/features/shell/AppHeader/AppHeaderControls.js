@@ -3,7 +3,6 @@ import { Badge } from '@/components/ui/Badge';
 import { IconButton } from '@/components/ui/Button';
 import { useCart } from '@/features/cart/CartContext';
 import { layout } from '@/theme/tokens';
-import { Link } from 'expo-router';
 import { StyleSheet, View } from 'react-native';
 import CurrencyDropdown from './CurrencyDropdown';
 import LangDropdown from './LangDropdown';
@@ -27,6 +26,7 @@ export default function AppHeaderControls({
   onToggleUserMenu,
   showUserMenu,
   isAuthenticated,
+  onToggleCartDrawer,
 }) {
   const cart = useCart();
   const effectiveCartCount = cartCount !== undefined ? cartCount : (cart?.totalCount || 0);
@@ -79,27 +79,26 @@ export default function AppHeaderControls({
         </View>
       )}
 
-      <Link href="/cart" asChild>
-        <IconButton
-          icon={(
-            <View style={localStyles.bagIconWrapper}>
-              <BagIcon color={theme.iconColor} size={18} />
-              {effectiveCartCount > 0 && (
-                <Badge
-                  variant="counter"
-                  size="counter"
-                  count={effectiveCartCount}
-                  animated
-                  style={localStyles.badgePosition}
-                />
-              )}
-            </View>
-          )}
-          size={44}
-          variant="transparent"
-          isDark={isDark}
-        />
-      </Link>
+      <IconButton
+        icon={(
+          <View style={localStyles.bagIconWrapper}>
+            <BagIcon color={theme.iconColor} size={18} />
+            {effectiveCartCount > 0 && (
+              <Badge
+                variant="counter"
+                size="counter"
+                count={effectiveCartCount}
+                animated
+                style={localStyles.badgePosition}
+              />
+            )}
+          </View>
+        )}
+        size={44}
+        variant="transparent"
+        isDark={isDark}
+        onPress={onToggleCartDrawer}
+      />
 
       <View style={styles.langContainer}>
         <IconButton

@@ -66,7 +66,7 @@ export const primitives = {
 export const semantic = {
   color: {
     background: {
-      light: '#FAF8F6',
+      light: '#FFFFFF',
       dark: '#0D0D0D',
     },
     surface: {
@@ -158,13 +158,13 @@ export const colors = {
   accentBlue: '#3B82F6',
 
   // Backgrounds
-  backgroundLight: '#FAF8F6',
+  backgroundLight: '#FFFFFF',
   backgroundDark: '#0D0D0D',
 
   // Surfaces & Cards
   surfaceLight: '#FFFFFF',
   surfaceDark: '#1C1C1C',
-  productCardLight: '#F3EEEA',
+  productCardLight: '#FDF6F6',
   productCardDark: '#1E1E1E',
 
   // Neutral / Shell Surfaces

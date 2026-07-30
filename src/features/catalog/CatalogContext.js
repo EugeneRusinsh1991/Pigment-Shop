@@ -17,7 +17,7 @@ import {
     buildProductCategoryMap
 } from '../../services/catalogViewModel';
 
-const CatalogContext = createContext(null);
+export const CatalogContext = createContext(null);
 
 export function CatalogProvider({ children }) {
   const products   = useSyncExternalStore(subscribe, getProducts);

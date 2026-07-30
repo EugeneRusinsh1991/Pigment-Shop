@@ -1,5 +1,5 @@
 import { Platform, StyleSheet } from 'react-native';
-import { colors, fonts, layout, shadow } from './tokens';
+import { colors, fonts, layout, shadow, shadows } from './tokens';
 
 const rootStyles = Platform.OS === 'web'
   ? { minHeight: '100vh', overflowX: 'hidden', cursor: 'default' }
@@ -69,6 +69,8 @@ export default StyleSheet.create({
     width: '100%',
     borderRadius: layout.radii.xl,
     overflow: 'hidden',
+    ...shadows.cardHover,
+    ...(Platform.OS === 'web' ? shadows.cardHover.web : {}),
   },
   heroRightMobile: {
     height: layout.cardHeights.heroRightMobile,
@@ -138,13 +140,11 @@ export default StyleSheet.create({
     backgroundColor: colors.backgroundDark,
     borderBottomWidth: layout.borderWidth.thin,
     borderBottomColor: colors.borderDark,
-    ...shadow.header(),
   },
   stickySearchContainerLight: {
     backgroundColor: colors.backgroundLight,
     borderBottomWidth: layout.borderWidth.thin,
     borderBottomColor: colors.borderLight,
-    ...shadow.header(),
   },
   searchInner: {
     width: '100%',

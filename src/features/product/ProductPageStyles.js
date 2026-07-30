@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
-import { colors, buttonTokens, layout } from '../../theme/tokens';
+import { colors, buttonTokens, layout, carouselTokens } from '../../theme/tokens';
+
 
 export default StyleSheet.create({
   root: {
@@ -199,21 +200,31 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     zIndex: layout.zIndices.raised,
-    gap: layout.spacing.sm,
+    gap: carouselTokens.dots.gap,
   },
   dot: {
-    height: layout.spacing.sm,
-    borderRadius: layout.spacing.xxs,
-    backgroundColor: colors.white,
+    height: carouselTokens.dots.height,
+    borderRadius: carouselTokens.dots.borderRadius,
+    backgroundColor: carouselTokens.dots.inactiveColor,
+    transition: 'width 0.3s ease, opacity 0.3s ease',
   },
   dotActive: {
-    width: 20,
+    width: carouselTokens.dots.activeWidth,
     opacity: layout.opacity.full,
+    backgroundColor: carouselTokens.dots.activeBgColor,
+    overflow: 'hidden',
+    borderRadius: carouselTokens.dots.borderRadius,
   },
   dotInactive: {
-    width: 8,
-    opacity: layout.opacity.disabled,
+    width: carouselTokens.dots.inactiveWidth,
+    opacity: layout.opacity.full,
   },
+  progressBar: {
+    backgroundColor: carouselTokens.dots.activeColor,
+    height: '100%',
+    borderRadius: carouselTokens.dots.borderRadius,
+  },
+
   badgesOverlay: {
     position: 'absolute',
     top: layout.spacing.md,

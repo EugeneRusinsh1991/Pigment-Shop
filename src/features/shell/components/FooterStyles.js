@@ -3,8 +3,8 @@ import { colors, layout } from '../../../theme/tokens';
 
 const FooterStyles = StyleSheet.create({
   footer: {
-    paddingTop: layout.spacing.xs,
-    paddingBottom: layout.spacing.xxs,
+    paddingTop: layout.spacing.md,
+    paddingBottom: layout.spacing.md,
     paddingHorizontal: layout.spacing.lg,
     borderTopWidth: layout.borderWidth.none,
     width: '100%',

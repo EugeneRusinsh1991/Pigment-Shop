@@ -24,7 +24,7 @@ export default function StoreSearchHeader({ isDark: isDarkProp, isHome, contentW
       style={[
         styles.stickySearchContainer,
         ic(isDark, styles.stickySearchContainerDark, styles.stickySearchContainerLight),
-        isSearchActive && { zIndex: layout.zIndices.tooltip, elevation: layout.elevation.xl },
+        isSearchActive && { zIndex: layout.zIndices.tooltip },
         { marginTop: translateY }
       ]}
     >

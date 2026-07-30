@@ -111,22 +111,22 @@ const ProductCardInner = React.forwardRef(({ item, isDark, depth = 1, isFavorite
             animated={true}
           />
         </View>
-        <View style={styles.bottomOverlayWrapper} pointerEvents="auto">
-          <IconButton
-            testID="product-cart-button"
-            icon={<CartIcon color={colors.white} size={18} />}
-            onPress={handleCartPress}
-            size={36}
-            variant="solid"
-            animated={true}
-            style={styles.cartBtnSolidStyle}
-          />
-        </View>
       </View>
       <View style={[themed.prodInfo]}>
-        <Text variant="overline" color="accent" style={styles.brandText}>{item.brand || t('brandFallback')}</Text>
+        <Text variant="overline" color="primary" style={styles.brandText}>{item.brand || t('brandFallback')}</Text>
         <Text variant="subtitle2" style={styles.prodTitle} numberOfLines={2}>{getLocalizedValue(item.label, lang)}</Text>
         <ProductPrice price={item.price} discountPercent={item.discountPercent} />
+      </View>
+      <View style={styles.bottomOverlayWrapper} pointerEvents="auto">
+        <IconButton
+          testID="product-cart-button"
+          icon={<CartIcon color={colors.white} size={18} />}
+          onPress={handleCartPress}
+          size={36}
+          variant="solid"
+          animated={true}
+          style={styles.cartBtnSolidStyle}
+        />
       </View>
     </Card>
   );

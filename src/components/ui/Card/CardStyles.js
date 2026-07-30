@@ -2,7 +2,7 @@ import { Platform, StyleSheet } from 'react-native';
 import { colors, layout, shadows } from '../../../theme/tokens';
 export const styleMap = {
   containerLight: {
-    backgroundColor: colors.surfaceLight,
+    backgroundColor: colors.productCardLight,
     borderColor: colors.borderLight,
     borderWidth: layout.borderWidth.thin,
   },

@@ -22,11 +22,11 @@ function createCategoryCrumb(node, lang) {
 function getCategoryChain(categoryId, categoryLookup) {
   if (!categoryLookup || !categoryId) return [];
   const chain = [];
-  let current = categoryLookup.get(categoryId);
+  let current = categoryLookup.get(categoryId) || categoryLookup.get(String(categoryId));
   while (current) {
     chain.unshift(current);
     if (!current.parentId) break;
-    current = categoryLookup.get(current.parentId);
+    current = categoryLookup.get(current.parentId) || categoryLookup.get(String(current.parentId));
   }
   return chain;
 }
@@ -43,7 +43,7 @@ function handleCategorySegment(params, categoryLookup, lang) {
 
 function handleProductSegment(params, flatList, categoryLookup, lang) {
   if (!params.id) return [];
-  const product = flatList?.find((p) => p.id === params.id);
+  const product = flatList?.find((p) => String(p.id) === String(params.id));
   if (!product) return [];
 
   const crumbs = [];

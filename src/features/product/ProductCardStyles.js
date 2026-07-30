@@ -11,7 +11,7 @@ export default StyleSheet.create({
     backgroundColor: colors.productCardDark,
   },
   prodCardLight: {
-    backgroundColor: colors.surfaceLight,
+    backgroundColor: colors.productCardLight,
     borderWidth: layout.borderWidth.thin,
     borderColor: colors.borderLight,
   },
@@ -37,7 +37,6 @@ export default StyleSheet.create({
   prodInfoLight: {
   },
   brandText: {
-    color: colors.accent,
     marginBottom: layout.spacing.xxs,
     letterSpacing: 0.5,
     textTransform: 'uppercase',

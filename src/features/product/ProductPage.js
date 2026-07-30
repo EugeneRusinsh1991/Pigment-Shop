@@ -68,7 +68,7 @@ export default function ProductPage({ product: initialProduct, isDark, showNavig
         gridWidth={state.gridWidth}
         isDark={isDark}
         onBack={state.handleBackPress}
-        showBreadcrumbs={!state.isFromAllProducts}
+        showBreadcrumbs={true}
       />
       <ScrollView contentContainerStyle={[styles.scrollContent]} showsVerticalScrollIndicator={false}>
         <View style={[styles.flex1]}>

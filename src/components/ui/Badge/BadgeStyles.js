@@ -135,7 +135,7 @@ function resolveSubtleCustomColors(isDark, customColor) {
 
 const variantColorResolvers = {
   counter:  () => ({ bg: colors.accent, text: colors.white, border: colors.transparent }),
-  discount: () => ({ bg: colors.accent, text: colors.white, border: colors.transparent }),
+  discount: () => ({ bg: colors.white, text: colors.accent, border: colors.transparent }),
   new:      () => ({ bg: colors.accent, text: colors.white, border: colors.transparent }),
   product:  () => ({ bg: colors.accent, text: colors.white, border: colors.transparent }),
   featured: () => ({ bg: colors.purpleMid, text: colors.white, border: colors.transparent }),

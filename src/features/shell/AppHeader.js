@@ -45,7 +45,7 @@ export default function AppHeader(props) {
   const theme = getHeaderTheme(isDark);
   const { width } = useWindowDimensions();
   const isMobile = width < 768;
-  const isDropdownOpen = Boolean(props.showUserMenu || props.showLangMenu || props.showCurrencyMenu);
+  const isDropdownOpen = Boolean(props.showUserMenu || props.showLangMenu || props.showCurrencyMenu || props.showCartDrawer);
 
   return (
     <View id="app-header" style={[styles.header, theme.headerStyle, { justifyContent: 'center' }, isDropdownOpen && { zIndex: layout.zIndices.tooltip + 1 }]}>
@@ -78,6 +78,7 @@ export default function AppHeader(props) {
           showUserMenu={props.showUserMenu}
           isAuthenticated={props.isAuthenticated}
           onLogout={props.onLogout}
+          onToggleCartDrawer={props.onToggleCartDrawer}
         />
       </View>
     </View>

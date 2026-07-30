@@ -65,6 +65,7 @@ export const shadows = {
       shadowOffset: { width: 0, height: 12 },
       shadowRadius: 16,
       shadowOpacity: 0.18,
+      boxShadow: '0px 12px 16px rgba(0, 0, 0, 0.18)',
     },
   },
 };

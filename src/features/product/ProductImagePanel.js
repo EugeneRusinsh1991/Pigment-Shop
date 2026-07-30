@@ -3,6 +3,8 @@ import { View, Animated } from 'react-native';
 import { Text } from '../../components/ui/Text/Text';
 import styles from './ProductPageStyles';
 import MediaRenderer from '../../components/ui/Media/MediaRenderer';
+import { CarouselDots } from '../../components/ui/Media';
+
 import { useCarouselState, getCarouselOpacity } from '../../hooks/useCarouselState';
 import { HeartIcon, ChevronLeftIcon, ChevronRightIcon } from '@/components/Icons';
 import { AnimatedButton } from '../../components/ui/Button';
@@ -59,24 +61,8 @@ function CarouselArrows({ show, onPrev, onNext }) {
   );
 }
 
-function CarouselDots({ banners, currentIndex, handleSwitch }) {
-  if (banners.length <= 1) return null;
-  return (
-    <View style={styles.dotsContainer}>
-      {banners.map((_, index) => (
-        <AnimatedButton
-          key={index}
-          style={[
-            styles.dot,
-            index === currentIndex ? styles.dotActive : styles.dotInactive,
-          ]}
-          onPress={() => handleSwitch(index)}
-          hitSlop={{ top: 18, bottom: 18, left: 12, right: 12 }}
-        />
-      ))}
-    </View>
-  );
-}
+
+
 
 function ProductFavoriteBtn({ isWide, isDark, isFavorite, onToggleFavorite, product }) {
   if (isWide) return null;

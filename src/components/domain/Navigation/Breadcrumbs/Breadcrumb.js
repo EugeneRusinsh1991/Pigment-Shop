@@ -3,6 +3,8 @@ import { HomeIcon } from '@/components/Icons';
 import { Text } from '@/components/ui/Text';
 import { colors, layout } from '@/theme/tokens';
 import { buildBreadcrumbStack } from '@/utils/breadcrumbResolver';
+import { CatalogContext } from '@/features/catalog/CatalogContext';
+import { useContext } from 'react';
 import { Link, useLocalSearchParams, useSegments } from 'expo-router';
 import { ScrollView, View } from 'react-native';
 import { useBreadcrumbTheme } from './useBreadcrumbTheme';
@@ -39,10 +41,14 @@ function CrumbItem({ crumb, isLast, styles, testID }) {
  * Props:
  *   isDark  boolean
  */
-export function Breadcrumb({ isDark: isDarkProps, flatList, categoryLookup }) {
+export function Breadcrumb({ isDark: isDarkProps, flatList: flatListProp, categoryLookup: categoryLookupProp }) {
   const { t, lang, styles } = useBreadcrumbTheme(isDarkProps);
   const segments = useSegments();
   const params = useLocalSearchParams();
+  const catalogCtx = useContext(CatalogContext);
+
+  const flatList = flatListProp || catalogCtx?.flatList;
+  const categoryLookup = categoryLookupProp || catalogCtx?.categoryLookup;
 
   const stack = buildBreadcrumbStack({ segments, params, flatList, categoryLookup, t, lang });
 

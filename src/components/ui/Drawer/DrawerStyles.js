@@ -3,11 +3,12 @@ import { colors, layout, shadows } from '../../../theme/tokens';
 
 export const getDrawerStyles = (position = 'left') => {
   const isHorizontal = position === 'left' || position === 'right';
+  const flexDirection = position === 'right' ? 'row-reverse' : isHorizontal ? 'row' : 'column';
 
   return StyleSheet.create({
     container: {
       flex: 1,
-      flexDirection: isHorizontal ? 'row' : 'column',
+      flexDirection,
       position: 'relative',
       zIndex: layout.zIndices.drawer,
     },
