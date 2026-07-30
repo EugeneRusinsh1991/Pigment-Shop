@@ -170,13 +170,13 @@ export default function ManualBrowserInspector() {
     return { mouse: { x, y, active: true }, target: buildTargetInfo(el) };
   };
 
-  const handleCapture = async () => {
+  const handleCapture = async (options = { cropToTarget: false }) => {
     const stateDump = getAppStateDump(contexts);
     const timestamp = getTimestamp(stateDump);
     const overlayText = getOverlayText(stateDump);
     const hoverInfo = getHoverInfo();
     if (window.__playwright_takeScreenshotAndDumpState) {
-      await window.__playwright_takeScreenshotAndDumpState(timestamp, stateDump, overlayText, hoverInfo);
+      await window.__playwright_takeScreenshotAndDumpState(timestamp, stateDump, overlayText, hoverInfo, options);
     }
   };
 
@@ -190,11 +190,15 @@ export default function ManualBrowserInspector() {
     const handleKeyDown = (e) => {
       const isAlt1 = e.altKey && (e.code === 'Digit1' || e.code === 'Numpad1' || e.key === '1' || e.key === '!' || e.keyCode === 49);
       const isAlt2 = e.altKey && (e.code === 'Digit2' || e.code === 'Numpad2' || e.key === '2' || e.key === '@' || e.keyCode === 50);
+      const isAlt9 = e.altKey && (e.code === 'Digit9' || e.code === 'Numpad9' || e.key === '9' || e.key === '(' || e.keyCode === 57);
 
       if (isAlt1) {
         e.preventDefault();
-        handleCapture();
+        handleCapture({ cropToTarget: false });
       } else if (isAlt2) {
+        e.preventDefault();
+        handleCapture({ cropToTarget: true });
+      } else if (isAlt9) {
         e.preventDefault();
         toggleLiveHighlight();
       }
@@ -207,8 +211,9 @@ export default function ManualBrowserInspector() {
   if (!isPlaywright) return null;
 
   const actions = [
-    { id: 'alt1', label: 'Capture Screenshot & State', hotkeyLabel: 'Alt+1', handler: handleCapture },
-    { id: 'alt2', label: `Live Highlight (${isLiveHighlight ? 'ON' : 'OFF'})`, hotkeyLabel: 'Alt+2', handler: toggleLiveHighlight },
+    { id: 'alt1', label: 'Capture Full Screenshot & State', hotkeyLabel: 'Alt+1', handler: () => handleCapture({ cropToTarget: false }) },
+    { id: 'alt2', label: 'Capture Target Cropped Screenshot', hotkeyLabel: 'Alt+2', handler: () => handleCapture({ cropToTarget: true }) },
+    { id: 'alt9', label: `Live Highlight (${isLiveHighlight ? 'ON' : 'OFF'})`, hotkeyLabel: 'Alt+9', handler: toggleLiveHighlight },
   ];
 
   return (

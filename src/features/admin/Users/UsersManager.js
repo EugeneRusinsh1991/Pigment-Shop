@@ -10,7 +10,7 @@ import DataTable from '@/components/domain/DataTable/DataTable';
 import EmptyState from '@/components/domain/DataTable/EmptyState';
 import { SearchInput } from '@/components/domain/Search';
 import { Text } from '@/components/ui/Text';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ActivityIndicator, View } from 'react-native';
 import { useLanguage } from '../../../context/LanguageContext';
 import { useTheme } from '../../../context/ThemeContext';
@@ -22,6 +22,9 @@ import { useCrudWorkflow } from '../useCrudWorkflow';
 import UserDetails from './UserDetails';
 import { DesktopUserRow, MobileUserCard } from './UserRow';
 import styles from './UsersStyles';
+import CatalogPagination from '../../catalog/CatalogPagination';
+
+const PAGE_SIZE = 50;
 
 function sortUsers(users, sortField, sortDirection) {
   if (!sortField) return users;
@@ -123,6 +126,13 @@ export default function UsersManager() {
     loadFn: loadUsers,
   });
 
+  // Pagination
+  const [currentPage, setCurrentPage] = useState(1);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchQuery, sortField, sortDirection]);
+
   const sortedUsers = React.useMemo(() => {
     return sortUsers(users, sortField, sortDirection);
   }, [users, sortField, sortDirection]);
@@ -130,6 +140,12 @@ export default function UsersManager() {
   const filteredUsers = React.useMemo(() => {
     return sortedUsers.filter((user) => matchUserSearch(user, searchQuery));
   }, [sortedUsers, searchQuery]);
+
+  const totalPages = Math.ceil(filteredUsers.length / PAGE_SIZE) || 1;
+  const paginatedUsers = React.useMemo(() => {
+    const start = (currentPage - 1) * PAGE_SIZE;
+    return filteredUsers.slice(start, start + PAGE_SIZE);
+  }, [filteredUsers, currentPage]);
 
   if (selectedUser) {
     return (
@@ -144,31 +160,36 @@ export default function UsersManager() {
   return (
     <View style={styles.container}>
       {!loading && (
-        <View style={styles.topRow}>
-          <SearchInput
-            value={searchQuery}
-            onChangeText={setSearchQuery}
-            placeholder={t('adminUsersSearchPlaceholder')}
-            style={styles.searchInput}
-            onClear={() => setSearchQuery('')}
-          />
-          <View style={styles.countBadge}>
-            <Text style={styles.countText} size={12} weight="600">{filteredUsers.length}</Text>
-          </View>
-        </View>
+        <SearchInput
+          value={searchQuery}
+          onChangeText={setSearchQuery}
+          placeholder={t('adminUsersSearchPlaceholder')}
+          style={styles.toolbar}
+          onClear={() => setSearchQuery('')}
+        />
       )}
 
       <UsersStatus loading={loading} error={error} isEmpty={users.length === 0} t={t} />
 
       {showTable && (
-        <UsersTable
-          t={t}
-          sortField={sortField}
-          sortDirection={sortDirection}
-          handleSort={handleSort}
-          users={filteredUsers}
-          onSelectUser={setSelectedUser}
-        />
+        <>
+          <UsersTable
+            t={t}
+            sortField={sortField}
+            sortDirection={sortDirection}
+            handleSort={handleSort}
+            users={paginatedUsers}
+            onSelectUser={setSelectedUser}
+          />
+          {totalPages > 1 && (
+            <CatalogPagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPrev={() => setCurrentPage((p) => Math.max(1, p - 1))}
+              onNext={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+            />
+          )}
+        </>
       )}
     </View>
   );

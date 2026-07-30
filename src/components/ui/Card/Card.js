@@ -120,6 +120,8 @@ const staticStyles = StyleSheet.create({
     width: '100%',
     height: '100%',
     position: 'relative',
+    borderRadius: layout.radii.md,
+    overflow: 'hidden',
   },
 });
 

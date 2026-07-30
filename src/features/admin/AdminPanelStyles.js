@@ -62,6 +62,13 @@ export default StyleSheet.create({
     borderBottomWidth: layout.borderWidth.thin,
     borderBottomColor: colors.borderLight,
   },
+  toggle: {
+    flex: 1,
+    width: '100%',
+  },
+  toggleOption: {
+    paddingHorizontal: layout.spacing.xs,
+  },
   content: {
     flex: 1,
   },

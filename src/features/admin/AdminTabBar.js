@@ -17,7 +17,7 @@ const ADMIN_TABS = [
 export default function AdminTabBar({ activeTab, onSelect, isDark }) {
   const { t } = useLanguage();
   const { width } = useWindowDimensions();
-  const isMobile = width < layout.breakpoints.mobile;
+  const isMobile = width < layout.breakpoints.sm;
 
   const options = useMemo(
     () =>
@@ -35,6 +35,8 @@ export default function AdminTabBar({ activeTab, onSelect, isDark }) {
       onChange={onSelect}
       size="md"
       isDark={isDark}
+      style={styles.toggle}
+      optionStyle={styles.toggleOption}
     />
   );
 
@@ -44,7 +46,7 @@ export default function AdminTabBar({ activeTab, onSelect, isDark }) {
         horizontal
         showsHorizontalScrollIndicator={true}
         style={styles.tabBarMobile}
-        contentContainerStyle={{ paddingHorizontal: layout.spacing.sm, paddingVertical: layout.spacing.xs, alignItems: 'center' }}
+        contentContainerStyle={{ paddingHorizontal: layout.spacing.sm, paddingVertical: layout.spacing.xs, alignItems: 'center', minWidth: '100%' }}
       >
         {toggleComponent}
       </ScrollView>

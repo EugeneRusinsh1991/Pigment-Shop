@@ -7,7 +7,7 @@
  * layer) rather than directly touching the shared catalog state.
  * Read helpers (getAllProducts, searchProducts) remain in adminProductsTransforms.
  */
-import { useState } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { View, useWindowDimensions } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
 import { SearchInput } from '@/components/domain/Search';
@@ -17,6 +17,9 @@ import styles from './ProductsStyles';
 import ProductsTable from './ProductsTable';
 import { useProductsWorkflow } from './useProductsWorkflow';
 import AdminSaveFooter from '../AdminSaveFooter';
+import CatalogPagination from '../../catalog/CatalogPagination';
+
+const PAGE_SIZE = 50;
 
 export default function ProductsManager() {
   const {
@@ -42,6 +45,19 @@ export default function ProductsManager() {
   const { t } = useTheme();
   const [viewMode, setViewMode] = useState('list');
   const [editingProduct, setEditingProduct] = useState(null);
+
+  // Pagination
+  const [currentPage, setCurrentPage] = useState(1);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [query, sortField, sortDirection, onlyDiscount, onlyNew]);
+
+  const totalPages = Math.ceil(displayedProducts.length / PAGE_SIZE) || 1;
+  const paginatedProducts = useMemo(() => {
+    const start = (currentPage - 1) * PAGE_SIZE;
+    return displayedProducts.slice(start, start + PAGE_SIZE);
+  }, [displayedProducts, currentPage]);
 
   const openAdd = () => {
     setEditingProduct(null);
@@ -96,12 +112,20 @@ export default function ProductsManager() {
         onAdd={openAdd}
       />
       <ProductsTable
-        products={displayedProducts}
+        products={paginatedProducts}
         sortField={sortField}
         sortDirection={sortDirection}
         onSort={handleSort}
         onEdit={openEdit}
       />
+      {totalPages > 1 && (
+        <CatalogPagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPrev={() => setCurrentPage((p) => Math.max(1, p - 1))}
+          onNext={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+        />
+      )}
       <AdminSaveFooter 
         isDirty={isDirty} 
         isSaving={isSaving} 

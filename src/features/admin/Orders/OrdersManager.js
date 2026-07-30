@@ -1,17 +1,20 @@
 /**
  * OrdersManager.js
  */
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import { View } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
 import useSort from '../../../hooks/useSort';
 import { loadAdminOrders } from '../../../services/adminOrdersService';
+import CatalogPagination from '../../catalog/CatalogPagination';
 import { useCrudWorkflow } from '../useCrudWorkflow';
 import OrderDetails from './OrderDetails';
 import { getStatusGroup, sortOrders } from './OrdersSort';
 import styles from './OrdersStyles';
 import { renderContent } from './OrdersTable';
 import { StatusFilterBar } from './OrdersTableControls';
+
+const PAGE_SIZE = 50;
 
 export default function OrdersManager() {
   const { t } = useTheme();
@@ -25,6 +28,13 @@ export default function OrdersManager() {
 
   // Status filter — array of active filter keys, ['all'] by default
   const [activeFilter, setActiveFilter] = useState(['all']);
+
+  // Pagination
+  const [currentPage, setCurrentPage] = useState(1);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [activeFilter, sortField, sortDirection]);
 
   const handleStatusUpdated = (orderId, newStatus) => {
     setInternalData((prev) => 
@@ -50,6 +60,12 @@ export default function OrdersManager() {
     return sortOrders(filtered, sortField, sortDirection);
   }, [orders, activeFilter, sortField, sortDirection]);
 
+  const totalPages = Math.ceil(filteredSortedOrders.length / PAGE_SIZE) || 1;
+  const paginatedOrders = useMemo(() => {
+    const start = (currentPage - 1) * PAGE_SIZE;
+    return filteredSortedOrders.slice(start, start + PAGE_SIZE);
+  }, [filteredSortedOrders, currentPage]);
+
   if (selectedOrder) {
     return (
       <View style={styles.container}>
@@ -74,13 +90,23 @@ export default function OrdersManager() {
       {renderContent({
         loading,
         error,
-        orders: filteredSortedOrders,
+        orders: paginatedOrders,
         t,
         onSelectOrder: setSelectedOrder,
         sortField,
         sortDirection,
         onSort: handleSort,
       })}
+
+      {!loading && !error && totalPages > 1 && (
+        <CatalogPagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPrev={() => setCurrentPage((p) => Math.max(1, p - 1))}
+          onNext={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+          loading={loading}
+        />
+      )}
     </View>
   );
 }

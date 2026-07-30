@@ -6,8 +6,10 @@ import { colors, layout, shadow } from '../../../theme/tokens';
 
 export default StyleSheet.create({
   container: {
-    paddingHorizontal: layout.spacing.xl,
-    paddingTop: layout.spacing.xl,
+    padding: layout.spacing.xl,
+  },
+  toolbar: {
+    marginBottom: layout.spacing.md,
   },
   headerRow: {
     flexDirection: 'row',
@@ -34,9 +36,7 @@ export default StyleSheet.create({
   },
 
   topRow: {
-    maxWidth: 960,
     width: '100%',
-    alignSelf: 'center',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -46,12 +46,10 @@ export default StyleSheet.create({
 
   tableCard: {
     backgroundColor: colors.surfaceLight,
-    borderRadius: layout.radii.iconBtn,
-    maxWidth: 960,
+    borderRadius: layout.radii.md,
     width: '100%',
-    alignSelf: 'center',
     ...shadow.card(),
-    elevation: 2,
+    elevation: layout.elevation.sm,
     overflow: 'hidden',
   },
 

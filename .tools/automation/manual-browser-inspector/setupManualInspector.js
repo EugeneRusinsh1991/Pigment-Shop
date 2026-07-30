@@ -128,15 +128,18 @@ async function setupManualInspector(page) {
   try {
     await page.exposeFunction(
       '__playwright_takeScreenshotAndDumpState',
-      async (timestamp, stateDump, overlayText, hoverInfo) => {
+      async (timestamp, stateDump, overlayText, hoverInfo, options) => {
         const { screenshotsDir, stateDir, reportsDir, screenshotPath, statePath, reportPath, screenshotFilename } =
           buildFilePaths(timestamp);
         ensureDirs([BASE_LOG_DIR]);
 
+        const cropToTarget = options?.cropToTarget ?? false;
         const base64Data = await takeCompressedScreenshot(page, {
-          captureQuality: 70,
-          exportQuality: 0.3,
+          captureQuality: 80,
+          exportQuality: 0.4,
           scale: 0.5,
+          cropToTarget,
+          cropPadding: 100,
           overlayText,
           hoverInfo,
         });

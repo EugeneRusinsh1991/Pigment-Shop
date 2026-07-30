@@ -17,8 +17,6 @@ export default StyleSheet.create({
   },
   imageContainer: {
     height: 260,
-    borderTopLeftRadius: layout.radii.lg,
-    borderTopRightRadius: layout.radii.lg,
     overflow: 'hidden',
   },
   imageContainerDark: {
