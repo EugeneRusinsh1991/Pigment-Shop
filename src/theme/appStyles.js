@@ -13,7 +13,6 @@ export default StyleSheet.create({
     width: '100%',
     flexDirection: 'column',
     alignItems: 'stretch',
-    overflow: 'hidden',
     ...rootStyles,
   },
   containerDark: { backgroundColor: colors.backgroundDark },
@@ -25,15 +24,11 @@ export default StyleSheet.create({
     minHeight: 0,
     width: '100%',
     alignSelf: 'stretch',
-    overflow: 'hidden',
   },
   mainContentBody: {
     flexGrow: 1,
-    flexShrink: 1,
-    minHeight: 0,
     width: '100%',
     alignSelf: 'stretch',
-    overflow: 'hidden',
   },
   footerContainer: {
     paddingTop: layout.spacing.lg,

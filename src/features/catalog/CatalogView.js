@@ -1,6 +1,6 @@
 import { useRouter } from 'expo-router';
 import { useCallback } from 'react';
-import { ScrollView, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { useLanguage } from '../../context/LanguageContext';
 import styles from '../../theme/appStyles';
 import { layout } from '../../theme/tokens';
@@ -143,14 +143,12 @@ export default function CatalogView({
           style={layoutStyles.listContainer}
           initialNumToRender={8}
           maxToRenderPerBatch={8}
-          windowSize={5}
+          scrollEnabled={false}
           removeClippedSubviews={false}
         />
       ) : (
-        <ScrollView
-          contentContainerStyle={scrollContentStyle}
-          showsVerticalScrollIndicator={false}
-          style={layoutStyles.listContainer}
+        <View
+          style={[scrollContentStyle, layoutStyles.listContainer]}
         >
           <CatalogHeader
             isDark={isDark}
@@ -175,7 +173,7 @@ export default function CatalogView({
               favs={favs}
             />
           </View>
-        </ScrollView>
+        </View>
       )}
     </View>
   );
@@ -183,12 +181,10 @@ export default function CatalogView({
 
 const layoutStyles = StyleSheet.create({
   catalogContainer: {
-    flex: 1,
-    minHeight: '100%',
+    flexGrow: 1,
   },
   listContainer: {
-    flex: 1,
-    minHeight: '100%',
+    flexGrow: 1,
   },
   itemWrapper: {
     alignSelf: 'stretch',
@@ -200,16 +196,12 @@ const layoutStyles = StyleSheet.create({
   gridContent: {
     alignSelf: 'center',
     paddingBottom: layout.spacing.none,
-    flexGrow: 1,
-    minHeight: '100%',
   },
   scrollContent: {
     alignSelf: 'center',
     paddingBottom: layout.spacing.none,
-    flexGrow: 1,
   },
   footerWrapper: {
-    flex: 1,
-    justifyContent: 'flex-end',
+    width: '100%',
   },
 });

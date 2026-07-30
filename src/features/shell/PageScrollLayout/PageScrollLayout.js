@@ -1,20 +1,20 @@
-import { ScrollView, View } from 'react-native';
+import { View } from 'react-native';
 import commonStyles from '../../../theme/commonStyles';
 
-const NARROW_MAX_WIDTH = 580;
-
-export default function PageScrollLayout({ children, isDark, maxWidth, scrollContentStyle }) {
+export default function PageScrollLayout({ children, isDark, maxWidth }) {
   return (
-    <ScrollView
-      style={[commonStyles.container, isDark ? commonStyles.containerDark : commonStyles.containerLight]}
-      contentContainerStyle={[commonStyles.pageScrollContent, scrollContentStyle]}
-      showsVerticalScrollIndicator={false}
+    <View
+      style={[
+        { flexGrow: 1, width: '100%' },
+        isDark ? commonStyles.containerDark : commonStyles.containerLight
+      ]}
     >
-      <View style={commonStyles.flex1}>
+      <View style={{ flexGrow: 1 }}>
         <View style={[commonStyles.pageContent, commonStyles.contentWrapper, maxWidth != null && { maxWidth }]}>
           {children}
         </View>
       </View>
-    </ScrollView>
+    </View>
   );
 }
+

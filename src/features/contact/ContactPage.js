@@ -1,4 +1,4 @@
-import { ScrollView, View, useWindowDimensions } from 'react-native';
+import { View, useWindowDimensions } from 'react-native';
 import { Heading } from '../../components/ui/Text';
 import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
@@ -18,10 +18,8 @@ export default function ContactPage({ isDark }) {
   const contentWidth = getContentGridWidth(windowWidth);
 
   return (
-    <ScrollView
+    <View
       style={[commonStyles.container, ic(commonStyles.containerDark, commonStyles.containerLight)]}
-      contentContainerStyle={[commonStyles.scrollContent, styles.noPaddingBottom]}
-      showsVerticalScrollIndicator={false}
     >
       <View style={styles.flex1}>
         <View style={[commonStyles.content, styles.contentPadding]}>
@@ -36,7 +34,6 @@ export default function ContactPage({ isDark }) {
           <ContactQuestionForm t={t} ic={ic} isDark={isDark} isMobile={isMobile} contentWidth={contentWidth} />
         </View>
       </View>
-
-    </ScrollView>
+    </View>
   );
 }

@@ -1,5 +1,5 @@
 import { PageNavigation } from '@/components/domain/Navigation';
-import { ScrollView, View } from 'react-native';
+import { View } from 'react-native';
 import { SkeletonLoader, ProductDetailSkeleton } from '../../components/ui/Feedback';
 import { ScrollFadeUp } from '../../components/ui/Motion';
 import { useProductPageState } from '../../hooks/useProductPageState';
@@ -70,30 +70,27 @@ export default function ProductPage({ product: initialProduct, isDark, showNavig
         onBack={state.handleBackPress}
         showBreadcrumbs={true}
       />
-      <ScrollView contentContainerStyle={[styles.scrollContent]} showsVerticalScrollIndicator={false}>
-        <View style={[styles.flex1]}>
-          <View style={[styles.pageBodyContainer, { width: state.gridWidth }]}>
-            <ScrollFadeUp>
-              <ProductDetails
-                product={state.product}
-                isWide={state.isWide}
-                isDark={isDark}
-                qty={state.qty}
-                onDecreaseQty={state.decreaseQty}
-                onIncreaseQty={state.increaseQty}
-                onAddToCart={state.onAddToCart}
-                isFavorite={state.productIsFavorite}
-                onToggleFavorite={state.onToggleFavorite}
-                reviewsState={state.reviewsState}
-              />
-            </ScrollFadeUp>
-            <ScrollFadeUp>
-              <ProductReviews product={state.product} isDark={isDark} reviewsState={state.reviewsState} />
-            </ScrollFadeUp>
-          </View>
+      <View style={[styles.flex1]}>
+        <View style={[styles.pageBodyContainer, { width: state.gridWidth }]}>
+          <ScrollFadeUp>
+            <ProductDetails
+              product={state.product}
+              isWide={state.isWide}
+              isDark={isDark}
+              qty={state.qty}
+              onDecreaseQty={state.decreaseQty}
+              onIncreaseQty={state.increaseQty}
+              onAddToCart={state.onAddToCart}
+              isFavorite={state.productIsFavorite}
+              onToggleFavorite={state.onToggleFavorite}
+              reviewsState={state.reviewsState}
+            />
+          </ScrollFadeUp>
+          <ScrollFadeUp>
+            <ProductReviews product={state.product} isDark={isDark} reviewsState={state.reviewsState} />
+          </ScrollFadeUp>
         </View>
-
-      </ScrollView>
+      </View>
     </View>
   );
 }

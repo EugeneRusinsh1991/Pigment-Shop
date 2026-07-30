@@ -1,4 +1,4 @@
-import { View } from 'react-native';
+import { Platform, View } from 'react-native';
 import Footer from '../components/Footer';
 import { sharedLayoutWrapperStyles } from './SharedLayoutWrapperStyles';
 import { useSharedLayoutWrapperTheme } from './useSharedLayoutWrapperTheme';
@@ -14,7 +14,7 @@ export default function SharedLayoutWrapper({
   const { isDark } = useSharedLayoutWrapperTheme({ isDarkProp });
 
   return (
-    <View style={sharedLayoutWrapperStyles.wrapper}>
+    <View style={sharedLayoutWrapperStyles.scrollRoot}>
       <View style={[sharedLayoutWrapperStyles.content, contentContainerStyle]}>
         {children}
       </View>

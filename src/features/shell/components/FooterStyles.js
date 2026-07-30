@@ -10,16 +10,6 @@ const FooterStyles = StyleSheet.create({
     width: '100%',
     alignItems: 'center',
     justifyContent: 'center',
-    ...Platform.select({
-      web: {
-        width: '100vw',
-        position: 'relative',
-        left: '50%',
-        right: '50%',
-        marginLeft: '-50vw',
-        marginRight: '-50vw',
-      },
-    }),
   },
   footerDark: {
     backgroundColor: colors.surfaceDark,

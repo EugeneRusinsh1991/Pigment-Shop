@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, View } from 'react-native';
+import { View } from 'react-native';
 import { ScrollFadeUp } from '../../../components/ui/Motion';
 import { Heading } from '../../../components/ui/Text';
 import useGridLayout from '../../../hooks/useGridLayout';
@@ -11,10 +11,8 @@ export default function AccountLayout({ title, children, isDark, auth }) {
   const { isWide, gridWidth } = useGridLayout();
 
   return (
-    <ScrollView
+    <View
       style={[styles.container, isDark ? styles.containerDark : styles.containerLight]}
-      contentContainerStyle={[styles.scrollContent, styles.noPaddingBottom]}
-      showsVerticalScrollIndicator={false}
     >
       <View style={styles.flex1}>
         <View
@@ -53,6 +51,6 @@ export default function AccountLayout({ title, children, isDark, auth }) {
         </View>
       </View>
 
-    </ScrollView>
+    </View>
   );
 }

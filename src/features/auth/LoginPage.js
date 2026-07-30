@@ -1,5 +1,5 @@
 import { MailIcon } from '@/components/Icons';
-import { KeyboardAvoidingView, Platform, ScrollView, View } from 'react-native';
+import { KeyboardAvoidingView, Platform, View } from 'react-native';
 import { Button } from '../../components/ui/Button';
 import { PageTransition } from '../../components/ui/Motion';
 import { Text } from '../../components/ui/Text';
@@ -42,9 +42,8 @@ export default function LoginPage({ isDark: isDarkProp }) {
       behavior={KEYBOARD_BEHAVIOR}
       style={[styles.container, ic(isDark, styles.containerDark, styles.containerLight), styles.noPadding]}
     >
-      <ScrollView
-        contentContainerStyle={styles.scrollContent}
-        showsVerticalScrollIndicator={false}
+      <View
+        style={styles.scrollContent}
       >
         <View style={styles.centerContainer}>
           <PageTransition key={isRegister} trigger={isRegister}>
@@ -129,7 +128,7 @@ export default function LoginPage({ isDark: isDarkProp }) {
           </PageTransition>
         </View>
 
-      </ScrollView>
+      </View>
     </KeyboardAvoidingView>
   );
 }

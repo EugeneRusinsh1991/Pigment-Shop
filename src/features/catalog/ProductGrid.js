@@ -66,6 +66,7 @@ export default function ProductGrid({ products, cols, cardWidth, isDark, onCardP
       ListFooterComponent={listFooter}
       ListEmptyComponent={<EmptyCatalogState isDark={isDark} label={emptyLabel} />}
       showsVerticalScrollIndicator={!isNarrow}
+      scrollEnabled={false}
       initialNumToRender={8}
       maxToRenderPerBatch={8}
       windowSize={5}
@@ -76,10 +77,10 @@ export default function ProductGrid({ products, cols, cardWidth, isDark, onCardP
 
 const styles = StyleSheet.create({
   grid: { paddingBottom: layout.spacing.none },
-  gridList: { width: '100%', minHeight: '100%' },
+  gridList: { width: '100%' },
   gridNarrow: { alignSelf: 'center' },
   item: { alignSelf: 'stretch' },
-  contentContainer: { flexGrow: 1, minHeight: '100%' },
+  contentContainer: { flexGrow: 1 },
   headerStyle: {
     zIndex: layout.zIndices.drawer,
     elevation: layout.zIndices.drawer,

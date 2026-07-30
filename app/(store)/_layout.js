@@ -6,7 +6,7 @@ import StoreSearchHeader from '@/features/shell/StoreSearchHeader';
 import { useAppShell } from '@/features/shell/useAppShell';
 import styles from '@/theme/appStyles';
 import { ErrorBoundary } from '@/components/ui/Feedback';
-import { Stack, usePathname } from 'expo-router';
+import { Slot, usePathname } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { Pressable, View } from 'react-native';
 import CartDrawer from '@/features/cart/CartDrawer/CartDrawer';
@@ -64,7 +64,7 @@ export default function StoreLayout() {
           contentContainerStyle={styles.mainContentBody}
         >
           <ErrorBoundary>
-            <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: 'transparent' } }} />
+            <Slot />
           </ErrorBoundary>
         </SharedLayoutWrapper>
       </View>
