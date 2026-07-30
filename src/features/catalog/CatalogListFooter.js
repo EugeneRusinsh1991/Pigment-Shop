@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import NewArrivalsFooter from './components/NewArrivalsFooter';
 import DiscountsSection from '../home/components/DiscountsSection';
-import Footer from '../shell/components/Footer';
+
 import { layout } from '../../theme/tokens';
 
 /**
@@ -34,8 +34,7 @@ export default function CatalogListFooter({ showPromotionalSections, isTransitio
           favs={favs}
         />
       )}
-      <View style={styles.spacer} />
-      {(!showPromotionalSections || isTransitionReady) && <Footer />}
+
     </View>
   );
 }

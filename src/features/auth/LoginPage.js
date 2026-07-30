@@ -7,7 +7,7 @@ import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
 import { colors } from '../../theme/tokens';
 import { FieldInput } from '../admin/SharedFormComponents';
-import Footer from '../shell/components/Footer';
+
 import { ConfirmPasswordField, ForgotPasswordLink, LoginFooter, LoginHeader, PasswordInputField } from './LoginPageComponents';
 import styles from './LoginPageStyles';
 import { useLoginForm } from './useLoginForm';
@@ -128,7 +128,7 @@ export default function LoginPage({ isDark: isDarkProp }) {
             </View>
           </PageTransition>
         </View>
-        <Footer />
+
       </ScrollView>
     </KeyboardAvoidingView>
   );

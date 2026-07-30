@@ -6,7 +6,7 @@ import { useSharedLayoutWrapperTheme } from './useSharedLayoutWrapperTheme';
 export default function SharedLayoutWrapper({
   children,
   footer,
-  showFooter = false,
+  showFooter = true,
   isDark: isDarkProp,
   contentContainerStyle,
   footerContainerStyle,

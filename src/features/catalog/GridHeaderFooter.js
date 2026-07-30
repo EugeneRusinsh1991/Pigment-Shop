@@ -5,7 +5,7 @@ import { SORT_OPTIONS } from '../../hooks/useCatalogFilters';
 import { layout } from '../../theme/tokens';
 import sidebarStyles from './CatalogFilterSidebarStyles';
 import CatalogPagination from './CatalogPagination';
-import Footer from '../shell/components/Footer';
+
 
 const getSortItemStyles = (isSelected, isDark) => {
   const itemStyle = [
@@ -125,8 +125,7 @@ export function GridFooter({ currentPage, totalPages, onPrev, onNext, loading, i
         isDark={isDark}
         isNarrow={isNarrow}
       />
-      <View style={styles.footerSpacer} />
-      <Footer isDark={isDark} />
+
     </View>
   );
 }
@@ -144,7 +143,5 @@ const styles = StyleSheet.create({
   gridFooterContainer: {
     width: '100%',
   },
-  footerSpacer: {
-    height: layout.spacing.xxl,
-  },
+
 });

@@ -3,7 +3,7 @@ import { ScrollView, View } from 'react-native';
 import { SkeletonLoader, ProductDetailSkeleton } from '../../components/ui/Feedback';
 import { ScrollFadeUp } from '../../components/ui/Motion';
 import { useProductPageState } from '../../hooks/useProductPageState';
-import Footer from '../shell/components/Footer';
+
 import { ProductImagePanel } from './ProductImagePanel';
 import { ProductInfoPanel } from './ProductInfoPanel';
 import styles from './ProductPageStyles';
@@ -92,8 +92,7 @@ export default function ProductPage({ product: initialProduct, isDark, showNavig
             </ScrollFadeUp>
           </View>
         </View>
-        <View style={[styles.bottomSpacer]} />
-        <Footer />
+
       </ScrollView>
     </View>
   );

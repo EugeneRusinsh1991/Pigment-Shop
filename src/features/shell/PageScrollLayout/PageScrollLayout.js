@@ -1,6 +1,5 @@
 import { ScrollView, View } from 'react-native';
 import commonStyles from '../../../theme/commonStyles';
-import Footer from '../components/Footer';
 
 const NARROW_MAX_WIDTH = 580;
 
@@ -16,8 +15,6 @@ export default function PageScrollLayout({ children, isDark, maxWidth, scrollCon
           {children}
         </View>
       </View>
-      <View style={commonStyles.bottomSpacer} />
-      <Footer isDark={isDark} />
     </ScrollView>
   );
 }

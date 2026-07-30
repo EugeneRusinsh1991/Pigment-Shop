@@ -3,7 +3,7 @@ import { Heading } from '../../components/ui/Text';
 import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
 import commonStyles from '../../theme/commonStyles';
-import Footer from '../shell/components/Footer';
+
 import { ScrollFadeUp } from '../../components/ui/Motion';
 import { getContentGridWidth } from '../../utils/layoutUtils';
 import SocialButtons from './SocialButtons';
@@ -36,8 +36,7 @@ export default function ContactPage({ isDark }) {
           <ContactQuestionForm t={t} ic={ic} isDark={isDark} isMobile={isMobile} contentWidth={contentWidth} />
         </View>
       </View>
-      <View style={styles.footerSpacer} />
-      <Footer />
+
     </ScrollView>
   );
 }

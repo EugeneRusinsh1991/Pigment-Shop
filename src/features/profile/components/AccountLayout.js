@@ -3,7 +3,7 @@ import { ScrollView, View } from 'react-native';
 import { ScrollFadeUp } from '../../../components/ui/Motion';
 import { Heading } from '../../../components/ui/Text';
 import useGridLayout from '../../../hooks/useGridLayout';
-import Footer from '../../shell/components/Footer';
+
 import ProfileSidebar from './ProfileSidebar';
 import styles from './AccountLayoutStyles';
 
@@ -52,7 +52,7 @@ export default function AccountLayout({ title, children, isDark, auth }) {
           </View>
         </View>
       </View>
-      <Footer />
+
     </ScrollView>
   );
 }
