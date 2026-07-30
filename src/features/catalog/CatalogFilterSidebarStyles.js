@@ -47,6 +47,7 @@ const styles = StyleSheet.create({
     alignItems: 'center', justifyContent: 'center',
   },
   checkboxActive: { backgroundColor: colors.accent },
+  checkboxInactive: { backgroundColor: colors.accentOverlayLight },
   checkMark: { color: colors.white },
   checkLabel: {
   },
@@ -58,12 +59,12 @@ const styles = StyleSheet.create({
   expandBtnPlaceholder: { width: 36 },
   expandChevron: {},
 
-  divider: { height: 1, marginVertical: layout.spacing.lg },
+  divider: { height: 1, marginVertical: layout.spacing.xl },
   dividerDark: { backgroundColor: colors.borderDark },
   dividerLight: { backgroundColor: colors.borderLight },
 
   resetBtn: {
-    backgroundColor: colors.dark,
+    backgroundColor: colors.accent,
     height: buttonTokens.sizes.md.height,
     borderRadius: buttonTokens.sizes.md.borderRadius,
     alignItems: 'center',
@@ -88,8 +89,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderWidth: layout.borderWidth.thin,
   },
-  mobileToggleDark: { borderColor: colors.accent, backgroundColor: colors.dark },
-  mobileToggleLight: { borderColor: colors.accent, backgroundColor: colors.dangerBgAlt },
+  mobileToggleDark: { borderColor: colors.accent, backgroundColor: colors.accent },
+  mobileToggleLight: { borderColor: colors.accent, backgroundColor: colors.accent },
   mobileToggleText: {
   },
 
@@ -108,8 +109,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderWidth: layout.borderWidth.thin,
   },
-  mobileButtonDark: { borderColor: colors.accent, backgroundColor: colors.dark },
-  mobileButtonLight: { borderColor: colors.accent, backgroundColor: colors.dangerBgAlt },
+  mobileButtonDark: { borderColor: colors.accent, backgroundColor: colors.accent },
+  mobileButtonLight: { borderColor: colors.accent, backgroundColor: colors.accent },
   mobileButtonText: {
   },
 

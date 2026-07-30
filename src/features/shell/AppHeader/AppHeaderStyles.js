@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors, layout, shadow } from '../../../theme/tokens';
+import { colors, layout, shadow, typography } from '../../../theme/tokens';
 
 export default StyleSheet.create({
   header: {
@@ -8,16 +8,18 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    borderBottomWidth: layout.borderWidth.none,
+    borderBottomWidth: layout.borderWidth.thin,
     zIndex: layout.zIndices.header,
   },
   headerDark: {
     backgroundColor: colors.backgroundDark,
     borderBottomColor: colors.borderDark,
+    ...shadow.header(),
   },
   headerLight: {
     backgroundColor: colors.backgroundLight,
     borderBottomColor: colors.borderLight,
+    ...shadow.header(),
   },
   innerRow: {
     width: '100%',
@@ -25,7 +27,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     minWidth: 0,
-    paddingHorizontal: layout.spacing.sm,
+    paddingHorizontal: layout.spacing.md,
   },
   leftSec: {
     flexDirection: 'row',
@@ -53,21 +55,24 @@ export default StyleSheet.create({
   centerSec: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: layout.spacing.xl,
+    gap: layout.spacing.lg,
     flexShrink: 0,
   },
   navLink: {},
-  navLinkText: {},
+  navLinkText: {
+    fontSize: typography.sizes.sm,
+    fontWeight: '500',
+  },
   rightSec: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: layout.spacing.lg,
+    gap: layout.spacing.sm,
     flexShrink: 1,
     minWidth: 0,
   },
   iconBtn: {
-    width: 36,
-    height: 36,
+    width: 40,
+    height: 40,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -145,11 +150,12 @@ export default StyleSheet.create({
   adminBtn: {
     paddingVertical: layout.spacing.xs,
     paddingHorizontal: layout.spacing.xs + 4,
-    borderRadius: layout.radii.sm,
+    borderRadius: layout.radii.xs,
     borderWidth: layout.borderWidth.thin,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+    gap: layout.spacing.xxs,
   },
   adminBtnDark: {
     borderColor: colors.secondaryDarkBorder,
@@ -174,7 +180,7 @@ export default StyleSheet.create({
     paddingHorizontal: layout.spacing.xs + 4,
     paddingVertical: layout.spacing.xxs,
     borderRadius: layout.radii.iconBtn,
-    borderWidth: layout.borderWidth.focus,
+    borderWidth: layout.borderWidth.thick,
     marginLeft: -8,
   },
   betaBadgeDark: {

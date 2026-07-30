@@ -8,45 +8,42 @@ export function useButtonAnimation({ animated, disabled, loading, activeOpacity,
 
   const handlePressIn = (e) => {
     if (!disabled && !loading) {
-      Animated.timing(opacityAnim, {
-        toValue: activeOpacity,
-        duration: 50,
-        useNativeDriver: Platform.OS !== 'web',
-      }).start();
+      Animated.parallel([
+        Animated.timing(opacityAnim, {
+          toValue: activeOpacity,
+          duration: 50,
+          useNativeDriver: Platform.OS !== 'web',
+        }),
+        Animated.timing(scaleAnim, {
+          toValue: scaleTo,
+          duration: motion.press.duration,
+          useNativeDriver: Platform.OS !== 'web',
+        }),
+      ]).start();
     }
     if (onPressIn) onPressIn(e);
   };
 
   const handlePressOut = (e) => {
-    Animated.timing(opacityAnim, {
-      toValue: 1,
-      duration: 150,
-      useNativeDriver: Platform.OS !== 'web',
-    }).start();
+    Animated.parallel([
+      Animated.timing(opacityAnim, {
+        toValue: 1,
+        duration: 150,
+        useNativeDriver: Platform.OS !== 'web',
+      }),
+      Animated.spring(scaleAnim, {
+        toValue: 1,
+        friction: motion.press.friction,
+        tension: motion.press.tension,
+        useNativeDriver: Platform.OS !== 'web',
+      }),
+    ]).start();
     if (onPressOut) onPressOut(e);
   };
 
   const handlePress = (e) => {
     if (disabled || loading) return;
     e?.stopPropagation?.();
-
-    if (animated) {
-      scaleAnim.setValue(1);
-      Animated.sequence([
-        Animated.timing(scaleAnim, {
-          toValue: scaleTo,
-          duration: motion.press.duration,
-          useNativeDriver: Platform.OS !== 'web',
-        }),
-        Animated.spring(scaleAnim, {
-          toValue: 1,
-          friction: motion.press.friction,
-          tension: motion.press.tension,
-          useNativeDriver: Platform.OS !== 'web',
-        }),
-      ]).start();
-    }
-
     if (onPress) onPress(e);
   };
 

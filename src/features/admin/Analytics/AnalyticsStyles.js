@@ -20,13 +20,15 @@ export default StyleSheet.create({
   statCard: {
     flex: 1,
     minWidth: 160,
-    padding: layout.spacing.lg + layout.spacing.xxs,
+    padding: layout.spacing.xl,
+    borderBottomWidth: layout.borderWidth.medium,
+    borderBottomColor: colors.accent,
   },
   statHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: layout.spacing.xs + layout.spacing.xxs,
+    marginBottom: layout.spacing.sm,
   },
   statLabel: {
   },
@@ -67,15 +69,15 @@ export default StyleSheet.create({
   },
   barTrack: {
     flex: 1,
-    height: layout.spacing.lg + layout.spacing.xxs,
-    backgroundColor: colors.secondaryLightBg,
-    borderRadius: layout.spacing.xxs,
+    height: layout.spacing.lg,
+    backgroundColor: colors.borderLight,
+    borderRadius: layout.radii.full,
     overflow: 'hidden',
   },
   barFill: {
     height: '100%',
     backgroundColor: colors.accent,
-    borderRadius: layout.spacing.xxs,
+    borderRadius: layout.radii.full,
   },
   barValue: {
     marginLeft: layout.spacing.sm,
@@ -187,13 +189,13 @@ export default StyleSheet.create({
     gap: layout.spacing.sm,
   },
   presetBtn: {
-    minWidth: 140,
-    paddingVertical: layout.spacing.xs + layout.spacing.xxs,
+    minWidth: 120,
+    paddingVertical: layout.spacing.xs,
     paddingHorizontal: layout.spacing.lg,
-    borderRadius: layout.radii.lg,
-    backgroundColor: colors.black,
-    borderWidth: layout.borderWidth.focus,
-    borderColor: colors.black,
+    borderRadius: layout.radii.full,
+    backgroundColor: colors.secondaryLightBg,
+    borderWidth: layout.borderWidth.thin,
+    borderColor: colors.borderLight,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -202,7 +204,7 @@ export default StyleSheet.create({
     borderColor: colors.accent,
   },
   presetText: {
-    color: colors.white,
+    color: colors.textDescLight,
     textAlign: 'center',
   },
   presetTextActive: {
@@ -231,7 +233,7 @@ export default StyleSheet.create({
   },
   applyBtn: {
     height: buttonTokens.sizes.md.height,
-    backgroundColor: colors.successMid,
+    backgroundColor: colors.accent,
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: layout.spacing.lg,

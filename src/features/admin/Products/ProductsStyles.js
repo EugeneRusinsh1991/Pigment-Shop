@@ -32,31 +32,31 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   controlBtnActive: {
-    backgroundColor: colors.textLight,
-    borderColor: colors.textLight,
+    backgroundColor: colors.accent,
+    borderColor: colors.accent,
   },
   controlBtnAction: {
-    backgroundColor: colors.textLight,
-    borderColor: colors.textLight,
+    backgroundColor: colors.accent,
+    borderColor: colors.accent,
   },
   controlBtnText: {
     color: colors.textDescLight,
   },
   controlBtnTextActive: {
-    color: colors.textDark,
+    color: colors.white,
   },
   addBtn: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: layout.spacing.xs,
-    backgroundColor: colors.textLight,
+    backgroundColor: colors.accent,
     borderRadius: layout.radii.sm,
     paddingVertical: layout.spacing.md - 1,
     paddingHorizontal: layout.spacing.lg,
     height: 44,
   },
   addBtnText: {
-    color: colors.textDark,
+    color: colors.white,
   },
   /* Mobile toolbar (stacked) */
   mobileToolbar: {
@@ -69,7 +69,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     gap: layout.spacing.xs,
-    backgroundColor: colors.textLight,
+    backgroundColor: colors.accent,
     borderRadius: layout.radii.sm,
     paddingVertical: layout.spacing.md,
     height: 44,
@@ -78,7 +78,7 @@ export default StyleSheet.create({
   /* Table */
   tableCard: {
     backgroundColor: colors.surfaceLight,
-    borderRadius: layout.radii.iconBtn,
+    borderRadius: layout.radii.md,
     ...shadow.card(),
     elevation: layout.elevation.sm,
     overflow: 'hidden',
@@ -258,7 +258,7 @@ export default StyleSheet.create({
     color: colors.textDescDark,
   },
   statusBadge: {
-    borderRadius: layout.radii.xs,
+    borderRadius: layout.radii.full,
     paddingHorizontal: layout.spacing.sm,
     paddingVertical: layout.spacing.xxs - 1,
     alignSelf: 'flex-start',

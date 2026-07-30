@@ -124,4 +124,12 @@ export const motion = {
     friction: 7,
     tension: 40,
   },
+  fieldError: {
+    duration: 160,
+    slideOffset: -6,
+  },
+  emptyState: {
+    duration: 300,
+    scaleFrom: 0.96,
+  },
 };

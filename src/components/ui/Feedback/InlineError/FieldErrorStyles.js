@@ -5,5 +5,7 @@ export const styles = StyleSheet.create({
   errorText: {
     marginTop: layout.spacing.xxs,
     marginBottom: layout.spacing.sm,
+    overflow: 'hidden',
   },
 });
+

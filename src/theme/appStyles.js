@@ -1,5 +1,5 @@
 import { Platform, StyleSheet } from 'react-native';
-import { colors, fonts, layout } from './tokens';
+import { colors, fonts, layout, shadow } from './tokens';
 
 const rootStyles = Platform.OS === 'web'
   ? { minHeight: '100vh', overflowX: 'hidden', cursor: 'default' }
@@ -59,10 +59,10 @@ export default StyleSheet.create({
 
   // Hero Section Styles
   heroContainer: {
-    paddingHorizontal: layout.spacing.sm,
+    paddingHorizontal: layout.spacing.lg,
     paddingTop: layout.spacing.xxs,
-    paddingBottom: layout.spacing.md,
-    gap: layout.spacing.md,
+    paddingBottom: layout.spacing.lg,
+    gap: layout.spacing.lg,
     alignItems: 'center',
   },
   heroRight: {
@@ -101,7 +101,7 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: layout.spacing.sm,
     marginTop: layout.spacing.md,
-    marginBottom: layout.spacing.xs,
+    marginBottom: layout.spacing.sm,
   },
   sectionTitle: {},
   allSectionsLink: {
@@ -130,19 +130,21 @@ export default StyleSheet.create({
     top: layout.spacing.none,
     zIndex: layout.zIndices.header,
     width: '100%',
-    paddingVertical: layout.spacing.xxs,
+    paddingVertical: layout.spacing.xs,
     alignItems: 'center',
     overflow: 'visible',
   },
   stickySearchContainerDark: {
     backgroundColor: colors.backgroundDark,
-    borderBottomWidth: layout.borderWidth.none,
+    borderBottomWidth: layout.borderWidth.thin,
     borderBottomColor: colors.borderDark,
+    ...shadow.header(),
   },
   stickySearchContainerLight: {
     backgroundColor: colors.backgroundLight,
-    borderBottomWidth: layout.borderWidth.none,
+    borderBottomWidth: layout.borderWidth.thin,
     borderBottomColor: colors.borderLight,
+    ...shadow.header(),
   },
   searchInner: {
     width: '100%',

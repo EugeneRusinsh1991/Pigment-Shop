@@ -73,6 +73,7 @@ export default function UserDropdown({
 
   return (
     <Animated.View
+      accessibilityRole="menu"
       style={[
         ...dStyles.dropdown,
         {
@@ -84,7 +85,7 @@ export default function UserDropdown({
       {isAuthenticated ? (
         <>
           <View style={[styles.userHeader, { borderBottomColor: dStyles.borderBottomColor }]}>
-            <Text variant="caption" color="secondary" numberOfLines={1} ellipsizeMode="tail">
+            <Text variant="body2" weight="500" color="secondary" numberOfLines={1} ellipsizeMode="tail">
               {getUserDisplayName(user, profile)}
             </Text>
           </View>

@@ -48,7 +48,7 @@ export function CategoryExpandButton({ isDark, arrowColor, isExpanded, onPress, 
     <IconButton
       icon={isExpanded ? <ChevronDownIcon color={arrowColor} size={14} /> : <ChevronRightIcon color={arrowColor} size={14} />}
       onPress={onPress}
-      size="sm"
+      size={44}
       variant="transparent"
       isDark={isDark}
       animated={true}
@@ -60,6 +60,7 @@ const localStyles = StyleSheet.create({
   categoryButton: {
     flex: 1,
     paddingVertical: layout.spacing.sm,
+    paddingRight: layout.spacing.xs,
     minHeight: 44,
   },
 });

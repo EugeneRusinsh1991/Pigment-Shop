@@ -31,7 +31,7 @@ export default StyleSheet.create({
   },
   tableCard: {
     backgroundColor: colors.surfaceLight,
-    borderRadius: layout.radii.sm,
+    borderRadius: layout.radii.md,
     padding: layout.spacing.lg,
     ...shadow.card(),
     elevation: layout.elevation.sm,
@@ -68,7 +68,7 @@ export default StyleSheet.create({
   row: {
     flexDirection: 'column',
     paddingHorizontal: layout.spacing.lg,
-    paddingVertical: layout.spacing.sm,
+    paddingVertical: layout.spacing.md,
     borderBottomWidth: layout.borderWidth.thin,
     borderBottomColor: colors.secondaryLightBorder,
     gap: layout.spacing.xs,
@@ -127,7 +127,7 @@ export default StyleSheet.create({
   statusBadge: {
     paddingHorizontal: layout.spacing.sm,
     paddingVertical: layout.spacing.xxs,
-    borderRadius: layout.radii.md,
+    borderRadius: layout.radii.full,
     alignItems: 'center',
     justifyContent: 'center',
     alignSelf: 'flex-start',
@@ -241,7 +241,7 @@ export default StyleSheet.create({
     color: colors.textLight,
   },
   statusOptionActiveText: {
-    color: colors.successMid,
+    color: colors.accent,
   },
   btn: {
     paddingVertical: layout.spacing.sm,

@@ -37,15 +37,15 @@ export default StyleSheet.create({
   addBtn: {
     height: buttonTokens.sizes.sm.height,
     paddingHorizontal: layout.spacing.md,
-    borderRadius: layout.radii.lg,
-    borderWidth: layout.borderWidth.focus,
-    borderColor: colors.textLight,
-    backgroundColor: colors.textLight,
+    borderRadius: layout.radii.sm,
+    borderWidth: layout.borderWidth.thin,
+    borderColor: colors.accent,
+    backgroundColor: colors.accent,
     alignItems: 'center',
     justifyContent: 'center',
   },
   addBtnText: {
-    color: colors.textDark,
+    color: colors.white,
   },
 
   /* Expand/collapse all controls */
@@ -72,7 +72,7 @@ export default StyleSheet.create({
   /* Table card */
   tableCard: {
     backgroundColor: colors.surfaceLight,
-    borderRadius: layout.radii.iconBtn,
+    borderRadius: layout.radii.md,
     ...shadow.card(),
     elevation: 2,
     overflow: 'hidden',

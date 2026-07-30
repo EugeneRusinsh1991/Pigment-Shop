@@ -11,7 +11,9 @@ export default StyleSheet.create({
     backgroundColor: colors.productCardDark,
   },
   prodCardLight: {
-    backgroundColor: colors.productCardLight,
+    backgroundColor: colors.surfaceLight,
+    borderWidth: layout.borderWidth.thin,
+    borderColor: colors.borderLight,
   },
   imageContainer: {
     height: 260,
@@ -29,7 +31,8 @@ export default StyleSheet.create({
   },
   prodInfo: {
     paddingHorizontal: layout.spacing.sm,
-    paddingVertical: layout.spacing.sm,
+    paddingTop: layout.spacing.md,
+    paddingBottom: layout.spacing.sm,
   },
   prodInfoDark: {
   },
@@ -38,10 +41,12 @@ export default StyleSheet.create({
   brandText: {
     color: colors.accent,
     marginBottom: layout.spacing.xxs,
+    letterSpacing: 0.5,
+    textTransform: 'uppercase',
   },
   prodTitle: {
-    minHeight: 36,
-    marginBottom: layout.spacing.xxs,
+    minHeight: 40,
+    marginBottom: layout.spacing.xs,
   },
   priceText: {},
   priceRow: {
@@ -94,6 +99,6 @@ export default StyleSheet.create({
     zIndex: layout.zIndices.raised,
   },
   cartBtnSolidStyle: {
-    backgroundColor: colors.dark,
+    backgroundColor: colors.accent,
   },
 });

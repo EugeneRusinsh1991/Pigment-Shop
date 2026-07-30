@@ -1,9 +1,10 @@
-import React from 'react';
-import { View } from 'react-native';
+import React, { useRef, useEffect } from 'react';
+import { View, Animated, Platform } from 'react-native';
 import { Text, Heading } from '../../Text';
 import { Button } from '../../Button';
 import { useEmptyStateTheme } from './useEmptyStateTheme';
 import { useLanguage } from '../../../../context/LanguageContext';
+import { motion } from '../../../../theme/tokens';
 
 /**
  * Global EmptyState component for empty catalog, cart, favorites, orders, and tables.
@@ -67,13 +68,31 @@ export default function EmptyState({
   const { mutedColor, styles } = useEmptyStateTheme();
   const bodyText = description || message;
 
+  const opacity = useRef(new Animated.Value(0)).current;
+  const scale = useRef(new Animated.Value(motion.emptyState.scaleFrom)).current;
+
+  useEffect(() => {
+    Animated.parallel([
+      Animated.timing(opacity, {
+        toValue: 1,
+        duration: motion.emptyState.duration,
+        useNativeDriver: Platform.OS !== 'web',
+      }),
+      Animated.timing(scale, {
+        toValue: 1,
+        duration: motion.emptyState.duration,
+        useNativeDriver: Platform.OS !== 'web',
+      }),
+    ]).start();
+  }, []);
+
   return (
-    <View style={[styles.container, style]}>
+    <Animated.View style={[styles.container, style, { opacity, transform: [{ scale }] }]}>
       {renderIcon(icon, styles)}
       {renderTitle(title, titleStyle, styles)}
       {renderBody(bodyText, descriptionStyle, styles)}
       {renderChildren(children, descriptionStyle, mutedColor)}
       {renderAction(action, onRetry, styles)}
-    </View>
+    </Animated.View>
   );
 }

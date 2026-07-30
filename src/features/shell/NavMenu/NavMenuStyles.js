@@ -8,7 +8,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
   },
   panel: {
-    width: 260,
+    width: 280,
     height: '100%',
     ...shadow.drawer(),
     elevation: layout.elevation.xl,
@@ -17,7 +17,7 @@ export default StyleSheet.create({
   panelLight: { backgroundColor: colors.white },
 
   panelHeader: {
-    height: 64,
+    height: 56,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
@@ -29,7 +29,7 @@ export default StyleSheet.create({
   panelHeaderLight: { borderBottomColor: colors.navItemHoverDark },
 
   panelTitle: {},
-  textDark: { color: colors.slateMid },
+  textDark: { color: colors.white },
   textLight: { color: colors.navTextDark },
 
   headerLeftBtn: {
@@ -82,8 +82,16 @@ export default StyleSheet.create({
   },
   itemRowDark: { backgroundColor: colors.navSurfaceDark },
   itemRowLight: { backgroundColor: colors.white },
-  selectedRowDark: { backgroundColor: colors.accentOverlayDark },
-  selectedRowLight: { backgroundColor: colors.accentOverlayLight },
+  selectedRowDark: {
+    backgroundColor: colors.accentOverlayDark,
+    borderLeftWidth: layout.borderWidth.thick,
+    borderLeftColor: colors.accent,
+  },
+  selectedRowLight: {
+    backgroundColor: colors.accentOverlayLight,
+    borderLeftWidth: layout.borderWidth.thick,
+    borderLeftColor: colors.accent,
+  },
   itemIcon: { width: 28, textAlign: 'center' },
   iconWrapper: {
     width: 24,
@@ -99,7 +107,7 @@ export default StyleSheet.create({
   mutedLight: { color: colors.secondaryDarkText },
   menuFooter: {
     paddingHorizontal: layout.spacing.lg,
-    paddingTop: layout.spacing.lg,
+    paddingTop: layout.spacing.md,
     paddingBottom: layout.spacing.xxl,
     borderTopWidth: layout.borderWidth.thin,
     marginTop: 'auto',
@@ -123,7 +131,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: layout.spacing.sm,
-    paddingHorizontal: layout.spacing.sm,
+    paddingHorizontal: layout.spacing.md,
     minHeight: 44,
     borderRadius: layout.radii.sm,
     borderWidth: layout.borderWidth.thin,

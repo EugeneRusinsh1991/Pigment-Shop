@@ -24,11 +24,12 @@ export default StyleSheet.create({
   },
   overlay: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: colors.overlayScrim,
+    backgroundColor: 'transparent',
   },
+
   catContent: {
     position: 'absolute',
-    bottom: layout.spacing.xl,
+    bottom: layout.spacing.xxl,
     left: layout.spacing.xl,
     right: layout.spacing.xl,
   },
@@ -43,12 +44,12 @@ export default StyleSheet.create({
     width: 38,
     height: 38,
     borderRadius: layout.radii.full,
-    backgroundColor: colors.white,
+    backgroundColor: colors.accent,
     alignItems: 'center',
     justifyContent: 'center',
   },
   arrowCircleText: {
-    color: colors.black,
+    color: colors.white,
   },
   bannerCard: {
     width: '100%',

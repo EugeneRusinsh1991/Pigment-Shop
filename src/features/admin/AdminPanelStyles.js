@@ -7,17 +7,17 @@ import { colors, layout } from '../../theme/tokens';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.warmNeutralLight,
+    backgroundColor: colors.backgroundLight,
   },
   header: {
-    height: 56,
+    height: 60,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: layout.spacing.xl,
     backgroundColor: colors.surfaceLight,
-    borderBottomWidth: layout.borderWidth.thin,
-    borderBottomColor: colors.borderLight,
+    borderBottomWidth: layout.borderWidth.thick,
+    borderBottomColor: colors.accent,
   },
   headerLeft: {
     flexDirection: 'row',
@@ -39,11 +39,13 @@ export default StyleSheet.create({
     gap: layout.spacing.xs,
     paddingVertical: layout.spacing.sm,
     paddingHorizontal: layout.spacing.md + layout.spacing.xxs,
-    backgroundColor: colors.secondaryLightBg,
+    backgroundColor: colors.dangerSoftLightBg,
     borderRadius: layout.radii.sm,
+    borderWidth: layout.borderWidth.thin,
+    borderColor: colors.dangerSoftLightBorder,
   },
   logoutText: {
-    color: colors.secondaryLightText,
+    color: colors.dangerStrong,
   },
   tabBar: {
     flexDirection: 'row',
