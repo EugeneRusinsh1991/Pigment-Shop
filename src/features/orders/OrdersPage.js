@@ -1,13 +1,8 @@
 import { useState } from 'react';
-import { ScrollFadeUp } from '../../components/ui/Motion';
-import { Heading } from '../../components/ui/Text';
 import { useAuth } from '../../context/AuthContext';
 import { useLanguage } from '../../context/LanguageContext';
-import { useTheme } from '../../context/ThemeContext';
-import useGridLayout from '../../hooks/useGridLayout';
-import PageScrollLayout from '../shell/PageScrollLayout';
+import AccountLayout from '../profile/components/AccountLayout';
 import OrderCard from './components/OrderCard';
-import styles from './OrdersPageStyles';
 import { useOrders } from './useOrders';
 
 import EmptyState from '../../components/domain/DataTable/EmptyState';
@@ -19,9 +14,7 @@ const PAGE_SIZE = 10;
 function OrdersList({ orders, paginatedOrders, expandedOrders, toggleExpand, currentPage, totalPages, goToPrevPage, goToNextPage, isDark, t }) {
   if (orders.length === 0) {
     return (
-      <ScrollFadeUp>
-        <EmptyState>{t('ordersEmpty')}</EmptyState>
-      </ScrollFadeUp>
+      <EmptyState>{t('ordersEmpty')}</EmptyState>
     );
   }
 
@@ -55,10 +48,9 @@ function OrdersList({ orders, paginatedOrders, expandedOrders, toggleExpand, cur
 
 export default function OrdersPage({ isDark }) {
   const { t } = useLanguage();
-  const { user } = useAuth();
-  const { orders = [] } = useOrders(user);
+  const auth = useAuth();
+  const { orders = [] } = useOrders(auth?.user);
   const [expandedOrders, setExpandedOrders] = useState({});
-  const { isWide, gridWidth } = useGridLayout();
   const { currentPage, totalPages, paginatedOrders, goToPrevPage, goToNextPage } = useOrdersPagination(orders);
 
   const toggleExpand = (orderId) => {
@@ -66,13 +58,7 @@ export default function OrdersPage({ isDark }) {
   };
 
   return (
-    <PageScrollLayout isDark={isDark} maxWidth={isWide ? 580 : gridWidth}>
-      <ScrollFadeUp>
-        <Heading level={1} style={styles.title} isDark={isDark}>
-          {t('ordersTitle')}
-        </Heading>
-      </ScrollFadeUp>
-      
+    <AccountLayout title={t('ordersTitle')} isDark={isDark} auth={auth}>
       <OrdersList
         orders={orders}
         paginatedOrders={paginatedOrders}
@@ -85,6 +71,6 @@ export default function OrdersPage({ isDark }) {
         isDark={isDark}
         t={t}
       />
-    </PageScrollLayout>
+    </AccountLayout>
   );
 }
