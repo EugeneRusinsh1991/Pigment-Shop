@@ -65,24 +65,6 @@ export default function AdminPanel({ onBack }) {
           />
           {!isMobile && <Heading level={2} style={styles.headerTitle}>{t('adminTitle')}</Heading>}
         </View>
-        {isMobile ? (
-          <IconButton
-            icon={<LogoutIcon color={colors.textDescLight} size={16} />}
-            onPress={handleLogout}
-            variant="secondary"
-            size="sm"
-            testID="admin-logout-control"
-          />
-        ) : (
-          <Button
-            title={t('userLogout')}
-            leftIcon={<LogoutIcon color={colors.secondaryLightText} size={14} style={styles.logoutIcon} />}
-            onPress={handleLogout}
-            variant="secondary"
-            size="sm"
-            testID="admin-logout-control"
-          />
-        )}
       </View>
       <View>
         <AdminTabBar activeTab={activeTab} onSelect={setActiveTab} isDark={isDark} />

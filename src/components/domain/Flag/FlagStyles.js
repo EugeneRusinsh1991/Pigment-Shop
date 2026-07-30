@@ -69,6 +69,7 @@ const styles = StyleSheet.create({
     paddingVertical: 0,
     height: buttonTokens.sizes.sm.height,
     minHeight: buttonTokens.sizes.sm.height,
+    minWidth: 80,
     borderRadius: layout.radii.lg,
     borderWidth: layout.borderWidth.thin,
     borderColor: colors.secondaryLightBorder,
