@@ -59,7 +59,7 @@ export default StyleSheet.create({
 
   // Hero Section Styles
   heroContainer: {
-    paddingHorizontal: layout.spacing.lg,
+    paddingHorizontal: layout.spacing.none,
     paddingTop: layout.spacing.xxs,
     paddingBottom: layout.spacing.lg,
     gap: layout.spacing.lg,

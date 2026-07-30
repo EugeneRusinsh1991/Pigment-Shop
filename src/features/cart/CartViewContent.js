@@ -1,11 +1,11 @@
 import { CartIcon } from '@/components/Icons';
-import { ScrollView, View } from 'react-native';
+import { View } from 'react-native';
 import { EmptyState } from '../../components/ui/Feedback';
 import { ScrollFadeUp } from '../../components/ui/Motion';
-import { Heading, Text } from '../../components/ui/Text';
+import { Heading } from '../../components/ui/Text';
 import useGridLayout from '../../hooks/useGridLayout';
 import { colors } from '../../theme/tokens';
-import Footer from '../shell/components/Footer';
+import PageScrollLayout from '../shell/PageScrollLayout';
 import CartItem from './CartItem';
 import CartSummary from './CartSummary';
 import styles from './CartViewStyles';
@@ -24,10 +24,6 @@ function EmptyCart({ isDark, t }) {
 function buildDisplayItem(item, flatList) {
   const matched = flatList.find((product) => product.id === item.id);
   return matched ? { ...item, label: matched.label } : item;
-}
-
-function getContainerStyle(isDark, stylesMap) {
-  return [stylesMap.container, isDark ? stylesMap.containerDark : stylesMap.containerLight];
 }
 
 function renderCartList(items, renderItem) {
@@ -133,28 +129,12 @@ export default function CartViewContent({
   };
 
   return (
-    <ScrollView
-      style={getContainerStyle(isDark, styles)}
-      contentContainerStyle={styles.scrollContent}
-      showsVerticalScrollIndicator={false}
-    >
-      <View style={styles.flexOne}>
-        <View
-          style={[
-            styles.pageContent,
-            !isWide && styles.narrowContent,
-            !isWide && { width: gridWidth },
-          ]}
-        >
-          {items.length === 0 ? (
-            <EmptyCart isDark={isDark} t={t} />
-          ) : (
-            renderCartContent({ items, isWide, renderItem, summaryProps, t })
-          )}
-        </View>
-      </View>
-      <View style={styles.bottomSpacer} />
-      <Footer />
-    </ScrollView>
+    <PageScrollLayout isDark={isDark} maxWidth={gridWidth}>
+      {items.length === 0 ? (
+        <EmptyCart isDark={isDark} t={t} />
+      ) : (
+        renderCartContent({ items, isWide, renderItem, summaryProps, t })
+      )}
+    </PageScrollLayout>
   );
 }

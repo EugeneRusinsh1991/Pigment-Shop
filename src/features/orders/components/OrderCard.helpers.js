@@ -1,11 +1,13 @@
+import { useState } from 'react';
+import { View, Animated } from 'react-native';
 import { Text } from '@/components/ui/Text';
 import { useLanguage } from '@/context/LanguageContext';
 import { useTheme } from '@/context/ThemeContext';
 import { useCatalog } from '@/features/catalog/CatalogContext';
+import { useAnimatedTransition } from '@/hooks/useAnimatedTransition';
 import { formatDateLong } from '@/utils/dateFormatting';
 import { getLocalizedValue } from '@/utils/localization';
 import { resolveStatusDef, resolveStatusKey } from '@/utils/orderStatus';
-import { View } from 'react-native';
 import styles from '../OrdersPageStyles';
 export { resolveStatusKey };
 
@@ -81,29 +83,64 @@ export function getToggleText(isExpanded, t) {
 }
 
 export function ExpandedItemsList({ show, items, getStyle, order }) {
-  if (!show || !items) return null;
+  const { shouldRender, anim } = useAnimatedTransition(show, {
+    durationIn: 250,
+    durationOut: 200,
+  });
+  const [contentHeight, setContentHeight] = useState(0);
   const { t } = useLanguage();
+
+  if (!shouldRender || !items) return null;
+
+  const translateY = anim.interpolate({
+    inputRange: [0, 1],
+    outputRange: [-12, 0],
+  });
+
+  const maxHeight = anim.interpolate({
+    inputRange: [0, 1],
+    outputRange: [0, contentHeight || 500],
+  });
+
   return (
-    <View style={[styles.itemsList, getStyle(styles.itemsListDark, styles.itemsListLight)]}>
-      {items.map((item, idx) => (
-        <OrderItemRow
-          key={idx}
-          item={item}
-          idx={idx}
-          getStyle={getStyle}
-        />
-      ))}
-      {order.note ? (
-        <View style={[styles.noteSection, getStyle(styles.itemBorderDark, styles.itemBorderLight)]}>
-          <Text variant="caption" color="muted" style={[styles.itemLabel, styles.noteTitle]}> 
-            {t('cartOrderNote')}
-          </Text>
-          <Text style={styles.itemLabel}>
-            {order.note}
-          </Text>
-        </View>
-      ) : null}
-    </View>
+    <Animated.View
+      style={{
+        maxHeight,
+        opacity: anim,
+        transform: [{ translateY }],
+        overflow: 'hidden',
+        width: '100%',
+      }}
+    >
+      <View
+        onLayout={(e) => {
+          const h = e.nativeEvent.layout.height;
+          if (h && h !== contentHeight) {
+            setContentHeight(h);
+          }
+        }}
+        style={[styles.itemsList, getStyle(styles.itemsListDark, styles.itemsListLight)]}
+      >
+        {items.map((item, idx) => (
+          <OrderItemRow
+            key={idx}
+            item={item}
+            idx={idx}
+            getStyle={getStyle}
+          />
+        ))}
+        {order.note ? (
+          <View style={[styles.noteSection, getStyle(styles.itemBorderDark, styles.itemBorderLight)]}>
+            <Text variant="caption" color="muted" style={[styles.itemLabel, styles.noteTitle]}> 
+              {t('cartOrderNote')}
+            </Text>
+            <Text style={styles.itemLabel}>
+              {order.note}
+            </Text>
+          </View>
+        ) : null}
+      </View>
+    </Animated.View>
   );
 }
 

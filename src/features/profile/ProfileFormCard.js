@@ -3,20 +3,24 @@ import { Button } from '../../components/ui/Button';
 import Card from '../../components/ui/Card/Card';
 import { Text } from '../../components/ui/Text';
 import { FieldInput } from '../admin/SharedFormComponents';
+import useGridLayout from '../../hooks/useGridLayout';
 import styles from './ProfilePageStyles';
 
-function EmailField({ label, email, selectTheme }) {
+function EmailField({ label, email, isDark, selectTheme }) {
   return (
-    <View style={styles.inputGroup}>
-      <Text variant="caption" color="muted" style={styles.label}>
-        {label}
-      </Text>
-      <View style={[styles.inputContainer, selectTheme(styles.inputContainerDark, styles.inputContainerLight), styles.inputDisabled]}>
-        <Text variant="body1" color="muted" style={styles.value}>
-          {email || 'user@example.com'}
-        </Text>
-      </View>
-    </View>
+    <FieldInput
+      label={label}
+      value={email || 'user@example.com'}
+      disabled
+      isDark={isDark}
+      style={styles.inputGroup}
+      styles={{
+        fieldLabel: [styles.label, selectTheme(styles.textDark, styles.textLight)],
+        fieldInput: [styles.input, styles.inputDisabled, selectTheme(styles.textDark, styles.textLight)],
+        inputContainer: [styles.inputContainer, selectTheme(styles.inputContainerDark, styles.inputContainerLight), styles.inputDisabled],
+      }}
+      leftIcon={null}
+    />
   );
 }
 
@@ -75,27 +79,47 @@ export default function ProfileFormCard({
   saving, loading, onSave,
   isDark, selectTheme, t,
 }) {
+  const { isWide } = useGridLayout();
   const fieldProps = { isDark, selectTheme };
   const fields = buildFieldConfig(t, { firstName, lastName, phone, city }, { setFirstName, setLastName, setPhone, setCity });
+
+  const getField = (key) => fields.find(f => f.key === key);
+  const renderField = (key) => {
+    const f = getField(key);
+    if (!f) return null;
+    return (
+      <ProfileTextField
+        key={f.key}
+        {...fieldProps}
+        label={f.label}
+        placeholder={f.placeholder}
+        value={f.value}
+        onChangeText={f.onChange}
+        keyboardType={f.keyboardType}
+      />
+    );
+  };
 
   return (
     <Card
       isDark={isDark}
       style={[styles.cardSpecific, selectTheme(styles.cardSpecificDark, styles.cardSpecificLight)]}
     >
-      <EmailField label={t('profileEmail')} email={email} selectTheme={selectTheme} />
+      <View style={isWide ? styles.formRow : styles.formRowMobile}>
+        <View style={styles.formCol}>
+          <EmailField label={t('profileEmail')} email={email} isDark={isDark} selectTheme={selectTheme} />
+        </View>
+        <View style={styles.formCol}>{renderField('phone')}</View>
+      </View>
 
-      {fields.map((f) => (
-        <ProfileTextField
-          key={f.key}
-          {...fieldProps}
-          label={f.label}
-          placeholder={f.placeholder}
-          value={f.value}
-          onChangeText={f.onChange}
-          keyboardType={f.keyboardType}
-        />
-      ))}
+      <View style={isWide ? styles.formRow : styles.formRowMobile}>
+        <View style={styles.formCol}>{renderField('firstName')}</View>
+        <View style={styles.formCol}>{renderField('lastName')}</View>
+      </View>
+
+      <View style={isWide ? styles.formRow : styles.formRowMobile}>
+        <View style={styles.formCol}>{renderField('city')}</View>
+      </View>
 
       <SaveButton saving={saving} loading={loading} onSave={onSave} selectTheme={selectTheme} label={t('profileSaveBtn')} />
 

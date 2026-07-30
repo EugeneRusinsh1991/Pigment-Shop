@@ -20,7 +20,7 @@ export default function AccountLayout({ title, children, isDark, auth }) {
         <View
           style={[
             styles.pageContent,
-            { alignSelf: 'center', width: '100%', maxWidth: isWide ? 1140 : gridWidth },
+            { alignSelf: 'center', width: '100%', maxWidth: gridWidth },
           ]}
         >
           {Boolean(title) && (

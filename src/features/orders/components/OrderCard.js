@@ -30,22 +30,26 @@ function OrderStatusBadge({ order, t }) {
 function MobileOrderHeader({ order, t, lang, isExpanded, getStyle }) {
   return (
     <View style={styles.mobileHeader}>
-      <View style={styles.mobileCol}>
-        <Text style={styles.orderNumber}>
+      <View style={styles.mobileRowTop}>
+        <Text variant="subtitle1" style={styles.orderNumberTitle}>
           {t('orderNumber')}{getOrderNumber(order)}
         </Text>
-        <Text variant="caption" color="muted" style={styles.orderDate}>
-          {getFormattedDate(order, lang)}
-        </Text>
-        <Text style={[styles.orderTotal, styles.mobileTotal]}>
-          {t('orderTotalLabel')} ${getOrderTotalPrice(order)}
-        </Text>
-      </View>
-      <View style={styles.mobileRight}>
         <OrderStatusBadge order={order} t={t} />
-        <Text style={[styles.toggleText, getStyle(styles.toggleTextDark, styles.toggleTextLight)]}>
-          {getToggleText(isExpanded, t)}
-        </Text>
+      </View>
+      <View style={styles.mobileRowBottom}>
+        <View style={styles.mobileColLeft}>
+          <Text variant="caption" color="muted" style={styles.orderDate}>
+            {getFormattedDate(order, lang)}
+          </Text>
+          <Text variant="body1" style={[styles.orderTotalTitle, styles.mobileTotal]}>
+            {t('orderTotalLabel')} ${getOrderTotalPrice(order)}
+          </Text>
+        </View>
+        <View style={styles.mobileColRight}>
+          <Text style={[styles.toggleText, getStyle(styles.toggleTextDark, styles.toggleTextLight)]}>
+            {getToggleText(isExpanded, t)}
+          </Text>
+        </View>
       </View>
     </View>
   );
@@ -53,16 +57,17 @@ function MobileOrderHeader({ order, t, lang, isExpanded, getStyle }) {
 
 function DefaultOrderHeader({ order, t, lang, isExpanded, getStyle, isAdminView }) {
   return (
-    <>
-      <View style={[styles.orderHeader, isAdminView && styles.adminOrderHeader]}>
-        <Text style={styles.orderNumber}>
+    <View style={[styles.desktopHeader, isAdminView && styles.adminOrderHeader]}>
+      <View style={styles.desktopCol1}>
+        <Text variant={isAdminView ? "body1" : "subtitle1"} style={styles.orderNumberTitle}>
           {t('orderNumber')}{getOrderNumber(order)}
         </Text>
-        {!isAdminView && (
-          <Text variant="caption" color="muted" style={styles.orderDate}>
-            {getFormattedDate(order, lang)}
-          </Text>
-        )}
+        <Text variant="caption" color="muted" style={[styles.orderDate, isAdminView && styles.adminOrderDate]}>
+          {getFormattedDate(order, lang)}
+        </Text>
+      </View>
+
+      <View style={styles.desktopCol2}>
         {isAdminView ? (
           <Text style={[styles.orderStatus, getOrderStatusStyle(order, getStyle)]}>
             {getOrderStatus(order, t)}
@@ -71,20 +76,19 @@ function DefaultOrderHeader({ order, t, lang, isExpanded, getStyle, isAdminView 
           <OrderStatusBadge order={order} t={t} />
         )}
       </View>
-      {isAdminView && (
-        <Text variant="caption" color="muted" style={[styles.orderDate, styles.adminOrderDate]}>
-          {getFormattedDate(order, lang)}
-        </Text>
-      )}
-      <View style={styles.summaryRow}>
-        <Text style={styles.orderTotal}>
+
+      <View style={styles.desktopCol3}>
+        <Text variant="body1" style={styles.orderTotalTitle}>
           {t('orderTotalLabel')} ${getOrderTotalPrice(order)}
         </Text>
+      </View>
+
+      <View style={styles.desktopCol4}>
         <Text style={[styles.toggleText, getStyle(styles.toggleTextDark, styles.toggleTextLight)]}>
           {getToggleText(isExpanded, t)}
         </Text>
       </View>
-    </>
+    </View>
   );
 }
 
@@ -103,7 +107,7 @@ export default function OrderCard({ order, isDark, isExpanded, onToggle, getStyl
         isAdminView && [styles.adminCardSpecific, getAdminBgStyle(order)],
       ]}
     >
-      <AnimatedButton onPress={onToggle} activeOpacity={motion.press.activeOpacity}>
+      <AnimatedButton onPress={onToggle} style={styles.headerTouchable} activeOpacity={motion.press.activeOpacity}>
         {isMobile && !isAdminView ? (
           <MobileOrderHeader
             order={order}

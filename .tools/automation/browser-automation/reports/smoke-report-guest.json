@@ -1,12 +1,12 @@
 {
   "summary": {
-    "visitedScreens": 0,
-    "visitedInteractions": 0,
+    "visitedScreens": 12,
+    "visitedInteractions": 255,
     "successfulInteractions": 173,
     "failedInteractions": 0,
     "warnings": 870,
     "errors": 0,
-    "executionDurationMs": 0
+    "executionDurationMs": 338737
   },
   "failures": [],
   "warnings": [

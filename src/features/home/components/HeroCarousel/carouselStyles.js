@@ -76,9 +76,8 @@ export const localStyles = StyleSheet.create({
 });
 
 
-function getBreakoutStyle(isWide, windowWidth) {
-  if (isWide) return {};
-  return { width: windowWidth, alignSelf: 'center', borderRadius: layout.radii.none };
+function getBreakoutStyle() {
+  return {};
 }
 
 export function getCarouselBaseStyle(isWide, windowWidth) {

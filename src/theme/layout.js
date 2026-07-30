@@ -87,6 +87,7 @@ export const badgeTokens = {
     large: typography.sizes.xs,
     counter: typography.sizes.xxs,
   },
+  statusWidth: 115,
 };
 
 export const buttonTokens = {

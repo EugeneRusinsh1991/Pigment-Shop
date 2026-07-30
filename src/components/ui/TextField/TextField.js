@@ -25,7 +25,7 @@ function makeFocusHandler(setFocused, value, externalHandler) {
 function renderLabel(label, dynamicStyles, labelStyle) {
   if (!label) return null;
   return (
-    <Text variant="caption" style={[dynamicStyles.label, labelStyle]}>
+    <Text variant="label" style={[dynamicStyles.label, labelStyle]}>
       {label}
     </Text>
   );

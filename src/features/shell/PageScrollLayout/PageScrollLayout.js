@@ -17,7 +17,7 @@ export default function PageScrollLayout({ children, isDark, maxWidth, scrollCon
         </View>
       </View>
       <View style={commonStyles.bottomSpacer} />
-      <Footer />
+      <Footer isDark={isDark} />
     </ScrollView>
   );
 }

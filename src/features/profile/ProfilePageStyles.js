@@ -22,6 +22,19 @@ const styles = StyleSheet.create({
   cardSpecificDark: {
     backgroundColor: colors.backgroundDark,
   },
+  formRow: {
+    flexDirection: 'row',
+    gap: layout.spacing.md,
+    width: '100%',
+  },
+  formRowMobile: {
+    flexDirection: 'column',
+    gap: 0,
+    width: '100%',
+  },
+  formCol: {
+    flex: 1,
+  },
   label: {
     marginBottom: layout.spacing.xxs,
   },
@@ -33,7 +46,7 @@ const styles = StyleSheet.create({
     borderWidth: layout.borderWidth.thin,
     borderRadius: layout.radii.sm,
     paddingHorizontal: layout.spacing.md,
-    height: 40,
+    height: 44,
     justifyContent: 'center',
   },
   inputContainerDark: {

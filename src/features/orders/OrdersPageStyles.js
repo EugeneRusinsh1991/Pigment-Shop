@@ -27,15 +27,47 @@ export default StyleSheet.create({
   emptyTextDark: { color: colors.textMutedDark },
   emptyTextLight: { color: colors.textMutedLight },
   cardSpecific: {
+    flexDirection: 'column',
+    width: '100%',
     marginBottom: layout.spacing.md,
+    padding: layout.spacing.lg,
   },
-  orderHeader: {
+  headerTouchable: {
+    width: '100%',
+  },
+  desktopHeader: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: layout.spacing.sm,
+    justifyContent: 'space-between',
+    width: '100%',
   },
-  orderNumber: {},
+  desktopCol1: {
+    flex: 2,
+    flexDirection: 'column',
+    justifyContent: 'center',
+  },
+  desktopCol2: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  desktopCol3: {
+    flex: 1.5,
+    alignItems: 'flex-end',
+    justifyContent: 'center',
+  },
+  desktopCol4: {
+    flex: 1,
+    alignItems: 'flex-end',
+    justifyContent: 'center',
+  },
+  orderNumberTitle: {
+    fontWeight: '600',
+    marginBottom: layout.spacing.xxs,
+  },
+  orderTotalTitle: {
+    fontWeight: 'bold',
+  },
   orderStatus: {},
   statusBadge: {
     width: 110,
@@ -78,12 +110,17 @@ export default StyleSheet.create({
     marginTop: layout.spacing.md,
     borderRadius: layout.radii.sm,
     padding: layout.spacing.md,
+    width: '100%',
   },
   itemsListDark: {
     backgroundColor: colors.productCardDark,
+    borderTopWidth: layout.borderWidth.thin,
+    borderTopColor: colors.surfaceSubtleDark,
   },
   itemsListLight: {
     backgroundColor: colors.slateLight,
+    borderTopWidth: layout.borderWidth.thin,
+    borderTopColor: colors.secondaryLightBorder,
   },
   itemRow: {
     flexDirection: 'row',
@@ -140,8 +177,29 @@ export default StyleSheet.create({
   contentWrapper: { alignSelf: 'center', width: '100%' },
   noteSection: { marginTop: layout.spacing.md, paddingTop: layout.spacing.md },
   noteTitle: { marginBottom: layout.spacing.xxs },
-  mobileHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
-  mobileCol: { flex: 1, flexDirection: 'column', gap: layout.spacing.xxs },
+  mobileHeader: {
+    flexDirection: 'column',
+    width: '100%',
+    gap: layout.spacing.sm,
+  },
+  mobileRowTop: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  mobileRowBottom: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-end',
+  },
+  mobileColLeft: {
+    flex: 1,
+    flexDirection: 'column',
+    gap: layout.spacing.xxs,
+  },
   mobileTotal: { marginTop: layout.elevation.sm },
-  mobileRight: { alignItems: 'flex-end', gap: layout.spacing.sm },
+  mobileColRight: {
+    alignItems: 'flex-end',
+    justifyContent: 'flex-end',
+  },
 });

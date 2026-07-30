@@ -33,6 +33,17 @@ export function useErrorHandler() {
 
   const handleError = useCallback((error, options = {}) => {
     const { message, fallback, logToConsole = true } = options;
+
+    const errStr = String(error?.message || error);
+    const errCode = error?.code || '';
+    if (
+      errCode === 'auth/cancelled-popup-request' || 
+      errCode === 'auth/popup-closed-by-user' ||
+      errStr.includes('auth/cancelled-popup-request') ||
+      errStr.includes('auth/popup-closed-by-user')
+    ) {
+      return;
+    }
     
     if (logToConsole) {
       console.error('[useErrorHandler]', error);

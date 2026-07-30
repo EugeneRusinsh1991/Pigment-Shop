@@ -29,12 +29,12 @@ const styles = StyleSheet.create({
   },
   navContainer: {
     flexDirection: 'column',
-    gap: layout.spacing.xs,
+    gap: layout.spacing.sm,
   },
   navItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: layout.spacing.sm,
+    paddingVertical: layout.spacing.md,
     paddingHorizontal: layout.spacing.md,
     borderRadius: layout.radii.sm,
     gap: layout.spacing.sm,

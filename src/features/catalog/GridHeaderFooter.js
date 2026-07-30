@@ -5,6 +5,7 @@ import { SORT_OPTIONS } from '../../hooks/useCatalogFilters';
 import { layout } from '../../theme/tokens';
 import sidebarStyles from './CatalogFilterSidebarStyles';
 import CatalogPagination from './CatalogPagination';
+import Footer from '../shell/components/Footer';
 
 const getSortItemStyles = (isSelected, isDark) => {
   const itemStyle = [
@@ -114,15 +115,19 @@ export function GridHeader({ isNarrow, isDark, onMobileToggle, sortDropdownVisib
 
 export function GridFooter({ currentPage, totalPages, onPrev, onNext, loading, isDark, isNarrow }) {
   return (
-    <CatalogPagination
-      currentPage={currentPage}
-      totalPages={totalPages}
-      onPrev={onPrev}
-      onNext={onNext}
-      loading={loading}
-      isDark={isDark}
-      isNarrow={isNarrow}
-    />
+    <View style={styles.gridFooterContainer}>
+      <CatalogPagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPrev={onPrev}
+        onNext={onNext}
+        loading={loading}
+        isDark={isDark}
+        isNarrow={isNarrow}
+      />
+      <View style={styles.footerSpacer} />
+      <Footer isDark={isDark} />
+    </View>
   );
 }
 
@@ -135,5 +140,11 @@ const styles = StyleSheet.create({
     top: layout.spacing.lg * 2 + 6,
     right: layout.spacing.xxs,
     width: 165,
+  },
+  gridFooterContainer: {
+    width: '100%',
+  },
+  footerSpacer: {
+    height: layout.spacing.xxl,
   },
 });

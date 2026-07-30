@@ -22,7 +22,7 @@ function FieldLabelRow({ label, labelIcon, styles }) {
   return (
     <View style={resolvedStyles.row}>
       {labelIcon}
-      {label && <Text style={resolvedStyles.text}>{label}</Text>}
+      {label && <Text variant="label" style={resolvedStyles.text}>{label}</Text>}
     </View>
   );
 }

@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors, fonts, layout } from '../../../theme/tokens';
+import { badgeTokens, colors, fonts, layout } from '../../../theme/tokens';
 
 const badgeSizes = {
   sm: {
@@ -184,6 +184,9 @@ export const getBadgeStyle = ({
   const resolver = variantColorResolvers[variant] || variantColorResolvers.product;
   const { bg, text, border } = resolver({ status, isDark, selected, customColor });
 
+  const isStatus = variant === 'status';
+  const statusWidth = badgeTokens.statusWidth || 115;
+
   return {
     container: [
       baseBadgeStyles.container,
@@ -193,7 +196,8 @@ export const getBadgeStyle = ({
         paddingHorizontal: sizeConfig.paddingHorizontal,
         paddingVertical: sizeConfig.paddingVertical,
         borderRadius: sizeConfig.borderRadius,
-        ...(sizeConfig.minWidth ? { minWidth: sizeConfig.minWidth } : {}),
+        ...(isStatus ? { width: statusWidth, justifyContent: 'center' } : {}),
+        ...(sizeConfig.minWidth && !isStatus ? { minWidth: sizeConfig.minWidth } : {}),
         ...(sizeConfig.height ? { height: sizeConfig.height } : {}),
       },
     ],
