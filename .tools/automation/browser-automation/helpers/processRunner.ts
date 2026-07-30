@@ -1,6 +1,6 @@
 import { spawn } from 'child_process';
 
-const colors = {
+export const colors = {
   reset: '\x1b[0m',
   cyan: '\x1b[36m',
   green: '\x1b[32m',

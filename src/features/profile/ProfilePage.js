@@ -7,6 +7,7 @@ import { useTheme } from '../../context/ThemeContext';
 import useGridLayout from '../../hooks/useGridLayout';
 import { useProfileForm } from '../../hooks/useProfileForm';
 import Footer from '../shell/components/Footer';
+import ProfileSidebar from './components/ProfileSidebar';
 import ProfileFormCard from './ProfileFormCard';
 import styles from './ProfilePageStyles';
 
@@ -41,7 +42,7 @@ export default function ProfilePage({ isDark, auth }) {
             {
               alignSelf: 'center',
               width: '100%',
-              maxWidth: isWide ? 580 : gridWidth,
+              maxWidth: isWide ? 1140 : gridWidth,
             },
           ]}
         >
@@ -51,25 +52,43 @@ export default function ProfilePage({ isDark, auth }) {
             </Heading>
           </ScrollFadeUp>
 
-          <ScrollFadeUp>
-            <ProfileFormCard
-              email={auth?.user?.email}
-              firstName={form.firstName}
-              lastName={form.lastName}
-              phone={form.phone}
-              city={form.city}
-              setFirstName={(v) => updateField('firstName', v)}
-              setLastName={(v) => updateField('lastName', v)}
-              setPhone={(v) => updateField('phone', v)}
-              setCity={(v) => updateField('city', v)}
-              saving={saving}
-              loading={loading}
-              onSave={handleSave}
-              isDark={isDark}
-              selectTheme={selectTheme}
-              t={t}
-            />
-          </ScrollFadeUp>
+          <View
+            style={[
+              styles.layoutWrapper,
+              {
+                flexDirection: isWide ? 'row' : 'column',
+                alignItems: isWide ? 'flex-start' : 'stretch',
+              },
+            ]}
+          >
+            <View style={isWide ? styles.sidebarContainer : { width: '100%' }}>
+              <ScrollFadeUp>
+                <ProfileSidebar onLogout={auth?.logout} />
+              </ScrollFadeUp>
+            </View>
+
+            <View style={isWide ? styles.contentContainer : { width: '100%' }}>
+              <ScrollFadeUp>
+                <ProfileFormCard
+                  email={auth?.user?.email}
+                  firstName={form.firstName}
+                  lastName={form.lastName}
+                  phone={form.phone}
+                  city={form.city}
+                  setFirstName={(v) => updateField('firstName', v)}
+                  setLastName={(v) => updateField('lastName', v)}
+                  setPhone={(v) => updateField('phone', v)}
+                  setCity={(v) => updateField('city', v)}
+                  saving={saving}
+                  loading={loading}
+                  onSave={handleSave}
+                  isDark={isDark}
+                  selectTheme={selectTheme}
+                  t={t}
+                />
+              </ScrollFadeUp>
+            </View>
+          </View>
         </View>
       </View>
       <Footer />

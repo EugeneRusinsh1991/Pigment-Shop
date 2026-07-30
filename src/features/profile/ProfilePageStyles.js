@@ -128,6 +128,18 @@ const styles = StyleSheet.create({
   flex1: {
     flex: 1,
   },
+  layoutWrapper: {
+    width: '100%',
+    gap: layout.spacing.lg,
+  },
+  sidebarContainer: {
+    width: 260,
+    flexShrink: 0,
+  },
+  contentContainer: {
+    flex: 1,
+    width: '100%',
+  },
 });
 
 export default styles;
