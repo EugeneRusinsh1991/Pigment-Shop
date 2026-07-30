@@ -86,11 +86,11 @@ export default StyleSheet.create({
   },
   rowMiddle: {
     flexDirection: 'row',
-    gap: 0, // zero gap
+    gap: layout.spacing.none, // zero gap
   },
   rowBottom: {
     flexDirection: 'row',
-    gap: 0, // zero gap
+    gap: layout.spacing.none, // zero gap
     borderTopWidth: layout.borderWidth.thin,
     borderTopColor: colors.secondaryLightBorder,
     paddingTop: layout.spacing.sm,
@@ -318,9 +318,9 @@ export default StyleSheet.create({
   },
   dropdownMenuContainer: {
     position: 'absolute',
-    top: 48,
-    left: 0,
-    right: 0,
+    top: layout.spacing.xl * 2,
+    left: layout.spacing.none,
+    right: layout.spacing.none,
     backgroundColor: colors.surfaceLight,
     borderWidth: layout.borderWidth.thin,
     borderColor: colors.secondaryLightBorder,

@@ -19,16 +19,16 @@ const elem_styles = StyleSheet.create({
   },
   depthContainer: {
     position: 'absolute',
-    top: 0,
-    bottom: 0,
-    left: 0,
+    top: layout.spacing.none,
+    bottom: layout.spacing.none,
+    left: layout.spacing.none,
     pointerEvents: 'none',
   },
   depthBarBase: {
     width: 2,
     position: 'absolute',
-    top: 0,
-    bottom: 0,
+    top: layout.spacing.none,
+    bottom: layout.spacing.none,
   },
 });
 

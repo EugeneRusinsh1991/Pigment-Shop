@@ -24,8 +24,8 @@ export const styles = StyleSheet.create({
   },
   retryButton: {
     marginTop: layout.spacing.md,
-    paddingVertical: 10,
-    paddingHorizontal: 24,
+    paddingVertical: layout.spacing.md - 2,
+    paddingHorizontal: layout.spacing.xl,
     backgroundColor: colors.accent,
     borderRadius: layout.radii.sm,
   },

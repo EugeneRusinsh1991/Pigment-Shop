@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
 
   sortDropdown: {
     position: 'absolute',
-    top: 54,
+    top: layout.spacing.lg * 2 + 6,
     right: layout.spacing.lg,
     width: '46%',
     borderRadius: buttonTokens.sizes.md.borderRadius,

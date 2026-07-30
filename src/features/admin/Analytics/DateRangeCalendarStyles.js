@@ -4,8 +4,8 @@ import { colors, layout, shadow, typography } from '../../../theme/tokens';
 export const localStyles = StyleSheet.create({
   calendarPopup: {
     position: 'absolute',
-    top: 42,
-    right: 0,
+    top: layout.spacing.md * 3.5,
+    right: layout.spacing.none,
     zIndex: layout.zIndices.toast,
     borderWidth: layout.borderWidth.thin,
     borderColor: colors.secondaryLightBorder,

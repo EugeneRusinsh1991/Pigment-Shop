@@ -44,9 +44,9 @@ export default function AdminSaveFooter({ isDirty, isSaving, onSave }) {
 const styles = StyleSheet.create({
   container: {
     position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
+    bottom: layout.spacing.none,
+    left: layout.spacing.none,
+    right: layout.spacing.none,
     zIndex: layout.zIndices.dropdown,
   },
   footer: {

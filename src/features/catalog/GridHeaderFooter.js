@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
     position: 'relative',
   },
   sortDropdownPosition: {
-    top: 54,
+    top: layout.spacing.lg * 2 + 6,
     right: layout.spacing.xxs,
     width: 165,
   },

@@ -77,8 +77,8 @@ export default StyleSheet.create({
   },
   dropdown: {
     position: 'absolute',
-    top: 42,
-    right: 0,
+    top: layout.spacing.md * 3.5,
+    right: layout.spacing.none,
     width: 140,
     borderRadius: layout.radii.md,
     padding: layout.spacing.xs,

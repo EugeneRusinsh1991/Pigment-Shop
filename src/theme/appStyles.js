@@ -127,7 +127,7 @@ export default StyleSheet.create({
   descLight: { color: colors.textDescLight },
   stickySearchContainer: {
     ...(Platform.OS === 'web' ? { position: 'sticky' } : { position: 'relative' }),
-    top: 0,
+    top: layout.spacing.none,
     zIndex: layout.zIndices.header,
     width: '100%',
     paddingVertical: layout.spacing.xxs,
