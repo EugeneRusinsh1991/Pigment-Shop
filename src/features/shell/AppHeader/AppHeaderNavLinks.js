@@ -1,6 +1,6 @@
 import { StyleSheet, View } from 'react-native';
 import { Text } from '@/components/ui/Text/Text';
-import { Link } from 'expo-router';
+import { Link, usePathname } from 'expo-router';
 import Button, { IconButton } from '@/components/ui/Button';
 import { useLanguage } from '../../../context/LanguageContext';
 import styles from './AppHeaderStyles';
@@ -15,7 +15,13 @@ export default function AppHeaderNavLinks({
   theme,
 }) {
   const { t } = useLanguage();
+  const pathname = usePathname();
   if (isMobile) return null;
+
+  const isHomeActive = pathname === '/';
+  const isCatalogActive = pathname.startsWith('/catalog');
+  const isProductsActive = pathname.startsWith('/products');
+  const isContactActive = pathname.startsWith('/contact');
 
   return (
     <View style={styles.centerSec}>
@@ -31,7 +37,7 @@ export default function AppHeaderNavLinks({
           size="sm"
           title={t('navHome')}
           style={styles.navLink}
-          textStyle={[styles.navLinkText, theme.subtextColor]}
+          textStyle={[styles.navLinkText, isHomeActive ? styles.navLinkActiveText : theme.subtextColor]}
         />
       </Link>
       <Link href="/catalog" asChild>
@@ -40,7 +46,7 @@ export default function AppHeaderNavLinks({
           size="sm"
           title={t('navCatalog')}
           style={styles.navLink}
-          textStyle={[styles.navLinkText, theme.textColor]}
+          textStyle={[styles.navLinkText, isCatalogActive ? styles.navLinkActiveText : theme.textColor]}
         />
       </Link>
       <Link href="/products" asChild>
@@ -49,7 +55,7 @@ export default function AppHeaderNavLinks({
           size="sm"
           title={t('navAllProducts')}
           style={styles.navLink}
-          textStyle={[styles.navLinkText, theme.textColor]}
+          textStyle={[styles.navLinkText, isProductsActive ? styles.navLinkActiveText : theme.textColor]}
         />
       </Link>
       <Link href="/contact" asChild>
@@ -58,9 +64,10 @@ export default function AppHeaderNavLinks({
           size="sm"
           title={t('navContactUs')}
           style={styles.navLink}
-          textStyle={[styles.navLinkText, theme.textColor]}
+          textStyle={[styles.navLinkText, isContactActive ? styles.navLinkActiveText : theme.textColor]}
         />
       </Link>
     </View>
   );
 }
+

@@ -81,7 +81,7 @@ export default function ProfileFormCard({
   return (
     <Card
       isDark={isDark}
-      style={styles.cardSpecific}
+      style={[styles.cardSpecific, selectTheme(styles.cardSpecificDark, styles.cardSpecificLight)]}
     >
       <EmailField label={t('profileEmail')} email={email} selectTheme={selectTheme} />
 

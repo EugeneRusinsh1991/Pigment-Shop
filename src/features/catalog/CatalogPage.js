@@ -15,7 +15,6 @@ import useCatalogLayout from '../../hooks/useCatalogLayout';
 import usePaginatedCatalog from '../../hooks/usePaginatedCatalog';
 import { colors, layout } from '../../theme/tokens';
 import { useFavoritesContext } from '../favorites/FavoritesContext';
-import Footer from '../shell/components/Footer';
 import { useCatalog } from './CatalogContext';
 import CatalogFilterSidebar from './CatalogFilterSidebar';
 import CatalogSortBar from './CatalogSortBar';
@@ -168,7 +167,6 @@ export default function CatalogPage({ isDark }) {
           loading={loading}
         />
       </View>
-      <Footer />
     </View>
   );
 }

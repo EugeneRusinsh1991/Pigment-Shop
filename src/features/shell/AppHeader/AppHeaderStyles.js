@@ -63,6 +63,10 @@ export default StyleSheet.create({
     lineHeight: typography.lineHeights.sm,
     fontFamily: typography.fonts.primary,
   },
+  navLinkActiveText: {
+    color: colors.accent,
+    fontWeight: typography.weights.semibold,
+  },
   rightSec: {
     flexDirection: 'row',
     alignItems: 'center',

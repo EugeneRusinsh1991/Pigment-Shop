@@ -16,6 +16,12 @@ const styles = StyleSheet.create({
     marginBottom: layout.spacing.lg,
     borderWidth: layout.borderWidth.none,
   },
+  cardSpecificLight: {
+    backgroundColor: colors.white,
+  },
+  cardSpecificDark: {
+    backgroundColor: colors.backgroundDark,
+  },
   label: {
     marginBottom: layout.spacing.xxs,
   },

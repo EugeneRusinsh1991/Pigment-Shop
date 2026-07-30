@@ -265,8 +265,12 @@ export default StyleSheet.create({
   loadingRoot: {
     padding: layout.spacing.xxl + layout.spacing.sm,
     alignItems: 'center',
+    flex: 1,
+    minHeight: '100%',
+    justifyContent: 'center',
   },
   scrollContent: {
+    flexGrow: 1,
     paddingBottom: layout.spacing.none,
   },
   bottomSpacer: {
