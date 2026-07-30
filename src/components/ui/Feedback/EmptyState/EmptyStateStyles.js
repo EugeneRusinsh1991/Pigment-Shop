@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: layout.spacing.xl * 2 - 8,
+    paddingVertical: layout.spacing.xxl,
     paddingHorizontal: layout.spacing.xl,
   },
   iconWrapper: {
@@ -20,11 +20,11 @@ export const styles = StyleSheet.create({
     maxWidth: 360,
   },
   actionWrapper: {
-    marginTop: layout.spacing.lg + 4,
+    marginTop: layout.spacing.xl,
   },
   retryButton: {
     marginTop: layout.spacing.md,
-    paddingVertical: layout.spacing.md - 2,
+    paddingVertical: layout.spacing.sm,
     paddingHorizontal: layout.spacing.xl,
     backgroundColor: colors.accent,
     borderRadius: layout.radii.sm,

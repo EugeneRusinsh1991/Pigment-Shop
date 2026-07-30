@@ -53,7 +53,7 @@ export function StatusBadge({ active }) {
 
 export function DiscountCell({ discountPercent }) {
   if (discountPercent > 0) {
-    return <Text style={[styles.discountText, styles.colDiscount]}>-{discountPercent}%</Text>;
+    return <Badge.Discount value={discountPercent} />;
   }
   return <Text style={[styles.discountNone, styles.colDiscount]}>—</Text>;
 }

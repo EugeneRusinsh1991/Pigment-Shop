@@ -1,5 +1,6 @@
 import { BoxIcon, ClipboardIcon, DollarIcon, TrendIcon } from '@/components/Icons';
 import { Heading, Text } from '@/components/ui/Text';
+import Card from '@/components/ui/Card';
 import { useEffect, useMemo, useState } from 'react';
 import { ActivityIndicator, View } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
@@ -15,13 +16,13 @@ import TopProductsChart from './TopProductsChart';
 
 function StatCard({ label, value, icon }) {
   return (
-    <View style={styles.statCard}>
+    <Card style={styles.statCard}>
       <View style={styles.statHeader}>
         <Text variant="caption" color="secondary" style={styles.statLabel}>{label}</Text>
         <View>{icon}</View>
       </View>
       <Heading level={3} style={styles.statValue}>{value}</Heading>
-    </View>
+    </Card>
   );
 }
 
@@ -44,10 +45,10 @@ function StatsRow({ stats }) {
 function RevenuePanel({ revenueData }) {
   const { t } = useTheme();
   return (
-    <View style={styles.chartPanel}>
+    <Card style={styles.chartPanel}>
       <Heading level={4} style={styles.chartTitle}>{t('adminAnalyticsRevenue14Days')}</Heading>
       <RevenueChart revenueData={revenueData} />
-    </View>
+    </Card>
   );
 }
 
@@ -55,14 +56,14 @@ function BottomChartsRow({ topProducts, orderStatuses }) {
   const { t } = useTheme();
   return (
     <View style={styles.chartsRow}>
-      <View style={[styles.chartPanel, styles.chartHalf]}>
+      <Card style={[styles.chartPanel, styles.chartHalf]}>
         <Heading level={4} style={styles.chartTitle}>{t('adminAnalyticsTopProducts')}</Heading>
         <TopProductsChart productsData={topProducts} />
-      </View>
-      <View style={[styles.chartPanel, styles.chartHalf]}>
+      </Card>
+      <Card style={[styles.chartPanel, styles.chartHalf]}>
         <Heading level={4} style={styles.chartTitle}>{t('adminAnalyticsOrderStatuses')}</Heading>
         <OrderStatusChart statusData={orderStatuses} />
-      </View>
+      </Card>
     </View>
   );
 }

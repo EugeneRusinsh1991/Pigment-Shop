@@ -125,6 +125,9 @@ export async function setupManualInspector(page: Page): Promise<void> {
     await page.addInitScript(() => {
       (window as any).__isPlaywright = true;
     });
+    await page.evaluate(() => {
+      (window as any).__isPlaywright = true;
+    }).catch(() => {});
   } catch (err) {
     // Init script may already be attached
   }

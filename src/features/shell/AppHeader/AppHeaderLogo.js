@@ -28,7 +28,7 @@ export default function AppHeaderLogo({ isDark, appName, isMobile, onMenuPress, 
     <View style={computedStyles.leftSec}>
       {isMobile && (
         <IconButton
-          icon={<Text size={typography.sizes.xl} lineHeight={typography.sizes.xl}>☰</Text>}
+          icon={<Text variant="h2">☰</Text>}
           onPress={onMenuPress}
           size={44}
           variant="transparent"

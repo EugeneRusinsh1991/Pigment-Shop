@@ -102,7 +102,8 @@ export default function ManualBrowserInspector() {
     if (!isPlaywright) return;
 
     const handleKeyDown = (e) => {
-      if (e.altKey && e.code === 'Digit1') {
+      const isAlt1 = e.altKey && (e.code === 'Digit1' || e.code === 'Numpad1' || e.key === '1' || e.key === '!' || e.keyCode === 49);
+      if (isAlt1) {
         e.preventDefault();
         handleCapture();
       }

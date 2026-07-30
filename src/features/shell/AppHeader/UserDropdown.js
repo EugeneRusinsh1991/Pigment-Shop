@@ -84,7 +84,7 @@ export default function UserDropdown({
       {isAuthenticated ? (
         <>
           <View style={[styles.userHeader, { borderBottomColor: dStyles.borderBottomColor }]}>
-            <Text variant="caption" color="secondary" weight="500" size={typography.sizes.xs - 1} numberOfLines={1} ellipsizeMode="tail">
+            <Text variant="caption" color="secondary" numberOfLines={1} ellipsizeMode="tail">
               {getUserDisplayName(user, profile)}
             </Text>
           </View>

@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, TouchableOpacity } from 'react-native';
+import { View } from 'react-native';
 import { Text, Heading } from '../../Text';
+import { Button } from '../../Button';
 import { useEmptyStateTheme } from './useEmptyStateTheme';
 import { useLanguage } from '../../../../context/LanguageContext';
 
@@ -15,12 +16,10 @@ function renderChildren(children, descriptionStyle, mutedColor) {
   return children;
 }
 
-function RetryButton({ onRetry, styles }) {
+function RetryButton({ onRetry }) {
   const { t } = useLanguage();
   return (
-    <TouchableOpacity onPress={onRetry} style={styles.retryButton}>
-      <Text variant="body2" style={styles.retryText}>{t('tryAgain')}</Text>
-    </TouchableOpacity>
+    <Button size="md" variant="primary" onPress={onRetry} title={t('tryAgain')} />
   );
 }
 
@@ -49,7 +48,7 @@ function renderBody(bodyText, descriptionStyle, styles) {
 
 function renderAction(action, onRetry, styles) {
   if (action) return <View style={styles.actionWrapper}>{action}</View>;
-  if (onRetry) return <View style={styles.actionWrapper}><RetryButton onRetry={onRetry} styles={styles} /></View>;
+  if (onRetry) return <View style={styles.actionWrapper}><RetryButton onRetry={onRetry} /></View>;
   return null;
 }
 

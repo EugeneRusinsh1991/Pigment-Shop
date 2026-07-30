@@ -32,13 +32,13 @@ const ProductPrice = React.memo(function ProductPrice({ price, discountPercent }
     const finalPrice = getEffectivePrice(price, discountPercent);
     return (
       <View style={styles.priceRow}>
-        <Text variant="subtitle1" weight="700">${finalPrice.toLocaleString()}</Text>
+        <Text variant="subtitle1">${finalPrice.toLocaleString()}</Text>
         <Text variant="caption" color="desc" style={styles.originalPriceText}>${price.toLocaleString()}</Text>
       </View>
     );
   }
 
-  return <Text variant="subtitle1" weight="700">${price.toLocaleString()}</Text>;
+  return <Text variant="subtitle1">${price.toLocaleString()}</Text>;
 });
 
 function safeStopPropagation(e) {

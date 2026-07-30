@@ -122,6 +122,9 @@ async function setupManualInspector(page) {
     await page.addInitScript(() => {
       window.__isPlaywright = true;
     });
+    await page.evaluate(() => {
+      window.__isPlaywright = true;
+    }).catch(() => {});
   } catch (err) {
     // Init script may already be attached
   }

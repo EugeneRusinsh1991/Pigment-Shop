@@ -3,6 +3,7 @@
  */
 import { View } from 'react-native';
 import { Text } from '@/components/ui/Text';
+import Card from '@/components/ui/Card';
 import { useTheme } from '../../../context/ThemeContext';
 import styles from './OrdersStyles';
 import { formatDateLongWithTime } from '../../../utils/dateFormatting';
@@ -23,7 +24,7 @@ export default function OrderCustomerCard({ order }) {
   const isGuest = order.isGuest;
 
   return (
-    <View style={styles.detailCard}>
+    <Card style={styles.detailCard}>
       {isGuest && (
         <View style={[styles.detailRow, styles.guestBanner]}>
           <Text variant="subtitle2" weight="semibold" style={styles.guestBannerText}>
@@ -36,6 +37,6 @@ export default function OrderCustomerCard({ order }) {
       <DetailRow label={t('profilePhone')} value={order.customerPhone} />
       <DetailRow label={t('profileCity')} value={order.customerCity} />
       <DetailRow label={t('adminOrdersDate')} value={formatDateLongWithTime(order.createdAt, lang)} />
-    </View>
+    </Card>
   );
 }

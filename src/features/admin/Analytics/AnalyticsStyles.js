@@ -20,11 +20,7 @@ export default StyleSheet.create({
   statCard: {
     flex: 1,
     minWidth: 160,
-    backgroundColor: colors.white,
-    borderRadius: layout.radii.iconBtn,
     padding: layout.spacing.lg + layout.spacing.xxs,
-    ...shadow.card(),
-    elevation: layout.elevation.sm,
   },
   statHeader: {
     flexDirection: 'row',
@@ -42,12 +38,8 @@ export default StyleSheet.create({
 
   /* Chart Panels */
   chartPanel: {
-    backgroundColor: colors.white,
-    borderRadius: layout.radii.iconBtn,
     padding: layout.spacing.lg + layout.spacing.xxs,
     marginBottom: layout.spacing.lg,
-    ...shadow.card(),
-    elevation: layout.elevation.sm,
   },
   chartTitle: {
     marginBottom: layout.spacing.lg,
