@@ -11,7 +11,6 @@
 import { useState } from 'react';
 import { View } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
-import { useFormModal } from '../../../hooks/useFormModal';
 import { useCatalog } from '../../catalog/CatalogContext';
 import AdminSaveFooter from '../AdminSaveFooter';
 import styles from './CategoriesStyles';
@@ -23,13 +22,33 @@ export default function CategoriesManager() {
   const { tree, allCategories, handleAdd, handleUpdate, handleDelete, handleSaveToFirebase: handleBatchSave, isSaving, isDirty } = useCategoriesWorkflow();
   const { flatList: products } = useCatalog();
   const { t } = useTheme();
-  const { isVisible: modalVisible, editingItem: editingCategory, openForCreate: openAdd, openForEdit: openEdit, close: closeModal } = useFormModal();
+  const [viewMode, setViewMode] = useState('list');
+  const [editingCategory, setEditingCategory] = useState(null);
   const [presetParentId, setPresetParentId] = useState(null);
 
-  const handleOpenAdd = () => { setPresetParentId(null); openAdd(); };
-  const handleOpenAddChild = (parentCategory) => { setPresetParentId(parentCategory.id); openAdd(); };
-  const handleOpenEdit = (cat) => { setPresetParentId(null); openEdit(cat); };
-  const handleCloseModal = () => { setPresetParentId(null); closeModal(); };
+  const handleOpenAdd = () => {
+    setPresetParentId(null);
+    setEditingCategory(null);
+    setViewMode('create');
+  };
+
+  const handleOpenAddChild = (parentCategory) => {
+    setPresetParentId(parentCategory.id);
+    setEditingCategory(null);
+    setViewMode('create');
+  };
+
+  const handleOpenEdit = (cat) => {
+    setPresetParentId(null);
+    setEditingCategory(cat);
+    setViewMode('edit');
+  };
+
+  const handleCloseForm = () => {
+    setPresetParentId(null);
+    setEditingCategory(null);
+    setViewMode('list');
+  };
 
   const handleSave = (formData) => {
     if (editingCategory) {
@@ -37,8 +56,25 @@ export default function CategoriesManager() {
     } else {
       handleAdd(formData);
     }
-    closeModal();
+    handleCloseForm();
   };
+
+  if (viewMode !== 'list') {
+    return (
+      <View style={styles.container}>
+        <CategoryFormModal
+          category={editingCategory}
+          categories={allCategories}
+          presetParentId={presetParentId}
+          onSave={handleSave}
+          onClose={handleCloseForm}
+          onDelete={handleDelete}
+          onAddChild={handleOpenAddChild}
+          products={products}
+        />
+      </View>
+    );
+  }
 
   return (
     <View style={styles.container}>
@@ -52,17 +88,6 @@ export default function CategoriesManager() {
         isDirty={isDirty} 
         isSaving={isSaving} 
         onSave={handleBatchSave} 
-      />
-      <CategoryFormModal
-        visible={modalVisible}
-        category={editingCategory}
-        categories={allCategories}
-        presetParentId={presetParentId}
-        onSave={handleSave}
-        onClose={handleCloseModal}
-        onDelete={handleDelete}
-        onAddChild={handleOpenAddChild}
-        products={products}
       />
     </View>
   );

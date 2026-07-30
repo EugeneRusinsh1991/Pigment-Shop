@@ -5,7 +5,7 @@
  * Validates required fields and calls onSave(formData).
  */
 import React, { useState } from 'react';
-import { View } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
 import {
   BrandSkuRow,
@@ -21,11 +21,13 @@ import styles from './ProductFormStyles';
 import { useDeleteConfirmation } from '../../../hooks/useDeleteConfirmation';
 import { useForm } from '../../../hooks/useForm';
 import { colors, layout } from '../../../theme/tokens';
-import { Button } from '@/components/ui/Button';
-import { FormModalLayout, LanguageTabs } from '../SharedFormComponents';
+import { AnimatedButton, Button } from '@/components/ui/Button';
+import { BackArrowIcon } from '@/components/Icons';
+import { Text } from '@/components/ui/Text';
+import { LanguageTabs } from '../SharedFormComponents';
 import { buildInitialForm, parseFormToProduct, validateForm } from './productFormLogic';
 
-export default function ProductFormModal({ visible, product, onSave, onClose, onDelete }) {
+export default function ProductFormModal({ product, onSave, onClose, onDelete }) {
   const { t, lang } = useTheme();
   const [activeLang, setActiveLang] = useState(lang);
 
@@ -37,11 +39,9 @@ export default function ProductFormModal({ visible, product, onSave, onClose, on
   const { confirmDelete, confirmationDialog } = useDeleteConfirmation();
 
   React.useEffect(() => {
-    if (visible) {
-      resetForm(buildInitialForm(product, lang));
-      setActiveLang(lang);
-    }
-  }, [visible, product, lang, resetForm]);
+    resetForm(buildInitialForm(product, lang));
+    setActiveLang(lang);
+  }, [product, lang, resetForm]);
 
   const handleSave = () => {
     if (validate()) {
@@ -62,14 +62,26 @@ export default function ProductFormModal({ visible, product, onSave, onClose, on
 
   return (
     <>
-      <FormModalLayout
-        visible={visible}
-        title={product ? t('adminProductsEditTitle') : t('adminProductsNewTitle')}
-        onClose={onClose}
-        onSave={handleSave}
-        styles={styles}
-        cardWidth={520}
-      >
+      <ScrollView contentContainerStyle={{ paddingBottom: layout.spacing.xxl + layout.spacing.sm }}>
+        {/* Back button */}
+        <AnimatedButton
+          size="sm"
+          style={{ flexDirection: 'row', alignItems: 'center', marginBottom: layout.spacing.xl }}
+          onPress={onClose}
+        >
+          <BackArrowIcon color={colors.textDescLight} size={16} />
+          <Text style={{ marginLeft: layout.spacing.sm, color: colors.textDescLight }} size={14} weight="500">
+            {t('adminProductsBackBtn') || '← Back to Products'}
+          </Text>
+        </AnimatedButton>
+
+        {/* Header title */}
+        <View style={{ marginBottom: layout.spacing.xl }}>
+          <Text size={24} weight="bold" style={{ color: colors.textLight }}>
+            {product ? t('adminProductsEditTitle') : t('adminProductsNewTitle')}
+          </Text>
+        </View>
+
         <LanguageTabs activeLang={activeLang} onChange={setActiveLang} />
         <NameField form={form} onChange={handleChange} errors={errors} activeLang={activeLang} />
         <DescriptionField form={form} onChange={handleChange} activeLang={activeLang} />
@@ -78,8 +90,20 @@ export default function ProductFormModal({ visible, product, onSave, onClose, on
         <CategoryStockRow form={form} onChange={handleChange} />
         <ImageFields form={form} onChange={handleChange} errors={errors} />
         <FlagsSection form={form} onChange={handleChange} />
-        {product && onDelete && (
-          <View style={styles.deleteSection}>
+
+        {/* Actions row */}
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            marginTop: layout.spacing.xl,
+            paddingTop: layout.spacing.lg,
+            borderTopWidth: layout.borderWidth.thin,
+            borderTopColor: colors.borderLight,
+          }}
+        >
+          {product && onDelete ? (
             <Button
               title={t('adminProductsActionDelete')}
               onPress={handleDelete}
@@ -87,9 +111,26 @@ export default function ProductFormModal({ visible, product, onSave, onClose, on
               size="md"
               textStyle={{ color: colors.dangerStrong }}
             />
+          ) : (
+            <View />
+          )}
+
+          <View style={{ flexDirection: 'row', gap: layout.spacing.md }}>
+            <Button
+              title={t('btnCancelLabel')}
+              onPress={onClose}
+              variant="secondary"
+              size="md"
+            />
+            <Button
+              title={t('btnSaveLabel')}
+              onPress={handleSave}
+              variant="success"
+              size="md"
+            />
           </View>
-        )}
-      </FormModalLayout>
+        </View>
+      </ScrollView>
       {confirmationDialog}
     </>
   );

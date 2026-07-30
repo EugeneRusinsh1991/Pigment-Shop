@@ -4,7 +4,7 @@ import { Text } from '../../components/ui/Text/Text';
 import styles from './ProductPageStyles';
 import MediaRenderer from '../../components/ui/Media/MediaRenderer';
 import { useCarouselState, getCarouselOpacity } from '../../hooks/useCarouselState';
-import { HeartIcon } from '@/components/Icons';
+import { HeartIcon, ChevronLeftIcon, ChevronRightIcon } from '@/components/Icons';
 import { AnimatedButton } from '../../components/ui/Button';
 import ProductBadges from './ProductBadges';
 import { colors } from '../../theme/tokens';
@@ -47,13 +47,13 @@ function CarouselArrows({ show, onPrev, onNext }) {
         style={[styles.arrowBtn, styles.leftArrow]}
         onPress={onPrev}
       >
-        <Text style={styles.arrowText}>‹</Text>
+        <ChevronLeftIcon color={colors.white} size={18} />
       </AnimatedButton>
       <AnimatedButton
         style={[styles.arrowBtn, styles.rightArrow]}
         onPress={onNext}
       >
-        <Text style={styles.arrowText}>›</Text>
+        <ChevronRightIcon color={colors.white} size={18} />
       </AnimatedButton>
     </>
   );

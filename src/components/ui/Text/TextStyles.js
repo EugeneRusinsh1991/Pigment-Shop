@@ -2,18 +2,18 @@ import { StyleSheet } from 'react-native';
 import { colors, fonts, typography } from '../../../theme/tokens';
 
 export const VARIANTS = {
-  display: { fontSize: typography.sizes.display, lineHeight: typography.lineHeights.display, fontWeight: typography.weights.bold, fontFamily: fonts.serif, letterSpacing: typography.letterSpacing.tight },
-  h1: { fontSize: typography.sizes.h1, lineHeight: typography.lineHeights.h1, fontWeight: typography.weights.bold, fontFamily: fonts.serif, letterSpacing: typography.letterSpacing.tight },
-  h2: { fontSize: typography.sizes.h2, lineHeight: typography.lineHeights.h2, fontWeight: typography.weights.bold, fontFamily: fonts.serif, letterSpacing: typography.letterSpacing.tight },
-  h3: { fontSize: typography.sizes.h3, lineHeight: typography.lineHeights.h3, fontWeight: typography.weights.semibold, fontFamily: fonts.sans, letterSpacing: typography.letterSpacing.normal },
-  h4: { fontSize: typography.sizes.md, lineHeight: typography.lineHeights.md, fontWeight: typography.weights.semibold, fontFamily: fonts.sans, letterSpacing: typography.letterSpacing.normal },
-  subtitle1: { fontSize: typography.sizes.md, lineHeight: typography.lineHeights.md, fontWeight: typography.weights.medium, fontFamily: fonts.sans, letterSpacing: typography.letterSpacing.normal },
-  subtitle2: { fontSize: typography.sizes.sm, lineHeight: typography.lineHeights.sm, fontWeight: typography.weights.medium, fontFamily: fonts.sans, letterSpacing: typography.letterSpacing.normal },
-  body1: { fontSize: typography.sizes.body1, lineHeight: typography.lineHeights.body1, fontWeight: typography.weights.regular, fontFamily: fonts.sans, letterSpacing: typography.letterSpacing.normal },
-  body2: { fontSize: typography.sizes.body2, lineHeight: typography.lineHeights.body2, fontWeight: typography.weights.regular, fontFamily: fonts.sans, letterSpacing: typography.letterSpacing.normal },
-  caption: { fontSize: typography.sizes.caption, lineHeight: typography.lineHeights.caption, fontWeight: typography.weights.regular, fontFamily: fonts.sans, letterSpacing: typography.letterSpacing.wide },
-  label: { fontSize: typography.sizes.label, lineHeight: typography.lineHeights.label, fontWeight: typography.weights.medium, fontFamily: fonts.sans, letterSpacing: typography.letterSpacing.wide },
-  overline: { fontSize: typography.sizes.xxs, lineHeight: typography.lineHeights.xxs, fontWeight: typography.weights.bold, letterSpacing: typography.letterSpacing.widest, textTransform: 'uppercase', fontFamily: fonts.sans },
+  display: { fontSize: typography.sizes.display, lineHeight: typography.lineHeights.display, fontWeight: typography.weights.bold, fontFamily: fonts.primary, letterSpacing: typography.letterSpacing.tight },
+  h1: { fontSize: typography.sizes.h1, lineHeight: typography.lineHeights.h1, fontWeight: typography.weights.bold, fontFamily: fonts.primary, letterSpacing: typography.letterSpacing.tight },
+  h2: { fontSize: typography.sizes.h2, lineHeight: typography.lineHeights.h2, fontWeight: typography.weights.bold, fontFamily: fonts.primary, letterSpacing: typography.letterSpacing.tight },
+  h3: { fontSize: typography.sizes.h3, lineHeight: typography.lineHeights.h3, fontWeight: typography.weights.semibold, fontFamily: fonts.primary, letterSpacing: typography.letterSpacing.normal },
+  h4: { fontSize: typography.sizes.md, lineHeight: typography.lineHeights.md, fontWeight: typography.weights.semibold, fontFamily: fonts.primary, letterSpacing: typography.letterSpacing.normal },
+  subtitle1: { fontSize: typography.sizes.md, lineHeight: typography.lineHeights.md, fontWeight: typography.weights.medium, fontFamily: fonts.primary, letterSpacing: typography.letterSpacing.normal },
+  subtitle2: { fontSize: typography.sizes.sm, lineHeight: typography.lineHeights.sm, fontWeight: typography.weights.medium, fontFamily: fonts.primary, letterSpacing: typography.letterSpacing.normal },
+  body1: { fontSize: typography.sizes.body1, lineHeight: typography.lineHeights.body1, fontWeight: typography.weights.regular, fontFamily: fonts.primary, letterSpacing: typography.letterSpacing.normal },
+  body2: { fontSize: typography.sizes.body2, lineHeight: typography.lineHeights.body2, fontWeight: typography.weights.regular, fontFamily: fonts.primary, letterSpacing: typography.letterSpacing.normal },
+  caption: { fontSize: typography.sizes.caption, lineHeight: typography.lineHeights.caption, fontWeight: typography.weights.regular, fontFamily: fonts.primary, letterSpacing: typography.letterSpacing.wide },
+  label: { fontSize: typography.sizes.label, lineHeight: typography.lineHeights.label, fontWeight: typography.weights.medium, fontFamily: fonts.primary, letterSpacing: typography.letterSpacing.wide },
+  overline: { fontSize: typography.sizes.xxs, lineHeight: typography.lineHeights.xxs, fontWeight: typography.weights.bold, letterSpacing: typography.letterSpacing.widest, textTransform: 'uppercase', fontFamily: fonts.primary },
 };
 
 const colorPresetMap = {

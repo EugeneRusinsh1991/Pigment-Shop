@@ -7,7 +7,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import { Button } from '@/components/ui/Button';
-import { Badge } from '@/components/ui/Badge';
+import { Flag } from '@/components/domain/Flag';
 import { useLanguage } from '../../../context/LanguageContext';
 import { useTheme } from '../../../context/ThemeContext';
 import { layout } from '../../../theme/tokens';
@@ -23,18 +23,20 @@ export default function ProductsFilterBar({
   const { t } = useLanguage();
   return (
     <View style={styles.filterBar}>
-      <Badge
+      <Flag
         variant="chip"
-        selected={onlyDiscount}
-        onPress={onToggleDiscount}
-        label={t('adminProductsFilterDiscount')}
-      />
-      <Badge
+        checked={onlyDiscount}
+        onChange={onToggleDiscount}
+      >
+        {t('adminProductsFilterDiscount')}
+      </Flag>
+      <Flag
         variant="chip"
-        selected={onlyNew}
-        onPress={onToggleNew}
-        label={t('adminProductsFilterNew')}
-      />
+        checked={onlyNew}
+        onChange={onToggleNew}
+      >
+        {t('adminProductsFilterNew')}
+      </Flag>
       <Button
         title={t('adminProductsAddBtn')}
         onPress={onAdd}
@@ -44,4 +46,5 @@ export default function ProductsFilterBar({
     </View>
   );
 }
+
 

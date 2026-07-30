@@ -2,13 +2,13 @@ import React from 'react';
 import { View, TouchableOpacity, Animated } from 'react-native';
 import { Text } from "../Text";
 import { calculateHitSlop } from '../../../theme/buttonCommon';
-import { motion } from '../../../theme/tokens';
+import { motion, buttonTokens } from '../../../theme/tokens';
 import styles from './ToggleStyles';
 import { useToggleTheme } from './useToggleTheme';
 import { useToggleAnimation } from './useToggleAnimation';
 
 function getOptionDimensions(size) {
-  const height = size === 'sm' ? 36 : 44;
+  const height = size === 'sm' ? buttonTokens.sizes.sm.height : buttonTokens.sizes.md.height;
   return { width: 0, height };
 }
 
@@ -68,6 +68,7 @@ function renderToggleOption(opt, index, ctx) {
         size={ctx.size === 'sm' ? 'sm' : 'md'}
         weight={isActive ? 'bold' : 'medium'}
         style={computedTextStyle}
+        numberOfLines={1}
       >
         {optionLabel}
       </Text>

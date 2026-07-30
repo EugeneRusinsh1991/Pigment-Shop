@@ -23,8 +23,8 @@ export default function OrdersManager() {
   // Sorting — independent from status filter
   const { sortField, sortDirection, handleSort } = useSort('date');
 
-  // Status filter — 'all' by default (show everything)
-  const [activeFilter, setActiveFilter] = useState('all');
+  // Status filter — array of active filter keys, ['all'] by default
+  const [activeFilter, setActiveFilter] = useState(['all']);
 
   const handleStatusUpdated = (orderId, newStatus) => {
     setInternalData((prev) => 
@@ -37,8 +37,15 @@ export default function OrdersManager() {
 
   const filteredSortedOrders = useMemo(() => {
     const filtered = orders.filter((o) => {
-      if (activeFilter === 'all') return true;
-      return getStatusGroup(o.status) === activeFilter;
+      const isAllSelected = Array.isArray(activeFilter)
+        ? activeFilter.includes('all') || activeFilter.length === 0
+        : activeFilter === 'all';
+      if (isAllSelected) return true;
+
+      const orderStatusGroup = getStatusGroup(o.status);
+      return Array.isArray(activeFilter)
+        ? activeFilter.includes(orderStatusGroup)
+        : activeFilter === orderStatusGroup;
     });
     return sortOrders(filtered, sortField, sortDirection);
   }, [orders, activeFilter, sortField, sortDirection]);

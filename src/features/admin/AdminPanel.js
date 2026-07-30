@@ -38,7 +38,7 @@ function renderActiveTab(activeTab) {
 
 export default function AdminPanel({ onBack }) {
   const [activeTab, setActiveTab] = useState('analytics');
-  const { t } = useTheme();
+  const { isDark, t } = useTheme();
   const { logoutAdmin } = useAdminAuth();
   const { loadDrafts } = useAdminDrafts();
   const { width } = useWindowDimensions();
@@ -85,7 +85,7 @@ export default function AdminPanel({ onBack }) {
         )}
       </View>
       <View>
-        <AdminTabBar activeTab={activeTab} onSelect={setActiveTab} />
+        <AdminTabBar activeTab={activeTab} onSelect={setActiveTab} isDark={isDark} />
       </View>
       <ScrollView style={styles.content} contentContainerStyle={styles.contentContainer}>
         <PageTransition key={activeTab} trigger={activeTab}>

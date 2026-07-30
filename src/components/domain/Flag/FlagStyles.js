@@ -66,12 +66,15 @@ const styles = StyleSheet.create({
   // --- Variant: Chip ---
   chipContainer: {
     paddingHorizontal: layout.spacing.md,
-    paddingVertical: layout.spacing.xs,
-    minHeight: buttonTokens?.sizes?.sm?.height || 32,
+    paddingVertical: 0,
+    height: buttonTokens.sizes.sm.height,
+    minHeight: buttonTokens.sizes.sm.height,
     borderRadius: layout.radii.lg,
-    borderWidth: layout.borderWidth.focus,
+    borderWidth: layout.borderWidth.thin,
     borderColor: colors.secondaryLightBorder,
     backgroundColor: colors.surfaceLight,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   chipContainerDark: {
     borderColor: colors.chipDarkInactiveBorder,

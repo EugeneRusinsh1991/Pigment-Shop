@@ -1,6 +1,6 @@
 # 📦 Unused Exports
 
-*Generated on: 30.07.2026, 12:02:53*
+*Generated on: 30.07.2026, 15:11:28*
 
 Exports that are not imported or consumed by any other active file:
 
@@ -85,7 +85,7 @@ Exports that are not imported or consumed by any other active file:
 - [SmokeReportPrinter.ts](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/plugins/smoke/SmokeReportPrinter.ts): `SmokeReportPrinter` ([L6](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/plugins/smoke/SmokeReportPrinter.ts#L6))
 - [smoke-automation.ts](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/smoke-automation.ts): `runSmokeAutomation` ([L48](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/smoke-automation.ts#L48))
 - [InspectorMenu.js](file:///d:/Magazine/_PigmentShop/.tools/automation/manual-browser-inspector/components/InspectorMenu.js): `default` ([L7](file:///d:/Magazine/_PigmentShop/.tools/automation/manual-browser-inspector/components/InspectorMenu.js#L7))
-- [setupManualInspector.ts](file:///d:/Magazine/_PigmentShop/.tools/automation/manual-browser-inspector/setupManualInspector.ts): `setupManualInspector` ([L121](file:///d:/Magazine/_PigmentShop/.tools/automation/manual-browser-inspector/setupManualInspector.ts#L121))
+- [setupManualInspector.ts](file:///d:/Magazine/_PigmentShop/.tools/automation/manual-browser-inspector/setupManualInspector.ts): `setupManualInspector` ([L117](file:///d:/Magazine/_PigmentShop/.tools/automation/manual-browser-inspector/setupManualInspector.ts#L117))
 - [core.js](file:///d:/Magazine/_PigmentShop/.tools/core/backuper/backup/core.js): `createBackup` ([L184](file:///d:/Magazine/_PigmentShop/.tools/core/backuper/backup/core.js#L184))
 - [backupConfig.js](file:///d:/Magazine/_PigmentShop/.tools/core/backuper/backupConfig.js): `ALWAYS_INCLUDED_ITEMS` ([L99](file:///d:/Magazine/_PigmentShop/.tools/core/backuper/backupConfig.js#L99)), `EXCLUDED_BACKUP_ITEMS` ([L100](file:///d:/Magazine/_PigmentShop/.tools/core/backuper/backupConfig.js#L100)), `getExcludedSet` ([L101](file:///d:/Magazine/_PigmentShop/.tools/core/backuper/backupConfig.js#L101)), `BACKUP_ITEMS` ([L102](file:///d:/Magazine/_PigmentShop/.tools/core/backuper/backupConfig.js#L102)), `REQUIRED_ITEMS` ([L103](file:///d:/Magazine/_PigmentShop/.tools/core/backuper/backupConfig.js#L103))
 - [core.js](file:///d:/Magazine/_PigmentShop/.tools/core/backuper/restore/core.js): `restoreFromBackup` ([L142](file:///d:/Magazine/_PigmentShop/.tools/core/backuper/restore/core.js#L142))

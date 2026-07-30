@@ -10,8 +10,8 @@ function getDisplayHelperText(error, helperText) {
   return helperText;
 }
 
-function buildStyleParams({ size, multiline, numberOfLines, fullWidth, width, height, disabled, error, isFocused, isDark }) {
-  return { size, multiline, numberOfLines, fullWidth, width, height, disabled, error: !!error, focused: isFocused, isDark };
+function buildStyleParams({ size, multiline, numberOfLines, fullWidth, width, height, disabled, error, isFocused, isDark, inputStyle }) {
+  return { size, multiline, numberOfLines, fullWidth, width, height, disabled, error: !!error, focused: isFocused, isDark, inputStyle };
 }
 
 function makeFocusHandler(setFocused, value, externalHandler) {
@@ -77,7 +77,7 @@ function renderInputWrapper({ ref, value, onChangeText, placeholder, theme, disa
         numberOfLines={multiline ? numberOfLines : 1}
         onFocus={handleFocus}
         onBlur={handleBlur}
-        style={[dynamicStyles.input, inputStyle]}
+        style={[dynamicStyles.input]}
         {...restProps}
       />
       {trailingIcon ? <View style={styles.trailingIconContainer}>{trailingIcon}</View> : null}
@@ -103,6 +103,7 @@ function useTextFieldController({
   onFocus,
   onBlur,
   helperText,
+  inputStyle,
 }) {
   const [isFocused, setIsFocused] = useState(false);
 
@@ -122,7 +123,7 @@ function useTextFieldController({
   const trailingIcon = rightIcon || propTrailingIcon;
 
   const displayHelperText = getDisplayHelperText(error, helperText);
-  const dynamicStyles = getTextFieldStyles(buildStyleParams({ size, multiline, numberOfLines, fullWidth, width, height, disabled, error, isFocused, isDark: theme.isDark }));
+  const dynamicStyles = getTextFieldStyles(buildStyleParams({ size, multiline, numberOfLines, fullWidth, width, height, disabled, error, isFocused, isDark: theme.isDark, inputStyle }));
 
   const handleFocus = useCallback(makeFocusHandler(setIsFocused, true, onFocus), [onFocus]);
   const handleBlur = useCallback(makeFocusHandler(setIsFocused, false, onBlur), [onBlur]);
@@ -235,6 +236,7 @@ const TextField = forwardRef(function TextField(
     onFocus,
     onBlur,
     helperText,
+    inputStyle,
   });
 
   const wrapperProps = buildWrapperProps({

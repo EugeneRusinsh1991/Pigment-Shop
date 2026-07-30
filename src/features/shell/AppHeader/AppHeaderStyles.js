@@ -63,7 +63,7 @@ export default StyleSheet.create({
     fontSize: typography.sizes.sm,
     fontWeight: typography.weights.medium,
     lineHeight: typography.lineHeights.sm,
-    fontFamily: typography.fonts.sans,
+    fontFamily: typography.fonts.primary,
   },
   rightSec: {
     flexDirection: 'row',

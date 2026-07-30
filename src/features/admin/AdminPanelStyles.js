@@ -47,12 +47,20 @@ export default StyleSheet.create({
   logoutText: {
     color: colors.dangerStrong,
   },
-  tabBar: {
+  tabBarDesktop: {
     flexDirection: 'row',
+    width: '100%',
     backgroundColor: colors.surfaceLight,
     borderBottomWidth: layout.borderWidth.thin,
     borderBottomColor: colors.borderLight,
     paddingHorizontal: layout.spacing.xl,
+    paddingVertical: layout.spacing.xs,
+  },
+  tabBarMobile: {
+    flexDirection: 'row',
+    backgroundColor: colors.surfaceLight,
+    borderBottomWidth: layout.borderWidth.thin,
+    borderBottomColor: colors.borderLight,
   },
   content: {
     flex: 1,

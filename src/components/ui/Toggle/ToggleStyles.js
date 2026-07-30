@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: buttonTokens.sizes.sm.paddingHorizontal,
     borderRadius: layout.radii.xs,
     zIndex: 1,
+    whiteSpace: 'nowrap',
   },
   activeOption: {
     backgroundColor: colors.surfaceLight,
@@ -53,6 +54,7 @@ const styles = StyleSheet.create({
   },
   textBase: {
     color: colors.textMutedLight,
+    whiteSpace: 'nowrap',
   },
   textBaseDark: {
     color: colors.textMutedDark,

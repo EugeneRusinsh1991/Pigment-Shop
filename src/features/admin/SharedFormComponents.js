@@ -27,14 +27,11 @@ function FieldLabelRow({ label, labelIcon, styles }) {
   );
 }
 
-const FOCUSED_BORDER_STYLE = { borderColor: colors.accentBlue, borderWidth: layout.borderWidth.focus };
-
 function buildInputStyle(styles, inputStyle, extraStyle, isFocused, error) {
   return [
     styles ? styles.fieldInput : undefined,
     inputStyle,
     extraStyle,
-    isFocused ? FOCUSED_BORDER_STYLE : null,
     error && styles ? styles.fieldInputError : null,
   ];
 }

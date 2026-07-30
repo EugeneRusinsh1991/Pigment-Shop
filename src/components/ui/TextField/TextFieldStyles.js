@@ -66,6 +66,8 @@ const styles = StyleSheet.create({
     color: colors.textLight,
     paddingVertical: SPACING_NONE,
     margin: SPACING_NONE,
+    outlineStyle: 'none',
+    outlineWidth: 0,
   },
   inputDark: {
     color: colors.textDark,
@@ -127,12 +129,27 @@ function getInputWrapperStyles(sizeTokens, computedHeight, multiline, isDark, fo
   ];
 }
 
-function getInputStyles(sizeTokens, multiline, isDark) {
+function sanitizeInputStyle(style) {
+  if (!style) return null;
+  const flat = Array.isArray(style)
+    ? Object.assign({}, ...style.flat().filter(Boolean))
+    : { ...style };
+  delete flat.borderWidth;
+  delete flat.borderColor;
+  delete flat.borderStyle;
+  delete flat.borderRadius;
+  delete flat.backgroundColor;
+  delete flat.height;
+  return flat;
+}
+
+function getInputStyles(sizeTokens, multiline, isDark, customInputStyle) {
   return [
     styles.input,
     { fontSize: sizeTokens.fontSize },
     multiline ? styles.inputMultiline : null,
     isDark ? styles.inputDark : null,
+    sanitizeInputStyle(customInputStyle),
   ];
 }
 
@@ -158,6 +175,7 @@ export function getTextFieldStyles({
   error = false,
   focused = false,
   isDark = false,
+  inputStyle,
 } = {}) {
   const sizeTokens = SIZES[size] || SIZES.md;
   const computedHeight = multiline
@@ -168,7 +186,7 @@ export function getTextFieldStyles({
     container: getContainerStyles(fullWidth, width),
     label: getLabelStyles(isDark),
     inputWrapper: getInputWrapperStyles(sizeTokens, computedHeight, multiline, isDark, focused, error, disabled),
-    input: getInputStyles(sizeTokens, multiline, isDark),
+    input: getInputStyles(sizeTokens, multiline, isDark, inputStyle),
     leadingIcon: styles.leadingIconContainer,
     trailingIcon: styles.trailingIconContainer,
     helperText: getHelperTextStyles(isDark, error),

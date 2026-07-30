@@ -1,9 +1,8 @@
 import React, { useMemo } from 'react';
 import { View } from 'react-native';
 import { Text } from '@/components/ui/Text';
-import { layout } from '../../../theme/tokens';
+import { Flag, FlagGroup } from '@/components/domain/Flag';
 import styles from './OrdersStyles';
-import Toggle from '@/components/ui/Toggle';
 
 // Canonical statuses with their locale keys
 export const STATUS_FILTERS = [
@@ -15,24 +14,51 @@ export const STATUS_FILTERS = [
 ];
 
 export function StatusFilterBar({ t, activeFilter, onSelectFilter, count, isDark }) {
-  const options = useMemo(
+  const filterList = useMemo(
     () =>
       STATUS_FILTERS.map((sf) => ({
-        value: sf.key,
+        key: sf.key,
         label: t(sf.localeKey) || sf.key,
       })),
     [t]
   );
 
+  const activeArray = useMemo(() => {
+    if (Array.isArray(activeFilter)) return activeFilter;
+    return activeFilter ? [activeFilter] : ['all'];
+  }, [activeFilter]);
+
+  const handleGroupChange = (selectedValues) => {
+    if (!Array.isArray(selectedValues) || selectedValues.length === 0) {
+      onSelectFilter(['all']);
+      return;
+    }
+
+    const hadAll = activeArray.includes('all');
+    const hasAll = selectedValues.includes('all');
+
+    if (hasAll && !hadAll) {
+      onSelectFilter(['all']);
+    } else if (hasAll && hadAll && selectedValues.length > 1) {
+      onSelectFilter(selectedValues.filter((v) => v !== 'all'));
+    } else {
+      onSelectFilter(selectedValues);
+    }
+  };
+
   return (
     <View style={styles.filterBarContainer}>
-      <Toggle
-        options={options}
-        value={activeFilter}
-        onChange={onSelectFilter}
-        size="sm"
-        isDark={isDark}
-      />
+      <FlagGroup
+        value={activeArray}
+        onChange={handleGroupChange}
+        multiple={true}
+      >
+        {filterList.map((sf) => (
+          <Flag key={sf.key} value={sf.key} variant="chip" isDark={isDark}>
+            {sf.label}
+          </Flag>
+        ))}
+      </FlagGroup>
 
       {count !== null && count !== undefined && (
         <View style={styles.countBadge}>

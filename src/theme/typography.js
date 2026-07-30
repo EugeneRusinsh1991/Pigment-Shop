@@ -1,6 +1,9 @@
+const PRIMARY_FONT_FAMILY = 'System, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+
 export const fonts = {
-  sans: 'System, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-  serif: '"Cormorant Garamond", "Playfair Display", Georgia, serif',
+  primary: PRIMARY_FONT_FAMILY,
+  sans: PRIMARY_FONT_FAMILY,
+  serif: PRIMARY_FONT_FAMILY,
 };
 
 export const typography = {
@@ -54,12 +57,12 @@ export const typography = {
 };
 
 export const scale = {
-  display: { fontSize: 36, lineHeight: 42, letterSpacing: -0.5, fontWeight: '700', fontFamily: fonts.serif },
-  h1: { fontSize: 28, lineHeight: 34, letterSpacing: -0.5, fontWeight: '700', fontFamily: fonts.serif },
-  h2: { fontSize: 24, lineHeight: 30, letterSpacing: -0.5, fontWeight: '700', fontFamily: fonts.serif },
-  h3: { fontSize: 20, lineHeight: 28, letterSpacing: 0, fontWeight: '600', fontFamily: fonts.sans },
-  body1: { fontSize: 16, lineHeight: 24, letterSpacing: 0, fontWeight: '400', fontFamily: fonts.sans },
-  body2: { fontSize: 14, lineHeight: 20, letterSpacing: 0, fontWeight: '400', fontFamily: fonts.sans },
-  caption: { fontSize: 12, lineHeight: 16, letterSpacing: 0.5, fontWeight: '400', fontFamily: fonts.sans },
-  label: { fontSize: 12, lineHeight: 16, letterSpacing: 0.5, fontWeight: '500', fontFamily: fonts.sans },
+  display: { fontSize: 36, lineHeight: 42, letterSpacing: -0.5, fontWeight: '700', fontFamily: fonts.primary },
+  h1: { fontSize: 28, lineHeight: 34, letterSpacing: -0.5, fontWeight: '700', fontFamily: fonts.primary },
+  h2: { fontSize: 24, lineHeight: 30, letterSpacing: -0.5, fontWeight: '700', fontFamily: fonts.primary },
+  h3: { fontSize: 20, lineHeight: 28, letterSpacing: 0, fontWeight: '600', fontFamily: fonts.primary },
+  body1: { fontSize: 16, lineHeight: 24, letterSpacing: 0, fontWeight: '400', fontFamily: fonts.primary },
+  body2: { fontSize: 14, lineHeight: 20, letterSpacing: 0, fontWeight: '400', fontFamily: fonts.primary },
+  caption: { fontSize: 12, lineHeight: 16, letterSpacing: 0.5, fontWeight: '400', fontFamily: fonts.primary },
+  label: { fontSize: 12, lineHeight: 16, letterSpacing: 0.5, fontWeight: '500', fontFamily: fonts.primary },
 };

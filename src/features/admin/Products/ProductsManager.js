@@ -16,7 +16,6 @@ import ProductsFilterBar from './ProductsFilterBar';
 import styles from './ProductsStyles';
 import ProductsTable from './ProductsTable';
 import { useProductsWorkflow } from './useProductsWorkflow';
-import { useFormModal } from '../../../hooks/useFormModal';
 import AdminSaveFooter from '../AdminSaveFooter';
 
 export default function ProductsManager() {
@@ -41,7 +40,23 @@ export default function ProductsManager() {
     isDirty,
   } = useProductsWorkflow();
   const { t } = useTheme();
-  const { isVisible: modalVisible, editingItem: editingProduct, openForCreate: openAdd, openForEdit: openEdit, close: closeModal } = useFormModal();
+  const [viewMode, setViewMode] = useState('list');
+  const [editingProduct, setEditingProduct] = useState(null);
+
+  const openAdd = () => {
+    setEditingProduct(null);
+    setViewMode('create');
+  };
+
+  const openEdit = (product) => {
+    setEditingProduct(product);
+    setViewMode('edit');
+  };
+
+  const closeForm = () => {
+    setEditingProduct(null);
+    setViewMode('list');
+  };
 
   const handleSave = (formData) => {
     if (editingProduct) {
@@ -49,8 +64,21 @@ export default function ProductsManager() {
     } else {
       handleAdd(formData);
     }
-    closeModal();
+    closeForm();
   };
+
+  if (viewMode !== 'list') {
+    return (
+      <View style={styles.container}>
+        <ProductFormModal
+          product={editingProduct}
+          onSave={handleSave}
+          onClose={closeForm}
+          onDelete={handleDelete}
+        />
+      </View>
+    );
+  }
 
   return (
     <View style={styles.container}>
@@ -73,13 +101,6 @@ export default function ProductsManager() {
         sortDirection={sortDirection}
         onSort={handleSort}
         onEdit={openEdit}
-      />
-      <ProductFormModal
-        visible={modalVisible}
-        product={editingProduct}
-        onSave={handleSave}
-        onClose={closeModal}
-        onDelete={handleDelete}
       />
       <AdminSaveFooter 
         isDirty={isDirty} 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
+import { layout } from '../../../theme/tokens';
 
 /**
  * FlagGroup container for managing group state and layout of Flag primitives.
@@ -11,7 +12,7 @@ export function FlagGroup({
   children,
   style,
   direction = 'row',
-  gap = 8,
+  gap = layout.spacing.sm,
 }) {
   const handleToggle = (itemValue) => {
     if (!onChange) return;

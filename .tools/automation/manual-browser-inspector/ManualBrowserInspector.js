@@ -21,6 +21,7 @@ function useSafeContexts() {
 export default function ManualBrowserInspector() {
   const [isOpen, setIsOpen] = useState(false);
   const [isPlaywright, setIsPlaywright] = useState(false);
+  const [isLiveHighlight, setIsLiveHighlight] = useState(false);
   const contexts = useSafeContexts();
 
   useEffect(() => {
@@ -55,6 +56,87 @@ export default function ManualBrowserInspector() {
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, [isPlaywright]);
+
+  useEffect(() => {
+    if (!isPlaywright || Platform.OS !== 'web') return;
+
+    let overlayBox = document.getElementById('__mbi_live_box');
+    let overlayBadge = document.getElementById('__mbi_live_badge');
+
+    if (!isLiveHighlight) {
+      if (overlayBox) overlayBox.style.display = 'none';
+      if (overlayBadge) overlayBadge.style.display = 'none';
+      return;
+    }
+
+    if (!overlayBox) {
+      overlayBox = document.createElement('div');
+      overlayBox.id = '__mbi_live_box';
+      overlayBox.style.position = 'fixed';
+      overlayBox.style.pointerEvents = 'none';
+      overlayBox.style.zIndex = '999998';
+      overlayBox.style.border = '2px solid rgba(34, 197, 94, 0.85)';
+      overlayBox.style.backgroundColor = 'rgba(34, 197, 94, 0.1)';
+      overlayBox.style.borderRadius = '3px';
+      overlayBox.style.transition = 'all 0.05s ease-out';
+      overlayBox.style.display = 'none';
+      document.body.appendChild(overlayBox);
+    }
+
+    if (!overlayBadge) {
+      overlayBadge = document.createElement('div');
+      overlayBadge.id = '__mbi_live_badge';
+      overlayBadge.style.position = 'fixed';
+      overlayBadge.style.pointerEvents = 'none';
+      overlayBadge.style.zIndex = '999998';
+      overlayBadge.style.backgroundColor = 'rgba(22, 101, 52, 0.95)';
+      overlayBadge.style.color = '#FFFFFF';
+      overlayBadge.style.fontFamily = 'sans-serif';
+      overlayBadge.style.fontSize = '11px';
+      overlayBadge.style.fontWeight = '600';
+      overlayBadge.style.padding = '3px 8px';
+      overlayBadge.style.borderRadius = '4px';
+      overlayBadge.style.boxShadow = '0 2px 6px rgba(0,0,0,0.3)';
+      overlayBadge.style.display = 'none';
+      overlayBadge.style.whiteSpace = 'nowrap';
+      document.body.appendChild(overlayBadge);
+    }
+
+    const handleLiveHighlightMove = (e) => {
+      const el = document.elementFromPoint(e.clientX, e.clientY);
+      if (!el || el.closest('#manual-browser-inspector') || el.id === '__mbi_live_box' || el.id === '__mbi_live_badge') {
+        overlayBox.style.display = 'none';
+        overlayBadge.style.display = 'none';
+        return;
+      }
+
+      const rect = el.getBoundingClientRect();
+      overlayBox.style.left = `${rect.left}px`;
+      overlayBox.style.top = `${rect.top}px`;
+      overlayBox.style.width = `${rect.width}px`;
+      overlayBox.style.height = `${rect.height}px`;
+      overlayBox.style.display = 'block';
+
+      const info = buildTargetInfo(el);
+      const labelText = `[${info.tag}] ${info.selector}${info.text ? ` "${info.text}"` : ''}`;
+      overlayBadge.textContent = labelText;
+
+      const badgeY = rect.top > 28 ? rect.top - 26 : rect.bottom + 4;
+      const badgeX = Math.max(5, Math.min(rect.left, window.innerWidth - 300));
+
+      overlayBadge.style.left = `${badgeX}px`;
+      overlayBadge.style.top = `${badgeY}px`;
+      overlayBadge.style.display = 'block';
+    };
+
+    window.addEventListener('mousemove', handleLiveHighlightMove);
+
+    return () => {
+      window.removeEventListener('mousemove', handleLiveHighlightMove);
+      if (overlayBox) overlayBox.style.display = 'none';
+      if (overlayBadge) overlayBadge.style.display = 'none';
+    };
+  }, [isPlaywright, isLiveHighlight]);
 
   const resolveClassName = (el) => {
     if (typeof el.className !== 'string' || !el.className.trim()) return '';
@@ -98,14 +180,23 @@ export default function ManualBrowserInspector() {
     }
   };
 
+  const toggleLiveHighlight = () => {
+    setIsLiveHighlight((prev) => !prev);
+  };
+
   useEffect(() => {
     if (!isPlaywright) return;
 
     const handleKeyDown = (e) => {
       const isAlt1 = e.altKey && (e.code === 'Digit1' || e.code === 'Numpad1' || e.key === '1' || e.key === '!' || e.keyCode === 49);
+      const isAlt2 = e.altKey && (e.code === 'Digit2' || e.code === 'Numpad2' || e.key === '2' || e.key === '@' || e.keyCode === 50);
+
       if (isAlt1) {
         e.preventDefault();
         handleCapture();
+      } else if (isAlt2) {
+        e.preventDefault();
+        toggleLiveHighlight();
       }
     };
 
@@ -117,13 +208,14 @@ export default function ManualBrowserInspector() {
 
   const actions = [
     { id: 'alt1', label: 'Capture Screenshot & State', hotkeyLabel: 'Alt+1', handler: handleCapture },
+    { id: 'alt2', label: `Live Highlight (${isLiveHighlight ? 'ON' : 'OFF'})`, hotkeyLabel: 'Alt+2', handler: toggleLiveHighlight },
   ];
 
   return (
     <View id="manual-browser-inspector" style={styles.container}>
       {isOpen && <InspectorMenu actions={actions} onClose={() => setIsOpen(false)} />}
-      <TouchableOpacity style={styles.gearButton} onPress={() => setIsOpen(!isOpen)} activeOpacity={0.8}>
-        <Text style={styles.gearText}>⚙️</Text>
+      <TouchableOpacity style={[styles.gearButton, isLiveHighlight && styles.gearActive]} onPress={() => setIsOpen(!isOpen)} activeOpacity={0.8}>
+        <Text style={styles.gearText}>{isLiveHighlight ? '🎯' : '⚙️'}</Text>
       </TouchableOpacity>
     </View>
   );
@@ -151,6 +243,10 @@ const styles = StyleSheet.create({
     elevation: 8,
     borderWidth: 1,
     borderColor: '#334155',
+  },
+  gearActive: {
+    borderColor: '#22C55E',
+    backgroundColor: '#15803D',
   },
   gearText: {
     fontSize: 24,

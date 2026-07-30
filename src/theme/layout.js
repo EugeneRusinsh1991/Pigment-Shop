@@ -87,8 +87,8 @@ export const badgeTokens = {
 
 export const buttonTokens = {
   sizes: {
-    sm: { height: 32, paddingHorizontal: 12, borderRadius: layout.radii.xs, borderRadiusPill: 16, fontSize: 12 },
-    md: { height: 40, paddingHorizontal: 16, borderRadius: layout.radii.sm, borderRadiusPill: 20, fontSize: 13 },
+    sm: { height: 36, paddingHorizontal: 12, borderRadius: layout.radii.xs, borderRadiusPill: 16, fontSize: 12 },
+    md: { height: 36, paddingHorizontal: 16, borderRadius: layout.radii.sm, borderRadiusPill: 20, fontSize: 13 },
     lg: { height: 48, paddingHorizontal: 24, borderRadius: layout.radii.md, borderRadiusPill: 24, fontSize: 14 },
   },
 };
