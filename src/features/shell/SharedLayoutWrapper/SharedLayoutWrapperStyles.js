@@ -14,6 +14,7 @@ export const sharedLayoutWrapperStyles = StyleSheet.create({
     flexShrink: 0,
     width: '100%',
     alignSelf: 'stretch',
+    paddingBottom: layout.spacing.xxl,
   },
   footerRegion: {
     width: '100%',

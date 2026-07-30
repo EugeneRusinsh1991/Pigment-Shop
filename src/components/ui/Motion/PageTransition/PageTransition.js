@@ -27,6 +27,6 @@ const styles = StyleSheet.create({
   transitionContainer: {
     flex: 1,
     width: '100%',
-    overflow: 'hidden',
+    overflow: 'visible',
   },
 });

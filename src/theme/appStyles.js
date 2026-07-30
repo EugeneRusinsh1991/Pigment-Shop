@@ -20,8 +20,7 @@ export default StyleSheet.create({
 
   
   mainContent: {
-    flex: 1,
-    minHeight: 0,
+    flexGrow: 1,
     width: '100%',
     alignSelf: 'stretch',
   },
@@ -112,6 +111,7 @@ export default StyleSheet.create({
 
   footerProductsSection: {
     marginTop: layout.spacing.sm,
+    paddingBottom: layout.spacing.md,
   },
   footerTitlePadding: {
     marginBottom: layout.spacing.md,
