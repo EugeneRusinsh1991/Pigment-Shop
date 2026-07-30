@@ -40,6 +40,7 @@ function LanguageCurrencyRow({ isDark, lang, selectedCurrency, onSelectLanguage,
             isDark={isDark}
             onPress={() => onSelectLanguage(item.code)}
             variant="rect"
+            size="sm"
             style={styles.chipWidth}
           />
         ))}
@@ -53,6 +54,7 @@ function LanguageCurrencyRow({ isDark, lang, selectedCurrency, onSelectLanguage,
             isDark={isDark}
             onPress={() => setSelectedCurrency(item.code)}
             variant="rect"
+            size="sm"
             style={styles.chipWidth}
           />
         ))}

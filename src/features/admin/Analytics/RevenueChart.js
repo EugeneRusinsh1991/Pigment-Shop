@@ -62,7 +62,7 @@ export default function RevenueChart({ revenueData = [] }) {
   if (revenueData.length === 0) {
     return (
       <View style={styles.chartEmpty}>
-        <Text variant="body2" color="secondary">{t.adminAnalyticsNoData}</Text>
+        <Text variant="body2" color="secondary">{t('adminAnalyticsNoData')}</Text>
       </View>
     );
   }

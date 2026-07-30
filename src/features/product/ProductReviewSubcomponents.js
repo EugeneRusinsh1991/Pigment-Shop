@@ -10,13 +10,14 @@ import styles from './ProductReviewsStyles';
 
 export { getAccountName, useReviewsState } from '../../hooks/useReviewsState';
 
-export function SegmentedToggle({ options, activeValue, onChange, isDark }) {
+export function SegmentedToggle({ options, activeValue, onChange, isDark, size = 'md' }) {
   return (
     <Toggle
       options={options}
       value={activeValue}
       onChange={onChange}
       isDark={isDark}
+      size={size}
       style={[styles.segmentedToggle]}
     />
   );
@@ -43,6 +44,7 @@ export function RegistrationPrompt({ isDark }) {
       </Text>
       <Link href={{ pathname: '/login', params: { isRegister: 'true' } }} asChild>
         <AnimatedButton
+          size="md"
           scaleTo={1.03}
           style={StyleSheet.flatten([styles.submitBtn, styles.registrationSubmitBtn])}
         >
@@ -75,6 +77,7 @@ function ReviewFormHeader({ showModeToggle, setSubmitMode, hideHeading, isDark, 
         activeValue={submitMode || 'review'}
         onChange={setSubmitMode}
         isDark={isDark}
+        size="md"
       />
     );
   }
@@ -142,7 +145,7 @@ export function ReviewForm({
       <Button
         title={config.submitLabel}
         variant="accent"
-        size="lg"
+        size="md"
         fullWidth
         style={[styles.reviewFormSubmitBtn]}
         onPress={config.onSubmit}

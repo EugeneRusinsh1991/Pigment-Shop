@@ -21,8 +21,10 @@ export default StyleSheet.create({
     flex: 1,
     minWidth: 160,
     padding: layout.spacing.xl,
-    borderBottomWidth: layout.borderWidth.medium,
-    borderBottomColor: colors.accent,
+    borderLeftWidth: 4,
+    borderLeftColor: colors.accent,
+    borderBottomWidth: 0,
+    ...shadow.card(),
   },
   statHeader: {
     flexDirection: 'row',
@@ -42,9 +44,13 @@ export default StyleSheet.create({
   chartPanel: {
     padding: layout.spacing.lg + layout.spacing.xxs,
     marginBottom: layout.spacing.lg,
+    ...shadow.panel(),
   },
   chartTitle: {
-    marginBottom: layout.spacing.lg,
+    marginBottom: layout.spacing.md,
+    paddingBottom: layout.spacing.xs,
+    borderBottomWidth: layout.borderWidth.thin,
+    borderBottomColor: colors.secondaryLightBorder,
   },
   chartsRow: {
     flexDirection: 'row',

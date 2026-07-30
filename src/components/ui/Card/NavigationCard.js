@@ -1,27 +1,34 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
+import useCardDimensions from '../../../hooks/useCardDimensions';
 import { colors, layout } from '../../../theme/tokens';
 import { ForwardArrowIcon } from '../../Icons/ControlIcons';
-import { Text } from '../Text';
+import { Heading } from '../Text';
 import Card from './Card';
 
-const NavigationCard = React.forwardRef(({ type, isDark, text, style, ...rest }, ref) => {
+const NavigationCard = React.forwardRef(({ type, isDark, text, depth = 1, style, ...rest }, ref) => {
+  const { cardHeight } = useCardDimensions(depth);
+  const displayText = text && !text.includes('→') ? `${text} →` : text;
+
   return (
     <Card
       ref={ref}
-      variant="compact"
+      variant="grid"
       isDark={isDark}
       interactive={true}
-      style={[styles.root, style]}
+      style={[styles.root, { minHeight: cardHeight }, isDark ? styles.bgDark : styles.bgLight, style]}
       {...rest}
     >
-      <View style={styles.content}>
-        <View style={[styles.circle, isDark ? styles.circleDark : styles.circleLight]}>
-          <ForwardArrowIcon color={colors.accent} size={20} />
+      <View style={styles.overlayContainer}>
+        <View style={[styles.accentBanner, isDark ? styles.bannerDark : styles.bannerLight]} />
+        <View style={styles.content}>
+          <View style={[styles.circle, isDark ? styles.circleDark : styles.circleLight]}>
+            <ForwardArrowIcon color={colors.white} size={22} />
+          </View>
+          <Heading level={3} style={[styles.text, isDark ? styles.textDark : styles.textLight]}>
+            {displayText}
+          </Heading>
         </View>
-        <Text variant="subtitle1" weight="semibold" style={[styles.text, isDark ? styles.textDark : styles.textLight]}>
-          {text}
-        </Text>
       </View>
     </Card>
   );
@@ -30,35 +37,58 @@ const NavigationCard = React.forwardRef(({ type, isDark, text, style, ...rest },
 export default NavigationCard;
 
 const styles = StyleSheet.create({
-  root: {},
+  root: {
+    width: '100%',
+    overflow: 'hidden',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  overlayContainer: {
+    ...StyleSheet.absoluteFillObject,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: layout.spacing.lg,
+  },
+  accentBanner: {
+    ...StyleSheet.absoluteFillObject,
+    opacity: 0.9,
+  },
+  bannerDark: {
+    backgroundColor: colors.accentDark,
+  },
+  bannerLight: {
+    backgroundColor: colors.accent,
+  },
   content: {
     alignItems: 'center',
     justifyContent: 'center',
     gap: layout.spacing.md,
+    zIndex: layout.zIndices.base,
   },
   circle: {
-    width: 48,
-    height: 48,
-    borderRadius: layout.radii.xl,
-    borderWidth: layout.borderWidth.thin,
+    width: 52,
+    height: 52,
+    borderRadius: layout.radii.full,
+    borderWidth: layout.borderWidth.thick,
+    borderColor: colors.white,
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
     justifyContent: 'center',
     alignItems: 'center',
   },
   circleDark: {
-    backgroundColor: colors.borderDark,
-    borderColor: colors.surfaceSubtleDark,
+    backgroundColor: 'rgba(255, 255, 255, 0.15)',
   },
   circleLight: {
-    backgroundColor: colors.backgroundLight,
-    borderColor: colors.warmNeutralBorder,
+    backgroundColor: 'rgba(255, 255, 255, 0.25)',
   },
   text: {
     textAlign: 'center',
+    color: colors.white,
   },
   textDark: {
-    color: colors.textDark,
+    color: colors.white,
   },
   textLight: {
-    color: colors.textLight,
+    color: colors.white,
   },
 });

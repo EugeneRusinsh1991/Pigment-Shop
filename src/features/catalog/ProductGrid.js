@@ -27,11 +27,13 @@ function getGridStyle(isNarrow, gridWidth) {
 }
 
 
-export default function ProductGrid({ products, cols, cardWidth, isDark, onCardPress, favs, emptyLabel, listHeader, listFooter, isNarrow, gridWidth }) {
+export default function ProductGrid({ products, cols, cardWidth, isDark, onCardPress, favs, emptyLabel, listHeader, listFooter, isNarrow, gridWidth, gap = layout.spacing.sm }) {
   const itemWidth = `${(100 / cols).toFixed(4)}%`;
+  const gridGap = gap ?? layout.spacing.sm;
+
   const renderItem = useCallback(
     ({ item }) => (
-      <View style={getItemStyle(itemWidth)}>
+      <View style={[styles.item, { width: itemWidth, padding: gridGap / 2 }]}>
         <Link href={{ pathname: '/product/[id]', params: { id: item.id } }} asChild>
           <ProductCard
             item={item}
@@ -43,7 +45,7 @@ export default function ProductGrid({ products, cols, cardWidth, isDark, onCardP
         </Link>
       </View>
     ),
-    [isDark, cols, itemWidth, favs]
+    [isDark, cols, itemWidth, favs, gridGap]
   );
 
   return (
@@ -54,7 +56,11 @@ export default function ProductGrid({ products, cols, cardWidth, isDark, onCardP
       key={`catalog-grid-${cols}`}
       style={getGridStyle(isNarrow, gridWidth)}
       renderItem={renderItem}
-      contentContainerStyle={[styles.grid, styles.contentContainer]}
+      contentContainerStyle={[
+        styles.grid,
+        styles.contentContainer,
+        { marginHorizontal: -(gridGap / 2), marginVertical: -(gridGap / 2) },
+      ]}
       ListHeaderComponent={listHeader}
       ListHeaderComponentStyle={isNarrow ? styles.headerStyle : undefined}
       ListFooterComponent={listFooter}

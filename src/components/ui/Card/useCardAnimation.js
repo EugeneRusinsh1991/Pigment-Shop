@@ -8,7 +8,7 @@ import { useAnimatedTransition } from '../../../hooks/useAnimatedTransition';
  */
 export function useCardAnimation({
   interactive = false,
-  hoverTranslateY = -5,
+  hoverTranslateY = -2,
   pressScale = motion?.press?.scale || 0.98,
   duration = motion?.press?.duration || 150,
 } = {}) {
@@ -25,6 +25,11 @@ export function useCardAnimation({
   const translateY = hoverAnim.interpolate({
     inputRange: [0, 1],
     outputRange: [0, hoverTranslateY],
+  });
+
+  const shadowOpacity = hoverAnim.interpolate({
+    inputRange: [0, 1],
+    outputRange: [0.06, 0.18],
   });
 
   const handleMouseEnter = (e) => {
@@ -61,15 +66,19 @@ export function useCardAnimation({
   const animatedStyle = interactive
     ? {
         transform: [{ translateY }, { scale: scaleAnim }],
+        shadowOpacity,
       }
     : null;
 
   return {
     hoverAnim,
     translateY,
+    shadowOpacity,
     scaleAnim,
     animatedStyle,
     bind: {
+      onHoverIn: handleMouseEnter,
+      onHoverOut: handleMouseLeave,
       onMouseEnter: handleMouseEnter,
       onMouseLeave: handleMouseLeave,
       onPressIn: handlePressIn,

@@ -46,7 +46,7 @@ function ProductInfoPrice({ price, discountPercent }) {
 
   return (
     <View style={[styles.priceRowContainer]}>
-      <Text variant="h3" weight="700" style={styles.priceText}>${finalPrice.toLocaleString()}</Text>
+      <Text variant="h2" weight="700" style={styles.priceText}>${finalPrice.toLocaleString()}</Text>
       {hasDiscount && (
         <Text variant="body2" color="desc" style={[styles.originalPriceText]}>
           ${safePrice.toLocaleString()}
@@ -67,9 +67,9 @@ export function ProductMetaInfo({ product }) {
   return (
     <>
       <Text variant="overline" color="accent" style={styles.brandText}>{brand}</Text>
-      <Heading level={2} style={styles.productName}>{label}</Heading>
+      <Text variant="display" style={styles.productName}>{label}</Text>
       <ProductInfoPrice price={product.price} discountPercent={product.discountPercent} />
-      <Text variant="body2" color="desc" style={styles.description}>{desc}</Text>
+      <Text variant="body1" color="desc" style={styles.description}>{desc}</Text>
       <Text variant="caption" color="muted" style={styles.skuText}>{t('productSku')}: {sku}</Text>
       <Text variant="caption" weight="600" style={styles.stockText}>{stockText}</Text>
     </>
@@ -134,7 +134,7 @@ export function ProductActionRow({ product, qty, isDark, isWide, onDecrease, onI
         testID="product-detail-fav-button"
         icon={<HeartIcon filled={isFavorite} color={heartColor} size={16} />}
         onPress={handleToggle}
-        size={48}
+        size="lg"
         variant="outline"
         animated={true}
         style={[styles.actionFavBtn]}

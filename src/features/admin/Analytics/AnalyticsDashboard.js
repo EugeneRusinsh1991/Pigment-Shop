@@ -14,14 +14,14 @@ import OrderStatusChart from './OrderStatusChart';
 import RevenueChart from './RevenueChart';
 import TopProductsChart from './TopProductsChart';
 
-function StatCard({ label, value, icon }) {
+function StatCard({ label, value, icon, accentColor }) {
   return (
-    <Card style={styles.statCard}>
+    <Card style={[styles.statCard, accentColor ? { borderLeftColor: accentColor } : null]}>
       <View style={styles.statHeader}>
-        <Text variant="caption" color="secondary" style={styles.statLabel}>{label}</Text>
+        <Text variant="caption" weight="medium" color="secondary" style={styles.statLabel}>{label}</Text>
         <View>{icon}</View>
       </View>
-      <Heading level={3} style={styles.statValue}>{value}</Heading>
+      <Heading level={2} style={styles.statValue}>{value}</Heading>
     </Card>
   );
 }
@@ -34,10 +34,10 @@ function StatsRow({ stats }) {
   const { t } = useTheme();
   return (
     <View style={styles.statsRow}>
-      <StatCard label={t('adminAnalyticsRevenue')} value={formatCurrency(stats.revenue)} icon={<DollarIcon color={colors.successMid} size={18} />} />
-      <StatCard label={t('adminAnalyticsOrders')} value={String(stats.orders)} icon={<ClipboardIcon color={colors.infoStrong} size={18} />} />
-      <StatCard label={t('adminAnalyticsAvgOrder')} value={formatCurrency(stats.avgOrder)} icon={<TrendIcon color={colors.accentPink} size={18} />} />
-      <StatCard label={t('adminAnalyticsTotalSold')} value={String(stats.totalSold)} icon={<BoxIcon color={colors.purpleLight} size={18} />} />
+      <StatCard label={t('adminAnalyticsRevenue')} value={formatCurrency(stats.revenue)} icon={<DollarIcon color={colors.successMid} size={18} />} accentColor={colors.successMid} />
+      <StatCard label={t('adminAnalyticsOrders')} value={String(stats.orders)} icon={<ClipboardIcon color={colors.infoStrong} size={18} />} accentColor={colors.infoStrong} />
+      <StatCard label={t('adminAnalyticsAvgOrder')} value={formatCurrency(stats.avgOrder)} icon={<TrendIcon color={colors.accentPink} size={18} />} accentColor={colors.accentPink} />
+      <StatCard label={t('adminAnalyticsTotalSold')} value={String(stats.totalSold)} icon={<BoxIcon color={colors.purpleLight} size={18} />} accentColor={colors.purpleLight} />
     </View>
   );
 }
@@ -46,7 +46,7 @@ function RevenuePanel({ revenueData }) {
   const { t } = useTheme();
   return (
     <Card style={styles.chartPanel}>
-      <Heading level={4} style={styles.chartTitle}>{t('adminAnalyticsRevenue14Days')}</Heading>
+      <Heading level={3} style={styles.chartTitle}>{t('adminAnalyticsRevenue14Days')}</Heading>
       <RevenueChart revenueData={revenueData} />
     </Card>
   );
@@ -57,11 +57,11 @@ function BottomChartsRow({ topProducts, orderStatuses }) {
   return (
     <View style={styles.chartsRow}>
       <Card style={[styles.chartPanel, styles.chartHalf]}>
-        <Heading level={4} style={styles.chartTitle}>{t('adminAnalyticsTopProducts')}</Heading>
+        <Heading level={3} style={styles.chartTitle}>{t('adminAnalyticsTopProducts')}</Heading>
         <TopProductsChart productsData={topProducts} />
       </Card>
       <Card style={[styles.chartPanel, styles.chartHalf]}>
-        <Heading level={4} style={styles.chartTitle}>{t('adminAnalyticsOrderStatuses')}</Heading>
+        <Heading level={3} style={styles.chartTitle}>{t('adminAnalyticsOrderStatuses')}</Heading>
         <OrderStatusChart statusData={orderStatuses} />
       </Card>
     </View>

@@ -5,6 +5,7 @@
  * Integrates with LanguageContext to provide backward-compatible language exports.
  */
 import React, { createContext, useContext, useState, useCallback, useMemo } from 'react';
+import { useLanguage } from './LanguageContext';
 
 const ThemeContext = createContext(null);
 
@@ -26,12 +27,15 @@ export function ThemeProvider({ children }) {
 export function useTheme() {
   const ctx = useContext(ThemeContext);
   if (!ctx) throw new Error('useTheme must be used within ThemeProvider');
+  const { t, lang, selectLanguage } = useLanguage();
 
   return useMemo(() => ({
     ...ctx,
-    t: (key) => key,
+    t,
+    lang,
+    selectLanguage,
     ic: (dark, light) => (ctx.isDark ? dark : light),
-  }), [ctx]);
+  }), [ctx, t, lang, selectLanguage]);
 }
 
 export const getThemedValue = (isDark, dark, light) => isDark ? dark : light;

@@ -19,13 +19,14 @@ export function Heading({
   ...rest
 }) {
   const variantMap = {
+    0: 'display',
     1: 'h1',
     2: 'h2',
     3: 'h3',
     4: 'h4',
   };
 
-  const variant = variantMap[level] || 'h2';
+  const variant = rest.variant || variantMap[level] || 'h2';
 
   return (
     <Text

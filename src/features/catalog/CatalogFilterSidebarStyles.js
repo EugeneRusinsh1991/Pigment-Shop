@@ -32,7 +32,8 @@ const styles = StyleSheet.create({
     width: 32,
   },
   priceInput: {
-    width: 90,
+    flex: 1,
+    minWidth: 0,
     borderRadius: buttonTokens.sizes.sm.borderRadius,
     borderWidth: layout.borderWidth.thin,
     paddingHorizontal: layout.spacing.sm,

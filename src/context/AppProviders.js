@@ -17,13 +17,13 @@ import { GlobalToastProvider } from './ToastContext';
  */
 function CoreInfrastructureProviders({ children }) {
   return (
-    <ThemeProvider>
-      <LanguageProvider>
+    <LanguageProvider>
+      <ThemeProvider>
         <GlobalToastProvider>
           {children}
         </GlobalToastProvider>
-      </LanguageProvider>
-    </ThemeProvider>
+      </ThemeProvider>
+    </LanguageProvider>
   );
 }
 

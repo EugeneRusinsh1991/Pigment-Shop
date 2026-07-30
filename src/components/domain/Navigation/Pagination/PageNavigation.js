@@ -13,6 +13,7 @@ function BackButton({ show, onPress, styles, t }) {
   return (
     <AnimatedButton 
       testID="page-back-button"
+      size="sm"
       style={styles.backButton} 
       onPress={onPress}
     >

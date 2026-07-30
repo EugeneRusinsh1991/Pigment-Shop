@@ -4,7 +4,6 @@ import { DataTableCell, DataTableRow } from '@/components/domain/DataTable/DataT
 import {
   DiscountCell,
   getPlaceholderVal,
-  getRowStyle,
   NewBadge,
   ProductRowActions,
   StatusBadge,
@@ -17,7 +16,7 @@ export { MobileProductRow } from './MobileProductRow';
 export function TabletProductRow({ product, index, label, effectivePrice, highlightStyle, onEdit, onDelete }) {
   return (
     <TouchableOpacity
-      style={[getRowStyle(index, false), highlightStyle]}
+      style={[styles.tableRowTablet, index % 2 === 1 && styles.tableRowAlt, highlightStyle]}
       onPress={() => onEdit(product)}
       activeOpacity={motion.press.activeOpacity}
     >
@@ -82,7 +81,7 @@ export function DesktopProductRow({ product, index, label, effectivePrice, highl
       <DataTableCell style={styles.colPrice}>
         <Text style={styles.priceEmphasis}>${effectivePrice.toLocaleString()}</Text>
       </DataTableCell>
-      <DataTableCell style={styles.rowActionsCompact}>
+      <DataTableCell style={styles.colActions}>
         <ProductRowActions product={product} onEdit={onEdit} onDelete={onDelete} />
       </DataTableCell>
     </DataTableRow>

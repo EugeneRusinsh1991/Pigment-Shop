@@ -61,7 +61,9 @@ export default StyleSheet.create({
   navLink: {},
   navLinkText: {
     fontSize: typography.sizes.sm,
-    fontWeight: '500',
+    fontWeight: typography.weights.medium,
+    lineHeight: typography.lineHeights.sm,
+    fontFamily: typography.fonts.sans,
   },
   rightSec: {
     flexDirection: 'row',

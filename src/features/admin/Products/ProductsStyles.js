@@ -94,13 +94,21 @@ export default StyleSheet.create({
     borderBottomColor: colors.secondaryLightBorder,
     gap: layout.spacing.md,
   },
-  tableRowDesktop: {
+  tableRowTablet: {
     flexDirection: 'column',
     paddingHorizontal: layout.spacing.lg,
+    paddingVertical: layout.spacing.sm,
+    borderBottomWidth: layout.borderWidth.thin,
+    borderBottomColor: colors.secondaryLightBorder,
+    gap: layout.spacing.xs,
+  },
+  tableRowDesktop: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: layout.spacing.md,
     paddingVertical: layout.spacing.xs,
     borderBottomWidth: layout.borderWidth.thin,
     borderBottomColor: colors.secondaryLightBorder,
-    gap: layout.spacing.xxs,
   },
   tableRowAlt: {
     backgroundColor: colors.surfaceElevatedLight,

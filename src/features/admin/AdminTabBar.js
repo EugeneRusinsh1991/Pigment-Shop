@@ -4,7 +4,7 @@ import styles from './AdminPanelStyles';
 import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
 import Toggle from '@/components/ui/Toggle';
-import { layout } from '../../theme/tokens';
+import { colors, layout } from '../../theme/tokens';
 
 const ADMIN_TABS = [
   { id: 'analytics', labelKey: 'adminTabAnalytics' },
@@ -32,7 +32,7 @@ export default function AdminTabBar({ activeTab, onSelect, isDark }) {
       horizontal
       showsHorizontalScrollIndicator={false}
       style={styles.tabBar}
-      contentContainerStyle={{ paddingRight: layout.spacing.xl, paddingVertical: layout.spacing.sm, alignItems: 'center' }}
+      contentContainerStyle={{ paddingRight: layout.spacing.xl, paddingVertical: layout.spacing.xs, alignItems: 'center' }}
     >
       <Toggle
         options={options}
@@ -40,6 +40,12 @@ export default function AdminTabBar({ activeTab, onSelect, isDark }) {
         onChange={onSelect}
         size="md"
         isDark={isDark}
+        animated={false}
+        style={{ backgroundColor: 'transparent', borderWidth: 0 }}
+        optionStyle={{ backgroundColor: 'transparent', borderRadius: 0, borderBottomWidth: 2, borderBottomColor: 'transparent', paddingHorizontal: layout.spacing.md }}
+        activeOptionStyle={{ borderBottomWidth: 2, borderBottomColor: colors.accent, backgroundColor: 'transparent' }}
+        textStyle={{ color: isDark ? colors.secondaryDarkText : colors.textDescLight, fontWeight: '400' }}
+        activeTextStyle={{ color: isDark ? colors.white : colors.accent, fontWeight: '700' }}
       />
     </ScrollView>
   );

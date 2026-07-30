@@ -32,6 +32,7 @@ function CatalogMainContent({
   currentPageProducts,
   cols,
   cardWidth,
+  gap,
   favs,
   t,
   gridWidth,
@@ -62,6 +63,7 @@ function CatalogMainContent({
               products={currentPageProducts}
               cols={cols}
               cardWidth={cardWidth}
+              gap={gap}
               isDark={isDark}
               favs={favs}
               emptyLabel={t('catalogNoProducts')}
@@ -111,7 +113,7 @@ export default function CatalogPage({ isDark }) {
   const { filters, sortKey, setSortKey, setFilter, toggleCategory, resetFilters } =
     useCatalogFilters(flatList, categoryTree, navParams);
 
-  const { isNarrow, gridWidth, cols, cardWidth } = useCatalogLayout();
+  const { isNarrow, gridWidth, cols, cardWidth, gap } = useCatalogLayout();
   const pageSize = isNarrow ? 14 : 15;
 
   const {
@@ -151,6 +153,7 @@ export default function CatalogPage({ isDark }) {
           currentPageProducts={currentPageProducts}
           cols={cols}
           cardWidth={cardWidth}
+          gap={gap}
           favs={favs}
           t={t}
           gridWidth={gridWidth}

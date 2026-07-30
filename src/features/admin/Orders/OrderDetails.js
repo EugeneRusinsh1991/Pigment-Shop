@@ -75,7 +75,7 @@ export default function OrderDetails({ order, onBack, onStatusUpdated }) {
   return (
     <ScrollView contentContainerStyle={{ paddingBottom: layout.spacing.xxl + layout.spacing.sm }}>
       {/* Back button */}
-      <AnimatedButton style={styles.backBtn} onPress={onBack}>
+      <AnimatedButton size="sm" style={styles.backBtn} onPress={onBack}>
         <BackArrowIcon color={colors.textDescLight} size={16} />
         <Text style={styles.backBtnText} size={14} weight="500">{t('adminOrdersBackBtn')}</Text>
       </AnimatedButton>

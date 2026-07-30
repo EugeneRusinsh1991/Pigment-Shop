@@ -20,6 +20,7 @@ export function LanguageTabs({ activeLang, onChange }) {
             label={item.label}
             active={isActive}
             variant="rect"
+            size="sm"
             onPress={() => onChange(item.code)}
           />
         );
