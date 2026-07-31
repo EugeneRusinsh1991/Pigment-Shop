@@ -19,7 +19,7 @@ export const GRID_COLS = {
 /** Number of columns per device tier when a filter sidebar is visible. */
 export const GRID_COLS_FILTERED = {
   desktop: 4,
-  tablet: 2,
+  tablet: 3,
   mobile: 2,
 };
 

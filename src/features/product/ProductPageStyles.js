@@ -295,11 +295,11 @@ export default StyleSheet.create({
     position: 'relative',
   },
   thumbnailSlotLight: {
-    backgroundColor: colors.cardBgLight,
-    borderColor: colors.secondaryLightBorder,
+    backgroundColor: colors.productCardLight,
+    borderColor: colors.borderLight,
   },
   thumbnailSlotDark: {
-    backgroundColor: colors.cardBgDark,
+    backgroundColor: colors.productCardDark,
     borderColor: colors.secondaryDarkBorder,
   },
   thumbnailActiveIndicator: {
@@ -309,16 +309,5 @@ export default StyleSheet.create({
     borderColor: colors.accent,
     borderRadius: layout.radii.md,
     zIndex: layout.zIndices.active,
-  },
-  thumbnailEmptySlot: {
-    opacity: layout.opacity.disabled,
-  },
-  thumbnailEmptySlotLight: {
-    backgroundColor: colors.backgroundLight,
-    borderColor: colors.outlineLightBorder,
-  },
-  thumbnailEmptySlotDark: {
-    backgroundColor: colors.backgroundDark,
-    borderColor: colors.outlineDarkBorder,
   },
 });

@@ -31,6 +31,10 @@ const styles = StyleSheet.create({
   priceFieldLabel: {
     width: 32,
   },
+  priceInputContainer: {
+    flex: 1,
+    minWidth: 0,
+  },
   priceInput: {
     flex: 1,
     minWidth: 0,

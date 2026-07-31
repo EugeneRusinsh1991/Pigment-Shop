@@ -22,7 +22,7 @@ function getGridStyle(isNarrow, gridWidth) {
   return [
     styles.gridList,
     isNarrow && styles.gridNarrow,
-    gridWidth ? { width: gridWidth } : null,
+    isNarrow && gridWidth ? { width: gridWidth } : null,
   ];
 }
 

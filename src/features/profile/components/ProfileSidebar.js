@@ -6,7 +6,6 @@ import {
   HeartIcon,
   ClipboardIcon,
   AdminIcon,
-  LogoutIcon,
 } from '../../../components/Icons';
 import { Text } from '../../../components/ui/Text';
 import { useAuth } from '../../../context/AuthContext';
@@ -27,21 +26,13 @@ const getUserDisplayName = (user, profile) => {
   return name || getEmail(user);
 };
 
-export default function ProfileSidebar({ onLogout: onLogoutProp }) {
+export default function ProfileSidebar() {
   const { isDark } = useTheme();
   const { t } = useLanguage();
-  const { user, logout } = useAuth();
+  const { user } = useAuth();
   const { profile } = useProfile(user);
   const { isAdmin } = useAdminAuth();
   const pathname = usePathname();
-
-  const handleLogout = () => {
-    if (onLogoutProp) {
-      onLogoutProp();
-    } else if (logout) {
-      logout();
-    }
-  };
 
   const cardStyle = [
     styles.sidebarCard,
@@ -83,13 +74,6 @@ export default function ProfileSidebar({ onLogout: onLogoutProp }) {
       icon: AdminIcon,
       label: t('adminTitle'),
       show: Boolean(isAdmin),
-    },
-    {
-      id: 'logout',
-      action: handleLogout,
-      icon: LogoutIcon,
-      label: t('userLogout'),
-      show: !isAdmin,
     },
   ];
 

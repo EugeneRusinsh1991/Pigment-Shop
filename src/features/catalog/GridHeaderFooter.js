@@ -2,7 +2,7 @@ import { StyleSheet, View } from 'react-native';
 import { AnimatedButton } from '../../components/ui/Button';
 import { Text } from '../../components/ui/Text/Text';
 import { SORT_OPTIONS } from '../../hooks/useCatalogFilters';
-import { layout } from '../../theme/tokens';
+import { colors, layout } from '../../theme/tokens';
 import sidebarStyles from './CatalogFilterSidebarStyles';
 import CatalogPagination from './CatalogPagination';
 
@@ -32,7 +32,7 @@ const getGridHeaderStyles = (isDark) => {
   ];
   const textStyle = [
     sidebarStyles.mobileButtonText,
-    isDark ? sidebarStyles.accentDark : sidebarStyles.accentLight,
+    { color: colors.white },
   ];
   return { buttonStyle, textStyle };
 };
@@ -48,7 +48,7 @@ function SortDropdownItem({ opt, isSelected, isDark, onSortChange, setSortDropdo
         setSortDropdownVisible(false);
       }}
     >
-      <Text style={textStyle}>
+      <Text style={textStyle} numberOfLines={1}>
         {t(opt.labelKey)}
       </Text>
     </AnimatedButton>
@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
   sortDropdownPosition: {
     top: layout.spacing.lg * 2 + 6,
     right: layout.spacing.xxs,
-    width: 165,
+    width: 220,
   },
   gridFooterContainer: {
     width: '100%',

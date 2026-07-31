@@ -39,12 +39,14 @@ export function PriceInputs({ priceMin, priceMax, onMinChange, onMaxChange, isDa
         styles={{
           fieldLabel: [styles.priceFieldLabel, isDark ? styles.textDark : styles.textLight],
           fieldInput: [styles.priceInput, isDark ? styles.inputDark : styles.inputLight],
+          container: styles.priceInputContainer,
         }}
         placeholder="0"
         keyboardType="numeric"
         value={priceMin}
         onChangeText={onMinChange}
         isDark={isDark}
+        fullWidth={false}
       />
       <FieldInput
         testID="filter-price-max"
@@ -53,12 +55,14 @@ export function PriceInputs({ priceMin, priceMax, onMinChange, onMaxChange, isDa
         styles={{
           fieldLabel: [styles.priceFieldLabel, isDark ? styles.textDark : styles.textLight],
           fieldInput: [styles.priceInput, isDark ? styles.inputDark : styles.inputLight],
+          container: styles.priceInputContainer,
         }}
         placeholder="5000"
         keyboardType="numeric"
         value={priceMax}
         onChangeText={onMaxChange}
         isDark={isDark}
+        fullWidth={false}
       />
     </View>
   );

@@ -1,20 +1,22 @@
-import { View } from 'react-native';
+import { useWindowDimensions, View } from 'react-native';
 import { Text } from '../../components/ui/Text/Text';
 import styles from '../../theme/appStyles';
 import { Link } from 'expo-router';
 import HeroCarousel from '../home/components/HeroCarousel';
+import { getCarouselBaseStyle } from '../home/components/HeroCarousel/carouselStyles';
 import Button from '../../components/ui/Button';
 import { ScrollFadeUp } from '../../components/ui/Motion';
 import { colors } from '../../theme/tokens';
 import { useLanguage } from '../../context/LanguageContext';
 
 function HeroBanner({ isDark, isWide, t, isTransitionReady }) {
+  const { width: windowWidth } = useWindowDimensions();
   return (
     <View style={styles.heroContainer}>
       {isTransitionReady ? (
         <HeroCarousel isDark={isDark} isWide={isWide} />
       ) : (
-        <View style={[styles.heroRight, isWide ? styles.heroRightWide : styles.heroRightMobile, { backgroundColor: isDark ? colors.textDimDark : colors.borderSlateLight }]} />
+        <View style={[getCarouselBaseStyle(isWide, windowWidth), { backgroundColor: isDark ? colors.textDimDark : colors.borderSlateLight }]} />
       )}
       <Link href="/catalog" asChild>
         <Button

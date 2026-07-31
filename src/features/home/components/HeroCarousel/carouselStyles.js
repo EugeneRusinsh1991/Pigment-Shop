@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { colors, layout, carouselTokens } from '@/theme/tokens';
 import globalStyles from '@/theme/appStyles';
+import { getContentGridWidth } from '@/utils/layoutUtils';
 
 export const localStyles = StyleSheet.create({
   carouselContainer: {
@@ -76,8 +77,18 @@ export const localStyles = StyleSheet.create({
 });
 
 
-function getBreakoutStyle() {
-  return {};
+function getBreakoutStyle(isWide, windowWidth) {
+  if (isWide || !windowWidth) {
+    return {};
+  }
+  const gridWidth = getContentGridWidth(windowWidth, 0);
+  const marginHorizontal = -Math.max(0, (windowWidth - gridWidth) / 2);
+  return {
+    width: windowWidth,
+    marginLeft: marginHorizontal,
+    marginRight: marginHorizontal,
+    borderRadius: layout.radii.none,
+  };
 }
 
 export function getCarouselBaseStyle(isWide, windowWidth) {
@@ -91,4 +102,5 @@ export function getPlaceholderStyle(isWide, isDark, windowWidth) {
   const backgroundColor = isDark ? colors.borderDark : colors.borderSlateLight;
   return [baseStyle, { backgroundColor }];
 }
+
 

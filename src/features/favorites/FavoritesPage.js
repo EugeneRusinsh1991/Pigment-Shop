@@ -5,7 +5,7 @@ import { useTheme } from '../../context/ThemeContext';
 import { useAuth } from '../../context/AuthContext';
 import useGridLayout from '../../hooks/useGridLayout';
 import { colors } from '../../theme/tokens';
-import PlaceholderCard, { PlaceholderGrid } from '../catalog/PlaceholderCard';
+import { PlaceholderGrid } from '../catalog/PlaceholderCard';
 import AccountLayout from '../profile/components/AccountLayout';
 import { useFavoritesContext } from './FavoritesContext';
 import styles from './FavoritesPageStyles';
@@ -24,29 +24,7 @@ function FavoritesEmptyState({ isDark, t }) {
   );
 }
 
-function FavoritesList({ favorites, isDark, onToggleFavorite, cols, gap, isWide }) {
-  const favs = {
-    isFavorite: () => true,
-    toggleFavorite: onToggleFavorite,
-  };
-
-  if (!isWide) {
-    return (
-      <View style={styles.grid}>
-        {favorites.map((item) => (
-          <PlaceholderCard
-            key={item.id}
-            item={item}
-            isDark={isDark}
-            isLeaf={true}
-            isFavorite={true}
-            onToggleFavorite={onToggleFavorite}
-          />
-        ))}
-      </View>
-    );
-  }
-
+function FavoritesList({ favorites, isDark, onToggleFavorite, cols, gap }) {
   return (
     <PlaceholderGrid
       data={favorites}
@@ -54,7 +32,7 @@ function FavoritesList({ favorites, isDark, onToggleFavorite, cols, gap, isWide 
       gap={gap}
       gridKey="fav-grid"
       isDark={isDark}
-      favs={{ isFavorite: () => true, toggleFavorite: favs.toggleFavorite }}
+      favs={{ isFavorite: () => true, toggleFavorite: onToggleFavorite }}
     />
   );
 }
@@ -62,14 +40,14 @@ function FavoritesList({ favorites, isDark, onToggleFavorite, cols, gap, isWide 
 export default function FavoritesPage({ isDark }) {
   const { t } = useTheme();
   const { favorites, toggleFavorite } = useFavoritesContext();
-  const { isWide, cols, cardMargin } = useGridLayout();
+  const { cols, cardMargin } = useGridLayout();
   const auth = useAuth();
 
   return (
     <AccountLayout title={t('favoritesTitle')} isDark={isDark} auth={auth}>
       {favorites.length === 0
         ? <FavoritesEmptyState isDark={isDark} t={t} />
-        : <FavoritesList favorites={favorites} isDark={isDark} onToggleFavorite={toggleFavorite} cols={cols} gap={cardMargin} isWide={isWide} />
+        : <FavoritesList favorites={favorites} isDark={isDark} onToggleFavorite={toggleFavorite} cols={cols} gap={cardMargin} />
       }
     </AccountLayout>
   );

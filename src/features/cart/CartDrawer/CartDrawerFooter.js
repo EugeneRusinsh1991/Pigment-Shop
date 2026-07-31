@@ -6,9 +6,11 @@ import { Button } from '@/components/ui/Button';
 import { colors, layout } from '@/theme/tokens';
 import { formatCurrency } from '@/utils/currency';
 import { useRouter } from 'expo-router';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function CartDrawerFooter({ cart, onClose, isDark }) {
   const router = useRouter();
+  const { t } = useLanguage();
 
   const handleCheckout = () => {
     onClose();
@@ -20,13 +22,13 @@ export default function CartDrawerFooter({ cart, onClose, isDark }) {
   return (
     <DrawerFooter style={styles.footer}>
       <View style={styles.totalRow}>
-        <Text variant="h6">Итого:</Text>
+        <Text variant="h6">{t('cartTotal')}:</Text>
         <Text variant="h6" weight="bold" style={styles.totalAmount}>
           {formatCurrency(cart?.totalPrice || 0)}
         </Text>
       </View>
       <Button
-        label="В корзину"
+        title={t('productGoToCart')}
         onPress={handleCheckout}
         isDark={isDark}
         variant="primary"

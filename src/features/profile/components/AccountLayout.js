@@ -38,15 +38,31 @@ export default function AccountLayout({ title, children, isDark, auth }) {
               },
             ]}
           >
-            <View style={isWide ? styles.sidebarContainer : { width: '100%' }}>
-              <ScrollFadeUp>
-                <ProfileSidebar onLogout={auth?.logout} />
-              </ScrollFadeUp>
-            </View>
+            {isWide ? (
+              <>
+                <View style={styles.sidebarContainer}>
+                  <ScrollFadeUp>
+                    <ProfileSidebar onLogout={auth?.logout} />
+                  </ScrollFadeUp>
+                </View>
 
-            <View style={isWide ? styles.contentContainer : { width: '100%' }}>
-              <ScrollFadeUp>{children}</ScrollFadeUp>
-            </View>
+                <View style={styles.contentContainer}>
+                  <ScrollFadeUp>{children}</ScrollFadeUp>
+                </View>
+              </>
+            ) : (
+              <>
+                <View style={{ width: '100%' }}>
+                  <ScrollFadeUp>{children}</ScrollFadeUp>
+                </View>
+
+                <View style={{ width: '100%' }}>
+                  <ScrollFadeUp>
+                    <ProfileSidebar onLogout={auth?.logout} />
+                  </ScrollFadeUp>
+                </View>
+              </>
+            )}
           </View>
         </View>
       </View>

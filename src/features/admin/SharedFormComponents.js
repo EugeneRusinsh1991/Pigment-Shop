@@ -71,9 +71,21 @@ function FieldInputCore({ leftIcon, rightIcon, styles, sharedInputProps }) {
   return <FieldTextInputCore leftIcon={leftIcon} rightIcon={rightIcon} styles={styles} {...sharedInputProps} />;
 }
 
-export function FieldInput({ label, labelIcon, value, onChangeText, placeholder, error, keyboardType, styles, style, inputStyle, leftIcon, rightIcon, ...props }) {
+export function FieldInput({ label, labelIcon, value, onChangeText, placeholder, error, keyboardType, styles, style, inputStyle, containerStyle, leftIcon, rightIcon, ...props }) {
   const [isFocused, setIsFocused] = React.useState(false);
-  const sharedInputProps = { isFocused, setIsFocused, value, onChangeText, placeholder, error, keyboardType, styles, inputStyle, ...props };
+  const sharedInputProps = {
+    isFocused,
+    setIsFocused,
+    value,
+    onChangeText,
+    placeholder,
+    error,
+    keyboardType,
+    styles,
+    inputStyle,
+    containerStyle: containerStyle || styles?.container,
+    ...props,
+  };
   return (
     <View style={[styles?.fieldGroup, style]}>
       <FieldLabelRow label={label} labelIcon={labelIcon} styles={styles} />
