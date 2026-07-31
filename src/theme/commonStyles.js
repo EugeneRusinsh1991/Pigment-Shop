@@ -3,7 +3,7 @@ import { colors, fonts, layout } from './tokens';
 
 function getContentStyle(isMobile) {
   return {
-    paddingHorizontal: isMobile ? layout.spacing.sm : layout.spacing.xl,
+    paddingHorizontal: isMobile ? layout.spacing.lg : layout.spacing.xl,
     paddingVertical: isMobile ? layout.spacing.sm : layout.spacing.lg,
     maxWidth: layout.maxContentWidth,
     alignSelf: 'center',
@@ -19,7 +19,7 @@ export default StyleSheet.create({
   containerDark: { backgroundColor: colors.backgroundDark },
   containerLight: { backgroundColor: colors.backgroundLight },
   content: {
-    paddingHorizontal: layout.spacing.sm,
+    paddingHorizontal: layout.spacing.lg,
     paddingVertical: layout.spacing.sm,
     maxWidth: layout.maxContentWidth,
     alignSelf: 'center',
@@ -34,7 +34,7 @@ export default StyleSheet.create({
     paddingBottom: layout.spacing.xl,
   },
   pageContent: {
-    paddingHorizontal: layout.spacing.sm,
+    paddingHorizontal: layout.spacing.lg,
     paddingVertical: layout.spacing.lg,
   },
   // Deprecated text styles: prefer using Text/Heading primitives from src/components/Text

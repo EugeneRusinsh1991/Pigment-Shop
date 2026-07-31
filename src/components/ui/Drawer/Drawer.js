@@ -22,6 +22,8 @@ export function DrawerFooter({ children, style }) {
   );
 }
 
+const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
+
 export function Drawer({
   visible,
   isOpen,
@@ -55,12 +57,15 @@ export function Drawer({
   return (
     <Modal visible={isVisible} transparent animationType="none" onRequestClose={handleCloseAction}>
       <View id="app-drawer" style={styles.container}>
-        <Animated.View
+        <AnimatedPressable
           style={[
             StyleSheet.absoluteFill,
             theme.styles.overlay,
             { opacity: activeScrimOpacity },
           ]}
+          onPress={handleCloseAction}
+          accessibilityRole="button"
+          accessibilityLabel="Close drawer backdrop"
         />
         <Animated.View
           style={[
@@ -73,7 +78,14 @@ export function Drawer({
             style,
           ]}
         >
-          {children}
+          <Pressable
+            style={{ flex: 1 }}
+            onPress={(e) => {
+              e?.stopPropagation?.();
+            }}
+          >
+            {children}
+          </Pressable>
         </Animated.View>
         <Pressable
           style={styles.dismissPressable}

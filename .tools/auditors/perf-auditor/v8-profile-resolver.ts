@@ -1,4 +1,4 @@
-import { TraceEvent, TraceStackFrame } from './cdp-trace-collector';
+import type { TraceEvent, TraceStackFrame } from './types';
 
 interface ProfileNode {
   id: number;

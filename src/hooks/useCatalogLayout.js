@@ -22,7 +22,7 @@ export default function useCatalogLayout() {
 
   const contentWidth = Math.min(windowWidth, layout.maxContentWidth) - layout.spacing.lg;
   const gridWidth = isNarrow
-    ? Math.min(windowWidth, getContentGridWidth(windowWidth, 1))
+    ? Math.min(windowWidth - layout.spacing.lg * 2, getContentGridWidth(windowWidth - layout.spacing.lg * 2, 1))
     : contentWidth - SIDEBAR_WIDTH;
 
   const availableWidth = isNarrow ? gridWidth : gridWidth - MAIN_PADDING;

@@ -39,7 +39,7 @@ export default StyleSheet.create({
 
   breadcrumbBar: {
     borderBottomWidth: layout.borderWidth.thin,
-    paddingHorizontal: layout.spacing.sm,
+    paddingHorizontal: layout.spacing.lg,
     paddingVertical: layout.spacing.sm,
   },
   breadcrumbBarDark: {
@@ -95,7 +95,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: layout.spacing.sm,
+    paddingHorizontal: layout.spacing.lg,
     marginTop: layout.spacing.md,
     marginBottom: layout.spacing.sm,
   },
@@ -115,7 +115,7 @@ export default StyleSheet.create({
   },
   footerTitlePadding: {
     marginBottom: layout.spacing.md,
-    paddingHorizontal: layout.spacing.sm,
+    paddingHorizontal: layout.spacing.lg,
   },
 
   textDark: { color: colors.textDark },
@@ -145,6 +145,6 @@ export default StyleSheet.create({
     width: '100%',
     minWidth: 0,
     overflow: 'visible',
-    paddingHorizontal: layout.spacing.sm,
+    paddingHorizontal: layout.spacing.lg,
   },
 });

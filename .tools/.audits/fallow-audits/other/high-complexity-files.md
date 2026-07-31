@@ -1,11 +1,8 @@
 # 🧠 Highly Complex Files
 
-*Generated on: 31.07.2026, 12:49:50*
+*Generated on: 31.07.2026, 15:29:01*
 
 ### Highly Complex Files (< 200 lines)
-
-- **[playwright.helpers.js](file:///d:/Magazine/_PigmentShop/.tools/scripts/playwright.helpers.js)** (`scripts/playwright.helpers.js`)
-  - Lines: 191 | CRAP Max: 342 | Complex Funcs: 2 | Density: 16%
 
 - **[v8-profile-resolver.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/v8-profile-resolver.ts)** (`auditors/perf-auditor/v8-profile-resolver.ts`)
   - Lines: 173 | CRAP Max: 210 | Complex Funcs: 3 | Density: 30%
@@ -19,6 +16,9 @@
 - **[reporter.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/reporter.ts)** (`auditors/perf-auditor/reporter.ts`)
   - Lines: 85 | CRAP Max: 132 | Complex Funcs: 2 | Density: 31%
 
+- **[playwright.helpers.js](file:///d:/Magazine/_PigmentShop/.tools/scripts/playwright.helpers.js)** (`scripts/playwright.helpers.js`)
+  - Lines: 190 | CRAP Max: 72 | Complex Funcs: 3 | Density: 16%
+
 - **[browser-observer.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/browser-observer.ts)** (`auditors/perf-auditor/browser-observer.ts`)
-  - Lines: 167 | CRAP Max: 110 | Complex Funcs: 3 | Density: 28%
+  - Lines: 175 | CRAP Max: 56 | Complex Funcs: 2 | Density: 28%
 

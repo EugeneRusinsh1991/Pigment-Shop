@@ -13,7 +13,7 @@ export default StyleSheet.create({
     paddingBottom: layout.spacing.none,
   },
   pageContent: {
-    paddingHorizontal: layout.spacing.sm,
+    paddingHorizontal: layout.spacing.lg,
     paddingVertical: layout.spacing.lg,
   },
   title: {

@@ -19,7 +19,7 @@ export default StyleSheet.create({
   },
   title: {
     marginBottom: layout.spacing.lg,
-    paddingHorizontal: layout.spacing.sm,
+    paddingHorizontal: layout.spacing.lg,
   },
   emptyState: {
     alignItems: 'center',

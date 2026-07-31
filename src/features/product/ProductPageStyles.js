@@ -22,7 +22,7 @@ export default StyleSheet.create({
     gap: layout.spacing.xxl,
   },
   narrowStack: {
-    paddingHorizontal: layout.spacing.md,
+    paddingHorizontal: layout.spacing.lg,
     paddingTop: layout.spacing.sm,
     paddingBottom: layout.spacing.none,
   },

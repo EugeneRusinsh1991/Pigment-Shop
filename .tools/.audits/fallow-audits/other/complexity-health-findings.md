@@ -1,38 +1,17 @@
 # 🩺 Complexity Health Findings (Critical & High)
 
-*Generated on: 31.07.2026, 12:49:50*
-
-## 🔴 Critical (> 50 lines)
-
-#### 📁 [playwright.helpers.js](file:///d:/Magazine/_PigmentShop/.tools/scripts/playwright.helpers.js)
-`scripts/playwright.helpers.js`
-
-- 🔴 **`<arrow>`** [L65](file:///d:/Magazine/_PigmentShop/.tools/scripts/playwright.helpers.js#L65)
-  - Lines: 108 | Cyclomatic: 18 | Cognitive: 22 | CRAP: 342
-
-#### 📁 [browser-observer.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/browser-observer.ts)
-`auditors/perf-auditor/browser-observer.ts`
-
-- 🔴 **`code`** [L4](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/browser-observer.ts#L4)
-  - Lines: 153 | Cyclomatic: 10 | Cognitive: 10 | CRAP: 110
-
-#### 📁 [cdp-trace-collector.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/cdp-trace-collector.ts)
-`auditors/perf-auditor/cdp-trace-collector.ts`
-
-- 🔴 **`extractLags`** [L120](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/cdp-trace-collector.ts#L120)
-  - Lines: 56 | Cyclomatic: 10 | Cognitive: 12 | CRAP: 110
-
+*Generated on: 31.07.2026, 15:29:01*
 
 ## 🔴 Critical (≤ 50 lines)
 
 #### 📁 [cdp-trace-collector.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/cdp-trace-collector.ts)
 `auditors/perf-auditor/cdp-trace-collector.ts`
 
-- 🔴 **`extractLocalization`** [L184](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/cdp-trace-collector.ts#L184)
-  - Lines: 48 | Cyclomatic: 24 | Cognitive: 15 | CRAP: 600
-- 🔴 **`inheritFromChildren`** [L272](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/cdp-trace-collector.ts#L272)
-  - Lines: 43 | Cyclomatic: 14 | Cognitive: 21 | CRAP: 210
-- 🔴 **`buildDetails`** [L340](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/cdp-trace-collector.ts#L340)
+- 🔴 **`extractLocalization`** [L183](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/cdp-trace-collector.ts#L183)
+  - Lines: 31 | Cyclomatic: 24 | Cognitive: 15 | CRAP: 600
+- 🔴 **`mergeChildLocalizations`** [L254](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/cdp-trace-collector.ts#L254)
+  - Lines: 28 | Cyclomatic: 12 | Cognitive: 19 | CRAP: 156
+- 🔴 **`buildDetails`** [L323](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/cdp-trace-collector.ts#L323)
   - Lines: 17 | Cyclomatic: 10 | Cognitive: 6 | CRAP: 110
 
 #### 📁 [ManualBrowserInspector.js](file:///d:/Magazine/_PigmentShop/.tools/automation/manual-browser-inspector/ManualBrowserInspector.js)
@@ -94,8 +73,10 @@
 #### 📁 [cdp-trace-collector.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/cdp-trace-collector.ts)
 `auditors/perf-auditor/cdp-trace-collector.ts`
 
-- 🟠 **`<arrow>`** [L195](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/cdp-trace-collector.ts#L195)
+- 🟠 **`<arrow>`** [L166](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/cdp-trace-collector.ts#L166)
   - Lines: 6 | Cyclomatic: 9 | Cognitive: 4 | CRAP: 90
+- 🟠 **`processDurationEvent`** [L88](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/cdp-trace-collector.ts#L88)
+  - Lines: 35 | Cyclomatic: 8 | Cognitive: 6 | CRAP: 72
 
 #### 📁 [interactive-runner.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/interactive-runner.ts)
 `auditors/perf-auditor/interactive-runner.ts`
@@ -110,6 +91,14 @@
 
 - 🟠 **`mdSummary`** [L64](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/reporter.ts#L64)
   - Lines: 18 | Cyclomatic: 9 | Cognitive: 5 | CRAP: 90
+
+#### 📁 [playwright.helpers.js](file:///d:/Magazine/_PigmentShop/.tools/scripts/playwright.helpers.js)
+`scripts/playwright.helpers.js`
+
+- 🟠 **`<arrow>`** [L164](file:///d:/Magazine/_PigmentShop/.tools/scripts/playwright.helpers.js#L164)
+  - Lines: 8 | Cyclomatic: 8 | Cognitive: 5 | CRAP: 72
+- 🟠 **`renderFullCanvas`** [L117](file:///d:/Magazine/_PigmentShop/.tools/scripts/playwright.helpers.js#L117)
+  - Lines: 44 | Cyclomatic: 7 | Cognitive: 6 | CRAP: 56
 
 #### 📁 [browser-observer.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/browser-observer.ts)
 `auditors/perf-auditor/browser-observer.ts`

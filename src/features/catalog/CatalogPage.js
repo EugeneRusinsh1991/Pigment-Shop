@@ -128,7 +128,7 @@ export default function CatalogPage({ isDark }) {
 
   return (
     <View style={isDark ? styles.containerDark : styles.containerLight}>
-      <View style={isNarrow ? styles.container : styles.row}>
+      <View style={isNarrow ? styles.containerNarrow : styles.row}>
         <CatalogFilterSidebar
           categoryTree={categoryTree}
           filters={filters}
@@ -174,9 +174,10 @@ export default function CatalogPage({ isDark }) {
 
 const styles = StyleSheet.create({
   container: { flex: 1, minHeight: 0 },
+  containerNarrow: { flex: 1, minHeight: 0, paddingHorizontal: layout.spacing.lg },
   containerDark: { flex: 1, backgroundColor: colors.backgroundDark },
   containerLight: { flex: 1, backgroundColor: colors.backgroundLight },
-  row: { flex: 1, minHeight: 0, flexDirection: 'row', width: '100%', maxWidth: layout.maxContentWidth, alignSelf: 'center', paddingHorizontal: layout.spacing.sm },
+  row: { flex: 1, minHeight: 0, flexDirection: 'row', width: '100%', maxWidth: layout.maxContentWidth, alignSelf: 'center', paddingHorizontal: layout.spacing.lg },
   main: { flex: 1, minHeight: 0, padding: layout.spacing.lg },
   mainNarrow: { padding: layout.spacing.none, alignItems: 'center' },
   gridContainer: { flex: 1, minHeight: 0 },

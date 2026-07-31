@@ -9,7 +9,7 @@ import { useAnimatedTransition } from './useAnimatedTransition';
  * @param {function} onClose - On close callback handler.
  * @returns {object} { showModal, slideAnim, scrimOpacity, handleClose }
  */
-export function useSlideAnimation(visible, panelWidth, onClose) {
+export function useSlideAnimation(visible, panelWidth, onClose, position = 'left') {
   const { shouldRender, anim } = useAnimatedTransition(visible, {
     durationIn: 250,
     durationOut: 220,
@@ -17,9 +17,11 @@ export function useSlideAnimation(visible, panelWidth, onClose) {
     targetValue: 1,
   });
 
+  const startValue = position === 'right' ? panelWidth : -panelWidth;
+
   const slideAnim = anim.interpolate({
     inputRange: [0, 1],
-    outputRange: [-panelWidth, 0],
+    outputRange: [startValue, 0],
   });
 
   const scrimOpacity = anim.interpolate({

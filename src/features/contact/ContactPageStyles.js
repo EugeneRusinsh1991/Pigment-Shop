@@ -20,7 +20,7 @@ export default StyleSheet.create({
   },
   title: {
     marginBottom: layout.spacing.xl,
-    paddingHorizontal: layout.spacing.sm,
+    paddingHorizontal: layout.spacing.lg,
   },
   textDark: { color: colors.white },
   textLight: { color: colors.dark },

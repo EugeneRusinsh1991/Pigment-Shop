@@ -1,6 +1,6 @@
 # 💀 Dead Files (Unused)
 
-*Generated on: 31.07.2026, 12:49:50*
+*Generated on: 31.07.2026, 15:29:01*
 
 Files that are not reachable or imported by any other codebase file:
 
@@ -13,6 +13,7 @@ Files that are not reachable or imported by any other codebase file:
 - [logger.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/logger.ts) (`auditors/perf-auditor/logger.ts`)
 - [reporter.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/reporter.ts) (`auditors/perf-auditor/reporter.ts`)
 - [trace-diagnostic.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/trace-diagnostic.ts) (`auditors/perf-auditor/trace-diagnostic.ts`)
+- [types.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/types.ts) (`auditors/perf-auditor/types.ts`)
 - [v8-profile-resolver.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/v8-profile-resolver.ts) (`auditors/perf-auditor/v8-profile-resolver.ts`)
 - [12-raw-i18n-keys-auditor.js](file:///d:/Magazine/_PigmentShop/.tools/auditors/ui-auditor/12-raw-i18n-keys-auditor.js) (`auditors/ui-auditor/12-raw-i18n-keys-auditor.js`)
 - [a11y-auditor.js](file:///d:/Magazine/_PigmentShop/.tools/auditors/ui-auditor/a11y-auditor.js) (`auditors/ui-auditor/a11y-auditor.js`)
@@ -126,9 +127,11 @@ Files that are not reachable or imported by any other codebase file:
 - [smoke-automation.ts](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/smoke-automation.ts) (`automation/browser-automation/smoke-automation.ts`)
 - [locationContext.js](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/utils/locationContext.js) (`automation/browser-automation/utils/locationContext.js`)
 - [ManualBrowserInspector.js](file:///d:/Magazine/_PigmentShop/.tools/automation/manual-browser-inspector/ManualBrowserInspector.js) (`automation/manual-browser-inspector/ManualBrowserInspector.js`)
+- [ManualBrowserInspector.native.js](file:///d:/Magazine/_PigmentShop/.tools/automation/manual-browser-inspector/ManualBrowserInspector.native.js) (`automation/manual-browser-inspector/ManualBrowserInspector.native.js`)
 - [InspectorMenu.js](file:///d:/Magazine/_PigmentShop/.tools/automation/manual-browser-inspector/components/InspectorMenu.js) (`automation/manual-browser-inspector/components/InspectorMenu.js`)
 - [setupManualInspector.js](file:///d:/Magazine/_PigmentShop/.tools/automation/manual-browser-inspector/setupManualInspector.js) (`automation/manual-browser-inspector/setupManualInspector.js`)
 - [setupManualInspector.ts](file:///d:/Magazine/_PigmentShop/.tools/automation/manual-browser-inspector/setupManualInspector.ts) (`automation/manual-browser-inspector/setupManualInspector.ts`)
+- [setupManualInspectorCore.js](file:///d:/Magazine/_PigmentShop/.tools/automation/manual-browser-inspector/setupManualInspectorCore.js) (`automation/manual-browser-inspector/setupManualInspectorCore.js`)
 - [domHelpers.js](file:///d:/Magazine/_PigmentShop/.tools/automation/manual-browser-inspector/utils/domHelpers.js) (`automation/manual-browser-inspector/utils/domHelpers.js`)
 - [core.js](file:///d:/Magazine/_PigmentShop/.tools/core/backuper/backup/core.js) (`core/backuper/backup/core.js`)
 - [backup.js](file:///d:/Magazine/_PigmentShop/.tools/core/backuper/backup.js) (`core/backuper/backup.js`)
