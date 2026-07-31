@@ -180,36 +180,71 @@ function parseCallStack(rawStack: any[]): {
   return { callStack, sourceLocation };
 }
 
+function getStackProperty(obj: any, prop: string): any[] | undefined {
+  if (!obj) return undefined;
+  const val = obj[prop];
+  return Array.isArray(val) && val.length > 0 ? val : undefined;
+}
+
+function getRawStack(data: any, beginData: any): any[] | undefined {
+  return getStackProperty(data, 'stackTrace') ||
+    getStackProperty(beginData, 'stackTrace') ||
+    getStackProperty(data, 'callStack');
+}
+
+function extractStackLocalization(data: any, beginData: any) {
+  const rawStack = getRawStack(data, beginData);
+  return rawStack ? parseCallStack(rawStack) : {};
+}
+
+function getFirstString(obj: any, keys: string[]): string {
+  if (!obj) return '';
+  for (const k of keys) {
+    const val = obj[k];
+    if (typeof val === 'string' && val.length > 0) return val;
+  }
+  return '';
+}
+
+function getFirstNumber(obj: any, keys: string[]): number {
+  if (!obj) return 0;
+  for (const k of keys) {
+    const val = obj[k];
+    if (typeof val === 'number' && val > 0) return val;
+  }
+  return 0;
+}
+
+function extractFunctionCallSource(data: any) {
+  const functionName = getFirstString(data, ['functionName', 'scriptName']);
+  if (!functionName) return undefined;
+  const scriptUrl = getFirstString(data, ['scriptName', 'url']);
+  const lineNumber = getFirstNumber(data, ['scriptLine', 'lineNumber']);
+  return { functionName, scriptUrl, lineNumber };
+}
+
+function getStackLoc(evt: TraceEvent): LocalizationResult {
+  const args = evt.args;
+  if (!args) return {};
+  return extractStackLocalization(args.data, args.beginData);
+}
+
+function getFnCallLoc(evt: TraceEvent, currentLoc?: any): LocalizationResult {
+  if (currentLoc || evt.name !== 'FunctionCall' || !evt.args?.data) return {};
+  const sourceLocation = extractFunctionCallSource(evt.args.data);
+  return sourceLocation ? { sourceLocation } : {};
+}
+
+function getEventDispatchLoc(evt: TraceEvent): LocalizationResult {
+  if (evt.name !== 'EventDispatch' || !evt.args?.data?.type) return {};
+  return { eventType: evt.args.data.type };
+}
+
 function extractLocalization(evt: TraceEvent): LocalizationResult {
-  const result: LocalizationResult = {};
-  const data = evt.args?.data;
-  const beginData = evt.args?.beginData;
-
-  const rawStack = data?.stackTrace || beginData?.stackTrace || data?.callStack;
-  if (Array.isArray(rawStack) && rawStack.length > 0) {
-    const parsed = parseCallStack(rawStack);
-    result.callStack = parsed.callStack;
-    if (parsed.sourceLocation) {
-      result.sourceLocation = parsed.sourceLocation;
-    }
-  }
-
-  if (evt.name === 'FunctionCall' && data) {
-    const fnName = data.functionName || data.scriptName || '';
-    if (fnName && !result.sourceLocation) {
-      result.sourceLocation = {
-        functionName: fnName,
-        scriptUrl: data.scriptName || data.url || '',
-        lineNumber: data.scriptLine || data.lineNumber || 0,
-      };
-    }
-  }
-
-  if (evt.name === 'EventDispatch' && data?.type) {
-    result.eventType = data.type;
-  }
-
-  return result;
+  const stackLoc = getStackLoc(evt);
+  const fnLoc = getFnCallLoc(evt, stackLoc.sourceLocation);
+  const eventLoc = getEventDispatchLoc(evt);
+  return { ...stackLoc, ...fnLoc, ...eventLoc };
 }
 
 function isInternalUrl(url: string): boolean {
@@ -251,32 +286,40 @@ function isChildOf(parent: TraceEvent, child: TraceEvent): boolean {
  * whose timestamp range is contained within the parent, and inherit their
  * localization (deepest/longest FunctionCall wins).
  */
-function mergeChildLocalizations(children: TraceEvent[], existing: LocalizationResult): LocalizationResult {
+function isSameFrame(a: TraceStackFrame, b: TraceStackFrame): boolean {
+  return a.scriptUrl === b.scriptUrl && a.lineNumber === b.lineNumber;
+}
+
+function appendUniqueFrames(target: TraceStackFrame[], frames?: TraceStackFrame[]): void {
+  if (!frames) return;
+  for (const frame of frames) {
+    if (!target.some(existing => isSameFrame(existing, frame))) {
+      target.push(frame);
+    }
+  }
+}
+
+function aggregateChildLocalizations(children: TraceEvent[]) {
   const mergedStack: TraceStackFrame[] = [];
   let bestSource: LocalizationResult['sourceLocation'] | undefined;
   let bestEventType: string | undefined;
 
   for (const child of children) {
     const childLoc = extractLocalization(child);
-    if (childLoc.callStack) {
-      for (const frame of childLoc.callStack) {
-        if (!mergedStack.some(f => f.scriptUrl === frame.scriptUrl && f.lineNumber === frame.lineNumber)) {
-          mergedStack.push(frame);
-        }
-      }
-    }
-    if (childLoc.sourceLocation && !bestSource) {
-      bestSource = childLoc.sourceLocation;
-    }
-    if (childLoc.eventType && !bestEventType) {
-      bestEventType = childLoc.eventType;
-    }
+    appendUniqueFrames(mergedStack, childLoc.callStack);
+    if (!bestSource && childLoc.sourceLocation) bestSource = childLoc.sourceLocation;
+    if (!bestEventType && childLoc.eventType) bestEventType = childLoc.eventType;
   }
 
+  return { mergedStack, bestSource, bestEventType };
+}
+
+function mergeChildLocalizations(children: TraceEvent[], existing: LocalizationResult): LocalizationResult {
+  const { mergedStack, bestSource, bestEventType } = aggregateChildLocalizations(children);
   return {
     callStack: mergedStack.length > 0 ? mergedStack.slice(0, 10) : existing.callStack,
-    sourceLocation: bestSource ?? existing.sourceLocation,
-    eventType: bestEventType ?? existing.eventType,
+    sourceLocation: bestSource || existing.sourceLocation,
+    eventType: bestEventType || existing.eventType,
   };
 }
 
@@ -320,20 +363,44 @@ function resolveFromProfiler(
   };
 }
 
+function getFileName(url: string): string {
+  if (!url) return '';
+  const idx = url.lastIndexOf('/');
+  return idx >= 0 ? url.substring(idx + 1) : url;
+}
+
+function formatSourceLocation(src?: LocalizationResult['sourceLocation'], evtName?: string): string | undefined {
+  if (src) {
+    const file = getFileName(src.scriptUrl) || src.scriptUrl;
+    return `source=${src.functionName}@${file}:${src.lineNumber}`;
+  }
+  if (evtName === 'RunTask') {
+    return '[browser_internal]';
+  }
+  return undefined;
+}
+
+function getStackDepthStr(stack?: TraceStackFrame[]): string | undefined {
+  return stack && stack.length > 0 ? `stack_depth=${stack.length}` : undefined;
+}
+
+function getElementsStr(data?: Record<string, any>): string | undefined {
+  return data && data.elementCount ? `elements=${data.elementCount}` : undefined;
+}
+
 function buildDetails(evt: TraceEvent, durationMs: number, loc: LocalizationResult): string {
   const parts = [`CDP ${evt.name}: ${durationMs}ms`];
-  const data = evt.args?.data;
 
   if (loc.eventType) parts.push(`event=${loc.eventType}`);
-  if (loc.sourceLocation) {
-    const src = loc.sourceLocation;
-    const file = src.scriptUrl.split('/').pop() || src.scriptUrl;
-    parts.push(`source=${src.functionName}@${file}:${src.lineNumber}`);
-  } else if (evt.name === 'RunTask') {
-    parts.push('[browser_internal]');
-  }
-  if (loc.callStack?.length) parts.push(`stack_depth=${loc.callStack.length}`);
-  if (data?.elementCount) parts.push(`elements=${data.elementCount}`);
+
+  const srcStr = formatSourceLocation(loc.sourceLocation, evt.name);
+  if (srcStr) parts.push(srcStr);
+
+  const stackStr = getStackDepthStr(loc.callStack);
+  if (stackStr) parts.push(stackStr);
+
+  const elemStr = getElementsStr(evt.args && evt.args.data);
+  if (elemStr) parts.push(elemStr);
 
   return parts.join(' | ');
 }

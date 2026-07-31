@@ -184,13 +184,20 @@ export default function ManualBrowserInspector() {
     setIsLiveHighlight((prev) => !prev);
   };
 
+function isAltKeyMatch(e, codes, keys, keyCode) {
+  if (!e || !e.altKey) return false;
+  if (codes.includes(e.code)) return true;
+  if (keys.includes(e.key)) return true;
+  return e.keyCode === keyCode;
+}
+
   useEffect(() => {
     if (!isPlaywright) return;
 
     const handleKeyDown = (e) => {
-      const isAlt1 = e.altKey && (e.code === 'Digit1' || e.code === 'Numpad1' || e.key === '1' || e.key === '!' || e.keyCode === 49);
-      const isAlt2 = e.altKey && (e.code === 'Digit2' || e.code === 'Numpad2' || e.key === '2' || e.key === '@' || e.keyCode === 50);
-      const isAlt9 = e.altKey && (e.code === 'Digit9' || e.code === 'Numpad9' || e.key === '9' || e.key === '(' || e.keyCode === 57);
+      const isAlt1 = isAltKeyMatch(e, ['Digit1', 'Numpad1'], ['1', '!'], 49);
+      const isAlt2 = isAltKeyMatch(e, ['Digit2', 'Numpad2'], ['2', '@'], 50);
+      const isAlt9 = isAltKeyMatch(e, ['Digit9', 'Numpad9'], ['9', '('], 57);
 
       if (isAlt1) {
         e.preventDefault();

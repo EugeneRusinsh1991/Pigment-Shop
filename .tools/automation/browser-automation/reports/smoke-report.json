@@ -2,41 +2,40 @@
   "summary": {
     "visitedScreens": 0,
     "visitedInteractions": 0,
-    "successfulInteractions": 55,
+    "successfulInteractions": 1,
     "failedInteractions": 0,
-    "warnings": 1,
-    "errors": 2,
+    "warnings": 3,
+    "errors": 0,
     "executionDurationMs": 0
   },
-  "failures": [
+  "failures": [],
+  "warnings": [
     {
       "screen": "http://localhost:8081/",
-      "interaction": "Click",
-      "elementIdentifier": "btn|Корзина3Product 1-...",
+      "interaction": "Initial Load",
+      "elementIdentifier": "None",
       "event": "Runtime",
-      "timestamp": 1785534825058,
-      "errorType": "Console Error",
-      "errorMessage": "[Application Bug] WebSocket connection to 'ws://localhost:8081/hot' failed: "
+      "timestamp": 1785535278944,
+      "errorType": "Console Warning",
+      "errorMessage": "\"shadow*\" style props are deprecated. Use \"boxShadow\"."
+    },
+    {
+      "screen": "http://localhost:8081/",
+      "interaction": "Initial Load",
+      "elementIdentifier": "None",
+      "event": "Runtime",
+      "timestamp": 1785535279568,
+      "errorType": "Console Warning",
+      "errorMessage": "Animated: `useNativeDriver` is not supported because the native animated module is missing. Falling back to JS-based animation. To resolve this, add `RCTAnimation` module to this app, or remove `useNativeDriver`. Make sure to run `bundle exec pod install` first. Read more about autolinking: https://github.com/react-native-community/cli/blob/master/docs/autolinking.md"
     },
     {
       "screen": "http://localhost:8081/",
       "interaction": "Click",
-      "elementIdentifier": "btn|Корзина3Product 1-...",
+      "elementIdentifier": "link|/",
       "event": "Runtime",
-      "timestamp": 1785534825062,
+      "timestamp": 1785535281981,
       "errorType": "Console Error",
-      "errorMessage": "[Application Bug] WebSocket connection to 'ws://localhost:8081/message' failed: "
-    }
-  ],
-  "warnings": [
-    {
-      "screen": "http://localhost:8081/",
-      "interaction": "Click",
-      "elementIdentifier": "btn|Корзина3Product 1-...",
-      "event": "Runtime",
-      "timestamp": 1785534825565,
-      "errorType": "Console Warning",
-      "errorMessage": "Cannot connect to Expo CLI.\n\nTry the following to fix the issue:\n- Ensure the Expo dev server is running and available on the same network as this device\n\nURL: localhost:8081\n\nError: undefined"
+      "errorMessage": "Failed to load resource: the server responded with a status of 400 ()"
     }
   ]
 }

@@ -1,11 +1,11 @@
 # 🧠 Highly Complex Files
 
-*Generated on: 01.08.2026, 00:52:30*
+*Generated on: 01.08.2026, 00:59:29*
 
 ### Highly Complex Files (< 200 lines)
 
 - **[v8-profile-resolver.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/v8-profile-resolver.ts)** (`auditors/perf-auditor/v8-profile-resolver.ts`)
-  - Lines: 173 | CRAP Max: 210 | Complex Funcs: 3 | Density: 30%
+  - Lines: 190 | CRAP Max: 182 | Complex Funcs: 4 | Density: 29%
 
 - **[config.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/config.ts)** (`auditors/perf-auditor/config.ts`)
   - Lines: 38 | CRAP Max: 156 | Complex Funcs: 1 | Density: 34%

@@ -1,31 +1,13 @@
 # 🩺 Complexity Health Findings (Critical & High)
 
-*Generated on: 01.08.2026, 00:52:30*
+*Generated on: 01.08.2026, 00:59:29*
 
 ## 🔴 Critical (≤ 50 lines)
-
-#### 📁 [cdp-trace-collector.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/cdp-trace-collector.ts)
-`auditors/perf-auditor/cdp-trace-collector.ts`
-
-- 🔴 **`extractLocalization`** [L183](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/cdp-trace-collector.ts#L183)
-  - Lines: 31 | Cyclomatic: 24 | Cognitive: 15 | CRAP: 600
-- 🔴 **`mergeChildLocalizations`** [L254](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/cdp-trace-collector.ts#L254)
-  - Lines: 28 | Cyclomatic: 12 | Cognitive: 19 | CRAP: 156
-- 🔴 **`buildDetails`** [L323](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/cdp-trace-collector.ts#L323)
-  - Lines: 17 | Cyclomatic: 10 | Cognitive: 6 | CRAP: 110
-
-#### 📁 [ManualBrowserInspector.js](file:///d:/Magazine/_PigmentShop/.tools/automation/manual-browser-inspector/ManualBrowserInspector.js)
-`automation/manual-browser-inspector/ManualBrowserInspector.js`
-
-- 🔴 **`handleKeyDown`** [L190](file:///d:/Magazine/_PigmentShop/.tools/automation/manual-browser-inspector/ManualBrowserInspector.js#L190)
-  - Lines: 16 | Cyclomatic: 19 | Cognitive: 9 | CRAP: 380
 
 #### 📁 [v8-profile-resolver.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/v8-profile-resolver.ts)
 `auditors/perf-auditor/v8-profile-resolver.ts`
 
-- 🔴 **`resolve`** [L58](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/v8-profile-resolver.ts#L58)
-  - Lines: 39 | Cyclomatic: 14 | Cognitive: 18 | CRAP: 210
-- 🔴 **`processProfileEvent`** [L98](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/v8-profile-resolver.ts#L98)
+- 🔴 **`processProfileEvent`** [L115](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/v8-profile-resolver.ts#L115)
   - Lines: 27 | Cyclomatic: 13 | Cognitive: 15 | CRAP: 182
 
 #### 📁 [config.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/config.ts)
@@ -121,7 +103,7 @@
 #### 📁 [v8-profile-resolver.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/v8-profile-resolver.ts)
 `auditors/perf-auditor/v8-profile-resolver.ts`
 
-- 🟠 **`buildCallChain`** [L132](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/v8-profile-resolver.ts#L132)
+- 🟠 **`buildCallChain`** [L149](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/v8-profile-resolver.ts#L149)
   - Lines: 20 | Cyclomatic: 7 | Cognitive: 8 | CRAP: 56
 
 

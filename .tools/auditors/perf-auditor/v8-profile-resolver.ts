@@ -51,6 +51,47 @@ export class V8ProfileResolver {
     return this.samples.length > 0 && this.nodes.size > 0;
   }
 
+  private countSampledNodes(startIdx: number, endIdx: number): Map<number, number> {
+    const nodeCounts = new Map<number, number>();
+    for (let i = startIdx; i < endIdx; i++) {
+      const nodeId = this.samples[i].nodeId;
+      const node = this.nodes.get(nodeId);
+      if (node && !this.isIdleNode(node)) {
+        const current = nodeCounts.get(nodeId) ?? 0;
+        nodeCounts.set(nodeId, current + 1);
+      }
+    }
+    return nodeCounts;
+  }
+
+  private appendUniqueChainFrames(
+    frames: TraceStackFrame[],
+    chain: TraceStackFrame[],
+    seen: Set<string>
+  ): void {
+    for (const frame of chain) {
+      if (!frame.scriptUrl) continue;
+      const key = `${frame.scriptUrl}:${frame.lineNumber}`;
+      if (!seen.has(key)) {
+        seen.add(key);
+        frames.push(frame);
+      }
+    }
+  }
+
+  private extractTopFrames(sortedNodeEntries: [number, number][]): TraceStackFrame[] {
+    const frames: TraceStackFrame[] = [];
+    const seen = new Set<string>();
+
+    for (const [nodeId] of sortedNodeEntries) {
+      const chain = this.buildCallChain(nodeId);
+      this.appendUniqueChainFrames(frames, chain, seen);
+      if (frames.length >= 10) break;
+    }
+
+    return frames;
+  }
+
   /**
    * Resolve the JS call stack active during [startTs, endTs] (microseconds).
    * Returns the most common non-idle call frame(s) found in samples.
@@ -58,39 +99,15 @@ export class V8ProfileResolver {
   resolve(startTs: number, endTs: number): TraceStackFrame[] | undefined {
     if (!this.hasData()) return undefined;
 
-    // Find samples within the time range via binary search
     const startIdx = this.lowerBound(startTs);
     const endIdx = this.upperBound(endTs);
     if (startIdx >= endIdx) return undefined;
 
-    // Count occurrences of each non-idle node
-    const nodeCounts = new Map<number, number>();
-    for (let i = startIdx; i < endIdx; i++) {
-      const nodeId = this.samples[i].nodeId;
-      const node = this.nodes.get(nodeId);
-      if (node && !this.isIdleNode(node)) {
-        nodeCounts.set(nodeId, (nodeCounts.get(nodeId) || 0) + 1);
-      }
-    }
-
+    const nodeCounts = this.countSampledNodes(startIdx, endIdx);
     if (nodeCounts.size === 0) return undefined;
 
-    // Sort by frequency (hottest function first) and build stack frames
     const sorted = [...nodeCounts.entries()].sort((a, b) => b[1] - a[1]);
-    const frames: TraceStackFrame[] = [];
-    const seen = new Set<string>();
-
-    for (const [nodeId] of sorted) {
-      const chain = this.buildCallChain(nodeId);
-      for (const frame of chain) {
-        const key = `${frame.scriptUrl}:${frame.lineNumber}`;
-        if (!seen.has(key) && frame.scriptUrl) {
-          seen.add(key);
-          frames.push(frame);
-        }
-      }
-      if (frames.length >= 10) break;
-    }
+    const frames = this.extractTopFrames(sorted);
 
     return frames.length > 0 ? frames.slice(0, 10) : undefined;
   }
