@@ -1,6 +1,6 @@
 # 👥 Significant Code Duplication (≥ 8 lines)
 
-*Generated on: 31.07.2026, 16:36:29*
+*Generated on: 31.07.2026, 21:03:07*
 
 ### Clone Group 1 — 23 lines, 125 tokens · `dup:225200ee`
 > 💡 Extract duplicated code (23 lines, 2 instances) into a shared function

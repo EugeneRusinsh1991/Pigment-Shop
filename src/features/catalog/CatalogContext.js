@@ -6,7 +6,7 @@
  */
 import { createContext, useContext, useMemo, useSyncExternalStore } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
-import { getBanners, getCategories, getProducts, subscribe } from '../../data/catalogState';
+import { getBanners, getCategories, getProducts, getIsLoading, subscribe } from '../../data/catalogState';
 import {
     buildCategoryLookup,
     buildCategorySubtreeMap,
@@ -23,6 +23,7 @@ export function CatalogProvider({ children }) {
   const products   = useSyncExternalStore(subscribe, getProducts);
   const categories = useSyncExternalStore(subscribe, getCategories);
   const banners    = useSyncExternalStore(subscribe, getBanners);
+  const isLoading  = useSyncExternalStore(subscribe, getIsLoading);
   const { lang } = useLanguage();
 
   const rawProducts = products || [];
@@ -61,7 +62,9 @@ export function CatalogProvider({ children }) {
 
   const categorySubtreeMap = useMemo(() => buildCategorySubtreeMap(categoryTree), [categoryTree]);
 
-  const value = useMemo(() => ({ flatList, categoryTree, banners, searchIndex, categoryLookup, categorySubtreeMap }), [flatList, categoryTree, banners, searchIndex, categoryLookup, categorySubtreeMap]);
+  const value = useMemo(() => ({ 
+    flatList, categoryTree, banners, searchIndex, categoryLookup, categorySubtreeMap, isLoading 
+  }), [flatList, categoryTree, banners, searchIndex, categoryLookup, categorySubtreeMap, isLoading]);
 
   return (
     <CatalogContext.Provider value={value}>

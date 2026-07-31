@@ -8,6 +8,7 @@ import { colors } from '../../theme/tokens';
 import { PlaceholderGrid } from '../catalog/PlaceholderCard';
 import AccountLayout from '../profile/components/AccountLayout';
 import { useFavoritesContext } from './FavoritesContext';
+import { useCatalog } from '../catalog/CatalogContext';
 import styles from './FavoritesPageStyles';
 
 import { EmptyState } from '../../components/ui/Feedback';
@@ -24,7 +25,7 @@ function FavoritesEmptyState({ isDark, t }) {
   );
 }
 
-function FavoritesList({ favorites, isDark, onToggleFavorite, cols, gap }) {
+function FavoritesList({ favorites, isDark, onToggleFavorite, cols, gap, loading }) {
   return (
     <PlaceholderGrid
       data={favorites}
@@ -33,6 +34,7 @@ function FavoritesList({ favorites, isDark, onToggleFavorite, cols, gap }) {
       gridKey="fav-grid"
       isDark={isDark}
       favs={{ isFavorite: () => true, toggleFavorite: onToggleFavorite }}
+      loading={loading}
     />
   );
 }
@@ -42,12 +44,13 @@ export default function FavoritesPage({ isDark }) {
   const { favorites, toggleFavorite } = useFavoritesContext();
   const { cols, cardMargin } = useGridLayout();
   const auth = useAuth();
+  const { isLoading } = useCatalog();
 
   return (
     <AccountLayout title={t('favoritesTitle')} isDark={isDark} auth={auth}>
-      {favorites.length === 0
+      {!isLoading && favorites.length === 0
         ? <FavoritesEmptyState isDark={isDark} t={t} />
-        : <FavoritesList favorites={favorites} isDark={isDark} onToggleFavorite={toggleFavorite} cols={cols} gap={cardMargin} />
+        : <FavoritesList favorites={favorites} isDark={isDark} onToggleFavorite={toggleFavorite} cols={cols} gap={cardMargin} loading={isLoading} />
       }
     </AccountLayout>
   );

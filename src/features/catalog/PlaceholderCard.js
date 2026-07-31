@@ -3,6 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import { Link } from 'expo-router';
 import CategoryCard from './CategoryCard';
 import ProductCard from '../product/ProductCard';
+import ProductCardSkeleton from '../product/ProductCardSkeleton';
 import NavigationCard from '../../components/ui/Card/NavigationCard';
 import UnifiedCardGrid from '../../components/ui/Grid/UnifiedCardGrid';
 
@@ -36,7 +37,22 @@ const PlaceholderCard = React.memo(function PlaceholderCard({ item, isDark, isLe
 
 export default PlaceholderCard;
 
-export const PlaceholderGrid = React.memo(function PlaceholderGrid({ data, cols, gap, gridKey, isDark, favs }) {
+export const PlaceholderGrid = React.memo(function PlaceholderGrid({ data, cols, gap, gridKey, isDark, favs, loading = false, skeletonCount }) {
+  if (loading) {
+    const count = skeletonCount || (cols ? cols * 2 : 4);
+    const dummyData = Array.from({ length: count }, (_, i) => ({ id: `skel-${i}` }));
+    return (
+      <UnifiedCardGrid
+        key={`skel-${gridKey}-${cols}`}
+        data={dummyData}
+        cols={cols}
+        gap={gap}
+        variant="flex"
+        renderItem={() => <ProductCardSkeleton isDark={isDark} />}
+      />
+    );
+  }
+
   return (
     <UnifiedCardGrid
       key={`${gridKey}-${cols}`}

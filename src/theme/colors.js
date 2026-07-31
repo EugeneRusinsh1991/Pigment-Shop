@@ -180,6 +180,8 @@ export const colors = {
   surfaceSubtleDark: semantic.color.surface.dark.subtle,
   surfaceElevatedLight: semantic.color.surface.light.elevated,
   surfaceElevatedDark: semantic.color.surface.dark.elevated,
+  surfaceSkeletonLight: primitives.slate[200],
+  surfaceSkeletonDark: primitives.slate[800],
 
   // Borders
   borderLight: semantic.color.border.light.default,

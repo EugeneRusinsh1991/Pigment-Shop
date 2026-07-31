@@ -33,7 +33,7 @@ export default function NewArrivalsFooter({ isDark, isWide, t: propT, onCardPres
   const { cols, gap, tier } = useUnifiedCardGrid();
   const limit = tier === 'desktop' ? 4 : 5;
   const router = useRouter();
-  const { flatList } = useCatalog();
+  const { flatList, isLoading } = useCatalog();
   
   const newArrivals = useMemo(() => flatList.filter((item) => item.isNew), [flatList]);
 
@@ -49,7 +49,7 @@ export default function NewArrivalsFooter({ isDark, isWide, t: propT, onCardPres
           {t('newArrivals')}
         </Heading>
       </ScrollFadeUp>
-      {newArrivals.length === 0 ? (
+      {!isLoading && newArrivals.length === 0 ? (
         <EmptyArrivalsMessage isDark={isDark} text={t('emptyNewArrivals')} />
       ) : (
         <PlaceholderGrid
@@ -60,6 +60,7 @@ export default function NewArrivalsFooter({ isDark, isWide, t: propT, onCardPres
           isDark={isDark}
           onCardPress={onCardPress}
           favs={favs}
+          loading={isLoading}
         />
       )}
     </View>

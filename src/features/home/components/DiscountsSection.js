@@ -34,7 +34,7 @@ export default function DiscountsSection({ isDark, isWide, t: propT, onCardPress
   const t = typeof propT === 'function' ? propT : langT;
   const { cols, gap, tier } = useUnifiedCardGrid();
   const router = useRouter();
-  const { flatList } = useCatalog();
+  const { flatList, isLoading } = useCatalog();
   
   const discountedProducts = useMemo(() => flatList.filter((item) => item.discountPercent > 0), [flatList]);
 
@@ -58,7 +58,7 @@ export default function DiscountsSection({ isDark, isWide, t: propT, onCardPress
   return (
     <View style={styles.footerProductsSection}>
       <DiscountsHeader isWide={isWide} isDark={isDark} title={t('discounts')} />
-      {discountedProducts.length === 0 ? (
+      {!isLoading && discountedProducts.length === 0 ? (
         <View style={localStyles.emptyContainer}>
           <Text variant="body1" color="muted" style={localStyles.emptyText}>
             {t('emptyDiscounts')}
@@ -73,6 +73,7 @@ export default function DiscountsSection({ isDark, isWide, t: propT, onCardPress
           isDark={isDark}
           onCardPress={onCardPress}
           favs={favs}
+          loading={isLoading}
         />
       )}
     </View>

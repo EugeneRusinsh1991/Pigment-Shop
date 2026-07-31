@@ -3,7 +3,7 @@ import { Animated, Platform, View } from 'react-native';
 import { layout } from '../../../../theme/tokens';
 import { useSkeletonTheme } from './useSkeletonTheme';
 
-function SkeletonItem({ width = '100%', height = 20, borderRadius = layout.radii.sm, style }) {
+export function SkeletonItem({ width = '100%', height = 20, borderRadius = layout.radii.sm, style }) {
   const { backgroundColor, styles } = useSkeletonTheme();
   const opacity = useRef(new Animated.Value(0.4)).current;
 

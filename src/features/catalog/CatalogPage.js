@@ -44,6 +44,7 @@ function CatalogMainContent({
   prevPage,
   nextPage,
   loading,
+  isInitialLoading,
 }) {
   return (
     <View style={[styles.main, isNarrow && styles.mainNarrow]}>
@@ -65,6 +66,7 @@ function CatalogMainContent({
               gap={gap}
               isDark={isDark}
               favs={favs}
+              loading={loading || isInitialLoading}
               emptyLabel={t('catalogNoProducts')}
               listHeader={
                 <GridHeader
@@ -100,7 +102,7 @@ function CatalogMainContent({
 }
 
 export default function CatalogPage({ isDark }) {
-  const { flatList, categoryTree } = useCatalog();
+  const { flatList, categoryTree, isLoading } = useCatalog();
   const favs = useFavoritesContext();
   const router = useRouter();
   const navParams = useLocalSearchParams();
@@ -169,6 +171,7 @@ export default function CatalogPage({ isDark }) {
         prevPage={prevPage}
         nextPage={nextPage}
         loading={loading}
+        isInitialLoading={isLoading}
       />
     </ScrollView>
   );

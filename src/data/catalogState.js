@@ -35,6 +35,7 @@ class CatalogStore {
     this._products = (initialData.products || []).map(normalizeProductEntity);
     this._categories = (initialData.categories || []).map(normalizeCategoryEntity);
     this._banners = initialData.banners ?? null;
+    this._isLoading = true;
   }
 
   subscribe = (fn) => {
@@ -49,6 +50,7 @@ class CatalogStore {
   getProducts = () => this._products;
   getCategories = () => this._categories;
   getBanners = () => this._banners;
+  getIsLoading = () => this._isLoading;
 
   execute(command) {
     if (!command?.type) {
@@ -58,9 +60,11 @@ class CatalogStore {
     const handlers = {
       UPDATE_PRODUCTS: (payload) => {
         this._products = (payload || []).map(normalizeProductEntity);
+        this._isLoading = false;
       },
       UPDATE_CATEGORIES: (payload) => {
         this._categories = (payload || []).map(normalizeCategoryEntity);
+        this._isLoading = false;
       },
       UPDATE_BANNERS: (payload) => {
         this._banners = payload;
@@ -84,6 +88,7 @@ export const subscribe = (fn) => catalogStore.subscribe(fn);
 export const getProducts = () => catalogStore.getProducts();
 export const getCategories = () => catalogStore.getCategories();
 export const getBanners = () => catalogStore.getBanners();
+export const getIsLoading = () => catalogStore.getIsLoading();
 
 
 

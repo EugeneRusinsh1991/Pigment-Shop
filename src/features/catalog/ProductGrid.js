@@ -2,6 +2,7 @@ import React, { useCallback } from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
 import { Link } from 'expo-router';
 import ProductCard from '../product/ProductCard';
+import ProductCardSkeleton from '../product/ProductCardSkeleton';
 import { layout } from '../../theme/tokens';
 
 import { EmptyState as GlobalEmptyState } from '../../components/ui/Feedback';
@@ -27,30 +28,38 @@ function getGridStyle(isNarrow, gridWidth) {
 }
 
 
-export default function ProductGrid({ products, cols, cardWidth, isDark, onCardPress, favs, emptyLabel, listHeader, listFooter, isNarrow, gridWidth, gap = layout.spacing.lg }) {
+export default function ProductGrid({ products, cols, cardWidth, isDark, onCardPress, favs, emptyLabel, listHeader, listFooter, isNarrow, gridWidth, gap = layout.spacing.lg, loading }) {
   const itemWidth = `${(100 / cols).toFixed(4)}%`;
   const gridGap = gap ?? layout.spacing.lg;
 
   const renderItem = useCallback(
     ({ item }) => (
       <View style={[styles.item, { width: itemWidth, padding: gridGap / 2 }]}>
-        <Link href={{ pathname: '/product/[id]', params: { id: item.id } }} asChild>
-          <ProductCard
-            item={item}
-            isDark={isDark}
-            depth={1}
-            isFavorite={favs?.isFavorite(item.id)}
-            onToggleFavorite={favs?.toggleFavorite}
-          />
-        </Link>
+        {item.isSkeleton ? (
+          <ProductCardSkeleton isDark={isDark} />
+        ) : (
+          <Link href={{ pathname: '/product/[id]', params: { id: item.id } }} asChild>
+            <ProductCard
+              item={item}
+              isDark={isDark}
+              depth={1}
+              isFavorite={favs?.isFavorite(item.id)}
+              onToggleFavorite={favs?.toggleFavorite}
+            />
+          </Link>
+        )}
       </View>
     ),
     [isDark, cols, itemWidth, favs, gridGap]
   );
 
+  const displayData = loading 
+    ? Array.from({ length: cols * 3 }, (_, i) => ({ id: `skel-${i}`, isSkeleton: true }))
+    : products;
+
   return (
     <FlatList
-      data={products}
+      data={displayData}
       keyExtractor={(item) => item.id}
       numColumns={cols}
       key={`catalog-grid-${cols}`}
