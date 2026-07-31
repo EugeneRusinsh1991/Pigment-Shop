@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTheme } from '../../../context/ThemeContext';
+import { useLanguage } from '../../../context/LanguageContext';
 import DataTable from '@/components/domain/DataTable/DataTable';
 import ProductRow from './ProductRow';
 import {
@@ -11,7 +11,7 @@ import { MobileProductRow } from './ProductRowVariants';
 import styles from './ProductsStyles';
 
 export default function ProductsTable({ products, sortField, sortDirection, onSort, onEdit }) {
-  const { t, lang } = useTheme();
+  const { t, lang } = useLanguage();
 
   const columns = [
     { key: null, label: '#', style: styles.colIndex, sortable: false },

@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Text } from '@/components/ui/Text';
 import { AnimatedButton } from '@/components/ui/Button';
-import { useTheme } from '../../../context/ThemeContext';
+import { useLanguage } from '../../../context/LanguageContext';
 import { Badge } from '@/components/ui/Badge';
 import { layout, motion } from '../../../theme/tokens';
 import styles, { CATEGORY_TYPE_COLORS } from './CategoriesStyles';
@@ -15,17 +15,21 @@ import {
   resolveCategoryName,
 } from './CategoryRowElements';
 
-const row_styles = StyleSheet.create({
-  badgeRow: {
+const localStyles = StyleSheet.create({
+  actionsGroup: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: layout.spacing.xs,
-    marginTop: layout.spacing.xxs,
+    gap: layout.spacing.xxs,
   },
-  mobileRow: {
+  metaGroup: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: layout.spacing.sm,
+  },
+  contentWrapper: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flex: 1,
   },
   flex1: {
     flex: 1,
@@ -33,7 +37,7 @@ const row_styles = StyleSheet.create({
 });
 
 function useCategoryRowData(row, products) {
-  const { lang, t } = useTheme();
+  const { lang, t } = useLanguage();
   const safeDepth = typeof row._depth === 'number' ? row._depth : 0;
   const { type, childCount, assignedCount } = getCategoryMeta(row, products);
   const typeColors = CATEGORY_TYPE_COLORS[type] || CATEGORY_TYPE_COLORS.product_holder;

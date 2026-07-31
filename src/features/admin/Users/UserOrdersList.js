@@ -1,5 +1,5 @@
 import { View } from 'react-native';
-import { useTheme } from '../../../context/ThemeContext';
+import { useLanguage } from '../../../context/LanguageContext';
 import OrderCard from '../../../features/orders/components/OrderCard';
 import EmptyState from '@/components/domain/DataTable/EmptyState';
 import styles from './UsersStyles';
@@ -7,7 +7,7 @@ import styles from './UsersStyles';
 const getStyle = (dark, light) => light;
 
 export default function UserOrdersList({ orders, expandedOrders, onToggle }) {
-  const { t } = useTheme();
+  const { t } = useLanguage();
   if (!orders || orders.length === 0) {
     return <EmptyState>{t('ordersEmpty')}</EmptyState>;
   }

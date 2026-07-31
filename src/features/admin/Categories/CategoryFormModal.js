@@ -5,7 +5,7 @@
  */
 import React, { useState, useEffect } from 'react';
 import { ScrollView, View } from 'react-native';
-import { useTheme } from '../../../context/ThemeContext';
+import { useLanguage } from '../../../context/LanguageContext';
 import { colors, layout } from '../../../theme/tokens';
 import { AnimatedButton } from '@/components/ui/Button';
 import { BackArrowIcon } from '@/components/Icons';
@@ -32,7 +32,7 @@ export default function CategoryFormModal({
   onAddChild,
   products,
 }) {
-  const { t, lang } = useTheme();
+  const { t, lang } = useLanguage();
   const [activeLang, setActiveLang] = useState(lang);
 
   const { form, errors, handleChange, validate, resetForm } = useForm(

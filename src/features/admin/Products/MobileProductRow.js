@@ -1,6 +1,6 @@
 import { Text } from '@/components/ui/Text';
 import { TouchableOpacity, View } from 'react-native';
-import { useTheme } from '../../../context/ThemeContext';
+import { useLanguage } from '../../../context/LanguageContext';
 import { motion, typography } from '../../../theme/tokens';
 import { getRowStyle, NewBadge, ProductRowActions, StatusBadge } from './ProductRowComponents';
 import styles from './ProductsStyles';
@@ -18,25 +18,21 @@ function getLabel(t, key, fallback) {
   return t(key) || fallback;
 }
 
-function MobileMetaGrid({ product, t }) {
-  const brand = product.brand;
-  const discount = product.discountPercent;
-  const isDiscounted = discount > 0;
-
+function ProductCardMeta({ product, t }) {
   return (
     <View style={styles.cardMetaGrid}>
-      {!!brand && (
-        <CardMetaBlock label={getLabel(t, 'adminProductsColBrand', 'Brand')}>
-          <Text style={styles.cardMetaValue}>{brand}</Text>
-        </CardMetaBlock>
-      )}
+      <CardMetaBlock label={getLabel(t, 'adminProductsColBrand', 'Brand')}>
+        <Text variant="body2" style={styles.cardMetaValue}>{product.brand || '—'}</Text>
+      </CardMetaBlock>
       <CardMetaBlock label={getLabel(t, 'adminProductsColDiscount', 'Discount')}>
-        <Text style={isDiscounted ? styles.discountText : styles.discountNone} size={isDiscounted ? typography.sizes.xs : undefined}>
-          {isDiscounted ? `-${discount}%` : '—'}
+        <Text variant="body2" style={styles.cardMetaValue}>
+          {product.discountPercent ? `${product.discountPercent}%` : '—'}
         </Text>
       </CardMetaBlock>
       <CardMetaBlock label={getLabel(t, 'adminProductsColStock', 'Stock')}>
-        <Text style={styles.cardMetaValue}>{product.stock ?? '—'}</Text>
+        <Text variant="body2" style={styles.cardMetaValue}>
+          {product.stock != null ? String(product.stock) : '—'}
+        </Text>
       </CardMetaBlock>
       <CardMetaBlock label={getLabel(t, 'adminProductsColStatus', 'Status')}>
         <StatusBadge active={product.active} />
@@ -46,7 +42,7 @@ function MobileMetaGrid({ product, t }) {
 }
 
 export function MobileProductRow({ product, index, label, effectivePrice, highlightStyle, onEdit, onDelete }) {
-  const { t } = useTheme();
+  const { t } = useLanguage();
   return (
     <TouchableOpacity
       style={[getRowStyle(index, true), highlightStyle]}

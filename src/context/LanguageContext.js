@@ -5,6 +5,9 @@
  */
 import React, { createContext, useContext, useState, useMemo, useCallback } from 'react';
 import { TRANSLATIONS } from '../data/translations';
+import { crossPlatformStorage } from '../utils/crossPlatformStorage';
+
+const LANG_STORAGE_KEY = 'app_language';
 
 const LanguageContext = createContext(null);
 
@@ -27,14 +30,19 @@ const getTranslation = (key, lang, params) => {
 };
 
 export function LanguageProvider({ children }) {
-  const [lang, setLang] = useState('ru');
+  const [lang, setLangState] = useState(() => {
+    return crossPlatformStorage.getItem(LANG_STORAGE_KEY) || 'ru';
+  });
+
+  const selectLanguage = useCallback((code) => {
+    setLangState(code);
+    crossPlatformStorage.setItem(LANG_STORAGE_KEY, code);
+  }, []);
 
   const t = useCallback(
     (key, params) => getTranslation(key, lang, params),
     [lang]
   );
-
-  const selectLanguage = useCallback((code) => setLang(code), []);
 
   const value = useMemo(() => ({ lang, t, selectLanguage }), [lang, t, selectLanguage]);
 

@@ -83,9 +83,9 @@ export default class ErrorBoundary extends React.Component {
 
 const styles = {
   retryButton: {
-    marginTop: 12,
-    paddingVertical: 10,
-    paddingHorizontal: 24,
+    marginTop: layout.spacing.md,
+    paddingVertical: layout.spacing.sm,
+    paddingHorizontal: layout.spacing.xl,
     backgroundColor: colors.accent,
     borderRadius: layout.radii.sm,
   },

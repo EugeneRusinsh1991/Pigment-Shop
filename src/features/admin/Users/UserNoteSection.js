@@ -1,13 +1,13 @@
 import React from 'react';
 import { ActivityIndicator, View } from 'react-native';
 import { Text } from '@/components/ui/Text';
-import { useTheme } from '../../../context/ThemeContext';
+import { useLanguage } from '../../../context/LanguageContext';
 import { FieldTextarea } from '../SharedFormComponents';
 import { colors } from '../../../theme/tokens';
 import styles from './UsersStyles';
 
 export default function UserNoteSection({ note, setNote, loadingNote }) {
-  const { t } = useTheme();
+  const { t } = useLanguage();
   return (
     <View style={styles.noteCard}>
       <Text style={styles.noteTitle} size={14} weight="bold">{t('adminUserNote')}</Text>

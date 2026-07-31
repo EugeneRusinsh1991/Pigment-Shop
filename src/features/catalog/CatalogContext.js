@@ -38,13 +38,15 @@ export function CatalogProvider({ children }) {
   const flatList = useMemo(() => buildFlatList(normalizedProducts, categoryLookup, lang), [normalizedProducts, categoryLookup, lang]);
   const categoryTree = useMemo(() => buildCategoryTree(normalizedCategories, flatList, lang), [normalizedCategories, flatList, lang]);
 
+  const flatListMap = useMemo(() => new Map(flatList.map((item) => [item.id, item])), [flatList]);
+
   const searchIndex = useMemo(() => {
     const cache = new Map();
     return {
       get(id) {
         if (!id) return [];
         if (cache.has(id)) return cache.get(id);
-        const item = flatList.find((i) => i.id === id);
+        const item = flatListMap.get(id);
         if (!item) return [];
 
         const searchableTexts = [item.label, item.category, item.subcategory, item.brand, item.sku]
@@ -58,7 +60,7 @@ export function CatalogProvider({ children }) {
         return tokens;
       },
     };
-  }, [flatList]);
+  }, [flatListMap]);
 
   const categorySubtreeMap = useMemo(() => buildCategorySubtreeMap(categoryTree), [categoryTree]);
 

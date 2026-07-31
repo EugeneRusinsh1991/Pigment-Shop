@@ -6,7 +6,7 @@
  */
 import React, { useState } from 'react';
 import { ScrollView, View } from 'react-native';
-import { useTheme } from '../../../context/ThemeContext';
+import { useLanguage } from '../../../context/LanguageContext';
 import {
   BrandSkuRow,
   CategoryStockRow,
@@ -28,7 +28,7 @@ import { LanguageTabs } from '../SharedFormComponents';
 import { buildInitialForm, parseFormToProduct, validateForm } from './productFormLogic';
 
 export default function ProductFormModal({ product, onSave, onClose, onDelete }) {
-  const { t, lang } = useTheme();
+  const { t, lang } = useLanguage();
   const [activeLang, setActiveLang] = useState(lang);
 
   const { form, errors, handleChange, validate, resetForm } = useForm(

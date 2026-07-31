@@ -2,7 +2,7 @@ import React from 'react';
 import { Modal, ScrollView, View } from 'react-native';
 import { Heading } from '@/components/ui/Text';
 import { colors, layout } from '../../theme/tokens';
-import { useTheme } from '../../context/ThemeContext';
+import { useLanguage } from '../../context/LanguageContext';
 import { CrossIcon } from '@/components/Icons';
 import { Button, IconButton } from '@/components/ui/Button';
 
@@ -21,7 +21,7 @@ function ModalHeader({ title, onClose, styles }) {
 }
 
 function ModalFooter({ onCancel, onSave, styles, footerLeft }) {
-  const { t } = useTheme();
+  const { t } = useLanguage();
   return (
     <View style={styles.modalFooter}>
       {footerLeft ?? <View />}

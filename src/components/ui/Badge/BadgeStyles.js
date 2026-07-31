@@ -35,7 +35,7 @@ const badgeSizes = {
   counter: {
     minWidth: 16,
     height: 16,
-    paddingHorizontal: 3,
+    paddingHorizontal: layout.spacing.xxxs,
     paddingVertical: layout.spacing.none,
     borderRadius: layout.radii.full,
   },

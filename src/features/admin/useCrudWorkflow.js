@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { useTheme } from '../../context/ThemeContext';
+import { useLanguage } from '../../context/LanguageContext';
 import { useToast } from '../../context/ToastContext';
 
 function getDefaultTitle(isError) {
@@ -25,7 +25,7 @@ export function useCrudWorkflow({
   successMessageTitle,
   errorMessageTitle,
 }) {
-  const { t } = useTheme();
+  const { t } = useLanguage();
   const { showToast } = useToast();
   
   const [internalData, setInternalData] = useState([]);

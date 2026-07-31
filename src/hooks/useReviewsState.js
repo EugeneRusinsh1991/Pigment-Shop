@@ -1,6 +1,6 @@
 import { addDoc, collection, onSnapshot } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
-import { useTheme } from '../context/ThemeContext';
+import { useLanguage } from '../context/LanguageContext';
 import { useToast } from '../context/ToastContext';
 import { COLLECTIONS } from '../services/collections';
 import { db } from '../services/firebase';
@@ -78,20 +78,19 @@ async function saveSubcollectionItem(productId, subcollectionName, item, fallbac
 const EMPTY_ARRAY = [];
 
 /**
- * Hook for managing product reviews and questions state with Firestore sync.
- * 
- * @param {Object} product - Product object containing reviews and questions
- * @param {boolean} isAuthenticated - Whether user is authenticated
- * @param {string} accountName - Display name for review author
- * @returns {Object} Reviews and questions state and handlers
- * @returns {Array} returns.reviewsList - List of product reviews
- * @returns {Array} returns.questionsList - List of product questions
- * @returns {string} returns.submitMode - Current submission mode ('review' or 'question')
- * @returns {Function} returns.setSubmitMode - Set submission mode
- * @returns {string} returns.contentTab - Current content tab ('reviews' or 'questions')
- * @returns {Function} returns.setContentTab - Set content tab
- * @returns {string} returns.newComment - New review comment text
- * @returns {Function} returns.setNewComment - Set new comment text
+ * Hook managing reviews, ratings, questions, and Q&A interactions for a product.
+ * Synchronizes real-time user reviews and questions from Firestore.
+ *
+ * @param {Object} product - Product model containing fallback review & question arrays
+ * @param {boolean} isAuthenticated - Whether the active user is logged in
+ * @param {string|Object} accountName - Display name or profile object of active user
+ * @returns {Object} Reviews state view model
+ * @returns {Array} returns.reviewsList - Active reviews list
+ * @returns {Array} returns.questionsList - Active questions list
+ * @returns {number} returns.averageRating - Calculated average rating
+ * @returns {number} returns.ratingCount - Total count of ratings
+ * @returns {string} returns.newReviewText - New review content input value
+ * @returns {Function} returns.setNewReviewText - Set new review content
  * @returns {string} returns.newQuestion - New question text
  * @returns {Function} returns.setNewQuestion - Set new question text
  * @returns {number} returns.newRating - New review rating (1-5)
@@ -100,7 +99,7 @@ const EMPTY_ARRAY = [];
  * @returns {Function} returns.addQuestion - Submit new question
  */
 export function useReviewsState(product, isAuthenticated, accountName) {
-  const { lang } = useTheme();
+  const { lang } = useLanguage();
   const { showToast } = useToast();
   const productId = product?.id;
   const initialReviews = product?.reviews || EMPTY_ARRAY;

@@ -9,7 +9,7 @@
  */
 import { useState, useEffect, useMemo } from 'react';
 import { View, useWindowDimensions } from 'react-native';
-import { useTheme } from '../../../context/ThemeContext';
+import { useLanguage } from '../../../context/LanguageContext';
 import { SearchInput } from '@/components/domain/Search';
 import ProductFormModal from './ProductFormModal';
 import ProductsFilterBar from './ProductsFilterBar';
@@ -42,7 +42,7 @@ export default function ProductsManager() {
     isSaving,
     isDirty,
   } = useProductsWorkflow();
-  const { t } = useTheme();
+  const { t } = useLanguage();
   const [viewMode, setViewMode] = useState('list');
   const [editingProduct, setEditingProduct] = useState(null);
 

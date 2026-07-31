@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 import { ScrollView, View, useWindowDimensions } from 'react-native';
 import { Heading } from '@/components/ui/Text';
 import { useTheme } from '../../context/ThemeContext';
+import { useLanguage } from '../../context/LanguageContext';
 import { useAdminAuth, useAdminDrafts } from '../../services/adminDomain';
 import { BackArrowIcon, LogoutIcon } from '@/components/Icons';
 import styles from './AdminPanelStyles';
@@ -38,7 +39,8 @@ function renderActiveTab(activeTab) {
 
 export default function AdminPanel({ onBack }) {
   const [activeTab, setActiveTab] = useState('analytics');
-  const { isDark, t } = useTheme();
+  const { isDark } = useTheme();
+  const { t } = useLanguage();
   const { logoutAdmin } = useAdminAuth();
   const { loadDrafts } = useAdminDrafts();
   const { width } = useWindowDimensions();

@@ -3,7 +3,7 @@ import { BackArrowIcon } from '@/components/Icons';
 import { Text } from '@/components/ui/Text';
 import { useCallback, useEffect, useState } from 'react';
 import { View } from 'react-native';
-import { useTheme } from '../../../context/ThemeContext';
+import { useLanguage } from '../../../context/LanguageContext';
 import { fetchUserNote, saveUserNote } from '../../../services/adminUsersService';
 import { colors } from '../../../theme/tokens';
 import AdminSaveFooter from '../AdminSaveFooter';
@@ -39,7 +39,7 @@ function useUserNote(user) {
 }
 
 export default function UserDetails({ user, onBack }) {
-  const { t } = useTheme();
+  const { t } = useLanguage();
   const [expandedOrders, setExpandedOrders] = useState({});
   const { note, setNote, loadingNote, savingNote, handleSave, isDirty } = useUserNote(user);
 

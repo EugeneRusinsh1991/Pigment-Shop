@@ -121,7 +121,7 @@ export default function ProfileSidebar() {
           }
 
           return (
-            <Pressable key={item.id} style={itemStyle} onPress={item.action}>
+            <Pressable key={item.id} style={itemStyle} onPress={item.action} accessibilityLabel={item.label} accessibilityRole="button">
               <IconComponent color={iconColor} size={16} />
               <Text variant="subtitle2" style={textStyle}>{item.label}</Text>
             </Pressable>

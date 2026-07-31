@@ -1,7 +1,7 @@
 // Favorites page component displaying the user's saved items.
 import { HeartIcon } from '@/components/Icons';
 import { View } from 'react-native';
-import { useTheme } from '../../context/ThemeContext';
+import { useLanguage } from '../../context/LanguageContext';
 import { useAuth } from '../../context/AuthContext';
 import useGridLayout from '../../hooks/useGridLayout';
 import { colors } from '../../theme/tokens';
@@ -40,7 +40,7 @@ function FavoritesList({ favorites, isDark, onToggleFavorite, cols, gap, loading
 }
 
 export default function FavoritesPage({ isDark }) {
-  const { t } = useTheme();
+  const { t } = useLanguage();
   const { favorites, toggleFavorite } = useFavoritesContext();
   const { cols, cardMargin } = useGridLayout();
   const auth = useAuth();

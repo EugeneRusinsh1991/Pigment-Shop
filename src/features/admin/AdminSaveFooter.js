@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/Button';
-import { useTheme } from '@/context/ThemeContext';
+import { useLanguage } from '@/context/LanguageContext';
 import { colors, layout } from '@/theme/tokens';
 import { KeyboardAvoidingView, Platform, StyleSheet, View } from 'react-native';
 
@@ -11,7 +11,7 @@ function getSaveButtonTitle(isSaving, t) {
 }
 
 export default function AdminSaveFooter({ isDirty, isSaving, onSave }) {
-  const { t } = useTheme();
+  const { t } = useLanguage();
 
   const isVisible = isDirty || isSaving;
   if (!isVisible) {

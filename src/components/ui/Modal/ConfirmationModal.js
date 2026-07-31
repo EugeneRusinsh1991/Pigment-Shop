@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import { Text, Heading } from '../Text';
-import { useTheme } from '../../../context/ThemeContext';
+import { useLanguage } from '../../../context/LanguageContext';
 import { Button } from '../Button';
 import Modal from './Modal';
 import { modalStyles as styles } from './ModalStyles';
@@ -35,7 +35,7 @@ export default function ConfirmationModal({
   loading = false,
   ...modalProps
 }) {
-  const { t } = useTheme();
+  const { t } = useLanguage();
   const { cardBg, titleColor, messageColor, cardShadow } = useModalTheme();
 
   if (!visible) return null;

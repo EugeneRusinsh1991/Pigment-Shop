@@ -13,7 +13,7 @@
  *
  * Decoupled from direct authentication details via resolveBootstrapDecision.
  */
-import { useEffect, useRef, useMemo } from 'react';
+import React, { useEffect, useRef, useMemo } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { startAppBootstrap } from './appBootstrap';
 import { resolveBootstrapDecision } from './authBootstrapCoordinator';

@@ -4,7 +4,7 @@
 import { View } from 'react-native';
 import { Text } from '@/components/ui/Text';
 import Card from '@/components/ui/Card';
-import { useTheme } from '../../../context/ThemeContext';
+import { useLanguage } from '../../../context/LanguageContext';
 import styles from './OrdersStyles';
 import { formatDateLongWithTime } from '../../../utils/dateFormatting';
 import { colors, layout } from '../../../theme/tokens';
@@ -20,7 +20,7 @@ function DetailRow({ label, value }) {
 }
 
 export default function OrderCustomerCard({ order }) {
-  const { t, lang } = useTheme();
+  const { t, lang } = useLanguage();
   const isGuest = order.isGuest;
 
   return (

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { View } from 'react-native';
 import styles from './AnalyticsStyles';
-import { useTheme } from '../../../context/ThemeContext';
+import { useLanguage } from '../../../context/LanguageContext';
 import { formatDateCompact as formatCompactDate } from '../../../utils/dateFormatting';
 import { DateRangeCalendar } from './DateRangeCalendar';
 import Toggle from '@/components/ui/Toggle';
@@ -25,7 +25,7 @@ function calculatePresetDateRange(preset) {
 }
 
 export default function DateRangePicker({ startDate, endDate, onChange }) {
-  const { t } = useTheme();
+  const { t } = useLanguage();
 
   const [mode, setMode] = useState('7days'); // '7days', '30days', 'custom'
   

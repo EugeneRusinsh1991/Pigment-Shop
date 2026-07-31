@@ -1,10 +1,12 @@
 // @audit-keep
 import { useTheme } from '@/context/ThemeContext';
+import { useLanguage } from '@/context/LanguageContext';
 import { useMemo } from 'react';
 import { createBreadcrumbStyles, createPaginationStyles } from './NavigationStyles';
 
 export function useNavigationTheme(isDarkProps) {
-  const { t, lang, isDark: themeIsDark } = useTheme();
+  const { isDark: themeIsDark } = useTheme();
+  const { t, lang } = useLanguage();
   const isDark = isDarkProps !== undefined ? isDarkProps : themeIsDark;
 
   const breadcrumbStyles = useMemo(() => createBreadcrumbStyles(isDark), [isDark]);

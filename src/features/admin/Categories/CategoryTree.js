@@ -15,7 +15,7 @@ import { ChipButton } from '@/components/ui/Button';
 import styles from './CategoriesStyles';
 import { ChevronRightIcon, ChevronDownIcon } from '@/components/Icons';
 import { DesktopCategoryRow, MobileCategoryCard } from './CategoryRow';
-import { useTheme } from '../../../context/ThemeContext';
+import { useLanguage } from '../../../context/LanguageContext';
 import DataTable from '@/components/domain/DataTable/DataTable';
 
 /* ─── flatten tree respecting collapsed state ─────────────────── */
@@ -50,7 +50,7 @@ function collectParentIds(nodes, acc = new Set()) {
 /* ─── main component ──────────────────────────────────────────── */
 
 export default function CategoryTree({ tree, onEdit, onAdd, products }) {
-  const { t } = useTheme();
+  const { t } = useLanguage();
   const parentIds = useMemo(() => collectParentIds(tree), [tree]);
   const [collapsed, setCollapsed] = useState(new Set());
 

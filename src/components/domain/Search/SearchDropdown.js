@@ -3,7 +3,7 @@ import { ScrollView, View, Image } from 'react-native';
 import { Text } from '../../ui/Text';
 import { EmptyState } from '../../ui/Feedback';
 import { Link } from 'expo-router';
-import { useTheme } from '../../../context/ThemeContext';
+import { useLanguage } from '../../../context/LanguageContext';
 import { getLocalizedValue } from '../../../utils/localization';
 import { AnimatedButton } from '../../ui/Button';
 import SearchStyles from './SearchStyles';
@@ -16,7 +16,7 @@ const getItemLabel = (item, lang) => {
 };
 
 const ResultRow = React.forwardRef(({ item, isDark, onPress, ...rest }, ref) => {
-  const { lang } = useTheme();
+  const { lang } = useLanguage();
   const label = getItemLabel(item, lang);
 
   return (
@@ -63,7 +63,7 @@ function MoreResultsHint({ count, isDark, t }) {
 }
 
 export default function SearchDropdown({ results, isDark, onSelect, isEmpty, query }) {
-  const { t } = useTheme();
+  const { t } = useLanguage();
 
   if (isEmpty) {
     return <EmptySearchState query={query} isDark={isDark} t={t} />;

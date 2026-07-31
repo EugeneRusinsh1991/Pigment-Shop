@@ -75,7 +75,7 @@ const localStyles = StyleSheet.create({
     width: 'auto',
     height: '100%',
     minHeight: 44,
-    borderRadius: 0,
+    borderRadius: layout.radii.none,
     justifyContent: 'center',
     alignItems: 'center',
   },

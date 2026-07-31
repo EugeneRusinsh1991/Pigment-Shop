@@ -1,5 +1,5 @@
 import { useCallback, useMemo } from 'react';
-import { useTheme } from '../../../context/ThemeContext';
+import { useLanguage } from '../../../context/LanguageContext';
 import { getCategoryTree } from '../../../services/adminCategoriesTransforms';
 import { useAdminActions, useAdminDrafts } from '../../../services/adminDomain';
 import { useCrudWorkflow } from '../useCrudWorkflow';
@@ -18,7 +18,7 @@ export function useCategoriesWorkflow() {
     updateCategory(id, data);
   }, [updateCategory]);
 
-  const { t } = useTheme();
+  const { t } = useLanguage();
 
   const handleDelete = useCallback((id) => {
     removeCategory(id);

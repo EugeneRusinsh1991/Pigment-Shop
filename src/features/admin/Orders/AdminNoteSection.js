@@ -1,12 +1,12 @@
 import { Text } from '@/components/ui/Text';
 import { View } from 'react-native';
-import { useTheme } from '../../../context/ThemeContext';
+import { useLanguage } from '../../../context/LanguageContext';
 import { colors, layout } from '../../../theme/tokens';
 import { FieldTextarea } from '../SharedFormComponents';
 import styles from './OrdersStyles';
 
 export default function AdminNoteSection({ note, setNote }) {
-  const { t } = useTheme();
+  const { t } = useLanguage();
 
   return (
     <>

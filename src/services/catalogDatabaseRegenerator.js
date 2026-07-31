@@ -8,6 +8,10 @@ function assertSuccess(res, fallbackMsg) {
 }
 
 async function _regenerateCatalogDatabase(options = {}) {
+  if (process.env.NODE_ENV === 'production') {
+    throw new Error('Database regeneration is disabled in production environment');
+  }
+
   if (options.authenticate) {
     console.log(`Step 1: Signing in as admin... [mode: ${options.mode || 'standard'}]`);
     const authRes = await signInAsAdmin();

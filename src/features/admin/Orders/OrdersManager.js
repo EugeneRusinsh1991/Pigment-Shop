@@ -3,7 +3,7 @@
  */
 import { useMemo, useState, useEffect } from 'react';
 import { View } from 'react-native';
-import { useTheme } from '../../../context/ThemeContext';
+import { useLanguage } from '../../../context/LanguageContext';
 import useSort from '../../../hooks/useSort';
 import { loadAdminOrders } from '../../../services/adminOrdersService';
 import CatalogPagination from '../../catalog/CatalogPagination';
@@ -17,7 +17,7 @@ import { StatusFilterBar } from './OrdersTableControls';
 const PAGE_SIZE = 50;
 
 export default function OrdersManager() {
-  const { t } = useTheme();
+  const { t } = useLanguage();
   const { data: orders, loading, error, setInternalData } = useCrudWorkflow({
     loadFn: loadAdminOrders,
   });

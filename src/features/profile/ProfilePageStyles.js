@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   },
   formRowMobile: {
     flexDirection: 'column',
-    gap: 0,
+    gap: layout.spacing.none,
     width: '100%',
   },
   formCol: {

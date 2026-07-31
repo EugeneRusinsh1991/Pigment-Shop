@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, TouchableOpacity } from 'react-native';
 import { Text } from '@/components/ui/Text';
-import { useTheme } from '../../../context/ThemeContext';
+import { useLanguage } from '../../../context/LanguageContext';
 import { localStyles as styles } from './DateRangeCalendarStyles';
 import { CalendarDayCell } from './CalendarDayCell';
 import { motion } from '../../../theme/tokens';
@@ -46,17 +46,21 @@ function getCalendarCells(year, month) {
   return [...prevCells, ...currentCells, ...nextCells];
 }
 
-const MONTH_KEYS = [
-  'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-  'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
-];
-const DEFAULT_MONTH_NAMES = [
-  'January', 'February', 'March', 'April', 'May', 'June',
-  'July', 'August', 'September', 'October', 'November', 'December'
-];
-
 function getMonthNames(t) {
-  return MONTH_KEYS.map((key, idx) => t(`adminAnalytics${key}`) || DEFAULT_MONTH_NAMES[idx]);
+  return [
+    t('monthJan') || 'January',
+    t('monthFeb') || 'February',
+    t('monthMar') || 'March',
+    t('monthApr') || 'April',
+    t('monthMay') || 'May',
+    t('monthJun') || 'June',
+    t('monthJul') || 'July',
+    t('monthAug') || 'August',
+    t('monthSep') || 'September',
+    t('monthOct') || 'October',
+    t('monthNov') || 'November',
+    t('monthDec') || 'December',
+  ];
 }
 
 export function DateRangeCalendar({
@@ -70,7 +74,7 @@ export function DateRangeCalendar({
   setHoverDate,
   handleDayPress
 }) {
-  const { t } = useTheme();
+  const { t } = useLanguage();
   const cells = getCalendarCells(year, month);
   const monthNames = getMonthNames(t);
   const weekdayLabels = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];

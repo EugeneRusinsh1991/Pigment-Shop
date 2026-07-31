@@ -3,30 +3,37 @@
  */
 import { Text } from '@/components/ui/Text';
 import { View } from 'react-native';
-import { useTheme } from '../../../context/ThemeContext';
+import { useLanguage } from '../../../context/LanguageContext';
 import { layout } from '../../../theme/tokens';
 import styles from './OrdersStyles';
 
 function resolveItemName(item, lang) {
-  const field = item.label || item.name;
-  if (!field) return '—';
-  if (typeof field === 'object') {
-    const choices = [field[lang], field.ru, field.en];
-    return choices.find((v) => v) || '—';
+  if (item.label && typeof item.label === 'object') {
+    return item.label[lang] || item.label.ru || item.label.en || item.name || 'Product';
   }
-  return field;
+  return item.label || item.name || 'Product';
 }
 
-function ItemRow({ item, lang, t, isLast }) {
-  const name = resolveItemName(item, lang);
-  const qty = item.qty ?? item.quantity ?? 0;
-  const unitPrice = item.price ?? 0;
-  const lineTotal = qty * unitPrice;
+function getItemUnitPrice(item) {
+  if (item.price != null) return Number(item.price);
+  if (item.discountPrice != null) return Number(item.discountPrice);
+  return 0;
+}
+
+function getItemQuantity(item) {
+  return item.quantity != null ? Number(item.quantity) : 1;
+}
+
+function OrderItemRow({ item, lang }) {
+  const label = resolveItemName(item, lang);
+  const unitPrice = getItemUnitPrice(item);
+  const qty = getItemQuantity(item);
+  const lineTotal = unitPrice * qty;
 
   return (
-    <View style={[styles.itemRow, isLast ? { borderBottomWidth: layout.borderWidth.none } : null]}>
-      <Text style={styles.itemLabel} size={14} numberOfLines={2}>{name}</Text>
-      <Text style={styles.itemQty} size={14}>{qty} {t('pcs')}</Text>
+    <View style={styles.itemRow}>
+      <Text style={styles.itemName} size={14}>{label}</Text>
+      <Text style={styles.itemQty} size={14} color="muted">x{qty}</Text>
       <Text style={styles.itemUnitPrice} size={14}>${unitPrice.toLocaleString()}</Text>
       <Text style={styles.itemPrice} size={14} weight="500">${lineTotal.toLocaleString()}</Text>
     </View>
@@ -34,7 +41,7 @@ function ItemRow({ item, lang, t, isLast }) {
 }
 
 export default function OrderItemsList({ items, totalPrice }) {
-  const { t, lang } = useTheme();
+  const { t, lang } = useLanguage();
 
   return (
     <View style={styles.detailCard}>

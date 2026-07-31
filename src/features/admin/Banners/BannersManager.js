@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Modal, View, useWindowDimensions } from 'react-native';
 import { Text } from '@/components/ui/Text';
 import { AnimatedButton } from '@/components/ui/Button';
-import { useTheme } from '../../../context/ThemeContext';
+import { useLanguage } from '../../../context/LanguageContext';
 import { fromMediaRef } from '../../../media';
 import MediaRenderer from '@/components/ui/Media/MediaRenderer';
 import { triggerFileInput } from '../../../utils/fileInput';
@@ -14,7 +14,7 @@ import { useDeleteConfirmation } from '../../../hooks/useDeleteConfirmation';
 import AdminSaveFooter from '../AdminSaveFooter';
 
 export default function BannersManager() {
-  const { t } = useTheme();
+  const { t } = useLanguage();
   const { width } = useWindowDimensions();
   const isDesktop = width >= 768;
 

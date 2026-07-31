@@ -1,6 +1,6 @@
 import React from 'react';
 import { useWindowDimensions } from 'react-native';
-import { useTheme } from '../../../context/ThemeContext';
+import { useLanguage } from '../../../context/LanguageContext';
 import {
   resolveLocalizedValue,
   getEffectivePrice,
@@ -9,7 +9,7 @@ import {
 import { TabletProductRow, DesktopProductRow } from './ProductRowVariants';
 
 export default function ProductRow({ product, index, onEdit, onDelete }) {
-  const { lang } = useTheme();
+  const { lang } = useLanguage();
   const { width } = useWindowDimensions();
   const label = resolveLocalizedValue(product.label, lang);
   const effectivePrice = getEffectivePrice(product.price, product.discountPercent);

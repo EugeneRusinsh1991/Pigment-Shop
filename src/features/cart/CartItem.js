@@ -2,13 +2,13 @@ import { CrossIcon } from '@/components/Icons';
 import { Image, StyleSheet, View } from 'react-native';
 import { IconButton } from '../../components/ui/Button';
 import { Text } from '../../components/ui/Text';
-import { useTheme } from '../../context/ThemeContext';
+import { useLanguage } from '../../context/LanguageContext';
 import { useCartLogic } from '../../hooks/useCartLogic';
 import { colors, layout, shadow } from '../../theme/tokens';
 import { getLocalizedValue } from '../../utils/localization';
 
 export default function CartItem({ item, isDark, onIncrease, onDecrease, onRemove }) {
-  const { lang } = useTheme();
+  const { lang } = useLanguage();
   const { calculateItemSubtotal } = useCartLogic();
   const subtotal = calculateItemSubtotal(item);
   const ic = (dark, light) => (isDark ? dark : light);

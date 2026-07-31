@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Text } from '@/components/ui/Text';
-import { useTheme } from '../../../context/ThemeContext';
+import { useLanguage } from '../../../context/LanguageContext';
 import { ChevronDownIcon, ChevronRightIcon, CheckIcon, CrossIcon } from '@/components/Icons';
 import { IconButton } from '@/components/ui/Button';
 import { colors, layout } from '../../../theme/tokens';
@@ -13,6 +13,7 @@ const elem_styles = StyleSheet.create({
   badgeRow: {
     flexDirection: 'row',
     alignItems: 'center',
+    gap: layout.spacing.xxs,
   },
   badgeText: {
     marginLeft: layout.spacing.xxs,
@@ -38,15 +39,17 @@ export function resolveCategoryName(name, lang) {
   return name[lang] || name.ru || name.en || '—';
 }
 
-export function ToggleButton({ hasChildren, isCollapsed, onToggle, rowId }) {
-  if (!hasChildren) return <View style={styles.togglePlaceholder} />;
+export function ToggleButton({ expanded, onToggle, t }) {
   return (
     <IconButton
-      icon={isCollapsed ? <ChevronRightIcon color={colors.textDescLight} size={12} /> : <ChevronDownIcon color={colors.textDescLight} size={12} />}
-      onPress={(e) => {
-        e?.stopPropagation?.();
-        onToggle(rowId);
-      }}
+      icon={
+        expanded ? (
+          <ChevronDownIcon color={colors.accentPinkLight} size={14} />
+        ) : (
+          <ChevronRightIcon color={colors.slateText} size={14} />
+        )
+      }
+      onPress={onToggle}
       size="sm"
       variant="transparent"
       animated={true}
@@ -55,7 +58,7 @@ export function ToggleButton({ hasChildren, isCollapsed, onToggle, rowId }) {
 }
 
 export function ImageBadge({ image }) {
-  const { t } = useTheme();
+  const { t } = useLanguage();
   const has = !!image;
   return (
     <View style={[styles.imageBadge, has ? styles.imageBadgeSet : styles.imageBadgeNone]}>

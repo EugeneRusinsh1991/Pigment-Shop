@@ -7,7 +7,7 @@ import React, { useMemo } from 'react';
 import { View } from 'react-native';
 import { Text } from '@/components/ui/Text';
 import styles from './AnalyticsStyles';
-import { useTheme } from '../../../context/ThemeContext';
+import { useLanguage } from '../../../context/LanguageContext';
 import { colors, layout } from '../../../theme/tokens';
 import { getLocalizedValue } from '../../../utils/localization';
 
@@ -19,7 +19,7 @@ function truncateLabel(label, maxLen = 28) {
 
 
 export default function TopProductsChart({ productsData = [] }) {
-  const { lang, t } = useTheme();
+  const { lang, t } = useLanguage();
   
   const products = useMemo(() => {
     return productsData.map((p) => ({

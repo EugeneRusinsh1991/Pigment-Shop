@@ -20,7 +20,7 @@ function renderChildren(children, descriptionStyle, mutedColor) {
 function RetryButton({ onRetry }) {
   const { t } = useLanguage();
   return (
-    <Button size="md" variant="primary" onPress={onRetry} title={t('tryAgain')} />
+    <Button size="md" variant="primary" onPress={onRetry} title={t('tryAgain')} accessibilityLabel={t('tryAgain')} />
   );
 }
 

@@ -3,7 +3,7 @@ import { Heading, Text } from '@/components/ui/Text';
 import Card from '@/components/ui/Card';
 import { useEffect, useMemo, useState } from 'react';
 import { ActivityIndicator, View } from 'react-native';
-import { useTheme } from '../../../context/ThemeContext';
+import { useLanguage } from '../../../context/LanguageContext';
 import { getOrderStatuses, getRevenueChartData, getSummaryStats, getTopProducts } from '../../../data/adminAnalytics';
 import { useErrorHandler } from '../../../hooks/useErrorHandler';
 import { loadAdminOrders } from '../../../services/adminOrdersService';
@@ -31,7 +31,7 @@ function formatCurrency(val) {
 }
 
 function StatsRow({ stats }) {
-  const { t } = useTheme();
+  const { t } = useLanguage();
   return (
     <View style={styles.statsRow}>
       <StatCard label={t('adminAnalyticsRevenue')} value={formatCurrency(stats.revenue)} icon={<DollarIcon color={colors.successMid} size={18} />} accentColor={colors.successMid} />
@@ -43,7 +43,7 @@ function StatsRow({ stats }) {
 }
 
 function RevenuePanel({ revenueData }) {
-  const { t } = useTheme();
+  const { t } = useLanguage();
   return (
     <Card style={styles.chartPanel}>
       <Heading level={3} style={styles.chartTitle}>{t('adminAnalyticsRevenue14Days')}</Heading>
@@ -53,7 +53,7 @@ function RevenuePanel({ revenueData }) {
 }
 
 function BottomChartsRow({ topProducts, orderStatuses }) {
-  const { t } = useTheme();
+  const { t } = useLanguage();
   return (
     <View style={styles.chartsRow}>
       <Card style={[styles.chartPanel, styles.chartHalf]}>

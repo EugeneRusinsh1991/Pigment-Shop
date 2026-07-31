@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useToast } from '../context/ToastContext';
 import { useCatalog } from '../features/catalog/CatalogContext';
 import { getFilterKey, getParamsState } from '../features/catalog/catalogParamsUtils';
@@ -39,36 +39,8 @@ function applyClientPageChange(setCurrentPage, delta) {
   setCurrentPage((p) => p + delta);
 }
 
-async function fetchAndApplyServerPage(cursor, filters, sortKey, pageSize, pageOffset, setCurrentPageProducts, setCurrentPage, setLoadedParams, setCursorStack) {
-  const { pageData } = await loadServerPage(filters, sortKey, cursor, pageSize);
-  setCurrentPageProducts(pageData.products);
-  setCurrentPage((p) => p + pageOffset);
-  setLoadedParams((prev) => ({ ...prev, page: prev.page + pageOffset }));
-  if (pageOffset > 0 && pageData.lastDoc) {
-    setCursorStack((prev) => [...prev, pageData.lastDoc]);
-  } else if (pageOffset < 0) {
-    setCursorStack((prev) => prev.slice(0, -1));
-  }
-}
-
-
 /**
  * Hook for managing paginated catalog with server-side pagination and client-side fallback.
- * 
- * @param {Object} filters - Filter criteria for catalog products
- * @param {string} sortKey - Sort key for ordering products
- * @param {Array} flatList - Complete list of products for client-side fallback
- * @param {Object} categoryTree - Category tree structure
- * @param {number} [pageSize=PAGE_SIZE] - Number of products per page
- * @returns {Object} Paginated catalog state and controls
- * @returns {Array} returns.currentPageProducts - Products for current page
- * @returns {number} returns.currentPage - Current page number (1-indexed)
- * @returns {number} returns.totalPages - Total number of pages
- * @returns {number} returns.totalCount - Total number of products matching filters
- * @returns {boolean} returns.loading - Loading state for page changes
- * @returns {Function} returns.nextPage - Navigate to next page
- * @returns {Function} returns.prevPage - Navigate to previous page
- * @returns {string} returns.triggerKey - Unique key for triggering re-renders
  */
 export default function usePaginatedCatalog(filters, sortKey, flatList, categoryTree, pageSize = PAGE_SIZE) {
   const [currentPageProducts, setCurrentPageProducts] = useState([]);
@@ -79,6 +51,7 @@ export default function usePaginatedCatalog(filters, sortKey, flatList, category
   const [clientFallback, setClientFallback] = useState(false);
 
   const [loadedParams, setLoadedParams] = useState(null);
+  const requestIdRef = useRef(0);
 
   const { categorySubtreeMap } = useCatalog();
   const { showToast } = useToast();
@@ -97,9 +70,10 @@ export default function usePaginatedCatalog(filters, sortKey, flatList, category
 
   useEffect(() => {
     let isMounted = true;
+    const currentRequestId = ++requestIdRef.current;
 
     function applyServerPage(pageData, count) {
-      if (!isMounted) return;
+      if (!isMounted || requestIdRef.current !== currentRequestId) return;
       setClientFallback(false);
       setCurrentPageProducts(pageData.products);
       setTotalCount(count);
@@ -109,7 +83,7 @@ export default function usePaginatedCatalog(filters, sortKey, flatList, category
     }
 
     function handleLoadError(error) {
-      if (!isMounted) return;
+      if (!isMounted || requestIdRef.current !== currentRequestId) return;
       if (isMissingIndexError(error)) {
         setClientFallback(true);
         setCurrentPage(1);
@@ -120,7 +94,11 @@ export default function usePaginatedCatalog(filters, sortKey, flatList, category
 
     async function loadInitialData() {
       if (!canUseServerPagination(filters, sortKey)) {
-        if (isMounted) { setClientFallback(true); setCurrentPage(1); setLoading(false); }
+        if (isMounted && requestIdRef.current === currentRequestId) {
+          setClientFallback(true);
+          setCurrentPage(1);
+          setLoading(false);
+        }
         return;
       }
       setLoading(true);
@@ -130,7 +108,9 @@ export default function usePaginatedCatalog(filters, sortKey, flatList, category
       } catch (error) {
         handleLoadError(error);
       } finally {
-        if (isMounted) setLoading(false);
+        if (isMounted && requestIdRef.current === currentRequestId) {
+          setLoading(false);
+        }
       }
     }
 
@@ -164,15 +144,29 @@ export default function usePaginatedCatalog(filters, sortKey, flatList, category
     if (loading) return;
     if (clientFallback) { applyClientPageChange(setCurrentPage, delta); return; }
 
+    const currentRequestId = ++requestIdRef.current;
     const cursor = resolvePageCursor(delta);
     setLoading(true);
     try {
-      await fetchAndApplyServerPage(cursor, filters, sortKey, pageSize, delta, setCurrentPageProducts, setCurrentPage, setLoadedParams, setCursorStack);
+      const { pageData } = await loadServerPage(filters, sortKey, cursor, pageSize);
+      if (requestIdRef.current !== currentRequestId) return;
+
+      setCurrentPageProducts(pageData.products);
+      setCurrentPage((p) => p + delta);
+      setLoadedParams((prev) => ({ ...prev, page: (prev?.page ?? 1) + delta }));
+      if (delta > 0 && pageData.lastDoc) {
+        setCursorStack((prev) => [...prev, pageData.lastDoc]);
+      } else if (delta < 0) {
+        setCursorStack((prev) => prev.slice(0, -1));
+      }
     } catch (error) {
+      if (requestIdRef.current !== currentRequestId) return;
       const direction = delta > 0 ? 'next' : 'prev';
       showToast(`Error fetching ${direction} page`);
     } finally {
-      setLoading(false);
+      if (requestIdRef.current === currentRequestId) {
+        setLoading(false);
+      }
     }
   }, [loading, clientFallback, cursorStack, currentPage, filters, sortKey, pageSize]);
 

@@ -10,7 +10,7 @@
  */
 import { useState } from 'react';
 import { View } from 'react-native';
-import { useTheme } from '../../../context/ThemeContext';
+import { useLanguage } from '../../../context/LanguageContext';
 import { useCatalog } from '../../catalog/CatalogContext';
 import AdminSaveFooter from '../AdminSaveFooter';
 import styles from './CategoriesStyles';
@@ -21,7 +21,7 @@ import { useCategoriesWorkflow } from './useCategoriesWorkflow';
 export default function CategoriesManager() {
   const { tree, allCategories, handleAdd, handleUpdate, handleDelete, handleSaveToFirebase: handleBatchSave, isSaving, isDirty } = useCategoriesWorkflow();
   const { flatList: products } = useCatalog();
-  const { t } = useTheme();
+  const { t } = useLanguage();
   const [viewMode, setViewMode] = useState('list');
   const [editingCategory, setEditingCategory] = useState(null);
   const [presetParentId, setPresetParentId] = useState(null);

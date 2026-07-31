@@ -44,7 +44,12 @@ export default function ContactDetailItem({ icon, label, value, href, isDark }) 
 
   if (href) {
     return (
-      <TouchableOpacity onPress={() => Linking.openURL(href)} activeOpacity={0.75}>
+      <TouchableOpacity
+        onPress={() => Linking.openURL(href)}
+        activeOpacity={0.75}
+        accessibilityLabel={label ? `${label}: ${value}` : value}
+        accessibilityRole="button"
+      >
         {content}
       </TouchableOpacity>
     );

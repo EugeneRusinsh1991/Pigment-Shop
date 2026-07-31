@@ -15,24 +15,21 @@ export default function useFavorites() {
   }, [user]);
 
   const toggleFavorite = useCallback((product) => {
-    setFavorites((prev) => {
-      const existing = prev.find((p) => p.id === product.id);
-      const isFav = !!existing;
-      const next = isFav
-        ? prev.filter((p) => p.id !== product.id)
-        : [...prev, product];
+    const existing = favorites.find((p) => p.id === product.id);
+    const isFav = !!existing;
 
-      if (user) {
-        if (isFav) {
-          removeFavorite(user.uid, existing || product).catch(console.error);
-        } else {
-          addFavorite(user.uid, product).catch(console.error);
-        }
+    setFavorites((prev) =>
+      isFav ? prev.filter((p) => p.id !== product.id) : [...prev, product]
+    );
+
+    if (user) {
+      if (isFav) {
+        removeFavorite(user.uid, existing || product).catch(console.error);
+      } else {
+        addFavorite(user.uid, product).catch(console.error);
       }
-
-      return next;
-    });
-  }, [user]);
+    }
+  }, [favorites, user]);
 
   const isFavorite = useCallback((productId) => favorites.some((p) => p.id === productId), [favorites]);
 

@@ -6,7 +6,7 @@ import { AnimatedButton } from '@/components/ui/Button';
 import { DataTableCell, DataTableRow } from '@/components/domain/DataTable/DataTable';
 import { Text } from '@/components/ui/Text';
 import { View } from 'react-native';
-import { useTheme } from '../../../context/ThemeContext';
+import { useLanguage } from '../../../context/LanguageContext';
 import { formatDateShortWithTime } from '../../../utils/dateFormatting';
 import { resolveStatusDef } from '../../../utils/orderStatus';
 import styles from './OrdersStyles';
@@ -37,7 +37,7 @@ function StatusBadge({ statusKey, statusDisplay }) {
 }
 
 export function MobileOrderRow({ order, onPress }) {
-  const { t, lang } = useTheme();
+  const { t, lang } = useLanguage();
   const summary = getOrderSummary(order, t, lang);
 
   return (
@@ -83,7 +83,7 @@ export function MobileOrderRow({ order, onPress }) {
 }
 
 export function DesktopOrderRow({ order, onPress }) {
-  const { t, lang } = useTheme();
+  const { t, lang } = useLanguage();
   const summary = getOrderSummary(order, t, lang);
 
   return (

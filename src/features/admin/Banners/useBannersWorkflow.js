@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useTheme } from '../../../context/ThemeContext';
+import { useLanguage } from '../../../context/LanguageContext';
 import { catalogStore } from '../../../data/catalogState';
 import { useErrorHandler } from '../../../hooks/useErrorHandler';
 import { useAdminActions } from '../../../services/adminDomain';
@@ -7,7 +7,7 @@ import { useCatalog } from '../../catalog/CatalogContext';
 import { useCrudWorkflow } from '../useCrudWorkflow';
 
 export function useBannersWorkflow() {
-  const { t } = useTheme();
+  const { t } = useLanguage();
   const { updateBanners, resetBannersToSeed } = useAdminActions();
   const { banners } = useCatalog();
   const { handleError } = useErrorHandler();

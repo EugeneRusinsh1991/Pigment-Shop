@@ -1,7 +1,7 @@
 import { EyeIcon, EyeOffIcon, ForwardArrowIcon, LockIcon } from '@/components/Icons';
 import { View } from 'react-native';
 import { Heading, Text } from '../../components/ui/Text';
-import { useTheme } from '../../context/ThemeContext';
+import { useLanguage } from '../../context/LanguageContext';
 import { colors } from '../../theme/tokens';
 import styles from './LoginPageStyles';
 
@@ -11,7 +11,7 @@ import { FieldInput } from '../admin/SharedFormComponents';
 const ic = (isDark, dark, light) => (isDark ? dark : light);
 
 export function LoginHeader({ isRegister, isDark }) {
-  const { t } = useTheme();
+  const { t } = useLanguage();
   return (
     <View style={styles.header}>
       <View style={[styles.iconContainer, ic(isDark, styles.iconContainerDark, styles.iconContainerLight), { justifyContent: 'center', alignItems: 'center' }]}>
@@ -55,7 +55,7 @@ export function PasswordInputField({ value, onChangeText, showToggle, isDark, sh
 }
 
 export function LoginFooter({ isRegister, isDark, setIsRegister }) {
-  const { t } = useTheme();
+  const { t } = useLanguage();
   return (
     <View style={styles.footer}>
       <Text variant="body1" color="muted" style={styles.footerText}>
@@ -76,7 +76,7 @@ export function LoginFooter({ isRegister, isDark, setIsRegister }) {
 }
 
 function ErrorText({ error }) {
-  const { t } = useTheme();
+  const { t } = useLanguage();
   if (!error) return null;
 
   let errorMsg = error;
@@ -89,7 +89,7 @@ function ErrorText({ error }) {
 }
 
 export function ForgotPasswordLink({ isRegister, isDark }) {
-  const { t } = useTheme();
+  const { t } = useLanguage();
   if (isRegister) return null;
   return (
     <Button
@@ -104,7 +104,7 @@ export function ForgotPasswordLink({ isRegister, isDark }) {
 }
 
 export function ConfirmPasswordField({ isRegister, value, onChangeText, isDark, showPassword, setShowPassword }) {
-  const { t } = useTheme();
+  const { t } = useLanguage();
   if (!isRegister) return null;
   return (
     <View style={styles.inputGroup}>

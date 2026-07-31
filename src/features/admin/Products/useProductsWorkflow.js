@@ -1,5 +1,5 @@
 import { useCallback, useMemo, useState } from 'react';
-import { useTheme } from '../../../context/ThemeContext';
+import { useLanguage } from '../../../context/LanguageContext';
 import useSort from '../../../hooks/useSort';
 import { useAdminActions, useAdminDrafts } from '../../../services/adminDomain';
 import { searchProducts } from '../../../services/adminProductsTransforms';
@@ -13,7 +13,7 @@ export function useProductsWorkflow() {
   const { sortField, setSortField, sortDirection, setSortDirection, handleSort } = useSort('');
   const [onlyDiscount, setOnlyDiscount] = useState(false);
   const [onlyNew, setOnlyNew] = useState(false);
-  const { t } = useTheme();
+  const { t } = useLanguage();
 
   const handleAdd = useCallback((formData) => {
     addProduct(formData);

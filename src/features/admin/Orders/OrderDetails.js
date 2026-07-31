@@ -13,7 +13,7 @@ import { BackArrowIcon } from '@/components/Icons';
 import { Text } from '@/components/ui/Text';
 import React, { useState } from 'react';
 import { ScrollView, View } from 'react-native';
-import { useTheme } from '../../../context/ThemeContext';
+import { useLanguage } from '../../../context/LanguageContext';
 import { useErrorHandler } from '../../../hooks/useErrorHandler';
 import { updateAdminNote, updateOrderStatus } from '../../../services/adminOrdersService';
 import { colors, layout } from '../../../theme/tokens';
@@ -26,28 +26,23 @@ import OrderStatusSelector from './OrderStatusSelector';
 import styles from './OrdersStyles';
 
 function useOrderNote(order) {
-  const [note, setNote] = useState(order?.adminNote || '');
-
+  const [note, setNote] = useState(order.adminNotes || '');
+  
   const { isSaving, handleSave } = useCrudWorkflow({
     saveFn: async () => {
       return updateAdminNote(order.id, note);
     },
-    successMessageTitle: 'Admin note saved',
+    successMessageTitle: 'Admin note saved successfully',
     errorMessageTitle: 'Failed to save admin note'
   });
 
-  // Keep note in sync if order.adminNote changes from outside
-  React.useEffect(() => {
-    setNote(order?.adminNote || '');
-  }, [order?.adminNote]);
-
-  const isDirty = note !== (order?.adminNote || '');
+  const isDirty = note !== (order.adminNotes || '');
 
   return { note, setNote, savingNote: isSaving, handleSave, isDirty };
 }
 
 export default function OrderDetails({ order, onBack, onStatusUpdated }) {
-  const { t } = useTheme();
+  const { t } = useLanguage();
   const { handleError } = useErrorHandler();
   const [currentStatus, setCurrentStatus] = useState(order.status);
   const [updating, setUpdating] = useState(false);

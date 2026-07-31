@@ -31,35 +31,32 @@ function SvgDonut({ data, size = 120, strokeWidth = 20 }) {
           }]}
         >
           {data.map((item, idx) => (
-            <View key={idx} style={[styles.donutBarSegment, { flex: item.value / total, backgroundColor: item.color }]} />
+            <View key={idx} style={[styles.donutBarSegment, { flex: item.value / (total || 1), backgroundColor: item.color }]} />
           ))}
         </View>
       </View>
     );
   }
 
-  let currentOffset = 0;
-
   return (
-    <svg width={size} height={size} style={styles.svgRotate}>
-      {data.map((item, idx) => {
-        const percent = item.value / total;
-        const dashLen = circumference * percent;
-        const strokeDasharray = `${dashLen} ${circumference}`;
-        const strokeDashoffset = -currentOffset;
-        currentOffset += dashLen;
+    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
+      {data.map((item, index) => {
+        const strokeDasharray = `${(item.value / (total || 1)) * circumference} ${circumference}`;
+        const strokeDashoffset = -(accumulated / (total || 1)) * circumference;
+        accumulated += item.value;
 
         return (
           <circle
-            key={idx}
-            cx={cx}
-            cy={cy}
+            key={index}
+            cx={size / 2}
+            cy={size / 2}
             r={radius}
-            fill="transparent"
+            fill="none"
             stroke={item.color}
             strokeWidth={strokeWidth}
             strokeDasharray={strokeDasharray}
             strokeDashoffset={strokeDashoffset}
+            transform={`rotate(-90 ${size / 2} ${size / 2})`}
           />
         );
       })}
@@ -75,7 +72,7 @@ const STATUS_CONFIG = {
 };
 
 export default function OrderStatusChart({ statusData = [] }) {
-  const { t } = useTheme();
+  const { t } = useLanguage();
 
   const formattedData = statusData.map((item) => {
     const config = STATUS_CONFIG[item.id || item.status] || {
