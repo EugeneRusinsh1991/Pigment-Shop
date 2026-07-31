@@ -35,7 +35,7 @@ function SectionTitleRow({ isDark, depth, currentLevel, t, showSectionTitle }) {
   const sectionLabel = depth === 0 ? t('categories') : currentLevel.label;
   return (
     <ScrollFadeUp style={styles.sectionTitleRow}>
-      <Text style={[styles.sectionTitle, tc, { letterSpacing: 0.5 }]}>{sectionLabel}</Text>
+      <Text variant="label" style={[styles.sectionTitle, tc]}>{sectionLabel}</Text>
     </ScrollFadeUp>
   );
 }

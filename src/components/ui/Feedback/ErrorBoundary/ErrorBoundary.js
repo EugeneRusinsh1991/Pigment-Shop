@@ -91,7 +91,5 @@ const styles = {
   },
   retryText: {
     color: colors.white,
-    fontWeight: '600',
-    fontSize: 14,
   },
 };

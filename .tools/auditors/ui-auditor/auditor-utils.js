@@ -175,7 +175,7 @@ function finishAuditReport({ auditName, disableDynamicAudits, violations, logFil
   });
 }
 
-function runAuditorScan({ auditName, disableDynamicAudits, logFile, filesLogFile, issueTypeName, scanFile, srcDir = path.join(__dirname, '../../src'), auditsDir = path.join(__dirname, '../../.audits/audits') }) {
+function runAuditorScan({ auditName, disableDynamicAudits, logFile, filesLogFile, issueTypeName, scanFile, srcDir = path.resolve(__dirname, '../../../src'), auditsDir = path.join(__dirname, '../../.audits/audits') }) {
   if (!fs.existsSync(auditsDir)) fs.mkdirSync(auditsDir, { recursive: true });
   const rawViolations = [];
   walkDir(srcDir, (filePath) => scanFile(filePath, rawViolations));

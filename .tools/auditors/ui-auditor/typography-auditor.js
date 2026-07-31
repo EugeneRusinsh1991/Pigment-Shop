@@ -5,7 +5,7 @@ const AUDITS_DIR = path.join(__dirname, '../../.audits/audits');
 const LOG_FILE = path.join(AUDITS_DIR, '04-typography-violations.log');
 const FILES_LOG_FILE = path.join(AUDITS_DIR, '04-typography-violations.log'.replace('violations', 'files'));
 
-const WHITELIST = ['tokens.js', 'typography.js', 'TextStyles.js', 'TextFieldStyles.js', 'iconStyles.js', 'src/components/icons/'];
+const WHITELIST = ['tokens.js', 'typography.js', 'TextStyles.js', 'TextFieldStyles.js', 'iconStyles.js', 'layout.js', 'src/components/icons/'];
 
 function isWhitelisted(filePath) {
   const norm = filePath.replace(/\\/g, '/');

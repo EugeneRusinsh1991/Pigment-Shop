@@ -64,6 +64,7 @@
 - [src/bootstrap/](file:///d:/Magazine/_PigmentShop/src/bootstrap/): Application bootstrap coordination (auth, app bootstrap).
 
 - [.docs/architecture-standards/](file:///d:/Magazine/_PigmentShop/.docs/architecture-standards/): Canonical architecture specifications (UI, Services, Domain standards).
+- [.docs/Commands.md](file:///d:/Magazine/_PigmentShop/.docs/Commands.md): Single source of truth for all project commands.
 
 ---
 

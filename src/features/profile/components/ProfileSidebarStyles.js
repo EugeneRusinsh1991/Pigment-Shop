@@ -49,10 +49,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#262626',
     borderLeftColor: colors.accent,
   },
-  navItemText: {
-    fontSize: typography.sizes.sm,
-    fontWeight: '500',
-  },
+  navItemText: {},
   navItemTextLight: {
     color: colors.textLight,
   },

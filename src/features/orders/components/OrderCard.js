@@ -31,7 +31,7 @@ function MobileOrderHeader({ order, t, lang, isExpanded, getStyle }) {
   return (
     <View style={styles.mobileHeader}>
       <View style={styles.mobileRowTop}>
-        <Text variant="subtitle1" style={styles.orderNumberTitle}>
+        <Text variant="subtitle1" weight="600" style={styles.orderNumberTitle}>
           {t('orderNumber')}{getOrderNumber(order)}
         </Text>
         <OrderStatusBadge order={order} t={t} />
@@ -41,7 +41,7 @@ function MobileOrderHeader({ order, t, lang, isExpanded, getStyle }) {
           <Text variant="caption" color="muted" style={styles.orderDate}>
             {getFormattedDate(order, lang)}
           </Text>
-          <Text variant="body1" style={[styles.orderTotalTitle, styles.mobileTotal]}>
+          <Text variant="body1" weight="bold" style={[styles.orderTotalTitle, styles.mobileTotal]}>
             {t('orderTotalLabel')} ${getOrderTotalPrice(order)}
           </Text>
         </View>
@@ -59,7 +59,7 @@ function DefaultOrderHeader({ order, t, lang, isExpanded, getStyle, isAdminView 
   return (
     <View style={[styles.desktopHeader, isAdminView && styles.adminOrderHeader]}>
       <View style={styles.desktopCol1}>
-        <Text variant={isAdminView ? "body1" : "subtitle1"} style={styles.orderNumberTitle}>
+        <Text variant={isAdminView ? "body1" : "subtitle1"} weight="600" style={styles.orderNumberTitle}>
           {t('orderNumber')}{getOrderNumber(order)}
         </Text>
         <Text variant="caption" color="muted" style={[styles.orderDate, isAdminView && styles.adminOrderDate]}>
@@ -78,7 +78,7 @@ function DefaultOrderHeader({ order, t, lang, isExpanded, getStyle, isAdminView 
       </View>
 
       <View style={styles.desktopCol3}>
-        <Text variant="body1" style={styles.orderTotalTitle}>
+        <Text variant="body1" weight="bold" style={styles.orderTotalTitle}>
           {t('orderTotalLabel')} ${getOrderTotalPrice(order)}
         </Text>
       </View>

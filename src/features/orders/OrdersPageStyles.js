@@ -62,12 +62,9 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   orderNumberTitle: {
-    fontWeight: '600',
     marginBottom: layout.spacing.xxs,
   },
-  orderTotalTitle: {
-    fontWeight: 'bold',
-  },
+  orderTotalTitle: {},
   orderStatus: {},
   statusBadge: {
     width: 110,

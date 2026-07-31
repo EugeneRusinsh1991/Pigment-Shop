@@ -115,7 +115,7 @@ export default function ProfileSidebar() {
             return (
               <Link key={item.id} href={item.href} style={itemStyle}>
                 <IconComponent color={iconColor} size={16} />
-                <Text style={textStyle}>{item.label}</Text>
+                <Text variant="subtitle2" style={textStyle}>{item.label}</Text>
               </Link>
             );
           }
@@ -123,7 +123,7 @@ export default function ProfileSidebar() {
           return (
             <Pressable key={item.id} style={itemStyle} onPress={item.action}>
               <IconComponent color={iconColor} size={16} />
-              <Text style={textStyle}>{item.label}</Text>
+              <Text variant="subtitle2" style={textStyle}>{item.label}</Text>
             </Pressable>
           );
         })}

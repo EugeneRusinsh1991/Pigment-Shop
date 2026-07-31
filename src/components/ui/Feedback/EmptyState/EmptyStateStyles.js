@@ -31,6 +31,5 @@ export const styles = StyleSheet.create({
   },
   retryText: {
     color: colors.white,
-    fontWeight: '600',
   },
 });
