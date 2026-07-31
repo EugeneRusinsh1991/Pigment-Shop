@@ -119,24 +119,25 @@ export class V8ProfileResolver {
     const cpuProfile = data.cpuProfile;
     if (!cpuProfile) return;
 
-    // Process nodes
-    if (Array.isArray(cpuProfile.nodes)) {
-      for (const node of cpuProfile.nodes) {
-        if (node.id != null && node.callFrame) {
-          this.nodes.set(node.id, node);
-        }
+    this.processProfileNodes(cpuProfile.nodes);
+    this.processProfileSamples(cpuProfile.samples, data.timeDeltas, evt.ts || 0);
+  }
+
+  private processProfileNodes(nodes?: unknown): void {
+    if (!Array.isArray(nodes)) return;
+    for (const node of (nodes as any[])) {
+      if (node?.id != null && node.callFrame) {
+        this.nodes.set(node.id, node);
       }
     }
+  }
 
-    // Process samples + timeDeltas to build absolute timestamps
-    if (Array.isArray(cpuProfile.samples) && Array.isArray(data.timeDeltas)) {
-      const baseTs = evt.ts || 0;
-      let currentTs = baseTs;
-
-      for (let i = 0; i < cpuProfile.samples.length; i++) {
-        currentTs += (data.timeDeltas[i] || 0);
-        this.samples.push({ ts: currentTs, nodeId: cpuProfile.samples[i] });
-      }
+  private processProfileSamples(samples?: unknown, timeDeltas?: unknown, baseTs = 0): void {
+    if (!Array.isArray(samples) || !Array.isArray(timeDeltas)) return;
+    let currentTs = baseTs;
+    for (let i = 0; i < samples.length; i++) {
+      currentTs += (timeDeltas[i] || 0);
+      this.samples.push({ ts: currentTs, nodeId: samples[i] });
     }
   }
 

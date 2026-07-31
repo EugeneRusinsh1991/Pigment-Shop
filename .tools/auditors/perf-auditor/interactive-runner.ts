@@ -6,6 +6,34 @@ import { CdpTraceCollector } from './cdp-trace-collector';
 import { generateHtmlReport } from './reporter';
 import path from 'path';
 
+function getLagTimestamp(lt: any): string {
+  return lt.userAction?.timestamp || lt.startTimeRaw || lt.timestamp || '';
+}
+
+function processBrowserLagItem(
+  lt: any,
+  pageUrl: string,
+  thresholdMs: number,
+  seenLags: Set<string>,
+  logger: PerfLogger
+): void {
+  const key = `${lt.type}-${lt.durationMs}-${getLagTimestamp(lt)}`;
+  const isFrameDrop = lt.type === 'frame_drop';
+  const isOverThreshold = isFrameDrop || lt.durationMs >= thresholdMs;
+  if (!seenLags.has(key) && isOverThreshold) {
+    seenLags.add(key);
+    logger.recordLag({
+      timestamp: new Date().toISOString(),
+      type: lt.type || 'longtask',
+      durationMs: lt.durationMs,
+      thresholdMs,
+      url: lt.url || pageUrl,
+      details: `Browser observer: ${lt.durationMs}ms`,
+      userAction: lt.userAction
+    });
+  }
+}
+
 export async function runInteractiveMode() {
   const config = loadConfig({ interactive: true });
   const logger = new PerfLogger(config);
@@ -133,22 +161,9 @@ export async function runInteractiveMode() {
   const syncBrowserLags = async () => {
     if (page.isClosed()) return;
     const lags = await getCollectedLongTasks(page).catch(() => []);
+    const pageUrl = page.url();
     for (const lt of lags) {
-      const key = `${lt.type}-${lt.durationMs}-${lt.userAction?.timestamp || lt.startTimeRaw || lt.timestamp}`;
-      const isFrameDrop = lt.type === 'frame_drop';
-      const isOverThreshold = isFrameDrop || lt.durationMs >= config.lagThresholdMs;
-      if (!seenLags.has(key) && isOverThreshold) {
-        seenLags.add(key);
-        logger.recordLag({
-          timestamp: new Date().toISOString(),
-          type: lt.type || 'longtask',
-          durationMs: lt.durationMs,
-          thresholdMs: config.lagThresholdMs,
-          url: lt.url || page.url(),
-          details: `Browser observer: ${lt.durationMs}ms`,
-          userAction: lt.userAction
-        });
-      }
+      processBrowserLagItem(lt, pageUrl, config.lagThresholdMs, seenLags, logger);
     }
   };
 

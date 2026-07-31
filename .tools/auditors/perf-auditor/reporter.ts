@@ -15,6 +15,76 @@ function formatLagType(type: string): string {
   return LAG_TYPE_LABELS[type] || type;
 }
 
+function getActionTarget(lag: LagRecord): string {
+  return lag.userAction?.targetSelector || lag.selector || lag.action || 'N/A';
+}
+
+function renderCallStackHtml(lag: LagRecord): string {
+  if (!lag.callStack?.length) return '';
+  const frames = lag.callStack.map(
+    frame => `at ${frame.functionName} (${frame.scriptUrl}:${frame.lineNumber}:${frame.columnNumber})`
+  );
+  return `<div class="stack-trace">${frames.join('\n')}</div>`;
+}
+
+function renderSourceLocationHtml(lag: LagRecord): string {
+  if (!lag.sourceLocation) return '';
+  const file = lag.sourceLocation.scriptUrl.split('/').pop();
+  return `<div class="source-loc">📍 <strong>Source:</strong> ${lag.sourceLocation.functionName} @ ${file}:${lag.sourceLocation.lineNumber}<br/><span style="color:#64748b;font-size:0.75rem;">${lag.sourceLocation.scriptUrl}</span></div>`;
+}
+
+function renderLagCardHtml(lag: LagRecord): string {
+  const actionTarget = getActionTarget(lag);
+  const traceNameHtml = lag.traceName ? ` <em style="color:#64748b;">[${lag.traceName}]</em>` : '';
+  const url = lag.url || 'N/A';
+  const screenshotHtml = lag.screenshotPath
+    ? `<div><img src="screenshots/${path.basename(lag.screenshotPath)}" alt="Lag Screenshot" /></div>`
+    : '';
+
+  return `
+    <div class="lag-card">
+      <div><span class="badge">${lag.durationMs}ms</span> (Threshold: ${lag.thresholdMs}ms) - <strong>${formatLagType(lag.type)}</strong>${traceNameHtml}</div>
+      <div class="meta">
+        <div><strong>Action/Selector:</strong> ${actionTarget}</div>
+        <div><strong>URL:</strong> ${url}</div>
+        <div><strong>Timestamp:</strong> ${lag.timestamp}</div>
+      </div>
+      ${renderSourceLocationHtml(lag)}
+      ${renderCallStackHtml(lag)}
+      ${screenshotHtml}
+    </div>
+  `;
+}
+
+function renderSourceLocationMd(lag: LagRecord): string {
+  if (!lag.sourceLocation) return '';
+  const file = lag.sourceLocation.scriptUrl.split('/').pop();
+  let text = `- **📍 Source:** \`${lag.sourceLocation.functionName}\` @ \`${file}:${lag.sourceLocation.lineNumber}\`\n`;
+  text += `  - Full path: \`${lag.sourceLocation.scriptUrl}\`\n`;
+  return text;
+}
+
+function renderCallStackMd(lag: LagRecord): string {
+  if (!lag.callStack?.length) return '';
+  let text = `- **Call Stack (Top ${Math.min(lag.callStack.length, 10)}):**\n`;
+  lag.callStack.forEach(frame => {
+    text += `  - \`${frame.functionName}\` at [${path.basename(frame.scriptUrl)}](file://${frame.scriptUrl}#L${frame.lineNumber})\n`;
+  });
+  return text;
+}
+
+function renderLagCardMd(lag: LagRecord): string {
+  const actionTarget = getActionTarget(lag);
+  const traceNameMd = lag.traceName ? ` [${lag.traceName}]` : '';
+  let entry = `## Lag: ${lag.durationMs}ms (Threshold: ${lag.thresholdMs}ms)\n`;
+  entry += `- **Type:** ${formatLagType(lag.type)}${traceNameMd}\n`;
+  entry += `- **Action/Selector:** \`${actionTarget}\`\n`;
+  entry += `- **URL:** ${lag.url}\n`;
+  entry += renderSourceLocationMd(lag);
+  entry += renderCallStackMd(lag);
+  return entry;
+}
+
 export function generateHtmlReport(lags: LagRecord[], outputPath: string): void {
   const html = `
 <!DOCTYPE html>
@@ -38,47 +108,13 @@ export function generateHtmlReport(lags: LagRecord[], outputPath: string): void 
   <h1>Performance Lag Audit Report</h1>
   <p>Total performance violations detected: <strong>${lags.length}</strong></p>
   ${lags.length === 0 ? '<p style="color: #22c55e;">No UI lag violations detected!</p>' : ''}
-  ${lags.map((lag) => {
-    const actionTarget = lag.userAction?.targetSelector || lag.selector || lag.action || 'N/A';
-    const callStackHtml = lag.callStack?.length 
-      ? `<div class="stack-trace">${lag.callStack.map(frame => `at ${frame.functionName} (${frame.scriptUrl}:${frame.lineNumber}:${frame.columnNumber})`).join('\n')}</div>`
-      : '';
-    return `
-    <div class="lag-card">
-      <div><span class="badge">${lag.durationMs}ms</span> (Threshold: ${lag.thresholdMs}ms) - <strong>${formatLagType(lag.type)}</strong>${lag.traceName ? ` <em style="color:#64748b;">[${lag.traceName}]</em>` : ''}</div>
-      <div class="meta">
-        <div><strong>Action/Selector:</strong> ${actionTarget}</div>
-        <div><strong>URL:</strong> ${lag.url || 'N/A'}</div>
-        <div><strong>Timestamp:</strong> ${lag.timestamp}</div>
-      </div>
-      ${lag.sourceLocation ? `<div class="source-loc">📍 <strong>Source:</strong> ${lag.sourceLocation.functionName} @ ${lag.sourceLocation.scriptUrl.split('/').pop()}:${lag.sourceLocation.lineNumber}<br/><span style="color:#64748b;font-size:0.75rem;">${lag.sourceLocation.scriptUrl}</span></div>` : ''}
-      ${callStackHtml}
-      ${lag.screenshotPath ? `<div><img src="screenshots/${path.basename(lag.screenshotPath)}" alt="Lag Screenshot" /></div>` : ''}
-    </div>
-  `}).join('')}
+  ${lags.map(renderLagCardHtml).join('')}
 </body>
 </html>
   `;
   fs.writeFileSync(outputPath, html, 'utf-8');
 
-  const mdSummary = `# Performance Audit Summary\n\nTotal violations: ${lags.length}\n\n` + lags.map(lag => {
-    const actionTarget = lag.userAction?.targetSelector || lag.selector || lag.action || 'N/A';
-    let entry = `## Lag: ${lag.durationMs}ms (Threshold: ${lag.thresholdMs}ms)\n`;
-    entry += `- **Type:** ${formatLagType(lag.type)}${lag.traceName ? ` [${lag.traceName}]` : ''}\n`;
-    entry += `- **Action/Selector:** \`${actionTarget}\`\n`;
-    entry += `- **URL:** ${lag.url}\n`;
-    if (lag.sourceLocation) {
-      entry += `- **📍 Source:** \`${lag.sourceLocation.functionName}\` @ \`${lag.sourceLocation.scriptUrl.split('/').pop()}:${lag.sourceLocation.lineNumber}\`\n`;
-      entry += `  - Full path: \`${lag.sourceLocation.scriptUrl}\`\n`;
-    }
-    if (lag.callStack && lag.callStack.length > 0) {
-      entry += `- **Call Stack (Top ${Math.min(lag.callStack.length, 10)}):**\n`;
-      lag.callStack.forEach(frame => {
-        entry += `  - \`${frame.functionName}\` at [${path.basename(frame.scriptUrl)}](file://${frame.scriptUrl}#L${frame.lineNumber})\n`;
-      });
-    }
-    return entry;
-  }).join('\n');
+  const mdSummary = `# Performance Audit Summary\n\nTotal violations: ${lags.length}\n\n` + lags.map(renderLagCardMd).join('\n');
   const mdOutputPath = outputPath.replace('.html', '.md');
   fs.writeFileSync(mdOutputPath, mdSummary, 'utf-8');
 }

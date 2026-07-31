@@ -1,24 +1,6 @@
 import { chromium } from 'playwright';
 
-async function diagnose() {
-  const browser = await chromium.launch({ headless: false });
-  const context = await browser.newContext();
-  const page = await context.newPage();
-  const cdp = await context.newCDPSession(page);
-
-  const chunks: any[] = [];
-  cdp.on('Tracing.dataCollected', (params: any) => {
-    console.log(`[DIAG] Tracing.dataCollected fired with ${params.value?.length || 0} events`);
-    if (Array.isArray(params.value)) chunks.push(...params.value);
-  });
-  cdp.on('Tracing.tracingComplete', () => {
-    console.log(`[DIAG] Tracing.tracingComplete fired. Total chunks: ${chunks.length}`);
-  });
-
-  const baseUrl = process.env.BASE_URL || 'http://localhost:8081';
-  console.log(`[DIAG] Navigating to ${baseUrl}...`);
-
-  // Try with transferMode: ReportEvents
+async function startTracing(cdp: any): Promise<void> {
   try {
     await cdp.send('Tracing.start', {
       categories: 'devtools.timeline,disabled-by-default-devtools.timeline,disabled-by-default-devtools.timeline.stack',
@@ -27,27 +9,21 @@ async function diagnose() {
     console.log('[DIAG] Tracing.start succeeded with transferMode: ReportEvents');
   } catch (e: any) {
     console.error('[DIAG] Tracing.start with transferMode failed:', e.message);
-    // Fallback
     await cdp.send('Tracing.start', {
       categories: 'devtools.timeline,disabled-by-default-devtools.timeline',
     });
     console.log('[DIAG] Tracing.start succeeded without transferMode');
   }
+}
 
+async function simulateUserActivity(page: any, baseUrl: string): Promise<void> {
   await page.goto(baseUrl, { waitUntil: 'domcontentloaded' }).catch(() => {});
   console.log('[DIAG] Page loaded. Waiting 5 seconds for activity...');
-  
-  // Click around to generate some activity
   await page.mouse.click(200, 300).catch(() => {});
   await new Promise(r => setTimeout(r, 5000));
+}
 
-  console.log('[DIAG] Stopping trace...');
-  await cdp.send('Tracing.end');
-  await new Promise(r => setTimeout(r, 3000));
-
-  console.log(`[DIAG] Final chunk count: ${chunks.length}`);
-  
-  // Analyze what event names we got
+function analyzeTraceChunks(chunks: any[]): void {
   const nameCount: Record<string, number> = {};
   const xEvents: any[] = [];
   for (const evt of chunks) {
@@ -67,6 +43,35 @@ async function diagnose() {
   const longEvents = xEvents.filter(e => e.durMs >= 1).sort((a, b) => b.durMs - a.durMs);
   console.log(`[DIAG] Events >= 1ms: ${longEvents.length}`);
   longEvents.slice(0, 15).forEach(e => console.log(`  ${e.name}: ${e.durMs}ms (hasStack=${e.hasStack})`));
+}
+
+async function diagnose() {
+  const browser = await chromium.launch({ headless: false });
+  const context = await browser.newContext();
+  const page = await context.newPage();
+  const cdp = await context.newCDPSession(page);
+
+  const chunks: any[] = [];
+  cdp.on('Tracing.dataCollected', (params: any) => {
+    console.log(`[DIAG] Tracing.dataCollected fired with ${params.value?.length || 0} events`);
+    if (Array.isArray(params.value)) chunks.push(...params.value);
+  });
+  cdp.on('Tracing.tracingComplete', () => {
+    console.log(`[DIAG] Tracing.tracingComplete fired. Total chunks: ${chunks.length}`);
+  });
+
+  const baseUrl = process.env.BASE_URL || 'http://localhost:8081';
+  console.log(`[DIAG] Navigating to ${baseUrl}...`);
+
+  await startTracing(cdp);
+  await simulateUserActivity(page, baseUrl);
+
+  console.log('[DIAG] Stopping trace...');
+  await cdp.send('Tracing.end');
+  await new Promise(r => setTimeout(r, 3000));
+
+  console.log(`[DIAG] Final chunk count: ${chunks.length}`);
+  analyzeTraceChunks(chunks);
 
   await browser.close();
   process.exit(0);
