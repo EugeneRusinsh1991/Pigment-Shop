@@ -14,7 +14,7 @@ export const SearchInput = forwardRef(function SearchInput(
     onFocus,
     onBlur,
     variant = 'default',
-    size = 'md',
+    size = 'sm',
     isDark: isDarkProp,
     style,
     inputStyle,

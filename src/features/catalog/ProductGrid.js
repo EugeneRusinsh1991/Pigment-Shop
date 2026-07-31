@@ -27,9 +27,9 @@ function getGridStyle(isNarrow, gridWidth) {
 }
 
 
-export default function ProductGrid({ products, cols, cardWidth, isDark, onCardPress, favs, emptyLabel, listHeader, listFooter, isNarrow, gridWidth, gap = layout.spacing.sm }) {
+export default function ProductGrid({ products, cols, cardWidth, isDark, onCardPress, favs, emptyLabel, listHeader, listFooter, isNarrow, gridWidth, gap = layout.spacing.lg }) {
   const itemWidth = `${(100 / cols).toFixed(4)}%`;
-  const gridGap = gap ?? layout.spacing.sm;
+  const gridGap = gap ?? layout.spacing.lg;
 
   const renderItem = useCallback(
     ({ item }) => (

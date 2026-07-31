@@ -70,6 +70,7 @@ function CatalogMenuRow({
         variant="transparent"
         isDark={isDark}
         animated={true}
+        style={styles.catalogExpandBtn}
       />
     </View>
   );

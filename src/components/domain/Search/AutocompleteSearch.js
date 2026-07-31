@@ -31,7 +31,7 @@ function SearchResultDropdown({ results, query, isDark, onSelect }) {
   return null;
 }
 
-export function AutocompleteSearch({ isDark, onActiveChange, variant = 'default', size = 'md', flatList = [], searchIndex }) {
+export function AutocompleteSearch({ isDark, onActiveChange, variant = 'default', size = 'sm', flatList = [], searchIndex }) {
   const [query, setQuery] = useState('');
   const [isFocused, setIsFocused] = useState(false);
   const router = useRouter();

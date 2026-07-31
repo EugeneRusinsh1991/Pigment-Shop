@@ -1,5 +1,6 @@
 import { useWindowDimensions } from 'react-native';
 import { layout } from '../theme/tokens';
+import { GRID_GAP } from '../utils/layoutUtils';
 
 const WIDTH_MAP = {
   depth0: { desktop: 250, tablet: 220, mobile: 165 },
@@ -36,6 +37,6 @@ export default function useCardDimensions(depth) {
     cardWidth: WIDTH_MAP[depthKey][device],
     cardHeight: getCardHeight(depth, device),
     imgContainerHeight: IMG_HEIGHTS[device],
-    cardMargin: device === 'mobile' ? 4 : 8,
+    cardMargin: GRID_GAP[device],
   };
 }

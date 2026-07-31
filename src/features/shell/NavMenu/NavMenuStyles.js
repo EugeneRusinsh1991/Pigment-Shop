@@ -148,6 +148,15 @@ export default StyleSheet.create({
   themeIconContainer: { marginRight: layout.spacing.sm },
   menuRowItem: { paddingVertical: layout.spacing.md, minHeight: 44 },
   menuRowLabel: { flex: 1, marginLeft: layout.spacing.md },
-  catalogRow: { flexDirection: 'row', alignItems: 'center' },
-  catalogRowItem: { flex: 1 },
+  catalogRow: { flexDirection: 'row', alignItems: 'stretch' },
+  catalogRowItem: { flex: 2 },
+  catalogExpandBtn: {
+    flex: 1,
+    width: 'auto',
+    height: '100%',
+    minHeight: 44,
+    borderRadius: 0,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });

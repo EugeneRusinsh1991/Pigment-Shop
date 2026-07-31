@@ -25,9 +25,9 @@ export const GRID_COLS_FILTERED = {
 
 /** Inter-card gap (px) used uniformly across every grid. */
 export const GRID_GAP = {
-  desktop: 8,
-  tablet: 8,
-  mobile: 4,
+  desktop: layoutTokens.spacing.lg,
+  tablet: layoutTokens.spacing.md,
+  mobile: layoutTokens.spacing.sm,
 };
 
 // ---------------------------------------------------------------------------

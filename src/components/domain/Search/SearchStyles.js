@@ -44,7 +44,7 @@ function createSearchStyles() {
     containerBase: {
       flexDirection: 'row',
       alignItems: 'center',
-      height: 44,
+      height: 36,
       borderRadius: layout.radii.sm,
       borderWidth: layout.borderWidth.thin,
       paddingHorizontal: layout.spacing.md,
@@ -68,7 +68,7 @@ function createSearchStyles() {
     },
     dropdownOverlay: {
       position: 'absolute',
-      top: 48,
+      top: 40,
       left: 0,
       right: 0,
       zIndex: layout.zIndices.dropdown,

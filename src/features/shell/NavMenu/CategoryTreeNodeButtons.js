@@ -8,7 +8,7 @@ import { getNavItemIcon } from './NavItemList';
 import { layout, motion } from '../../../theme/tokens';
 import styles from './NavMenuStyles';
 
-export function CategoryLabelButton({ isDark, node, iconColor, onClose, isSelected, indent = 0 }) {
+export function CategoryLabelButton({ isDark, node, iconColor, onClose, isSelected, indent = 0, hasChildren }) {
   const router = useRouter();
   const selectedStyle = isSelected
     ? (isDark ? styles.selectedRowDark : styles.selectedRowLight)
@@ -27,7 +27,7 @@ export function CategoryLabelButton({ isDark, node, iconColor, onClose, isSelect
         styles.itemRow,
         isDark ? styles.itemRowDark : styles.itemRowLight,
         selectedStyle,
-        localStyles.categoryButton,
+        hasChildren ? localStyles.categoryButtonWithChildren : localStyles.categoryButton,
         { paddingLeft: layout.spacing.lg + indent },
       ]}
       onPress={handlePress}
@@ -43,7 +43,7 @@ export function CategoryLabelButton({ isDark, node, iconColor, onClose, isSelect
   );
 }
 
-export function CategoryExpandButton({ isDark, arrowColor, isExpanded, onPress, isSelected }) {
+export function CategoryExpandButton({ isDark, arrowColor, isExpanded, onPress, isSelected, style }) {
   return (
     <IconButton
       icon={isExpanded ? <ChevronDownIcon color={arrowColor} size={14} /> : <ChevronRightIcon color={arrowColor} size={14} />}
@@ -52,6 +52,7 @@ export function CategoryExpandButton({ isDark, arrowColor, isExpanded, onPress, 
       variant="transparent"
       isDark={isDark}
       animated={true}
+      style={[localStyles.expandButton, style]}
     />
   );
 }
@@ -62,6 +63,21 @@ const localStyles = StyleSheet.create({
     paddingVertical: layout.spacing.sm,
     paddingRight: layout.spacing.xs,
     minHeight: 44,
+  },
+  categoryButtonWithChildren: {
+    flex: 2,
+    paddingVertical: layout.spacing.sm,
+    paddingRight: layout.spacing.xs,
+    minHeight: 44,
+  },
+  expandButton: {
+    flex: 1,
+    width: 'auto',
+    height: '100%',
+    minHeight: 44,
+    borderRadius: 0,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 
