@@ -10,6 +10,13 @@ export interface TraceEvent {
   tdur?: number;
 }
 
+export interface TraceStackFrame {
+  functionName: string;
+  scriptUrl: string;
+  lineNumber: number;
+  columnNumber: number;
+}
+
 export interface TraceLagRecord {
   type: 'cdp_longtask' | 'action_delay' | 'layout_thrash' | 'paint_stall';
   durationMs: number;
@@ -18,10 +25,18 @@ export interface TraceLagRecord {
   timestamp: string;
   url: string;
   details: string;
+  callStack?: TraceStackFrame[];
+  sourceLocation?: {
+    functionName: string;
+    scriptUrl: string;
+    lineNumber: number;
+  };
+  eventType?: string;
 }
 
 const LAG_EVENT_MATCHERS: Record<string, TraceLagRecord['type']> = {
   'RunTask': 'cdp_longtask',
+  'FunctionCall': 'cdp_longtask',
   'EventDispatch': 'action_delay',
   'UpdateLayoutTree': 'layout_thrash',
   'Layout': 'layout_thrash',
@@ -32,6 +47,7 @@ const LAG_EVENT_MATCHERS: Record<string, TraceLagRecord['type']> = {
 const TRACE_CATEGORIES = [
   'devtools.timeline',
   'disabled-by-default-devtools.timeline',
+  'disabled-by-default-devtools.timeline.stack',
 ];
 
 export class CdpTraceCollector {
@@ -45,20 +61,22 @@ export class CdpTraceCollector {
     this.cdp = cdp;
     this.thresholdMs = thresholdMs;
     this.pageUrl = pageUrlFn;
-  }
 
-  async start(): Promise<void> {
-    if (this.isTracing) return;
-    this.traceChunks = [];
+    // Register listener ONCE in constructor — prevents stacking on flush restarts
     this.cdp.on('Tracing.dataCollected', (params: any) => {
       if (Array.isArray(params.value)) {
         this.traceChunks.push(...params.value);
       }
     });
+  }
+
+  async start(): Promise<void> {
+    if (this.isTracing) return;
+    this.traceChunks = [];
 
     await this.cdp.send('Tracing.start', {
       categories: TRACE_CATEGORIES.join(','),
-      options: 'sampling-frequency=1000',
+      transferMode: 'ReportEvents',
     });
     this.isTracing = true;
   }
@@ -85,6 +103,7 @@ export class CdpTraceCollector {
     await completionPromise;
     this.isTracing = false;
 
+    console.log(`[CDP TRACE] stopAndCollect: ${this.traceChunks.length} raw trace events received`);
     return this.extractLags(this.traceChunks);
   }
 
@@ -92,14 +111,21 @@ export class CdpTraceCollector {
     const lags: TraceLagRecord[] = [];
     const currentUrl = this.pageUrl();
 
+    let xWithDur = 0;
+    let passedThreshold = 0;
+
     for (const evt of events) {
       if (evt.ph !== 'X' || !evt.dur) continue;
+      xWithDur++;
 
       const durationMs = Math.round(evt.dur / 1000);
       if (durationMs < this.thresholdMs) continue;
+      passedThreshold++;
 
       const lagType = LAG_EVENT_MATCHERS[evt.name];
       if (!lagType) continue;
+
+      const localization = extractLocalization(evt);
 
       lags.push({
         type: lagType,
@@ -108,22 +134,89 @@ export class CdpTraceCollector {
         traceName: evt.name,
         timestamp: new Date().toISOString(),
         url: currentUrl,
-        details: buildDetails(evt, durationMs),
+        details: buildDetails(evt, durationMs, localization),
+        callStack: localization.callStack,
+        sourceLocation: localization.sourceLocation,
+        eventType: localization.eventType,
       });
     }
 
+    console.log(`[CDP TRACE] Raw: ${events.length} | X+dur: ${xWithDur} | ≥${this.thresholdMs}ms: ${passedThreshold} | matched: ${lags.length}`);
     return lags;
   }
 }
 
-function buildDetails(evt: TraceEvent, durationMs: number): string {
-  const base = `CDP ${evt.name}: ${durationMs}ms`;
-  const data = evt.args?.data;
-  if (!data) return base;
+interface LocalizationResult {
+  callStack?: TraceStackFrame[];
+  sourceLocation?: { functionName: string; scriptUrl: string; lineNumber: number };
+  eventType?: string;
+}
 
-  const parts = [base];
-  if (data.type) parts.push(`event=${data.type}`);
-  if (data.stackTrace?.length) parts.push(`stack_depth=${data.stackTrace.length}`);
-  if (data.elementCount) parts.push(`elements=${data.elementCount}`);
+function extractLocalization(evt: TraceEvent): LocalizationResult {
+  const result: LocalizationResult = {};
+  const data = evt.args?.data;
+  const beginData = evt.args?.beginData;
+
+  // Extract stack trace from data.stackTrace or beginData.stackTrace (layout triggers)
+  const rawStack = data?.stackTrace || beginData?.stackTrace || data?.callStack;
+  if (Array.isArray(rawStack) && rawStack.length > 0) {
+    result.callStack = rawStack
+      .filter((f: any) => f.url || f.scriptUrl)
+      .slice(0, 10)
+      .map((f: any) => ({
+        functionName: f.functionName || f.name || '(anonymous)',
+        scriptUrl: f.url || f.scriptUrl || '',
+        lineNumber: f.lineNumber ?? f.line ?? 0,
+        columnNumber: f.columnNumber ?? f.column ?? 0,
+      }));
+
+    // First meaningful frame = source location
+    const firstFrame = result.callStack.find(f => f.scriptUrl && !isInternalUrl(f.scriptUrl));
+    if (firstFrame) {
+      result.sourceLocation = {
+        functionName: firstFrame.functionName,
+        scriptUrl: firstFrame.scriptUrl,
+        lineNumber: firstFrame.lineNumber,
+      };
+    }
+  }
+
+  // FunctionCall has direct function/script info
+  if (evt.name === 'FunctionCall' && data) {
+    const fnName = data.functionName || data.scriptName || '';
+    if (fnName && !result.sourceLocation) {
+      result.sourceLocation = {
+        functionName: fnName,
+        scriptUrl: data.scriptName || data.url || '',
+        lineNumber: data.scriptLine || data.lineNumber || 0,
+      };
+    }
+  }
+
+  // EventDispatch carries the DOM event type
+  if (evt.name === 'EventDispatch' && data?.type) {
+    result.eventType = data.type;
+  }
+
+  return result;
+}
+
+function isInternalUrl(url: string): boolean {
+  return url.includes('extensions::') || url.includes('chrome-extension://') || url.startsWith('native ');
+}
+
+function buildDetails(evt: TraceEvent, durationMs: number, loc: LocalizationResult): string {
+  const parts = [`CDP ${evt.name}: ${durationMs}ms`];
+  const data = evt.args?.data;
+
+  if (loc.eventType) parts.push(`event=${loc.eventType}`);
+  if (loc.sourceLocation) {
+    const src = loc.sourceLocation;
+    const file = src.scriptUrl.split('/').pop() || src.scriptUrl;
+    parts.push(`source=${src.functionName}@${file}:${src.lineNumber}`);
+  }
+  if (loc.callStack?.length) parts.push(`stack_depth=${loc.callStack.length}`);
+  if (data?.elementCount) parts.push(`elements=${data.elementCount}`);
+
   return parts.join(' | ');
 }

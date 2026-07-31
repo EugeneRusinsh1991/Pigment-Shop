@@ -34,6 +34,11 @@ export interface LagRecord {
   details?: string;
   traceCategory?: string;
   traceName?: string;
+  sourceLocation?: {
+    functionName: string;
+    scriptUrl: string;
+    lineNumber: number;
+  };
 }
 
 export class PerfLogger {
@@ -61,7 +66,9 @@ export class PerfLogger {
     const fullRecord = { id, ...record } as LagRecord;
     this.lags.push(fullRecord);
     const target = fullRecord.userAction?.targetSelector || fullRecord.selector || fullRecord.action || 'UI';
-    console.warn(`[PERF LAG WARNING] ${record.type} on ${target} took ${record.durationMs}ms (Threshold: ${record.thresholdMs}ms)`);
+    const src = fullRecord.sourceLocation;
+    const location = src ? ` → ${src.functionName}@${src.scriptUrl.split('/').pop()}:${src.lineNumber}` : '';
+    console.warn(`[PERF LAG WARNING] ${record.type} on ${target} took ${record.durationMs}ms (Threshold: ${record.thresholdMs}ms)${location}`);
   }
 
   private isDuplicate(record: Omit<LagRecord, 'id'>): boolean {

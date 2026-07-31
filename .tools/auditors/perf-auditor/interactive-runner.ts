@@ -104,18 +104,25 @@ export async function runInteractiveMode() {
 
   const flushTraceLags = async () => {
     if (!traceCollector || page.isClosed()) return;
-    const traceLags = await traceCollector.flush().catch(() => []);
-    for (const tl of traceLags) {
-      logger.recordLag({
-        timestamp: tl.timestamp,
-        type: tl.type,
-        durationMs: tl.durationMs,
-        thresholdMs: config.lagThresholdMs,
-        url: tl.url,
-        details: tl.details,
-        traceCategory: tl.traceCategory,
-        traceName: tl.traceName,
-      });
+    try {
+      const traceLags = await traceCollector.flush();
+      console.log(`[PERF AUDIT] Trace flush: ${traceLags.length} lags found`);
+      for (const tl of traceLags) {
+        logger.recordLag({
+          timestamp: tl.timestamp,
+          type: tl.type,
+          durationMs: tl.durationMs,
+          thresholdMs: config.lagThresholdMs,
+          url: tl.url,
+          details: tl.details,
+          traceCategory: tl.traceCategory,
+          traceName: tl.traceName,
+          callStack: tl.callStack,
+          sourceLocation: tl.sourceLocation,
+        });
+      }
+    } catch (err) {
+      console.error('[PERF AUDIT] Trace flush ERROR:', err);
     }
   };
 
@@ -163,6 +170,8 @@ export async function runInteractiveMode() {
           details: tl.details,
           traceCategory: tl.traceCategory,
           traceName: tl.traceName,
+          callStack: tl.callStack,
+          sourceLocation: tl.sourceLocation,
         });
       }
     }
