@@ -85,8 +85,8 @@ export default function CatalogView({
     [isDark, depth, favs, cols]
   );
 
-  const gridContentStyle = [styles.list, layoutStyles.gridContent, { width: gridWidth }];
-  const scrollContentStyle = [styles.list, layoutStyles.scrollContent, { width: gridWidth }];
+  const gridContentStyle = [styles.list, layoutStyles.gridContent];
+  const scrollContentStyle = [styles.list, layoutStyles.scrollContent];
 
   return (
     <View style={[layoutStyles.catalogContainer, isDark ? styles.containerDark : styles.containerLight]}>
@@ -182,6 +182,7 @@ export default function CatalogView({
 const layoutStyles = StyleSheet.create({
   catalogContainer: {
     flexGrow: 1,
+    paddingHorizontal: layout.spacing.lg,
   },
   listContainer: {
     flexGrow: 1,

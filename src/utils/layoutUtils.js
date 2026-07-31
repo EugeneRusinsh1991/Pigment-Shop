@@ -81,5 +81,7 @@ export function getGridCols(windowWidth, hasFilterSidebar = false) {
  * @param {boolean} [hasFilterSidebar=false] - whether active filter sidebar is shown
  */
 export function getContentGridWidth(windowWidth, depth = 0, hasFilterSidebar = false) {
-  return Math.min(windowWidth, layoutTokens.maxContentWidth);
+  const isMobile = windowWidth < layoutTokens.breakpoints.mobile;
+  const edgePadding = isMobile ? layoutTokens.spacing.lg * 2 : 0;
+  return Math.min(windowWidth, layoutTokens.maxContentWidth) - edgePadding;
 }

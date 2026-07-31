@@ -6,7 +6,7 @@
  */
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
 import { PageTransition } from '../../components/ui/Motion';
 import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
@@ -127,58 +127,61 @@ export default function CatalogPage({ isDark }) {
   } = usePaginatedCatalog(filters, sortKey, flatList, categoryTree, pageSize);
 
   return (
-    <View style={isDark ? styles.containerDark : styles.containerLight}>
-      <View style={isNarrow ? styles.containerNarrow : styles.row}>
-        <CatalogFilterSidebar
-          categoryTree={categoryTree}
-          filters={filters}
-          setFilter={setFilter}
-          toggleCategory={toggleCategory}
-          resetFilters={resetFilters}
-          isDark={isDark}
-          isNarrow={isNarrow}
-          mobileVisible={mobileFiltersVisible}
-          onMobileToggle={() => setMobileFiltersVisible((v) => !v)}
-          sortKey={sortKey}
-          onSortChange={setSortKey}
-        />
-        <CatalogMainContent
-          isNarrow={isNarrow}
-          sortKey={sortKey}
-          setSortKey={setSortKey}
-          totalCount={totalCount}
-          isDark={isDark}
-          triggerKey={triggerKey}
-          currentPageProducts={currentPageProducts}
-          cols={cols}
-          cardWidth={cardWidth}
-          gap={gap}
-          favs={favs}
-          t={t}
-          gridWidth={gridWidth}
-          mobileFiltersVisible={mobileFiltersVisible}
-          setMobileFiltersVisible={setMobileFiltersVisible}
-          sortDropdownVisible={sortDropdownVisible}
-          setSortDropdownVisible={setSortDropdownVisible}
-          currentPage={currentPage}
-          totalPages={totalPages}
-          prevPage={prevPage}
-          nextPage={nextPage}
-          loading={loading}
-        />
-      </View>
-    </View>
+    <ScrollView
+      style={isDark ? styles.containerDark : styles.containerLight}
+      contentContainerStyle={isNarrow ? styles.containerNarrow : styles.row}
+      showsVerticalScrollIndicator={false}
+      keyboardShouldPersistTaps="handled"
+    >
+      <CatalogFilterSidebar
+        categoryTree={categoryTree}
+        filters={filters}
+        setFilter={setFilter}
+        toggleCategory={toggleCategory}
+        resetFilters={resetFilters}
+        isDark={isDark}
+        isNarrow={isNarrow}
+        mobileVisible={mobileFiltersVisible}
+        onMobileToggle={() => setMobileFiltersVisible((v) => !v)}
+        sortKey={sortKey}
+        onSortChange={setSortKey}
+      />
+      <CatalogMainContent
+        isNarrow={isNarrow}
+        sortKey={sortKey}
+        setSortKey={setSortKey}
+        totalCount={totalCount}
+        isDark={isDark}
+        triggerKey={triggerKey}
+        currentPageProducts={currentPageProducts}
+        cols={cols}
+        cardWidth={cardWidth}
+        gap={gap}
+        favs={favs}
+        t={t}
+        gridWidth={gridWidth}
+        mobileFiltersVisible={mobileFiltersVisible}
+        setMobileFiltersVisible={setMobileFiltersVisible}
+        sortDropdownVisible={sortDropdownVisible}
+        setSortDropdownVisible={setSortDropdownVisible}
+        currentPage={currentPage}
+        totalPages={totalPages}
+        prevPage={prevPage}
+        nextPage={nextPage}
+        loading={loading}
+      />
+    </ScrollView>
   );
 }
 
 
 const styles = StyleSheet.create({
-  container: { flex: 1, minHeight: 0 },
-  containerNarrow: { flex: 1, minHeight: 0, paddingHorizontal: layout.spacing.lg },
+  container: { flex: 1 },
+  containerNarrow: { flexGrow: 1, paddingHorizontal: layout.spacing.lg },
   containerDark: { flex: 1, backgroundColor: colors.backgroundDark },
   containerLight: { flex: 1, backgroundColor: colors.backgroundLight },
-  row: { flex: 1, minHeight: 0, flexDirection: 'row', width: '100%', maxWidth: layout.maxContentWidth, alignSelf: 'center', paddingHorizontal: layout.spacing.lg },
-  main: { flex: 1, minHeight: 0, padding: layout.spacing.lg },
-  mainNarrow: { padding: layout.spacing.none, alignItems: 'center' },
-  gridContainer: { flex: 1, minHeight: 0 },
+  row: { flexGrow: 1, flexDirection: 'row', width: '100%', maxWidth: layout.maxContentWidth, alignSelf: 'center', paddingHorizontal: layout.spacing.lg },
+  main: { flex: 1, padding: layout.spacing.lg },
+  mainNarrow: { alignItems: 'center' },
+  gridContainer: { flex: 1 },
 });

@@ -20,10 +20,8 @@ export default function useCatalogLayout() {
   const { cols, gap } = useUnifiedCardGrid({ hasFilterSidebar: true });
   const isNarrow = windowWidth < layout.breakpoints.sm;
 
-  const contentWidth = Math.min(windowWidth, layout.maxContentWidth) - layout.spacing.lg;
-  const gridWidth = isNarrow
-    ? Math.min(windowWidth - layout.spacing.lg * 2, getContentGridWidth(windowWidth - layout.spacing.lg * 2, 1))
-    : contentWidth - SIDEBAR_WIDTH;
+  const contentWidth = getContentGridWidth(windowWidth);
+  const gridWidth = isNarrow ? contentWidth : contentWidth - SIDEBAR_WIDTH;
 
   const availableWidth = isNarrow ? gridWidth : gridWidth - MAIN_PADDING;
   const cardWidth = Math.max(140, Math.floor((availableWidth - gap * 2 * cols) / cols));
