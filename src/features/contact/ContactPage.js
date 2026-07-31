@@ -1,37 +1,71 @@
-import { View, useWindowDimensions } from 'react-native';
-import { Heading } from '../../components/ui/Text';
+import { StyleSheet, useWindowDimensions, View } from 'react-native';
+import { ScrollFadeUp } from '../../components/ui/Motion';
+import commonStyles from '../../theme/commonStyles';
 import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
-import commonStyles from '../../theme/commonStyles';
+import { layout } from '../../theme/tokens';
+import ContactAuxiliarySection from './ContactAuxiliarySection';
+import ContactFormSection from './ContactFormSection';
+import ContactInfoSection from './ContactInfoSection';
 
-import { ScrollFadeUp } from '../../components/ui/Motion';
-import { getContentGridWidth } from '../../utils/layoutUtils';
-import SocialButtons from './SocialButtons';
-import ContactQuestionForm from './ContactQuestionForm';
-import styles from './ContactPageStyles';
+const styles = StyleSheet.create({
+  flex1: {
+    flex: 1,
+  },
+  content: {
+    paddingVertical: layout.spacing.xl,
+    paddingBottom: layout.spacing.xxl,
+  },
+  grid: {
+    flexDirection: 'row',
+    gap: layout.spacing.xl,
+    alignItems: 'flex-start',
+  },
+  gridDesktop: {
+    flexDirection: 'row',
+  },
+  gridMobile: {
+    flexDirection: 'column',
+  },
+  colLeft: {
+    flex: 1,
+  },
+  colCenter: {
+    flex: 1.5,
+  },
+  colRight: {
+    flex: 1,
+  },
+  colFull: {
+    width: '100%',
+  },
+});
 
 export default function ContactPage({ isDark }) {
   const { ic } = useTheme();
   const { t } = useLanguage();
   const { width: windowWidth } = useWindowDimensions();
-  const isMobile = windowWidth < 768;
-  const contentWidth = getContentGridWidth(windowWidth);
+  const isMultiCol = windowWidth >= layout.breakpoints.mobile;
 
   return (
     <View
       style={[commonStyles.container, ic(commonStyles.containerDark, commonStyles.containerLight)]}
     >
       <View style={styles.flex1}>
-        <View style={[commonStyles.content, styles.contentPadding]}>
+        <View style={[commonStyles.content, styles.content]}>
           <ScrollFadeUp>
-            <Heading level={1} style={styles.title} isDark={isDark}>
-              {t('contactUsTitle')}
-            </Heading>
+            <View style={[styles.grid, isMultiCol ? styles.gridDesktop : styles.gridMobile]}>
+              <View style={isMultiCol ? styles.colLeft : styles.colFull}>
+                <ContactInfoSection t={t} isDark={isDark} />
+              </View>
+              <View style={isMultiCol ? styles.colCenter : styles.colFull}>
+                <ContactFormSection t={t} isDark={isDark} />
+              </View>
+              <View style={isMultiCol ? styles.colRight : styles.colFull}>
+                <ContactAuxiliarySection t={t} isDark={isDark} />
+              </View>
+            </View>
           </ScrollFadeUp>
-
-          <SocialButtons t={t} isMobile={isMobile} contentWidth={contentWidth} ic={ic} isDark={isDark} />
-
-          <ContactQuestionForm t={t} ic={ic} isDark={isDark} isMobile={isMobile} contentWidth={contentWidth} />
         </View>
       </View>
     </View>
