@@ -35,21 +35,25 @@ If the user invoked the skill without parameters, **STOP IMMEDIATELY** and ask t
 
 ---
 
-## Initial Call & Model Escalation Rules (+20% Complexity Buffer)
-- **Default Entry Point Model**: 🟢 **Gemini 3.6 Flash (Medium)**.
-- **MANDATORY MODEL ESCALATION RULE**:
-  - **Medium (3/5) complexity ALWAYS maps to 🟠 Gemini 3.6 Flash (High)**.
-  - **Low (1-2/5) complexity** + more than 4 files -> **escalate to 🟠 Gemini 3.6 Flash (High)**.
-  - Any task touching global UI primitives, shared state, or >5 files -> **MUST recommend 🟠 Gemini 3.6 Flash (High)**.
+## Model Selection & Escalation Rules (Unified Source of Truth)
+
+- **Mandatory Recommender Integration**: All model evaluations, complexity calculations, and escalation recommendations across Stages 1–5 MUST use the [/model-recommender](file:///d:/Magazine/_PigmentShop/.agents/skills/model-recommender/SKILL.md) skill rules.
+- **Formula**: `Effective Score (S) = f + Math.ceil(r / 4)` (where `f` = files to edit, `r` = context files to read).
+- **Threshold Scale & Indicators**:
+  - `S = 1 (d = 1)` -> `○ FL` (Gemini 3.6 Flash Low)
+  - `S ≤ 4` -> `◐ FM` (Gemini 3.6 Flash Medium)
+  - `S = 5..8` -> `◕ FH` (Gemini 3.6 Flash High)
+  - `S = 9..12` -> `★ PH` (Gemini 3.1 Pro High)
+  - `S > 12` (or `f > 8`) -> `⚠️ BREAK DOWN INTO SUBTASKS`
 
 ---
 
 ## 📢 Standard Step Response Protocol (Normal Execution)
 
-For normal step transitions in the **SAME CHAT WINDOW**, use standard concise status output with colored indicator badges:
+For normal step transitions in the **SAME CHAT WINDOW**, use standard concise status output with model-recommender format (`<indicator> <Model Code> — <N>d <M>f +<K>r`):
 
 > **Stage 2.1 Complete.** Saved `batches/2.1_batch_ui.md`.  
-> **Next**: Stage 2.2 (`2.2_batch_state`). **Recommended Model**: 🟠 `Gemini 3.6 Flash (High)`.
+> **Next**: Stage 2.2 (`2.2_batch_state`). **Recommended Model**: `◕ FH — 2d 5f +10r`.
 
 ---
 
@@ -84,7 +88,7 @@ Include the **Emergency Window Move Notice ONLY** under these 3 conditions:
    - If Stage 1 done -> Run **Stage 2.x ONLY** for the next batch (`references/stage-2-batch-audit.md`). Save as `batches/<step_id>-batch-<name>.md` and update `audit-config.md`.
    - If Stage 2 done -> Run **Stage 3 ONLY** (`references/stage-3-global-inventory.md`). Create `stages/3-global-inventory.md`.
    - If Stage 3 done -> Run **Stage 4 ONLY** (`references/stage-4-global-analysis.md`). Create `stages/4-global-analysis.md`.
-   - If Stage 4 done -> Run **Stage 5 ONLY** (`references/stage-5-refactoring-roadmap.md`). Create `stages/5-refactoring-roadmap.md` and `tasks/*.md` with explicit UI Verification Guides.
+   - If Stage 4 done -> Run **Stage 5 ONLY** (`references/stage-5-refactoring-roadmap.md`). Create `stages/5-refactoring-roadmap.md` (with subtask checklists) and `tasks/*.md` (with hybrid domain subtasks of max 8 files, 100% file retention, `/model-recommender` ratings, mutual parallelism tags, and UI Verification Guides).
 3. **Output Protocol**:
    - Update `audit-config.md` (Next step & History log).
    - Always output **Standard Step Response** (colored indicator badge & next model recommendation).

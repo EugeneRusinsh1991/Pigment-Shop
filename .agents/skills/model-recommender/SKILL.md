@@ -14,8 +14,8 @@ description: Evaluates task complexity and recommends the appropriate AI model (
 - `FL`: Gemini 3.6 Flash Low (`S = 1` AND `d = 1`)
 - `FM`: Gemini 3.6 Flash Medium (`S ≤ 4`)
 - `FH`: Gemini 3.6 Flash High (`S ≤ 8`)
-- `PH`: Gemini 3.1 Pro High (`S > 8`)
-- `⚠️ BREAK DOWN INTO SUBTASKS`: If task requires decomposition (`S > 8`)
+- `PH`: Gemini 3.1 Pro High (`S ≤ 12`)
+- `⚠️ BREAK DOWN INTO SUBTASKS`: If task requires decomposition (`S > 12` or `f > 8`)
 
 ## Output Format
 
@@ -25,7 +25,7 @@ Examples:
 - `○ FL — 1d 1f +0r`
 - `◐ FM — 1d 3f +5r`
 - `◕ FH — 2d 5f +10r`
-- `★ PH — 4d 8f +20r`
+- `★ PH — 4d 10f +8r`
 - `⚠️ BREAK DOWN INTO SUBTASKS`
 
 ## File In-Place Annotation Rule
@@ -34,7 +34,7 @@ If the user provides a file (task/plan file), write evaluation ratings directly 
 ## Parent Task & Subtask Guidelines
 - **Parent Task**: Calculate for entire parent task in single session
 - **Subtasks**: Calculate for EACH subtask separately
-- **Decomposition**: Add `⚠️ BREAK DOWN INTO SUBTASKS` if `S > 8`
+- **Decomposition**: Add `⚠️ BREAK DOWN INTO SUBTASKS` if `S > 12` or `f > 8`
 
 ## Multi-Task Parallelism & Task Target Format
 When evaluating multiple tasks/subtasks:
