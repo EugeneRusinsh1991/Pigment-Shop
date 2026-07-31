@@ -2,13 +2,23 @@
   "summary": {
     "visitedScreens": 0,
     "visitedInteractions": 0,
-    "successfulInteractions": 0,
+    "successfulInteractions": 42,
     "failedInteractions": 0,
     "warnings": 3,
-    "errors": 0,
+    "errors": 1,
     "executionDurationMs": 0
   },
-  "failures": [],
+  "failures": [
+    {
+      "screen": "http://localhost:8081/",
+      "interaction": "Click",
+      "elementIdentifier": "btn|2",
+      "event": "AfterInteraction",
+      "timestamp": 1785538221684,
+      "errorType": "Health Check Evaluation Failed",
+      "errorMessage": "[Application Bug] page.evaluate: Target crashed "
+    }
+  ],
   "warnings": [
     {
       "screen": "http://localhost:8081/",
