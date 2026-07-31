@@ -25,7 +25,14 @@ export default function StoreSearchHeader({ isDark: isDarkProp, isHome, contentW
         styles.stickySearchContainer,
         ic(isDark, styles.stickySearchContainerDark, styles.stickySearchContainerLight),
         isSearchActive && { zIndex: layout.zIndices.tooltip },
-        { transform: [{ translateY }] }
+        {
+          transform: [{ translateY }],
+          marginTop: translateY.interpolate({
+            inputRange: [-48, 0],
+            outputRange: [-48, 0],
+            extrapolate: 'clamp',
+          }),
+        }
       ]}
     >
       <View style={searchInnerStyle}>
