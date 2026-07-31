@@ -23,19 +23,31 @@ async function simulateUserActivity(page: any, baseUrl: string): Promise<void> {
   await new Promise(r => setTimeout(r, 5000));
 }
 
-function analyzeTraceChunks(chunks: any[]): void {
+function isDurationEvent(evt: any): boolean {
+  return evt.ph === 'X' && Boolean(evt.dur && evt.dur > 0);
+}
+
+function hasStackTrace(evt: any): boolean {
+  if (!evt.args || !evt.args.data) return false;
+  return Boolean(evt.args.data.stackTrace);
+}
+
+function collectEventStats(chunks: any[]): { nameCount: Record<string, number>; xEvents: any[] } {
   const nameCount: Record<string, number> = {};
   const xEvents: any[] = [];
   for (const evt of chunks) {
     nameCount[evt.name] = (nameCount[evt.name] || 0) + 1;
-    if (evt.ph === 'X' && evt.dur && evt.dur > 0) {
-      xEvents.push({ name: evt.name, durMs: Math.round(evt.dur / 1000), hasStack: !!evt.args?.data?.stackTrace });
+    if (isDurationEvent(evt)) {
+      xEvents.push({ name: evt.name, durMs: Math.round(evt.dur / 1000), hasStack: hasStackTrace(evt) });
     }
   }
-  
+  return { nameCount, xEvents };
+}
+
+function logEventDistributions(nameCount: Record<string, number>, xEvents: any[]): void {
   console.log('\n[DIAG] Event name distribution (top 20):');
   Object.entries(nameCount)
-    .sort(([,a], [,b]) => (b as number) - (a as number))
+    .sort(([, a], [, b]) => (b as number) - (a as number))
     .slice(0, 20)
     .forEach(([name, count]) => console.log(`  ${name}: ${count}`));
 
@@ -43,6 +55,11 @@ function analyzeTraceChunks(chunks: any[]): void {
   const longEvents = xEvents.filter(e => e.durMs >= 1).sort((a, b) => b.durMs - a.durMs);
   console.log(`[DIAG] Events >= 1ms: ${longEvents.length}`);
   longEvents.slice(0, 15).forEach(e => console.log(`  ${e.name}: ${e.durMs}ms (hasStack=${e.hasStack})`));
+}
+
+function analyzeTraceChunks(chunks: any[]): void {
+  const { nameCount, xEvents } = collectEventStats(chunks);
+  logEventDistributions(nameCount, xEvents);
 }
 
 async function diagnose() {

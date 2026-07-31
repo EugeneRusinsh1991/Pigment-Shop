@@ -146,6 +146,16 @@ export class V8ProfileResolver {
     return fn === '(idle)' || fn === '(root)' || fn === '(program)' || fn === '(garbage collector)';
   }
 
+  private toStackFrame(node: ProfileNode): TraceStackFrame | null {
+    if (this.isIdleNode(node) || !node.callFrame.url) return null;
+    return {
+      functionName: node.callFrame.functionName || '(anonymous)',
+      scriptUrl: node.callFrame.url,
+      lineNumber: Math.max(0, node.callFrame.lineNumber),
+      columnNumber: Math.max(0, node.callFrame.columnNumber),
+    };
+  }
+
   /** Walk up the call tree from nodeId to root, collecting non-idle frames */
   private buildCallChain(nodeId: number): TraceStackFrame[] {
     const chain: TraceStackFrame[] = [];
@@ -154,14 +164,8 @@ export class V8ProfileResolver {
 
     while (current && !visited.has(current.id)) {
       visited.add(current.id);
-      if (!this.isIdleNode(current) && current.callFrame.url) {
-        chain.push({
-          functionName: current.callFrame.functionName || '(anonymous)',
-          scriptUrl: current.callFrame.url,
-          lineNumber: Math.max(0, current.callFrame.lineNumber),
-          columnNumber: Math.max(0, current.callFrame.columnNumber),
-        });
-      }
+      const frame = this.toStackFrame(current);
+      if (frame) chain.push(frame);
       current = current.parent != null ? this.nodes.get(current.parent) : undefined;
     }
 

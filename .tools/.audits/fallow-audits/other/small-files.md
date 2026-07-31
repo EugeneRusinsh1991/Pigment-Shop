@@ -1,6 +1,6 @@
 # 📄 Small & Pass-Through Files Findings
 
-*Generated on: 01.08.2026, 01:16:44*
+*Generated on: 01.08.2026, 01:46:46*
 
 ### Candidate Files for Refactoring/Elimination
 
@@ -48,12 +48,12 @@
   - Lines: 18 | Size: 468 B | Type: **Tiny File**
   > 💡 This file contains very few lines; review if it adds unnecessary system noise.
 
-- **[devServerHelper.js](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/helpers/devServerHelper.js)** (`automation/browser-automation/helpers/devServerHelper.js`)
-  - Lines: 48 | Size: 1326 B | Type: **Helper File**
+- **[devServerHelper.ts](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/helpers/devServerHelper.ts)** (`automation/browser-automation/helpers/devServerHelper.ts`)
+  - Lines: 15 | Size: 472 B | Type: **Helper File**
   > 💡 Consider merging this helper file into the main component that consumes it.
 
-- **[devServerHelper.ts](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/helpers/devServerHelper.ts)** (`automation/browser-automation/helpers/devServerHelper.ts`)
-  - Lines: 50 | Size: 1335 B | Type: **Helper File**
+- **[devServerHelper.js](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/helpers/devServerHelper.js)** (`automation/browser-automation/helpers/devServerHelper.js`)
+  - Lines: 48 | Size: 1326 B | Type: **Helper File**
   > 💡 Consider merging this helper file into the main component that consumes it.
 
 - **[mockSeedHelper.ts](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/helpers/mockSeedHelper.ts)** (`automation/browser-automation/helpers/mockSeedHelper.ts`)

@@ -65,10 +65,19 @@ export class PerfLogger {
     const id = `lag-${Date.now()}-${record.durationMs}`;
     const fullRecord = { id, ...record } as LagRecord;
     this.lags.push(fullRecord);
-    const target = fullRecord.userAction?.targetSelector || fullRecord.selector || fullRecord.action || 'UI';
-    const src = fullRecord.sourceLocation;
-    const location = src ? ` → ${src.functionName}@${src.scriptUrl.split('/').pop()}:${src.lineNumber}` : '';
+    const target = this.getTargetSelector(fullRecord);
+    const location = this.formatSourceLocation(fullRecord.sourceLocation);
     console.warn(`[PERF LAG WARNING] ${record.type} on ${target} took ${record.durationMs}ms (Threshold: ${record.thresholdMs}ms)${location}`);
+  }
+
+  private getTargetSelector(record: LagRecord): string {
+    return record.userAction?.targetSelector ?? record.selector ?? record.action ?? 'UI';
+  }
+
+  private formatSourceLocation(src?: LagRecord['sourceLocation']): string {
+    if (!src) return '';
+    const file = src.scriptUrl.split('/').pop();
+    return ` → ${src.functionName}@${file}:${src.lineNumber}`;
   }
 
   private isDuplicate(record: Omit<LagRecord, 'id'>): boolean {

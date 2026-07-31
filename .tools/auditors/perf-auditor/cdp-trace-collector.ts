@@ -97,15 +97,7 @@ export class CdpTraceCollector {
     const lagType = LAG_EVENT_MATCHERS[evt.name];
     if (!lagType) return null;
 
-    let localization = extractLocalization(evt);
-
-    if (evt.name === 'RunTask' && !localization.sourceLocation) {
-      localization = inheritFromChildren(evt, childIndex, localization);
-    }
-
-    if (evt.name === 'RunTask' && !localization.sourceLocation && profiler.hasData()) {
-      localization = resolveFromProfiler(evt, profiler, localization);
-    }
+    const localization = resolveLocalization(evt, childIndex, profiler);
 
     return {
       type: lagType,
@@ -156,6 +148,27 @@ interface LocalizationResult {
   eventType?: string;
 }
 
+function getFrameName(f: any): string {
+  return f.functionName || f.name || '(anonymous)';
+}
+
+function getFrameUrl(f: any): string {
+  return f.url || f.scriptUrl || '';
+}
+
+function getFrameNum(val1: any, val2: any): number {
+  return val1 ?? val2 ?? 0;
+}
+
+function formatStackFrame(f: any): TraceStackFrame {
+  return {
+    functionName: getFrameName(f),
+    scriptUrl: getFrameUrl(f),
+    lineNumber: getFrameNum(f.lineNumber, f.line),
+    columnNumber: getFrameNum(f.columnNumber, f.column),
+  };
+}
+
 function parseCallStack(rawStack: any[]): {
   callStack: TraceStackFrame[];
   sourceLocation?: { functionName: string; scriptUrl: string; lineNumber: number };
@@ -163,12 +176,7 @@ function parseCallStack(rawStack: any[]): {
   const callStack = rawStack
     .filter((f: any) => f.url || f.scriptUrl)
     .slice(0, 10)
-    .map((f: any) => ({
-      functionName: f.functionName || f.name || '(anonymous)',
-      scriptUrl: f.url || f.scriptUrl || '',
-      lineNumber: f.lineNumber ?? f.line ?? 0,
-      columnNumber: f.columnNumber ?? f.column ?? 0,
-    }));
+    .map(formatStackFrame);
 
   const firstFrame = callStack.find(f => f.scriptUrl && !isInternalUrl(f.scriptUrl));
   const sourceLocation = firstFrame ? {
@@ -361,6 +369,24 @@ function resolveFromProfiler(
       : existing.sourceLocation,
     eventType: existing.eventType,
   };
+}
+
+function resolveLocalization(
+  evt: TraceEvent,
+  childIndex: Map<any, TraceEvent[]>,
+  profiler: V8ProfileResolver
+): LocalizationResult {
+  let localization = extractLocalization(evt);
+
+  if (evt.name === 'RunTask' && !localization.sourceLocation) {
+    localization = inheritFromChildren(evt, childIndex, localization);
+  }
+
+  if (evt.name === 'RunTask' && !localization.sourceLocation && profiler.hasData()) {
+    localization = resolveFromProfiler(evt, profiler, localization);
+  }
+
+  return localization;
 }
 
 function getFileName(url: string): string {

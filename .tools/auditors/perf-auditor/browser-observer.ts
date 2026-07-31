@@ -6,24 +6,34 @@ export async function injectPerformanceObserver(page: Page, thresholdMs: number 
     (window as any).__perfAuditObserverInjected = true;
     (window as any).__perfAuditLags = (window as any).__perfAuditLags || [];
     
+    function getSiblingIndex(el: any, selector: string): number {
+      let sib = el;
+      let nth = 1;
+      while (sib = sib.previousElementSibling) {
+        if (sib.nodeName.toLowerCase() == selector) nth++;
+      }
+      return nth;
+    }
+
+    function getElementSelector(el: any): { selector: string; hasId: boolean } {
+      let selector = el.nodeName.toLowerCase();
+      if (el.id) {
+        return { selector: selector + '#' + el.id, hasId: true };
+      }
+      const nth = getSiblingIndex(el, selector);
+      if (nth != 1) selector += ":nth-of-type(" + nth + ")";
+      return { selector, hasId: false };
+    }
+
     function getCssSelector(el: any): string {
       if (!(el instanceof Element)) return '';
-      let path = [];
-      while (el.nodeType === Node.ELEMENT_NODE) {
-        let selector = el.nodeName.toLowerCase();
-        if (el.id) {
-          selector += '#' + el.id;
-          path.unshift(selector);
-          break;
-        } else {
-          let sib = el, nth = 1;
-          while (sib = sib.previousElementSibling) {
-            if (sib.nodeName.toLowerCase() == selector) nth++;
-          }
-          if (nth != 1) selector += ":nth-of-type("+nth+")";
-        }
-        path.unshift(selector);
-        el = el.parentNode;
+      const path = [];
+      let current = el;
+      while (current.nodeType === Node.ELEMENT_NODE) {
+        const step = getElementSelector(current);
+        path.unshift(step.selector);
+        if (step.hasId) break;
+        current = current.parentNode;
       }
       return path.join(" > ");
     }
