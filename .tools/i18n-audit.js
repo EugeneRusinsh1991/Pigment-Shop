@@ -10,20 +10,10 @@ const TARGET_DIRS = [
   path.join(__dirname, '../src/features'),
 ];
 
+const { getFilesRecursively: getFiles } = require('./scripts/fsUtils');
+
 function getFilesRecursively(dir) {
-  let results = [];
-  if (!fs.existsSync(dir)) return results;
-  const list = fs.readdirSync(dir);
-  list.forEach((file) => {
-    const filePath = path.join(dir, file);
-    const stat = fs.statSync(filePath);
-    if (stat && stat.isDirectory()) {
-      results = results.concat(getFilesRecursively(filePath));
-    } else if (file.endsWith('.js') || file.endsWith('.jsx')) {
-      results.push(filePath);
-    }
-  });
-  return results;
+  return getFiles(dir, (_, file) => file.endsWith('.js') || file.endsWith('.jsx'));
 }
 
 function auditFile(filePath) {

@@ -82,13 +82,13 @@ Include the **Emergency Window Move Notice ONLY** under these 3 conditions:
    - `stages/3-global-inventory.md`
    - `stages/4-global-analysis.md`
    - `stages/5-refactoring-roadmap.md`
-   - `tasks/task-<id>-<name>.md`
+   - Task Specs Location: `.to-dos/ai-audit-tasks/task-<id>-<name>.md`
 3. **Execute Single Stage**:
    - If no state -> Run **Stage 1 ONLY** (`references/stage-1-project-inventory.md`). Create `audit-config.md` AND `stages/1-project-inventory.md`.
    - If Stage 1 done -> Run **Stage 2.x ONLY** for the next batch (`references/stage-2-batch-audit.md`). Save as `batches/<step_id>-batch-<name>.md` and update `audit-config.md`.
    - If Stage 2 done -> Run **Stage 3 ONLY** (`references/stage-3-global-inventory.md`). Create `stages/3-global-inventory.md`.
    - If Stage 3 done -> Run **Stage 4 ONLY** (`references/stage-4-global-analysis.md`). Create `stages/4-global-analysis.md`.
-   - If Stage 4 done -> Run **Stage 5 ONLY** (`references/stage-5-refactoring-roadmap.md`). Create `stages/5-refactoring-roadmap.md` (with subtask checklists) and `tasks/*.md` (with hybrid domain subtasks of max 8 files, 100% file retention, `/model-recommender` ratings, mutual parallelism tags, and UI Verification Guides).
+   - If Stage 4 done -> Run **Stage 5 ONLY** (`references/stage-5-refactoring-roadmap.md`). Create `stages/5-refactoring-roadmap.md` (with subtask checklists) and `.to-dos/ai-audit-tasks/*.md` (with hybrid domain subtasks of max 8 files, 100% file retention, `/model-recommender` ratings, mutual parallelism tags, and UI Verification Guides).
 3. **Output Protocol**:
    - Update `audit-config.md` (Next step & History log).
    - Always output **Standard Step Response** (colored indicator badge & next model recommendation).

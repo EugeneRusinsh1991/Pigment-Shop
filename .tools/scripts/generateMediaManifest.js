@@ -19,21 +19,11 @@ function copyDirSync(src, dest) {
   }
 }
 
+const { getFilesRecursively } = require('./fsUtils');
+
 function readdirRecursiveSync(dir, baseDir = dir) {
-  let results = [];
-  if (!fs.existsSync(dir)) return results;
-  const list = fs.readdirSync(dir);
-  list.forEach(file => {
-    const filePath = path.join(dir, file);
-    const stat = fs.statSync(filePath);
-    if (stat && stat.isDirectory()) {
-      results = results.concat(readdirRecursiveSync(filePath, baseDir));
-    } else if (stat && stat.isFile()) {
-      const relativePath = path.relative(baseDir, filePath).replace(/\\/g, '/');
-      results.push(relativePath);
-    }
-  });
-  return results;
+  const files = getFilesRecursively(dir, (_, __, stat) => stat.isFile());
+  return files.map(filePath => path.relative(baseDir, filePath).replace(/\\/g, '/'));
 }
 
 const MEDIA_ROOT = path.join(__dirname, '..', '..', 'media');

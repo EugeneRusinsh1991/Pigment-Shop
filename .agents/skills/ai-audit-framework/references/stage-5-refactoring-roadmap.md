@@ -1,16 +1,16 @@
 # Stage 5 — Refactoring Roadmap & Modular Task Specs
 
 ## Purpose & Scope
-Transform Stage 4 global analysis findings into modular, individual refactoring task specifications saved in `.docs/ai-audit-framework/tasks/`.
+Transform Stage 4 global analysis findings into modular, individual refactoring task specifications saved in `.to-dos/ai-audit-tasks/`.
 
 ---
 
 ## Modular Task Specification & Subtask Breakdown Rules
 
 1. **NEVER combine all tasks into a single monolith roadmap document**.
-2. **Individual Parent Task Files**: Each parent task MUST be written to its own separate file under `.docs/ai-audit-framework/tasks/`:
-   - `task-001-extract-validation.md`
-   - `task-002-auth-context.md`
+2. **Individual Parent Task Files**: Each parent task MUST be written to its own separate file under `.to-dos/ai-audit-tasks/`:
+   - `.to-dos/ai-audit-tasks/task-001-extract-validation.md`
+   - `.to-dos/ai-audit-tasks/task-002-auth-context.md`
 3. **STRICT 100% FILE COVERAGE MANDATE**:
    - `Target Files` MUST list EVERY SINGLE file identified in Stage 4 global analysis. Truncation or omitting files is strictly forbidden.
 4. **MANDATORY GREP STEP FOR TASK GENERATION**:
@@ -86,22 +86,21 @@ Transform Stage 4 global analysis findings into modular, individual refactoring 
 ## Phase 1: Foundations
 | Task ID | Task Title | Complexity | File Link | Dependencies | Recommended Model |
 |---|---|---|---|---|---|
-| TASK-001 | Extract Validation Helper | 2/5 | 📄 **[task-001.md](file:///path/to/.docs/ai-audit-framework/tasks/task-001.md)** | None | Gemini 3.6 Flash Medium |
+| TASK-001 | Extract Validation Helper | 2/5 | 📄 **[task-001.md](file:///path/to/.to-dos/ai-audit-tasks/task-001.md)** | None | Gemini 3.6 Flash Medium |
 
 ## Interactive Task Progress Checklist
 - [ ] **TASK-001**: Extract Validation Helper
 - [ ] **TASK-002**: Auth Context Provider Cleanup
 - [ ] **TASK-003**: Memoize UI Primitives & Admin Features
-  - [ ] `- [ ]` **TASK-003-A**: UI Primitives (Buttons, Cards, Modals)
-  - [ ] `- [ ]` **TASK-003-B**: UI Media & Admin Products Management
-  - [ ] `- [ ]` **TASK-003-C**: Admin Orders & Categories Part 1
-  - [ ] `- [ ]` **TASK-003-D**: Admin Categories Part 2 & Admin Users
+  - [ ] **TASK-003-A**: UI Primitives (Buttons, Cards, Modals)
+  - [ ] **TASK-003-B**: UI Media & Admin Products Management
+  - [ ] **TASK-003-C**: Admin Orders & Categories Part 1
+  - [ ] **TASK-003-D**: Admin Categories Part 2 & Admin Users
 ```
 
 ---
 
 ## Exit Criteria
-- Every parent task created as an independent `.md` file in `.docs/ai-audit-framework/tasks/`.
+- Every parent task created as an independent `.md` file in `.to-dos/ai-audit-tasks/`.
 - Every task exceeding 8 files split into logical subtasks (max 8-10 files each) evaluated with `/model-recommender`.
 - `.docs/ai-audit-framework/stages/5-refactoring-roadmap.md` created as an index table with interactive checkboxes for all subtasks.
-
