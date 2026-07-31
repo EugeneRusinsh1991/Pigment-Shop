@@ -145,10 +145,9 @@ async function setupManualInspector(page) {
         });
         fs.writeFileSync(screenshotPath, base64Data);
 
-        // State dump and report saving temporarily disabled per requirements, but logic retained
-        // fs.writeFileSync(statePath, JSON.stringify(stateDump, getCircularReplacer(), 2), 'utf8');
-        // const reportContent = buildReport(timestamp, stateDump, screenshotFilename, screenshotPath, statePath);
-        // fs.writeFileSync(reportPath, reportContent, 'utf8');
+        fs.writeFileSync(statePath, JSON.stringify(stateDump, getCircularReplacer(), 2), 'utf8');
+        const reportContent = buildReport(timestamp, stateDump, screenshotFilename, screenshotPath, statePath);
+        fs.writeFileSync(reportPath, reportContent, 'utf8');
 
         saveLatestFiles(screenshotsDir, stateDir, reportsDir, screenshotPath, stateDump, '');
 

@@ -45,9 +45,8 @@ export default function LoginPage({ isDark: isDarkProp }) {
       <View
         style={styles.scrollContent}
       >
-        <View style={styles.centerContainer}>
-          <PageTransition key={isRegister} trigger={isRegister}>
-            <View style={[styles.content, styles.contentPadding]}>
+        <PageTransition key={isRegister} trigger={isRegister} style={styles.centerContainer}>
+          <View style={[styles.content, styles.contentPadding]}>
               <LoginHeader isRegister={isRegister} isDark={isDark} />
 
               <View style={[styles.formContainer, ic(isDark, styles.formContainerDark, styles.formContainerLight)]}>
@@ -126,7 +125,6 @@ export default function LoginPage({ isDark: isDarkProp }) {
               />
             </View>
           </PageTransition>
-        </View>
 
       </View>
     </KeyboardAvoidingView>
