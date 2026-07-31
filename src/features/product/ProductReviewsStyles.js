@@ -29,19 +29,10 @@ export default StyleSheet.create({
   },
   ratingValueText: {},
   reviewForm: {
-    borderRadius: layout.radii.md,
-    padding: layout.spacing.lg,
     marginBottom: layout.spacing.lg,
-    borderWidth: layout.borderWidth.thin,
   },
-  formDark: {
-    backgroundColor: colors.navSurfaceDark,
-    borderColor: colors.secondaryDarkBorder,
-  },
-  formLight: {
-    backgroundColor: colors.white,
-    borderColor: colors.secondaryLightBorder,
-  },
+  formDark: {},
+  formLight: {},
   formTitle: {
     marginBottom: layout.spacing.sm,
   },

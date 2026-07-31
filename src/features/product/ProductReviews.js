@@ -51,6 +51,14 @@ export default function ProductReviews({ product, isDark, reviewsState: parentSt
 
   return (
     <View style={[styles.reviewsSection, isDesktop && styles.reviewsSectionDesktop]}>
+      {!isDesktop && (
+        <MobileFormArea
+          isDark={isDark}
+          isAuthenticated={isAuthenticated}
+          state={state}
+        />
+      )}
+
       <SegmentedToggle
         options={contentTabOptions}
         activeValue={state.contentTab || 'reviews'}
@@ -63,14 +71,6 @@ export default function ProductReviews({ product, isDark, reviewsState: parentSt
           {countText}
         </Text>
       </View>
-
-      {!isDesktop && (
-        <MobileFormArea
-          isDark={isDark}
-          isAuthenticated={isAuthenticated}
-          state={state}
-        />
-      )}
 
       <View style={styles.reviewsList}>
         {displayList.map((item) => (
