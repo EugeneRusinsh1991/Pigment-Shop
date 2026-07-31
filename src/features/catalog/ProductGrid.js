@@ -68,7 +68,11 @@ export default function ProductGrid({ products, cols, cardWidth, isDark, onCardP
       contentContainerStyle={[
         styles.grid,
         styles.contentContainer,
-        { marginHorizontal: -(gridGap / 2), marginVertical: -(gridGap / 2) },
+        { 
+          paddingHorizontal: layout.spacing.sm,
+          paddingTop: layout.spacing.xs,
+          paddingBottom: layout.spacing.md 
+        },
       ]}
       ListHeaderComponent={listHeader}
       ListHeaderComponentStyle={isNarrow ? styles.headerStyle : undefined}
@@ -79,7 +83,7 @@ export default function ProductGrid({ products, cols, cardWidth, isDark, onCardP
       initialNumToRender={8}
       maxToRenderPerBatch={8}
       windowSize={5}
-      removeClippedSubviews={true}
+      removeClippedSubviews={false}
     />
   );
 }

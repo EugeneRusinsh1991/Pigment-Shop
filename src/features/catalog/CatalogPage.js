@@ -186,5 +186,5 @@ const styles = StyleSheet.create({
   row: { flexGrow: 1, flexDirection: 'row', width: '100%', maxWidth: layout.maxContentWidth, alignSelf: 'center', paddingHorizontal: layout.spacing.lg },
   main: { flex: 1, padding: layout.spacing.lg },
   mainNarrow: { alignItems: 'center' },
-  gridContainer: { flex: 1 },
+  gridContainer: { flex: 1, paddingTop: layout.spacing.sm },
 });

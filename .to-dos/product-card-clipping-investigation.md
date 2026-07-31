@@ -67,3 +67,34 @@ The clipping manifest on screen is caused by **two distinct, independent layout 
 | **Motion Container** | `src/components/ui/Motion/PageTransition/PageTransition.js` | `overflow: 'visible'` (L30) | 🟢 **Eliminated Suspect** | Explicitly enforces `overflow: 'visible'` on `Animated.View`, introducing no clipping. |
 | **Touchable Container** | `src/components/ui/Card/Card.js` | `staticStyles.touchable` `overflow: 'hidden'` (L124) | 🟢 **Eliminated Suspect** | Applied to inner `TouchableOpacity`, which is a child of `Animated.View`. Outer `Animated.View` holds the transform and shadow, so touchable overflow does not clip outer card shadows/lift. |
 | **Card Style Tokens** | `src/features/product/ProductCardStyles.js` | `prodCard` `overflow: 'visible'` (L8) | 🟢 **Eliminated Suspect** | Explicitly specifies `overflow: 'visible'`, introducing no clipping. |
+
+---
+
+## 5. Implementation Tasks (`◕ FH — 2d 3f +6r`)
+
+To completely eliminate product card clipping while preserving design system tokens and responsive alignments, the following tasks must be performed:
+
+### Task 1: Provide Top Buffer Padding in Catalog Main Content Layout (`◐ FM — 1d 1f +2r — Task 1 [Parallel with Task 3]`)
+- **Target File**: `src/features/catalog/CatalogPage.js`
+- **Scope**:
+  - Add top content padding (e.g., `paddingTop: layout.spacing.sm` or `paddingTop: 8`) to `styles.gridContainer` or `styles.main`.
+  - Provide sufficient vertical clearance (at least 6px for `translateY` lift plus shadow radius) so top-row cards translating upward do not cross the root `ScrollView` boundary.
+
+### Task 2: Replace Negative Margins with Positive Cell Gutters in Product Grid (`◐ FM — 1d 1f +2r`)
+- **Target File**: `src/features/catalog/ProductGrid.js`
+- **Scope**:
+  - Remove negative margins (`marginHorizontal: -(gridGap / 2), marginVertical: -(gridGap / 2)`) from `contentContainerStyle`.
+  - Configure `contentContainerStyle` with explicit positive container padding (`paddingHorizontal: layout.spacing.sm`, `paddingTop: layout.spacing.xs`, `paddingBottom: layout.spacing.md`).
+  - Set `removeClippedSubviews={false}` on `FlatList` to prevent DOM list item subview truncation.
+
+### Task 3: Decouple Card Surface Shadows from Inner Media Overflow Bounds (`◐ FM — 1d 1f +2r — Task 3 [Parallel with Task 1]`)
+- **Target File**: `src/components/ui/Card/Card.js`
+- **Scope**:
+  - Audit `Card.js` element layout to ensure shadow styles (`shadows.cardHover` / `shadows.cardRest`) remain applied to the outer `Animated.View` with `overflow: 'visible'`.
+  - Confirm that inner image container (`Card.Image`) maintains `overflow: 'hidden'` for rounded image corners without restricting parent shadow spread.
+
+### Task 4: Responsive Verification & Visual Regression Testing (`○ FL — 1d 0f +2r`)
+- **Target Component / Tools**: `.tools/scripts/open-playwright.js`
+- **Scope**:
+  - Test hover lift animation (`translateY: -6`) across desktop (4 cols), tablet (3 cols), and mobile (2 cols) viewports.
+  - Verify card elevation shadows along top, left, right, and bottom outer edges in both Light and Dark themes.
