@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import { Text as RNText } from 'react-native';
 import TextStyles from './TextStyles';
 import { useTextTheme } from './useTextTheme';
@@ -94,7 +95,11 @@ export function Text({
     lineHeight,
   });
 
-  warnFontOverrides(style, children);
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      warnFontOverrides(style, children);
+    }
+  }, [style, children]);
 
   return (
     <RNText style={[textStyle, style]} {...rest}>

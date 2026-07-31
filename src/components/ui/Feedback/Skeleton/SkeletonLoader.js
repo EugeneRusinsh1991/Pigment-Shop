@@ -13,17 +13,20 @@ export function SkeletonItem({ width = '100%', height = 20, borderRadius = layou
         Animated.timing(opacity, {
           toValue: 0.8,
           duration: 750,
-          useNativeDriver: Platform.OS !== 'web',
+          useNativeDriver: true,
         }),
         Animated.timing(opacity, {
           toValue: 0.4,
           duration: 750,
-          useNativeDriver: Platform.OS !== 'web',
+          useNativeDriver: true,
         }),
       ])
     );
     pulse.start();
-    return () => pulse.stop();
+    return () => {
+      pulse.stop();
+      opacity.stopAnimation();
+    };
   }, [opacity]);
 
   return (
