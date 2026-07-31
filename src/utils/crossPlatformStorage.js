@@ -1,16 +1,16 @@
-import { Platform } from 'react-native';
-
 /**
  * In-memory fallback cache for native environments or platforms without sessionStorage.
  */
 const memoryStore = new Map();
+
+const isWeb = typeof window !== 'undefined';
 
 /**
  * Universal cross-platform synchronous storage adapter.
  * Serves sessionStorage on Web and a persistent module-level session memory store on Native.
  */
 function readWebStorage(key) {
-  if (Platform.OS !== 'web' || typeof window === 'undefined') return null;
+  if (!isWeb) return null;
   try {
     const localVal = window.localStorage?.getItem(key);
     if (localVal !== null && localVal !== undefined) return localVal;
@@ -24,8 +24,7 @@ function readWebStorage(key) {
 
 export const crossPlatformStorage = {
   getItem(key) {
-    const isWebEnv = Platform.OS === 'web' && typeof window !== 'undefined';
-    if (isWebEnv) {
+    if (isWeb) {
       const webValue = readWebStorage(key);
       if (webValue !== null) return webValue;
     }
@@ -34,7 +33,7 @@ export const crossPlatformStorage = {
 
   setItem(key, value) {
     memoryStore.set(key, value);
-    if (Platform.OS === 'web' && typeof window !== 'undefined') {
+    if (isWeb) {
       try {
         window.localStorage?.setItem(key, value);
         window.sessionStorage?.setItem(key, value);
@@ -46,7 +45,7 @@ export const crossPlatformStorage = {
 
   removeItem(key) {
     memoryStore.delete(key);
-    if (Platform.OS === 'web' && typeof window !== 'undefined') {
+    if (isWeb) {
       try {
         window.localStorage?.removeItem(key);
         window.sessionStorage?.removeItem(key);

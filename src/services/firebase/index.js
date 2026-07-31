@@ -15,7 +15,7 @@
 import { initializeApp, setLogLevel } from 'firebase/app';
 import { getAuth, initializeAuth, inMemoryPersistence } from 'firebase/auth';
 import { initializeFirestore } from 'firebase/firestore';
-import { Platform } from 'react-native';
+
 
 setLogLevel('silent');
 

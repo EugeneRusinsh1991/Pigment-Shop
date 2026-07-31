@@ -6,7 +6,7 @@
  * objects to prevent accidental in-memory state contamination.
  */
 
-import { PRODUCT_PLACEHOLDER } from '@/constants';
+import { PRODUCT_PLACEHOLDER } from '../../constants/index.js';
 
 let _productCounter = 0;
 let _categoryCounter = 0;

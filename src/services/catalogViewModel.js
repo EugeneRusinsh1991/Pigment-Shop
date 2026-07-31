@@ -58,6 +58,8 @@ export function buildFlatList(products = [], categoryLookup, lang = 'en') {
       discountPercent: product.discountPercent,
       sku: product.sku,
       brand: product.brand,
+      stock: product.stock,
+      sold: product.sold,
     };
   });
 
