@@ -23,6 +23,8 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
+    "build": "expo export -p web && node -e \"if (require('fs').existsSync('media')) require('fs').cpSync('media', 'dist/media', { recursive: true })\"",
+    "vercel-build": "npm run build",
     "backup": "node .tools/core/backuper/backup.js",
     "restore": "node .tools/core/backuper/restore.js",
     "audit": "node .tools/auditors/ui-auditor/fallow-auditor/run-audit.cjs",
