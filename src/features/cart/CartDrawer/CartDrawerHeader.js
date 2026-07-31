@@ -15,7 +15,7 @@ export default function CartDrawerHeader({ onClose, cartCount, isDark }) {
         <Text variant="h4" style={styles.title}>Корзина</Text>
         {cartCount > 0 && (
           <View style={[styles.badge, isDark ? styles.badgeDark : styles.badgeLight]}>
-            <Text style={[styles.badgeText, isDark ? styles.badgeTextDark : styles.badgeTextLight]}>
+            <Text size="xs" weight="bold" style={isDark ? styles.badgeTextDark : styles.badgeTextLight}>
               {cartCount}
             </Text>
           </View>
@@ -58,10 +58,6 @@ const styles = StyleSheet.create({
   },
   badgeLight: {
     backgroundColor: colors.dark,
-  },
-  badgeText: {
-    fontSize: typography.sizes.xs,
-    fontWeight: 'bold',
   },
   badgeTextDark: {
     color: colors.dark,

@@ -1,6 +1,6 @@
-import http from 'http';
+const http = require('http');
 
-export async function isServerRunning(urlStr: string): Promise<boolean> {
+async function isServerRunning(urlStr) {
   return new Promise((resolve) => {
     try {
       const u = new URL(urlStr);
@@ -26,10 +26,7 @@ export async function isServerRunning(urlStr: string): Promise<boolean> {
   });
 }
 
-export async function ensureDevServer(
-  urlStr: string = 'http://localhost:8081',
-  maxWaitSeconds = 50
-): Promise<void> {
+async function ensureDevServer(urlStr = 'http://localhost:8081', maxWaitSeconds = 50) {
   if (await isServerRunning(urlStr)) {
     console.log(`✓ Dev server is active at ${urlStr}`);
     return;
@@ -46,3 +43,5 @@ export async function ensureDevServer(
   }
   console.warn(`⚠️ Dev server at ${urlStr} did not respond within ${maxWaitSeconds}s.`);
 }
+
+module.exports = { isServerRunning, ensureDevServer };

@@ -1,5 +1,5 @@
 import { useRef, useCallback, useState } from 'react';
-import { Animated } from 'react-native';
+import { Animated, Platform } from 'react-native';
 
 export function useToastAnimation() {
   const [toast, setToast] = useState(null);
@@ -14,14 +14,14 @@ export function useToastAnimation() {
     Animated.timing(fadeAnim, {
       toValue: 1,
       duration: 200,
-      useNativeDriver: true,
+      useNativeDriver: Platform.OS !== 'web',
     }).start();
 
     timeoutRef.current = setTimeout(() => {
       Animated.timing(fadeAnim, {
         toValue: 0,
         duration: 200,
-        useNativeDriver: true,
+        useNativeDriver: Platform.OS !== 'web',
       }).start(() => {
         setToast(null);
       });

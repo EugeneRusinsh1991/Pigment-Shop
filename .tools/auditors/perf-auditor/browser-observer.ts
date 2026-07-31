@@ -35,124 +35,132 @@ export async function injectPerformanceObserver(page: Page, thresholdMs: number 
       (window as any).__perfAuditLags.push(record);
     }
 
-    ['click', 'input', 'keydown', 'pointerdown', 'scroll'].forEach(evtType => {
-      window.addEventListener(evtType, (e: any) => {
-        const actionContext = {
-          type: evtType,
-          targetSelector: getCssSelector(e.target),
-          targetTagName: e.target?.tagName,
-          targetText: e.target?.innerText?.substring(0, 30),
-          timestamp: performance.now()
-        };
-        (window as any).__perfAuditLastAction = actionContext;
+    function setupActionListeners() {
+      ['click', 'input', 'keydown', 'pointerdown', 'scroll'].forEach(evtType => {
+        window.addEventListener(evtType, (e: any) => {
+          const actionContext = {
+            type: evtType,
+            targetSelector: getCssSelector(e.target),
+            targetTagName: e.target?.tagName,
+            targetText: e.target?.innerText?.substring(0, 30),
+            timestamp: performance.now()
+          };
+          (window as any).__perfAuditLastAction = actionContext;
 
-        const start = performance.now();
-        requestAnimationFrame(() => {
+          const start = performance.now();
           requestAnimationFrame(() => {
-            const delta = Math.round(performance.now() - start);
-            if (delta > threshold) {
-              reportLag({
-                type: 'action_delay',
-                durationMs: delta,
-                url: window.location.href,
-                userAction: actionContext
-              });
-            }
+            requestAnimationFrame(() => {
+              const delta = Math.round(performance.now() - start);
+              if (delta > threshold) {
+                reportLag({
+                  type: 'action_delay',
+                  durationMs: delta,
+                  url: window.location.href,
+                  userAction: actionContext
+                });
+              }
+            });
           });
-        });
-      }, true);
-    });
-
-    let lastFrame = performance.now();
-    function checkFrame() {
-      const now = performance.now();
-      const delta = Math.round(now - lastFrame);
-      const frameThreshold = threshold <= 10 ? (16 + threshold) : threshold;
-      if (delta > frameThreshold) {
-        reportLag({
-          type: 'frame_drop',
-          durationMs: delta,
-          url: window.location.href,
-          userAction: (window as any).__perfAuditLastAction
-        });
-      }
-      lastFrame = now;
-      requestAnimationFrame(checkFrame);
+        }, true);
+      });
     }
-    requestAnimationFrame(checkFrame);
 
-    window.addEventListener('beforeunload', () => {
-      try {
-        sessionStorage.setItem('__perfAuditLagsBackup', JSON.stringify((window as any).__perfAuditLags || []));
-      } catch (e) {}
-    });
-
-    try {
-      const saved = sessionStorage.getItem('__perfAuditLagsBackup');
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed)) {
-          (window as any).__perfAuditLags.push(...parsed);
-        }
-        sessionStorage.removeItem('__perfAuditLagsBackup');
-      }
-    } catch (e) {}
-
-    try {
-      const observer = new PerformanceObserver((list) => {
-        for (const entry of list.getEntries()) {
+    function setupFrameDropChecker() {
+      let lastFrame = performance.now();
+      function checkFrame() {
+        const now = performance.now();
+        const delta = Math.round(now - lastFrame);
+        const frameThreshold = threshold <= 10 ? (16 + threshold) : threshold;
+        if (delta > frameThreshold) {
           reportLag({
-            type: 'longtask',
-            durationMs: Math.round(entry.duration),
-            startTime: performance.now() - entry.duration,
-            startTimeRaw: entry.startTime,
-            name: entry.name,
-            entryType: entry.entryType,
+            type: 'frame_drop',
+            durationMs: delta,
+            url: window.location.href,
             userAction: (window as any).__perfAuditLastAction
           });
         }
-      });
-      try {
-        observer.observe({ type: 'longtask', buffered: true });
-      } catch (err) {
-        observer.observe({ entryTypes: ['longtask'] });
+        lastFrame = now;
+        requestAnimationFrame(checkFrame);
       }
-    } catch (e) {
-      console.error('PerformanceObserver longtask support failed:', e);
+      requestAnimationFrame(checkFrame);
     }
 
-    try {
-      const eventObserver = new PerformanceObserver((list) => {
-        for (const entry of (list as any).getEntries()) {
-          if (entry.duration > threshold) {
+    function setupSessionBackup() {
+      window.addEventListener('beforeunload', () => {
+        try {
+          sessionStorage.setItem('__perfAuditLagsBackup', JSON.stringify((window as any).__perfAuditLags || []));
+        } catch (e) {}
+      });
+
+      try {
+        const saved = sessionStorage.getItem('__perfAuditLagsBackup');
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (Array.isArray(parsed)) {
+            (window as any).__perfAuditLags.push(...parsed);
+          }
+          sessionStorage.removeItem('__perfAuditLagsBackup');
+        }
+      } catch (e) {}
+    }
+
+    function setupLongtaskObserver() {
+      try {
+        const observer = new PerformanceObserver((list) => {
+          for (const entry of list.getEntries()) {
             reportLag({
-              type: 'action_delay',
+              type: 'longtask',
               durationMs: Math.round(entry.duration),
-              url: window.location.href,
-              userAction: {
-                type: entry.name,
-                targetSelector: getCssSelector((entry as any).target),
-                targetTagName: (entry as any).target?.tagName || '',
-                timestamp: entry.startTime
-              }
+              startTime: performance.now() - entry.duration,
+              startTimeRaw: entry.startTime,
+              name: entry.name,
+              entryType: entry.entryType,
+              userAction: (window as any).__perfAuditLastAction
             });
           }
+        });
+        try {
+          observer.observe({ type: 'longtask', buffered: true });
+        } catch (err) {
+          observer.observe({ entryTypes: ['longtask'] });
         }
-      });
-      try {
-        eventObserver.observe({ type: 'event', durationThreshold: threshold, buffered: true });
-      } catch (err) {
-        eventObserver.observe({ entryTypes: ['event'] });
+      } catch (e) {
+        console.error('PerformanceObserver longtask support failed:', e);
       }
-    } catch (e) {}
+    }
 
-    const reportRemaining = () => {
-      // Nothing special needed, as we report immediately now
-    };
-    window.addEventListener('visibilitychange', () => {
-      if (document.visibilityState === 'hidden') reportRemaining();
-    });
-    window.addEventListener('beforeunload', reportRemaining);
+    function setupEventObserver() {
+      try {
+        const eventObserver = new PerformanceObserver((list) => {
+          for (const entry of (list as any).getEntries()) {
+            if (entry.duration > threshold) {
+              reportLag({
+                type: 'action_delay',
+                durationMs: Math.round(entry.duration),
+                url: window.location.href,
+                userAction: {
+                  type: entry.name,
+                  targetSelector: getCssSelector((entry as any).target),
+                  targetTagName: (entry as any).target?.tagName || '',
+                  timestamp: entry.startTime
+                }
+              });
+            }
+          }
+        });
+        try {
+          eventObserver.observe({ type: 'event', durationThreshold: threshold, buffered: true });
+        } catch (err) {
+          eventObserver.observe({ entryTypes: ['event'] });
+        }
+      } catch (e) {}
+    }
+
+    setupActionListeners();
+    setupFrameDropChecker();
+    setupSessionBackup();
+    setupLongtaskObserver();
+    setupEventObserver();
   };
 
   await page.addInitScript(code, thresholdMs);

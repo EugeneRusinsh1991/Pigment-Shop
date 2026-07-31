@@ -21,7 +21,7 @@ export default function CartDrawerFooter({ cart, onClose, isDark }) {
     <DrawerFooter style={styles.footer}>
       <View style={styles.totalRow}>
         <Text variant="h6">Итого:</Text>
-        <Text variant="h6" style={styles.totalAmount}>
+        <Text variant="h6" weight="bold" style={styles.totalAmount}>
           {formatCurrency(cart?.totalPrice || 0)}
         </Text>
       </View>
@@ -51,7 +51,6 @@ const styles = StyleSheet.create({
   },
   totalAmount: {
     color: colors.primary,
-    fontWeight: 'bold',
   },
   checkoutBtn: {
     width: '100%',

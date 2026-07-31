@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Animated, View } from 'react-native';
+import { Animated, Platform, View } from 'react-native';
 import { layout } from '../../../../theme/tokens';
 import { useSkeletonTheme } from './useSkeletonTheme';
 
@@ -13,12 +13,12 @@ function SkeletonItem({ width = '100%', height = 20, borderRadius = layout.radii
         Animated.timing(opacity, {
           toValue: 0.8,
           duration: 750,
-          useNativeDriver: true,
+          useNativeDriver: Platform.OS !== 'web',
         }),
         Animated.timing(opacity, {
           toValue: 0.4,
           duration: 750,
-          useNativeDriver: true,
+          useNativeDriver: Platform.OS !== 'web',
         }),
       ])
     );

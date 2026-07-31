@@ -1,4 +1,5 @@
 import { CDPSession } from 'playwright';
+import { V8ProfileResolver } from './v8-profile-resolver';
 
 export interface TraceEvent {
   cat: string;
@@ -55,6 +56,8 @@ const TRACE_CATEGORIES = [
   'devtools.timeline',
   'disabled-by-default-devtools.timeline',
   'disabled-by-default-devtools.timeline.stack',
+  'disabled-by-default-v8.cpu_profiler',
+  'v8.cpu_profiler',
 ];
 
 export class CdpTraceCollector {
@@ -114,45 +117,64 @@ export class CdpTraceCollector {
     return this.extractLags(this.traceChunks);
   }
 
+  private processDurationEvent(
+    evt: TraceEvent,
+    currentUrl: string,
+    childIndex: Map<string, TraceEvent[]>,
+    profiler: V8ProfileResolver
+  ): TraceLagRecord | null {
+    const durationMs = Math.round(evt.dur! / 1000);
+    if (durationMs < this.thresholdMs) return null;
+
+    const lagType = LAG_EVENT_MATCHERS[evt.name];
+    if (!lagType) return null;
+
+    let localization = extractLocalization(evt);
+
+    if (evt.name === 'RunTask' && !localization.sourceLocation) {
+      localization = inheritFromChildren(evt, childIndex, localization);
+    }
+
+    if (evt.name === 'RunTask' && !localization.sourceLocation && profiler.hasData()) {
+      localization = resolveFromProfiler(evt, profiler, localization);
+    }
+
+    return {
+      type: lagType,
+      durationMs,
+      traceCategory: evt.cat,
+      traceName: evt.name,
+      timestamp: new Date().toISOString(),
+      url: currentUrl,
+      details: buildDetails(evt, durationMs, localization),
+      callStack: localization.callStack,
+      sourceLocation: localization.sourceLocation,
+      eventType: localization.eventType,
+    };
+  }
+
   private extractLags(events: TraceEvent[]): TraceLagRecord[] {
     const lags: TraceLagRecord[] = [];
     const currentUrl = this.pageUrl();
-
-    // Filter to complete duration events (ph='X' with dur)
     const durationEvents = events.filter(e => e.ph === 'X' && e.dur);
-
-    // Build index of child source events grouped by pid:tid for fast lookup
     const childIndex = buildChildIndex(durationEvents);
+
+    const profiler = new V8ProfileResolver();
+    profiler.ingest(events);
+    if (profiler.hasData()) {
+      console.log('[CDP TRACE] V8 CPU profiler data available for source resolution');
+    }
 
     let passedThreshold = 0;
 
     for (const evt of durationEvents) {
       const durationMs = Math.round(evt.dur! / 1000);
-      if (durationMs < this.thresholdMs) continue;
-      passedThreshold++;
+      if (durationMs >= this.thresholdMs) passedThreshold++;
 
-      const lagType = LAG_EVENT_MATCHERS[evt.name];
-      if (!lagType) continue;
-
-      let localization = extractLocalization(evt);
-
-      // Phase 1: If this is a RunTask with no source, inherit from children
-      if (evt.name === 'RunTask' && !localization.sourceLocation) {
-        localization = inheritFromChildren(evt, childIndex, localization);
+      const record = this.processDurationEvent(evt, currentUrl, childIndex, profiler);
+      if (record) {
+        lags.push(record);
       }
-
-      lags.push({
-        type: lagType,
-        durationMs,
-        traceCategory: evt.cat,
-        traceName: evt.name,
-        timestamp: new Date().toISOString(),
-        url: currentUrl,
-        details: buildDetails(evt, durationMs, localization),
-        callStack: localization.callStack,
-        sourceLocation: localization.sourceLocation,
-        eventType: localization.eventType,
-      });
     }
 
     console.log(`[CDP TRACE] Raw: ${events.length} | X+dur: ${durationEvents.length} | ≥${this.thresholdMs}ms: ${passedThreshold} | matched: ${lags.length}`);
@@ -166,36 +188,44 @@ interface LocalizationResult {
   eventType?: string;
 }
 
+function parseCallStack(rawStack: any[]): {
+  callStack: TraceStackFrame[];
+  sourceLocation?: { functionName: string; scriptUrl: string; lineNumber: number };
+} {
+  const callStack = rawStack
+    .filter((f: any) => f.url || f.scriptUrl)
+    .slice(0, 10)
+    .map((f: any) => ({
+      functionName: f.functionName || f.name || '(anonymous)',
+      scriptUrl: f.url || f.scriptUrl || '',
+      lineNumber: f.lineNumber ?? f.line ?? 0,
+      columnNumber: f.columnNumber ?? f.column ?? 0,
+    }));
+
+  const firstFrame = callStack.find(f => f.scriptUrl && !isInternalUrl(f.scriptUrl));
+  const sourceLocation = firstFrame ? {
+    functionName: firstFrame.functionName,
+    scriptUrl: firstFrame.scriptUrl,
+    lineNumber: firstFrame.lineNumber,
+  } : undefined;
+
+  return { callStack, sourceLocation };
+}
+
 function extractLocalization(evt: TraceEvent): LocalizationResult {
   const result: LocalizationResult = {};
   const data = evt.args?.data;
   const beginData = evt.args?.beginData;
 
-  // Extract stack trace from data.stackTrace or beginData.stackTrace (layout triggers)
   const rawStack = data?.stackTrace || beginData?.stackTrace || data?.callStack;
   if (Array.isArray(rawStack) && rawStack.length > 0) {
-    result.callStack = rawStack
-      .filter((f: any) => f.url || f.scriptUrl)
-      .slice(0, 10)
-      .map((f: any) => ({
-        functionName: f.functionName || f.name || '(anonymous)',
-        scriptUrl: f.url || f.scriptUrl || '',
-        lineNumber: f.lineNumber ?? f.line ?? 0,
-        columnNumber: f.columnNumber ?? f.column ?? 0,
-      }));
-
-    // First meaningful frame = source location
-    const firstFrame = result.callStack.find(f => f.scriptUrl && !isInternalUrl(f.scriptUrl));
-    if (firstFrame) {
-      result.sourceLocation = {
-        functionName: firstFrame.functionName,
-        scriptUrl: firstFrame.scriptUrl,
-        lineNumber: firstFrame.lineNumber,
-      };
+    const parsed = parseCallStack(rawStack);
+    result.callStack = parsed.callStack;
+    if (parsed.sourceLocation) {
+      result.sourceLocation = parsed.sourceLocation;
     }
   }
 
-  // FunctionCall has direct function/script info
   if (evt.name === 'FunctionCall' && data) {
     const fnName = data.functionName || data.scriptName || '';
     if (fnName && !result.sourceLocation) {
@@ -207,7 +237,6 @@ function extractLocalization(evt: TraceEvent): LocalizationResult {
     }
   }
 
-  // EventDispatch carries the DOM event type
   if (evt.name === 'EventDispatch' && data?.type) {
     result.eventType = data.type;
   }
@@ -254,25 +283,10 @@ function isChildOf(parent: TraceEvent, child: TraceEvent): boolean {
  * whose timestamp range is contained within the parent, and inherit their
  * localization (deepest/longest FunctionCall wins).
  */
-function inheritFromChildren(
-  parent: TraceEvent,
-  childIndex: Map<ChildIndexKey, TraceEvent[]>,
-  existing: LocalizationResult,
-): LocalizationResult {
-  const key = threadKey(parent);
-  const candidates = childIndex.get(key);
-  if (!candidates) return existing;
-
-  const children = candidates.filter(c => isChildOf(parent, c));
-  if (children.length === 0) return existing;
-
-  // Merge call stacks from all children, build a combined stack
+function mergeChildLocalizations(children: TraceEvent[], existing: LocalizationResult): LocalizationResult {
   const mergedStack: TraceStackFrame[] = [];
   let bestSource: LocalizationResult['sourceLocation'] | undefined;
   let bestEventType: string | undefined;
-
-  // Sort children by timestamp for a logical call order
-  children.sort((a, b) => a.ts - b.ts);
 
   for (const child of children) {
     const childLoc = extractLocalization(child);
@@ -298,6 +312,46 @@ function inheritFromChildren(
   };
 }
 
+function inheritFromChildren(
+  parent: TraceEvent,
+  childIndex: Map<ChildIndexKey, TraceEvent[]>,
+  existing: LocalizationResult,
+): LocalizationResult {
+  const key = threadKey(parent);
+  const candidates = childIndex.get(key);
+  if (!candidates) return existing;
+
+  const children = candidates.filter(c => isChildOf(parent, c));
+  if (children.length === 0) return existing;
+
+  children.sort((a, b) => a.ts - b.ts);
+  return mergeChildLocalizations(children, existing);
+}
+
+// --- Phase 2: V8 CPU profiler resolution ---
+
+function resolveFromProfiler(
+  evt: TraceEvent,
+  profiler: V8ProfileResolver,
+  existing: LocalizationResult,
+): LocalizationResult {
+  const frames = profiler.resolve(evt.ts, evt.ts + (evt.dur ?? 0));
+  if (!frames || frames.length === 0) return existing;
+
+  const firstNonInternal = frames.find(f => !isInternalUrl(f.scriptUrl));
+  return {
+    callStack: frames,
+    sourceLocation: firstNonInternal
+      ? {
+          functionName: firstNonInternal.functionName,
+          scriptUrl: firstNonInternal.scriptUrl,
+          lineNumber: firstNonInternal.lineNumber,
+        }
+      : existing.sourceLocation,
+    eventType: existing.eventType,
+  };
+}
+
 function buildDetails(evt: TraceEvent, durationMs: number, loc: LocalizationResult): string {
   const parts = [`CDP ${evt.name}: ${durationMs}ms`];
   const data = evt.args?.data;
@@ -307,6 +361,8 @@ function buildDetails(evt: TraceEvent, durationMs: number, loc: LocalizationResu
     const src = loc.sourceLocation;
     const file = src.scriptUrl.split('/').pop() || src.scriptUrl;
     parts.push(`source=${src.functionName}@${file}:${src.lineNumber}`);
+  } else if (evt.name === 'RunTask') {
+    parts.push('[browser_internal]');
   }
   if (loc.callStack?.length) parts.push(`stack_depth=${loc.callStack.length}`);
   if (data?.elementCount) parts.push(`elements=${data.elementCount}`);

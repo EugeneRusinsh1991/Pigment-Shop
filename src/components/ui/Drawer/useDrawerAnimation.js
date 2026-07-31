@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { Animated, Easing } from 'react-native';
+import { Animated, Easing, Platform } from 'react-native';
 import { motion } from '../../../theme/tokens';
 
 const drawerMotion = motion?.drawer || {
@@ -14,7 +14,7 @@ function getAnimationConfig(toValue, duration, onComplete) {
     toValue,
     duration,
     easing: Easing.out(Easing.quad),
-    useNativeDriver: true,
+    useNativeDriver: Platform.OS !== 'web',
     ...(onComplete ? { onComplete } : {}),
   };
 }

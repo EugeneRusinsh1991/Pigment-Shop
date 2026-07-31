@@ -1,9 +1,19 @@
 # 💀 Dead Files (Unused)
 
-*Generated on: 30.07.2026, 21:29:47*
+*Generated on: 31.07.2026, 12:49:50*
 
 Files that are not reachable or imported by any other codebase file:
 
+- [action-fixture.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/action-fixture.ts) (`auditors/perf-auditor/action-fixture.ts`)
+- [browser-observer.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/browser-observer.ts) (`auditors/perf-auditor/browser-observer.ts`)
+- [cdp-trace-collector.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/cdp-trace-collector.ts) (`auditors/perf-auditor/cdp-trace-collector.ts`)
+- [config.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/config.ts) (`auditors/perf-auditor/config.ts`)
+- [interactive-runner.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/interactive-runner.ts) (`auditors/perf-auditor/interactive-runner.ts`)
+- [lag-detector.spec.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/lag-detector.spec.ts) (`auditors/perf-auditor/lag-detector.spec.ts`)
+- [logger.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/logger.ts) (`auditors/perf-auditor/logger.ts`)
+- [reporter.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/reporter.ts) (`auditors/perf-auditor/reporter.ts`)
+- [trace-diagnostic.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/trace-diagnostic.ts) (`auditors/perf-auditor/trace-diagnostic.ts`)
+- [v8-profile-resolver.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/v8-profile-resolver.ts) (`auditors/perf-auditor/v8-profile-resolver.ts`)
 - [12-raw-i18n-keys-auditor.js](file:///d:/Magazine/_PigmentShop/.tools/auditors/ui-auditor/12-raw-i18n-keys-auditor.js) (`auditors/ui-auditor/12-raw-i18n-keys-auditor.js`)
 - [a11y-auditor.js](file:///d:/Magazine/_PigmentShop/.tools/auditors/ui-auditor/a11y-auditor.js) (`auditors/ui-auditor/a11y-auditor.js`)
 - [auditor-utils.js](file:///d:/Magazine/_PigmentShop/.tools/auditors/ui-auditor/auditor-utils.js) (`auditors/ui-auditor/auditor-utils.js`)
@@ -69,6 +79,7 @@ Files that are not reachable or imported by any other codebase file:
 - [InteractionPolicyEngine.ts](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/explorer/policy/InteractionPolicyEngine.ts) (`automation/browser-automation/explorer/policy/InteractionPolicyEngine.ts`)
 - [SamplingStrategy.ts](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/explorer/policy/SamplingStrategy.ts) (`automation/browser-automation/explorer/policy/SamplingStrategy.ts`)
 - [BoundedCollections.ts](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/explorer/utils/BoundedCollections.ts) (`automation/browser-automation/explorer/utils/BoundedCollections.ts`)
+- [devServerHelper.js](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/helpers/devServerHelper.js) (`automation/browser-automation/helpers/devServerHelper.js`)
 - [devServerHelper.ts](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/helpers/devServerHelper.ts) (`automation/browser-automation/helpers/devServerHelper.ts`)
 - [dynamic-report-writer.ts](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/helpers/dynamic-report-writer.ts) (`automation/browser-automation/helpers/dynamic-report-writer.ts`)
 - [envValidator.ts](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/helpers/envValidator.ts) (`automation/browser-automation/helpers/envValidator.ts`)

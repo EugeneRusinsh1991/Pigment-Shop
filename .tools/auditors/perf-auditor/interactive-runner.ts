@@ -102,25 +102,29 @@ export async function runInteractiveMode() {
 
   const seenLags = new Set<string>();
 
+  const recordTraceLags = (lags: any[]) => {
+    for (const tl of lags) {
+      logger.recordLag({
+        timestamp: tl.timestamp,
+        type: tl.type,
+        durationMs: tl.durationMs,
+        thresholdMs: config.lagThresholdMs,
+        url: tl.url,
+        details: tl.details,
+        traceCategory: tl.traceCategory,
+        traceName: tl.traceName,
+        callStack: tl.callStack,
+        sourceLocation: tl.sourceLocation,
+      });
+    }
+  };
+
   const flushTraceLags = async () => {
     if (!traceCollector || page.isClosed()) return;
     try {
       const traceLags = await traceCollector.flush();
       console.log(`[PERF AUDIT] Trace flush: ${traceLags.length} lags found`);
-      for (const tl of traceLags) {
-        logger.recordLag({
-          timestamp: tl.timestamp,
-          type: tl.type,
-          durationMs: tl.durationMs,
-          thresholdMs: config.lagThresholdMs,
-          url: tl.url,
-          details: tl.details,
-          traceCategory: tl.traceCategory,
-          traceName: tl.traceName,
-          callStack: tl.callStack,
-          sourceLocation: tl.sourceLocation,
-        });
-      }
+      recordTraceLags(traceLags);
     } catch (err) {
       console.error('[PERF AUDIT] Trace flush ERROR:', err);
     }
@@ -160,21 +164,9 @@ export async function runInteractiveMode() {
     await syncBrowserLags().catch(() => {});
     if (traceCollector) {
       const finalLags = await traceCollector.stop().catch(() => []);
-      for (const tl of finalLags) {
-        logger.recordLag({
-          timestamp: tl.timestamp,
-          type: tl.type,
-          durationMs: tl.durationMs,
-          thresholdMs: config.lagThresholdMs,
-          url: tl.url,
-          details: tl.details,
-          traceCategory: tl.traceCategory,
-          traceName: tl.traceName,
-          callStack: tl.callStack,
-          sourceLocation: tl.sourceLocation,
-        });
-      }
+      recordTraceLags(finalLags);
     }
+
     logger.saveReport();
     generateHtmlReport(logger.getLags(), path.join(logger.runDir, 'lags-report.html'));
     console.log(`[PERF AUDIT] Report saved to ${logger.runDir}`);

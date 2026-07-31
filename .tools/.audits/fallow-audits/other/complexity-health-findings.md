@@ -1,6 +1,6 @@
 # 🩺 Complexity Health Findings (Critical & High)
 
-*Generated on: 30.07.2026, 21:29:47*
+*Generated on: 31.07.2026, 12:49:50*
 
 ## 🔴 Critical (> 50 lines)
 
@@ -10,8 +10,30 @@
 - 🔴 **`<arrow>`** [L65](file:///d:/Magazine/_PigmentShop/.tools/scripts/playwright.helpers.js#L65)
   - Lines: 108 | Cyclomatic: 18 | Cognitive: 22 | CRAP: 342
 
+#### 📁 [browser-observer.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/browser-observer.ts)
+`auditors/perf-auditor/browser-observer.ts`
+
+- 🔴 **`code`** [L4](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/browser-observer.ts#L4)
+  - Lines: 153 | Cyclomatic: 10 | Cognitive: 10 | CRAP: 110
+
+#### 📁 [cdp-trace-collector.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/cdp-trace-collector.ts)
+`auditors/perf-auditor/cdp-trace-collector.ts`
+
+- 🔴 **`extractLags`** [L120](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/cdp-trace-collector.ts#L120)
+  - Lines: 56 | Cyclomatic: 10 | Cognitive: 12 | CRAP: 110
+
 
 ## 🔴 Critical (≤ 50 lines)
+
+#### 📁 [cdp-trace-collector.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/cdp-trace-collector.ts)
+`auditors/perf-auditor/cdp-trace-collector.ts`
+
+- 🔴 **`extractLocalization`** [L184](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/cdp-trace-collector.ts#L184)
+  - Lines: 48 | Cyclomatic: 24 | Cognitive: 15 | CRAP: 600
+- 🔴 **`inheritFromChildren`** [L272](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/cdp-trace-collector.ts#L272)
+  - Lines: 43 | Cyclomatic: 14 | Cognitive: 21 | CRAP: 210
+- 🔴 **`buildDetails`** [L340](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/cdp-trace-collector.ts#L340)
+  - Lines: 17 | Cyclomatic: 10 | Cognitive: 6 | CRAP: 110
 
 #### 📁 [ManualBrowserInspector.js](file:///d:/Magazine/_PigmentShop/.tools/automation/manual-browser-inspector/ManualBrowserInspector.js)
 `automation/manual-browser-inspector/ManualBrowserInspector.js`
@@ -19,8 +41,40 @@
 - 🔴 **`handleKeyDown`** [L190](file:///d:/Magazine/_PigmentShop/.tools/automation/manual-browser-inspector/ManualBrowserInspector.js#L190)
   - Lines: 16 | Cyclomatic: 19 | Cognitive: 9 | CRAP: 380
 
+#### 📁 [v8-profile-resolver.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/v8-profile-resolver.ts)
+`auditors/perf-auditor/v8-profile-resolver.ts`
+
+- 🔴 **`resolve`** [L58](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/v8-profile-resolver.ts#L58)
+  - Lines: 39 | Cyclomatic: 14 | Cognitive: 18 | CRAP: 210
+- 🔴 **`processProfileEvent`** [L98](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/v8-profile-resolver.ts#L98)
+  - Lines: 27 | Cyclomatic: 13 | Cognitive: 15 | CRAP: 182
+
+#### 📁 [config.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/config.ts)
+`auditors/perf-auditor/config.ts`
+
+- 🔴 **`loadConfig`** [L14](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/config.ts#L14)
+  - Lines: 24 | Cyclomatic: 12 | Cognitive: 7 | CRAP: 156
+
+#### 📁 [interactive-runner.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/interactive-runner.ts)
+`auditors/perf-auditor/interactive-runner.ts`
+
+- 🔴 **`syncBrowserLags`** [L133](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/interactive-runner.ts#L133)
+  - Lines: 21 | Cyclomatic: 11 | Cognitive: 9 | CRAP: 132
+
+#### 📁 [reporter.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/reporter.ts)
+`auditors/perf-auditor/reporter.ts`
+
+- 🔴 **`html`** [L41](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/reporter.ts#L41)
+  - Lines: 18 | Cyclomatic: 11 | Cognitive: 6 | CRAP: 132
+
 
 ## 🟠 High (> 50 lines)
+
+#### 📁 [trace-diagnostic.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/trace-diagnostic.ts)
+`auditors/perf-auditor/trace-diagnostic.ts`
+
+- 🟠 **`diagnose`** [L3](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/trace-diagnostic.ts#L3)
+  - Lines: 71 | Cyclomatic: 9 | Cognitive: 7 | CRAP: 90
 
 #### 📁 [ManualBrowserInspector.js](file:///d:/Magazine/_PigmentShop/.tools/automation/manual-browser-inspector/ManualBrowserInspector.js)
 `automation/manual-browser-inspector/ManualBrowserInspector.js`
@@ -28,13 +82,57 @@
 - 🟠 **`<arrow>`** [L60](file:///d:/Magazine/_PigmentShop/.tools/automation/manual-browser-inspector/ManualBrowserInspector.js#L60)
   - Lines: 80 | Cyclomatic: 8 | Cognitive: 9 | CRAP: 72
 
+#### 📁 [interactive-runner.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/interactive-runner.ts)
+`auditors/perf-auditor/interactive-runner.ts`
+
+- 🟠 **`runInteractiveMode`** [L9](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/interactive-runner.ts#L9)
+  - Lines: 180 | Cyclomatic: 7 | Cognitive: 6 | CRAP: 56
+
 
 ## 🟠 High (≤ 50 lines)
+
+#### 📁 [cdp-trace-collector.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/cdp-trace-collector.ts)
+`auditors/perf-auditor/cdp-trace-collector.ts`
+
+- 🟠 **`<arrow>`** [L195](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/cdp-trace-collector.ts#L195)
+  - Lines: 6 | Cyclomatic: 9 | Cognitive: 4 | CRAP: 90
+
+#### 📁 [interactive-runner.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/interactive-runner.ts)
+`auditors/perf-auditor/interactive-runner.ts`
+
+- 🟠 **`<anonymous>`** [L75](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/interactive-runner.ts#L75)
+  - Lines: 18 | Cyclomatic: 9 | Cognitive: 11 | CRAP: 90
+- 🟠 **`<arrow>`** [L39](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/interactive-runner.ts#L39)
+  - Lines: 20 | Cyclomatic: 7 | Cognitive: 6 | CRAP: 56
+
+#### 📁 [reporter.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/reporter.ts)
+`auditors/perf-auditor/reporter.ts`
+
+- 🟠 **`mdSummary`** [L64](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/reporter.ts#L64)
+  - Lines: 18 | Cyclomatic: 9 | Cognitive: 5 | CRAP: 90
+
+#### 📁 [browser-observer.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/browser-observer.ts)
+`auditors/perf-auditor/browser-observer.ts`
+
+- 🟠 **`getCssSelector`** [L9](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/browser-observer.ts#L9)
+  - Lines: 21 | Cyclomatic: 7 | Cognitive: 15 | CRAP: 56
 
 #### 📁 [ManualBrowserInspector.js](file:///d:/Magazine/_PigmentShop/.tools/automation/manual-browser-inspector/ManualBrowserInspector.js)
 `automation/manual-browser-inspector/ManualBrowserInspector.js`
 
 - 🟠 **`handleLiveHighlightMove`** [L105](file:///d:/Magazine/_PigmentShop/.tools/automation/manual-browser-inspector/ManualBrowserInspector.js#L105)
   - Lines: 26 | Cyclomatic: 7 | Cognitive: 4 | CRAP: 56
+
+#### 📁 [logger.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/logger.ts)
+`auditors/perf-auditor/logger.ts`
+
+- 🟠 **`recordLag`** [L63](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/logger.ts#L63)
+  - Lines: 10 | Cyclomatic: 7 | Cognitive: 3 | CRAP: 56
+
+#### 📁 [v8-profile-resolver.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/v8-profile-resolver.ts)
+`auditors/perf-auditor/v8-profile-resolver.ts`
+
+- 🟠 **`buildCallChain`** [L132](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/v8-profile-resolver.ts#L132)
+  - Lines: 20 | Cyclomatic: 7 | Cognitive: 8 | CRAP: 56
 
 

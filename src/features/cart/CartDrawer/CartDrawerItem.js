@@ -30,7 +30,7 @@ export default function CartDrawerItem({ item, isDark, onUpdateQuantity, onRemov
       />
       <View style={styles.content}>
         <View style={styles.headerRow}>
-          <Text variant="body1" style={styles.title} numberOfLines={2}>
+          <Text variant="body2" style={styles.title} numberOfLines={2}>
             {item.name || item.product?.title || item.label}
           </Text>
           <IconButton
@@ -57,7 +57,7 @@ export default function CartDrawerItem({ item, isDark, onUpdateQuantity, onRemov
               variant="transparent"
               isDark={isDark}
             />
-            <Text style={styles.quantityText}>{item.qty}</Text>
+            <Text size="sm" weight="bold" style={styles.quantityText}>{item.qty}</Text>
             <IconButton
               icon={<PlusIcon color={iconColor} size={14} />}
               onPress={handleIncrease}
@@ -66,7 +66,7 @@ export default function CartDrawerItem({ item, isDark, onUpdateQuantity, onRemov
               isDark={isDark}
             />
           </View>
-          <Text variant="subtitle2" style={styles.price}>
+          <Text variant="subtitle2" weight="bold">
             {formatCurrency(item.price * item.qty)}
           </Text>
         </View>
@@ -109,7 +109,6 @@ const styles = StyleSheet.create({
   },
   title: {
     flex: 1,
-    fontSize: typography.sizes.sm,
   },
   subtextLight: {
     color: colors.textDescLight,
@@ -138,10 +137,5 @@ const styles = StyleSheet.create({
   quantityText: {
     width: 24,
     textAlign: 'center',
-    fontSize: typography.sizes.sm,
-    fontWeight: 'bold',
-  },
-  price: {
-    fontWeight: 'bold',
   },
 });

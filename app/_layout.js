@@ -1,5 +1,6 @@
 import { Slot, SplashScreen } from 'expo-router';
 import React, { useEffect } from 'react';
+import { Platform } from 'react-native';
 import { GATING_PENDING_STATES } from '@/bootstrap/startupContract';
 import { useBootstrapStatus } from '@/bootstrap/useBootstrapStatus';
 import AppProviders from '@/context/AppProviders';

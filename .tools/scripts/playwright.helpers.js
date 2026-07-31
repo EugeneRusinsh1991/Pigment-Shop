@@ -60,114 +60,113 @@ async function takeCompressedScreenshot(page, options = {}) {
       ctx.fillText(text, x + paddingX, y + boxHeight / 2);
     }
 
-    return new Promise((resolve) => {
-      const img = new Image();
-      img.onload = () => {
-        const dpr = (window.innerWidth && img.width) ? (img.width / window.innerWidth) : (window.devicePixelRatio || 1);
-        const hasTarget = !!(cropToTarget && hoverInfo && hoverInfo.target && hoverInfo.target.rect);
+    function renderTargetCropCanvas(img, dpr, hoverInfo, cropPadding, overlayText) {
+      const canvas = document.createElement('canvas');
+      const rect = hoverInfo.target.rect;
+      const pad = cropPadding * dpr;
 
-        const canvas = document.createElement('canvas');
-        let cropX = 0, cropY = 0, cropW = img.width, cropH = img.height;
-        let rx = 0, ry = 0, rw = 0, rh = 0;
-        let mouseX = 0, mouseY = 0;
-        let drawScale = scale;
+      const rectX = rect.x * dpr;
+      const rectY = rect.y * dpr;
+      const rectW = rect.width * dpr;
+      const rectH = rect.height * dpr;
 
-        if (hasTarget) {
+      const cropX = Math.max(0, Math.floor(rectX - pad));
+      const cropY = Math.max(0, Math.floor(rectY - pad));
+      const cropW = Math.min(img.width - cropX, Math.ceil(rectW + pad * 2));
+      const cropH = Math.min(img.height - cropY, Math.ceil(rectH + pad * 2));
+
+      canvas.width = cropW;
+      canvas.height = cropH;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, cropX, cropY, cropW, cropH, 0, 0, cropW, cropH);
+
+      const rx = rectX - cropX;
+      const ry = rectY - cropY;
+      const rw = rectW;
+      const rh = rectH;
+      const drawScale = dpr;
+
+      ctx.lineWidth = Math.max(2, Math.round(2 * drawScale));
+      ctx.strokeStyle = 'rgba(34, 197, 94, 0.85)';
+      ctx.fillStyle = 'rgba(34, 197, 94, 0.1)';
+      ctx.fillRect(rx, ry, rw, rh);
+      ctx.strokeRect(rx, ry, rw, rh);
+
+      let finalOverlayText = drawHoverBadge(ctx, {
+        rx, ry, rw, rh,
+        tag: hoverInfo.target.tag,
+        selector: hoverInfo.target.selector,
+        text: hoverInfo.target.text,
+        drawScale,
+        canvas,
+        overlayText
+      });
+
+      if (hoverInfo.mouse && hoverInfo.mouse.active) {
+        const mouseX = (hoverInfo.mouse.x * dpr) - cropX;
+        const mouseY = (hoverInfo.mouse.y * dpr) - cropY;
+        drawMouseCursor(ctx, mouseX, mouseY, drawScale);
+      }
+
+      if (finalOverlayText) {
+        drawOverlayLabel(ctx, canvas, finalOverlayText, drawScale);
+      }
+      return canvas;
+    }
+
+    function renderFullCanvas(img, dpr, hoverInfo, scale, overlayText) {
+      const canvas = document.createElement('canvas');
+      canvas.width = img.width * scale;
+      canvas.height = img.height * scale;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+      let finalOverlayText = overlayText;
+      if (hoverInfo && hoverInfo.mouse && hoverInfo.mouse.active) {
+        const mouseCanvasX = hoverInfo.mouse.x * dpr * scale;
+        const mouseCanvasY = hoverInfo.mouse.y * dpr * scale;
+
+        if (hoverInfo.target && hoverInfo.target.rect) {
           const rect = hoverInfo.target.rect;
-          const pad = cropPadding * dpr;
+          const rx = rect.x * dpr * scale;
+          const ry = rect.y * dpr * scale;
+          const rw = rect.width * dpr * scale;
+          const rh = rect.height * dpr * scale;
 
-          const rectX = rect.x * dpr;
-          const rectY = rect.y * dpr;
-          const rectW = rect.width * dpr;
-          const rectH = rect.height * dpr;
-
-          cropX = Math.max(0, Math.floor(rectX - pad));
-          cropY = Math.max(0, Math.floor(rectY - pad));
-          cropW = Math.min(img.width - cropX, Math.ceil(rectW + pad * 2));
-          cropH = Math.min(img.height - cropY, Math.ceil(rectH + pad * 2));
-
-          canvas.width = cropW;
-          canvas.height = cropH;
-          const ctx = canvas.getContext('2d');
-          ctx.drawImage(img, cropX, cropY, cropW, cropH, 0, 0, cropW, cropH);
-
-          rx = rectX - cropX;
-          ry = rectY - cropY;
-          rw = rectW;
-          rh = rectH;
-          drawScale = dpr;
-
-          if (hoverInfo.mouse) {
-            mouseX = (hoverInfo.mouse.x * dpr) - cropX;
-            mouseY = (hoverInfo.mouse.y * dpr) - cropY;
-          }
-
-          ctx.lineWidth = Math.max(2, Math.round(2 * drawScale));
+          ctx.lineWidth = Math.max(1, Math.round(2 * scale));
           ctx.strokeStyle = 'rgba(34, 197, 94, 0.85)';
           ctx.fillStyle = 'rgba(34, 197, 94, 0.1)';
           ctx.fillRect(rx, ry, rw, rh);
           ctx.strokeRect(rx, ry, rw, rh);
 
-          let finalOverlayText = drawHoverBadge(ctx, {
+          finalOverlayText = drawHoverBadge(ctx, {
             rx, ry, rw, rh,
             tag: hoverInfo.target.tag,
             selector: hoverInfo.target.selector,
             text: hoverInfo.target.text,
-            drawScale,
+            drawScale: scale,
             canvas,
             overlayText
           });
-
-          if (hoverInfo.mouse && hoverInfo.mouse.active) {
-            drawMouseCursor(ctx, mouseX, mouseY, drawScale);
-          }
-
-          if (finalOverlayText) {
-            drawOverlayLabel(ctx, canvas, finalOverlayText, drawScale);
-          }
-        } else {
-          canvas.width = img.width * scale;
-          canvas.height = img.height * scale;
-          const ctx = canvas.getContext('2d');
-          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-
-          let finalOverlayText = overlayText;
-          if (hoverInfo && hoverInfo.mouse && hoverInfo.mouse.active) {
-            const mouseCanvasX = hoverInfo.mouse.x * dpr * scale;
-            const mouseCanvasY = hoverInfo.mouse.y * dpr * scale;
-
-            if (hoverInfo.target && hoverInfo.target.rect) {
-              const rect = hoverInfo.target.rect;
-              rx = rect.x * dpr * scale;
-              ry = rect.y * dpr * scale;
-              rw = rect.width * dpr * scale;
-              rh = rect.height * dpr * scale;
-
-              ctx.lineWidth = Math.max(1, Math.round(2 * scale));
-              ctx.strokeStyle = 'rgba(34, 197, 94, 0.85)';
-              ctx.fillStyle = 'rgba(34, 197, 94, 0.1)';
-              ctx.fillRect(rx, ry, rw, rh);
-              ctx.strokeRect(rx, ry, rw, rh);
-
-              finalOverlayText = drawHoverBadge(ctx, {
-                rx, ry, rw, rh,
-                tag: hoverInfo.target.tag,
-                selector: hoverInfo.target.selector,
-                text: hoverInfo.target.text,
-                drawScale: scale,
-                canvas,
-                overlayText
-              });
-            }
-
-            drawMouseCursor(ctx, mouseCanvasX, mouseCanvasY, scale);
-          }
-
-          if (finalOverlayText) {
-            drawOverlayLabel(ctx, canvas, finalOverlayText, scale);
-          }
         }
 
+        drawMouseCursor(ctx, mouseCanvasX, mouseCanvasY, scale);
+      }
+
+      if (finalOverlayText) {
+        drawOverlayLabel(ctx, canvas, finalOverlayText, scale);
+      }
+      return canvas;
+    }
+
+    return new Promise((resolve) => {
+      const img = new Image();
+      img.onload = () => {
+        const dpr = (window.innerWidth && img.width) ? (img.width / window.innerWidth) : (window.devicePixelRatio || 1);
+        const hasTarget = !!(cropToTarget && hoverInfo && hoverInfo.target && hoverInfo.target.rect);
+        const canvas = hasTarget
+          ? renderTargetCropCanvas(img, dpr, hoverInfo, cropPadding, overlayText)
+          : renderFullCanvas(img, dpr, hoverInfo, scale, overlayText);
         resolve(canvas.toDataURL('image/jpeg', quality).split(',')[1]);
       };
       img.src = 'data:image/jpeg;base64,' + base64;

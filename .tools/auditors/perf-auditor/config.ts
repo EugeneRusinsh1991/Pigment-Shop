@@ -17,7 +17,7 @@ export function loadConfig(override: Partial<PerfAuditConfig> = {}): PerfAuditCo
   if (thresholdArg) {
     cliThreshold = Number(thresholdArg.split('=')[1]);
   }
-  const lagThresholdMs = cliThreshold || Number(process.env.LAG_THRESHOLD_MS) || override.lagThresholdMs || 1;
+  const lagThresholdMs = cliThreshold || Number(process.env.LAG_THRESHOLD_MS) || override.lagThresholdMs || 100;
   
   const interactive = process.env.LAG_INTERACTIVE === 'true' || override.interactive || false;
   const enableCDPProfiler = process.env.ENABLE_CDP_PROFILER !== 'false' && (override.enableCDPProfiler !== false);
