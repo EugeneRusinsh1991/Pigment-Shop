@@ -60,8 +60,8 @@ function renderToggleOption(opt, index, ctx) {
       disabled={ctx.disabled}
       activeOpacity={motion.press.activeOpacity}
       onPress={handlePress}
-      accessibilityRole="tab"
-      accessibilityState={{ selected: isActive }}
+      accessibilityRole={ctx.role || 'button'}
+      accessibilityState={ctx.role === 'switch' || ctx.role === 'radio' ? { checked: isActive } : { selected: isActive }}
     >
       <Text
         variant="body1"
@@ -77,8 +77,8 @@ function renderToggleOption(opt, index, ctx) {
 }
 
 function buildToggleContext(props, theme, animation, computedHitSlop, textSizeStyle, size) {
-  const { value, onChange, animated, optionStyle, activeOptionStyle, textStyle, activeTextStyle, disabled } = props;
-  return { value, onChange, animated, theme, optionStyle, activeOptionStyle, textStyle, activeTextStyle, computedHitSlop, disabled, textSizeStyle, animation, size };
+  const { value, onChange, animated, optionStyle, activeOptionStyle, textStyle, activeTextStyle, disabled, role } = props;
+  return { value, onChange, animated, theme, optionStyle, activeOptionStyle, textStyle, activeTextStyle, computedHitSlop, disabled, textSizeStyle, animation, size, role };
 }
 function computeToggleSizes(size, hitSlop) {
   const sizeStyle = styles[size] || styles.md;
@@ -103,12 +103,13 @@ export default function Toggle({
   hitSlop,
   disabled = false,
   animated = true,
+  role = 'button',
   ...props
 }) {
   const theme = useToggleTheme({ isDarkProp, styleMap: styles });
   const animation = useToggleAnimation({ animated, options, value });
   const { sizeStyle, textSizeStyle, computedHitSlop } = computeToggleSizes(size, hitSlop);
-  const ctx = buildToggleContext({ value, onChange, animated, optionStyle, activeOptionStyle, textStyle, activeTextStyle, disabled }, theme, animation, computedHitSlop, textSizeStyle, size);
+  const ctx = buildToggleContext({ value, onChange, animated, optionStyle, activeOptionStyle, textStyle, activeTextStyle, disabled, role }, theme, animation, computedHitSlop, textSizeStyle, size);
 
   return (
     <View style={[styles.container, sizeStyle, theme?.container, style]} {...props}>

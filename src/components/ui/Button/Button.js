@@ -143,7 +143,7 @@ export default function Button({
 
   const sharedProps = { touchableProps, containerStyle, computedHitSlop, handlePress, disabled, loading, resolvedRole, content };
 
-  if (!animated || Platform.OS === 'web') {
+  if (!animated) {
     return renderNonAnimatedButton({ ...sharedProps, onPressIn, onPressOut });
   }
 

@@ -7,10 +7,10 @@ import { useBadgeTheme } from './useBadgeTheme';
 import BadgeStyles from './BadgeStyles';
 
 const fontPropMap = {
-  ['font' + 'Size']: 'size',
-  ['font' + 'Weight']: 'weight',
-  ['line' + 'Height']: 'lineHeight',
-  ['font' + 'Family']: 'font',
+  fontSize: 'size',
+  fontWeight: 'weight',
+  lineHeight: 'lineHeight',
+  fontFamily: 'font',
 };
 
 function extractFontProps(style) {

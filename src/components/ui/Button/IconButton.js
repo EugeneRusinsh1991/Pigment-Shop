@@ -34,6 +34,9 @@ export function IconButton({
 
   const dim = getDimension();
   const radius = dim / 2;
+  
+  const isSm = size === 'sm' || dim === buttonTokens.sizes.sm.height;
+  const hitSlop = isSm ? { top: 6, bottom: 6, left: 6, right: 6 } : undefined;
 
   const defaultIconColor = isDark ? colors.textDark : colors.textLight;
   const renderedIcon = React.isValidElement(icon) && icon.type !== React.Fragment
@@ -49,6 +52,7 @@ export function IconButton({
       onPress={onPress}
       activeOpacity={activeOpacity}
       isDark={isDark}
+      hitSlop={hitSlop}
       {...props}
     >
       {renderedIcon}

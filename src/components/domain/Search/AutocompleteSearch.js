@@ -1,6 +1,6 @@
 import { useRouter } from 'expo-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { View } from 'react-native';
+import { View, Modal } from 'react-native';
 import SearchDropdown from './SearchDropdown';
 import SearchInput from './SearchInput';
 import SearchStyles from './SearchStyles';
@@ -63,6 +63,8 @@ export function AutocompleteSearch({ isDark, onActiveChange, variant = 'default'
     handleSelect();
   };
 
+  const dropdownVisible = isActive && (results.length > 0 || query.trim().length > 0);
+
   return (
     <View style={SearchStyles.autocompleteContainer}>
       <SearchInput
@@ -77,7 +79,9 @@ export function AutocompleteSearch({ isDark, onActiveChange, variant = 'default'
         onBlur={() => setIsFocused(false)}
         onSubmitEditing={handleSubmit}
       />
-      <SearchResultDropdown results={results} query={query} isDark={isDark} onSelect={handleSelect} />
+      <Modal transparent visible={dropdownVisible} animationType="none">
+        <SearchResultDropdown results={results} query={query} isDark={isDark} onSelect={handleSelect} />
+      </Modal>
     </View>
   );
 }

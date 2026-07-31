@@ -59,6 +59,8 @@ export const SearchInput = forwardRef(function SearchInput(
       onFocus={onFocus}
       onBlur={onBlur}
       autoCapitalize="none"
+      autoCorrect={false}
+      keyboardType="web-search"
       {...props}
     />
   );
