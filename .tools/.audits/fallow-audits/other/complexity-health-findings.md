@@ -1,21 +1,6 @@
 # 🩺 Complexity Health Findings (Critical & High)
 
-*Generated on: 01.08.2026, 01:07:11*
-
-## 🟠 High (> 50 lines)
-
-#### 📁 [ManualBrowserInspector.js](file:///d:/Magazine/_PigmentShop/.tools/automation/manual-browser-inspector/ManualBrowserInspector.js)
-`automation/manual-browser-inspector/ManualBrowserInspector.js`
-
-- 🟠 **`<arrow>`** [L60](file:///d:/Magazine/_PigmentShop/.tools/automation/manual-browser-inspector/ManualBrowserInspector.js#L60)
-  - Lines: 80 | Cyclomatic: 8 | Cognitive: 9 | CRAP: 72
-
-#### 📁 [interactive-runner.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/interactive-runner.ts)
-`auditors/perf-auditor/interactive-runner.ts`
-
-- 🟠 **`runInteractiveMode`** [L37](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/interactive-runner.ts#L37)
-  - Lines: 167 | Cyclomatic: 7 | Cognitive: 6 | CRAP: 56
-
+*Generated on: 01.08.2026, 01:16:44*
 
 ## 🟠 High (≤ 50 lines)
 
@@ -26,14 +11,6 @@
   - Lines: 6 | Cyclomatic: 9 | Cognitive: 4 | CRAP: 90
 - 🟠 **`processDurationEvent`** [L88](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/cdp-trace-collector.ts#L88)
   - Lines: 35 | Cyclomatic: 8 | Cognitive: 6 | CRAP: 72
-
-#### 📁 [interactive-runner.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/interactive-runner.ts)
-`auditors/perf-auditor/interactive-runner.ts`
-
-- 🟠 **`<anonymous>`** [L103](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/interactive-runner.ts#L103)
-  - Lines: 18 | Cyclomatic: 9 | Cognitive: 11 | CRAP: 90
-- 🟠 **`<arrow>`** [L67](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/interactive-runner.ts#L67)
-  - Lines: 20 | Cyclomatic: 7 | Cognitive: 6 | CRAP: 56
 
 #### 📁 [playwright.helpers.js](file:///d:/Magazine/_PigmentShop/.tools/scripts/playwright.helpers.js)
 `scripts/playwright.helpers.js`
@@ -48,12 +25,6 @@
 
 - 🟠 **`getCssSelector`** [L9](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/browser-observer.ts#L9)
   - Lines: 21 | Cyclomatic: 7 | Cognitive: 15 | CRAP: 56
-
-#### 📁 [ManualBrowserInspector.js](file:///d:/Magazine/_PigmentShop/.tools/automation/manual-browser-inspector/ManualBrowserInspector.js)
-`automation/manual-browser-inspector/ManualBrowserInspector.js`
-
-- 🟠 **`handleLiveHighlightMove`** [L105](file:///d:/Magazine/_PigmentShop/.tools/automation/manual-browser-inspector/ManualBrowserInspector.js#L105)
-  - Lines: 26 | Cyclomatic: 7 | Cognitive: 4 | CRAP: 56
 
 #### 📁 [trace-diagnostic.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/trace-diagnostic.ts)
 `auditors/perf-auditor/trace-diagnostic.ts`

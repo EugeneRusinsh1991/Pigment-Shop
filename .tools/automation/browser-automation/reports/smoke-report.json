@@ -2,7 +2,7 @@
   "summary": {
     "visitedScreens": 0,
     "visitedInteractions": 0,
-    "successfulInteractions": 0,
+    "successfulInteractions": 1,
     "failedInteractions": 0,
     "warnings": 3,
     "errors": 0,
@@ -15,7 +15,7 @@
       "interaction": "Initial Load",
       "elementIdentifier": "None",
       "event": "Runtime",
-      "timestamp": 1785535894527,
+      "timestamp": 1785537331151,
       "errorType": "Console Warning",
       "errorMessage": "\"shadow*\" style props are deprecated. Use \"boxShadow\"."
     },
@@ -24,16 +24,16 @@
       "interaction": "Initial Load",
       "elementIdentifier": "None",
       "event": "Runtime",
-      "timestamp": 1785535895082,
+      "timestamp": 1785537331701,
       "errorType": "Console Warning",
       "errorMessage": "Animated: `useNativeDriver` is not supported because the native animated module is missing. Falling back to JS-based animation. To resolve this, add `RCTAnimation` module to this app, or remove `useNativeDriver`. Make sure to run `bundle exec pod install` first. Read more about autolinking: https://github.com/react-native-community/cli/blob/master/docs/autolinking.md"
     },
     {
       "screen": "http://localhost:8081/",
       "interaction": "Click",
-      "elementIdentifier": "btn|☰ГлавнаяКаталогВсе...",
+      "elementIdentifier": "link|/",
       "event": "Runtime",
-      "timestamp": 1785535895831,
+      "timestamp": 1785537334259,
       "errorType": "Console Error",
       "errorMessage": "Failed to load resource: the server responded with a status of 400 ()"
     }

@@ -1,6 +1,6 @@
 # 📦 Unused Exports
 
-*Generated on: 01.08.2026, 01:07:11*
+*Generated on: 01.08.2026, 01:16:44*
 
 Exports that are not imported or consumed by any other active file:
 
@@ -8,7 +8,7 @@ Exports that are not imported or consumed by any other active file:
 - [browser-observer.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/browser-observer.ts): `injectPerformanceObserver` ([L3](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/browser-observer.ts#L3)), `getCollectedLongTasks` ([L170](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/browser-observer.ts#L170))
 - [cdp-trace-collector.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/cdp-trace-collector.ts): `CdpTraceCollector` ([L31](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/cdp-trace-collector.ts#L31))
 - [config.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/config.ts): `loadConfig` ([L36](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/config.ts#L36))
-- [interactive-runner.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/interactive-runner.ts): `runInteractiveMode` ([L37](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/interactive-runner.ts#L37))
+- [interactive-runner.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/interactive-runner.ts): `runInteractiveMode` ([L178](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/interactive-runner.ts#L178))
 - [logger.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/logger.ts): `PerfLogger` ([L44](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/logger.ts#L44))
 - [reporter.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/reporter.ts): `generateHtmlReport` ([L88](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/reporter.ts#L88))
 - [v8-profile-resolver.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/v8-profile-resolver.ts): `V8ProfileResolver` ([L27](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/v8-profile-resolver.ts#L27))
