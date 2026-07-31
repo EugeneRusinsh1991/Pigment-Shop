@@ -2,12 +2,15 @@ import { View } from 'react-native';
 import { Checkbox } from './SidebarUIComponents';
 import styles from './CatalogFilterSidebarStyles';
 
-function CategoryTreeNode({ node, filters, toggleCategory, depth, isDark }) {
+function CategoryTreeNode({ node, filters, toggleCategory, depth, isDark, categoryCounts }) {
   if (!node.isCategory) return null;
 
   const categoryChildren = node.children ? node.children.filter((c) => c.isCategory) : [];
   const isChecked = filters.categoryIds.includes(node.id);
   const indent = depth * 14;
+
+  const count = categoryCounts ? (categoryCounts.get(node.id) ?? 0) : null;
+  const labelWithCount = count !== null ? `${node.label} (${count})` : node.label;
 
   return (
     <View>
@@ -16,7 +19,7 @@ function CategoryTreeNode({ node, filters, toggleCategory, depth, isDark }) {
           <Checkbox
             testID={`category-checkbox-${node.id}`}
             checked={isChecked}
-            label={node.label}
+            label={labelWithCount}
             onToggle={() => toggleCategory(node.id)}
             isDark={isDark}
           />
@@ -31,13 +34,14 @@ function CategoryTreeNode({ node, filters, toggleCategory, depth, isDark }) {
           toggleCategory={toggleCategory}
           depth={depth + 1}
           isDark={isDark}
+          categoryCounts={categoryCounts}
         />
       ))}
     </View>
   );
 }
 
-export default function CategoryFilterList({ categoryTree, filters, toggleCategory, isDark }) {
+export default function CategoryFilterList({ categoryTree, filters, toggleCategory, isDark, categoryCounts }) {
   if (!categoryTree) return null;
   const roots = categoryTree.filter((node) => node.isCategory);
   return roots.map((node) => (
@@ -48,6 +52,7 @@ export default function CategoryFilterList({ categoryTree, filters, toggleCatego
       toggleCategory={toggleCategory}
       depth={0}
       isDark={isDark}
+      categoryCounts={categoryCounts}
     />
   ));
 }

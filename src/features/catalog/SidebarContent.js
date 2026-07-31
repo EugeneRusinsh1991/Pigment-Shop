@@ -6,6 +6,9 @@ import styles from './CatalogFilterSidebarStyles';
 import { SectionTitle, Checkbox, PriceInputs, ResetButton, ApplyButton } from './SidebarUIComponents';
 import CategoryFilterList from './CategoryFilterList';
 
+import { useCatalog } from './CatalogContext';
+import useFilterCounts from '../../hooks/useFilterCounts';
+
 function getSliderMin(filters) {
   if (filters.priceMin === '') return 0;
   return Number(filters.priceMin);
@@ -25,24 +28,22 @@ function handlePriceRangeChange(minVal, maxVal, setFilter) {
   setFilter('priceMax', maxVal === 5000 ? '' : maxVal.toString());
 }
 
-function AvailabilityFilterSections({ filters, setFilter, isDark, t }) {
-  return (
-    <>
-      <View style={styles.filterSection}>
-        <SectionTitle label={t('catalogAvailability')} isDark={isDark} />
-        <View style={styles.optionsGroup}>
-          <Checkbox testID="filter-instock" checked={filters.inStock} label={t('catalogInStock')} onToggle={() => setFilter('inStock', !filters.inStock)} isDark={isDark} />
-          <Checkbox testID="filter-outofstock" checked={filters.outOfStock} label={t('catalogOutOfStock')} onToggle={() => setFilter('outOfStock', !filters.outOfStock)} isDark={isDark} />
-        </View>
-      </View>
+function AvailabilityFilterSections({ filters, setFilter, isDark, t, counts }) {
+  const inStockLabel = counts ? `${t('catalogInStock')} (${counts.inStock})` : t('catalogInStock');
+  const outOfStockLabel = counts ? `${t('catalogOutOfStock')} (${counts.outOfStock})` : t('catalogOutOfStock');
+  const onSaleLabel = counts ? `${t('catalogOnSale')} (${counts.onSale})` : t('catalogOnSale');
+  const isNewLabel = counts ? `${t('catalogIsNew')} (${counts.isNew})` : t('catalogIsNew');
 
-      <View style={styles.filterSection}>
-        <View style={styles.optionsGroup}>
-          <Checkbox testID="filter-onsale" checked={filters.onSale} label={t('catalogOnSale')} onToggle={() => setFilter('onSale', !filters.onSale)} isDark={isDark} />
-          <Checkbox testID="filter-isnew" checked={filters.isNew} label={t('catalogIsNew')} onToggle={() => setFilter('isNew', !filters.isNew)} isDark={isDark} />
-        </View>
+  return (
+    <View style={styles.filterSection}>
+      <SectionTitle label={t('catalogAvailability')} isDark={isDark} />
+      <View style={styles.optionsGroup}>
+        <Checkbox testID="filter-instock" checked={filters.inStock} label={inStockLabel} onToggle={() => setFilter('inStock', !filters.inStock)} isDark={isDark} />
+        <Checkbox testID="filter-outofstock" checked={filters.outOfStock} label={outOfStockLabel} onToggle={() => setFilter('outOfStock', !filters.outOfStock)} isDark={isDark} />
+        <Checkbox testID="filter-onsale" checked={filters.onSale} label={onSaleLabel} onToggle={() => setFilter('onSale', !filters.onSale)} isDark={isDark} />
+        <Checkbox testID="filter-isnew" checked={filters.isNew} label={isNewLabel} onToggle={() => setFilter('isNew', !filters.isNew)} isDark={isDark} />
       </View>
-    </>
+    </View>
   );
 }
 
@@ -76,7 +77,7 @@ function PriceFilterSection({ filters, setFilter, isDark, t }) {
   );
 }
 
-function CategoryFilterSection({ categoryTree, filters, toggleCategory, isDark, t }) {
+function CategoryFilterSection({ categoryTree, filters, toggleCategory, isDark, t, categoryCounts }) {
   return (
     <View style={styles.filterSection}>
       <SectionTitle label={t('catalogCategory')} isDark={isDark} />
@@ -86,6 +87,7 @@ function CategoryFilterSection({ categoryTree, filters, toggleCategory, isDark, 
           filters={filters}
           toggleCategory={toggleCategory}
           isDark={isDark}
+          categoryCounts={categoryCounts}
         />
       </View>
     </View>
@@ -116,6 +118,8 @@ function SidebarActions({ isNarrow, onClose, resetFilters, isDark, t }) {
 export default function SidebarContent({ categoryTree, filters, setFilter, toggleCategory, resetFilters, isDark, t, isNarrow, onClose }) {
   const sidebarStyle = isNarrow ? styles.sidebarMobile : styles.sidebar;
   const themeStyle = isDark ? styles.sidebarDark : styles.sidebarLight;
+  const { flatList = [], categorySubtreeMap } = useCatalog() || {};
+  const counts = useFilterCounts(flatList, filters, categorySubtreeMap);
 
   return (
     <ScrollView
@@ -127,9 +131,9 @@ export default function SidebarContent({ categoryTree, filters, setFilter, toggl
 
       <PriceFilterSection filters={filters} setFilter={setFilter} isDark={isDark} t={t} />
 
-      <AvailabilityFilterSections filters={filters} setFilter={setFilter} isDark={isDark} t={t} />
+      <AvailabilityFilterSections filters={filters} setFilter={setFilter} isDark={isDark} t={t} counts={counts} />
 
-      <CategoryFilterSection categoryTree={categoryTree} filters={filters} toggleCategory={toggleCategory} isDark={isDark} t={t} />
+      <CategoryFilterSection categoryTree={categoryTree} filters={filters} toggleCategory={toggleCategory} isDark={isDark} t={t} categoryCounts={counts?.categories} />
 
       <SidebarActions
         isNarrow={isNarrow}

@@ -1,66 +1,49 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useCallback } from 'react';
 import { Animated, Platform } from 'react-native';
 
-const HIDE_HEIGHT = 48;
-const SCROLL_THRESHOLD = 15;
-const TOP_THRESHOLD = 56;
+const HIDE_HEIGHT = 60;
+const DIRECTION_THRESHOLD = 4;
 
 /**
- * Overrides Expo Web's `body { overflow: hidden }` reset so the document
- * scrolls normally and window.scrollY / position:sticky work correctly.
- * Only runs once.
+ * Injects a CSS rule that changes overflow-x from 'hidden' to 'clip' on the
+ * root Pressable container. 'clip' prevents horizontal overflow visually
+ * (like 'hidden') but does NOT create a new scroll container, so
+ * position:sticky on descendant elements works correctly.
  */
-let bodyOverrideApplied = false;
-function ensureBodyScrollable() {
-  if (bodyOverrideApplied) return;
-  if (typeof document === 'undefined') return;
-  bodyOverrideApplied = true;
-
+function ensureStickyCompatible() {
+  if (Platform.OS !== 'web') return;
+  const STYLE_ID = 'pigment-sticky-fix';
+  if (document.getElementById(STYLE_ID)) return;
   const style = document.createElement('style');
-  style.textContent = `
-    body { overflow: visible !important; overflow-y: auto !important; }
-    #root { height: auto !important; min-height: 100vh; }
-  `;
+  style.id = STYLE_ID;
+  style.textContent = `#root > [data-testid] { overflow-x: clip !important; overflow-y: visible !important; }
+#root > div { overflow-x: clip !important; }`;
   document.head.appendChild(style);
-}
-
-function getWindowScrollY() {
-  if (typeof window === 'undefined') return 0;
-  return window.scrollY ?? document.documentElement?.scrollTop ?? 0;
-}
-
-function getMaxScrollY() {
-  if (typeof window === 'undefined') return 0;
-  const doc = document.documentElement;
-  const scrollHeight = Math.max(doc?.scrollHeight || 0, document.body?.scrollHeight || 0);
-  const viewportHeight = window.innerHeight || doc?.clientHeight || 0;
-  return Math.max(0, scrollHeight - viewportHeight);
 }
 
 /**
  * Hides the search bar when scrolling down and reveals it when scrolling up.
- * Fixes Expo Web's body overflow to enable normal window scrolling.
+ * Uses wheel/touch events on document since Expo Web body overflow:hidden
+ * prevents standard scroll events from firing on window.
  */
 export function useHomeScrollHide(disabled) {
   const translateY = useRef(new Animated.Value(0)).current;
-  const lastScrollY = useRef(0);
   const isHidden = useRef(false);
   const accumulatedDelta = useRef(0);
 
+  const animateTo = useCallback((targetValue, shouldHide) => {
+    if (isHidden.current === shouldHide) return;
+    isHidden.current = shouldHide;
+    Animated.timing(translateY, {
+      toValue: targetValue,
+      duration: 200,
+      useNativeDriver: false,
+    }).start();
+  }, [translateY]);
+
   useEffect(() => {
     if (Platform.OS !== 'web') return;
-
-    ensureBodyScrollable();
-
-    const animateTo = (targetValue, shouldHide) => {
-      if (isHidden.current === shouldHide) return;
-      isHidden.current = shouldHide;
-      Animated.timing(translateY, {
-        toValue: targetValue,
-        duration: 200,
-        useNativeDriver: false,
-      }).start();
-    };
+    ensureStickyCompatible();
 
     const show = () => animateTo(0, false);
     const hide = () => animateTo(-HIDE_HEIGHT, true);
@@ -71,41 +54,47 @@ export function useHomeScrollHide(disabled) {
       return;
     }
 
-    const initialY = getWindowScrollY();
-    lastScrollY.current = initialY;
-    if (initialY <= TOP_THRESHOLD) {
-      show();
-    }
-
-    function onScroll() {
-      const maxScrollY = getMaxScrollY();
-      const rawY = getWindowScrollY();
-      const currentY = Math.max(0, Math.min(rawY, maxScrollY));
-      const delta = currentY - lastScrollY.current;
-      lastScrollY.current = currentY;
-
-      if (currentY <= TOP_THRESHOLD) {
-        accumulatedDelta.current = 0;
-        show();
-        return;
-      }
-
-      if (accumulatedDelta.current * delta < 0) {
+    const onDirectionChange = (deltaY) => {
+      if (accumulatedDelta.current * deltaY < 0) {
         accumulatedDelta.current = 0;
       }
+      accumulatedDelta.current += deltaY;
 
-      accumulatedDelta.current += delta;
-
-      if (accumulatedDelta.current >= SCROLL_THRESHOLD) {
+      if (accumulatedDelta.current >= DIRECTION_THRESHOLD) {
         hide();
-      } else if (accumulatedDelta.current <= -SCROLL_THRESHOLD) {
+      } else if (accumulatedDelta.current <= -DIRECTION_THRESHOLD) {
         show();
       }
-    }
+    };
 
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, [translateY, disabled]);
+    const onWheel = (e) => onDirectionChange(e.deltaY);
+
+    let lastTouchY = null;
+    const onTouchStart = (e) => {
+      lastTouchY = e.touches[0]?.clientY ?? null;
+    };
+    const onTouchMove = (e) => {
+      if (lastTouchY === null) return;
+      const currentY = e.touches[0]?.clientY;
+      if (currentY == null) return;
+      const delta = lastTouchY - currentY;
+      lastTouchY = currentY;
+      onDirectionChange(delta);
+    };
+    const onTouchEnd = () => { lastTouchY = null; };
+
+    document.addEventListener('wheel', onWheel, { passive: true });
+    document.addEventListener('touchstart', onTouchStart, { passive: true });
+    document.addEventListener('touchmove', onTouchMove, { passive: true });
+    document.addEventListener('touchend', onTouchEnd, { passive: true });
+
+    return () => {
+      document.removeEventListener('wheel', onWheel);
+      document.removeEventListener('touchstart', onTouchStart);
+      document.removeEventListener('touchmove', onTouchMove);
+      document.removeEventListener('touchend', onTouchEnd);
+    };
+  }, [translateY, disabled, animateTo]);
 
   return { translateY, hideHeight: HIDE_HEIGHT };
 }

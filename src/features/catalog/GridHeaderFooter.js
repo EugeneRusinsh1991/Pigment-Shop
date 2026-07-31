@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
   sortDropdownPosition: {
     top: layout.spacing.lg * 2 + 6,
     right: layout.spacing.xxs,
-    width: 220,
+    width: 250,
   },
   gridFooterContainer: {
     width: '100%',

@@ -12,11 +12,11 @@ export default StyleSheet.create({
     zIndex: layout.zIndices.header,
   },
   headerDark: {
-    backgroundColor: colors.backgroundDark,
+    backgroundColor: colors.headerFooterBgDark,
     borderBottomColor: colors.borderDark,
   },
   headerLight: {
-    backgroundColor: colors.backgroundLight,
+    backgroundColor: colors.headerFooterBgLight,
     borderBottomColor: colors.borderLight,
   },
   innerRow: {

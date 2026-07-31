@@ -150,6 +150,10 @@ export const component = {
     bgLight: semantic.color.surface.light.default,
     bgDark: semantic.color.surface.dark.default,
   },
+  headerFooter: {
+    bgLight: '#FDF6F6',
+    bgDark: '#1C1C1C',
+  },
 };
 
 export const colors = {
@@ -168,6 +172,8 @@ export const colors = {
   productCardDark: '#1E1E1E',
 
   // Neutral / Shell Surfaces
+  headerFooterBgLight: component.headerFooter.bgLight,
+  headerFooterBgDark: component.headerFooter.bgDark,
   surfaceNeutralLight: semantic.color.surface.light.subtle,
   surfaceNeutralDark: semantic.color.surface.dark.subtle,
   surfaceSubtleLight: semantic.color.surface.light.subtle,

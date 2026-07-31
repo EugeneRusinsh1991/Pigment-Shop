@@ -36,6 +36,7 @@ export default function CatalogSortBar({ sortKey, onSortChange, resultCount, isD
         onChange={onSortChange}
         size="sm"
         isDark={isDark}
+        optionStyle={styles.sortOption}
       />
     </View>
   );
@@ -51,5 +52,9 @@ const styles = StyleSheet.create({
     marginBottom: layout.spacing.lg,
   },
   count: {},
+  sortOption: {
+    minWidth: 240,
+    paddingHorizontal: layout.spacing.lg,
+  },
 });
 

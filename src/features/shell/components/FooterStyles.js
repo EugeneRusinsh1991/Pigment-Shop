@@ -12,11 +12,11 @@ const FooterStyles = StyleSheet.create({
     justifyContent: 'center',
   },
   footerDark: {
-    backgroundColor: colors.surfaceDark,
+    backgroundColor: colors.headerFooterBgDark,
     borderTopColor: colors.borderDark,
   },
   footerLight: {
-    backgroundColor: colors.productCardLight,
+    backgroundColor: colors.headerFooterBgLight,
     borderTopColor: colors.borderLight,
   },
   contentRow: {
