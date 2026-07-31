@@ -54,12 +54,10 @@ export default function OrderItemsList({ items, totalPrice }) {
       </View>
 
       {items?.map((item, idx) => (
-        <ItemRow
+        <OrderItemRow
           key={idx}
           item={item}
           lang={lang}
-          t={t}
-          isLast={idx === items.length - 1}
         />
       ))}
 

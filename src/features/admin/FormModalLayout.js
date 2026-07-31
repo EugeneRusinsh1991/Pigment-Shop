@@ -1,10 +1,11 @@
 import React from 'react';
-import { Modal, ScrollView, View } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import { Heading } from '@/components/ui/Text';
 import { colors, layout } from '../../theme/tokens';
 import { useLanguage } from '../../context/LanguageContext';
 import { CrossIcon } from '@/components/Icons';
 import { Button, IconButton } from '@/components/ui/Button';
+import Modal from '@/components/ui/Modal';
 
 function ModalHeader({ title, onClose, styles }) {
   return (
@@ -45,15 +46,13 @@ function ModalFooter({ onCancel, onSave, styles, footerLeft }) {
 
 export function FormModalLayout({ visible, title, onClose, onSave, styles, cardWidth, children, footerLeft, footer }) {
   return (
-    <Modal visible={visible} transparent animationType="fade" onRequestClose={onClose}>
-      <View style={[styles.modalOverlay, { zIndex: layout.zIndices.modal }]}>
-        <View style={[styles.modalCard, cardWidth ? { width: cardWidth } : null]}>
-          <ModalHeader title={title} onClose={onClose} styles={styles} />
-          <ScrollView style={styles.modalBody} keyboardShouldPersistTaps="handled">
-            {children}
-          </ScrollView>
-          {footer ?? <ModalFooter onCancel={onClose} onSave={onSave} styles={styles} footerLeft={footerLeft} />}
-        </View>
+    <Modal visible={visible} onClose={onClose}>
+      <View style={[styles.modalCard, cardWidth ? { width: cardWidth } : null]}>
+        <ModalHeader title={title} onClose={onClose} styles={styles} />
+        <ScrollView style={styles.modalBody} keyboardShouldPersistTaps="handled">
+          {children}
+        </ScrollView>
+        {footer ?? <ModalFooter onCancel={onClose} onSave={onSave} styles={styles} footerLeft={footerLeft} />}
       </View>
     </Modal>
   );

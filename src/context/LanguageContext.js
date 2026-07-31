@@ -53,8 +53,13 @@ export function LanguageProvider({ children }) {
   );
 }
 
+const defaultLanguageContext = {
+  lang: 'ru',
+  t: (key, params) => getTranslation(key, 'ru', params),
+  selectLanguage: () => {},
+};
+
 export function useLanguage() {
   const ctx = useContext(LanguageContext);
-  if (!ctx) throw new Error('useLanguage must be used within LanguageProvider');
-  return ctx;
+  return ctx || defaultLanguageContext;
 }

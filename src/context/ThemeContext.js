@@ -38,9 +38,15 @@ export function ThemeProvider({ children }) {
   );
 }
 
+const defaultThemeContext = {
+  theme: 'light',
+  isDark: false,
+  toggleTheme: () => {},
+  setTheme: () => {},
+};
+
 export function useTheme() {
-  const ctx = useContext(ThemeContext);
-  if (!ctx) throw new Error('useTheme must be used within ThemeProvider');
+  const ctx = useContext(ThemeContext) || defaultThemeContext;
 
   return useMemo(() => ({
     ...ctx,

@@ -7,6 +7,7 @@
 import { Platform, View } from 'react-native';
 import { Text } from '@/components/ui/Text';
 import { useTheme } from '../../../context/ThemeContext';
+import { useLanguage } from '../../../context/LanguageContext';
 import styles from './AnalyticsStyles';
 import { colors, layout } from '../../../theme/tokens';
 
@@ -38,6 +39,7 @@ function SvgDonut({ data, size = 120, strokeWidth = 20 }) {
     );
   }
 
+  let accumulated = 0;
   return (
     <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
       {data.map((item, index) => {

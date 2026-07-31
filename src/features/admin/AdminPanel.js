@@ -71,11 +71,11 @@ export default function AdminPanel({ onBack }) {
       <View>
         <AdminTabBar activeTab={activeTab} onSelect={setActiveTab} isDark={isDark} />
       </View>
-      <ScrollView style={styles.content} contentContainerStyle={styles.contentContainer}>
+      <View style={styles.content}>
         <PageTransition key={activeTab} trigger={activeTab}>
           {renderActiveTab(activeTab)}
         </PageTransition>
-      </ScrollView>
+      </View>
     </View>
   );
 }

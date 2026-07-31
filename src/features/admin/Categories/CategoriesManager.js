@@ -9,7 +9,7 @@
  * catalogSync when Firestore updates) only while there are no unsaved local edits.
  */
 import { useState } from 'react';
-import { View } from 'react-native';
+import { View, ScrollView } from 'react-native';
 import { useLanguage } from '../../../context/LanguageContext';
 import { useCatalog } from '../../catalog/CatalogContext';
 import AdminSaveFooter from '../AdminSaveFooter';
@@ -77,13 +77,15 @@ export default function CategoriesManager() {
   }
 
   return (
-    <View style={styles.container}>
-      <CategoryTree
-        tree={tree}
-        onEdit={handleOpenEdit}
-        onAdd={handleOpenAdd}
-        products={products}
-      />
+    <View style={[styles.container, { flex: 1 }]}>
+      <ScrollView style={{ flex: 1 }} contentContainerStyle={{ paddingBottom: 20 }}>
+        <CategoryTree
+          tree={tree}
+          onEdit={handleOpenEdit}
+          onAdd={handleOpenAdd}
+          products={products}
+        />
+      </ScrollView>
       <AdminSaveFooter 
         isDirty={isDirty} 
         isSaving={isSaving} 

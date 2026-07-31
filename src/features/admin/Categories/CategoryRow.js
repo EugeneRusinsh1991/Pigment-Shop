@@ -15,7 +15,7 @@ import {
   resolveCategoryName,
 } from './CategoryRowElements';
 
-const localStyles = StyleSheet.create({
+const row_styles = StyleSheet.create({
   actionsGroup: {
     flexDirection: 'row',
     alignItems: 'center',

@@ -8,7 +8,7 @@
  * Read helpers (getAllProducts, searchProducts) remain in adminProductsTransforms.
  */
 import { useState, useEffect, useMemo } from 'react';
-import { View, useWindowDimensions } from 'react-native';
+import { View, useWindowDimensions, ScrollView } from 'react-native';
 import { useLanguage } from '../../../context/LanguageContext';
 import { SearchInput } from '@/components/domain/Search';
 import ProductFormModal from './ProductFormModal';
@@ -97,7 +97,7 @@ export default function ProductsManager() {
   }
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { flex: 1 }]}>
       <SearchInput
         value={query}
         onChangeText={setQuery}
@@ -111,13 +111,15 @@ export default function ProductsManager() {
         onToggleNew={() => setOnlyNew((v) => !v)}
         onAdd={openAdd}
       />
-      <ProductsTable
-        products={paginatedProducts}
-        sortField={sortField}
-        sortDirection={sortDirection}
-        onSort={handleSort}
-        onEdit={openEdit}
-      />
+      <ScrollView style={{ flex: 1 }} contentContainerStyle={{ paddingBottom: 20 }}>
+        <ProductsTable
+          products={paginatedProducts}
+          sortField={sortField}
+          sortDirection={sortDirection}
+          onSort={handleSort}
+          onEdit={openEdit}
+        />
+      </ScrollView>
       {totalPages > 1 && (
         <CatalogPagination
           currentPage={currentPage}
