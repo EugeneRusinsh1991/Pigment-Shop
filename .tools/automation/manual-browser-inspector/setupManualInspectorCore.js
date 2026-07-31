@@ -131,7 +131,7 @@ async function setupManualInspector(page) {
       async (timestamp, stateDump, overlayText, hoverInfo, options) => {
         const { screenshotsDir, stateDir, reportsDir, screenshotPath, statePath, reportPath, screenshotFilename } =
           buildFilePaths(timestamp);
-        ensureDirs([BASE_LOG_DIR]);
+        ensureDirs([BASE_LOG_DIR, stateDir, reportsDir]);
 
         const cropToTarget = options?.cropToTarget ?? false;
         const base64Data = await takeCompressedScreenshot(page, {

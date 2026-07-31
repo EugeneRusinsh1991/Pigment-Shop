@@ -18,7 +18,7 @@ export function Checkbox({ checked, label, onToggle, isDark, testID }) {
     <View style={styles.checkRow}>
       <Flag
         testID={testID || `filter-checkbox-${label}`}
-        variant="chip"
+        variant="checkbox"
         checked={!!checked}
         onChange={onToggle}
         isDark={isDark}

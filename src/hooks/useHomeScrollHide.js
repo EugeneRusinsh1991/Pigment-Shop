@@ -1,34 +1,45 @@
 import { useEffect, useRef } from 'react';
 import { Animated, Platform } from 'react-native';
 
-const HIDE_HEIGHT = 48; // search bar container height (paddings + input)
-const SCROLL_THRESHOLD = 15; // min accumulated scroll delta to trigger hide/show
-const TOP_THRESHOLD = 50; // scroll distance from top where search bar remains visible
+const HIDE_HEIGHT = 48;
+const SCROLL_THRESHOLD = 15;
+const TOP_THRESHOLD = 56;
+
+/**
+ * Overrides Expo Web's `body { overflow: hidden }` reset so the document
+ * scrolls normally and window.scrollY / position:sticky work correctly.
+ * Only runs once.
+ */
+let bodyOverrideApplied = false;
+function ensureBodyScrollable() {
+  if (bodyOverrideApplied) return;
+  if (typeof document === 'undefined') return;
+  bodyOverrideApplied = true;
+
+  const style = document.createElement('style');
+  style.textContent = `
+    body { overflow: visible !important; overflow-y: auto !important; }
+    #root { height: auto !important; min-height: 100vh; }
+  `;
+  document.head.appendChild(style);
+}
 
 function getWindowScrollY() {
   if (typeof window === 'undefined') return 0;
-  const doc = document.documentElement || document.body || {};
-  return window.scrollY ?? doc.scrollTop ?? 0;
+  return window.scrollY ?? document.documentElement?.scrollTop ?? 0;
 }
 
 function getMaxScrollY() {
-  if (typeof window === 'undefined' || typeof document === 'undefined') return 0;
-  const doc = document.documentElement || document.body || {};
-  const scrollHeight = Math.max(
-    doc.scrollHeight || 0,
-    document.body?.scrollHeight || 0
-  );
-  const viewportHeight = window.innerHeight || doc.clientHeight || 0;
+  if (typeof window === 'undefined') return 0;
+  const doc = document.documentElement;
+  const scrollHeight = Math.max(doc?.scrollHeight || 0, document.body?.scrollHeight || 0);
+  const viewportHeight = window.innerHeight || doc?.clientHeight || 0;
   return Math.max(0, scrollHeight - viewportHeight);
 }
 
 /**
  * Hides the search bar when scrolling down and reveals it when scrolling up.
- * Works consistently across desktop (wheel/trackpad) and mobile (touch).
- *
- * Returns:
- *  - translateY: Animated.Value (0 = visible, -HIDE_HEIGHT = hidden)
- *  - hideHeight: number
+ * Fixes Expo Web's body overflow to enable normal window scrolling.
  */
 export function useHomeScrollHide(disabled) {
   const translateY = useRef(new Animated.Value(0)).current;
@@ -38,6 +49,8 @@ export function useHomeScrollHide(disabled) {
 
   useEffect(() => {
     if (Platform.OS !== 'web') return;
+
+    ensureBodyScrollable();
 
     const animateTo = (targetValue, shouldHide) => {
       if (isHidden.current === shouldHide) return;
@@ -90,12 +103,8 @@ export function useHomeScrollHide(disabled) {
       }
     }
 
-    if (typeof window !== 'undefined') {
-      window.addEventListener('scroll', onScroll, { passive: true });
-      return () => {
-        window.removeEventListener('scroll', onScroll);
-      };
-    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, [translateY, disabled]);
 
   return { translateY, hideHeight: HIDE_HEIGHT };

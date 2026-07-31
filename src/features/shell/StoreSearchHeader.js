@@ -14,7 +14,7 @@ export default function StoreSearchHeader({ isDark: isDarkProp, isHome, contentW
   const isDark = isDarkProp ?? isDarkContext;
   const { flatList, searchIndex } = useCatalog() || {};
   const [isSearchActive, setIsSearchActive] = useState(false);
-  const { translateY } = useHomeScrollHide(isSearchActive || !isHome);
+  const { translateY, hideHeight } = useHomeScrollHide(isSearchActive || !isHome);
   const searchInnerStyle = useMemo(() => [styles.searchInner, { maxWidth: contentWidth }], [contentWidth]);
 
   if (!isHome) return null;
@@ -27,11 +27,6 @@ export default function StoreSearchHeader({ isDark: isDarkProp, isHome, contentW
         isSearchActive && { zIndex: layout.zIndices.tooltip },
         {
           transform: [{ translateY }],
-          marginTop: translateY.interpolate({
-            inputRange: [-48, 0],
-            outputRange: [-48, 0],
-            extrapolate: 'clamp',
-          }),
         }
       ]}
     >
