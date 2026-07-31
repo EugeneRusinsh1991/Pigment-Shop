@@ -14,8 +14,8 @@ export default function ProductThumbnailEmptySlot({ slotIndex, isDark }) {
         isDark ? styles.thumbnailSlotDark : styles.thumbnailSlotLight,
         styles.thumbnailEmptySlot,
         isDark ? styles.thumbnailEmptySlotDark : styles.thumbnailEmptySlotLight,
+        { pointerEvents: 'none' },
       ]}
-      pointerEvents="none"
       accessibilityLabel={`Empty image slot ${slotIndex + 1}`}
     >
       <ImageIcon color={iconColor} size={20} opacity={0.4} />

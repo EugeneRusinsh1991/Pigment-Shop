@@ -101,7 +101,7 @@ const ProductCardInner = React.forwardRef(({ item, isDark, depth = 1, isFavorite
           onError={() => setImgError(true)}
         />
         <ProductBadges isNew={item.isNew} discountPercent={item.discountPercent} />
-        <View style={styles.topOverlayWrapper} pointerEvents="auto">
+        <View style={[styles.topOverlayWrapper, { pointerEvents: 'auto' }]}>
           <IconButton
             testID="product-fav-button"
             icon={<HeartIcon filled={isFavorite} color={heartColor} size={18} />}
@@ -117,7 +117,7 @@ const ProductCardInner = React.forwardRef(({ item, isDark, depth = 1, isFavorite
         <Text variant="subtitle2" style={styles.prodTitle} numberOfLines={2}>{getLocalizedValue(item.label, lang)}</Text>
         <ProductPrice price={item.price} discountPercent={item.discountPercent} />
       </View>
-      <View style={styles.bottomOverlayWrapper} pointerEvents="auto">
+      <View style={[styles.bottomOverlayWrapper, { pointerEvents: 'auto' }]}>
         <IconButton
           testID="product-cart-button"
           icon={<CartIcon color={colors.white} size={18} />}

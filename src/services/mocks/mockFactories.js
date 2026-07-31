@@ -6,6 +6,8 @@
  * objects to prevent accidental in-memory state contamination.
  */
 
+import { PRODUCT_PLACEHOLDER } from '@/constants';
+
 let _productCounter = 0;
 let _categoryCounter = 0;
 let _orderCounter = 0;
@@ -25,7 +27,7 @@ function createMockProduct(overrides = {}) {
     label: { uk: `Продукт ${_productCounter}`, ru: `Продукт ${_productCounter}`, en: `Product ${_productCounter}` },
     description: { uk: 'Тестовий опис', ru: 'Тестовое описание', en: 'Test description' },
     price: 100 + _productCounter * 10,
-    images: [`https://placehold.co/400x400?text=Product+${_productCounter}`],
+    images: [PRODUCT_PLACEHOLDER],
     sold: _productCounter,
     stock: 10,
     active: true,

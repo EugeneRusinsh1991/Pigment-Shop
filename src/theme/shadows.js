@@ -41,33 +41,26 @@ export const shadows = {
     web: { boxShadow: '0px 1px 1.5px rgba(0, 0, 0, 0.2)' },
     native: { shadowColor: '#000', shadowOffset: { width: 0, height: 1 }, shadowOpacity: 0.2, shadowRadius: 1.5 },
   },
-  cardRest: {
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowRadius: 8,
-    shadowOpacity: 0.08,
-    elevation: 4,
-  },
-  cardHover: {
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 12 },
-    shadowRadius: 16,
-    shadowOpacity: 0.18,
-    elevation: 12,
-    native: {
+  cardRest: Platform.select({
+    web: { boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.08)' },
+    default: {
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 4 },
+      shadowRadius: 8,
+      shadowOpacity: 0.08,
+      elevation: 4,
+    },
+  }),
+  cardHover: Platform.select({
+    web: { boxShadow: '0px 12px 16px rgba(0, 0, 0, 0.18)' },
+    default: {
       shadowColor: '#000',
       shadowOffset: { width: 0, height: 12 },
       shadowRadius: 16,
       shadowOpacity: 0.18,
+      elevation: 12,
     },
-    web: {
-      shadowColor: '#000',
-      shadowOffset: { width: 0, height: 12 },
-      shadowRadius: 16,
-      shadowOpacity: 0.18,
-      boxShadow: '0px 12px 16px rgba(0, 0, 0, 0.18)',
-    },
-  },
+  }),
 };
 
 function resolveShadow(tokenShadow) {

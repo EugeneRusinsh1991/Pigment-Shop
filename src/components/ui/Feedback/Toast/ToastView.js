@@ -25,9 +25,9 @@ export function ToastView({ toast, fadeAnim }) {
               }),
             },
           ],
+          pointerEvents: 'none',
         },
       ]}
-      pointerEvents="none"
     >
       <Text variant="subtitle2" style={[styles.text, { color: theme.text }]}>{toast.message}</Text>
     </Animated.View>

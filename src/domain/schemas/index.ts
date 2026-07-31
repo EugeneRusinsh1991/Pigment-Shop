@@ -50,12 +50,12 @@ export const UserRoleSchema = z.enum(['admin', 'customer', 'user', 'visitor']).d
 
 export const UserProfileSchema = z.object({
   uid: z.string(),
-  email: z.string().optional().default(''),
-  displayName: z.string().optional().default(''),
-  phoneNumber: z.string().optional().default(''),
-  address: z.string().optional().default(''),
+  email: z.string().nullish().transform((val) => val ?? ''),
+  displayName: z.string().nullish().transform((val) => val ?? ''),
+  phoneNumber: z.string().nullish().transform((val) => val ?? ''),
+  address: z.string().nullish().transform((val) => val ?? ''),
   role: UserRoleSchema,
-  authToken: z.string().optional(),
+  authToken: z.string().nullish(),
   sessionStatus: z.enum(['authenticated', 'unauthenticated', 'loading']).default('unauthenticated'),
 });
 

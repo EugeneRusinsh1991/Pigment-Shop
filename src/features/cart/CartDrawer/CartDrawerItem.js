@@ -4,6 +4,7 @@ import { Text } from '@/components/ui/Text';
 import { IconButton } from '@/components/ui/Button';
 import { CloseIcon, MinusIcon, PlusIcon } from '@/components/Icons';
 import { colors, layout, typography } from '@/theme/tokens';
+import { PRODUCT_PLACEHOLDER } from '@/constants';
 import { formatCurrency } from '@/utils/currency';
 
 export default function CartDrawerItem({ item, isDark, onUpdateQuantity, onRemove }) {
@@ -24,7 +25,7 @@ export default function CartDrawerItem({ item, isDark, onUpdateQuantity, onRemov
   return (
     <View style={[styles.container, isDark ? styles.containerDark : styles.containerLight]}>
       <Image
-        source={{ uri: item.image || item.product?.image || 'https://via.placeholder.com/150' }}
+        source={{ uri: item.image || item.product?.image || PRODUCT_PLACEHOLDER }}
         style={styles.image}
         resizeMode="cover"
       />
