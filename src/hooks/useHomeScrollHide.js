@@ -8,6 +8,7 @@ const ACCUMULATED_THRESHOLD = 50; // min accumulated px to trigger state change
 const TOP_THRESHOLD = 80; // min scroll from top to allow hiding
 
 function isDocTarget(target) {
+  if (Platform.OS !== 'web' || typeof document === 'undefined') return false;
   return !target || target === document || target === document.documentElement || target === document.body;
 }
 
@@ -165,10 +166,12 @@ export function useHomeScrollHide(disabled) {
       }
     }
 
-    document.addEventListener('scroll', onScroll, { capture: true, passive: true });
-    return () => {
-      document.removeEventListener('scroll', onScroll, { capture: true });
-    };
+    if (Platform.OS === 'web' && typeof document !== 'undefined') {
+      document.addEventListener('scroll', onScroll, { capture: true, passive: true });
+      return () => {
+        document.removeEventListener('scroll', onScroll, { capture: true });
+      };
+    }
   }, [translateY, disabled]);
 
   return { translateY, hideHeight: HIDE_HEIGHT };

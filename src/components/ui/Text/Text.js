@@ -34,11 +34,13 @@ function persistTypographyWarning(item, flattenedStyle, keys, textSnippet) {
   window.__TYPOGRAPHY_WARNINGS__.push(item);
 
   try {
-    const stored = JSON.parse(localStorage.getItem('typography_warnings') || '[]');
-    const isDup = stored.some((entry) => entry.textSnippet === textSnippet && JSON.stringify(entry.keys) === JSON.stringify(keys) && JSON.stringify(entry.style) === JSON.stringify(flattenedStyle));
-    if (!isDup) {
-      stored.push(item);
-      localStorage.setItem('typography_warnings', JSON.stringify(stored));
+    if (typeof localStorage !== 'undefined') {
+      const stored = JSON.parse(localStorage.getItem('typography_warnings') || '[]');
+      const isDup = stored.some((entry) => entry.textSnippet === textSnippet && JSON.stringify(entry.keys) === JSON.stringify(keys) && JSON.stringify(entry.style) === JSON.stringify(flattenedStyle));
+      if (!isDup) {
+        stored.push(item);
+        localStorage.setItem('typography_warnings', JSON.stringify(stored));
+      }
     }
   } catch (e) {}
 }

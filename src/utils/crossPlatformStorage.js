@@ -10,6 +10,7 @@ const memoryStore = new Map();
  * Serves sessionStorage on Web and a persistent module-level session memory store on Native.
  */
 function readWebStorage(key) {
+  if (Platform.OS !== 'web' || typeof window === 'undefined') return null;
   try {
     const localVal = window.localStorage?.getItem(key);
     if (localVal !== null && localVal !== undefined) return localVal;

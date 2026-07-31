@@ -13,8 +13,9 @@
  * compatibility while imports are gradually updated.
  */
 import { initializeApp, setLogLevel } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
+import { getAuth, initializeAuth, inMemoryPersistence } from 'firebase/auth';
 import { initializeFirestore } from 'firebase/firestore';
+import { Platform } from 'react-native';
 
 setLogLevel('silent');
 
@@ -29,7 +30,16 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+
+let auth;
+try {
+  auth = getAuth(app);
+} catch (e) {
+  auth = initializeAuth(app, {
+    persistence: inMemoryPersistence,
+  });
+}
+
 const db = initializeFirestore(app, {
   experimentalForceLongPolling: true,
 });

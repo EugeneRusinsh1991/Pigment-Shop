@@ -2,22 +2,59 @@
   "summary": {
     "visitedScreens": 0,
     "visitedInteractions": 0,
-    "successfulInteractions": 2,
+    "successfulInteractions": 61,
     "failedInteractions": 0,
-    "warnings": 1,
-    "errors": 0,
+    "warnings": 4,
+    "errors": 1,
     "executionDurationMs": 0
   },
-  "failures": [],
+  "failures": [
+    {
+      "screen": "http://localhost:8081/product/prod-1-3-2-1",
+      "interaction": "Click",
+      "elementIdentifier": "testid|breadcrumb-item-0",
+      "event": "AfterInteraction",
+      "timestamp": 1785492436163,
+      "errorType": "Health Check Evaluation Failed",
+      "errorMessage": "[Application Bug] page.evaluate: Target crashed \nBrowser logs:\n\n<launching> C:\\Users\\Eugene\\AppData\\Local\\ms-playwright\\chromium_headless_shell-1228\\chrome-headless-shell-win64\\chrome-headless-shell.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=C:\\Users\\Eugene\\AppData\\Local\\Temp\\playwright_chromiumdev_profile-g21zeU --remote-debugging-pipe --no-startup-window\n<launched> pid=19896\n[pid=19896][err] [0731/130550.038:INFO:CONSOLE:145097] \"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold\", source: http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable (145097)\n[pid=19896][err] [0731/130550.200:INFO:CONSOLE:145097] \"Running application \"main\" with appParams:\n[pid=19896][err]  [object Object] \n[pid=19896][err] Development-level warnings: ON.\n[pid=19896][err] Performance optimizations: OFF.\", source: http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable (145097)\n[pid=19896][err] [0731/130550.403:INFO:CONSOLE:145097] \"\"shadow*\" style props are deprecated. Use \"boxShadow\".\", source: http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable (145097)\n[pid=19896][err] [0731/130558.892:INFO:CONSOLE:145097] \"props.pointerEvents is deprecated. Use style.pointerEvents\", source: http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable (145097)\n[pid=19896][err] [0731/130621.424:INFO:CONSOLE:9] \"\n[pid=19896][err] %cStop! font-family:helvetica; font-size:20px; font-size:50px; font-weight:bold; color:red; -webkit-text-stroke:1px black;\", source: https://static.cdninstagram.com/rsrc.php/v4i2sz4/yR/l/en_US/evL6ANyjc9cw9h26kinjJF0dD9gEEs2XTc7iXjGPvlQ-iLX4PZxqJ0eiFGHh9ozlMIeulWM2_p2affT2xLB5R_8joB3V5VxKaZovozDzTmGAfJYCPfv43i0iwa7eSNpDNxgKcmMZ-z9V1-jE9ZqzBbTbYPJJDchOYIvRE1tYh3omlNxBKN3FCGXPd_I.js (9)\n[pid=19896][err] [0731/130621.424:INFO:CONSOLE:9] \"\n[pid=19896][err] %cThis is a browser feature intended for developers. If someone told you to copy-paste something here to enable an Instagram feature or \"hack\" someone's account, it is a scam and will give them access to your Instagram account. font-family:helvetica; font-size:20px; \", source: https://static.cdninstagram.com/rsrc.php/v4i2sz4/yR/l/en_US/evL6ANyjc9cw9h26kinjJF0dD9gEEs2XTc7iXjGPvlQ-iLX4PZxqJ0eiFGHh9ozlMIeulWM2_p2affT2xLB5R_8joB3V5VxKaZovozDzTmGAfJYCPfv43i0iwa7eSNpDNxgKcmMZ-z9V1-jE9ZqzBbTbYPJJDchOYIvRE1tYh3omlNxBKN3FCGXPd_I.js (9)\n[pid=19896][err] [0731/130621.425:INFO:CONSOLE:9] \"\n[pid=19896][err] %cSee https://www.facebook.com/selfxss for more information. font-family:helvetica; font-size:20px; \", source: https://static.cdninstagram.com/rsrc.php/v4i2sz4/yR/l/en_US/evL6ANyjc9cw9h26kinjJF0dD9gEEs2XTc7iXjGPvlQ-iLX4PZxqJ0eiFGHh9ozlMIeulWM2_p2affT2xLB5R_8joB3V5VxKaZovozDzTmGAfJYCPfv43i0iwa7eSNpDNxgKcmMZ-z9V1-jE9ZqzBbTbYPJJDchOYIvRE1tYh3omlNxBKN3FCGXPd_I.js (9)\n[pid=19896][err] [0731/130621.425:INFO:CONSOLE:9] \"\n[pid=19896][err] %c \", source: https://static.cdninstagram.com/rsrc.php/v4i2sz4/yR/l/en_US/evL6ANyjc9cw9h26kinjJF0dD9gEEs2XTc7iXjGPvlQ-iLX4PZxqJ0eiFGHh9ozlMIeulWM2_p2affT2xLB5R_8joB3V5VxKaZovozDzTmGAfJYCPfv43i0iwa7eSNpDNxgKcmMZ-z9V1-jE9ZqzBbTbYPJJDchOYIvRE1tYh3omlNxBKN3FCGXPd_I.js (9)\n[pid=19896][err] [0731/130621.581:INFO:CONSOLE:117] \"[0.003]  tgsticker init\", source: https://telegram.org/js/tgsticker.js?32 (117)\n[pid=19896][err] [0731/130621.817:INFO:CONSOLE:688] \"[0.238]  worker #0 ready\", source: https://telegram.org/js/tgsticker.js?32 (688)\n[pid=19896][err] [0731/130621.913:INFO:CONSOLE:80] \"ErrorUtils caught an error:\n[pid=19896][err] \n[pid=19896][err] Error connecting to Credential Management service.\n[pid=19896][err] \n[pid=19896][err] Subsequent non-fatal errors won't be logged; see https://fburl.com/debugjs. [object Object]\", source: https://static.cdninstagram.com/rsrc.php/v4/yS/r/IO0usekfpXJ.js (80)\n[pid=19896][err] [0731/130621.926:INFO:CONSOLE:700] \"[0.34]  worker #3 ready\", source: https://telegram.org/js/tgsticker.js?32 (700)\n[pid=19896][err] [0731/130621.926:INFO:CONSOLE:700] \"[0.346]  worker #2 ready\", source: https://telegram.org/js/tgsticker.js?32 (700)\n[pid=19896][err] [0731/130621.928:ERROR:components\\device_event_log\\device_event_log_impl.cc:200] [13:06:21.928] Bluetooth: bluetooth_adapter_winrt.cc:1082 Getting Default Adapter failed.\n[pid=19896][err] [0731/130621.947:INFO:CONSOLE:700] \"[0.352]  worker #1 ready\", source: https://telegram.org/js/tgsticker.js?32 (700)\n[pid=19896][err] [0731/130621.947:INFO:CONSOLE:705] \"[0.352]  workers ready\", source: https://telegram.org/js/tgsticker.js?32 (705)\n[pid=19896][err] [0731/130643.649:INFO:CONSOLE:145097] \"Disconnected from Metro (1006)\n[pid=19896][err] To reconnect:\n[pid=19896][err] - Ensure that Metro is running and available on the same network\n[pid=19896][err] - Reload this app (will trigger further help if Metro cannot be connected to)\", source: http://localhost:8081/node_modules/expo-router/entry.bundle?platform=web&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.routerRoot=app&unstable_transformProfile=hermes-stable (145097)\n[pid=19896][err] [0731/130706.077:ERROR:content\\browser\\network_service_instance_impl.cc:722] Network service crashed or was terminated, restarting service.\n[pid=19896][err] [0731/130711.131:ERROR:content\\browser\\gpu\\gpu_process_host.cc:1005] GPU process exited unexpectedly: exit_code=-1073741510\n[pid=19896][err] [0731/130711.131:WARNING:content\\browser\\gpu\\gpu_process_host.cc:1447] The GPU process has crashed 1 time(s)"
+    }
+  ],
   "warnings": [
     {
-      "screen": "http://localhost:8081/admin",
-      "interaction": "Click",
-      "elementIdentifier": "btn|Заказы",
+      "screen": "http://localhost:8081/",
+      "interaction": "Initial Load",
+      "elementIdentifier": "None",
       "event": "Runtime",
-      "timestamp": 1785492363111,
+      "timestamp": 1785492350406,
+      "errorType": "Console Warning",
+      "errorMessage": "\"shadow*\" style props are deprecated. Use \"boxShadow\"."
+    },
+    {
+      "screen": "http://localhost:8081/",
+      "interaction": "Click",
+      "elementIdentifier": "btn|⚙️",
+      "event": "Runtime",
+      "timestamp": 1785492351241,
+      "errorType": "Console Error",
+      "errorMessage": "Failed to load resource: the server responded with a status of 400 ()"
+    },
+    {
+      "screen": "http://localhost:8081/products",
+      "interaction": "Click",
+      "elementIdentifier": "btn|Все товары",
+      "event": "Runtime",
+      "timestamp": 1785492358894,
       "errorType": "Console Warning",
       "errorMessage": "props.pointerEvents is deprecated. Use style.pointerEvents"
+    },
+    {
+      "screen": "http://localhost:8081/product/prod-1-3-2-1",
+      "interaction": "Click",
+      "elementIdentifier": "testid|breadcrumb-home",
+      "event": "Runtime",
+      "timestamp": 1785492403650,
+      "errorType": "Console Warning",
+      "errorMessage": "Disconnected from Metro (1006)\nTo reconnect:\n- Ensure that Metro is running and available on the same network\n- Reload this app (will trigger further help if Metro cannot be connected to)"
     }
   ]
 }
