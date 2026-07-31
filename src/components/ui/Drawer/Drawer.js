@@ -1,5 +1,5 @@
 import React from 'react';
-import { Animated, Modal, Pressable, StyleSheet, View } from 'react-native';
+import { Animated, Modal, Pressable, StyleSheet, View, SafeAreaView } from 'react-native';
 import { Text } from '../Text';
 import { getDrawerStyles, drawerStyles } from './DrawerStyles';
 import { useDrawerTheme } from './useDrawerTheme';
@@ -78,14 +78,16 @@ export function Drawer({
             style,
           ]}
         >
-          <Pressable
-            style={{ flex: 1 }}
-            onPress={(e) => {
-              e?.stopPropagation?.();
-            }}
-          >
-            {children}
-          </Pressable>
+          <SafeAreaView style={{ flex: 1 }}>
+            <Pressable
+              style={{ flex: 1 }}
+              onPress={(e) => {
+                e?.stopPropagation?.();
+              }}
+            >
+              {children}
+            </Pressable>
+          </SafeAreaView>
         </Animated.View>
         <Pressable
           style={styles.dismissPressable}

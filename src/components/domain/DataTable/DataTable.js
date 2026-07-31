@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, ScrollView } from 'react-native';
 import { Text } from '../../ui/Text';
 import EmptyState from './EmptyState';
 import { colors } from '../../../theme/tokens';
@@ -124,19 +124,23 @@ export default function DataTable(props) {
 
   return (
     <View style={[cardStyle]}>
-      <TableBody
-        data={data}
-        columns={columns}
-        sortField={sortField}
-        sortDirection={sortDirection}
-        onSort={handleSort}
-        isDark={isDark}
-        headerStyle={headerStyle}
-        isMobile={isMobile}
-        renderMobileRow={renderMobileRow}
-        renderRow={renderRow}
-        keyExtractor={getItemKey}
-      />
+      <ScrollView horizontal contentContainerStyle={{ minWidth: '100%' }}>
+        <View style={{ minWidth: '100%' }}>
+          <TableBody
+            data={data}
+            columns={columns}
+            sortField={sortField}
+            sortDirection={sortDirection}
+            onSort={handleSort}
+            isDark={isDark}
+            headerStyle={headerStyle}
+            isMobile={isMobile}
+            renderMobileRow={renderMobileRow}
+            renderRow={renderRow}
+            keyExtractor={getItemKey}
+          />
+        </View>
+      </ScrollView>
     </View>
   );
 }
