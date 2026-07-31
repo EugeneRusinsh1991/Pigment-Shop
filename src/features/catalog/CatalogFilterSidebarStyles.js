@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 import { buttonTokens, colors, layout, shadow } from '../../theme/tokens';
 
 const styles = StyleSheet.create({
-  sidebar: { width: 224, maxWidth: 224, flexShrink: 0, flexGrow: 0, flexBasis: 224, overflow: 'hidden' },
+  sidebar: { width: 224, maxWidth: 224, flexShrink: 0, flexGrow: 0, flexBasis: 224, overflow: 'hidden', height: '100%' },
   sidebarDark: { backgroundColor: colors.backgroundDark },
   sidebarLight: { backgroundColor: colors.backgroundLight },
   content: { padding: layout.spacing.lg, gap: layout.spacing.md },

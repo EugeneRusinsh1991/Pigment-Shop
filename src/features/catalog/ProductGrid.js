@@ -79,11 +79,11 @@ export default function ProductGrid({ products, cols, cardWidth, isDark, onCardP
       ListFooterComponent={listFooter}
       ListEmptyComponent={<EmptyCatalogState isDark={isDark} label={emptyLabel} />}
       showsVerticalScrollIndicator={!isNarrow}
-      scrollEnabled={false}
+      scrollEnabled={true}
       initialNumToRender={8}
       maxToRenderPerBatch={8}
       windowSize={5}
-      removeClippedSubviews={false}
+      removeClippedSubviews={true}
     />
   );
 }

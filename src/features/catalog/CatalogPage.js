@@ -129,11 +129,11 @@ export default function CatalogPage({ isDark }) {
   } = usePaginatedCatalog(filters, sortKey, flatList, categoryTree, pageSize);
 
   return (
-    <ScrollView
-      style={isDark ? styles.containerDark : styles.containerLight}
-      contentContainerStyle={isNarrow ? styles.containerNarrow : styles.row}
-      showsVerticalScrollIndicator={false}
-      keyboardShouldPersistTaps="handled"
+    <View
+      style={[
+        isDark ? styles.containerDark : styles.containerLight,
+        isNarrow ? styles.containerNarrow : styles.row
+      ]}
     >
       <CatalogFilterSidebar
         categoryTree={categoryTree}
@@ -173,18 +173,18 @@ export default function CatalogPage({ isDark }) {
         loading={loading}
         isInitialLoading={isLoading}
       />
-    </ScrollView>
+    </View>
   );
 }
 
 
 const styles = StyleSheet.create({
   container: { flex: 1 },
-  containerNarrow: { flexGrow: 1, paddingHorizontal: layout.spacing.lg },
+  containerNarrow: { flex: 1 },
   containerDark: { flex: 1, backgroundColor: colors.backgroundDark },
   containerLight: { flex: 1, backgroundColor: colors.backgroundLight },
-  row: { flexGrow: 1, flexDirection: 'row', width: '100%', maxWidth: layout.maxContentWidth, alignSelf: 'center', paddingHorizontal: layout.spacing.lg },
+  row: { flex: 1, flexDirection: 'row', width: '100%', maxWidth: layout.maxContentWidth, alignSelf: 'center', paddingHorizontal: layout.spacing.lg },
   main: { flex: 1, padding: layout.spacing.lg },
-  mainNarrow: { alignItems: 'center' },
+  mainNarrow: { alignItems: 'center', paddingHorizontal: 0 },
   gridContainer: { flex: 1, paddingTop: layout.spacing.sm },
 });
