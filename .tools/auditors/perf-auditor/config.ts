@@ -7,6 +7,8 @@ export interface PerfAuditConfig {
   outputDir: string;
   screenshotOnLag: boolean;
   enableCDPProfiler: boolean;
+  enableCDPTracing: boolean;
+  traceFlushIntervalMs: number;
 }
 
 export function loadConfig(override: Partial<PerfAuditConfig> = {}): PerfAuditConfig {
@@ -29,5 +31,7 @@ export function loadConfig(override: Partial<PerfAuditConfig> = {}): PerfAuditCo
     outputDir: path.join(logsDir, 'latest'),
     screenshotOnLag: override.screenshotOnLag ?? true,
     enableCDPProfiler,
+    enableCDPTracing: override.enableCDPTracing ?? (process.env.ENABLE_CDP_TRACING !== 'false'),
+    traceFlushIntervalMs: Number(process.env.TRACE_FLUSH_INTERVAL_MS) || override.traceFlushIntervalMs || 2000,
   };
 }

@@ -5,7 +5,7 @@ import { PerfAuditConfig } from './config';
 export interface LagRecord {
   id: string;
   timestamp: string;
-  type: 'longtask' | 'action_delay' | 'custom';
+  type: 'longtask' | 'action_delay' | 'custom' | 'frame_drop' | 'cdp_longtask' | 'layout_thrash' | 'paint_stall';
   durationMs: number;
   thresholdMs: number;
   url: string;
@@ -32,6 +32,8 @@ export interface LagRecord {
   selector?: string;
   action?: string;
   details?: string;
+  traceCategory?: string;
+  traceName?: string;
 }
 
 export class PerfLogger {
@@ -54,11 +56,23 @@ export class PerfLogger {
   }
 
   public recordLag(record: Omit<LagRecord, 'id'>): void {
+    if (this.isDuplicate(record)) return;
     const id = `lag-${Date.now()}-${record.durationMs}`;
     const fullRecord = { id, ...record } as LagRecord;
     this.lags.push(fullRecord);
     const target = fullRecord.userAction?.targetSelector || fullRecord.selector || fullRecord.action || 'UI';
     console.warn(`[PERF LAG WARNING] ${record.type} on ${target} took ${record.durationMs}ms (Threshold: ${record.thresholdMs}ms)`);
+  }
+
+  private isDuplicate(record: Omit<LagRecord, 'id'>): boolean {
+    const WINDOW_MS = 200;
+    const recordTime = new Date(record.timestamp).getTime();
+    return this.lags.some(existing => {
+      const existingTime = new Date(existing.timestamp).getTime();
+      const timeDiff = Math.abs(existingTime - recordTime);
+      const durationMatch = Math.abs(existing.durationMs - record.durationMs) < 10;
+      return timeDiff < WINDOW_MS && durationMatch;
+    });
   }
 
   public getLags(): LagRecord[] {

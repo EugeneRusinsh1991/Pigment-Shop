@@ -2,6 +2,7 @@ import { chromium } from 'playwright';
 import { loadConfig } from './config';
 import { PerfLogger } from './logger';
 import { injectPerformanceObserver, getCollectedLongTasks } from './browser-observer';
+import { CdpTraceCollector } from './cdp-trace-collector';
 import { generateHtmlReport } from './reporter';
 import path from 'path';
 
@@ -13,16 +14,26 @@ export async function runInteractiveMode() {
   console.log(`[PERF AUDIT] Starting Interactive Mode on ${baseUrl}`);
   console.log(`[PERF AUDIT] Threshold: ${config.lagThresholdMs}ms.`);
   console.log(`[PERF AUDIT] CDP Profiler: ${config.enableCDPProfiler ? 'ENABLED' : 'DISABLED'}`);
+  console.log(`[PERF AUDIT] CDP Tracing: ${config.enableCDPTracing ? 'ENABLED' : 'DISABLED'} (flush every ${config.traceFlushIntervalMs}ms)`);
 
   const browser = await chromium.launch({ headless: false });
   const context = await browser.newContext();
   const page = await context.newPage();
 
   let cdpSession: any = null;
+  let traceCollector: CdpTraceCollector | null = null;
+
+  cdpSession = await context.newCDPSession(page);
+
   if (config.enableCDPProfiler) {
-    cdpSession = await context.newCDPSession(page);
     await cdpSession.send('Profiler.enable');
     await cdpSession.send('Profiler.start');
+  }
+
+  if (config.enableCDPTracing) {
+    traceCollector = new CdpTraceCollector(cdpSession, config.lagThresholdMs, () => page.url());
+    await traceCollector.start();
+    console.log('[PERF AUDIT] CDP Tracing started — capturing engine-level events.');
   }
 
   await page.exposeFunction('__perfAuditReportLag', (lt: any) => {
@@ -91,7 +102,24 @@ export async function runInteractiveMode() {
 
   const seenLags = new Set<string>();
 
-  const syncLags = async () => {
+  const flushTraceLags = async () => {
+    if (!traceCollector || page.isClosed()) return;
+    const traceLags = await traceCollector.flush().catch(() => []);
+    for (const tl of traceLags) {
+      logger.recordLag({
+        timestamp: tl.timestamp,
+        type: tl.type,
+        durationMs: tl.durationMs,
+        thresholdMs: config.lagThresholdMs,
+        url: tl.url,
+        details: tl.details,
+        traceCategory: tl.traceCategory,
+        traceName: tl.traceName,
+      });
+    }
+  };
+
+  const syncBrowserLags = async () => {
     if (page.isClosed()) return;
     const lags = await getCollectedLongTasks(page).catch(() => []);
     for (const lt of lags) {
@@ -100,31 +128,48 @@ export async function runInteractiveMode() {
       const isOverThreshold = isFrameDrop || lt.durationMs >= config.lagThresholdMs;
       if (!seenLags.has(key) && isOverThreshold) {
         seenLags.add(key);
-        // Only record if not already recorded via bridge
-        const alreadyRecorded = logger.getLags().some(l => l.durationMs === lt.durationMs && l.type === lt.type);
-        if (!alreadyRecorded) {
-          logger.recordLag({
-            timestamp: new Date().toISOString(),
-            type: lt.type || 'longtask',
-            durationMs: lt.durationMs,
-            thresholdMs: config.lagThresholdMs,
-            url: lt.url || page.url(),
-            details: `Polled lag: ${lt.durationMs}ms`,
-            userAction: lt.userAction
-          });
-        }
+        logger.recordLag({
+          timestamp: new Date().toISOString(),
+          type: lt.type || 'longtask',
+          durationMs: lt.durationMs,
+          thresholdMs: config.lagThresholdMs,
+          url: lt.url || page.url(),
+          details: `Browser observer: ${lt.durationMs}ms`,
+          userAction: lt.userAction
+        });
       }
     }
   };
 
-  const interval = setInterval(syncLags, 1000);
+  const traceInterval = traceCollector
+    ? setInterval(flushTraceLags, config.traceFlushIntervalMs)
+    : null;
+  const browserInterval = setInterval(syncBrowserLags, 3000);
 
   const finishReport = async () => {
-    clearInterval(interval);
-    await syncLags().catch(() => {});
+    if (traceInterval) clearInterval(traceInterval);
+    clearInterval(browserInterval);
+    await flushTraceLags().catch(() => {});
+    await syncBrowserLags().catch(() => {});
+    if (traceCollector) {
+      const finalLags = await traceCollector.stop().catch(() => []);
+      for (const tl of finalLags) {
+        logger.recordLag({
+          timestamp: tl.timestamp,
+          type: tl.type,
+          durationMs: tl.durationMs,
+          thresholdMs: config.lagThresholdMs,
+          url: tl.url,
+          details: tl.details,
+          traceCategory: tl.traceCategory,
+          traceName: tl.traceName,
+        });
+      }
+    }
     logger.saveReport();
     generateHtmlReport(logger.getLags(), path.join(logger.runDir, 'lags-report.html'));
     console.log(`[PERF AUDIT] Report saved to ${logger.runDir}`);
+    console.log(`[PERF AUDIT] Total lags captured: ${logger.getLags().length}`);
   };
 
   await new Promise<void>((resolve) => {

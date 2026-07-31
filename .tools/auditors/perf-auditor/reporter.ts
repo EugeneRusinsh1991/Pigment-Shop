@@ -2,6 +2,19 @@ import fs from 'fs';
 import path from 'path';
 import { LagRecord } from './logger';
 
+const LAG_TYPE_LABELS: Record<string, string> = {
+  longtask: 'Long Task (Main Thread Blocked)',
+  action_delay: 'Action Delay (Slow UI Response)',
+  cdp_longtask: 'CDP Long Task (Engine-Level)',
+  layout_thrash: 'Layout Thrashing',
+  paint_stall: 'Paint / Composite Stall',
+  frame_drop: 'Frame Drop',
+};
+
+function formatLagType(type: string): string {
+  return LAG_TYPE_LABELS[type] || type;
+}
+
 export function generateHtmlReport(lags: LagRecord[], outputPath: string): void {
   const html = `
 <!DOCTYPE html>
@@ -30,7 +43,7 @@ export function generateHtmlReport(lags: LagRecord[], outputPath: string): void 
       : '';
     return `
     <div class="lag-card">
-      <div><span class="badge">${lag.durationMs}ms</span> (Threshold: ${lag.thresholdMs}ms) - <strong>${lag.type === 'longtask' ? 'Long Task (Main Thread Blocked)' : lag.type === 'action_delay' ? 'Action Delay (Slow UI Response)' : lag.type}</strong></div>
+      <div><span class="badge">${lag.durationMs}ms</span> (Threshold: ${lag.thresholdMs}ms) - <strong>${formatLagType(lag.type)}</strong>${lag.traceName ? ` <em style="color:#64748b;">[${lag.traceName}]</em>` : ''}</div>
       <div class="meta">
         <div><strong>Action/Selector:</strong> ${actionTarget}</div>
         <div><strong>URL:</strong> ${lag.url || 'N/A'}</div>
