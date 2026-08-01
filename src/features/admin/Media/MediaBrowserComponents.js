@@ -1,6 +1,7 @@
 import { AlertIcon, CrossIcon, RefreshIcon } from '@/components/Icons';
 import { ScrollView, View } from 'react-native';
 import { Text, Heading } from '@/components/ui/Text';
+import { useLanguage } from '../../../context/LanguageContext';
 import { MEDIA_CATEGORY } from '../../../media';
 import EmptyState from '@/components/domain/DataTable/EmptyState';
 import MediaBrowserItem from './MediaBrowserItem';
@@ -17,24 +18,26 @@ const TABS = [
 ];
 
 export function OutdatedBanner() {
+  const { t } = useLanguage();
   return (
     <View style={styles.outdatedBanner}>
       <Text style={styles.outdatedBannerTitle} size={13} weight="bold">
         <AlertIcon color={colors.dangerMid} size={14} style={styles.alertIcon} /> Media index not generated
       </Text>
       <Text style={styles.outdatedBannerText} size={12}>
-        {'Run '}
+        {t('adminMediaGeneratePrefix')}
         <Text style={styles.outdatedBannerCode} size={12} weight="bold">npm run generate-media</Text>
-        {' in your terminal, then press Refresh to see your local files.'}
+        {t('adminMediaGenerateSuffix')}
       </Text>
     </View>
   );
 }
 
 export function BrowserHeader({ onRefresh, onClose }) {
+  const { t } = useLanguage();
   return (
     <View style={styles.header}>
-      <Heading level={3} style={styles.title}>Media Library</Heading>
+      <Heading level={3} style={styles.title}>{t('adminMediaLibrary')}</Heading>
       <Button
         title="Refresh"
         leftIcon={<RefreshIcon color={colors.purpleStrong} size={12} style={styles.refreshIcon} />}

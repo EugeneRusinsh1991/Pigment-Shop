@@ -36,7 +36,7 @@ export function CategoryTypeDisplay({ value }) {
 
   return (
     <View style={styles.categoryTypeRow}>
-      <Text style={styles.categoryTypeLabel}>Category Type</Text>
+      <Text style={styles.categoryTypeLabel}>{t('adminCategoryType')}</Text>
       <View style={[styles.categoryTypeBadge, { backgroundColor: typeColors.softBg, borderColor: typeColors.accent }]}>
         <Text variant="overline" style={[styles.categoryTypeBadgeText, { color: typeColors.text }]}>
           {typeColors.label}
@@ -49,9 +49,10 @@ export function CategoryTypeDisplay({ value }) {
 /* ─── CategoryTypeSelect ────────────────────────────────────── */
 
 export function CategoryTypeSelect({ value, onChange, disabled }) {
+  const { t } = useLanguage();
   return (
     <View style={styles.fieldGroup}>
-      <Text style={styles.fieldLabel}>Category Type</Text>
+      <Text style={styles.fieldLabel}>{t('adminCategoryType')}</Text>
       <FlagGroup value={value} onChange={onChange} multiple={false}>
         <Flag value="category_holder" variant="chip" disabled={disabled}>
           Category Holder
@@ -97,7 +98,7 @@ export function ImagePickerField({ value, onChange }) {
         </AnimatedButton>
         <AnimatedButton style={[styles.uploadBtn, { flexDirection: 'row', alignItems: 'center', gap: layout.spacing.xxs }]} onPress={() => setBrowserOpen(true)} activeOpacity={motion.press.activeOpacity}>
           <ImageIcon color={colors.white} size={12} />
-          <Text style={styles.uploadBtnText}>Browse</Text>
+          <Text style={styles.uploadBtnText}>{t('adminBrowseMedia')}</Text>
         </AnimatedButton>
       </View>
       <MediaBrowser

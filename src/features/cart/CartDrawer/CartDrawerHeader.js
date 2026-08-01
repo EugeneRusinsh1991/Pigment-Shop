@@ -5,14 +5,16 @@ import { IconButton } from '@/components/ui/Button';
 import { CloseIcon } from '@/components/Icons';
 import { colors, layout, typography } from '@/theme/tokens';
 import { Text } from '@/components/ui/Text';
+import { useLanguage } from '../../../context/LanguageContext';
 
 export default function CartDrawerHeader({ onClose, cartCount, isDark }) {
+  const { t } = useLanguage();
   const iconColor = isDark ? colors.white : colors.dark;
 
   return (
     <DrawerHeader style={styles.header}>
       <View style={styles.titleRow}>
-        <Text variant="h4" style={styles.title}>Корзина</Text>
+        <Text variant="h4" style={styles.title}>{t('cartTitle')}</Text>
         {cartCount > 0 && (
           <View style={[styles.badge, isDark ? styles.badgeDark : styles.badgeLight]}>
             <Text size="xs" weight="bold" style={isDark ? styles.badgeTextDark : styles.badgeTextLight}>

@@ -66,6 +66,26 @@ function getLocale(value: LocalizedString, lang: SupportedLocale): string {
   return '';
 }
 
+/**
+ * Normalizes a legacy flat string or a partial localization object into a strict LocalizedString.
+ */
+export function getNormalizedLocalizedString(val: unknown): LocalizedString {
+  const empty = emptyLocalizedString();
+  if (!val) return empty;
+  if (typeof val === 'string') {
+    return { ...empty, uk: val };
+  }
+  if (typeof val === 'object') {
+    const record = val as Record<string, unknown>;
+    return {
+      uk: typeof record.uk === 'string' ? record.uk : '',
+      ru: typeof record.ru === 'string' ? record.ru : '',
+      en: typeof record.en === 'string' ? record.en : '',
+    };
+  }
+  return empty;
+}
+
 // ─── Sort Contract Definitions ──────────────────────────────────────────────
 
 export type SortDirection = 'asc' | 'desc';
@@ -159,6 +179,8 @@ export function normalizeProductEntity(product?: RawProductInput | null): Normal
 
   return {
     ...rest,
+    label: getNormalizedLocalizedString(safeProduct.label),
+    description: getNormalizedLocalizedString(safeProduct.description),
     id: validated.id || safeProduct.id || '',
     images: getNormalizedImages(rest as Record<string, unknown>),
     sold: resolveFallback(validated.sold, safeProduct.sold, 0),
@@ -172,6 +194,8 @@ export function normalizeCategoryEntity(category?: RawCategoryInput | null): Nor
 
   return {
     ...safeCategory,
+    name: getNormalizedLocalizedString(safeCategory.name),
+    description: getNormalizedLocalizedString(safeCategory.description),
     id: safeCategory.id || '',
     productIds: Array.isArray(safeCategory.productIds) ? safeCategory.productIds.filter(Boolean) : [],
   };

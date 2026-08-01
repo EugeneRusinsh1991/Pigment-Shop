@@ -8,6 +8,7 @@ import CurrencyDropdown from './CurrencyDropdown';
 import LangDropdown from './LangDropdown';
 import UserDropdown from './UserDropdown';
 import styles from './AppHeaderStyles';
+import { useLanguage } from '@/context/LanguageContext';
 
 
 export default function AppHeaderControls({
@@ -30,6 +31,7 @@ export default function AppHeaderControls({
 }) {
   const cart = useCart();
   const effectiveCartCount = cartCount !== undefined ? cartCount : (cart?.totalCount || 0);
+  const { t } = useLanguage();
 
   return (
     <View style={[styles.rightSec, isMobile && { gap: layout.spacing.sm }]}>
@@ -41,7 +43,7 @@ export default function AppHeaderControls({
           size={44}
           variant="transparent"
           isDark={isDark}
-          accessibilityLabel="Toggle Theme"
+          accessibilityLabel={t('accessibilityToggleTheme')}
         />
       )}
 

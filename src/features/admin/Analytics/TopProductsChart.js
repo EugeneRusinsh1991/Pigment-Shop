@@ -34,7 +34,7 @@ export default function TopProductsChart({ productsData = [] }) {
     return (
       <View style={styles.topProductsEmpty}>
         <Text variant="body2" color="secondary" weight="medium">
-          No selling products in this period.
+          {t('adminAnalyticsNoData')}
         </Text>
       </View>
     );

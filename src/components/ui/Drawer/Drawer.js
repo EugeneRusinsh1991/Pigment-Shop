@@ -6,6 +6,7 @@ import { getDrawerStyles, drawerStyles } from './DrawerStyles';
 import { useDrawerTheme } from './useDrawerTheme';
 import { useDrawerAnimation } from './useDrawerAnimation';
 import { useVisualViewportDimensions } from '../../../hooks/useVisualViewportDimensions';
+import { useLanguage } from '../../../context/LanguageContext';
 
 export function DrawerHeader({ title, onClose, children, style, titleStyle }) {
   return (
@@ -40,6 +41,7 @@ export function Drawer({
 }) {
   const activeVisible = isOpen !== undefined ? isOpen : visible;
   const { height: viewportHeight } = useVisualViewportDimensions();
+  const { t } = useLanguage();
 
   const animation = useDrawerAnimation({
     visible: activeVisible,
@@ -81,7 +83,7 @@ export function Drawer({
           ]}
           onPress={handleCloseAction}
           accessibilityRole="button"
-          accessibilityLabel="Close drawer backdrop"
+          accessibilityLabel={t('accessibilityCloseDrawer')}
         />
         <Animated.View
           style={[
@@ -110,7 +112,7 @@ export function Drawer({
           style={styles.dismissPressable}
           onPress={handleCloseAction}
           accessibilityRole="button"
-          accessibilityLabel="Close drawer"
+          accessibilityLabel={t('accessibilityCloseDrawer')}
         />
       </View>
     </Modal>
