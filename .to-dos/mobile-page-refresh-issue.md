@@ -61,3 +61,46 @@ Due to the verified failure of `react-native-web`'s `RefreshControl`, the sole i
 - [ ] **6. Bind & Cleanup Listeners** `○ FL — 1d 1f +0r`
   - Attach listeners to `window` or `document` (`addEventListener('touchstart', ...)`).
   - Ensure `removeEventListener` is returned in the `useEffect` cleanup to prevent memory leaks and duplicate handlers.
+
+---
+
+## 5. Implementation Roadmap: Screen Coverage
+
+Based on the codebase audit, the following logical tasks define the implementation sequence to ensure full pull-to-refresh coverage while minimizing duplicate bindings.
+
+### ~~Phase 1: Core Hook Stabilization~~ [COMPLETED]
+Currently, multiple components independently bind `document`-level listeners, which risks overlapping events (e.g., if the Cart Drawer opens on a Catalog page). Furthermore, independent scroll containers like the Cart Drawer conflict with `window.scrollY === 0`.
+- **Target File**: `src/hooks/usePullToRefresh.js`
+- **Actions**:
+  - [x] Update `useWebPullToRefresh` to use a singleton pattern or active-listener locking to prevent double-firing when multiple hooks mount.
+  - [x] Add support for passing a `scrollViewRef` to check the local offset instead of `window.scrollY` for overlay components.
+
+### Phase 2: Shared Layout Integration
+Prioritize adding the hook to shared layout wrappers to instantly cover the majority of missing screens.
+- **Target File**: `src/features/profile/components/AccountLayout.js`
+  - **Covers**: Profile (`/profile`), Orders (`/orders`), Favorites (`/favorites`).
+  - **Actions**: Import and call `usePullToRefresh` at the layout root.
+- **Target File**: `src/features/shell/PageScrollLayout/PageScrollLayout.js`
+  - **Covers**: Cart Full Page (`/cart`), Order Confirmation (`/order-confirmation`).
+  - **Actions**: Import and call `usePullToRefresh` at the layout root.
+
+### Phase 3: High-Priority Standalone Screens
+Address screens that manage their own layouts or bypass the components that contain the hook.
+- **Target File**: `src/features/catalog/CatalogView.js`
+  - **Covers**: Home (`/`) and specific Catalog routes.
+  - **Actions**: When `showCategoryGrid=false` (e.g., Home page), `CatalogView` renders a plain `<View>` and bypasses `UnifiedCardGrid`. Hoist or add `usePullToRefresh` to the root of `CatalogView` to guarantee coverage regardless of grid visibility.
+- **Target File**: `src/features/product/ProductPage.js`
+  - **Covers**: Product Details (`/product/[id]`).
+  - **Actions**: Add `usePullToRefresh` to the root container of the product page.
+- **Target File**: `src/features/contact/ContactPage.js`
+  - **Covers**: Contact Us (`/contact`).
+  - **Actions**: Add `usePullToRefresh` to the root container.
+
+### Phase 4: Resolution of Problematic Integrations
+Fix screens that already have the hook but exhibit issues.
+- **Target File**: `src/features/cart/CartDrawer/CartDrawerList.js`
+  - **Issue**: Uses an independent `ScrollView`, causing the `document`-level listener to misfire or conflict.
+  - **Actions**: Pass a local scroll ref to the updated hook (from Phase 1) or coordinate with the global listener.
+- **Target File**: `src/features/catalog/CatalogView.js` & `src/components/ui/Grid/UnifiedCardGrid.js`
+  - **Issue**: `scrollEnabled={false}` disables the native `RefreshControl` path on category pages.
+  - **Actions**: Clean up the logic so `RefreshControl` is not passed to a non-scrolling `FlatList`.
