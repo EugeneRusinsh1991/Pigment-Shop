@@ -1,7 +1,7 @@
 import { CartIcon, HeartIcon } from '@/components/Icons';
 import { Link } from 'expo-router';
 import { View } from 'react-native';
-import { Button, IconButton } from '../../components/ui/Button';
+import { Button, FavoriteActionButton, IconButton } from '../../components/ui/Button';
 import { Heading, Text } from '../../components/ui/Text';
 import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
@@ -131,13 +131,13 @@ export function ProductActionRow({ product, qty, isDark, isWide, onDecrease, onI
         t={t}
       />
       {isWide && (
-        <IconButton
+        <FavoriteActionButton
           testID="product-detail-fav-button"
-          icon={<HeartIcon filled={isFavorite} color={heartColor} size={16} />}
-          onPress={handleToggle}
-          size="lg"
+          isFavorite={isFavorite}
+          onToggle={handleToggle}
+          isDark={isDark}
+          size="xl"
           variant="outline"
-          animated={true}
           style={[styles.actionFavBtn]}
         />
       )}

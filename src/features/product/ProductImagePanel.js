@@ -6,8 +6,8 @@ import MediaRenderer from '../../components/ui/Media/MediaRenderer';
 import { CarouselDots } from '../../components/ui/Media';
 
 import { useCarouselState, getCarouselOpacity } from '../../hooks/useCarouselState';
-import { HeartIcon, ChevronLeftIcon, ChevronRightIcon } from '@/components/Icons';
-import { AnimatedButton } from '../../components/ui/Button';
+import { ChevronLeftIcon, ChevronRightIcon } from '@/components/Icons';
+import { CircularActionButton, FavoriteActionButton } from '../../components/ui/Button';
 import ProductBadges from './ProductBadges';
 import ProductThumbnails from './ProductThumbnails';
 import { colors } from '../../theme/tokens';
@@ -48,18 +48,18 @@ function CarouselArrows({ show, onPrev, onNext }) {
   if (!show) return null;
   return (
     <>
-      <AnimatedButton
+      <CircularActionButton
+        icon={<ChevronLeftIcon color={colors.white} size={18} />}
         style={[styles.arrowBtn, styles.leftArrow]}
         onPress={onPrev}
-      >
-        <ChevronLeftIcon color={colors.white} size={18} />
-      </AnimatedButton>
-      <AnimatedButton
+        size="xl"
+      />
+      <CircularActionButton
+        icon={<ChevronRightIcon color={colors.white} size={18} />}
         style={[styles.arrowBtn, styles.rightArrow]}
         onPress={onNext}
-      >
-        <ChevronRightIcon color={colors.white} size={18} />
-      </AnimatedButton>
+        size="xl"
+      />
     </>
   );
 }
@@ -69,15 +69,15 @@ function CarouselArrows({ show, onPrev, onNext }) {
 
 function ProductFavoriteBtn({ isWide, isDark, isFavorite, onToggleFavorite, product }) {
   if (isWide) return null;
-  const heartColor = isFavorite ? colors.accent : isDark ? colors.white : colors.dark;
   return (
-    <AnimatedButton
+    <FavoriteActionButton
       style={[styles.favOverlay, isDark ? styles.favOverlayDark : styles.favOverlayLight]}
-      onPress={() => onToggleFavorite && onToggleFavorite(product)}
-      scaleTo={1.3}
-    >
-      <HeartIcon filled={isFavorite} color={heartColor} size={16} />
-    </AnimatedButton>
+      isFavorite={isFavorite}
+      onToggle={() => onToggleFavorite && onToggleFavorite(product)}
+      isDark={isDark}
+      size="lg"
+      variant="transparent"
+    />
   );
 }
 

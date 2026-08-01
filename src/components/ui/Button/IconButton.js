@@ -48,7 +48,7 @@ export function IconButton({
       variant="unstyled"
       animated={animated}
       size={dim}
-      style={[iconStyles.base, { width: dim, height: dim, borderRadius: radius }, resolvedContainer, style]}
+      style={[iconStyles.base, resolvedContainer, style, { width: dim, height: dim, borderRadius: radius }]}
       onPress={onPress}
       activeOpacity={activeOpacity}
       isDark={isDark}

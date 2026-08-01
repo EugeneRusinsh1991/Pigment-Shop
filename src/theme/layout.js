@@ -96,6 +96,12 @@ export const buttonTokens = {
     md: { height: 36, paddingHorizontal: 16, borderRadius: layout.radii.sm, borderRadiusPill: 20, fontSize: 13 },
     lg: { height: 48, paddingHorizontal: 24, borderRadius: layout.radii.md, borderRadiusPill: 24, fontSize: 14 },
   },
+  circular: {
+    sm: 36, // Card actions
+    md: 40, // Standard controls
+    lg: 44, // Mobile image overlays
+    xl: 48, // Primary action rows & carousel arrows
+  }
 };
 
 export const iconTokens = {

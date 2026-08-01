@@ -1,7 +1,7 @@
 import { CartIcon, HeartIcon } from '@/components/Icons';
 import React, { useCallback, useMemo } from 'react';
 import { Image, View } from 'react-native';
-import { IconButton } from '../../components/ui/Button';
+import { FavoriteActionButton, CartActionButton } from '../../components/ui/Button';
 import Card from '../../components/ui/Card/Card';
 import { Text } from '../../components/ui/Text';
 import { useLanguage } from '../../context/LanguageContext';
@@ -104,13 +104,13 @@ const ProductCardInner = React.forwardRef(({ item, isDark, depth = 1, isFavorite
         />
         <ProductBadges isNew={item.isNew} discountPercent={item.discountPercent} />
         <View style={[styles.topOverlayWrapper, { pointerEvents: 'auto' }]}>
-          <IconButton
+          <FavoriteActionButton
             testID="product-fav-button"
-            icon={<HeartIcon filled={isFavorite} color={heartColor} size={18} />}
-            onPress={handleFavPress}
-            size={36}
+            isFavorite={isFavorite}
+            onToggle={handleFavPress}
+            isDark={isDark}
+            size="sm"
             variant="glass"
-            animated={true}
           />
         </View>
       </View>
@@ -120,13 +120,12 @@ const ProductCardInner = React.forwardRef(({ item, isDark, depth = 1, isFavorite
         <ProductPrice price={item.price} discountPercent={item.discountPercent} />
       </View>
       <View style={[styles.bottomOverlayWrapper, { pointerEvents: 'auto' }]}>
-        <IconButton
+        <CartActionButton
           testID="product-cart-button"
-          icon={<CartIcon color={colors.white} size={18} />}
-          onPress={handleCartPress}
-          size={36}
+          onAddToCart={handleCartPress}
+          isDark={isDark}
+          size="sm"
           variant="solid"
-          animated={true}
           style={styles.cartBtnSolidStyle}
         />
       </View>
