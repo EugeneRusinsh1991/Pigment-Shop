@@ -2,7 +2,7 @@ import { Platform, StyleSheet } from 'react-native';
 import { colors, fonts, layout, shadow, shadows } from './tokens';
 
 const rootStyles = Platform.OS === 'web'
-  ? { minHeight: '100vh', overflowX: 'hidden', cursor: 'default' }
+  ? { minHeight: ['100vh', '100dvh'], overflowX: 'hidden', cursor: 'default' }
   : {};
 
 const webBoxBorder = Platform.OS === 'web' ? { boxSizing: 'border-box' } : {};
