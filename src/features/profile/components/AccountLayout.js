@@ -55,12 +55,6 @@ export default function AccountLayout({ title, children, isDark, auth }) {
                 <View style={{ width: '100%' }}>
                   <ScrollFadeUp>{children}</ScrollFadeUp>
                 </View>
-
-                <View style={{ width: '100%' }}>
-                  <ScrollFadeUp>
-                    <ProfileSidebar onLogout={auth?.logout} />
-                  </ScrollFadeUp>
-                </View>
               </>
             )}
           </View>

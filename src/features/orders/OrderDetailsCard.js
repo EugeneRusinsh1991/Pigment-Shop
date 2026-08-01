@@ -1,24 +1,24 @@
 import { StyleSheet, View } from 'react-native';
 import Card from '../../components/ui/Card/Card';
 import { Heading, Text } from '../../components/ui/Text';
-import { colors, layout } from '../../theme/tokens';
+import { colors, layout, primitives } from '../../theme/tokens';
 import { formatDateLong } from '../../utils/dateFormatting';
 import { OrderItemRow, OrderMetaRow } from './OrderRows';
 
 
 function OrderItemsHeader({ isDark, t }) {
   return (
-    <View style={[styles.itemsHeader, isDark ? styles.borderDark : styles.borderLight, styles.itemsHeaderTop]}>
-      <Text variant="caption" weight="medium" style={[styles.colProduct]}>
+    <View style={[styles.itemsHeader, isDark ? styles.itemsHeaderDark : styles.itemsHeaderLight]}>
+      <Text variant="caption" weight="bold" color="muted" style={[styles.colProduct, styles.headerText]}>
         {t('orderConfirmationItemProduct')}
       </Text>
-      <Text variant="caption" weight="medium" style={[styles.colQty, { textAlign: 'center' }]}>
+      <Text variant="caption" weight="bold" color="muted" style={[styles.colQty, styles.headerText, { textAlign: 'center' }]}>
         {t('orderConfirmationItemQty')}
       </Text>
-      <Text variant="caption" weight="medium" style={[styles.colPrice, { textAlign: 'right' }]}>
+      <Text variant="caption" weight="bold" color="muted" style={[styles.colPrice, styles.headerText, { textAlign: 'right' }]}>
         {t('orderConfirmationItemPrice')}
       </Text>
-      <Text variant="caption" weight="medium" style={[styles.colTotal, { textAlign: 'right' }]}>
+      <Text variant="caption" weight="bold" color="muted" style={[styles.colTotal, styles.headerText, { textAlign: 'right' }]}>
         {t('orderConfirmationItemTotal')}
       </Text>
     </View>
@@ -38,39 +38,44 @@ export default function OrderDetailsCard({ isDark, orderId, items = [], totalPri
         {t('orderConfirmationTitle')}
       </Heading>
 
-      <OrderMetaRow
-        label={t('orderNumber')}
-        value={displayOrderId}
-        isDark={isDark}
-      />
+      <View style={[styles.metaContainer, isDark ? styles.metaContainerDark : styles.metaContainerLight]}>
+        <OrderMetaRow
+          label={t('orderNumber')}
+          value={displayOrderId}
+          isOrderId
+          isDark={isDark}
+        />
 
-      <OrderMetaRow
-        label={t('orderDate')}
-        value={displayDate}
-        isDark={isDark}
-      />
+        <OrderMetaRow
+          label={t('orderDate')}
+          value={displayDate}
+          isDark={isDark}
+        />
 
-      <OrderMetaRow
-        label={t('cartTotal')}
-        value={`$${parseFloat(totalPrice).toFixed(2)}`}
-        isPrice
-        isLast
-        isDark={isDark}
-      />
+        <OrderMetaRow
+          label={t('cartTotal')}
+          value={`$${parseFloat(totalPrice).toFixed(2)}`}
+          isPrice
+          isLast
+          isDark={isDark}
+        />
+      </View>
 
       <OrderItemsHeader isDark={isDark} t={t} />
 
       {/* Items List */}
-      {items.map((item, idx) => (
-        <OrderItemRow
-          key={idx}
-          item={item}
-          flatList={flatList}
-          lang={lang}
-          isDark={isDark}
-          isLast={idx === items.length - 1}
-        />
-      ))}
+      <View style={styles.itemsListContainer}>
+        {items.map((item, idx) => (
+          <OrderItemRow
+            key={idx}
+            item={item}
+            flatList={flatList}
+            lang={lang}
+            isDark={isDark}
+            isLast={idx === items.length - 1}
+          />
+        ))}
+      </View>
     </Card>
   );
 }
@@ -78,32 +83,57 @@ export default function OrderDetailsCard({ isDark, orderId, items = [], totalPri
 const styles = StyleSheet.create({
   cardSpecific: {
     marginBottom: layout.spacing.xl,
+    padding: layout.spacing.lg,
+  },
+  sectionTitle: {
+    marginBottom: layout.spacing.lg,
+  },
+  metaContainer: {
+    borderRadius: layout.radii.sm,
+    paddingHorizontal: layout.spacing.md,
+    marginBottom: layout.spacing.md,
+  },
+  metaContainerLight: {
+    backgroundColor: primitives.slate[50],
+  },
+  metaContainerDark: {
+    backgroundColor: 'rgba(255, 255, 255, 0.03)',
   },
   itemsHeader: {
     flexDirection: 'row',
-    paddingBottom: layout.spacing.sm,
-    borderBottomWidth: layout.borderWidth.thin,
+    alignItems: 'center',
+    paddingVertical: 10,
+    paddingHorizontal: layout.spacing.xs,
+    borderRadius: layout.radii.xs,
+    marginTop: layout.spacing.md,
+    marginBottom: layout.spacing.xxs,
   },
-  itemsHeaderTop: {
-    marginTop: layout.spacing.xl,
+  itemsHeaderLight: {
+    backgroundColor: primitives.slate[100],
   },
-  borderDark: {
-    borderBottomColor: colors.borderDark,
+  itemsHeaderDark: {
+    backgroundColor: primitives.slate[800],
   },
-  borderLight: {
-    borderBottomColor: colors.borderLight,
+  headerText: {
+    fontSize: 11,
+    letterSpacing: 0.5,
+    textTransform: 'uppercase',
+  },
+  itemsListContainer: {
+    paddingHorizontal: layout.spacing.none,
   },
   colProduct: {
-    flex: 4,
+    flex: 3.8,
   },
   colQty: {
-    flex: 1,
+    flex: 1.2,
   },
   colPrice: {
-    flex: 1.5,
+    flex: 2,
   },
   colTotal: {
-    flex: 1.5,
+    flex: 2,
   },
 });
+
 
