@@ -7,6 +7,7 @@ import {
   assembleCategoryTree,
   collectSubtreeIds,
 } from './catalogViewModel.helpers.js';
+import { CATEGORY_PLACEHOLDER } from '../constants/index.js';
 
 
 
@@ -84,7 +85,7 @@ export function buildCategoryTree(categories = [], flatList = [], lang = 'en') {
   const categoryNodes = categories.map((category) => {
     const label = resolveLocalizedValue(category.name, lang);
     const nameRu = category.name?.ru || category.id;
-    const image = category.image || CATEGORY_IMAGES[nameRu] || CATEGORY_IMAGES['Другое'];
+    const image = category.image || CATEGORY_IMAGES[nameRu] || CATEGORY_PLACEHOLDER;
     const description = resolveCategoryDescription(category, label, lang);
     const assignedProducts = (productsByCategory.get(category.id) || [])
       .map((p) => ({ ...p, name: p.label }));

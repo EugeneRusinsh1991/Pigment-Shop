@@ -11,6 +11,7 @@ import styles from './categoryCardStyles';
 
 
 import { CATEGORY_PLACEHOLDER } from '../../constants';
+import { resolveMediaUrl } from '../../media/mediaAdapter';
 
 const DEFAULT_CATEGORY_DESCRIPTIONS = {
   'cat-materials': {
@@ -92,8 +93,14 @@ function getActiveIsBanner(item) {
 }
 
 function getImageSource(item, imgError) {
-  if (!item || !item.image || imgError) return { uri: CATEGORY_PLACEHOLDER };
-  return { uri: item.image };
+  if (!item || !item.image || imgError) {
+    return { uri: resolveMediaUrl(CATEGORY_PLACEHOLDER) };
+  }
+  const resolved = resolveMediaUrl(item.image);
+  if (!resolved) {
+    return { uri: resolveMediaUrl(CATEGORY_PLACEHOLDER) };
+  }
+  return { uri: resolved };
 }
 
 function getCardStyle(cardHeight, activeIsBanner, style) {

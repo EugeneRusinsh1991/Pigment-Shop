@@ -1,12 +1,13 @@
 import { getLocalizedValue } from '../utils/localization.js';
+import { CATEGORY_PLACEHOLDER } from '../constants/index.js';
 
 export const CATEGORY_IMAGES = {
-  'Иглы и картриджи': 'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?w=600&auto=format&fit=crop',
-  'Клеи и ресницы': 'https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=600&auto=format&fit=crop',
-  'Базы и топы': 'https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&auto=format&fit=crop',
-  'Пигменты для бровей': 'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=600&auto=format&fit=crop',
-  'Пигменты для губ': 'https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=600&auto=format&fit=crop',
-  'Другое': 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=600&auto=format&fit=crop',
+  'Иглы и картриджи': CATEGORY_PLACEHOLDER,
+  'Клеи и ресницы': CATEGORY_PLACEHOLDER,
+  'Базы и топы': CATEGORY_PLACEHOLDER,
+  'Пигменты для бровей': CATEGORY_PLACEHOLDER,
+  'Пигменты для губ': CATEGORY_PLACEHOLDER,
+  'Другое': CATEGORY_PLACEHOLDER,
 };
 
 export function resolveLocalizedValue(value, lang) {

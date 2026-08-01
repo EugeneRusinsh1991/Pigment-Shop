@@ -1,9 +1,9 @@
-import { PRODUCT_PLACEHOLDER } from '../constants/index.js';
+import { PRODUCT_PLACEHOLDER, CATEGORY_PLACEHOLDER } from '../constants/index.js';
 
 export const PRODUCT_IMAGES = [
   PRODUCT_PLACEHOLDER,
   'https://res.cloudinary.com/iayng29j/image/upload/v1785611320/products/tjlw5jitzfkoaqfmj7ti.jpg',
-  'https://res.cloudinary.com/iayng29j/image/upload/v1785611322/categories/g3yabymukhht0e8zeyc7.jpg',
+  CATEGORY_PLACEHOLDER,
 ];
 
 const SEED_BANNERS = PRODUCT_IMAGES.slice(0, 2);
@@ -39,6 +39,7 @@ const topLevelConfigs = [
   {
     id: 'cat-essentials',
     name: LOCALE_NAMES.en.essentials,
+    image: CATEGORY_PLACEHOLDER,
     names: {
       ru: LOCALE_NAMES.ru.essentials,
       uk: LOCALE_NAMES.uk.essentials,
@@ -50,14 +51,15 @@ const topLevelConfigs = [
       en: 'Core items for prep and finishing work.',
     },
     subcategories: [
-      { id: 'cat-essentials-base', name: { ru: 'Базовые наборы', uk: 'Базові набори', en: 'Base kits' } },
-      { id: 'cat-essentials-finish', name: { ru: 'Финишные решения', uk: 'Фінішні рішення', en: 'Finish solutions' } },
-      { id: 'cat-essentials-essentials', name: { ru: 'Премиум наборы', uk: 'Преміум набори', en: 'Premium kits' } },
+      { id: 'cat-essentials-base', name: { ru: 'Базовые наборы', uk: 'Базові набори', en: 'Base kits' }, image: CATEGORY_PLACEHOLDER },
+      { id: 'cat-essentials-finish', name: { ru: 'Финишные решения', uk: 'Фінішні рішення', en: 'Finish solutions' }, image: CATEGORY_PLACEHOLDER },
+      { id: 'cat-essentials-essentials', name: { ru: 'Премиум наборы', uk: 'Преміум набори', en: 'Premium kits' }, image: CATEGORY_PLACEHOLDER },
     ],
   },
   {
     id: 'cat-lashes',
     name: LOCALE_NAMES.en.lashes,
+    image: CATEGORY_PLACEHOLDER,
     names: {
       ru: LOCALE_NAMES.ru.lashes,
       uk: LOCALE_NAMES.uk.lashes,
@@ -69,14 +71,15 @@ const topLevelConfigs = [
       en: 'Glues, lashes, and supporting accessories.',
     },
     subcategories: [
-      { id: 'cat-lashes-glue', name: { ru: 'Клеевые наборы', uk: 'Клейові набори', en: 'Glue kits' } },
-      { id: 'cat-lashes-lashes', name: { ru: 'Ресничные наборы', uk: 'Вієві набори', en: 'Lash kits' } },
-      { id: 'cat-lashes-kit', name: { ru: 'Профессиональные комплекты', uk: 'Професійні комплекти', en: 'Professional kits' } },
+      { id: 'cat-lashes-glue', name: { ru: 'Клеевые наборы', uk: 'Клейові набори', en: 'Glue kits' }, image: CATEGORY_PLACEHOLDER },
+      { id: 'cat-lashes-lashes', name: { ru: 'Ресничные наборы', uk: 'Вієві набори', en: 'Lash kits' }, image: CATEGORY_PLACEHOLDER },
+      { id: 'cat-lashes-kit', name: { ru: 'Профессиональные комплекты', uk: 'Професійні комплекти', en: 'Professional kits' }, image: CATEGORY_PLACEHOLDER },
     ],
   },
   {
     id: 'cat-pigments',
     name: LOCALE_NAMES.en.pigments,
+    image: CATEGORY_PLACEHOLDER,
     names: {
       ru: LOCALE_NAMES.ru.pigments,
       uk: LOCALE_NAMES.uk.pigments,
@@ -88,9 +91,9 @@ const topLevelConfigs = [
       en: 'Pigments for dense and precise results.',
     },
     subcategories: [
-      { id: 'cat-pigments-palette', name: { ru: 'Палитры', uk: 'Палітри', en: 'Palettes' } },
-      { id: 'cat-pigments-blend', name: { ru: 'Смеси', uk: 'Суміші', en: 'Blends' } },
-      { id: 'cat-pigments-pro', name: { ru: 'Профессиональные серии', uk: 'Професійні серії', en: 'Professional series' } },
+      { id: 'cat-pigments-palette', name: { ru: 'Палитры', uk: 'Палітри', en: 'Palettes' }, image: CATEGORY_PLACEHOLDER },
+      { id: 'cat-pigments-blend', name: { ru: 'Смеси', uk: 'Суміші', en: 'Blends' }, image: CATEGORY_PLACEHOLDER },
+      { id: 'cat-pigments-pro', name: { ru: 'Профессиональные серии', uk: 'Професійні серії', en: 'Professional series' }, image: CATEGORY_PLACEHOLDER },
     ],
   },
 ];
