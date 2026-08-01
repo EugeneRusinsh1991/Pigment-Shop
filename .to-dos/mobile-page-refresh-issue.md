@@ -33,7 +33,7 @@
 
 ---
 
-## 4. Implementation Path: Web DOM Touch Listener
+## 4. Implementation Path: Web DOM Touch Listener `○ FL — 1d 1f +1r`
 
 Due to the verified failure of `react-native-web`'s `RefreshControl`, the sole implementation path is to bypass React Native's event system on the web and use native DOM touch events.
 
@@ -45,19 +45,19 @@ Due to the verified failure of `react-native-web`'s `RefreshControl`, the sole i
 
 ### **Task List for Execution**
 
-- [ ] **1. Add Web-Only `useEffect`**
+- [ ] **1. Add Web-Only `useEffect`** `○ FL — 1d 1f +0r`
   - Inside `usePullToRefresh`, add a `useEffect` that returns early if `Platform.OS !== 'web'`.
-- [ ] **2. Track Touch State**
+- [ ] **2. Track Touch State** `○ FL — 1d 1f +0r`
   - Use `useRef` to track `startY` (from `touchstart`), `currentY` (from `touchmove`), and a boolean flag for whether the pull gesture is valid (started at `window.scrollY === 0`).
-- [ ] **3. Implement `touchstart` Handler**
+- [ ] **3. Implement `touchstart` Handler** `○ FL — 1d 1f +0r`
   - Record the starting `clientY` coordinate.
   - Verify that `window.scrollY === 0` (the user is at the top of the page).
-- [ ] **4. Implement `touchmove` Handler**
+- [ ] **4. Implement `touchmove` Handler** `○ FL — 1d 1f +0r`
   - Calculate the downward delta (`clientY - startY`).
   - Do nothing if the user is scrolling up.
-- [ ] **5. Implement `touchend` Handler**
+- [ ] **5. Implement `touchend` Handler** `○ FL — 1d 1f +0r`
   - If the delta exceeds a threshold (e.g., `80px`), invoke the existing `onRefresh` callback.
   - Reset touch state refs.
-- [ ] **6. Bind & Cleanup Listeners**
+- [ ] **6. Bind & Cleanup Listeners** `○ FL — 1d 1f +0r`
   - Attach listeners to `window` or `document` (`addEventListener('touchstart', ...)`).
   - Ensure `removeEventListener` is returned in the `useEffect` cleanup to prevent memory leaks and duplicate handlers.
