@@ -15,6 +15,7 @@
 import { initializeApp, setLogLevel } from 'firebase/app';
 import { getAuth, initializeAuth, inMemoryPersistence } from 'firebase/auth';
 import { initializeFirestore } from 'firebase/firestore';
+import { getStorage } from 'firebase/storage';
 
 
 setLogLevel('silent');
@@ -44,4 +45,6 @@ const db = initializeFirestore(app, {
   experimentalForceLongPolling: true,
 });
 
-export { auth, db };
+const storage = getStorage(app);
+
+export { auth, db, storage };

@@ -10,7 +10,7 @@ import { useCatalog } from './CatalogContext';
 import styles from './categoryCardStyles';
 
 
-const CATEGORY_PLACEHOLDER = 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=600&auto=format&fit=crop';
+const CATEGORY_PLACEHOLDER = '/media/images/default_catalog_card.jpg';
 
 const DEFAULT_CATEGORY_DESCRIPTIONS = {
   'cat-materials': {
