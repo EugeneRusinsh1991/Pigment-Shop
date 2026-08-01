@@ -4,8 +4,7 @@ import * as Haptics from 'expo-haptics';
 
 /**
  * Hook to handle pull-to-refresh logic.
- * Triggers light haptic feedback on refresh start.
- * Performs custom refresh if provided, or soft async pause fallback.
+ * Triggers light haptic feedback and reloads the page on web.
  */
 export default function usePullToRefresh(customRefresh = null) {
   const [refreshing, setRefreshing] = useState(false);
@@ -15,16 +14,13 @@ export default function usePullToRefresh(customRefresh = null) {
     
     try {
       Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light).catch(() => {});
-    } catch (_) {
-      // Haptics safe fallback for web / unsupported environments
-    }
+    } catch (_) {}
 
     try {
       if (customRefresh) {
         await customRefresh();
-      } else {
-        // Soft fallback instead of forcing window.location.reload()
-        await new Promise((resolve) => setTimeout(resolve, 800));
+      } else if (Platform.OS === 'web' && typeof window !== 'undefined') {
+        window.location.reload();
       }
     } finally {
       setTimeout(() => setRefreshing(false), 300);
