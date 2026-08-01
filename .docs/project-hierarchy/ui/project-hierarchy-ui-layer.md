@@ -1,36 +1,25 @@
-# UI Layer
+# UI & Visual Components Layer
 
 ## Responsibility
-Reusable storefront and shell UI building blocks, visual styles, assets, and presentation wrappers.
+Tokenized design system, UI primitives, shared domain components, SVG icons, and visual layout wrappers.
 
 ## When to use
-Use this document to narrow down your search for presentational elements, custom styles, static resources, or layout components.
+Use this document when locating reusable UI components (`src/components/ui/`), domain controls (`src/components/domain/`), theme design tokens (`src/theme/`), or visual primitives.
 
-## Routing overview
-This area captures route groups, layouts, nested routes, dynamic routes, and index routes so navigation flow can be traced from entry points to feature implementations.
+## Sub-modules
 
-## Logical Modules
-
-### Shared UI
-- **Purpose**: Reusable UI components and common icon utilities.
+### UI Primitives (`src/components/ui/`)
+- **Purpose**: Atomic reusable components (Badge, Button, Card, Drawer, Feedback, Grid, Media, Modal, Motion, Text, TextField, Toggle).
 - **Link**: [project-hierarchy-ui-layer-shared-ui.md](project-hierarchy-ui-layer-shared-ui.md)
 
-### Page Components
-- **Purpose**: Storefront views, detail panels, filter sidebars, and carousels.
+### Domain Components (`src/components/domain/`)
+- **Purpose**: Shared business UI widgets (DataTable, Flag, Navigation, Search).
 - **Link**: [project-hierarchy-ui-layer-page-components.md](project-hierarchy-ui-layer-page-components.md)
 
-### Theme
-- **Purpose**: Design system style tokens.
+### Design System & Theme (`src/theme/`)
+- **Purpose**: Design system tokens (colors, typography, layout, shadows re-exported via `tokens.js`).
 - **Link**: [project-hierarchy-ui-layer-theme.md](project-hierarchy-ui-layer-theme.md)
 
-### Assets
-- **Purpose**: Static application image assets.
-- **Link**: [project-hierarchy-ui-layer-assets.md](project-hierarchy-ui-layer-assets.md)
-
-### Navigation
-- **Purpose**: Application header bar, main menus, and links.
+### SVG Icons (`src/components/Icons/`)
+- **Purpose**: Vector SVG icon components.
 - **Link**: [project-hierarchy-ui-layer-navigation.md](project-hierarchy-ui-layer-navigation.md)
-
-### Layout
-- **Purpose**: Visual grid sizing, animation wrappers, and page layout hooks.
-- **Link**: [project-hierarchy-ui-layer-layout.md](project-hierarchy-ui-layer-layout.md)

@@ -1,32 +1,19 @@
-# State and Context
+# State & Context Layer
 
 ## Responsibility
-React Context wiring, app-wide context providers, reusable hooks, and application state containers.
+React Context state providers (`src/context/`) and custom hooks (`src/hooks/`).
 
 ## When to use
-Open when tracing shared state, hooks, or provider layers.
+Open when tracing global application state, cart sync, theme state, authentication context, or custom React hooks.
 
-## Routing overview
-This area captures route groups, layouts, nested routes, dynamic routes, and index routes so navigation flow can be traced from entry points to feature implementations.
+## Key Modules
 
-## Logical Modules
+### Global Context Providers (`src/context/`)
+- **ThemeContext**: Active theme state and mode toggle.
+- **CartContext**: Shopping cart persistence, items management, checkout state.
+- **AuthContext**: User authentication state, token storage, login/logout actions.
+- **LanguageContext**: Localization and language state.
+- **ToastContext**: Notification toasts dispatching.
 
-### Application State
-- **Purpose**: Client state management and synchronization helpers.
-- **Link**: [project-hierarchy-state-context-application-state.md](project-hierarchy-state-context-application-state.md)
-
-### React Context
-- **Purpose**: React contexts for theme, cart, auth, and translations.
-- **Link**: [project-hierarchy-state-context-react-context.md](project-hierarchy-state-context-react-context.md)
-
-### Hooks
-- **Purpose**: Custom hooks for storefront logic and actions.
-- **Link**: [project-hierarchy-state-context-hooks.md](project-hierarchy-state-context-hooks.md)
-
-### Initialization
-- **Purpose**: Early application and user bootstrap sequences.
-- **Link**: [project-hierarchy-state-context-initialization.md](project-hierarchy-state-context-initialization.md)
-
-### Providers
-- **Purpose**: Composite provider injection layer.
-- **Link**: [project-hierarchy-state-context-providers.md](project-hierarchy-state-context-providers.md)
+### Custom React Hooks (`src/hooks/`)
+- Custom React hooks for business operations, screen sizing, and state bindings (`src/hooks/`).

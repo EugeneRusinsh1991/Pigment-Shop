@@ -129,12 +129,18 @@ No other directory may ever be modified.
 
 # Hierarchy Strategy
 
+Primary Index Format (`project-hierarchy.md`):
+- `project-hierarchy.md` MUST remain a compact high-level index (under 50 lines).
+- It MUST include a direct link to the primary Project Knowledge Base (`.docs/project-knowledge/project-knowledge.md`).
+- It contains special multi-dimensional maps followed by a numbered list of sub-categories (`1. Category Name - [layer.md](link)`).
+- Detailed element breakdowns MUST be delegated to sub-layer documents in subdirectories (e.g. `app/`, `ui/`, `state/`, `data/`, `features/`, `debug-automation/`).
+
 Prioritize multi-dimensional navigation maps:
 
 1. **Route-based Navigation (`route-hierarchy.md`)**: Map all `app/` routes directly to their consumed UI components, state contexts, custom hooks, and service layers.
 2. **Flow-based Pipelines (`flow-hierarchy.md`)**: Trace complete end-to-end data flows (User Action -> UI -> Hook -> Service -> DB Repository) for key business scenarios.
-3. **Domain & Feature Hierarchy**: Business domain boundaries, architecture layers, and physical folder structures.
-4. **Debug & Automation Tooling**: `.tools/`, Playwright test suites, and audit frameworks.
+3. **Domain & Feature Sub-layers**: Delegate detailed component lists to dedicated files (e.g. `ui/project-hierarchy-ui-layer.md`, `app/project-hierarchy-app-shell.md`).
+4. **Debug & Automation Tooling**: `.tools/`, Playwright test suites, and audit frameworks logged in `debug-automation/project-hierarchy-debug-automation.md`.
 
 Knowledge hierarchy is primary. Physical hierarchy is navigation only.
 

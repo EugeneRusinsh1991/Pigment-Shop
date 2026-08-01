@@ -1,25 +1,18 @@
-# UI Layer - Shared UI
+# UI Layer - Primitives & Shared Controls
 
 ## Purpose
-Reusable UI components and common icon utilities.
+Atomic UI components and shared design primitives located in `src/components/ui/`.
 
-## Responsibility
-Provides buttons, shadows, breadcrumbs, footers, and other shared widgets.
+## Key Directories & Components
 
-## When to use
-Open when editing shared elements, common layouts, and static footer blocks.
-
-## Files
-
-- [src/components/AnimatedButton.js](file:///D:/Magazine/_PigmentShop/src/components/AnimatedButton.js) — Interactive button component.
-- [src/components/Breadcrumb.js](file:///D:/Magazine/_PigmentShop/src/components/Breadcrumb.js) — Breadcrumb implementation module.
-- [src/components/CardShadow.js](file:///D:/Magazine/_PigmentShop/src/components/CardShadow.js) — Card Shadow implementation module.
-- [src/components/DiscountsSection.js](file:///D:/Magazine/_PigmentShop/src/components/DiscountsSection.js) — Discounts Section implementation module.
-- [src/components/FeaturedSections.js](file:///D:/Magazine/_PigmentShop/src/components/FeaturedSections.js) — Featured Sections implementation module.
-- [src/components/Footer.js](file:///D:/Magazine/_PigmentShop/src/components/Footer.js) — Footer implementation module.
-- [src/components/Icons.js](file:///D:/Magazine/_PigmentShop/src/components/Icons.js) — Shared SVG icon set.
-- [src/components/NewArrivalsFooter.js](file:///D:/Magazine/_PigmentShop/src/components/NewArrivalsFooter.js) — New Arrivals Footer implementation module.
-- [src/components/PageTransition.js](file:///D:/Magazine/_PigmentShop/src/components/PageTransition.js) — Page Transition implementation module.
-- [src/components/PlaceholderCard.js](file:///D:/Magazine/_PigmentShop/src/components/PlaceholderCard.js) — Card-style presentation component.
-- [src/components/ScrollFadeUp.js](file:///D:/Magazine/_PigmentShop/src/components/ScrollFadeUp.js) — Scroll Fade Up implementation module.
-- [src/components/SharedLayoutWrapper.js](file:///D:/Magazine/_PigmentShop/src/components/SharedLayoutWrapper.js) — Shared Layout Wrapper implementation module.
+- [src/components/ui/Badge/](file:///d:/Magazine/_PigmentShop/src/components/ui/Badge/) — Status indicators & pill tags.
+- [src/components/ui/Button/](file:///d:/Magazine/_PigmentShop/src/components/ui/Button/) — Primary, Secondary, Chip, and IconButton primitives.
+- [src/components/ui/Card/](file:///d:/Magazine/_PigmentShop/src/components/ui/Card/) — Card containers and interactive card wrappers.
+- [src/components/ui/Drawer/](file:///d:/Magazine/_PigmentShop/src/components/ui/Drawer/) — Side sliding drawers and filter overlays.
+- [src/components/ui/Feedback/](file:///d:/Magazine/_PigmentShop/src/components/ui/Feedback/) — Toast, Skeleton loader, EmptyState, and InlineError indicators.
+- [src/components/ui/Media/](file:///d:/Magazine/_PigmentShop/src/components/ui/Media/) — Image, GifRenderer, VideoRenderer, and gallery views.
+- [src/components/ui/Modal/](file:///d:/Magazine/_PigmentShop/src/components/ui/Modal/) — Dialog overlays and confirm modals.
+- [src/components/ui/Motion/](file:///d:/Magazine/_PigmentShop/src/components/ui/Motion/) — Page transitions & scroll animation wrappers.
+- [src/components/ui/Text/](file:///d:/Magazine/_PigmentShop/src/components/ui/Text/) — Typography components (`Text`, `Heading`).
+- [src/components/ui/TextField/](file:///d:/Magazine/_PigmentShop/src/components/ui/TextField/) — Form text inputs and textareas.
+- [src/components/ui/Toggle/](file:///d:/Magazine/_PigmentShop/src/components/ui/Toggle/) — Switch and multi-option selection controls.

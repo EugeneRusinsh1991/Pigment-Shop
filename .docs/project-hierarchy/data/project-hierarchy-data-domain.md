@@ -1,32 +1,13 @@
-# Data and Domain
+# Data & Domain Layer
 
 ## Responsibility
-Shared service layers, firebase data sources, persistence repositories, and media adapters.
+Domain business logic (`src/domain/`), external API/Firebase services (`src/services/`), and data repositories (`src/data/`).
 
 ## When to use
-Open when working on domain structures, external sync, catalog rebuilding, or media rendering support.
+Open when modifying domain entities, API requests, Firebase integrations, catalog storage, or data mapping logic.
 
-## Routing overview
-This area captures route groups, layouts, nested routes, dynamic routes, and index routes so navigation flow can be traced from entry points to feature implementations.
+## Key Sub-modules
 
-## Logical Modules
-
-### Domain Models
-- **Purpose**: Core application domain entities and models.
-- **Link**: [project-hierarchy-data-domain-models.md](project-hierarchy-data-domain-models.md)
-
-### Business Logic
-- **Purpose**: Application services coordinating catalog layout and categories.
-- **Link**: [project-hierarchy-data-domain-business-logic.md](project-hierarchy-data-domain-business-logic.md)
-
-### Data Sources
-- **Purpose**: External services, static databases, and resources.
-- **Link**: [project-hierarchy-data-domain-sources.md](project-hierarchy-data-domain-sources.md)
-
-### Shared Services
-- **Purpose**: Media validation, detection, rendering adapters, and messaging.
-- **Link**: [project-hierarchy-data-domain-services.md](project-hierarchy-data-domain-services.md)
-
-### Persistence
-- **Purpose**: Data persistence and database maintenance operations.
-- **Link**: [project-hierarchy-data-domain-persistence.md](project-hierarchy-data-domain-persistence.md)
+- **Domain Logic (`src/domain/`)**: Product models, catalog entity contracts, validation rules.
+- **Services Layer (`src/services/`)**: API clients, authentication service, catalog service, checkout service, Firebase repository handlers.
+- **Data Repositories (`src/data/`)**: Local persistence and static data sources.
