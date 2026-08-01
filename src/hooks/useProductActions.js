@@ -29,11 +29,10 @@ export function useProductActions(product) {
   const onToggleFavorite = useCallback(() => {
     try {
       toggleFavorite(product);
-      showToast(isFavorite(product.id) ? 'Removed from favorites' : 'Added to favorites');
     } catch (error) {
       showToast('Failed to update favorites');
     }
-  }, [toggleFavorite, product, isFavorite, showToast]);
+  }, [toggleFavorite, product, showToast]);
 
   return {
     onAddToCart,

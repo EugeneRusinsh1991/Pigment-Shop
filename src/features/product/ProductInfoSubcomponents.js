@@ -130,15 +130,17 @@ export function ProductActionRow({ product, qty, isDark, isWide, onDecrease, onI
         onAddToCart={onAddToCart}
         t={t}
       />
-      <IconButton
-        testID="product-detail-fav-button"
-        icon={<HeartIcon filled={isFavorite} color={heartColor} size={16} />}
-        onPress={handleToggle}
-        size="lg"
-        variant="outline"
-        animated={true}
-        style={[styles.actionFavBtn]}
-      />
+      {isWide && (
+        <IconButton
+          testID="product-detail-fav-button"
+          icon={<HeartIcon filled={isFavorite} color={heartColor} size={16} />}
+          onPress={handleToggle}
+          size="lg"
+          variant="outline"
+          animated={true}
+          style={[styles.actionFavBtn]}
+        />
+      )}
     </View>
   );
 }

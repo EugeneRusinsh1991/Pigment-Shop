@@ -66,6 +66,7 @@ const ProductCardInner = React.forwardRef(({ item, isDark, depth = 1, isFavorite
   const [imgError, setImgError] = React.useState(false);
   const { t, lang } = useLanguage();
   const { addItem } = useCartContext();
+  const { showToast } = useToast();
   const { cardHeight, imgContainerHeight } = useCardDimensions(depth);
 
   const themed = useMemo(() => getThemedStyles(isDark, imgContainerHeight), [isDark, imgContainerHeight]);
@@ -82,7 +83,8 @@ const ProductCardInner = React.forwardRef(({ item, isDark, depth = 1, isFavorite
     if (!item) return;
     const effectivePrice = getEffectivePrice(item.price, item.discountPercent);
     addItem(item, effectivePrice, 1);
-  }, [addItem, item]);
+    showToast('Added to cart');
+  }, [addItem, item, showToast]);
 
   return (
     <Card

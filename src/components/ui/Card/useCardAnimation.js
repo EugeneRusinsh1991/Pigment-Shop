@@ -1,7 +1,8 @@
 import { useRef, useState } from 'react';
-import { Animated, Platform } from 'react-native';
+import { Animated, Platform, useWindowDimensions } from 'react-native';
 import { motion, shadows } from '../../../theme/tokens';
 import { useAnimatedTransition } from '../../../hooks/useAnimatedTransition';
+import { getDeviceTier } from '../../../utils/layoutUtils';
 
 /**
  * Handles hover & press gesture drivers for the Card primitive module.
@@ -12,6 +13,8 @@ export function useCardAnimation({
   pressScale = motion?.press?.scale || 0.98,
   duration = motion?.press?.duration || 150,
 } = {}) {
+  const { width: windowWidth } = useWindowDimensions();
+  const isDesktop = getDeviceTier(windowWidth) === 'desktop';
   const [hovered, setHovered] = useState(false);
   const scaleAnim = useRef(new Animated.Value(1)).current;
 
@@ -24,7 +27,7 @@ export function useCardAnimation({
 
   const translateY = hoverAnim.interpolate({
     inputRange: [0, 1],
-    outputRange: [0, hoverTranslateY],
+    outputRange: [0, isDesktop ? hoverTranslateY : 0],
   });
 
   const shadowOpacity = hoverAnim.interpolate({
@@ -33,18 +36,18 @@ export function useCardAnimation({
   });
 
   const handleMouseEnter = (e) => {
-    if (!interactive) return;
+    if (!interactive || !isDesktop) return;
     setHovered(true);
   };
 
   const handleMouseLeave = (e) => {
-    if (!interactive) return;
+    if (!interactive || !isDesktop) return;
     setHovered(false);
   };
 
   const handlePressIn = (e) => {
     if (!interactive) return;
-    setHovered(true);
+    if (isDesktop) setHovered(true);
     Animated.timing(scaleAnim, {
       toValue: pressScale,
       duration: motion?.press?.duration || 90,
@@ -54,7 +57,7 @@ export function useCardAnimation({
 
   const handlePressOut = (e) => {
     if (!interactive) return;
-    setHovered(false);
+    if (isDesktop) setHovered(false);
     Animated.spring(scaleAnim, {
       toValue: 1,
       friction: motion?.press?.friction || 4,
@@ -66,7 +69,7 @@ export function useCardAnimation({
   const animatedStyle = interactive
     ? {
         transform: [{ translateY }, { scale: scaleAnim }],
-        ...(hovered ? shadows.cardHover : shadows.cardRest),
+        ...(isDesktop && hovered ? shadows.cardHover : shadows.cardRest),
       }
     : null;
 
