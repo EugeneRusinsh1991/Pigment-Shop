@@ -137,6 +137,29 @@ export default function usePullToRefresh(customRefresh = null, options = {}) {
   return { refreshing, onRefresh, pullDistance };
 }
 
+function getScrollTopFromTarget(options, target) {
+  let nodeScrollTop = 0;
+  if (options.scrollViewRef?.current) {
+    const node = options.scrollViewRef.current.getScrollableNode
+      ? options.scrollViewRef.current.getScrollableNode()
+      : options.scrollViewRef.current;
+    nodeScrollTop = node?.scrollTop || 0;
+  }
+  let parentScrollTop = 0;
+  if (target && target instanceof Element) {
+    let curr = target;
+    while (curr && curr !== document.body && curr !== document.documentElement) {
+      if (curr.scrollTop > 0) {
+        parentScrollTop = curr.scrollTop;
+        break;
+      }
+      curr = curr.parentElement;
+    }
+  }
+  const windowScrollTop = typeof window !== 'undefined' ? (window.scrollY || document.documentElement?.scrollTop || 0) : 0;
+  return Math.max(nodeScrollTop, parentScrollTop, windowScrollTop);
+}
+
 /**
  * Web-only effect: Uses a singleton stack to ensure only the most recently
  * mounted hook processes the pull-down gesture.
@@ -145,43 +168,13 @@ function useWebPullToRefresh(onRefresh, setPullDistance, options) {
   const handlerRef = useRef({
     onRefresh,
     setPullDistance,
-    getScrollTop: (target) => {
-      if (options.scrollViewRef?.current) {
-        const node = options.scrollViewRef.current.getScrollableNode
-          ? options.scrollViewRef.current.getScrollableNode()
-          : options.scrollViewRef.current;
-        return node?.scrollTop || 0;
-      }
-      if (target && target instanceof Element) {
-        let curr = target;
-        while (curr && curr !== document.body && curr !== document.documentElement) {
-          if (curr.scrollTop > 0) return curr.scrollTop;
-          curr = curr.parentElement;
-        }
-      }
-      return window.scrollY || document.documentElement.scrollTop || 0;
-    },
+    getScrollTop: (target) => getScrollTopFromTarget(options, target),
   });
 
   useEffect(() => {
     handlerRef.current.onRefresh = onRefresh;
     handlerRef.current.setPullDistance = setPullDistance;
-    handlerRef.current.getScrollTop = (target) => {
-      if (options.scrollViewRef?.current) {
-        const node = options.scrollViewRef.current.getScrollableNode
-          ? options.scrollViewRef.current.getScrollableNode()
-          : options.scrollViewRef.current;
-        return node?.scrollTop || 0;
-      }
-      if (target && target instanceof Element) {
-        let curr = target;
-        while (curr && curr !== document.body && curr !== document.documentElement) {
-          if (curr.scrollTop > 0) return curr.scrollTop;
-          curr = curr.parentElement;
-        }
-      }
-      return window.scrollY || document.documentElement.scrollTop || 0;
-    };
+    handlerRef.current.getScrollTop = (target) => getScrollTopFromTarget(options, target);
   }, [onRefresh, setPullDistance, options.scrollViewRef]);
 
   useEffect(() => {
