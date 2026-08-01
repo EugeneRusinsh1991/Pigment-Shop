@@ -8009,5 +8009,35 @@
         }
       ]
     }
+  },
+  "src_08-01_19-50_admin-typography-and-text-standardization-audit.md_233files": {
+    "timestamp": "2026-08-01T16:50:31.727Z",
+    "diff": {
+      "added": 49,
+      "removed": 4,
+      "modified": 170,
+      "topFolders": [
+        {
+          "folder": "src/features/catalog",
+          "count": 11
+        },
+        {
+          "folder": ".to-dos",
+          "count": 9
+        },
+        {
+          "folder": "src/hooks",
+          "count": 9
+        },
+        {
+          "folder": ".tools/auditors/perf-auditor",
+          "count": 8
+        },
+        {
+          "folder": "src/features/admin/Categories",
+          "count": 8
+        }
+      ]
+    }
   }
 }
