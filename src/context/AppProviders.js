@@ -13,18 +13,22 @@ import { LanguageProvider } from './LanguageContext';
 import { ThemeProvider } from './ThemeContext';
 import { GlobalToastProvider } from './ToastContext';
 
+import { PullToRefreshProvider } from '../features/shell/PullToRefreshContext';
+
 /**
- * 1. Core infrastructure domain (Theme, Language, Toast)
+ * 1. Core infrastructure domain (Theme, Language, Toast, PullToRefresh)
  */
 function CoreInfrastructureProviders({ children }) {
   return (
-    <LanguageProvider>
-      <ThemeProvider>
-        <GlobalToastProvider>
-          {children}
-        </GlobalToastProvider>
-      </ThemeProvider>
-    </LanguageProvider>
+    <PullToRefreshProvider>
+      <LanguageProvider>
+        <ThemeProvider>
+          <GlobalToastProvider>
+            {children}
+          </GlobalToastProvider>
+        </ThemeProvider>
+      </LanguageProvider>
+    </PullToRefreshProvider>
   );
 }
 

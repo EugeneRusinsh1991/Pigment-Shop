@@ -1,6 +1,7 @@
 import { useState, useCallback, useEffect, useRef } from 'react';
 import { Platform } from 'react-native';
 import * as Haptics from 'expo-haptics';
+import { usePullToRefreshContext } from '../features/shell/PullToRefreshContext';
 
 const PULL_THRESHOLD = 80;
 const MAX_PULL = 140;
@@ -91,20 +92,32 @@ function bindGlobalListeners() {
   globalListenersBound = true;
 }
 
+
 /**
  * Hook to handle pull-to-refresh logic.
  * On native: returns refreshing/onRefresh for RefreshControl.
  * On web: registers DOM touch listeners to detect pull-down gesture and exposes pullDistance state.
  */
 export default function usePullToRefresh(customRefresh = null, options = {}) {
-  const [refreshing, setRefreshing] = useState(false);
-  const [pullDistance, setPullDistance] = useState(0);
+  const [localRefreshing, setLocalRefreshing] = useState(false);
+  const [localPullDistance, setLocalPullDistance] = useState(0);
+  const context = usePullToRefreshContext();
+
+  const setRefreshing = context?.setRefreshing || setLocalRefreshing;
+  const setPullDistance = context?.setPullDistance || setLocalPullDistance;
+  const refreshing = context?.refreshing ?? localRefreshing;
+  const pullDistance = context?.pullDistance ?? localPullDistance;
 
   const onRefresh = useCallback(async () => {
     setRefreshing(true);
     try {
       Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light).catch(() => {});
     } catch (_) {}
+
+    if (Platform.OS === 'web' && typeof window !== 'undefined') {
+      window.location.reload();
+      return;
+    }
 
     try {
       if (customRefresh) {
@@ -115,7 +128,7 @@ export default function usePullToRefresh(customRefresh = null, options = {}) {
     } finally {
       setTimeout(() => setRefreshing(false), 300);
     }
-  }, [customRefresh]);
+  }, [customRefresh, setRefreshing]);
 
   useWebPullToRefresh(onRefresh, setPullDistance, options);
 

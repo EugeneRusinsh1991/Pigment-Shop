@@ -1,7 +1,6 @@
 import React from 'react';
-import { FlatList, StyleSheet, View, RefreshControl, Platform } from 'react-native';
+import { FlatList, StyleSheet, View, RefreshControl } from 'react-native';
 import usePullToRefresh from '../../../hooks/usePullToRefresh';
-import PullToRefreshIndicator from '../Feedback/PullToRefreshIndicator';
 
 /**
  * UnifiedCardGrid Component
@@ -23,7 +22,7 @@ export default function UnifiedCardGrid({
 }) {
   const itemWidth = `${(100 / cols).toFixed(4)}%`;
   const listRef = React.useRef(null);
-  const { refreshing, pullDistance, onRefresh } = usePullToRefresh(onRefreshProp, { 
+  const { refreshing, onRefresh } = usePullToRefresh(onRefreshProp, { 
     scrollViewRef: listRef,
     disabled: !onRefreshProp
   });
@@ -50,38 +49,28 @@ export default function UnifiedCardGrid({
       ? {}
       : { refreshControl: <RefreshControl refreshing={refreshing} onRefresh={onRefresh} /> };
     return (
-      <>
-        {Platform.OS === 'web' && (
-          <PullToRefreshIndicator pullDistance={pullDistance} refreshing={refreshing} />
-        )}
-        <FlatList
-          ref={listRef}
-          {...refreshControlProp}
-          data={data}
-          numColumns={cols}
-          renderItem={renderWrappedItem}
-          contentContainerStyle={[containerStyle, contentContainerStyle]}
-          style={style}
-          {...rest}
-        />
-      </>
+      <FlatList
+        ref={listRef}
+        {...refreshControlProp}
+        data={data}
+        numColumns={cols}
+        renderItem={renderWrappedItem}
+        contentContainerStyle={[containerStyle, contentContainerStyle]}
+        style={style}
+        {...rest}
+      />
     );
   }
 
   // Flex Wrap variant
   return (
-    <>
-      {Platform.OS === 'web' && (
-        <PullToRefreshIndicator pullDistance={pullDistance} refreshing={refreshing} />
-      )}
-      <View style={[styles.flexWrapContainer, containerStyle, style]} {...rest}>
-        {data.map((item, index) => (
-          <React.Fragment key={item?.id || index}>
-            {renderWrappedItem({ item, index })}
-          </React.Fragment>
-        ))}
-      </View>
-    </>
+    <View style={[styles.flexWrapContainer, containerStyle, style]} {...rest}>
+      {data.map((item, index) => (
+        <React.Fragment key={item?.id || index}>
+          {renderWrappedItem({ item, index })}
+        </React.Fragment>
+      ))}
+    </View>
   );
 }
 

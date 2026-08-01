@@ -2,19 +2,25 @@ import React from 'react';
 import { View, Platform, StyleSheet } from 'react-native';
 import { primitives, semantic, shadows } from '../../../theme/tokens';
 import { useTheme } from '../../../context/ThemeContext';
+import { usePullToRefreshContext } from '../../../features/shell/PullToRefreshContext';
 
 const PULL_THRESHOLD = 80;
 const MAX_PULL = 140;
 
 export default function PullToRefreshIndicator({
-  pullDistance = 0,
-  refreshing = false,
+  pullDistance: pullDistanceProp,
+  refreshing: refreshingProp,
   isDark: isDarkProp,
   threshold = PULL_THRESHOLD,
   maxPull = MAX_PULL,
   style,
 }) {
   const themeCtx = useTheme();
+  const context = usePullToRefreshContext();
+  
+  const pullDistance = pullDistanceProp ?? context?.pullDistance ?? 0;
+  const refreshing = refreshingProp ?? context?.refreshing ?? false;
+
   const isDark = isDarkProp ?? themeCtx?.isDark ?? false;
 
   const progress = Math.min(Math.max(0, pullDistance) / threshold, 1);
