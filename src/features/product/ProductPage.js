@@ -71,7 +71,7 @@ export default function ProductPage({ product: initialProduct, isDark, showNavig
   }
 
   return (
-    <PageScrollLayout isDark={isDark} onRefresh={handleRefresh}>
+    <PageScrollLayout isDark={isDark} onRefresh={handleRefresh} isDynamicRoute={true}>
       <ProductPageHeader
         showNavigation={showNavigation}
         gridWidth={state.gridWidth}

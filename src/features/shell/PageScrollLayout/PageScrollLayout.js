@@ -2,8 +2,8 @@ import { View } from 'react-native';
 import commonStyles from '../../../theme/commonStyles';
 import usePullToRefresh from '../../../hooks/usePullToRefresh';
 
-export default function PageScrollLayout({ children, isDark, maxWidth, onRefresh }) {
-  usePullToRefresh(onRefresh);
+export default function PageScrollLayout({ children, isDark, maxWidth, onRefresh, isDynamicRoute = false, options = {} }) {
+  usePullToRefresh(onRefresh, { isDynamicRoute, ...options });
   return (
     <View
       style={[

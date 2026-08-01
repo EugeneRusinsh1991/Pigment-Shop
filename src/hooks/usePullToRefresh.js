@@ -114,7 +114,9 @@ export default function usePullToRefresh(customRefresh = null, options = {}) {
       Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light).catch(() => {});
     } catch (_) {}
 
-    if (Platform.OS === 'web' && typeof window !== 'undefined') {
+    const isDynamic = options.isDynamicRoute || options.strategy === 'refetch';
+
+    if (Platform.OS === 'web' && typeof window !== 'undefined' && !isDynamic) {
       window.location.reload();
       return;
     }
@@ -128,7 +130,7 @@ export default function usePullToRefresh(customRefresh = null, options = {}) {
     } finally {
       setTimeout(() => setRefreshing(false), 300);
     }
-  }, [customRefresh, setRefreshing]);
+  }, [customRefresh, setRefreshing, options.isDynamicRoute, options.strategy]);
 
   useWebPullToRefresh(onRefresh, setPullDistance, options);
 
