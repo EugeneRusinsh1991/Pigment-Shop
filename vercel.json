@@ -5,7 +5,7 @@
   "cleanUrls": false,
   "rewrites": [
     {
-      "source": "/:path*",
+      "source": "/((?!media/|_next/|assets/).*)",
       "destination": "/index.html"
     }
   ]
