@@ -5,3 +5,4 @@ export * from './InlineError';
 export * from './useFeedbackTheme';
 export * from './FeedbackStyles';
 export { default as ErrorBoundary } from './ErrorBoundary/ErrorBoundary';
+export { default as PullToRefreshIndicator } from './PullToRefreshIndicator';
