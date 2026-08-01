@@ -4,12 +4,6 @@ import { Animated, Platform } from 'react-native';
 const HIDE_HEIGHT = 60;
 const DIRECTION_THRESHOLD = 4;
 
-/**
- * Injects a CSS rule that changes overflow-x from 'hidden' to 'clip' on the
- * root Pressable container. 'clip' prevents horizontal overflow visually
- * (like 'hidden') but does NOT create a new scroll container, so
- * position:sticky on descendant elements works correctly.
- */
 function ensureStickyCompatible() {
   if (Platform.OS !== 'web') return;
   const STYLE_ID = 'pigment-sticky-fix';
@@ -21,11 +15,6 @@ function ensureStickyCompatible() {
   document.head.appendChild(style);
 }
 
-/**
- * Hides the search bar when scrolling down and reveals it when scrolling up.
- * Uses wheel/touch events on document since Expo Web body overflow:hidden
- * prevents standard scroll events from firing on window.
- */
 export function useHomeScrollHide(disabled) {
   const translateY = useRef(new Animated.Value(0)).current;
   const isHidden = useRef(false);

@@ -1,25 +1,27 @@
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 import { colors, layout, typography } from '../../../theme/tokens';
+
+const isWeb = Platform.OS === 'web';
 
 export const SIZES = {
   sm: {
-    height: 36,
+    height: isWeb ? 40 : 36,
     paddingHorizontal: layout.spacing.md,
-    fontSize: typography.sizes.xs,
+    fontSize: isWeb ? Math.max(16, typography.sizes.xs) : typography.sizes.xs,
     iconSize: 16,
     borderRadius: layout.radii.xs,
   },
   md: {
-    height: 44,
+    height: isWeb ? 44 : 44,
     paddingHorizontal: layout.spacing.md,
-    fontSize: typography.sizes.sm,
+    fontSize: isWeb ? Math.max(16, typography.sizes.sm) : typography.sizes.sm,
     iconSize: 18,
     borderRadius: layout.radii.sm,
   },
   lg: {
     height: 52,
     paddingHorizontal: layout.spacing.lg,
-    fontSize: typography.sizes.md,
+    fontSize: isWeb ? Math.max(16, typography.sizes.md) : typography.sizes.md,
     iconSize: 20,
     borderRadius: layout.radii.md,
   },

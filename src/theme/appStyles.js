@@ -1,6 +1,19 @@
 import { Platform, StyleSheet } from 'react-native';
 import { colors, fonts, layout, shadow, shadows } from './tokens';
 
+if (Platform.OS === 'web' && typeof document !== 'undefined') {
+  const STYLE_ID = 'pigment-global-web-styles';
+  if (!document.getElementById(STYLE_ID)) {
+    const style = document.createElement('style');
+    style.id = STYLE_ID;
+    style.textContent = `
+      #root > [data-testid] { overflow-x: clip !important; overflow-y: visible !important; }
+      #root > div { overflow-x: clip !important; }
+    `;
+    document.head.appendChild(style);
+  }
+}
+
 const rootStyles = Platform.OS === 'web'
   ? { minHeight: ['100vh', '100dvh'], overflowX: 'hidden', cursor: 'default' }
   : {};
