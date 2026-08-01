@@ -4,17 +4,22 @@ import { ScrollFadeUp } from '../../../components/ui/Motion';
 import { Heading } from '../../../components/ui/Text';
 import useGridLayout from '../../../hooks/useGridLayout';
 import usePullToRefresh from '../../../hooks/usePullToRefresh';
+import PullToRefreshIndicator from '../../../components/ui/Feedback/PullToRefreshIndicator';
 
 import ProfileSidebar from './ProfileSidebar';
 import styles from './AccountLayoutStyles';
 
 export default function AccountLayout({ title, children, isDark, auth }) {
   const { isWide, gridWidth } = useGridLayout();
+  const { pullDistance, refreshing } = usePullToRefresh(
+    async () => { await new Promise(r => setTimeout(r, 600)); }
+  );
 
   return (
     <View
       style={[styles.container, isDark ? styles.containerDark : styles.containerLight]}
     >
+      <PullToRefreshIndicator pullDistance={pullDistance} refreshing={refreshing} />
       <View style={styles.flex1}>
         <View
           style={[

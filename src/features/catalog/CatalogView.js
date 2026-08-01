@@ -9,6 +9,7 @@ import usePullToRefresh from '../../hooks/usePullToRefresh';
 
 import { PageNavigation } from '@/components/domain/Navigation';
 import UnifiedCardGrid from '../../components/ui/Grid/UnifiedCardGrid';
+import PageScrollLayout from '../../features/shell/PageScrollLayout/PageScrollLayout';
 import CatalogHeader from './CatalogHeader';
 import CatalogListFooter from './CatalogListFooter';
 import PlaceholderCard from './PlaceholderCard';
@@ -147,12 +148,15 @@ export default function CatalogView({
           maxToRenderPerBatch={8}
           scrollEnabled={false}
           removeClippedSubviews={false}
-          disableRefreshControl
         />
       ) : (
-        <View
-          style={[scrollContentStyle, layoutStyles.listContainer]}
+        <PageScrollLayout
+          onRefresh={refreshCatalog}
+          isDark={isDark}
         >
+          <View
+            style={[scrollContentStyle, layoutStyles.listContainer]}
+          >
           <CatalogHeader
             isDark={isDark}
             isWide={isWide}
@@ -176,7 +180,8 @@ export default function CatalogView({
               favs={favs}
             />
           </View>
-        </View>
+          </View>
+        </PageScrollLayout>
       )}
     </View>
   );

@@ -64,6 +64,7 @@ export function CatalogProvider({ children }) {
 
   const categorySubtreeMap = useMemo(() => buildCategorySubtreeMap(categoryTree), [categoryTree]);
 
+  // Acknowledged mock refresh implementation. Real data refetch should be connected here in a future phase.
   const refreshCatalog = useCallback(async () => {
     await new Promise((resolve) => setTimeout(resolve, 600));
   }, []);
