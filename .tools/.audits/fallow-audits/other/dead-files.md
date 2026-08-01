@@ -1,6 +1,6 @@
 # 💀 Dead Files (Unused)
 
-*Generated on: 01.08.2026, 01:46:46*
+*Generated on: 01.08.2026, 15:54:26*
 
 Files that are not reachable or imported by any other codebase file:
 
@@ -80,6 +80,7 @@ Files that are not reachable or imported by any other codebase file:
 - [InteractionPolicyEngine.ts](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/explorer/policy/InteractionPolicyEngine.ts) (`automation/browser-automation/explorer/policy/InteractionPolicyEngine.ts`)
 - [SamplingStrategy.ts](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/explorer/policy/SamplingStrategy.ts) (`automation/browser-automation/explorer/policy/SamplingStrategy.ts`)
 - [BoundedCollections.ts](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/explorer/utils/BoundedCollections.ts) (`automation/browser-automation/explorer/utils/BoundedCollections.ts`)
+- [devServerCore.cjs](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/helpers/devServerCore.cjs) (`automation/browser-automation/helpers/devServerCore.cjs`)
 - [devServerHelper.js](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/helpers/devServerHelper.js) (`automation/browser-automation/helpers/devServerHelper.js`)
 - [devServerHelper.ts](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/helpers/devServerHelper.ts) (`automation/browser-automation/helpers/devServerHelper.ts`)
 - [dynamic-report-writer.ts](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/helpers/dynamic-report-writer.ts) (`automation/browser-automation/helpers/dynamic-report-writer.ts`)

@@ -34,7 +34,7 @@ function resolveProduct(initialProduct, flatList) {
  * @returns {Function} returns.increaseQty - Increase quantity handler
  */
 export function useProductPageState({ initialProduct, onBack, isFromAllProductsProp }) {
-  const { flatList = [] } = useCatalog() || {};
+  const { flatList = [], refreshCatalog } = useCatalog() || {};
   const { isAuthenticated, user } = useAuth();
   const { profile } = useProfile(user);
   const { isWide, gridWidth } = useGridLayout();
@@ -62,5 +62,6 @@ export function useProductPageState({ initialProduct, onBack, isFromAllProductsP
     reviewsState,
     decreaseQty,
     increaseQty,
+    refresh: refreshCatalog,
   };
 }

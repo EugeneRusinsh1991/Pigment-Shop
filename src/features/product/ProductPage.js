@@ -53,7 +53,14 @@ function ProductDetails({ product, isWide, isDark, qty, onDecreaseQty, onIncreas
 
 export default function ProductPage({ product: initialProduct, isDark, showNavigation = true, onBack, isFromAllProducts: isFromAllProductsProp }) {
   const state = useProductPageState({ initialProduct, onBack, isFromAllProductsProp });
-  usePullToRefresh();
+
+  const handleRefresh = async () => {
+    if (state.refresh) {
+      await state.refresh();
+    }
+  };
+
+  usePullToRefresh(handleRefresh);
 
   if (!state.product) {
     return (

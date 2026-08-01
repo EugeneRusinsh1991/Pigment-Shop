@@ -1,6 +1,6 @@
 # 📦 Unused Exports
 
-*Generated on: 01.08.2026, 01:46:46*
+*Generated on: 01.08.2026, 15:54:26*
 
 Exports that are not imported or consumed by any other active file:
 
@@ -67,6 +67,7 @@ Exports that are not imported or consumed by any other active file:
 - [InteractionPolicyEngine.ts](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/explorer/policy/InteractionPolicyEngine.ts): `InteractionPolicyEngine` ([L8](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/explorer/policy/InteractionPolicyEngine.ts#L8))
 - [SamplingStrategy.ts](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/explorer/policy/SamplingStrategy.ts): `SamplingStrategy` ([L28](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/explorer/policy/SamplingStrategy.ts#L28))
 - [BoundedCollections.ts](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/explorer/utils/BoundedCollections.ts): `BoundedSet` ([L1](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/explorer/utils/BoundedCollections.ts#L1)), `BoundedMap` ([L41](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/explorer/utils/BoundedCollections.ts#L41))
+- [devServerCore.cjs](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/helpers/devServerCore.cjs): `ensureDevServer` ([L47](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/helpers/devServerCore.cjs#L47)), `isServerRunning` ([L47](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/helpers/devServerCore.cjs#L47))
 - [devServerHelper.ts](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/helpers/devServerHelper.ts): `isServerRunning` ([L4](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/helpers/devServerHelper.ts#L4)), `ensureDevServer` ([L8](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/helpers/devServerHelper.ts#L8))
 - [dynamic-report-writer.ts](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/helpers/dynamic-report-writer.ts): `groupViolationsByProblemTitle` ([L42](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/helpers/dynamic-report-writer.ts#L42)), `formatProblemsReport` ([L62](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/helpers/dynamic-report-writer.ts#L62)), `writeDynamicReport` ([L177](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/helpers/dynamic-report-writer.ts#L177))
 - [envValidator.ts](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/helpers/envValidator.ts): `validateAuthEnv` ([L6](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/helpers/envValidator.ts#L6))
