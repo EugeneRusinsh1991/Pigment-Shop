@@ -3,6 +3,7 @@ import { Modal as RNModal, Platform, Pressable } from 'react-native';
 import { modalStyles as styles } from './ModalStyles';
 import { useModalTheme } from './useModalTheme';
 import { useVisualViewportDimensions } from '../../../hooks/useVisualViewportDimensions';
+import { useDrawerBackHandler } from '../../../hooks/useProductNavigation';
 
 function sanitizeWebViewportOnClose() {
   if (Platform.OS === 'web' && typeof document !== 'undefined') {
@@ -30,8 +31,6 @@ export default function Modal({
   const { height: viewportHeight } = useVisualViewportDimensions();
   const { overlayBg } = useModalTheme();
 
-  if (!visible) return null;
-
   const rawHandleClose = onClose || onRequestClose;
 
   const handleClose = () => {
@@ -40,6 +39,10 @@ export default function Modal({
       rawHandleClose();
     }
   };
+
+  useDrawerBackHandler(visible, handleClose);
+
+  if (!visible) return null;
 
   const handleBackdropPress = () => {
     if (closeOnBackdropPress) {

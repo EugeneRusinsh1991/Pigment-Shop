@@ -10,7 +10,7 @@ import { useCatalog } from './CatalogContext';
 import styles from './categoryCardStyles';
 
 
-const CATEGORY_PLACEHOLDER = '/media/images/default_catalog_card.jpg';
+import { CATEGORY_PLACEHOLDER } from '../../constants';
 
 const DEFAULT_CATEGORY_DESCRIPTIONS = {
   'cat-materials': {

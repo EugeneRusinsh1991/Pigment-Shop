@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useDrawerBackHandler } from '../../hooks/useProductNavigation';
 
 /**
  * Hook for controlling shell header menu visibility states.
@@ -17,6 +18,9 @@ export function useMenuVisibilityState() {
     setShowNavMenu(false);
     setShowCartDrawer(false);
   };
+
+  const isAnyMenuOpen = showLangMenu || showUserMenu || showCurrencyMenu || showNavMenu || showCartDrawer;
+  useDrawerBackHandler(isAnyMenuOpen, closeMenus);
 
   const toggleLangMenu = () => {
     setShowLangMenu((prev) => {

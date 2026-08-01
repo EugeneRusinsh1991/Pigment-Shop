@@ -2,6 +2,7 @@ import { useCallback, useState } from 'react';
 import { ConfirmationModal } from '../components/ui/Modal';
 import { useLanguage } from '../context/LanguageContext';
 import { useTheme } from '../context/ThemeContext';
+import { useDrawerBackHandler } from './useProductNavigation';
 
 /**
  * Shared hook for cross-platform delete confirmations.
@@ -41,6 +42,8 @@ export function useDeleteConfirmation() {
   const closeConfirm = useCallback(() => {
     setDialogState((prev) => ({ ...prev, visible: false }));
   }, []);
+
+  useDrawerBackHandler(dialogState.visible, closeConfirm);
 
   const confirmationDialog = (
     <ConfirmationModal

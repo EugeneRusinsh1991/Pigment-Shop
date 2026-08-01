@@ -1,4 +1,5 @@
 import { useRouter } from 'expo-router';
+import { useSmartBackHandler } from '../../hooks/useProductNavigation';
 import { useCallback } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { useLanguage } from '../../context/LanguageContext';
@@ -71,13 +72,7 @@ export default function CatalogView({
     isWide,
   });
 
-  const handleBackPress = () => {
-    if (router.canGoBack()) {
-      router.back();
-    } else {
-      router.push('/');
-    }
-  };
+  const handleBackPress = useSmartBackHandler();
   const handleCatalogPress = () => router.push('/catalog');
   const isTransitionReady = useCatalogTransition(showPromotionalSections, showHeroBanner);
 

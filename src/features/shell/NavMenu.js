@@ -12,6 +12,7 @@ import { useNavMenuController } from './useNavMenuController';
 
 import Drawer from '../../components/ui/Drawer';
 import { useSlideAnimation } from '../../hooks/useSlideAnimation';
+import { useDrawerBackHandler } from '../../hooks/useProductNavigation';
 
 
 function NavPanelContent({
@@ -115,6 +116,8 @@ export default function NavMenu(props) {
     ...props,
     onClose: handleClose,
   });
+
+  useDrawerBackHandler(visible, handleBack);
 
   const selectedCategoryId = useActiveCategoryId();
 
