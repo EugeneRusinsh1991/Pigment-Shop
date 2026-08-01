@@ -9,7 +9,7 @@
  * - Enforces MAX_DEPTH: hides + button on depth-5 rows.
  */
 import React, { useCallback, useMemo, useState } from 'react';
-import { View } from 'react-native';
+import { View, useWindowDimensions } from 'react-native';
 import { Button } from '@/components/ui/Button';
 import { ChipButton } from '@/components/ui/Button';
 import styles from './CategoriesStyles';
@@ -51,6 +51,10 @@ function collectParentIds(nodes, acc = new Set()) {
 
 export default function CategoryTree({ tree, onEdit, onAdd, products }) {
   const { t } = useLanguage();
+  const { width } = useWindowDimensions();
+  const isMobile = width < 768;
+  const isTablet = width >= 768 && width < 1024;
+
   const parentIds = useMemo(() => collectParentIds(tree), [tree]);
   const [collapsed, setCollapsed] = useState(new Set());
 
@@ -69,7 +73,7 @@ export default function CategoryTree({ tree, onEdit, onAdd, products }) {
 
   return (
     <View>
-      {/* Single horizontal toolbar controls */}
+      {/* Single horizontal toolbar — single-row on all breakpoints */}
       <View style={styles.toolbar}>
         <Button
           title={t('adminCategoriesAddBtn')}
@@ -77,23 +81,33 @@ export default function CategoryTree({ tree, onEdit, onAdd, products }) {
           variant="primary"
           size="md"
         />
-        <ChipButton
-          label={t('adminCategoriesExpandAll')}
-          onPress={expandAll}
-          leftIcon={<ChevronDownIcon size={14} />}
-        />
-        <ChipButton
-          label={t('adminCategoriesCollapseAll')}
-          onPress={collapseAll}
-          leftIcon={<ChevronRightIcon size={14} />}
-        />
+        {isMobile ? (
+          <ChipButton
+            label={collapsed.size === 0 ? t('adminCategoriesCollapseAll') : t('adminCategoriesExpandAll')}
+            onPress={collapsed.size === 0 ? collapseAll : expandAll}
+            leftIcon={collapsed.size === 0 ? <ChevronRightIcon size={14} /> : <ChevronDownIcon size={14} />}
+          />
+        ) : (
+          <>
+            <ChipButton
+              label={t('adminCategoriesExpandAll')}
+              onPress={expandAll}
+              leftIcon={<ChevronDownIcon size={14} />}
+            />
+            <ChipButton
+              label={t('adminCategoriesCollapseAll')}
+              onPress={collapseAll}
+              leftIcon={<ChevronRightIcon size={14} />}
+            />
+          </>
+        )}
       </View>
 
       <DataTable
         data={rows}
         columns={[
-          { key: 'name', label: t('adminCategoriesColName'), style: styles.colName, sortable: false },
-          { key: 'image', label: t('adminCategoriesColImage'), style: styles.colImage, sortable: false },
+          { key: 'name', label: t('adminCategoriesColName'), style: isTablet ? [styles.colName, { flex: 3 }] : styles.colName, sortable: false },
+          { key: 'image', label: t('adminCategoriesColImage'), style: isTablet ? [styles.colImage, { flex: 0.6 }] : styles.colImage, sortable: false },
         ]}
         emptyText={t('adminCategoriesEmpty')}
         renderRow={(row, idx) => (

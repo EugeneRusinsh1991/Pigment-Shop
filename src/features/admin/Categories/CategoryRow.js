@@ -10,6 +10,7 @@ import {
   DepthBars,
   ImageBadge,
   INDENT_PER_LEVEL,
+  MOBILE_INDENT_PER_LEVEL,
   ToggleButton,
   getCategoryMeta,
   resolveCategoryName,
@@ -70,6 +71,8 @@ export function DesktopCategoryRow({ row, hasChildren, isCollapsed, onToggle, on
         styles.treeRow,
         isAlt && styles.treeRowAlt,
         type === 'category_holder' ? styles.treeRowCategoryHolder : styles.treeRowProductHolder,
+        safeDepth === 1 && styles.treeRowDepth1,
+        safeDepth >= 2 && styles.treeRowDepth2,
       ]}
       onPress={() => onEdit(row)}
       activeOpacity={motion.press.activeOpacity}
@@ -81,7 +84,7 @@ export function DesktopCategoryRow({ row, hasChildren, isCollapsed, onToggle, on
         <View style={styles.nameCell}>
           <ToggleButton hasChildren={hasChildren} isCollapsed={isCollapsed} onToggle={onToggle} rowId={row.id} />
           <View style={row_styles.flex1}>
-            <Text style={styles.categoryName} size={safeDepth > 0 ? 12 : undefined}>{name}</Text>
+            <Text style={styles.categoryName} size={14}>{name}</Text>
             <CategoryTypeBadge type={type} typeColors={typeColors} countLabel={countLabel} />
           </View>
         </View>
@@ -96,27 +99,28 @@ export function DesktopCategoryRow({ row, hasChildren, isCollapsed, onToggle, on
 }
 
 export function MobileCategoryCard({ row, hasChildren, isCollapsed, onToggle, onEdit, products }) {
-  const { safeDepth, type, countLabel, name, t } = useCategoryRowData(row, products);
+  const { safeDepth, type, countLabel, name } = useCategoryRowData(row, products);
 
   const isHolder = type === 'category_holder';
-  const badgeLabel = isHolder 
-    ? `${t('adminCategoriesTypeCategoryHolder') || 'Subcategories'}: ${countLabel}`
-    : `${t('adminCategoriesTypeProductHolder') || 'Products'}: ${countLabel}`;
 
   return (
-    <AnimatedButton
+    <View
       style={[
         styles.mobileTreeCard,
         isHolder ? styles.mobileTreeCardCategoryHolder : styles.mobileTreeCardProductHolder,
       ]}
-      onPress={() => onEdit(row)}
-      activeOpacity={motion.press.activeOpacity}
     >
-      <DepthBars depth={safeDepth} leftOffset={16} />
-
-      <View style={[styles.mobileCardInner, { paddingLeft: safeDepth * INDENT_PER_LEVEL }]}>
+      {/* Toggle zone — dedicated 44pt pressable, isolated from edit action */}
+      <View style={styles.mobileToggleZone}>
         <ToggleButton hasChildren={hasChildren} isCollapsed={isCollapsed} onToggle={onToggle} rowId={row.id} />
+      </View>
 
+      {/* Content zone — tap to edit */}
+      <AnimatedButton
+        style={[styles.mobileContentZone, { paddingLeft: safeDepth * MOBILE_INDENT_PER_LEVEL }]}
+        onPress={() => onEdit(row)}
+        activeOpacity={motion.press.activeOpacity}
+      >
         <View style={styles.mobileContentCol}>
           <View style={styles.mobileRowMain}>
             <Text style={styles.categoryName} size={14} weight="bold" numberOfLines={1}>
@@ -125,7 +129,7 @@ export function MobileCategoryCard({ row, hasChildren, isCollapsed, onToggle, on
             <Badge
               variant="status"
               status={isHolder ? 'categoryHolder' : 'productHolder'}
-              label={badgeLabel}
+              label={countLabel}
               size="xs"
             />
           </View>
@@ -134,7 +138,7 @@ export function MobileCategoryCard({ row, hasChildren, isCollapsed, onToggle, on
             <ImageBadge image={row.image} />
           </View>
         </View>
-      </View>
-    </AnimatedButton>
+      </AnimatedButton>
+    </View>
   );
 }

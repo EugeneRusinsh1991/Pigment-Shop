@@ -8,6 +8,7 @@ import { colors, layout } from '../../../theme/tokens';
 import styles from './CategoriesStyles';
 
 export const INDENT_PER_LEVEL = 20;
+export const MOBILE_INDENT_PER_LEVEL = 12;
 
 const elem_styles = StyleSheet.create({
   badgeRow: {

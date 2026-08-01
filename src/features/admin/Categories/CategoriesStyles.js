@@ -85,7 +85,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: layout.spacing.lg,
-    paddingVertical: layout.spacing.sm,
+    paddingVertical: layout.spacing.md,
     borderBottomWidth: layout.borderWidth.thin,
     borderBottomColor: colors.secondaryLightBorder,
     borderLeftWidth: layout.borderWidth.medium,
@@ -122,8 +122,8 @@ export default StyleSheet.create({
     gap: layout.spacing.xs,
   },
   toggleBtn: {
-    width: 20,
-    height: 20,
+    width: 32,
+    height: 32,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -215,13 +215,25 @@ export default StyleSheet.create({
   /* Mobile card layout */
   mobileTreeCard: {
     position: 'relative',
-    paddingHorizontal: layout.spacing.lg,
-    paddingVertical: layout.spacing.xs + 2,
+    flexDirection: 'row',
+    alignItems: 'stretch',
     borderBottomWidth: layout.borderWidth.thin,
     borderBottomColor: colors.secondaryLightBorder,
     borderLeftWidth: layout.borderWidth.heavy,
     borderLeftColor: colors.transparent,
     overflow: 'hidden',
+  },
+  /* Mobile tap-zone isolation */
+  mobileToggleZone: {
+    minWidth: 44,
+    alignSelf: 'stretch',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  mobileContentZone: {
+    flex: 1,
+    paddingRight: layout.spacing.lg,
+    paddingVertical: layout.spacing.xs + 2,
   },
   mobileTreeCardCategoryHolder: {
     backgroundColor: colors.purpleBgAlt,
