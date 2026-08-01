@@ -37,7 +37,7 @@ export function CategoryTypeDisplay({ value }) {
 
   return (
     <View style={styles.categoryTypeRow}>
-      <Text style={styles.categoryTypeLabel}>{t('adminCategoryType') || 'Type'}</Text>
+      <Text variant="label" style={styles.categoryTypeLabel}>{t('adminCategoryType') || 'Type'}</Text>
       <View style={[styles.categoryTypeBadge, { backgroundColor: typeColors.softBg, borderColor: typeColors.accent }]}>
         <Text variant="overline" style={[styles.categoryTypeBadgeText, { color: typeColors.text }]}>
           {typeColors.label}
@@ -53,7 +53,7 @@ export function CategoryTypeSelect({ value, onChange, disabled }) {
   const { t } = useLanguage();
   return (
     <View style={styles.fieldGroup}>
-      <Text style={styles.fieldLabel}>{t('adminCategoryType')}</Text>
+      <Text variant="label" style={styles.fieldLabel}>{t('adminCategoryType')}</Text>
       <FlagGroup value={value} onChange={onChange} multiple={false}>
         <Flag value="category_holder" variant="chip" disabled={disabled}>
           Category Holder
@@ -63,7 +63,7 @@ export function CategoryTypeSelect({ value, onChange, disabled }) {
         </Flag>
       </FlagGroup>
       {disabled && (
-        <Text style={[styles.errorText, { color: colors.slateText, marginTop: layout.spacing.xxs }]}>
+        <Text variant="caption" style={[styles.errorText, { color: colors.slateText, marginTop: layout.spacing.xxs }]}>
           Type cannot be changed due to existing subcategories or assigned products.
         </Text>
       )}
@@ -84,7 +84,7 @@ export function ImagePickerField({ value, onChange }) {
 
   return (
     <View style={styles.fieldGroup}>
-      <Text style={styles.fieldLabel}>{t('adminCategoriesFormImage')}</Text>
+      <Text variant="label" style={styles.fieldLabel}>{t('adminCategoriesFormImage')}</Text>
       <View style={styles.imagePickerRow}>
         <TextField
           containerStyle={{ flex: 1 }}
@@ -95,11 +95,11 @@ export function ImagePickerField({ value, onChange }) {
         />
         <AnimatedButton style={[styles.uploadBtn, { flexDirection: 'row', alignItems: 'center', gap: layout.spacing.xxs }]} onPress={() => triggerFileInput('cat-image-file-input', onChange)} activeOpacity={motion.press.activeOpacity}>
           <UploadIcon color={colors.white} size={12} />
-          <Text style={styles.uploadBtnText}>{t('adminCategoriesFormUploadBtn')}</Text>
+          <Text variant="label" style={styles.uploadBtnText}>{t('adminCategoriesFormUploadBtn')}</Text>
         </AnimatedButton>
         <AnimatedButton style={[styles.uploadBtn, { flexDirection: 'row', alignItems: 'center', gap: layout.spacing.xxs }]} onPress={() => setBrowserOpen(true)} activeOpacity={motion.press.activeOpacity}>
           <ImageIcon color={colors.white} size={12} />
-          <Text style={styles.uploadBtnText}>{t('adminBrowseMedia')}</Text>
+          <Text variant="label" style={styles.uploadBtnText}>{t('adminBrowseMedia')}</Text>
         </AnimatedButton>
       </View>
       <MediaBrowser

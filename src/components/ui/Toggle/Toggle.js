@@ -71,8 +71,7 @@ function renderToggleOption(opt, index, ctx) {
       accessibilityState={ctx.role === 'switch' || ctx.role === 'radio' ? { checked: isActive } : { selected: isActive }}
     >
       <Text
-        variant="body1"
-        size={ctx.size === 'sm' ? 'sm' : 'md'}
+        variant={ctx.size === 'sm' ? 'label' : 'subtitle2'}
         weight={isActive ? 'bold' : 'medium'}
         style={computedTextStyle}
         numberOfLines={1}

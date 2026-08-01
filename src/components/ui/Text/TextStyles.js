@@ -14,6 +14,7 @@ export const VARIANTS = {
   caption: { fontSize: typography.sizes.caption, lineHeight: typography.lineHeights.caption, fontWeight: typography.weights.regular, fontFamily: fonts.primary, letterSpacing: typography.letterSpacing.wide },
   label: { fontSize: typography.sizes.label, lineHeight: typography.lineHeights.label, fontWeight: typography.weights.medium, fontFamily: fonts.primary, letterSpacing: typography.letterSpacing.wide },
   overline: { fontSize: typography.sizes.xxs, lineHeight: typography.lineHeights.xxs, fontWeight: typography.weights.bold, letterSpacing: typography.letterSpacing.widest, textTransform: 'uppercase', fontFamily: fonts.primary },
+  code: { fontSize: typography.sizes.code, lineHeight: typography.lineHeights.code, fontWeight: typography.weights.semibold, fontFamily: fonts.mono, letterSpacing: typography.letterSpacing.wide },
 };
 
 const colorPresetMap = {

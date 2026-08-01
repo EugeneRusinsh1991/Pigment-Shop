@@ -1,9 +1,18 @@
+import { Platform } from 'react-native';
+
 const PRIMARY_FONT_FAMILY = 'System, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+const MONO_FONT_FAMILY = Platform.select({
+  ios: 'Courier',
+  android: 'monospace',
+  web: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace',
+  default: 'monospace',
+});
 
 export const fonts = {
   primary: PRIMARY_FONT_FAMILY,
   sans: PRIMARY_FONT_FAMILY,
   serif: PRIMARY_FONT_FAMILY,
+  mono: MONO_FONT_FAMILY,
 };
 
 export const typography = {
@@ -23,6 +32,7 @@ export const typography = {
     body2: 14,
     caption: 12,
     label: 12,
+    code: 13,
   },
   lineHeights: {
     xxs: 14,
@@ -40,6 +50,7 @@ export const typography = {
     body2: 20,
     caption: 16,
     label: 16,
+    code: 18,
   },
   weights: {
     regular: '400',
@@ -65,4 +76,5 @@ export const scale = {
   body2: { fontSize: 14, lineHeight: 20, letterSpacing: 0, fontWeight: '400', fontFamily: fonts.primary },
   caption: { fontSize: 12, lineHeight: 16, letterSpacing: 0.5, fontWeight: '400', fontFamily: fonts.primary },
   label: { fontSize: 12, lineHeight: 16, letterSpacing: 0.5, fontWeight: '500', fontFamily: fonts.primary },
+  code: { fontSize: 13, lineHeight: 18, letterSpacing: 0.5, fontWeight: '600', fontFamily: fonts.mono },
 };

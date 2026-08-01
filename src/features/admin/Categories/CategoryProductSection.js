@@ -97,13 +97,13 @@ const renderProductOption = (product, selected, toggleProduct, lang) => (
 
 const renderProductGroup = ({ titleKey, hintKey, emptyKey, products, selected, toggleProduct, lang, t }) => (
   <View>
-    <Text variant="overline" color="desc" style={styles.sectionLabel}>{t(titleKey)}</Text>
-    <Text size={12} style={sec_styles.hintText}>
+    <Text variant="h4" style={styles.sectionLabel}>{t(titleKey)}</Text>
+    <Text variant="caption" style={sec_styles.hintText}>
       {t(hintKey)}
     </Text>
     <View style={sec_styles.productGroup}>
       {products.length === 0 ? (
-        <Text size={12} style={sec_styles.emptyText}>{t(emptyKey)}</Text>
+        <Text variant="caption" style={sec_styles.emptyText}>{t(emptyKey)}</Text>
       ) : products.map((product) => renderProductOption(product, selected, toggleProduct, lang))}
     </View>
   </View>

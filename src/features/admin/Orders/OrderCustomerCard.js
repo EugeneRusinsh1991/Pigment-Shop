@@ -13,8 +13,8 @@ import { colors, layout } from '../../../theme/tokens';
 function DetailRow({ label, value }) {
   return (
     <View style={styles.detailRow}>
-      <Text style={styles.detailLabel} size={14}>{label}</Text>
-      <Text style={styles.detailValue} size={14} weight="500">{value || '—'}</Text>
+      <Text variant="label" style={styles.detailLabel}>{label}</Text>
+      <Text variant="body2" style={styles.detailValue}>{value || '—'}</Text>
     </View>
   );
 }

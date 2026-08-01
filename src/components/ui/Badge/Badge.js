@@ -35,7 +35,7 @@ function extractFontProps(style) {
 
 function BadgeContent({ textStyle, cleanedStyle, fontProps, resolvedSize, displayText }) {
   return (
-    <Text variant="caption" weight="semibold" {...fontProps} size={resolvedSize} style={[...textStyle, cleanedStyle]}>{displayText}</Text>
+    <Text variant="label" weight="medium" {...fontProps} size={resolvedSize} style={[...textStyle, cleanedStyle]}>{displayText}</Text>
   );
 }
 
@@ -75,7 +75,7 @@ const Badge = React.forwardRef(({
 
   const displayText = resolveDisplayText({ variant, label, value, count, children });
   const { cleanedStyle, fontProps } = extractFontProps(textStyleProp);
-  const resolvedSize = fontProps.size ?? badgeTokens.fontSizes[size] ?? 11;
+  const resolvedSize = fontProps.size;
   const mergedContainerStyle = [...containerStyle, animatedStyle, style].filter(Boolean);
   const contentProps = { textStyle, cleanedStyle, fontProps, resolvedSize, displayText };
 

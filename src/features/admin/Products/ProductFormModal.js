@@ -70,7 +70,7 @@ export default function ProductFormModal({ product, onSave, onClose, onDelete })
           onPress={onClose}
         >
           <BackArrowIcon color={colors.textDescLight} size={16} />
-          <Text style={{ marginLeft: layout.spacing.sm, color: colors.textDescLight }} size={14} weight="500">
+          <Text variant="subtitle2" style={{ marginLeft: layout.spacing.sm, color: colors.textDescLight }}>
             {t('adminProductsBackBtn') || 'Back to Products'}
           </Text>
         </AnimatedButton>

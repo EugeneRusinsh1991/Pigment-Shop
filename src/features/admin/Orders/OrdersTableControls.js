@@ -92,7 +92,7 @@ export function StatusFilterBar({ t, activeFilter, onSelectFilter, count, isDark
 
         {count !== null && count !== undefined && (
           <View style={styles.countBadge}>
-            <Text style={styles.countText} size={14} weight="700">{count}</Text>
+            <Text variant="subtitle2" weight="bold" style={styles.countText}>{count}</Text>
           </View>
         )}
 
@@ -165,7 +165,7 @@ export function StatusFilterBar({ t, activeFilter, onSelectFilter, count, isDark
 
       {count !== null && count !== undefined && (
         <View style={styles.countBadge}>
-          <Text style={styles.countText} size={14} weight="700">{count}</Text>
+          <Text variant="subtitle2" weight="bold" style={styles.countText}>{count}</Text>
         </View>
       )}
     </View>

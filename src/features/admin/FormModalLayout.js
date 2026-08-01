@@ -1,6 +1,6 @@
 import React from 'react';
 import { ScrollView, View } from 'react-native';
-import { Heading } from '@/components/ui/Text';
+import { Heading, Text } from '@/components/ui/Text';
 import { colors, layout } from '../../theme/tokens';
 import { useLanguage } from '../../context/LanguageContext';
 import { CrossIcon } from '@/components/Icons';
@@ -25,7 +25,7 @@ function ModalFooter({ onCancel, onSave, styles, footerLeft }) {
   const { t } = useLanguage();
   return (
     <View style={styles.modalFooter}>
-      {footerLeft ?? <View />}
+      {typeof footerLeft === 'string' ? <Text variant="caption" color="muted">{footerLeft}</Text> : (footerLeft ?? <View />)}
       <View style={styles.modalFooterRight ?? { flexDirection: 'row', gap: layout.spacing.md, alignItems: 'center' }}>
         <Button
           title={t('btnCancelLabel')}

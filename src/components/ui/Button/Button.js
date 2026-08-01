@@ -39,15 +39,21 @@ function buildTextStyle(variant, size, resolvedText, disabled, textStyle) {
   ];
 }
 
+function getButtonTextVariant(size) {
+  if (size === 'sm' || size === 12 || size === 11 || size === 10) return 'label';
+  return 'subtitle2';
+}
+
 function renderButtonContent(children, loading, title, leftIcon, rightIcon, textCombinedStyle, size) {
   if (typeof children === 'function') return children({ pressed: false });
   if (children) return children;
+  const textVariant = getButtonTextVariant(size);
   return (
     <>
       {leftIcon}
       {loading
         ? <ActivityIndicator size="small" color={StyleSheet.flatten(textCombinedStyle).color || colors.white} />
-        : title ? <Text style={textCombinedStyle} size={size} weight="semibold">{title}</Text> : null}
+        : title ? <Text style={textCombinedStyle} variant={textVariant} weight="semibold">{title}</Text> : null}
       {rightIcon}
     </>
   );

@@ -29,7 +29,7 @@ export default function AdminSaveFooter({ isDirty, isSaving, onSave }) {
       <View style={styles.footer}>
         <Button
           variant="primary"
-          size="lg"
+          size="md"
           title={buttonTitle}
           onPress={onSave}
           disabled={isSaving}

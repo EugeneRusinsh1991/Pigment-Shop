@@ -31,7 +31,7 @@ export function CategoryFormContent({
             onChange={(v) => handleChange('type', v)}
             disabled={isTypeDisabled}
           />
-          {!!errors.type && <Text style={[styles.errorText, { marginBottom: layout.spacing.md }]}>{errors.type}</Text>}
+          {!!errors.type && <Text variant="caption" style={[styles.errorText, { marginBottom: layout.spacing.md }]}>{errors.type}</Text>}
         </>
       )}
 

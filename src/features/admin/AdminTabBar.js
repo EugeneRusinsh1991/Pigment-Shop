@@ -45,7 +45,7 @@ export default function AdminTabBar({ activeTab, onSelect, isDark }) {
         options={options}
         value={activeTab}
         onChange={onSelect}
-        size="md"
+        size="sm"
         isDark={isDark}
         style={styles.toggle}
         optionStyle={styles.toggleOption}

@@ -83,14 +83,14 @@ export default function CategoryFormModal({
         onPress={onClose}
       >
         <BackArrowIcon color={colors.textDescLight} size={16} />
-        <Text style={{ marginLeft: layout.spacing.sm, color: colors.textDescLight }} size={14} weight="500">
+        <Text variant="subtitle2" style={{ marginLeft: layout.spacing.sm, color: colors.textDescLight }}>
           {t('adminCategoriesBackBtn') || '← Back to Categories'}
         </Text>
       </AnimatedButton>
 
       {/* Header title */}
       <View style={{ marginBottom: layout.spacing.xl }}>
-        <Text size={24} weight="bold" style={{ color: colors.textLight }}>
+        <Text variant="h3" style={{ color: colors.textLight }}>
           {title}
         </Text>
       </View>

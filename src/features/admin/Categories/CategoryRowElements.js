@@ -67,7 +67,7 @@ export function ImageBadge({ image }) {
         {has
           ? <CheckIcon color={colors.success} size={12} />
           : <CrossIcon color={colors.dangerMid} size={12} />}
-        <Text style={[styles.imageBadgeText, has ? styles.imageBadgeSetText : styles.imageBadgeNoneText, elem_styles.badgeText]}>
+        <Text variant="label" style={[styles.imageBadgeText, has ? styles.imageBadgeSetText : styles.imageBadgeNoneText, elem_styles.badgeText]}>
           {has ? t('adminCategoriesImageSet') : t('adminCategoriesImageNone')}
         </Text>
       </View>

@@ -350,7 +350,7 @@ The following 67 files will be refactored to consume core typography tokens dire
 └──────────────────────────────────────────────────────────────────────┘
 ```
 
-### Phase 1: Core System Addition (Shared `code` Token) — ◐ FM — 1d 3f +2r
+### Phase 1: Core System Addition (Shared `code` Token) — [COMPLETED] — ◐ FM — 1d 3f +2r
 * **Objective:** Add the missing technical `code` variant token to the shared core typography system.
 * **Scope:** Core design tokens and Text primitive resolution.
 * **Affected Files:**
@@ -366,7 +366,7 @@ The following 67 files will be refactored to consume core typography tokens dire
 
 ---
 
-### Phase 2.1: Shared UI Primitives Refactoring — ◕ FH — 1d 4f +2r
+### Phase 2.1: Shared UI Primitives Refactoring — [COMPLETED] — ◕ FH — 1d 4f +2r
 * **Objective:** Standardize primitive shared UI component styles to consume core variants directly.
 * **Scope:** Design system primitives used across all admin features.
 * **Affected Files:**
@@ -382,7 +382,7 @@ The following 67 files will be refactored to consume core typography tokens dire
 * **Expected Outcome:** Core primitives consume core tokens and emit zero font override warnings.
 * **Completion Criteria:** Badges, Buttons, DataTables, and EmptyState render cleanly using core token rules.
 
-### Phase 2.2: Shared Admin Shell & Layout Refactoring — ◕ FH — 1d 7f +2r
+### Phase 2.2: Shared Admin Shell & Layout Refactoring — [COMPLETED] — ◕ FH — 1d 7f +2r
 * **Objective:** Refactor shared admin layout headers, tab navigation bars, save footers, and modal shells.
 * **Scope:** Global admin layout container components and form structural wrappers.
 * **Affected Files:**
@@ -404,7 +404,7 @@ The following 67 files will be refactored to consume core typography tokens dire
 
 ---
 
-### Phase 3.1: Orders Table & Row Components — ◕ FH — 1d 5f +2r — Phase 3.1 [Parallel with Phase 3.3, Phase 4.1, Phase 5.1]
+### Phase 3.1: Orders Table & Row Components — [COMPLETED] — ◕ FH — 1d 5f +2r — Phase 3.1 [Parallel with Phase 3.3, Phase 4.1, Phase 5.1]
 * **Objective:** Standardize typography across main Orders table view and desktop/mobile order rows.
 * **Scope:** Orders list container, table structure, row layouts, and table pagination controls.
 * **Affected Files:**
@@ -422,7 +422,7 @@ The following 67 files will be refactored to consume core typography tokens dire
 * **Expected Outcome:** Orders table rows display standardized typography without inline size prop overrides.
 * **Completion Criteria:** Desktop and mobile order rows render clean tabular typography with zero console warnings.
 
-### Phase 3.2: Orders Drawers, Customer Cards & Dropdowns — ◕ FH — 1d 6f +2r
+### Phase 3.2: Orders Drawers, Customer Cards & Dropdowns — [COMPLETED] — ◕ FH — 1d 6f +2r
 * **Objective:** Refactor Order details drawer, customer summary cards, line items list, and status dropdowns.
 * **Scope:** Order inspect drawer, admin notes section, customer information cards, and status selectors.
 * **Affected Files:**
@@ -440,7 +440,7 @@ The following 67 files will be refactored to consume core typography tokens dire
 * **Expected Outcome:** Order detail drawer and modal components utilize standard core typography.
 * **Completion Criteria:** All detail views, notes sections, and status dropdown menus render using core variants.
 
-### Phase 3.3: Products Table, Row Components & Mobile Cards — ◕ FH — 1d 7f +2r — Phase 3.3 [Parallel with Phase 3.1, Phase 4.1, Phase 5.1]
+### Phase 3.3: Products Table, Row Components & Mobile Cards — [COMPLETED] — ◕ FH — 1d 7f +2r — Phase 3.3 [Parallel with Phase 3.1, Phase 4.1, Phase 5.1]
 * **Objective:** Refactor Product management tables, row variants, dense layouts, and mobile product cards.
 * **Scope:** Products manager container, table views, row variants, and mobile card views.
 * **Affected Files:**
@@ -460,7 +460,7 @@ The following 67 files will be refactored to consume core typography tokens dire
 * **Expected Outcome:** Unified typography across desktop product tables and mobile product cards.
 * **Completion Criteria:** Product name, SKU, price, and stock indicators render consistently with zero console warnings.
 
-### Phase 3.4: Products Filter Bar & Product Form Modals — ◕ FH — 1d 4f +2r
+### Phase 3.4: Products Filter Bar & Product Form Modals — [COMPLETED] — ◕ FH — 1d 4f +2r
 * **Objective:** Refactor Product filtering controls, search bar, and product edit/create form modals.
 * **Scope:** Product filter bar, tab items, form modal fields, and product editor layouts.
 * **Affected Files:**
@@ -477,7 +477,7 @@ The following 67 files will be refactored to consume core typography tokens dire
 
 ---
 
-### Phase 4.1: Categories Tree & Row Components — ◕ FH — 1d 5f +2r — Phase 4.1 [Parallel with Phase 3.1, Phase 3.3, Phase 5.1]
+### Phase 4.1: Categories Tree & Row Components — [COMPLETED] — ◕ FH — 1d 5f +2r — Phase 4.1 [Parallel with Phase 3.1, Phase 3.3, Phase 5.1]
 * **Objective:** Standardize typography across Category tree views, hierarchy row elements, and manager layouts.
 * **Scope:** Categories manager container, tree navigation, and nested row components.
 * **Affected Files:**
@@ -493,7 +493,7 @@ The following 67 files will be refactored to consume core typography tokens dire
 * **Expected Outcome:** Category hierarchy tree and rows display standardized typography.
 * **Completion Criteria:** Category tree items, slugs, and counts render cleanly using core variants.
 
-### Phase 4.2: Category Form Modals & Product Sections — ◕ FH — 1d 4f +2r
+### Phase 4.2: Category Form Modals & Product Sections — [COMPLETED] — ◕ FH — 1d 4f +2r
 * **Objective:** Refactor Category creation/edit modals, field inputs, and assigned product section listings.
 * **Scope:** Category form modals, form fields, and category product association sections.
 * **Affected Files:**
@@ -508,7 +508,7 @@ The following 67 files will be refactored to consume core typography tokens dire
 * **Expected Outcome:** Category form modals and product sections use standard core variants.
 * **Completion Criteria:** Category editing forms display unified section headers, labels, and text fields.
 
-### Phase 4.3: Users Table, Drawers & User Details Cards — ◕ FH — 1d 7f +2r
+### Phase 4.3: Users Table, Drawers & User Details Cards — [COMPLETED] — ◕ FH — 1d 7f +2r
 * **Objective:** Refactor Users management table, user rows, user details drawer, notes, and order history lists.
 * **Scope:** Users table manager, row views, user drawer details, and user order sub-lists.
 * **Affected Files:**

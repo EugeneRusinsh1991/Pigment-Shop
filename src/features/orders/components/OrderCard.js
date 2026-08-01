@@ -59,7 +59,7 @@ function DefaultOrderHeader({ order, t, lang, isExpanded, getStyle, isAdminView 
   return (
     <View style={[styles.desktopHeader, isAdminView && styles.adminOrderHeader]}>
       <View style={styles.desktopCol1}>
-        <Text variant={isAdminView ? "body1" : "subtitle1"} weight="600" style={styles.orderNumberTitle}>
+        <Text variant={isAdminView ? "code" : "subtitle1"} weight="600" style={styles.orderNumberTitle}>
           {t('orderNumber')}{getOrderNumber(order)}
         </Text>
         <Text variant="caption" color="muted" style={[styles.orderDate, isAdminView && styles.adminOrderDate]}>

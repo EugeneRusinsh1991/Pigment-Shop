@@ -12,7 +12,7 @@ import { motion } from '../../../../theme/tokens';
 function renderChildren(children, descriptionStyle, mutedColor) {
   if (!children) return null;
   if (typeof children === 'string') {
-    return <Text variant="body1" color="muted" style={[descriptionStyle]}>{children}</Text>;
+    return <Text variant="body2" color="muted" style={[descriptionStyle]}>{children}</Text>;
   }
   return children;
 }
@@ -32,7 +32,7 @@ function renderIcon(icon, styles) {
 function renderTitle(title, titleStyle, styles) {
   if (!title) return null;
   return (
-    <Heading level={4} style={[styles.title, titleStyle]}>
+    <Heading level={3} style={[styles.title, titleStyle]}>
       {title}
     </Heading>
   );

@@ -20,7 +20,7 @@ export function MobileProductRow({ product, index, label, effectivePrice, highli
     >
       {/* Row 1: SKU + Badges */}
       <View style={styles.rowTop}>
-        <Text style={[styles.tdText, styles.rowDate]} size={12}>
+        <Text variant="code" style={[styles.tdText, styles.rowDate]}>
           {product.sku ? `SKU: ${product.sku}` : ''}
         </Text>
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: layout.spacing.xs }}>
@@ -31,10 +31,10 @@ export function MobileProductRow({ product, index, label, effectivePrice, highli
 
       {/* Row 2: Product Name + Price */}
       <View style={styles.rowMiddleCompact}>
-        <Text style={[styles.tdText, styles.productName]} size={14} weight="bold" numberOfLines={1}>
+        <Text variant="subtitle2" style={[styles.tdText, styles.productName]} numberOfLines={1}>
           {label}
         </Text>
-        <Text style={styles.priceValue} size={15} weight="700">
+        <Text variant="subtitle2" weight="bold" style={styles.priceValue}>
           ${effectivePrice.toLocaleString()}
         </Text>
       </View>
@@ -42,11 +42,11 @@ export function MobileProductRow({ product, index, label, effectivePrice, highli
       {/* Row 3: Meta details (Brand, Stock, Discount) + Actions */}
       <View style={styles.productMetaRow}>
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: layout.spacing.md, flex: 1 }}>
-          <Text size={12} style={styles.metaLabelInline}>
-            {getLabel(t, 'adminProductsColBrand', 'Brand')}: <Text size={12} weight="600" style={styles.cardMetaValue}>{product.brand || '—'}</Text>
+          <Text variant="caption" style={styles.metaLabelInline}>
+            {getLabel(t, 'adminProductsColBrand', 'Brand')}: <Text variant="caption" style={styles.cardMetaValue}>{product.brand || '—'}</Text>
           </Text>
-          <Text size={12} style={styles.metaLabelInline}>
-            {getLabel(t, 'adminProductsColStock', 'Stock')}: <Text size={12} weight="600" style={styles.cardMetaValue}>{product.stock != null ? String(product.stock) : '—'}</Text>
+          <Text variant="caption" style={styles.metaLabelInline}>
+            {getLabel(t, 'adminProductsColStock', 'Stock')}: <Text variant="caption" style={styles.cardMetaValue}>{product.stock != null ? String(product.stock) : '—'}</Text>
           </Text>
           {product.discountPercent ? (
             <Badge variant="sale" label={`-${product.discountPercent}%`} size="xs" />

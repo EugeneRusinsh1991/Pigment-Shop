@@ -15,27 +15,27 @@ export function MobileUserCard({ user, index, fullName, onPress }) {
       scaleTo={0.99}
     >
       <View style={styles.mobileCardContent}>
-        <Text style={styles.mobileCardName} size={14} weight="bold" numberOfLines={1}>{fullName}</Text>
+        <Text variant="subtitle2" style={styles.mobileCardName} numberOfLines={1}>{fullName}</Text>
         <View style={styles.mobileCardMeta}>
           {metaItems.map((item, i) => (
             <View key={i} style={styles.metaItemRow}>
-              {i > 0 && <Text style={styles.mobileCardMetaDot} size={12}>·</Text>}
-              <Text style={styles.mobileCardMetaItem} size={12} numberOfLines={1}>{item}</Text>
+              {i > 0 && <Text variant="caption" style={styles.mobileCardMetaDot}>·</Text>}
+              <Text variant="caption" style={styles.mobileCardMetaItem} numberOfLines={1}>{item}</Text>
             </View>
           ))}
         </View>
       </View>
       <View style={styles.mobileCardBadge}>
-        <Text style={styles.mobileCardBadgeText} size={12} weight="700">{user.orderCount || 0}</Text>
+        <Text variant="overline" style={styles.mobileCardBadgeText}>{user.orderCount || 0}</Text>
       </View>
-      <Text style={styles.mobileCardChevron} size={14}>›</Text>
+      <Text variant="body2" style={styles.mobileCardChevron}>›</Text>
     </AnimatedButton>
   );
 }
 
 function renderCell(value, style) {
   return (
-    <Text style={style} size={13} numberOfLines={1}>
+    <Text variant="caption" style={style} numberOfLines={1}>
       {value || '—'}
     </Text>
   );
@@ -50,7 +50,7 @@ export function DesktopUserRow({ user, index, fullName, onPress }) {
       scaleTo={0.99}
     >
       <View style={[styles.colName, styles.userCell]}>
-        <Text style={styles.userNameBold} size={14} weight="bold">{fullName}</Text>
+        <Text variant="subtitle2" style={styles.userNameBold}>{fullName}</Text>
       </View>
       <View style={[styles.colEmail, styles.userCell]}>
         {renderCell(user.email, user.email ? styles.cellText : styles.cellTextMuted)}
@@ -63,9 +63,9 @@ export function DesktopUserRow({ user, index, fullName, onPress }) {
       </View>
       <View style={[styles.colOrders, styles.colOrdersContent]}>
         <View style={styles.ordersBadge}>
-          <Text style={styles.ordersBadgeText} size={12} weight="700">{user.orderCount || 0}</Text>
+          <Text variant="overline" style={styles.ordersBadgeText}>{user.orderCount || 0}</Text>
         </View>
-        <Text style={styles.rowChevron} size={16} weight="600">›</Text>
+        <Text variant="h4" style={styles.rowChevron}>›</Text>
       </View>
     </AnimatedButton>
   );

@@ -32,10 +32,10 @@ function OrderItemRow({ item, lang }) {
 
   return (
     <View style={styles.itemRow}>
-      <Text style={styles.itemName} size={14}>{label}</Text>
-      <Text style={styles.itemQty} size={14} color="muted">x{qty}</Text>
-      <Text style={styles.itemUnitPrice} size={14}>${unitPrice.toLocaleString()}</Text>
-      <Text style={styles.itemPrice} size={14} weight="500">${lineTotal.toLocaleString()}</Text>
+      <Text variant="subtitle2" style={styles.itemName}>{label}</Text>
+      <Text variant="caption" color="muted" style={styles.itemQty}>x{qty}</Text>
+      <Text variant="caption" style={styles.itemUnitPrice}>${unitPrice.toLocaleString()}</Text>
+      <Text variant="subtitle2" style={styles.itemPrice}>${lineTotal.toLocaleString()}</Text>
     </View>
   );
 }
@@ -63,10 +63,10 @@ export default function OrderItemsList({ items, totalPrice }) {
 
       {/* Order total */}
       <View style={[styles.itemRow, styles.itemTotalRow]}>
-        <Text style={styles.itemLabel} size={14} weight="bold">{t('adminOrdersTotal')}</Text>
-        <Text style={styles.itemQty} size={14} />
-        <Text style={styles.itemUnitPrice} size={14} />
-        <Text style={styles.itemPrice} size={14} weight="bold">
+        <Text variant="subtitle2" weight="bold" style={styles.itemLabel}>{t('adminOrdersTotal')}</Text>
+        <Text variant="caption" style={styles.itemQty} />
+        <Text variant="caption" style={styles.itemUnitPrice} />
+        <Text variant="subtitle2" weight="bold" style={styles.itemPrice}>
           ${(totalPrice || 0).toLocaleString()}
         </Text>
       </View>

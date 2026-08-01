@@ -21,16 +21,16 @@ export function TabletProductRow({ product, index, label, effectivePrice, highli
       activeOpacity={motion.press.activeOpacity}
     >
       <View style={styles.desktopTopRow}>
-        <Text style={styles.desktopCell}>{index + 1}</Text>
+        <Text variant="caption" style={styles.desktopCell}>{index + 1}</Text>
         <View style={[styles.desktopCell, styles.desktopProductCell]}>
-          <Text style={styles.productName} numberOfLines={1}>{label}</Text>
+          <Text variant="subtitle2" style={styles.productName} numberOfLines={1}>{label}</Text>
         </View>
-        <Text style={[styles.cellText, styles.desktopCell]} numberOfLines={1}>
+        <Text variant="caption" style={[styles.cellText, styles.desktopCell]} numberOfLines={1}>
           {getPlaceholderVal(product.brand)}
         </Text>
         <DiscountCell discountPercent={product.discountPercent} />
-        <Text style={[styles.cellText, styles.desktopCell]}>{product.stock}</Text>
-        <Text style={[styles.cellText, styles.desktopCell]}>${effectivePrice.toLocaleString()}</Text>
+        <Text variant="caption" style={[styles.cellText, styles.desktopCell]}>{product.stock}</Text>
+        <Text variant="subtitle2" style={[styles.cellText, styles.desktopCell]}>${effectivePrice.toLocaleString()}</Text>
       </View>
       <View style={styles.desktopBottomRow}>
         <View style={styles.desktopStatusCell}>
@@ -54,13 +54,13 @@ export function DesktopProductRow({ product, index, label, effectivePrice, highl
       onPress={() => onEdit(product)}
     >
       <DataTableCell style={styles.colIndex}>
-        <Text style={styles.cellText} size={13}>{index + 1}</Text>
+        <Text variant="caption" style={styles.cellText}>{index + 1}</Text>
       </DataTableCell>
       <DataTableCell style={[styles.colProduct, { paddingRight: layout.spacing.md }]}>
-        <Text style={styles.productName} numberOfLines={1}>{label}</Text>
+        <Text variant="subtitle2" style={styles.productName} numberOfLines={1}>{label}</Text>
       </DataTableCell>
       <DataTableCell style={styles.colBrand}>
-        <Text style={styles.cellText} numberOfLines={1}>
+        <Text variant="caption" style={styles.cellText} numberOfLines={1}>
           {getPlaceholderVal(product.brand)}
         </Text>
       </DataTableCell>
@@ -76,10 +76,10 @@ export function DesktopProductRow({ product, index, label, effectivePrice, highl
         <StatusBadge active={product.active} />
       </DataTableCell>
       <DataTableCell style={styles.colStock}>
-        <Text style={styles.cellText}>{product.stock}</Text>
+        <Text variant="caption" style={styles.cellText}>{product.stock}</Text>
       </DataTableCell>
       <DataTableCell style={styles.colPrice}>
-        <Text style={styles.priceEmphasis}>${effectivePrice.toLocaleString()}</Text>
+        <Text variant="subtitle2" weight="bold" style={styles.priceEmphasis}>${effectivePrice.toLocaleString()}</Text>
       </DataTableCell>
       <DataTableCell style={styles.colActions}>
         <ProductRowActions product={product} onEdit={onEdit} onDelete={onDelete} />

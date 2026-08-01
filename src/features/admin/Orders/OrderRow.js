@@ -83,8 +83,7 @@ function NoteIndicator({ hasNote, label, type }) {
     >
       <IconComp filled={hasNote} color={hasNote ? activeColor : inactiveColor} size={12} />
       <Text
-        size={11}
-        weight={hasNote ? '600' : '400'}
+        variant="label"
         style={{ color: hasNote ? activeColor : inactiveColor, marginLeft: 4 }}
       >
         {label}
@@ -105,18 +104,18 @@ export function MobileOrderRow({ order, onPress }) {
       {/* Row 1: Order ID + Date + Status */}
       <View style={styles.rowTop}>
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: layout.spacing.xs }}>
-          <Text style={styles.tdText} size={14} weight="bold">#{summary.orderNum}</Text>
-          <Text style={[styles.tdText, styles.rowDate]} size={12}>{summary.formattedDate}</Text>
+          <Text variant="code" style={styles.tdText}>#{summary.orderNum}</Text>
+          <Text variant="caption" style={[styles.tdText, styles.rowDate]}>{summary.formattedDate}</Text>
         </View>
         <StatusBadge statusKey={summary.statusKey} statusDisplay={summary.statusDisplay} />
       </View>
 
       {/* Row 2: Customer Name + Total Price */}
       <View style={styles.rowMiddleCompact}>
-        <Text style={[styles.tdText, styles.customerName]} size={14} weight="bold" numberOfLines={1}>
+        <Text variant="subtitle2" style={[styles.tdText, styles.customerName]} numberOfLines={1}>
           {order.customerName || t('adminUsersUnnamed')}
         </Text>
-        <Text style={styles.priceValue} size={15} weight="700">
+        <Text variant="subtitle2" weight="bold" style={styles.priceValue}>
           ${summary.formattedTotal}
         </Text>
       </View>
@@ -146,31 +145,31 @@ export function DesktopOrderRow({ order, onPress }) {
     <DataTableRow style={[styles.row, summary.rowBg, { flexDirection: 'column', alignItems: 'stretch' }]} onPress={onPress}>
       <View style={styles.rowMain}>
         <DataTableCell style={[styles.colId, { flexDirection: 'row' }]}>
-          <Text style={styles.tdText} size={14} weight="bold">#{summary.orderNum}</Text>
+          <Text variant="code" style={styles.tdText}>#{summary.orderNum}</Text>
         </DataTableCell>
         <DataTableCell style={[styles.colCustomer, { flexDirection: 'row' }]}>
-          <Text style={[styles.tdText, styles.customerName]} size={14} weight="bold" numberOfLines={1}>
+          <Text variant="subtitle2" style={[styles.tdText, styles.customerName]} numberOfLines={1}>
             {order.customerName} {summary.contact ? `(${summary.contact})` : ''}
           </Text>
         </DataTableCell>
         <DataTableCell style={[styles.colDate, { flexDirection: 'row' }]}>
-          <Text style={styles.tdText} size={14}>{summary.formattedDate}</Text>
+          <Text variant="caption" style={styles.tdText}>{summary.formattedDate}</Text>
         </DataTableCell>
         <DataTableCell style={[styles.colStatus, { flexDirection: 'row', justifyContent: 'center' }]}>
           <StatusBadge statusKey={summary.statusKey} statusDef={summary.statusDef} statusDisplay={summary.statusDisplay} />
         </DataTableCell>
         <DataTableCell style={[styles.colTotal, { flexDirection: 'row', justifyContent: 'flex-end' }]}>
-          <Text variant="body2" weight="bold" style={[styles.tdText, { textAlign: 'right' }]}>${summary.formattedTotal}</Text>
+          <Text variant="subtitle2" weight="bold" style={[styles.tdText, { textAlign: 'right' }]}>${summary.formattedTotal}</Text>
         </DataTableCell>
       </View>
       <View style={styles.rowNotes}>
         <View style={styles.noteItem}>
           <Text variant="overline" color="desc" style={styles.metaLabelInline}>{t('adminOrdersCustNote')}: </Text>
-          <Text variant="body2" style={styles.metaValue} size={13} weight="600" numberOfLines={1}>{order.note || '—'}</Text>
+          <Text variant="caption" style={styles.metaValue} numberOfLines={1}>{order.note || '—'}</Text>
         </View>
         <View style={styles.noteItem}>
           <Text variant="overline" color="desc" style={styles.metaLabelInline}>{t('adminOrdersAdminNote')}: </Text>
-          <Text variant="body2" style={styles.metaValue} size={13} weight="600" numberOfLines={1}>{order.adminNote || '—'}</Text>
+          <Text variant="caption" style={styles.metaValue} numberOfLines={1}>{order.adminNote || '—'}</Text>
         </View>
       </View>
     </DataTableRow>

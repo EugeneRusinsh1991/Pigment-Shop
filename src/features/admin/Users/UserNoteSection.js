@@ -10,7 +10,7 @@ export default function UserNoteSection({ note, setNote, loadingNote }) {
   const { t } = useLanguage();
   return (
     <View style={styles.noteCard}>
-      <Text style={styles.noteTitle} size={14} weight="bold">{t('adminUserNote')}</Text>
+      <Text variant="h4" style={styles.noteTitle}>{t('adminUserNote')}</Text>
       {loadingNote ? (
         <ActivityIndicator color={colors.accentPinkLight} style={styles.loadingIndicator} />
       ) : (

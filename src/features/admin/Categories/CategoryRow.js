@@ -56,7 +56,7 @@ function CategoryTypeBadge({ type, typeColors, countLabel, children }) {
         label={typeColors.label}
         size="sm"
       />
-      <Text style={styles.categoryId}>{countLabel}</Text>
+      <Text variant="code" style={styles.categoryId}>{countLabel}</Text>
       {children}
     </View>
   );
@@ -84,7 +84,7 @@ export function DesktopCategoryRow({ row, hasChildren, isCollapsed, onToggle, on
         <View style={styles.nameCell}>
           <ToggleButton hasChildren={hasChildren} isCollapsed={isCollapsed} onToggle={onToggle} rowId={row.id} />
           <View style={row_styles.flex1}>
-            <Text style={styles.categoryName} size={14}>{name}</Text>
+            <Text variant="subtitle2" style={styles.categoryName}>{name}</Text>
             <CategoryTypeBadge type={type} typeColors={typeColors} countLabel={countLabel} />
           </View>
         </View>
@@ -123,7 +123,7 @@ export function MobileCategoryCard({ row, hasChildren, isCollapsed, onToggle, on
       >
         <View style={styles.mobileContentCol}>
           <View style={styles.mobileRowMain}>
-            <Text style={styles.categoryName} size={14} weight="bold" numberOfLines={1}>
+            <Text variant="subtitle2" style={styles.categoryName} numberOfLines={1}>
               {name}
             </Text>
             <Badge

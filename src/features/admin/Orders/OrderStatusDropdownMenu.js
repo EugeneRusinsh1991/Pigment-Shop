@@ -30,10 +30,10 @@ export default function OrderStatusDropdownMenu({ statuses, currentStatus, updat
           >
             <View style={styles.dropdownOptionRow}>
               <View style={[styles.statusDot, { backgroundColor: status.color }]} />
-              <Text style={[styles.statusOptionText, { color: status.color }]} size={14} weight={isSelected ? '700' : '500'}>
+              <Text variant={isSelected ? 'subtitle2' : 'body2'} style={[styles.statusOptionText, { color: status.color }]}>
                 {t(status.localeKey) || status.value}
               </Text>
-              {isSelected && <Text style={[styles.checkmark, { color: status.color }]} size={12}>✓</Text>}
+              {isSelected && <Text variant="caption" style={[styles.checkmark, { color: status.color }]}>✓</Text>}
             </View>
           </AnimatedButton>
         );
