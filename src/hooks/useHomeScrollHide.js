@@ -56,7 +56,13 @@ export function useHomeScrollHide(disabled) {
       }
     };
 
-    const onWheel = (e) => onDirectionChange(e.deltaY);
+    const onWheel = (e) => {
+      const scrollY = window.scrollY || window.pageYOffset || 0;
+      const maxScrollY = document.documentElement.scrollHeight - window.innerHeight;
+      if (scrollY <= 0 && e.deltaY < 0) return;
+      if (scrollY >= maxScrollY && e.deltaY > 0) return;
+      onDirectionChange(e.deltaY);
+    };
 
     let lastTouchY = null;
     const onTouchStart = (e) => {
@@ -68,6 +74,12 @@ export function useHomeScrollHide(disabled) {
       if (currentY == null) return;
       const delta = lastTouchY - currentY;
       lastTouchY = currentY;
+
+      const scrollY = window.scrollY || window.pageYOffset || 0;
+      const maxScrollY = document.documentElement.scrollHeight - window.innerHeight;
+      if (scrollY <= 0 && delta < 0) return;
+      if (scrollY >= maxScrollY && delta > 0) return;
+
       onDirectionChange(delta);
     };
     const onTouchEnd = () => { lastTouchY = null; };
