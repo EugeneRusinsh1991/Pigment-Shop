@@ -11,6 +11,7 @@ let globalListenersBound = false;
 
 const globalState = {
   startY: 0,
+  canPull: false,
   pulling: false,
   indicator: null,
 };
@@ -71,16 +72,19 @@ function handleTouchStart(e) {
   const handler = getActiveHandler();
   if (!handler) return;
 
-  if (handler.getScrollTop() > 0) {
+  const scrollTop = handler.getScrollTop(e.target);
+  if (scrollTop > 0) {
+    globalState.canPull = false;
     globalState.pulling = false;
     return;
   }
   globalState.startY = e.touches[0].clientY;
+  globalState.canPull = true;
   globalState.pulling = true;
 }
 
 function handleTouchMove(e) {
-  if (!globalState.pulling) return;
+  if (!globalState.canPull || !globalState.pulling) return;
   const handler = getActiveHandler();
   if (!handler) return;
 
@@ -92,7 +96,8 @@ function handleTouchMove(e) {
     return;
   }
 
-  if (handler.getScrollTop() > 0) {
+  if (handler.getScrollTop(e.target) > 0) {
+    globalState.canPull = false;
     globalState.pulling = false;
     hideIndicator();
     return;
@@ -102,16 +107,27 @@ function handleTouchMove(e) {
 }
 
 function handleTouchEnd(e) {
-  if (!globalState.pulling) return;
+  if (!globalState.canPull || !globalState.pulling) {
+    globalState.canPull = false;
+    globalState.pulling = false;
+    return;
+  }
   const handler = getActiveHandler();
-  if (!handler) return;
+  if (!handler) {
+    globalState.canPull = false;
+    globalState.pulling = false;
+    return;
+  }
 
   const endY = e.changedTouches[0].clientY;
   const delta = endY - globalState.startY;
+  const scrollTop = handler.getScrollTop(e.target);
+
+  globalState.canPull = false;
   globalState.pulling = false;
   hideIndicator();
 
-  if (delta >= PULL_THRESHOLD && handler.getScrollTop() === 0) {
+  if (delta >= PULL_THRESHOLD && scrollTop === 0) {
     handler.onRefresh();
   }
 }
@@ -161,12 +177,19 @@ export default function usePullToRefresh(customRefresh = null, options = {}) {
 function useWebPullToRefresh(onRefresh, options) {
   const handlerRef = useRef({
     onRefresh,
-    getScrollTop: () => {
+    getScrollTop: (target) => {
       if (options.scrollViewRef?.current) {
         const node = options.scrollViewRef.current.getScrollableNode
           ? options.scrollViewRef.current.getScrollableNode()
           : options.scrollViewRef.current;
         return node?.scrollTop || 0;
+      }
+      if (target && target instanceof Element) {
+        let curr = target;
+        while (curr && curr !== document.body && curr !== document.documentElement) {
+          if (curr.scrollTop > 0) return curr.scrollTop;
+          curr = curr.parentElement;
+        }
       }
       return window.scrollY || document.documentElement.scrollTop || 0;
     },
@@ -174,12 +197,19 @@ function useWebPullToRefresh(onRefresh, options) {
 
   useEffect(() => {
     handlerRef.current.onRefresh = onRefresh;
-    handlerRef.current.getScrollTop = () => {
+    handlerRef.current.getScrollTop = (target) => {
       if (options.scrollViewRef?.current) {
         const node = options.scrollViewRef.current.getScrollableNode
           ? options.scrollViewRef.current.getScrollableNode()
           : options.scrollViewRef.current;
         return node?.scrollTop || 0;
+      }
+      if (target && target instanceof Element) {
+        let curr = target;
+        while (curr && curr !== document.body && curr !== document.documentElement) {
+          if (curr.scrollTop > 0) return curr.scrollTop;
+          curr = curr.parentElement;
+        }
       }
       return window.scrollY || document.documentElement.scrollTop || 0;
     };

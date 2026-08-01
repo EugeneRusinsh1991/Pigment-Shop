@@ -33,12 +33,13 @@ function getGridStyle(isNarrow, gridWidth) {
 export default function ProductGrid({ products, cols, cardWidth, isDark, onCardPress, favs, emptyLabel, listHeader, listFooter, isNarrow, gridWidth, gap = layout.spacing.lg, loading, onRefresh: onRefreshProp }) {
   const itemWidth = `${(100 / cols).toFixed(4)}%`;
   const gridGap = gap ?? layout.spacing.lg;
+  const flatListRef = React.useRef(null);
   let catalogContext = null;
   try {
     catalogContext = useCatalog();
   } catch (_) {}
   const handleRefresh = onRefreshProp || catalogContext?.refreshCatalog;
-  const { refreshing, onRefresh } = usePullToRefresh(handleRefresh);
+  const { refreshing, onRefresh } = usePullToRefresh(handleRefresh, { scrollViewRef: flatListRef });
 
   const renderItem = useCallback(
     ({ item }) => (
@@ -67,6 +68,7 @@ export default function ProductGrid({ products, cols, cardWidth, isDark, onCardP
 
   return (
     <FlatList
+      ref={flatListRef}
       refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
       data={displayData}
       keyExtractor={(item) => item.id}
