@@ -5,7 +5,7 @@ import { AnimatedButton } from '@/components/ui/Button';
 import { useLanguage } from '../../../context/LanguageContext';
 import { fromMediaRef } from '../../../media';
 import MediaRenderer from '@/components/ui/Media/MediaRenderer';
-import { triggerFileInput } from '../../../utils/fileInput';
+import { triggerFileUpload } from '../../../utils/fileInput';
 import MediaBrowser from '../Media/MediaBrowser';
 import styles from './BannersStyles';
 import { motion } from '../../../theme/tokens';
@@ -62,7 +62,7 @@ export default function BannersManager() {
       <View style={styles.actionsCol}>
         <AnimatedButton
           style={styles.uploadBtn}
-          onPress={() => triggerFileInput(`banner-image-file-input-${index}`, (uri) => handleUpdateBanner(index, uri))}
+          onPress={() => triggerFileUpload(`banner-image-file-input-${index}`, (uri) => handleUpdateBanner(index, uri), { folder: 'banners' })}
           activeOpacity={motion.press.activeOpacity}
         >
           <Text variant="label" style={styles.uploadBtnText}>{t('adminBannersUploadBtn')}</Text>

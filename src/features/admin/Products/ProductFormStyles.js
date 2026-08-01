@@ -158,6 +158,16 @@ export default StyleSheet.create({
 
   /* Added for tokenization */
   imageFieldsGroup: { gap: layout.spacing.sm, marginBottom: layout.spacing.md },
+  imageFieldRow: { flexDirection: 'row', alignItems: 'center', gap: layout.spacing.sm },
+  uploadBtn: {
+    backgroundColor: colors.slateDark,
+    paddingVertical: layout.spacing.sm,
+    paddingHorizontal: layout.spacing.md,
+    borderRadius: layout.radii.sm,
+  },
+  uploadBtnText: {
+    color: colors.white,
+  },
   deleteSection: {
     marginTop: layout.spacing.xl,
     borderTopWidth: layout.borderWidth.thin,

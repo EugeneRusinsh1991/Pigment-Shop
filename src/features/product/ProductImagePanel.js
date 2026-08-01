@@ -13,15 +13,22 @@ import ProductThumbnails from './ProductThumbnails';
 import { colors } from '../../theme/tokens';
 
 import { PRODUCT_PLACEHOLDER } from '../../constants';
+import { resolveMediaUrl } from '../../media';
 
 const getRawProductImages = (product) => {
-  if (product?.images && product.images.length > 0) {
-    return product.images.slice(0, 3);
+  const rawList = Array.isArray(product?.images) && product.images.length > 0
+    ? product.images
+    : (typeof product?.image === 'string' && product.image.trim().length > 0 ? [product.image] : []);
+
+  const resolvedValidImages = rawList
+    .map((img) => (typeof img === 'string' ? resolveMediaUrl(img) : ''))
+    .filter((resolved) => typeof resolved === 'string' && (resolved.startsWith('http://') || resolved.startsWith('https://') || resolved.startsWith('data:')));
+
+  if (resolvedValidImages.length > 0) {
+    return resolvedValidImages.slice(0, 3);
   }
-  if (product?.image) {
-    return [product.image];
-  }
-  return [PRODUCT_PLACEHOLDER];
+
+  return [PRODUCT_PLACEHOLDER, PRODUCT_PLACEHOLDER, PRODUCT_PLACEHOLDER];
 };
 
 

@@ -6,7 +6,7 @@ import {
   productToLeaf,
   assembleCategoryTree,
   collectSubtreeIds,
-} from './catalogViewModel.helpers';
+} from './catalogViewModel.helpers.js';
 
 
 
@@ -53,6 +53,9 @@ export function buildFlatList(products = [], categoryLookup, lang = 'en') {
       isCategory: false,
       price: product.price,
       image: product.image,
+      images: Array.isArray(product.images) && product.images.length > 0
+        ? product.images
+        : (product.image ? [product.image] : []),
       active: product.active,
       isNew: product.isNew,
       discountPercent: product.discountPercent,

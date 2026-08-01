@@ -3,46 +3,38 @@
  *
  * Storage boundary layer for media references.
  *
- * The admin data model stores a MediaRef (a stable relative path string)
- * rather than an absolute local path or a data URL.
- * This keeps the data model portable: switching to cloud storage only
- * requires updating `resolveMediaUrl` here, not the admin UI or data model.
+ * Delegates URL resolution to the centralized Storage Service (`src/services/storageService.js`)
+ * so that switching to cloud storage (Cloudinary, Firebase Storage) requires zero changes
+ * across admin UI, storefront components, or data models.
  *
- * MediaRef format: "<category>/<filename>"  e.g. "images/hero-banner.jpg"
+ * MediaRef format: "<category>/<filename>" e.g. "images/hero-banner.jpg" or Cloudinary public_id
  */
+import { resolveImageUrl } from '../services/storageService.js';
 
 /** Base URL where the local media folder is served from (development). */
 const LOCAL_MEDIA_BASE = '/media';
 
 /**
- * Converts a MediaRef (relative path) to a displayable URL.
- * In local development, assets are served from the /media base path.
+ * Converts a MediaRef (relative path or publicId) to a displayable URL.
+ * Delegates to the centralized `storageService.resolveImageUrl`.
  *
- * @param {string} mediaRef - Relative path, e.g. "images/hero.jpg"
+ * @param {string} mediaRef - Relative path, publicId, or existing URL
+ * @param {Object} [options] - Optional transformations (width, height, quality)
  * @returns {string} Full URL usable in an <Image> source
  */
-export function resolveMediaUrl(mediaRef) {
+export function resolveMediaUrl(mediaRef, options = {}) {
   if (!mediaRef) return '';
-  // Already an absolute URL or data URL – return as-is
-  if (mediaRef.startsWith('http') || mediaRef.startsWith('data:')) {
-    return mediaRef;
-  }
-  // Already prefixed with local media path
-  if (mediaRef.startsWith(LOCAL_MEDIA_BASE)) {
-    return mediaRef;
-  }
-  return `${LOCAL_MEDIA_BASE}/${mediaRef}`;
+  return resolveImageUrl(mediaRef, options);
 }
-
-
 
 /**
  * Converts a stored MediaRef back into a display URL.
  * Alias for resolveMediaUrl to make intent clear at call sites.
  *
  * @param {string} mediaRef
+ * @param {Object} [options]
  * @returns {string}
  */
-export function fromMediaRef(mediaRef) {
-  return resolveMediaUrl(mediaRef);
+export function fromMediaRef(mediaRef, options = {}) {
+  return resolveMediaUrl(mediaRef, options);
 }

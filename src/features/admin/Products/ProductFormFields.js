@@ -1,8 +1,12 @@
+import { AnimatedButton } from '@/components/ui/Button';
 import { Flag } from '@/components/domain/Flag';
+import { UploadIcon } from '@/components/Icons';
+import { Text } from '@/components/ui/Text';
 import { View } from 'react-native';
 import { useLanguage } from '../../../context/LanguageContext';
 import { useTheme } from '../../../context/ThemeContext';
-import { layout } from '../../../theme/tokens';
+import { colors, layout, motion } from '../../../theme/tokens';
+import { triggerFileUpload } from '../../../utils/fileInput';
 import styles from './ProductFormStyles';
 
 import { FieldInput as SharedFieldInput, FieldTextarea as SharedFieldTextarea } from '../SharedFormComponents';
@@ -85,11 +89,32 @@ export const CategoryStockRow = ({ form, onChange }) => {
 
 export const ImageFields = ({ form, onChange }) => {
   const { t } = useLanguage();
+  const renderRow = (num, key, required = false) => (
+    <View style={styles.imageFieldRow} key={key}>
+      <View style={{ flex: 1 }}>
+        <FieldInput
+          label={`${t('adminProductsFormImage')} ${num} ${required ? '*' : ''}`}
+          value={form[key]}
+          onChangeText={(v) => onChange(key, v)}
+          placeholder={required ? 'https://...' : t('adminPlaceholderOptionalUrl')}
+        />
+      </View>
+      <AnimatedButton
+        style={[styles.uploadBtn, { flexDirection: 'row', alignItems: 'center', gap: layout.spacing.xxs, alignSelf: 'flex-end', marginBottom: 2 }]}
+        onPress={() => triggerFileUpload(`prod-img-${key}`, (url) => onChange(key, url), { folder: 'products' })}
+        activeOpacity={motion.press.activeOpacity}
+      >
+        <UploadIcon color={colors.white} size={12} />
+        <Text variant="label" style={styles.uploadBtnText}>{t('adminCategoriesFormUploadBtn')}</Text>
+      </AnimatedButton>
+    </View>
+  );
+
   return (
     <View style={styles.imageFieldsGroup}>
-      <FieldInput label={`${t('adminProductsFormImage')} 1 *`} value={form.image1} onChangeText={(v) => onChange('image1', v)} placeholder="https://..." />
-      <FieldInput label={`${t('adminProductsFormImage')} 2`} value={form.image2} onChangeText={(v) => onChange('image2', v)} placeholder={t('adminPlaceholderOptionalUrl')} />
-      <FieldInput label={`${t('adminProductsFormImage')} 3`} value={form.image3} onChangeText={(v) => onChange('image3', v)} placeholder={t('adminPlaceholderOptionalUrl')} />
+      {renderRow(1, 'image1', true)}
+      {renderRow(2, 'image2')}
+      {renderRow(3, 'image3')}
     </View>
   );
 };

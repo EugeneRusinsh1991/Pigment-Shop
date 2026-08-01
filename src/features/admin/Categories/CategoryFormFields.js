@@ -93,7 +93,7 @@ export function ImagePickerField({ value, onChange }) {
           placeholder={t('adminCategoriesFormImagePlaceholder')}
           autoCapitalize="none"
         />
-        <AnimatedButton style={[styles.uploadBtn, { flexDirection: 'row', alignItems: 'center', gap: layout.spacing.xxs }]} onPress={() => triggerFileInput('cat-image-file-input', onChange)} activeOpacity={motion.press.activeOpacity}>
+        <AnimatedButton style={[styles.uploadBtn, { flexDirection: 'row', alignItems: 'center', gap: layout.spacing.xxs }]} onPress={() => triggerFileUpload('cat-image-file-input', (url) => onChange(url), { folder: 'categories' })} activeOpacity={motion.press.activeOpacity}>
           <UploadIcon color={colors.white} size={12} />
           <Text variant="label" style={styles.uploadBtnText}>{t('adminCategoriesFormUploadBtn')}</Text>
         </AnimatedButton>

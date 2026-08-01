@@ -1,7 +1,9 @@
+import { PRODUCT_PLACEHOLDER } from '../constants/index.js';
+
 export const PRODUCT_IMAGES = [
-  'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?w=600&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=600&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1582201942988-13e60e4556ee?w=600&auto=format&fit=crop',
+  PRODUCT_PLACEHOLDER,
+  'https://res.cloudinary.com/iayng29j/image/upload/v1785611320/products/tjlw5jitzfkoaqfmj7ti.jpg',
+  'https://res.cloudinary.com/iayng29j/image/upload/v1785611322/categories/g3yabymukhht0e8zeyc7.jpg',
 ];
 
 const SEED_BANNERS = PRODUCT_IMAGES.slice(0, 2);

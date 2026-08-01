@@ -38,3 +38,6 @@ The application is a multi-platform e-commerce shop built on **Expo / React Nati
 8. **State Machine Architecture**:
    - Detailed in [state-machine.md](file:///d:/Magazine/_PigmentShop/.docs/project-knowledge/state-machine.md).
 
+9. **Image Storage Subsystem**:
+   - Detailed in [storage-subsystem.md](file:///d:/Magazine/_PigmentShop/.docs/project-knowledge/storage-subsystem.md) and [src/services/storage/README.md](file:///d:/Magazine/_PigmentShop/src/services/storage/README.md).
+

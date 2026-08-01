@@ -1,4 +1,4 @@
-import { getLocalizedValue } from '../utils/localization';
+import { getLocalizedValue } from '../utils/localization.js';
 
 export const CATEGORY_IMAGES = {
   'Иглы и картриджи': 'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?w=600&auto=format&fit=crop',
@@ -69,6 +69,9 @@ export function productToLeaf(p) {
     isNew: !!p.isNew,
     description: p.description,
     image: p.image,
+    images: Array.isArray(p.images) && p.images.length > 0
+      ? p.images
+      : (p.image ? [p.image] : []),
     stock: p.stock,
     sold: p.sold,
     category: p.category || '',

@@ -1,3 +1,5 @@
-export const PRODUCT_PLACEHOLDER = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300"><rect width="300" height="300" fill="%23f3f4f6"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="%239ca3af" font-family="sans-serif" font-size="16">No Image</text></svg>';
-export const CATEGORY_PLACEHOLDER = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400"><rect width="600" height="400" fill="%23e5e7eb"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="%236b7280" font-family="sans-serif" font-size="20">Catalog Category</text></svg>';
+export const PRODUCT_PLACEHOLDER = 'https://res.cloudinary.com/iayng29j/image/upload/v1785611320/products/tjlw5jitzfkoaqfmj7ti.jpg';
+export const CATEGORY_PLACEHOLDER = 'https://res.cloudinary.com/iayng29j/image/upload/v1785611322/categories/g3yabymukhht0e8zeyc7.jpg';
 
+export const PRODUCT_CLOUDINARY_PLACEHOLDER = PRODUCT_PLACEHOLDER;
+export const CATEGORY_CLOUDINARY_PLACEHOLDER = CATEGORY_PLACEHOLDER;

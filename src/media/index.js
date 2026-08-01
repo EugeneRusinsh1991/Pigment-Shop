@@ -4,6 +4,6 @@
  * UI components import from here, not from individual files.
  * This keeps the internal structure flexible without breaking consumers.
  */
-export { MEDIA_CATEGORY } from './mediaTypes';
-export { listAllMedia, isManifestGenerated } from './mediaService';
-export { resolveMediaUrl, fromMediaRef } from './mediaAdapter';
+export { MEDIA_CATEGORY } from './mediaTypes.js';
+export { listAllMedia, isManifestGenerated } from './mediaService.js';
+export { resolveMediaUrl, fromMediaRef } from './mediaAdapter.js';
