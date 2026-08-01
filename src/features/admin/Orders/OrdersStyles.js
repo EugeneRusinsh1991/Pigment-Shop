@@ -84,20 +84,33 @@ export default StyleSheet.create({
   rowDate: {
     color: colors.slateText,
   },
-  rowMiddle: {
+  rowMiddleCompact: {
     flexDirection: 'row',
-    gap: layout.spacing.none, // zero gap
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: layout.spacing.xxs,
   },
-  rowBottom: {
+  priceValue: {
+    color: colors.textLight,
+  },
+  noteIndicatorsRow: {
     flexDirection: 'row',
-    gap: layout.spacing.none, // zero gap
-    borderTopWidth: layout.borderWidth.thin,
-    borderTopColor: colors.secondaryLightBorder,
-    paddingTop: layout.spacing.sm,
-    marginTop: layout.elevation.sm,
+    alignItems: 'center',
+    gap: layout.spacing.xs,
+    marginTop: layout.spacing.xxs,
+  },
+  noteIndicatorPill: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: layout.spacing.xs + 2,
+    paddingVertical: 2,
+    borderRadius: layout.radii.xs,
+    borderWidth: layout.borderWidth.thin,
   },
   customerName: {
     color: colors.textLight,
+    flex: 1,
+    marginRight: layout.spacing.sm,
   },
   metaBlock: {
     flex: 1,
@@ -356,5 +369,34 @@ export default StyleSheet.create({
     zIndex: layout.zIndices.dropdown,
     position: 'relative',
     marginBottom: layout.spacing.md,
+  },
+  filterModalContainer: {
+    backgroundColor: colors.surfaceLight,
+    borderRadius: layout.radii.md,
+    padding: layout.spacing.lg,
+    width: '100%',
+    maxWidth: 360,
+    alignSelf: 'center',
+  },
+  filterModalHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: layout.spacing.md,
+  },
+  filterModalContent: {
+    paddingVertical: layout.spacing.xs,
+    gap: layout.spacing.sm,
+  },
+  modalRow: {
+    flexDirection: 'row',
+    gap: layout.spacing.sm,
+    width: '100%',
+  },
+  modalFlagHalf: {
+    flex: 1,
+  },
+  modalFlagFull: {
+    width: '100%',
   },
 });

@@ -21,6 +21,7 @@ export function LanguageTabs({ activeLang, onChange }) {
             active={isActive}
             variant="rect"
             size="sm"
+            style={{ flex: 1 }}
             onPress={() => onChange(item.code)}
           />
         );
@@ -34,5 +35,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: layout.spacing.sm,
     marginBottom: layout.spacing.lg,
+    width: '100%',
   },
 });

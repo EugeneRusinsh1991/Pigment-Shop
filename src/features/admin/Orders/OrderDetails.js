@@ -68,7 +68,11 @@ export default function OrderDetails({ order, onBack, onStatusUpdated }) {
   const orderNumber = order.id.slice(-5).toUpperCase();
 
   return (
-    <ScrollView contentContainerStyle={{ paddingBottom: layout.spacing.xxl + layout.spacing.sm }}>
+    <ScrollView
+      contentContainerStyle={{ paddingBottom: layout.spacing.xxl + layout.spacing.sm }}
+      showsVerticalScrollIndicator={false}
+      showsHorizontalScrollIndicator={false}
+    >
       {/* Back button */}
       <AnimatedButton size="sm" style={styles.backBtn} onPress={onBack}>
         <BackArrowIcon color={colors.textDescLight} size={16} />

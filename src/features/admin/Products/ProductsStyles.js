@@ -149,6 +149,32 @@ export default StyleSheet.create({
     alignItems: 'flex-start',
     gap: layout.spacing.sm,
   },
+  rowTop: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  rowDate: {
+    color: colors.slateText,
+  },
+  rowMiddleCompact: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: layout.spacing.xxs,
+  },
+  priceValue: {
+    color: colors.textLight,
+  },
+  productMetaRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginTop: layout.spacing.xxs,
+  },
+  metaLabelInline: {
+    color: colors.secondaryDarkText,
+  },
   cardMetaGrid: {
     flexDirection: 'row',
     flexWrap: 'wrap',

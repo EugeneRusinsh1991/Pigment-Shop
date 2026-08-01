@@ -66,7 +66,7 @@ export default function ProductFormModal({ product, onSave, onClose, onDelete })
         {/* Back button */}
         <AnimatedButton
           size="sm"
-          style={{ flexDirection: 'row', alignItems: 'center', marginBottom: layout.spacing.xl }}
+          style={{ flexDirection: 'row', alignItems: 'center', marginBottom: layout.spacing.lg }}
           onPress={onClose}
         >
           <BackArrowIcon color={colors.textDescLight} size={16} />
@@ -74,13 +74,6 @@ export default function ProductFormModal({ product, onSave, onClose, onDelete })
             {t('adminProductsBackBtn') || 'Back to Products'}
           </Text>
         </AnimatedButton>
-
-        {/* Header title */}
-        <View style={{ marginBottom: layout.spacing.xl }}>
-          <Text size={24} weight="bold" style={{ color: colors.textLight }}>
-            {product ? t('adminProductsEditTitle') : t('adminProductsNewTitle')}
-          </Text>
-        </View>
 
         <LanguageTabs activeLang={activeLang} onChange={setActiveLang} />
         <NameField form={form} onChange={handleChange} errors={errors} activeLang={activeLang} />

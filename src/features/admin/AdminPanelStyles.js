@@ -78,5 +78,14 @@ export default StyleSheet.create({
   contentContainer: {
     paddingBottom: layout.spacing.xxl + layout.spacing.sm,
   },
+  fixedPaginationFooter: {
+    borderTopWidth: layout.borderWidth.thin,
+    borderTopColor: colors.borderLight,
+    backgroundColor: colors.surfaceLight,
+    paddingVertical: layout.spacing.xs,
+    paddingHorizontal: layout.spacing.md,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 });
 

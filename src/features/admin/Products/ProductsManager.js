@@ -14,12 +14,13 @@ import { SearchInput } from '@/components/domain/Search';
 import ProductFormModal from './ProductFormModal';
 import ProductsFilterBar from './ProductsFilterBar';
 import styles from './ProductsStyles';
+import adminStyles from '../AdminPanelStyles';
 import ProductsTable from './ProductsTable';
 import { useProductsWorkflow } from './useProductsWorkflow';
 import AdminSaveFooter from '../AdminSaveFooter';
 import CatalogPagination from '../../catalog/CatalogPagination';
 
-const PAGE_SIZE = 50;
+const PAGE_SIZE = 20;
 
 export default function ProductsManager() {
   const {
@@ -85,7 +86,7 @@ export default function ProductsManager() {
 
   if (viewMode !== 'list') {
     return (
-      <View style={styles.container}>
+      <View style={[styles.container, { flex: 1 }]}>
         <ProductFormModal
           product={editingProduct}
           onSave={handleSave}
@@ -97,21 +98,26 @@ export default function ProductsManager() {
   }
 
   return (
-    <View style={[styles.container, { flex: 1 }]}>
-      <SearchInput
-        value={query}
-        onChangeText={setQuery}
-        placeholder={t('adminProductsSearchPlaceholder')}
-        style={styles.toolbar}
-      />
-      <ProductsFilterBar
-        onlyDiscount={onlyDiscount}
-        onlyNew={onlyNew}
-        onToggleDiscount={() => setOnlyDiscount((v) => !v)}
-        onToggleNew={() => setOnlyNew((v) => !v)}
-        onAdd={openAdd}
-      />
-      <ScrollView style={{ flex: 1 }} contentContainerStyle={{ paddingBottom: 20 }}>
+    <View style={{ flex: 1 }}>
+      <ScrollView
+        style={styles.container}
+        contentContainerStyle={adminStyles.contentContainer}
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
+      >
+        <SearchInput
+          value={query}
+          onChangeText={setQuery}
+          placeholder={t('adminProductsSearchPlaceholder')}
+          style={styles.toolbar}
+        />
+        <ProductsFilterBar
+          onlyDiscount={onlyDiscount}
+          onlyNew={onlyNew}
+          onToggleDiscount={() => setOnlyDiscount((v) => !v)}
+          onToggleNew={() => setOnlyNew((v) => !v)}
+          onAdd={openAdd}
+        />
         <ProductsTable
           products={paginatedProducts}
           sortField={sortField}
@@ -121,12 +127,14 @@ export default function ProductsManager() {
         />
       </ScrollView>
       {totalPages > 1 && (
-        <CatalogPagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onPrev={() => setCurrentPage((p) => Math.max(1, p - 1))}
-          onNext={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
-        />
+        <View style={adminStyles.fixedPaginationFooter}>
+          <CatalogPagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPrev={() => setCurrentPage((p) => Math.max(1, p - 1))}
+            onNext={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+          />
+        </View>
       )}
       <AdminSaveFooter 
         isDirty={isDirty} 

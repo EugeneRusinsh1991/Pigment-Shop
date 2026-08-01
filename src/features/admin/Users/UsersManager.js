@@ -11,7 +11,7 @@ import EmptyState from '@/components/domain/DataTable/EmptyState';
 import { SearchInput } from '@/components/domain/Search';
 import { Text } from '@/components/ui/Text';
 import React, { useState, useEffect } from 'react';
-import { ActivityIndicator, View } from 'react-native';
+import { ActivityIndicator, View, ScrollView } from 'react-native';
 import { useLanguage } from '../../../context/LanguageContext';
 import { useTheme } from '../../../context/ThemeContext';
 import useSort from '../../../hooks/useSort';
@@ -22,9 +22,10 @@ import { useCrudWorkflow } from '../useCrudWorkflow';
 import UserDetails from './UserDetails';
 import { DesktopUserRow, MobileUserCard } from './UserRow';
 import styles from './UsersStyles';
+import adminStyles from '../AdminPanelStyles';
 import CatalogPagination from '../../catalog/CatalogPagination';
 
-const PAGE_SIZE = 50;
+const PAGE_SIZE = 20;
 
 function sortUsers(users, sortField, sortDirection) {
   if (!sortField) return users;
@@ -149,7 +150,7 @@ export default function UsersManager() {
 
   if (selectedUser) {
     return (
-      <View style={styles.container}>
+      <View style={{ flex: 1 }}>
         <UserDetails user={selectedUser} onBack={() => setSelectedUser(null)} />
       </View>
     );
@@ -158,21 +159,26 @@ export default function UsersManager() {
   const showTable = !loading && !error && users.length > 0;
 
   return (
-    <View style={styles.container}>
-      {!loading && (
-        <SearchInput
-          value={searchQuery}
-          onChangeText={setSearchQuery}
-          placeholder={t('adminUsersSearchPlaceholder')}
-          style={styles.toolbar}
-          onClear={() => setSearchQuery('')}
-        />
-      )}
+    <View style={{ flex: 1 }}>
+      <ScrollView
+        style={styles.container}
+        contentContainerStyle={adminStyles.contentContainer}
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
+      >
+        {!loading && (
+          <SearchInput
+            value={searchQuery}
+            onChangeText={setSearchQuery}
+            placeholder={t('adminUsersSearchPlaceholder')}
+            style={styles.toolbar}
+            onClear={() => setSearchQuery('')}
+          />
+        )}
 
-      <UsersStatus loading={loading} error={error} isEmpty={users.length === 0} t={t} />
+        <UsersStatus loading={loading} error={error} isEmpty={users.length === 0} t={t} />
 
-      {showTable && (
-        <>
+        {showTable && (
           <UsersTable
             t={t}
             sortField={sortField}
@@ -181,15 +187,18 @@ export default function UsersManager() {
             users={paginatedUsers}
             onSelectUser={setSelectedUser}
           />
-          {totalPages > 1 && (
-            <CatalogPagination
-              currentPage={currentPage}
-              totalPages={totalPages}
-              onPrev={() => setCurrentPage((p) => Math.max(1, p - 1))}
-              onNext={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
-            />
-          )}
-        </>
+        )}
+      </ScrollView>
+
+      {showTable && totalPages > 1 && (
+        <View style={adminStyles.fixedPaginationFooter}>
+          <CatalogPagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPrev={() => setCurrentPage((p) => Math.max(1, p - 1))}
+            onNext={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+          />
+        </View>
       )}
     </View>
   );

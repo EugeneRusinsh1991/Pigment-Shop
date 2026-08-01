@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import { View, TouchableOpacity, Animated } from 'react-native';
 import { Text } from "../Text";
 import { calculateHitSlop } from '../../../theme/buttonCommon';
@@ -22,11 +22,12 @@ function getOptionLabel(opt) {
   return String(opt);
 }
 
-function getOptionStyle(isActive, animated, theme, activeOptionStyle, optionStyle) {
+function getOptionStyle(isActive, animated, theme, activeOptionStyle, optionStyle, equalWidthStyle) {
   return [
     styles.option,
     isActive && !animated ? [styles.activeOption, theme?.activeOption, activeOptionStyle] : null,
     optionStyle,
+    equalWidthStyle,
   ];
 }
 
@@ -45,10 +46,16 @@ function renderToggleOption(opt, index, ctx) {
   const optionLabel = getOptionLabel(opt);
   const isActive = optionValue === ctx.value;
   const key = optionValue ?? index;
-  const handleLayout = (e) => ctx.animation?.setOptionLayout && ctx.animation.setOptionLayout(optionValue, e.nativeEvent.layout);
+  const handleLayout = (e) => {
+    const layout = e.nativeEvent.layout;
+    if (ctx.onOptionMeasured && layout.width > 0) {
+      ctx.onOptionMeasured(layout.width);
+    }
+    ctx.animation?.setOptionLayout && ctx.animation.setOptionLayout(optionValue, layout);
+  };
   const handlePress = () => { if (!isActive && ctx.onChange) ctx.onChange(optionValue); };
 
-  const computedOptionStyle = getOptionStyle(isActive, ctx.animated, ctx.theme, ctx.activeOptionStyle, ctx.optionStyle);
+  const computedOptionStyle = getOptionStyle(isActive, ctx.animated, ctx.theme, ctx.activeOptionStyle, ctx.optionStyle, ctx.equalWidthStyle);
   const computedTextStyle = getOptionTextStyle(isActive, ctx.textSizeStyle, ctx.theme, ctx.textStyle, ctx.activeTextStyle);
 
   return (
@@ -76,10 +83,11 @@ function renderToggleOption(opt, index, ctx) {
   );
 }
 
-function buildToggleContext(props, theme, animation, computedHitSlop, textSizeStyle, size) {
+function buildToggleContext(props, theme, animation, computedHitSlop, textSizeStyle, size, equalWidthStyle, onOptionMeasured) {
   const { value, onChange, animated, optionStyle, activeOptionStyle, textStyle, activeTextStyle, disabled, role } = props;
-  return { value, onChange, animated, theme, optionStyle, activeOptionStyle, textStyle, activeTextStyle, computedHitSlop, disabled, textSizeStyle, animation, size, role };
+  return { value, onChange, animated, theme, optionStyle, activeOptionStyle, textStyle, activeTextStyle, computedHitSlop, disabled, textSizeStyle, animation, size, role, equalWidthStyle, onOptionMeasured };
 }
+
 function computeToggleSizes(size, hitSlop) {
   const sizeStyle = styles[size] || styles.md;
   const textSizeStyle = styles[`text_${size}`] || styles.text_md;
@@ -104,12 +112,46 @@ export default function Toggle({
   disabled = false,
   animated = true,
   role = 'button',
+  equalWidth = false,
   ...props
 }) {
   const theme = useToggleTheme({ isDarkProp, styleMap: styles });
   const animation = useToggleAnimation({ animated, options, value });
   const { sizeStyle, textSizeStyle, computedHitSlop } = computeToggleSizes(size, hitSlop);
-  const ctx = buildToggleContext({ value, onChange, animated, optionStyle, activeOptionStyle, textStyle, activeTextStyle, disabled, role }, theme, animation, computedHitSlop, textSizeStyle, size);
+
+  const [maxMeasuredWidth, setMaxMeasuredWidth] = useState(0);
+
+  const onOptionMeasured = useCallback((measuredWidth) => {
+    setMaxMeasuredWidth((prev) => (measuredWidth > prev ? Math.ceil(measuredWidth) : prev));
+  }, []);
+
+  const estimatedWidth = useMemo(() => {
+    if (!equalWidth || !options.length) return 0;
+    const maxChars = Math.max(
+      ...options.map((opt) => getOptionLabel(opt).length),
+      1
+    );
+    const charWidth = size === 'sm' ? 8.5 : 10;
+    const padding = size === 'sm' ? 24 : 32;
+    return Math.ceil(maxChars * charWidth + padding);
+  }, [equalWidth, options, size]);
+
+  const effectiveEqualWidth = equalWidth ? Math.max(estimatedWidth, maxMeasuredWidth) : 0;
+  const equalWidthStyle = useMemo(
+    () => (effectiveEqualWidth ? { width: effectiveEqualWidth, minWidth: effectiveEqualWidth, flexShrink: 0 } : null),
+    [effectiveEqualWidth]
+  );
+
+  const ctx = buildToggleContext(
+    { value, onChange, animated, optionStyle, activeOptionStyle, textStyle, activeTextStyle, disabled, role },
+    theme,
+    animation,
+    computedHitSlop,
+    textSizeStyle,
+    size,
+    equalWidthStyle,
+    equalWidth ? onOptionMeasured : undefined
+  );
 
   return (
     <View style={[styles.container, sizeStyle, theme?.container, style]} {...props}>

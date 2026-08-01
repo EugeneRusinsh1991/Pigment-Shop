@@ -24,16 +24,22 @@ function calculatePresetDateRange(preset) {
   return { start, end };
 }
 
-export default function DateRangePicker({ startDate, endDate, onChange }) {
+export default function DateRangePicker({ startDate, endDate, mode: modeProp, onChange }) {
   const { t } = useLanguage();
 
-  const [mode, setMode] = useState('7days'); // '7days', '30days', 'custom'
+  const [mode, setMode] = useState(modeProp || '7days'); // '7days', '30days', 'custom'
   
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const [tempStartDate, setTempStartDate] = useState(null);
   const [tempEndDate, setTempEndDate] = useState(null);
   const [hoverDate, setHoverDate] = useState(null);
   const [currentMonth, setCurrentMonth] = useState(new Date());
+
+  useEffect(() => {
+    if (modeProp) {
+      setMode(modeProp);
+    }
+  }, [modeProp]);
 
   useEffect(() => {
     if (startDate) {
@@ -50,7 +56,7 @@ export default function DateRangePicker({ startDate, endDate, onChange }) {
       setMode(preset);
       setIsCalendarOpen(false);
       const { start, end } = calculatePresetDateRange(preset);
-      onChange(start, end);
+      onChange(start, end, preset);
     } else {
       if (mode === 'custom') {
         setIsCalendarOpen(!isCalendarOpen);
@@ -83,7 +89,7 @@ export default function DateRangePicker({ startDate, endDate, onChange }) {
       setTempStartDate(s);
       setTempEndDate(e);
       setHoverDate(null);
-      onChange(s, e);
+      onChange(s, e, 'custom');
       setIsCalendarOpen(false);
     }
   };

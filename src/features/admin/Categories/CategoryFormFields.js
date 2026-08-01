@@ -31,12 +31,13 @@ const FieldTextarea = (props) => <SharedFieldTextarea {...props} styles={styles}
 /* ─── CategoryTypeDisplay ────────────────────────────────────── */
 
 export function CategoryTypeDisplay({ value }) {
+  const { t } = useLanguage();
   const typeKey = value || 'category_holder';
   const typeColors = CATEGORY_TYPE_COLORS[typeKey] || CATEGORY_TYPE_COLORS.category_holder;
 
   return (
     <View style={styles.categoryTypeRow}>
-      <Text style={styles.categoryTypeLabel}>{t('adminCategoryType')}</Text>
+      <Text style={styles.categoryTypeLabel}>{t('adminCategoryType') || 'Type'}</Text>
       <View style={[styles.categoryTypeBadge, { backgroundColor: typeColors.softBg, borderColor: typeColors.accent }]}>
         <Text variant="overline" style={[styles.categoryTypeBadgeText, { color: typeColors.text }]}>
           {typeColors.label}

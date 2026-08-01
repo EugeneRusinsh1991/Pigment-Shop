@@ -3,8 +3,29 @@
  *
  * Main admin panel layout with header + tab bar.
  */
-import { useState, useEffect } from 'react';
-import { ScrollView, View, useWindowDimensions } from 'react-native';
+import { useState, useEffect, useMemo } from 'react';
+import { ScrollView, View, useWindowDimensions, Platform } from 'react-native';
+
+if (Platform.OS === 'web' && typeof document !== 'undefined') {
+  const styleId = 'hide-admin-scrollbars-style';
+  if (!document.getElementById(styleId)) {
+    const styleEl = document.createElement('style');
+    styleEl.id = styleId;
+    styleEl.innerHTML = `
+      ::-webkit-scrollbar {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
+      }
+      * {
+        -ms-overflow-style: none !important;
+        scrollbar-width: none !important;
+      }
+    `;
+    document.head.appendChild(styleEl);
+  }
+}
+
 import { Heading } from '@/components/ui/Text';
 import { useTheme } from '../../context/ThemeContext';
 import { useLanguage } from '../../context/LanguageContext';
@@ -32,7 +53,13 @@ const TAB_COMPONENTS = {
   users: UsersManager,
 };
 
-function renderActiveTab(activeTab) {
+function renderActiveTab(activeTab, sessionDateRange, setSessionDateRange) {
+  if (activeTab === 'analytics') {
+    return <AnalyticsDashboard dateRange={sessionDateRange} onDateRangeChange={setSessionDateRange} />;
+  }
+  if (activeTab === 'orders') {
+    return <OrdersManager dateRange={sessionDateRange} onDateRangeChange={setSessionDateRange} />;
+  }
   const Component = TAB_COMPONENTS[activeTab];
   return Component ? <Component /> : null;
 }
@@ -45,6 +72,25 @@ export default function AdminPanel({ onBack }) {
   const { loadDrafts } = useAdminDrafts();
   const { width } = useWindowDimensions();
   const isMobile = width < layout.breakpoints.mobile;
+
+  const initialEnd = useMemo(() => {
+    const end = new Date();
+    end.setHours(23, 59, 59, 999);
+    return end;
+  }, []);
+
+  const initialStart = useMemo(() => {
+    const start = new Date();
+    start.setHours(0, 0, 0, 0);
+    start.setDate(initialEnd.getDate() - 6);
+    return start;
+  }, [initialEnd]);
+
+  const [sessionDateRange, setSessionDateRange] = useState({
+    start: initialStart,
+    end: initialStart ? initialEnd : initialEnd,
+    mode: '7days',
+  });
 
   useEffect(() => {
     loadDrafts();
@@ -73,7 +119,7 @@ export default function AdminPanel({ onBack }) {
       </View>
       <View style={styles.content}>
         <PageTransition key={activeTab} trigger={activeTab}>
-          {renderActiveTab(activeTab)}
+          {renderActiveTab(activeTab, sessionDateRange, setSessionDateRange)}
         </PageTransition>
       </View>
     </View>

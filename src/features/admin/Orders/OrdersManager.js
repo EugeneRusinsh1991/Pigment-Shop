@@ -2,7 +2,7 @@
  * OrdersManager.js
  */
 import { useMemo, useState, useEffect } from 'react';
-import { View } from 'react-native';
+import { View, ScrollView } from 'react-native';
 import { useLanguage } from '../../../context/LanguageContext';
 import useSort from '../../../hooks/useSort';
 import { loadAdminOrders } from '../../../services/adminOrdersService';
@@ -11,17 +11,50 @@ import { useCrudWorkflow } from '../useCrudWorkflow';
 import OrderDetails from './OrderDetails';
 import { getStatusGroup, sortOrders } from './OrdersSort';
 import styles from './OrdersStyles';
+import adminStyles from '../AdminPanelStyles';
 import { renderContent } from './OrdersTable';
 import { StatusFilterBar } from './OrdersTableControls';
+import DateRangePicker from '../Analytics/DateRangePicker';
 
-const PAGE_SIZE = 50;
+const PAGE_SIZE = 20;
 
-export default function OrdersManager() {
+function getOrderTime(order) {
+  if (!order || !order.createdAt) return null;
+  if (order.createdAt.toMillis) return order.createdAt.toMillis();
+  if (order.createdAt.toDate) return order.createdAt.toDate().getTime();
+  const d = new Date(order.createdAt);
+  return isNaN(d.getTime()) ? null : d.getTime();
+}
+
+export default function OrdersManager({ dateRange: propDateRange, onDateRangeChange }) {
   const { t } = useLanguage();
   const { data: orders, loading, error, setInternalData } = useCrudWorkflow({
     loadFn: loadAdminOrders,
   });
   const [selectedOrder, setSelectedOrder] = useState(null);
+
+  // Date range filter — last 7 days by default
+  const initialEnd = useMemo(() => {
+    const end = new Date();
+    end.setHours(23, 59, 59, 999);
+    return end;
+  }, []);
+
+  const initialStart = useMemo(() => {
+    const start = new Date();
+    start.setHours(0, 0, 0, 0);
+    start.setDate(initialEnd.getDate() - 6);
+    return start;
+  }, [initialEnd]);
+
+  const [localDateRange, setLocalDateRange] = useState({ start: initialStart, end: initialEnd, mode: '7days' });
+
+  const dateRange = propDateRange || localDateRange;
+  const setDateRange = onDateRangeChange || setLocalDateRange;
+
+  const handleDateChange = (start, end, mode) => {
+    setDateRange({ start, end, mode: mode || dateRange.mode || '7days' });
+  };
 
   // Sorting — independent from status filter
   const { sortField, sortDirection, handleSort } = useSort('date');
@@ -34,7 +67,7 @@ export default function OrdersManager() {
 
   useEffect(() => {
     setCurrentPage(1);
-  }, [activeFilter, sortField, sortDirection]);
+  }, [activeFilter, dateRange, sortField, sortDirection]);
 
   const handleStatusUpdated = (orderId, newStatus) => {
     setInternalData((prev) => 
@@ -46,19 +79,34 @@ export default function OrdersManager() {
   };
 
   const filteredSortedOrders = useMemo(() => {
+    const startMs = dateRange.start ? dateRange.start.getTime() : 0;
+    const endMs = dateRange.end ? dateRange.end.getTime() : Infinity;
+
     const filtered = orders.filter((o) => {
+      // Status filter
       const isAllSelected = Array.isArray(activeFilter)
         ? activeFilter.includes('all') || activeFilter.length === 0
         : activeFilter === 'all';
-      if (isAllSelected) return true;
+      if (!isAllSelected) {
+        const orderStatusGroup = getStatusGroup(o.status);
+        const matchStatus = Array.isArray(activeFilter)
+          ? activeFilter.includes(orderStatusGroup)
+          : activeFilter === orderStatusGroup;
+        if (!matchStatus) return false;
+      }
 
-      const orderStatusGroup = getStatusGroup(o.status);
-      return Array.isArray(activeFilter)
-        ? activeFilter.includes(orderStatusGroup)
-        : activeFilter === orderStatusGroup;
+      // Date range filter
+      const orderTime = getOrderTime(o);
+      if (orderTime !== null) {
+        if (orderTime < startMs || orderTime > endMs) {
+          return false;
+        }
+      }
+
+      return true;
     });
     return sortOrders(filtered, sortField, sortDirection);
-  }, [orders, activeFilter, sortField, sortDirection]);
+  }, [orders, activeFilter, dateRange, sortField, sortDirection]);
 
   const totalPages = Math.ceil(filteredSortedOrders.length / PAGE_SIZE) || 1;
   const paginatedOrders = useMemo(() => {
@@ -68,7 +116,7 @@ export default function OrdersManager() {
 
   if (selectedOrder) {
     return (
-      <View style={styles.container}>
+      <View style={{ flex: 1 }}>
         <OrderDetails
           order={selectedOrder}
           onBack={() => setSelectedOrder(null)}
@@ -79,33 +127,49 @@ export default function OrdersManager() {
   }
 
   return (
-    <View style={styles.container}>
-      <StatusFilterBar
-        t={t}
-        activeFilter={activeFilter}
-        onSelectFilter={setActiveFilter}
-        count={!loading ? filteredSortedOrders.length : null}
-      />
+    <View style={{ flex: 1 }}>
+      <ScrollView
+        style={styles.container}
+        contentContainerStyle={adminStyles.contentContainer}
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
+      >
+        <DateRangePicker
+          startDate={dateRange.start}
+          endDate={dateRange.end}
+          mode={dateRange.mode}
+          onChange={handleDateChange}
+        />
 
-      {renderContent({
-        loading,
-        error,
-        orders: paginatedOrders,
-        t,
-        onSelectOrder: setSelectedOrder,
-        sortField,
-        sortDirection,
-        onSort: handleSort,
-      })}
+        <StatusFilterBar
+          t={t}
+          activeFilter={activeFilter}
+          onSelectFilter={setActiveFilter}
+          count={!loading ? filteredSortedOrders.length : null}
+        />
+
+        {renderContent({
+          loading,
+          error,
+          orders: paginatedOrders,
+          t,
+          onSelectOrder: setSelectedOrder,
+          sortField,
+          sortDirection,
+          onSort: handleSort,
+        })}
+      </ScrollView>
 
       {!loading && !error && totalPages > 1 && (
-        <CatalogPagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onPrev={() => setCurrentPage((p) => Math.max(1, p - 1))}
-          onNext={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
-          loading={loading}
-        />
+        <View style={adminStyles.fixedPaginationFooter}>
+          <CatalogPagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPrev={() => setCurrentPage((p) => Math.max(1, p - 1))}
+            onNext={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+            loading={loading}
+          />
+        </View>
       )}
     </View>
   );

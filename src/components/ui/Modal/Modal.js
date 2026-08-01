@@ -28,11 +28,11 @@ export default function Modal({
   ...props
 }) {
   const { height: viewportHeight } = useVisualViewportDimensions();
+  const { overlayBg } = useModalTheme();
 
   if (!visible) return null;
 
   const rawHandleClose = onClose || onRequestClose;
-  const { overlayBg } = useModalTheme();
 
   const handleClose = () => {
     sanitizeWebViewportOnClose();

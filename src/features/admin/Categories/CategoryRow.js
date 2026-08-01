@@ -96,28 +96,43 @@ export function DesktopCategoryRow({ row, hasChildren, isCollapsed, onToggle, on
 }
 
 export function MobileCategoryCard({ row, hasChildren, isCollapsed, onToggle, onEdit, products }) {
-  const { safeDepth, type, typeColors, countLabel, name } = useCategoryRowData(row, products);
+  const { safeDepth, type, countLabel, name, t } = useCategoryRowData(row, products);
+
+  const isHolder = type === 'category_holder';
+  const badgeLabel = isHolder 
+    ? `${t('adminCategoriesTypeCategoryHolder') || 'Subcategories'}: ${countLabel}`
+    : `${t('adminCategoriesTypeProductHolder') || 'Products'}: ${countLabel}`;
 
   return (
     <AnimatedButton
       style={[
         styles.mobileTreeCard,
-        type === 'category_holder' ? styles.mobileTreeCardCategoryHolder : styles.mobileTreeCardProductHolder,
+        isHolder ? styles.mobileTreeCardCategoryHolder : styles.mobileTreeCardProductHolder,
       ]}
       onPress={() => onEdit(row)}
       activeOpacity={motion.press.activeOpacity}
     >
       <DepthBars depth={safeDepth} leftOffset={16} />
 
-      {/* Single row: toggle + name + image badge */}
-      <View style={[row_styles.mobileRow, { paddingLeft: safeDepth * INDENT_PER_LEVEL + (safeDepth > 0 ? layout.spacing.sm : 0) }]}>
+      <View style={[styles.mobileCardInner, { paddingLeft: safeDepth * INDENT_PER_LEVEL }]}>
         <ToggleButton hasChildren={hasChildren} isCollapsed={isCollapsed} onToggle={onToggle} rowId={row.id} />
 
-        <View style={row_styles.flex1}>
-          <Text style={styles.categoryName} size={safeDepth > 0 ? 12 : undefined} numberOfLines={1}>{name}</Text>
-          <CategoryTypeBadge type={type} typeColors={typeColors} countLabel={countLabel}>
+        <View style={styles.mobileContentCol}>
+          <View style={styles.mobileRowMain}>
+            <Text style={styles.categoryName} size={14} weight="bold" numberOfLines={1}>
+              {name}
+            </Text>
+            <Badge
+              variant="status"
+              status={isHolder ? 'categoryHolder' : 'productHolder'}
+              label={badgeLabel}
+              size="xs"
+            />
+          </View>
+
+          <View style={styles.mobileRowSub}>
             <ImageBadge image={row.image} />
-          </CategoryTypeBadge>
+          </View>
         </View>
       </View>
     </AnimatedButton>

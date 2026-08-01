@@ -1,44 +1,13 @@
 import { Text } from '@/components/ui/Text';
+import { Badge } from '@/components/ui/Badge';
 import { TouchableOpacity, View } from 'react-native';
 import { useLanguage } from '../../../context/LanguageContext';
-import { motion, typography } from '../../../theme/tokens';
+import { colors, layout, motion } from '../../../theme/tokens';
 import { getRowStyle, NewBadge, ProductRowActions, StatusBadge } from './ProductRowComponents';
 import styles from './ProductsStyles';
 
-function CardMetaBlock({ label, children }) {
-  return (
-    <View style={styles.cardMetaBlock}>
-      <Text variant="overline" color="desc" style={styles.cardMetaLabel}>{label}</Text>
-      {children}
-    </View>
-  );
-}
-
 function getLabel(t, key, fallback) {
   return t(key) || fallback;
-}
-
-function ProductCardMeta({ product, t }) {
-  return (
-    <View style={styles.cardMetaGrid}>
-      <CardMetaBlock label={getLabel(t, 'adminProductsColBrand', 'Brand')}>
-        <Text variant="body2" style={styles.cardMetaValue}>{product.brand || '—'}</Text>
-      </CardMetaBlock>
-      <CardMetaBlock label={getLabel(t, 'adminProductsColDiscount', 'Discount')}>
-        <Text variant="body2" style={styles.cardMetaValue}>
-          {product.discountPercent ? `${product.discountPercent}%` : '—'}
-        </Text>
-      </CardMetaBlock>
-      <CardMetaBlock label={getLabel(t, 'adminProductsColStock', 'Stock')}>
-        <Text variant="body2" style={styles.cardMetaValue}>
-          {product.stock != null ? String(product.stock) : '—'}
-        </Text>
-      </CardMetaBlock>
-      <CardMetaBlock label={getLabel(t, 'adminProductsColStatus', 'Status')}>
-        <StatusBadge active={product.active} />
-      </CardMetaBlock>
-    </View>
-  );
 }
 
 export function MobileProductRow({ product, index, label, effectivePrice, highlightStyle, onEdit, onDelete }) {
@@ -49,22 +18,42 @@ export function MobileProductRow({ product, index, label, effectivePrice, highli
       onPress={() => onEdit(product)}
       activeOpacity={motion.press.activeOpacity}
     >
-      {/* Top: name + badge + price + action */}
-      <View style={styles.cardTopRow}>
-        <View style={styles.mobileInfoCol}>
-          <View style={styles.mobileNameRow}>
-            <Text style={styles.productName} numberOfLines={2}>{label}</Text>
-            {product.isNew ? <NewBadge /> : null}
-          </View>
-          {product.sku ? <Text style={styles.productSku}>{product.sku}</Text> : null}
-        </View>
-        <View style={styles.mobilePriceRow}>
-          <Text style={styles.priceText}>${effectivePrice.toLocaleString()}</Text>
-          <ProductRowActions product={product} onEdit={onEdit} onDelete={onDelete} />
+      {/* Row 1: SKU + Badges */}
+      <View style={styles.rowTop}>
+        <Text style={[styles.tdText, styles.rowDate]} size={12}>
+          {product.sku ? `SKU: ${product.sku}` : ''}
+        </Text>
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: layout.spacing.xs }}>
+          {product.isNew ? <NewBadge /> : null}
+          <StatusBadge active={product.active} />
         </View>
       </View>
 
-      <MobileMetaGrid product={product} t={t} />
+      {/* Row 2: Product Name + Price */}
+      <View style={styles.rowMiddleCompact}>
+        <Text style={[styles.tdText, styles.productName]} size={14} weight="bold" numberOfLines={1}>
+          {label}
+        </Text>
+        <Text style={styles.priceValue} size={15} weight="700">
+          ${effectivePrice.toLocaleString()}
+        </Text>
+      </View>
+
+      {/* Row 3: Meta details (Brand, Stock, Discount) + Actions */}
+      <View style={styles.productMetaRow}>
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: layout.spacing.md, flex: 1 }}>
+          <Text size={12} style={styles.metaLabelInline}>
+            {getLabel(t, 'adminProductsColBrand', 'Brand')}: <Text size={12} weight="600" style={styles.cardMetaValue}>{product.brand || '—'}</Text>
+          </Text>
+          <Text size={12} style={styles.metaLabelInline}>
+            {getLabel(t, 'adminProductsColStock', 'Stock')}: <Text size={12} weight="600" style={styles.cardMetaValue}>{product.stock != null ? String(product.stock) : '—'}</Text>
+          </Text>
+          {product.discountPercent ? (
+            <Badge variant="sale" label={`-${product.discountPercent}%`} size="xs" />
+          ) : null}
+        </View>
+        <ProductRowActions product={product} onEdit={onEdit} onDelete={onDelete} />
+      </View>
     </TouchableOpacity>
   );
 }

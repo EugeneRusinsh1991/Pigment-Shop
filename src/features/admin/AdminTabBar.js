@@ -28,35 +28,30 @@ export default function AdminTabBar({ activeTab, onSelect, isDark }) {
     [t]
   );
 
-  const toggleComponent = (
-    <Toggle
-      options={options}
-      value={activeTab}
-      onChange={onSelect}
-      size="md"
-      isDark={isDark}
-      style={styles.toggle}
-      optionStyle={styles.toggleOption}
-    />
-  );
-
-  if (isMobile) {
-    return (
-      <ScrollView
-        horizontal
-        showsHorizontalScrollIndicator={true}
-        style={styles.tabBarMobile}
-        contentContainerStyle={{ paddingHorizontal: layout.spacing.sm, paddingVertical: layout.spacing.xs, alignItems: 'center', minWidth: '100%' }}
-      >
-        {toggleComponent}
-      </ScrollView>
-    );
-  }
-
   return (
-    <View style={styles.tabBarDesktop}>
-      {toggleComponent}
-    </View>
+    <ScrollView
+      horizontal
+      showsHorizontalScrollIndicator={false}
+      showsVerticalScrollIndicator={false}
+      style={isMobile ? styles.tabBarMobile : styles.tabBarDesktop}
+      contentContainerStyle={{
+        paddingHorizontal: isMobile ? layout.spacing.sm : layout.spacing.md,
+        paddingVertical: layout.spacing.xs,
+        alignItems: 'center',
+        minWidth: '100%',
+      }}
+    >
+      <Toggle
+        options={options}
+        value={activeTab}
+        onChange={onSelect}
+        size="md"
+        isDark={isDark}
+        style={styles.toggle}
+        optionStyle={styles.toggleOption}
+        equalWidth={true}
+      />
+    </ScrollView>
   );
 }
 

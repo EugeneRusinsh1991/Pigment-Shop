@@ -216,7 +216,7 @@ export default StyleSheet.create({
   mobileTreeCard: {
     position: 'relative',
     paddingHorizontal: layout.spacing.lg,
-    paddingVertical: layout.spacing.md,
+    paddingVertical: layout.spacing.xs + 2,
     borderBottomWidth: layout.borderWidth.thin,
     borderBottomColor: colors.secondaryLightBorder,
     borderLeftWidth: layout.borderWidth.heavy,
@@ -230,5 +230,26 @@ export default StyleSheet.create({
   mobileTreeCardProductHolder: {
     backgroundColor: colors.successBgGreen,
     borderLeftColor: colors.successMid,
+  },
+  mobileCardInner: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: layout.spacing.xs,
+  },
+  mobileContentCol: {
+    flex: 1,
+    gap: 2,
+  },
+  mobileRowMain: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    gap: layout.spacing.xs,
+  },
+  mobileRowSub: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: layout.spacing.xs,
+    marginTop: 1,
   },
 });

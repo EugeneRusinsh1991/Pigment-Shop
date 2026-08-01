@@ -122,6 +122,26 @@ export default function DataTable(props) {
     );
   }
 
+  if (isMobile && renderMobileRow) {
+    return (
+      <View style={[cardStyle]}>
+        <TableBody
+          data={data}
+          columns={columns}
+          sortField={sortField}
+          sortDirection={sortDirection}
+          onSort={handleSort}
+          isDark={isDark}
+          headerStyle={headerStyle}
+          isMobile={isMobile}
+          renderMobileRow={renderMobileRow}
+          renderRow={renderRow}
+          keyExtractor={getItemKey}
+        />
+      </View>
+    );
+  }
+
   return (
     <View style={[cardStyle]}>
       <ScrollView horizontal contentContainerStyle={{ minWidth: '100%' }}>

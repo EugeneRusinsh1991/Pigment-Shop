@@ -2,7 +2,8 @@ import { BoxIcon, ClipboardIcon, DollarIcon, TrendIcon } from '@/components/Icon
 import { Heading, Text } from '@/components/ui/Text';
 import Card from '@/components/ui/Card';
 import { useEffect, useMemo, useState } from 'react';
-import { ActivityIndicator, View } from 'react-native';
+import { ActivityIndicator, View, ScrollView } from 'react-native';
+import adminStyles from '../AdminPanelStyles';
 import { useLanguage } from '../../../context/LanguageContext';
 import { getOrderStatuses, getRevenueChartData, getSummaryStats, getTopProducts } from '../../../data/adminAnalytics';
 import { useErrorHandler } from '../../../hooks/useErrorHandler';
@@ -76,18 +77,32 @@ function getOrderTime(order) {
   return isNaN(d.getTime()) ? null : d.getTime();
 }
 
-export default function AnalyticsDashboard() {
+export default function AnalyticsDashboard({ dateRange: propDateRange, onDateRangeChange }) {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(false);
   const { handleError } = useErrorHandler();
   
-  const initialEnd = new Date();
-  initialEnd.setHours(23, 59, 59, 999);
-  const initialStart = new Date();
-  initialStart.setHours(0, 0, 0, 0);
-  initialStart.setDate(initialEnd.getDate() - 6);
+  const initialEnd = useMemo(() => {
+    const end = new Date();
+    end.setHours(23, 59, 59, 999);
+    return end;
+  }, []);
+
+  const initialStart = useMemo(() => {
+    const start = new Date();
+    start.setHours(0, 0, 0, 0);
+    start.setDate(initialEnd.getDate() - 6);
+    return start;
+  }, [initialEnd]);
   
-  const [dateRange, setDateRange] = useState({ start: initialStart, end: initialEnd });
+  const [localDateRange, setLocalDateRange] = useState({ start: initialStart, end: initialEnd, mode: '7days' });
+
+  const dateRange = propDateRange || localDateRange;
+  const setDateRange = onDateRangeChange || setLocalDateRange;
+
+  const handleDateChange = (start, end, mode) => {
+    setDateRange({ start, end, mode: mode || dateRange.mode || '7days' });
+  };
 
   useEffect(() => {
     async function fetchOrders() {
@@ -96,8 +111,8 @@ export default function AnalyticsDashboard() {
         const res = await loadAdminOrders();
         const fetched = res.data || [];
         
-        const startMs = dateRange.start.getTime();
-        const endMs = dateRange.end.getTime();
+        const startMs = dateRange.start ? dateRange.start.getTime() : 0;
+        const endMs = dateRange.end ? dateRange.end.getTime() : Infinity;
         
         const filtered = fetched.filter(order => {
           const time = getOrderTime(order);
@@ -120,11 +135,17 @@ export default function AnalyticsDashboard() {
   const orderStatuses = useMemo(() => getOrderStatuses(orders), [orders]);
 
   return (
-    <View style={styles.container}>
+    <ScrollView
+      style={styles.container}
+      contentContainerStyle={adminStyles.contentContainer}
+      showsVerticalScrollIndicator={false}
+      showsHorizontalScrollIndicator={false}
+    >
       <DateRangePicker 
         startDate={dateRange.start} 
-        endDate={dateRange.end} 
-        onChange={(s, e) => setDateRange({ start: s, end: e })} 
+        endDate={dateRange.end}
+        mode={dateRange.mode}
+        onChange={handleDateChange} 
       />
       {loading ? (
         <ActivityIndicator size="large" color={colors.dark} style={styles.loadingIndicator} />
@@ -135,6 +156,6 @@ export default function AnalyticsDashboard() {
           <BottomChartsRow topProducts={topProducts} orderStatuses={orderStatuses} />
         </>
       )}
-    </View>
+    </ScrollView>
   );
 }
