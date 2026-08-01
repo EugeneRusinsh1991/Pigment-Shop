@@ -5,6 +5,7 @@ import ProductCard from '../product/ProductCard';
 import ProductCardSkeleton from '../product/ProductCardSkeleton';
 import { layout } from '../../theme/tokens';
 import usePullToRefresh from '../../hooks/usePullToRefresh';
+import { useCatalog } from './CatalogContext';
 
 import { EmptyState as GlobalEmptyState } from '../../components/ui/Feedback';
 
@@ -29,10 +30,15 @@ function getGridStyle(isNarrow, gridWidth) {
 }
 
 
-export default function ProductGrid({ products, cols, cardWidth, isDark, onCardPress, favs, emptyLabel, listHeader, listFooter, isNarrow, gridWidth, gap = layout.spacing.lg, loading }) {
+export default function ProductGrid({ products, cols, cardWidth, isDark, onCardPress, favs, emptyLabel, listHeader, listFooter, isNarrow, gridWidth, gap = layout.spacing.lg, loading, onRefresh: onRefreshProp }) {
   const itemWidth = `${(100 / cols).toFixed(4)}%`;
   const gridGap = gap ?? layout.spacing.lg;
-  const { refreshing, onRefresh } = usePullToRefresh();
+  let catalogContext = null;
+  try {
+    catalogContext = useCatalog();
+  } catch (_) {}
+  const handleRefresh = onRefreshProp || catalogContext?.refreshCatalog;
+  const { refreshing, onRefresh } = usePullToRefresh(handleRefresh);
 
   const renderItem = useCallback(
     ({ item }) => (

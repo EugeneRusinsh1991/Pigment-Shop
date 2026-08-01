@@ -41,13 +41,13 @@ Option A is structurally compatible with the Pigment Shop codebase. By leveragin
 
 ## 4. Refined Implementation Plan (Based on Verified Findings)
 
-- `[ ]` **Phase 1: Prerequisites (Recommendation)**
+- `[x]` **Phase 1: Prerequisites (Recommendation)** `○ FL — 1d 1f +1r — Phase 1 [Parallel with Phase 2]`
   - Run `npx expo install expo-haptics` to add the missing haptic feedback dependency to `package.json`.
-- `[ ]` **Phase 2: Hook Enhancement**
+- `[x]` **Phase 2: Hook Enhancement** `○ FL — 1d 1f +1r — Phase 2 [Parallel with Phase 1]`
   - Modify the existing `src/hooks/usePullToRefresh.js` to import `* as Haptics from 'expo-haptics'`.
   - Trigger `Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)` at the start of the `onRefresh` callback (as a fallback for the inability to trigger during pull progress).
-- `[ ]` **Phase 3: Soft Refetching Integration (Recommendation)**
+- `[x]` **Phase 3: Soft Refetching Integration (Recommendation)** `◐ FM — 1d 4f +3r — Phase 3`
   - Implement explicit data refetch methods inside `CatalogContext.js` (e.g., re-triggering remote sync).
   - Pass these specific fetch functions to `usePullToRefresh(customFetch)` in the existing bindings within `ProductGrid.js`, `UnifiedCardGrid.js`, and `CartDrawerList.js` to prevent jarring `window.location.reload()` flashes.
-- `[ ]` **Phase 4: Verification**
+- `[x]` **Phase 4: Verification** `○ FL — 1d 0f +5r — Phase 4`
   - Test on iOS Safari and Chrome Mobile. Confirm the `<RefreshControl>` SVG spinner appears, haptics fire on release, data refetches softly without a white screen flash, and the spinner dismisses smoothly.

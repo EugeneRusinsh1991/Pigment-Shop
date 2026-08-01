@@ -16,10 +16,11 @@ export default function UnifiedCardGrid({
   variant = 'flex',
   contentContainerStyle,
   style,
+  onRefresh: onRefreshProp,
   ...rest
 }) {
   const itemWidth = `${(100 / cols).toFixed(4)}%`;
-  const { refreshing, onRefresh } = usePullToRefresh();
+  const { refreshing, onRefresh } = usePullToRefresh(onRefreshProp);
 
   const renderWrappedItem = (props) => {
     // For FlatList, it passes { item, index, separators }

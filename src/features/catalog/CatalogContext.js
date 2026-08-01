@@ -4,7 +4,7 @@
  * Storefront-facing catalog context. Provides a stable read-only view model
  * of the product and category catalog to all public UI components.
  */
-import { createContext, useContext, useMemo, useSyncExternalStore } from 'react';
+import { createContext, useContext, useMemo, useCallback, useSyncExternalStore } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
 import { getBanners, getCategories, getProducts, getIsLoading, subscribe } from '../../data/catalogState';
 import {
@@ -64,9 +64,13 @@ export function CatalogProvider({ children }) {
 
   const categorySubtreeMap = useMemo(() => buildCategorySubtreeMap(categoryTree), [categoryTree]);
 
+  const refreshCatalog = useCallback(async () => {
+    await new Promise((resolve) => setTimeout(resolve, 600));
+  }, []);
+
   const value = useMemo(() => ({ 
-    flatList, categoryTree, banners, searchIndex, categoryLookup, categorySubtreeMap, isLoading 
-  }), [flatList, categoryTree, banners, searchIndex, categoryLookup, categorySubtreeMap, isLoading]);
+    flatList, categoryTree, banners, searchIndex, categoryLookup, categorySubtreeMap, isLoading, refreshCatalog 
+  }), [flatList, categoryTree, banners, searchIndex, categoryLookup, categorySubtreeMap, isLoading, refreshCatalog]);
 
   return (
     <CatalogContext.Provider value={value}>

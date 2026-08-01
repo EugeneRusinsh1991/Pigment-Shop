@@ -6,8 +6,8 @@ import { BagIcon } from '@/components/Icons';
 import { layout } from '@/theme/tokens';
 import CartDrawerItem from './CartDrawerItem';
 
-export default function CartDrawerList({ cart, isDark, onClose }) {
-  const { refreshing, onRefresh } = usePullToRefresh();
+export default function CartDrawerList({ cart, isDark, onClose, onRefresh: onRefreshProp }) {
+  const { refreshing, onRefresh } = usePullToRefresh(onRefreshProp);
   if (!cart?.items?.length) {
     return (
       <View style={styles.emptyContainer}>
