@@ -1,9 +1,9 @@
 import { useCallback, useMemo, useState } from 'react';
-import { useWindowDimensions } from 'react-native';
 import { useAuth } from '../../context/AuthContext';
 import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
 import { getContentGridWidth } from '../../utils/layoutUtils';
+import { useVisualViewportDimensions } from '../../hooks/useVisualViewportDimensions';
 import { useCart } from '../cart/CartContext';
 import { useCatalog } from '../catalog/CatalogContext';
 import { useMenuVisibilityState } from './useMenuVisibilityState';
@@ -26,7 +26,7 @@ function buildMenuItems(t, catalogItems) {
 
 export function useAppShell() {
   // Layout state
-  const { width: windowWidth } = useWindowDimensions();
+  const { width: windowWidth, height: windowHeight } = useVisualViewportDimensions();
   const [isSearchActive, setIsSearchActive] = useState(false);
   const isWide = windowWidth >= 768;
   const contentWidth = getContentGridWidth(windowWidth);

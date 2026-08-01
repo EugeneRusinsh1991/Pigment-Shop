@@ -4,17 +4,6 @@ import { Animated, Platform } from 'react-native';
 const HIDE_HEIGHT = 60;
 const DIRECTION_THRESHOLD = 4;
 
-function ensureStickyCompatible() {
-  if (Platform.OS !== 'web') return;
-  const STYLE_ID = 'pigment-sticky-fix';
-  if (document.getElementById(STYLE_ID)) return;
-  const style = document.createElement('style');
-  style.id = STYLE_ID;
-  style.textContent = `#root > [data-testid] { overflow-x: clip !important; overflow-y: visible !important; }
-#root > div { overflow-x: clip !important; }`;
-  document.head.appendChild(style);
-}
-
 export function useHomeScrollHide(disabled) {
   const translateY = useRef(new Animated.Value(0)).current;
   const isHidden = useRef(false);
@@ -32,7 +21,6 @@ export function useHomeScrollHide(disabled) {
 
   useEffect(() => {
     if (Platform.OS !== 'web') return;
-    ensureStickyCompatible();
 
     const show = () => animateTo(0, false);
     const hide = () => animateTo(-HIDE_HEIGHT, true);
@@ -56,7 +44,12 @@ export function useHomeScrollHide(disabled) {
       }
     };
 
+    const isEventInOverlay = (e) => {
+      return Boolean(e?.target?.closest?.('#app-drawer, [role="dialog"]'));
+    };
+
     const onWheel = (e) => {
+      if (isEventInOverlay(e)) return;
       const scrollY = window.scrollY || window.pageYOffset || 0;
       const maxScrollY = document.documentElement.scrollHeight - window.innerHeight;
       if (scrollY <= 0 && e.deltaY < 0) return;
@@ -66,9 +59,17 @@ export function useHomeScrollHide(disabled) {
 
     let lastTouchY = null;
     const onTouchStart = (e) => {
+      if (isEventInOverlay(e)) {
+        lastTouchY = null;
+        return;
+      }
       lastTouchY = e.touches[0]?.clientY ?? null;
     };
     const onTouchMove = (e) => {
+      if (isEventInOverlay(e)) {
+        lastTouchY = null;
+        return;
+      }
       if (lastTouchY === null) return;
       const currentY = e.touches[0]?.clientY;
       if (currentY == null) return;

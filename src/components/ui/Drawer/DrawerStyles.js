@@ -16,7 +16,10 @@ export const getDrawerStyles = (position = 'left') => {
       height: isHorizontal ? (Platform.OS === 'web' ? ['100%', '100dvh'] : '100%') : 'auto',
       width: isHorizontal ? 'auto' : '100%',
       ...Platform.select({
-        web: shadows.drawerSide.web,
+        web: {
+          ...shadows.drawerSide.web,
+          overscrollBehavior: 'contain',
+        },
         default: shadows.drawerSide.native,
       }),
       elevation: layout.elevation.xl,

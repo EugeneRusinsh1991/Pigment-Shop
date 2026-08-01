@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { View, Animated } from 'react-native';
+import { View, Animated, Platform } from 'react-native';
 import { AutocompleteSearch } from '../../components/domain/Search';
 import { useHomeScrollHide } from '../../hooks/useHomeScrollHide';
 import { useTheme } from '../../context/ThemeContext';
@@ -49,10 +49,14 @@ export default function StoreSearchHeader({ isDark: isDarkProp, isHome, contentW
         styles.stickySearchContainer,
         ic(isDark, styles.stickySearchContainerDark, styles.stickySearchContainerLight),
         isSearchActive && { zIndex: layout.zIndices.tooltip },
-        { transform: [{ translateY }], marginTop: translateY.interpolate({
-          inputRange: [-hideHeight, 0],
-          outputRange: [-hideHeight, 0],
-        }) },
+        {
+          transform: [{ translateY }],
+          marginTop: translateY.interpolate({
+            inputRange: [-hideHeight, 0],
+            outputRange: [-hideHeight, 0],
+          }),
+          ...(Platform.OS === 'web' ? { willChange: 'transform' } : {}),
+        },
       ]}
     >
       <View style={searchInnerStyle}>

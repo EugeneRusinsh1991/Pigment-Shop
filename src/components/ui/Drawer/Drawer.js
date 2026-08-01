@@ -1,10 +1,11 @@
-import React from 'react';
-import { Animated, Modal, Pressable, StyleSheet, View } from 'react-native';
+import React, { useEffect } from 'react';
+import { Animated, Modal, Pressable, StyleSheet, View, Platform } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Text } from '../Text';
 import { getDrawerStyles, drawerStyles } from './DrawerStyles';
 import { useDrawerTheme } from './useDrawerTheme';
 import { useDrawerAnimation } from './useDrawerAnimation';
+import { useVisualViewportDimensions } from '../../../hooks/useVisualViewportDimensions';
 
 export function DrawerHeader({ title, onClose, children, style, titleStyle }) {
   return (
@@ -38,6 +39,7 @@ export function Drawer({
   children,
 }) {
   const activeVisible = isOpen !== undefined ? isOpen : visible;
+  const { height: viewportHeight } = useVisualViewportDimensions();
 
   const animation = useDrawerAnimation({
     visible: activeVisible,
@@ -55,9 +57,22 @@ export function Drawer({
 
   const handleCloseAction = onClose || animation.handleClose;
 
+  useEffect(() => {
+    if (Platform.OS !== 'web' || typeof document === 'undefined') return;
+    if (isVisible) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = originalOverflow;
+      };
+    }
+  }, [isVisible]);
+
+  const dynamicWebContainerStyle = Platform.OS === 'web' && viewportHeight ? { height: viewportHeight } : null;
+
   return (
     <Modal visible={isVisible} transparent animationType="none" onRequestClose={handleCloseAction}>
-      <View id="app-drawer" style={styles.container}>
+      <View id="app-drawer" nativeID="app-drawer" style={[styles.container, dynamicWebContainerStyle]}>
         <AnimatedPressable
           style={[
             StyleSheet.absoluteFill,
@@ -84,6 +99,7 @@ export function Drawer({
               style={{ flex: 1 }}
               onPress={(e) => {
                 e?.stopPropagation?.();
+                e?.nativeEvent?.stopPropagation?.();
               }}
             >
               {children}

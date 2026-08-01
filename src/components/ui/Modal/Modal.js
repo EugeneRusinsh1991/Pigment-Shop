@@ -2,6 +2,7 @@ import React from 'react';
 import { Modal as RNModal, Platform, Pressable } from 'react-native';
 import { modalStyles as styles } from './ModalStyles';
 import { useModalTheme } from './useModalTheme';
+import { useVisualViewportDimensions } from '../../../hooks/useVisualViewportDimensions';
 
 function sanitizeWebViewportOnClose() {
   if (Platform.OS === 'web' && typeof document !== 'undefined') {
@@ -26,6 +27,8 @@ export default function Modal({
   children,
   ...props
 }) {
+  const { height: viewportHeight } = useVisualViewportDimensions();
+
   if (!visible) return null;
 
   const rawHandleClose = onClose || onRequestClose;
@@ -44,6 +47,8 @@ export default function Modal({
     }
   };
 
+  const dynamicWebOverlayStyle = Platform.OS === 'web' && viewportHeight ? { maxHeight: viewportHeight } : null;
+
   return (
     <RNModal
       visible={visible}
@@ -53,7 +58,7 @@ export default function Modal({
       {...props}
     >
       <Pressable
-        style={[styles.overlay, { backgroundColor: overlayBg }, overlayStyle]}
+        style={[styles.overlay, { backgroundColor: overlayBg }, dynamicWebOverlayStyle, overlayStyle]}
         onPress={handleBackdropPress}
       >
         <Pressable
