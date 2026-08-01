@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { SkeletonLoader, ProductDetailSkeleton } from '../../components/ui/Feedback';
 import { ScrollFadeUp } from '../../components/ui/Motion';
 import { useProductPageState } from '../../hooks/useProductPageState';
-import usePullToRefresh from '../../hooks/usePullToRefresh';
+import PageScrollLayout from '../shell/PageScrollLayout/PageScrollLayout';
 
 import { ProductImagePanel } from './ProductImagePanel';
 import { ProductInfoPanel } from './ProductInfoPanel';
@@ -60,7 +60,7 @@ export default function ProductPage({ product: initialProduct, isDark, showNavig
     }
   };
 
-  usePullToRefresh(handleRefresh);
+  // PTR is delegated to PageScrollLayout
 
   if (!state.product) {
     return (
@@ -71,7 +71,7 @@ export default function ProductPage({ product: initialProduct, isDark, showNavig
   }
 
   return (
-    <View style={[styles.root, isDark ? styles.rootDark : styles.rootLight]}>
+    <PageScrollLayout isDark={isDark} onRefresh={handleRefresh}>
       <ProductPageHeader
         showNavigation={showNavigation}
         gridWidth={state.gridWidth}
@@ -100,6 +100,6 @@ export default function ProductPage({ product: initialProduct, isDark, showNavig
           </ScrollFadeUp>
         </View>
       </View>
-    </View>
+    </PageScrollLayout>
   );
 }

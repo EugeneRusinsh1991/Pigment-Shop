@@ -53,8 +53,7 @@ export default function CatalogView({
   const { t } = useLanguage();
   const favs = useFavoritesContext();
   const router = useRouter();
-  const { flatList, categoryLookup } = useCatalog();
-  usePullToRefresh();
+  const { flatList, categoryLookup, refreshCatalog } = useCatalog();
 
   const {
     depth,
@@ -108,6 +107,7 @@ export default function CatalogView({
       {showCategoryGrid ? (
         <UnifiedCardGrid
           variant="flatlist"
+          onRefresh={refreshCatalog}
           ListHeaderComponent={
             <CatalogHeader
               isDark={isDark}

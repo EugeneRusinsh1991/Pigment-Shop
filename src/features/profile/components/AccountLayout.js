@@ -10,7 +10,6 @@ import styles from './AccountLayoutStyles';
 
 export default function AccountLayout({ title, children, isDark, auth }) {
   const { isWide, gridWidth } = useGridLayout();
-  usePullToRefresh();
 
   return (
     <View

@@ -22,7 +22,10 @@ export default function UnifiedCardGrid({
 }) {
   const itemWidth = `${(100 / cols).toFixed(4)}%`;
   const listRef = React.useRef(null);
-  const { refreshing, onRefresh } = usePullToRefresh(onRefreshProp, { scrollViewRef: listRef });
+  const { refreshing, onRefresh } = usePullToRefresh(onRefreshProp, { 
+    scrollViewRef: listRef,
+    disabled: !onRefreshProp
+  });
 
   const renderWrappedItem = (props) => {
     // For FlatList, it passes { item, index, separators }

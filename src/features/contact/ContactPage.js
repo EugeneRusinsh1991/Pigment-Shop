@@ -47,7 +47,6 @@ export default function ContactPage({ isDark }) {
   const { t } = useLanguage();
   const { width: windowWidth } = useWindowDimensions();
   const isMultiCol = windowWidth >= layout.breakpoints.mobile;
-  usePullToRefresh();
 
   return (
     <View
