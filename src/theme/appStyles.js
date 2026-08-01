@@ -9,6 +9,7 @@ if (Platform.OS === 'web' && typeof document !== 'undefined') {
     style.textContent = `
       #root > [data-testid] { overflow-x: clip !important; overflow-y: visible !important; }
       #root > div { overflow-x: clip !important; }
+      button, input, select, textarea, [role="button"], [data-focusable="true"] { touch-action: manipulation; }
     `;
     document.head.appendChild(style);
   }

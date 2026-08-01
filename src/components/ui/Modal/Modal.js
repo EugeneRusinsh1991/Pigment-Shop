@@ -1,7 +1,18 @@
 import React from 'react';
-import { Modal as RNModal, Pressable } from 'react-native';
+import { Modal as RNModal, Platform, Pressable } from 'react-native';
 import { modalStyles as styles } from './ModalStyles';
 import { useModalTheme } from './useModalTheme';
+
+function sanitizeWebViewportOnClose() {
+  if (Platform.OS === 'web' && typeof document !== 'undefined') {
+    if (document.activeElement && typeof document.activeElement.blur === 'function') {
+      document.activeElement.blur();
+    }
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: window.scrollY, behavior: 'instant' });
+    }
+  }
+}
 
 export default function Modal({
   visible,
@@ -17,11 +28,18 @@ export default function Modal({
 }) {
   if (!visible) return null;
 
-  const handleClose = onClose || onRequestClose;
+  const rawHandleClose = onClose || onRequestClose;
   const { overlayBg } = useModalTheme();
 
+  const handleClose = () => {
+    sanitizeWebViewportOnClose();
+    if (rawHandleClose) {
+      rawHandleClose();
+    }
+  };
+
   const handleBackdropPress = () => {
-    if (closeOnBackdropPress && handleClose) {
+    if (closeOnBackdropPress) {
       handleClose();
     }
   };

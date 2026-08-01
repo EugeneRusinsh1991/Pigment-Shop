@@ -13,7 +13,7 @@ export const getDrawerStyles = (position = 'left') => {
       zIndex: layout.zIndices.drawer,
     },
     panel: {
-      height: isHorizontal ? '100%' : 'auto',
+      height: isHorizontal ? (Platform.OS === 'web' ? ['100%', '100dvh'] : '100%') : 'auto',
       width: isHorizontal ? 'auto' : '100%',
       ...Platform.select({
         web: shadows.drawerSide.web,
@@ -36,6 +36,12 @@ export const getDrawerStyles = (position = 'left') => {
       borderTopWidth: layout.borderWidth.thin,
       borderTopColor: colors.secondaryLightBorder,
       marginTop: 'auto',
+      ...Platform.select({
+        web: {
+          paddingBottom: `max(${layout.spacing.lg}px, env(safe-area-inset-bottom))`,
+        },
+        default: {},
+      }),
     },
     dismissPressable: {
       flex: 1,

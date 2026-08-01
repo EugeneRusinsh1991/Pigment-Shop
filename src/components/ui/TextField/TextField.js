@@ -1,5 +1,5 @@
 import { forwardRef, useCallback, useState } from 'react';
-import { Animated, TextInput, View } from 'react-native';
+import { Animated, Platform, TextInput, View } from 'react-native';
 import { Text } from "../Text";
 import styles, { getTextFieldStyles } from './TextFieldStyles';
 import { useTextFieldAnimation } from './useTextFieldAnimation';
@@ -14,9 +14,19 @@ function buildStyleParams({ size, multiline, numberOfLines, fullWidth, width, he
   return { size, multiline, numberOfLines, fullWidth, width, height, disabled, error: !!error, focused: isFocused, isDark, inputStyle };
 }
 
-function makeFocusHandler(setFocused, value, externalHandler) {
+function makeFocusHandler(setFocused, externalHandler) {
   return (e) => {
-    setFocused(value);
+    setFocused(true);
+    if (externalHandler) externalHandler(e);
+  };
+}
+
+function makeBlurHandler(setFocused, externalHandler) {
+  return (e) => {
+    setFocused(false);
+    if (Platform.OS === 'web' && typeof window !== 'undefined') {
+      window.scrollTo({ top: window.scrollY, behavior: 'instant' });
+    }
     if (externalHandler) externalHandler(e);
   };
 }
@@ -125,8 +135,8 @@ function useTextFieldController({
   const displayHelperText = getDisplayHelperText(error, helperText);
   const dynamicStyles = getTextFieldStyles(buildStyleParams({ size, multiline, numberOfLines, fullWidth, width, height, disabled, error, isFocused, isDark: theme.isDark, inputStyle }));
 
-  const handleFocus = useCallback(makeFocusHandler(setIsFocused, true, onFocus), [onFocus]);
-  const handleBlur = useCallback(makeFocusHandler(setIsFocused, false, onBlur), [onBlur]);
+  const handleFocus = useCallback(makeFocusHandler(setIsFocused, onFocus), [onFocus]);
+  const handleBlur = useCallback(makeBlurHandler(setIsFocused, onBlur), [onBlur]);
 
   return {
     animatedContainerStyle,
