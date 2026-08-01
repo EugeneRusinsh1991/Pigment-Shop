@@ -33,7 +33,7 @@ export default function TopProductsChart({ productsData = [] }) {
   if (products.length === 0) {
     return (
       <View style={styles.topProductsEmpty}>
-        <Text variant="body2" color="secondary" weight="medium">
+        <Text variant="body2" color="secondary">
           {t('adminAnalyticsNoData')}
         </Text>
       </View>
@@ -60,7 +60,7 @@ export default function TopProductsChart({ productsData = [] }) {
               )}
             </View>
           </View>
-          <Text variant="caption" color="secondary" style={styles.barValue}>{p.value}</Text>
+          <Text variant="subtitle2" style={styles.barValue}>{p.value}</Text>
         </View>
       ))}
     </View>

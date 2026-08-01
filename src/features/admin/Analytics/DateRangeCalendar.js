@@ -87,9 +87,9 @@ export function DateRangeCalendar({
           onPress={() => navigateMonth(-1)}
           activeOpacity={motion.press.activeOpacity}
         >
-          <Text style={styles.arrowText}>‹</Text>
+          <Text variant="subtitle1" style={styles.arrowText}>‹</Text>
         </TouchableOpacity>
-        <Text variant="subtitle1" weight="bold" style={styles.monthTitle}>
+        <Text variant="h4" style={styles.monthTitle}>
           {monthNames[month]} {year}
         </Text>
         <TouchableOpacity 
@@ -97,14 +97,14 @@ export function DateRangeCalendar({
           onPress={() => navigateMonth(1)}
           activeOpacity={motion.press.activeOpacity}
         >
-          <Text style={styles.arrowText}>›</Text>
+          <Text variant="subtitle1" style={styles.arrowText}>›</Text>
         </TouchableOpacity>
       </View>
 
       <View style={styles.weekdaysRow}>
         {weekdayLabels.map((label, idx) => (
           <View key={idx} style={styles.weekdayCell}>
-            <Text variant="caption" weight="semibold" color="secondary" style={styles.weekdayText}>{label}</Text>
+            <Text variant="label" color="secondary" style={styles.weekdayText}>{label}</Text>
           </View>
         ))}
       </View>

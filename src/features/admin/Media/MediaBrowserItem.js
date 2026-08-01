@@ -22,7 +22,7 @@ export default function MediaBrowserItem({ item, selected, onSelect, onDelete })
       <View style={styles.itemThumbContainer}>
         <MediaRenderer uri={uri} style={styles.itemThumb} resizeMode="cover" />
       </View>
-      <Text style={styles.itemName} size={10} numberOfLines={1}>{item.name}</Text>
+      <Text style={styles.itemName} variant="caption" numberOfLines={1}>{item.name}</Text>
       {onDelete && (
         <IconButton
           icon={<TrashIcon size={12} />}

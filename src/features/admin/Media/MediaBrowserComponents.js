@@ -21,12 +21,12 @@ export function OutdatedBanner() {
   const { t } = useLanguage();
   return (
     <View style={styles.outdatedBanner}>
-      <Text style={styles.outdatedBannerTitle} size={13} weight="bold">
+      <Text style={styles.outdatedBannerTitle} variant="subtitle2">
         <AlertIcon color={colors.dangerMid} size={14} style={styles.alertIcon} /> Media index not generated
       </Text>
-      <Text style={styles.outdatedBannerText} size={12}>
+      <Text style={styles.outdatedBannerText} variant="caption">
         {t('adminMediaGeneratePrefix')}
-        <Text style={styles.outdatedBannerCode} size={12} weight="bold">npm run generate-media</Text>
+        <Text style={styles.outdatedBannerCode} variant="code">npm run generate-media</Text>
         {t('adminMediaGenerateSuffix')}
       </Text>
     </View>

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://unpkg.com/knip@5/schema.json",
+  "entry": [
+    "index.js",
+    "app/**/*.{js,jsx,ts,tsx}",
+    "src/**/*.{js,jsx,ts,tsx}",
+    ".tools/**/*.{js,cjs,mjs,ts}",
+    "scripts/**/*.{js,cjs,mjs,ts}"
+  ],
+  "project": [
+    "**/*.{js,jsx,ts,tsx,cjs,mjs}"
+  ],
+  "ignore": [
+    "node_modules/**",
+    "dist/**",
+    ".expo/**",
+    ".git/**",
+    ".logs/**",
+    ".venv/**",
+    ".playwright/**",
+    "test-results/**"
+  ]
+}

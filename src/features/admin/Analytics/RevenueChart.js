@@ -121,7 +121,7 @@ export default function RevenueChart({ revenueData = [] }) {
               />
               <text
                 x={(PAD_LEFT - 6).toFixed(1)} y={(y + 3.5).toFixed(1)}
-                fontSize="9" fill={colors.secondaryDarkText} textAnchor="end"
+                fontSize="10" fill={colors.secondaryDarkText} textAnchor="end"
               >
                 {niceLabel(value)}
               </text>
@@ -156,7 +156,7 @@ export default function RevenueChart({ revenueData = [] }) {
                 key={i}
                 x={p.x.toFixed(1)}
                 y={(SVG_H - 4).toFixed(1)}
-                fontSize="9"
+                fontSize="10"
                 fill={colors.secondaryDarkText}
                 textAnchor={i === 0 ? 'start' : i === n - 1 ? 'end' : 'middle'}
               >

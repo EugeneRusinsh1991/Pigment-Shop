@@ -54,7 +54,7 @@ export default function BannersManager() {
           <MediaRenderer uri={banner} style={styles.previewImage} resizeMode="cover" />
         ) : (
           <View style={styles.noImage}>
-            <Text style={styles.noImageText}>{t('adminBannersNoImage')}</Text>
+            <Text variant="caption" style={styles.noImageText}>{t('adminBannersNoImage')}</Text>
           </View>
         )}
       </AnimatedButton>
@@ -65,7 +65,7 @@ export default function BannersManager() {
           onPress={() => triggerFileInput(`banner-image-file-input-${index}`, (uri) => handleUpdateBanner(index, uri))}
           activeOpacity={motion.press.activeOpacity}
         >
-          <Text style={styles.uploadBtnText}>{t('adminBannersUploadBtn')}</Text>
+          <Text variant="label" style={styles.uploadBtnText}>{t('adminBannersUploadBtn')}</Text>
         </AnimatedButton>
 
         <AnimatedButton
@@ -79,7 +79,7 @@ export default function BannersManager() {
           }}
           activeOpacity={motion.press.activeOpacity}
         >
-          <Text style={styles.deleteBtnText}>{t('adminBannersDeleteBtn')}</Text>
+          <Text variant="label" style={styles.deleteBtnText}>{t('adminBannersDeleteBtn')}</Text>
         </AnimatedButton>
       </View>
     </View>
@@ -97,7 +97,7 @@ export default function BannersManager() {
               onPress={handleAddBanner}
               activeOpacity={motion.press.activeOpacity}
             >
-              <Text variant="body2" weight="semibold" style={styles.addCardBtnText}>{t('adminBannersAddBtn')}</Text>
+              <Text variant="subtitle2" style={styles.addCardBtnText}>{t('adminBannersAddBtn')}</Text>
             </AnimatedButton>
           )}
         </View>
@@ -107,7 +107,7 @@ export default function BannersManager() {
 
           {bannersList.length < 3 && (
             <AnimatedButton style={styles.addBtn} onPress={handleAddBanner} activeOpacity={motion.press.activeOpacity}>
-              <Text variant="body2" weight="semibold" style={styles.addBtnText}>{t('adminBannersAddBtn')}</Text>
+              <Text variant="subtitle2" style={styles.addBtnText}>{t('adminBannersAddBtn')}</Text>
             </AnimatedButton>
           )}
         </View>

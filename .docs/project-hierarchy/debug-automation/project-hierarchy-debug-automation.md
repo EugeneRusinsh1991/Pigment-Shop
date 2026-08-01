@@ -27,7 +27,14 @@ This document maps the browser automation infrastructure, developer overlays, an
 - `debug-playwright.js`: Quick launcher for Playwright runner.
 - `test-scanner.ts` / `test-scanner.js`: Standalone test suite for `ElementScanner`.
 
+### 4. Static Analysis Pipeline (`.tools/auditors/static-analysis/`)
+- **Purpose**: Unified static analysis pipeline executing ESLint, Oxlint, and Knip across repository profiles.
+- **Profiles**: `full`, `project`, `tools`.
+- **Reports Directory**: `.logs/static-analysis/`.
+- **Documentation**: [Static Analysis README](file:///d:/Magazine/_PigmentShop/.tools/auditors/static-analysis/README.md).
+
 ## Common Tasks & Workflows
+- **Running Static Analysis**: Execute `npm run audit:static` or `npm run audit:static:project`.
 - **Running E2E Automation**: Execute `npx ts-node browser-automation/run.ts` or `npm run dev:smoke`.
 - **Debugging Element Scanner**: Modify or run `test-scanner.ts`.
 - **Adjusting Dev Overlay**: Edit `debug/DevDebugOverlay.js`.

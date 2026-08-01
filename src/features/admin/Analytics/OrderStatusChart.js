@@ -100,7 +100,7 @@ export default function OrderStatusChart({ statusData = [] }) {
         {formattedData.map((s, idx) => (
           <View key={s.id || s.labelKey || idx} style={styles.legendItem}>
             <View style={[styles.legendDot, { backgroundColor: s.color }]} />
-            <Text variant="body2" color="secondary" style={styles.legendText}>{t(s.labelKey)}:</Text>
+            <Text variant="caption" color="secondary" style={styles.legendText}>{t(s.labelKey)}:</Text>
             <Text variant="subtitle2" style={styles.legendValue}>{s.value}</Text>
           </View>
         ))}

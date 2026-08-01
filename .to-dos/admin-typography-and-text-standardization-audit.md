@@ -529,7 +529,7 @@ The following 67 files will be refactored to consume core typography tokens dire
 
 ---
 
-### Phase 5.1: Banners Manager & Media Browser Components — ◕ FH — 1d 6f +2r — Phase 5.1 [Parallel with Phase 3.1, Phase 3.3, Phase 4.1]
+### Phase 5.1: Banners Manager & Media Browser Components — [COMPLETED] — ◕ FH — 1d 6f +2r — Phase 5.1 [Parallel with Phase 3.1, Phase 3.3, Phase 4.1]
 * **Objective:** Refactor Banners manager cards and Media browser grid items, metadata, and preview popups.
 * **Scope:** Banner management view and Media asset management components.
 * **Affected Files:**
@@ -546,7 +546,7 @@ The following 67 files will be refactored to consume core typography tokens dire
 * **Expected Outcome:** Banner cards and media browser grid items consume standard core variants.
 * **Completion Criteria:** Banner titles and media item metadata display unified typography without font warnings.
 
-### Phase 5.2: Analytics Dashboard & Calendar Date Range Picker — ◕ FH — 1d 6f +2r
+### Phase 5.2: Analytics Dashboard & Calendar Date Range Picker — [COMPLETED] — ◕ FH — 1d 6f +2r
 * **Objective:** Refactor Analytics KPI metric cards, dashboard layout, and date range picker calendar controls.
 * **Scope:** Analytics dashboard metrics, date picker dropdowns, and calendar cell grids.
 * **Affected Files:**
@@ -563,7 +563,7 @@ The following 67 files will be refactored to consume core typography tokens dire
 * **Expected Outcome:** Analytics metrics and date picker controls adhere strictly to core typography scale.
 * **Completion Criteria:** KPI summary values, labels, and calendar date cells render with zero font warnings.
 
-### Phase 5.3: Analytics SVG Data Charts Typography — ◐ FM — 1d 3f +2r
+### Phase 5.3: Analytics SVG Data Charts Typography — [COMPLETED] — ◐ FM — 1d 3f +2r
 * **Objective:** Refactor SVG data charts (Revenue, Order Status, Top Products) axis labels and tooltip text.
 * **Scope:** Analytics chart visualization components.
 * **Affected Files:**
@@ -579,7 +579,7 @@ The following 67 files will be refactored to consume core typography tokens dire
 
 ---
 
-### Phase 6: QA & Warning Cleanup Verification — ◐ FM — 1d 0f +10r
+### Phase 6: QA & Warning Cleanup Verification — [COMPLETED] — ◐ FM — 1d 0f +10r
 * **Objective:** Verify 100% elimination of dynamic font override warnings and validate visual cohesion.
 * **Scope:** Entire admin panel application (`src/features/admin/`) across desktop and mobile viewports.
 * **Affected Files:**

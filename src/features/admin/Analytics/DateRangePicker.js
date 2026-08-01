@@ -118,11 +118,11 @@ export default function DateRangePicker({ startDate, endDate, mode: modeProp, on
   return (
     <View style={styles.datePickerContainer}>
       <View style={styles.calendarToggleWrapper}>
-        <Toggle
+          <Toggle
           options={options}
           value={mode}
           onChange={handlePresetSelect}
-          size="sm"
+          size="md"
         />
 
         {isCalendarOpen && (

@@ -19,10 +19,10 @@ function StatCard({ label, value, icon, accentColor }) {
   return (
     <Card style={[styles.statCard, accentColor ? { borderLeftColor: accentColor } : null]}>
       <View style={styles.statHeader}>
-        <Text variant="caption" weight="medium" color="secondary" style={styles.statLabel}>{label}</Text>
+        <Text variant="label" color="secondary" style={styles.statLabel}>{label}</Text>
         <View>{icon}</View>
       </View>
-      <Heading level={2} style={styles.statValue}>{value}</Heading>
+      <Heading level={1} style={styles.statValue}>{value}</Heading>
     </Card>
   );
 }
