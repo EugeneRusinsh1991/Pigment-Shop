@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Platform } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { DrawerFooter } from '@/components/ui/Drawer';
 import { Text } from '@/components/ui/Text';
 import { Button } from '@/components/ui/Button';
@@ -11,6 +12,7 @@ import { useLanguage } from '@/context/LanguageContext';
 export default function CartDrawerFooter({ cart, onClose, isDark }) {
   const router = useRouter();
   const { t } = useLanguage();
+  const insets = useSafeAreaInsets();
 
   const handleCheckout = () => {
     onClose();
@@ -20,7 +22,10 @@ export default function CartDrawerFooter({ cart, onClose, isDark }) {
   if (!cart?.items?.length) return null;
 
   return (
-    <DrawerFooter style={styles.footer}>
+    <DrawerFooter style={[
+      styles.footer,
+      Platform.OS !== 'web' && { paddingBottom: layout.spacing.lg + insets.bottom }
+    ]}>
       <View style={styles.totalRow}>
         <Text variant="h6">{t('cartTotal')}:</Text>
         <Text variant="h6" weight="bold" style={styles.totalAmount}>
@@ -41,9 +46,16 @@ export default function CartDrawerFooter({ cart, onClose, isDark }) {
 
 const styles = StyleSheet.create({
   footer: {
-    paddingVertical: layout.spacing.lg,
+    paddingTop: layout.spacing.lg,
+    paddingBottom: layout.spacing.lg,
     paddingHorizontal: layout.spacing.md,
     gap: layout.spacing.md,
+    ...Platform.select({
+      web: {
+        paddingBottom: `max(${layout.spacing.lg}px, env(safe-area-inset-bottom))`,
+      },
+      default: {},
+    }),
   },
   totalRow: {
     flexDirection: 'row',

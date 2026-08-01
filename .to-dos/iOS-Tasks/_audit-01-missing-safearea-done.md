@@ -1,4 +1,4 @@
-### 1. Missing `SafeAreaProvider` Hierarchy & Unhandled Safe Area Insets (iOS, Android, Web)
+### [DONE] 1. Missing `SafeAreaProvider` Hierarchy & Unhandled Safe Area Insets (iOS, Android, Web)
 - **Codebase Evidence (Cross-Platform):**
   - `package.json:16` defines dependency `"react-native-safe-area-context": "~5.7.0"`.
   - `src/context/AppProviders.js` and `app/_layout.js` **do not import or render `<SafeAreaProvider>`** in the component tree.
@@ -35,7 +35,7 @@
 ---
 
 ### Investigation Summary
-- **Status:** Confirmed
+- **Status:** Done
 - **Severity:** High
 - **Confidence:** High (100%)
 - **Target Locations:** `AppProviders.js`, `AppHeaderStyles.js`, `CartDrawerFooter.js`, `Drawer.js`
@@ -46,26 +46,53 @@
 
 ### Implementation Plan
 
-**Task 1: Mount `SafeAreaProvider`** (`◐ FM — 1d 1f +1r`)
+**[x] Task 1: Mount `SafeAreaProvider`** (`◐ FM — 1d 1f +1r`)
 - **Objective:** Wrap the application root to enable native safe area insets.
 - **Affected Areas:** `src/context/AppProviders.js`
 - **Dependencies:** None
 - **Expected Outcome:** `useSafeAreaInsets()` returns valid dynamic insets on iOS/Android.
 
-**Task 2: Replace Deprecated `SafeAreaView`** (`○ FL — 1d 1f +0r — Task 2 [Parallel with Task 3, Task 4]`)
+**[x] Task 2: Replace Deprecated `SafeAreaView`** (`○ FL — 1d 1f +0r — Task 2 [Parallel with Task 3, Task 4]`)
 - **Objective:** Swap core React Native `SafeAreaView` with the `react-native-safe-area-context` equivalent.
 - **Affected Areas:** `src/components/ui/Drawer/Drawer.js`
 - **Dependencies:** Task 1
 - **Expected Outcome:** `Drawer` respects safe areas consistently across Native and Web.
 
-**Task 3: Refactor App Header for Dynamic Top Insets** (`◐ FM — 1d 2f +1r — Task 3 [Parallel with Task 2, Task 4]`)
+**[x] Task 3: Refactor App Header for Dynamic Top Insets** (`◐ FM — 1d 2f +1r — Task 3 [Parallel with Task 2, Task 4]`)
 - **Objective:** Convert static header height to dynamic padding using `useSafeAreaInsets()` and Web CSS variables.
 - **Affected Areas:** `src/features/shell/AppHeader/AppHeaderStyles.js`, `src/features/shell/AppHeader/AppHeader.js`
 - **Dependencies:** Task 1
 - **Expected Outcome:** Header avoids overlapping Notch/Dynamic Island and Android cutouts.
 
-**Task 4: Refactor Cart Drawer for Dynamic Bottom Insets** (`◐ FM — 1d 1f +1r — Task 4 [Parallel with Task 2, Task 3]`)
+**[x] Task 4: Refactor Cart Drawer for Dynamic Bottom Insets** (`◐ FM — 1d 1f +1r — Task 4 [Parallel with Task 2, Task 3]`)
 - **Objective:** Add safe area padding to prevent overlapping the Home Indicator.
 - **Affected Areas:** `src/features/cart/CartDrawer/CartDrawerFooter.js`
 - **Dependencies:** Task 1
 - **Expected Outcome:** Interactive elements do not overlap system bars.
+
+---
+
+### Инструкция по ручной проверке UI-изменений (для тестировщика)
+
+#### 1. Как запустить и открыть приложение:
+1. Убедитесь, что локальный сервер разработки запущен (`npm run dev`).
+2. Откройте приложение в симуляторе iOS / Android или в браузере Safari на физическом iOS устройстве.
+3. Для быстрой проверки в ПК-браузере (Chrome / Safari): откройте панель разработчика (`F12`), включите режим эмуляции мобильного устройства (Ctrl+Shift+M) и выберите профиль **iPhone 12/13/14 Pro**.
+
+#### 2. Что именно проверить и куда нажимать:
+
+- **Проверка верхней шапки (AppHeader — Notch / Dynamic Island / Вырез камеры):**
+  - **Действие:** Перейдите на любую страницу приложения.
+  - **Что смотреть:** Верхняя панель (логотип, навигация, переключатели) должна имееть отступ сверху. Текст и кнопки не должны накладываться на время, уровень заряда батареи или вырез камеры (Notch / Dynamic Island).
+
+- **Проверка боковых шторок (Drawer / Боковое меню):**
+  - **Действие:** Нажмите на кнопку меню ("гамбургер") в верхнем углу.
+  - **Что смотреть:** Содержимое панели открывается без искажений и корректно отступает от верхнего и нижнего краев экрана.
+
+- **Проверка подвала корзины (CartDrawerFooter — iOS Home Indicator):**
+  - **Действие:** Добавьте товар в корзину и откройте шторку корзины.
+  - **Что смотреть:** Кнопка «Перейти в корзину» и итоговая сумма находятся над полоской жеста Домой (Home Indicator) на iOS. Кнопка легко нажимается, нижняя область не перекрывает текст.
+
+#### 3. Как проверить отсутствие ошибок:
+- **Отсутствие предупреждений:** В консоли браузера/терминала Expo не должно появляться предупреждения `SafeAreaView from react-native is deprecated`.
+- **Кликабельность:** Все элементы управления (кнопка закрытия шторки, переход в корзину, меню) остаются полностью доступными для нажатия.

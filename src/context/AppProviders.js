@@ -5,6 +5,7 @@
  * in dependency order. Feature-level providers (Storefront domain) are isolated in StorefrontProviders.
  */
 import React from 'react';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import BootstrapGate from '../bootstrap/BootstrapGate';
 import StorefrontProviders from '../features/shell/StorefrontProviders';
 import { AuthProvider } from './AuthContext';
@@ -45,13 +46,15 @@ function SessionProviders({ children }) {
  */
 export default function AppProviders({ children }) {
   return (
-    <CoreInfrastructureProviders>
-      <SessionProviders>
-        <StorefrontProviders>
-          {children}
-        </StorefrontProviders>
-      </SessionProviders>
-    </CoreInfrastructureProviders>
+    <SafeAreaProvider>
+      <CoreInfrastructureProviders>
+        <SessionProviders>
+          <StorefrontProviders>
+            {children}
+          </StorefrontProviders>
+        </SessionProviders>
+      </CoreInfrastructureProviders>
+    </SafeAreaProvider>
   );
 }
 

@@ -1,4 +1,5 @@
-import { View, useWindowDimensions } from 'react-native';
+import { View, useWindowDimensions, Platform } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTheme } from '../../context/ThemeContext';
 import { colors, layout } from '../../theme/tokens';
 import AppHeaderControls from './AppHeader/AppHeaderControls';
@@ -46,9 +47,16 @@ export default function AppHeader(props) {
   const { width } = useWindowDimensions();
   const isMobile = width < 768;
   const isDropdownOpen = Boolean(props.showUserMenu || props.showLangMenu || props.showCurrencyMenu || props.showCartDrawer);
+  const insets = useSafeAreaInsets();
 
   return (
-    <View id="app-header" style={[styles.header, theme.headerStyle, { justifyContent: 'center' }, isDropdownOpen && { zIndex: layout.zIndices.tooltip + 1 }]}>
+    <View id="app-header" style={[
+        styles.header, 
+        theme.headerStyle, 
+        { justifyContent: 'center' }, 
+        isDropdownOpen && { zIndex: layout.zIndices.tooltip + 1 },
+        Platform.OS !== 'web' && { paddingTop: insets.top }
+      ]}>
       <View style={[styles.innerRow, { maxWidth: props.contentWidth }]}>
         <AppHeaderLogo
           isDark={props.isDark}

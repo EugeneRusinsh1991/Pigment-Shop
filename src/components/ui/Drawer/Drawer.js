@@ -1,5 +1,6 @@
 import React from 'react';
-import { Animated, Modal, Pressable, StyleSheet, View, SafeAreaView } from 'react-native';
+import { Animated, Modal, Pressable, StyleSheet, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { Text } from '../Text';
 import { getDrawerStyles, drawerStyles } from './DrawerStyles';
 import { useDrawerTheme } from './useDrawerTheme';

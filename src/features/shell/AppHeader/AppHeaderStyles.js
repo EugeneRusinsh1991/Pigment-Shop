@@ -1,15 +1,21 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 import { colors, layout, shadow, typography } from '../../../theme/tokens';
 
 export default StyleSheet.create({
   header: {
-    height: 56,
+    minHeight: 56,
     width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     borderBottomWidth: layout.borderWidth.none,
     zIndex: layout.zIndices.header,
+    ...Platform.select({
+      web: {
+        paddingTop: 'env(safe-area-inset-top)',
+      },
+      default: {},
+    }),
   },
   headerDark: {
     backgroundColor: colors.headerFooterBgDark,
