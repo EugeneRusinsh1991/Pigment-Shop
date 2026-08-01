@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 import { colors, layout } from '../../../theme/tokens';
 
 function createSearchStyles() {
@@ -66,6 +66,33 @@ function createSearchStyles() {
       alignItems: 'center',
       justifyContent: 'center',
     },
+    backdrop: {
+      position: Platform.OS === 'web' ? 'fixed' : 'absolute',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backgroundColor: 'rgba(0, 0, 0, 0.35)',
+      zIndex: layout.zIndices.dropdown - 1,
+    },
+    backdropLight: {
+      position: Platform.OS === 'web' ? 'fixed' : 'absolute',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backgroundColor: 'rgba(0, 0, 0, 0.25)',
+      zIndex: layout.zIndices.dropdown - 1,
+    },
+    backdropDark: {
+      position: Platform.OS === 'web' ? 'fixed' : 'absolute',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backgroundColor: 'rgba(0, 0, 0, 0.55)',
+      zIndex: layout.zIndices.dropdown - 1,
+    },
     dropdownOverlay: {
       position: 'absolute',
       top: 40,
@@ -106,6 +133,7 @@ function createSearchStyles() {
     },
     scrollView: {
       maxHeight: 300,
+      ...(Platform.OS === 'web' ? { overscrollBehavior: 'contain' } : {}),
     },
   };
 

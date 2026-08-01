@@ -9,7 +9,7 @@ import { AnimatedButton } from '../../ui/Button';
 import SearchStyles from './SearchStyles';
 import { layout } from '../../../theme/tokens';
 
-const MAX_RESULTS = 20;
+const MAX_RESULTS = 6;
 
 const getItemLabel = (item, lang) => {
   return getLocalizedValue(item?.label, lang);
@@ -44,7 +44,10 @@ function EmptySearchState({ query, isDark, t }) {
   const message = template.replace('{query}', query);
 
   return (
-    <View style={[SearchStyles.dropdownOverlay, SearchStyles[isDark ? 'defaultDark' : 'defaultLight'], { padding: layout.spacing.lg }]}>
+    <View
+      style={[SearchStyles.dropdownOverlay, SearchStyles[isDark ? 'defaultDark' : 'defaultLight'], { padding: layout.spacing.lg }]}
+      dataSet={{ noPull: 'true', searchDropdown: 'true' }}
+    >
       <EmptyState
         title={message}
       />
@@ -73,7 +76,10 @@ export default function SearchDropdown({ results, isDark, onSelect, isEmpty, que
   const hiddenCount = (results || []).length - MAX_RESULTS;
 
   return (
-    <View style={[SearchStyles.dropdownOverlay, SearchStyles[isDark ? 'defaultDark' : 'defaultLight']]}>
+    <View
+      style={[SearchStyles.dropdownOverlay, SearchStyles[isDark ? 'defaultDark' : 'defaultLight']]}
+      dataSet={{ noPull: 'true', searchDropdown: 'true' }}
+    >
       <ScrollView keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false} style={SearchStyles.scrollView}>
         {visibleResults.map((item) => (
           <Link key={item.id} href={{ pathname: '/product/[id]', params: { id: item.id } }} asChild>

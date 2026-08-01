@@ -1,9 +1,10 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { View, Animated, Platform } from 'react-native';
 import { AutocompleteSearch } from '../../components/domain/Search';
 import { useHomeScrollHide } from '../../hooks/useHomeScrollHide';
 import { useTheme } from '../../context/ThemeContext';
 import { useCatalog } from '../catalog/CatalogContext';
+import { usePullToRefreshContext } from './PullToRefreshContext';
 import { layout } from '../../theme/tokens';
 import styles from '../../theme/appStyles';
 
@@ -17,6 +18,13 @@ export default function StoreSearchHeader({ isDark: isDarkProp, isHome, contentW
   const isDark = isDarkProp ?? isDarkContext;
   const { flatList, searchIndex } = useCatalog() || {};
   const [isSearchActive, setIsSearchActive] = useState(false);
+  const { setDisabled } = usePullToRefreshContext();
+
+  useEffect(() => {
+    setDisabled(isSearchActive);
+    return () => setDisabled(false);
+  }, [isSearchActive, setDisabled]);
+
   const { translateY, hideHeight } = useHomeScrollHide(
     !ENABLE_STICKY_SCROLL_HIDE || isSearchActive || !isHome
   );

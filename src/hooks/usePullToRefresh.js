@@ -132,7 +132,9 @@ export default function usePullToRefresh(customRefresh = null, options = {}) {
     }
   }, [customRefresh, setRefreshing, options.isDynamicRoute, options.strategy]);
 
-  useWebPullToRefresh(onRefresh, setPullDistance, options);
+  const isDisabled = options.disabled || context?.disabled;
+
+  useWebPullToRefresh(onRefresh, setPullDistance, { ...options, disabled: isDisabled });
 
   return { refreshing, onRefresh, pullDistance };
 }
@@ -149,6 +151,14 @@ function getScrollTopFromTarget(options, target) {
   if (target && target instanceof Element) {
     let curr = target;
     while (curr && curr !== document.body && curr !== document.documentElement) {
+      if (
+        curr.getAttribute?.('data-no-pull') === 'true' ||
+        curr.getAttribute?.('data-search-dropdown') === 'true' ||
+        curr.dataset?.noPull === 'true' ||
+        curr.dataset?.searchDropdown === 'true'
+      ) {
+        return 999999;
+      }
       if (curr.scrollTop > 0) {
         parentScrollTop = curr.scrollTop;
         break;

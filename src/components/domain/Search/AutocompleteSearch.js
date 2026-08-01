@@ -1,6 +1,6 @@
 import { useRouter } from 'expo-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { View, Modal } from 'react-native';
+import { View, Pressable, Platform } from 'react-native';
 import SearchDropdown from './SearchDropdown';
 import SearchInput from './SearchInput';
 import SearchStyles from './SearchStyles';
@@ -12,7 +12,7 @@ function matchItem(tokens, queryWords) {
 
 function filterSearchResults(flatList, searchIndex, query) {
   const q = query.trim().toLowerCase();
-  if (!q) return [];
+  if (!q || q.length < 2) return [];
 
   const queryWords = q.split(/\s+/).filter(Boolean);
   if (queryWords.length === 0) return [];
@@ -25,7 +25,7 @@ function SearchResultDropdown({ results, query, isDark, onSelect }) {
   if (results.length > 0) {
     return <SearchDropdown results={results} isDark={isDark} onSelect={onSelect} />;
   }
-  if (trimmedQuery.length > 0) {
+  if (trimmedQuery.length >= 2) {
     return <SearchDropdown results={[]} isDark={isDark} onSelect={onSelect} isEmpty query={trimmedQuery} />;
   }
   return null;
@@ -37,7 +37,7 @@ export function AutocompleteSearch({ isDark, onActiveChange, variant = 'default'
   const router = useRouter();
   const inputRef = useRef(null);
 
-  const isActive = isFocused || query.trim().length > 0;
+  const isActive = isFocused;
 
   useEffect(() => {
     if (onActiveChange) {
@@ -52,6 +52,7 @@ export function AutocompleteSearch({ isDark, onActiveChange, variant = 'default'
 
   const handleSelect = () => {
     setQuery('');
+    setIsFocused(false);
     if (inputRef.current) {
       inputRef.current.blur();
     }
@@ -63,10 +64,34 @@ export function AutocompleteSearch({ isDark, onActiveChange, variant = 'default'
     handleSelect();
   };
 
-  const dropdownVisible = isActive && (results.length > 0 || query.trim().length > 0);
+  const dropdownVisible = isFocused && query.trim().length >= 2;
+
+  useEffect(() => {
+    if (Platform.OS !== 'web' || typeof document === 'undefined') return;
+    if (dropdownVisible) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = originalOverflow;
+      };
+    }
+  }, [dropdownVisible]);
+
+  const backdropStyle = isDark ? SearchStyles.backdropDark : SearchStyles.backdropLight;
 
   return (
     <View style={SearchStyles.autocompleteContainer}>
+      {dropdownVisible && (
+        <Pressable
+          style={backdropStyle}
+          onPress={() => {
+            setIsFocused(false);
+            if (inputRef.current) {
+              inputRef.current.blur();
+            }
+          }}
+        />
+      )}
       <SearchInput
         ref={inputRef}
         isDark={isDark}
@@ -74,14 +99,23 @@ export function AutocompleteSearch({ isDark, onActiveChange, variant = 'default'
         size={size}
         value={query}
         onChangeText={setQuery}
-        onClear={() => setQuery('')}
+        onClear={() => {
+          setQuery('');
+          setIsFocused(false);
+          if (inputRef.current) {
+            inputRef.current.blur();
+          }
+        }}
         onFocus={() => setIsFocused(true)}
-        onBlur={() => setIsFocused(false)}
+        onBlur={() => {
+          // Keep active long enough for item presses to register
+          setTimeout(() => setIsFocused(false), 200);
+        }}
         onSubmitEditing={handleSubmit}
       />
-      <Modal transparent visible={dropdownVisible} animationType="none">
+      {dropdownVisible && (
         <SearchResultDropdown results={results} query={query} isDark={isDark} onSelect={handleSelect} />
-      </Modal>
+      )}
     </View>
   );
 }
