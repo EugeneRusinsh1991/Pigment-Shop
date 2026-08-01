@@ -1,5 +1,6 @@
 import React from 'react';
-import { FlatList, StyleSheet, View } from 'react-native';
+import { FlatList, StyleSheet, View, RefreshControl } from 'react-native';
+import usePullToRefresh from '../../../hooks/usePullToRefresh';
 
 /**
  * UnifiedCardGrid Component
@@ -18,6 +19,7 @@ export default function UnifiedCardGrid({
   ...rest
 }) {
   const itemWidth = `${(100 / cols).toFixed(4)}%`;
+  const { refreshing, onRefresh } = usePullToRefresh();
 
   const renderWrappedItem = (props) => {
     // For FlatList, it passes { item, index, separators }
@@ -39,6 +41,7 @@ export default function UnifiedCardGrid({
   if (variant === 'flatlist') {
     return (
       <FlatList
+        refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
         data={data}
         numColumns={cols}
         renderItem={renderWrappedItem}

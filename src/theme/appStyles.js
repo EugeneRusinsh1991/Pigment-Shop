@@ -7,6 +7,7 @@ if (Platform.OS === 'web' && typeof document !== 'undefined') {
     const style = document.createElement('style');
     style.id = STYLE_ID;
     style.textContent = `
+      html, body { overscroll-behavior-y: auto !important; }
       #root > [data-testid] { overflow-x: clip !important; overflow-y: visible !important; }
       #root > div { overflow-x: clip !important; }
       button, input, select, textarea, [role="button"], [data-focusable="true"] { touch-action: manipulation; }

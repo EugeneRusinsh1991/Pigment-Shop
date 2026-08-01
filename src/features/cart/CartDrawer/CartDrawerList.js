@@ -1,11 +1,13 @@
 import React from 'react';
-import { StyleSheet, View, ScrollView } from 'react-native';
+import { StyleSheet, View, ScrollView, RefreshControl } from 'react-native';
+import usePullToRefresh from '@/hooks/usePullToRefresh';
 import { EmptyState } from '@/components/ui/Feedback';
 import { BagIcon } from '@/components/Icons';
 import { layout } from '@/theme/tokens';
 import CartDrawerItem from './CartDrawerItem';
 
 export default function CartDrawerList({ cart, isDark, onClose }) {
+  const { refreshing, onRefresh } = usePullToRefresh();
   if (!cart?.items?.length) {
     return (
       <View style={styles.emptyContainer}>
@@ -20,7 +22,11 @@ export default function CartDrawerList({ cart, isDark, onClose }) {
   }
 
   return (
-    <ScrollView style={styles.list} contentContainerStyle={styles.listContent}>
+    <ScrollView 
+      style={styles.list} 
+      contentContainerStyle={styles.listContent}
+      refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
+    >
       {cart.items.map((item) => (
         <CartDrawerItem
           key={item.id}

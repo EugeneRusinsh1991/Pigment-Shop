@@ -1,9 +1,10 @@
 import React, { useCallback } from 'react';
-import { FlatList, StyleSheet, View } from 'react-native';
+import { FlatList, StyleSheet, View, RefreshControl } from 'react-native';
 import { Link } from 'expo-router';
 import ProductCard from '../product/ProductCard';
 import ProductCardSkeleton from '../product/ProductCardSkeleton';
 import { layout } from '../../theme/tokens';
+import usePullToRefresh from '../../hooks/usePullToRefresh';
 
 import { EmptyState as GlobalEmptyState } from '../../components/ui/Feedback';
 
@@ -31,6 +32,7 @@ function getGridStyle(isNarrow, gridWidth) {
 export default function ProductGrid({ products, cols, cardWidth, isDark, onCardPress, favs, emptyLabel, listHeader, listFooter, isNarrow, gridWidth, gap = layout.spacing.lg, loading }) {
   const itemWidth = `${(100 / cols).toFixed(4)}%`;
   const gridGap = gap ?? layout.spacing.lg;
+  const { refreshing, onRefresh } = usePullToRefresh();
 
   const renderItem = useCallback(
     ({ item }) => (
@@ -59,6 +61,7 @@ export default function ProductGrid({ products, cols, cardWidth, isDark, onCardP
 
   return (
     <FlatList
+      refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
       data={displayData}
       keyExtractor={(item) => item.id}
       numColumns={cols}
