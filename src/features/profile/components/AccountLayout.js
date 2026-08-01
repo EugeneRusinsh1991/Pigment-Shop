@@ -3,12 +3,14 @@ import { View } from 'react-native';
 import { ScrollFadeUp } from '../../../components/ui/Motion';
 import { Heading } from '../../../components/ui/Text';
 import useGridLayout from '../../../hooks/useGridLayout';
+import usePullToRefresh from '../../../hooks/usePullToRefresh';
 
 import ProfileSidebar from './ProfileSidebar';
 import styles from './AccountLayoutStyles';
 
 export default function AccountLayout({ title, children, isDark, auth }) {
   const { isWide, gridWidth } = useGridLayout();
+  usePullToRefresh();
 
   return (
     <View

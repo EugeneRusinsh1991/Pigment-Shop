@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import { SkeletonLoader, ProductDetailSkeleton } from '../../components/ui/Feedback';
 import { ScrollFadeUp } from '../../components/ui/Motion';
 import { useProductPageState } from '../../hooks/useProductPageState';
+import usePullToRefresh from '../../hooks/usePullToRefresh';
 
 import { ProductImagePanel } from './ProductImagePanel';
 import { ProductInfoPanel } from './ProductInfoPanel';
@@ -52,6 +53,7 @@ function ProductDetails({ product, isWide, isDark, qty, onDecreaseQty, onIncreas
 
 export default function ProductPage({ product: initialProduct, isDark, showNavigation = true, onBack, isFromAllProducts: isFromAllProductsProp }) {
   const state = useProductPageState({ initialProduct, onBack, isFromAllProductsProp });
+  usePullToRefresh();
 
   if (!state.product) {
     return (

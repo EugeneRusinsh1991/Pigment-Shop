@@ -17,6 +17,7 @@ export default function UnifiedCardGrid({
   contentContainerStyle,
   style,
   onRefresh: onRefreshProp,
+  disableRefreshControl = false,
   ...rest
 }) {
   const itemWidth = `${(100 / cols).toFixed(4)}%`;
@@ -40,9 +41,12 @@ export default function UnifiedCardGrid({
   };
 
   if (variant === 'flatlist') {
+    const refreshControlProp = disableRefreshControl
+      ? {}
+      : { refreshControl: <RefreshControl refreshing={refreshing} onRefresh={onRefresh} /> };
     return (
       <FlatList
-        refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
+        {...refreshControlProp}
         data={data}
         numColumns={cols}
         renderItem={renderWrappedItem}

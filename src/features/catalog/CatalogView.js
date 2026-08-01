@@ -5,6 +5,7 @@ import { useLanguage } from '../../context/LanguageContext';
 import styles from '../../theme/appStyles';
 import { layout } from '../../theme/tokens';
 import { useFavoritesContext } from '../favorites/FavoritesContext';
+import usePullToRefresh from '../../hooks/usePullToRefresh';
 
 import { PageNavigation } from '@/components/domain/Navigation';
 import UnifiedCardGrid from '../../components/ui/Grid/UnifiedCardGrid';
@@ -53,6 +54,7 @@ export default function CatalogView({
   const favs = useFavoritesContext();
   const router = useRouter();
   const { flatList, categoryLookup } = useCatalog();
+  usePullToRefresh();
 
   const {
     depth,
@@ -145,6 +147,7 @@ export default function CatalogView({
           maxToRenderPerBatch={8}
           scrollEnabled={false}
           removeClippedSubviews={false}
+          disableRefreshControl
         />
       ) : (
         <View

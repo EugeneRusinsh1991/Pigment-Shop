@@ -45,20 +45,20 @@ Due to the verified failure of `react-native-web`'s `RefreshControl`, the sole i
 
 ### **Task List for Execution**
 
-- [ ] **1. Add Web-Only `useEffect`** `○ FL — 1d 1f +0r`
+- [x] **1. Add Web-Only `useEffect`** `○ FL — 1d 1f +0r`
   - Inside `usePullToRefresh`, add a `useEffect` that returns early if `Platform.OS !== 'web'`.
-- [ ] **2. Track Touch State** `○ FL — 1d 1f +0r`
+- [x] **2. Track Touch State** `○ FL — 1d 1f +0r`
   - Use `useRef` to track `startY` (from `touchstart`), `currentY` (from `touchmove`), and a boolean flag for whether the pull gesture is valid (started at `window.scrollY === 0`).
-- [ ] **3. Implement `touchstart` Handler** `○ FL — 1d 1f +0r`
+- [x] **3. Implement `touchstart` Handler** `○ FL — 1d 1f +0r`
   - Record the starting `clientY` coordinate.
   - Verify that `window.scrollY === 0` (the user is at the top of the page).
-- [ ] **4. Implement `touchmove` Handler** `○ FL — 1d 1f +0r`
+- [x] **4. Implement `touchmove` Handler** `○ FL — 1d 1f +0r`
   - Calculate the downward delta (`clientY - startY`).
   - Do nothing if the user is scrolling up.
-- [ ] **5. Implement `touchend` Handler** `○ FL — 1d 1f +0r`
+- [x] **5. Implement `touchend` Handler** `○ FL — 1d 1f +0r`
   - If the delta exceeds a threshold (e.g., `80px`), invoke the existing `onRefresh` callback.
   - Reset touch state refs.
-- [ ] **6. Bind & Cleanup Listeners** `○ FL — 1d 1f +0r`
+- [x] **6. Bind & Cleanup Listeners** `○ FL — 1d 1f +0r`
   - Attach listeners to `window` or `document` (`addEventListener('touchstart', ...)`).
   - Ensure `removeEventListener` is returned in the `useEffect` cleanup to prevent memory leaks and duplicate handlers.
 
@@ -75,16 +75,16 @@ Currently, multiple components independently bind `document`-level listeners, wh
   - [x] Update `useWebPullToRefresh` to use a singleton pattern or active-listener locking to prevent double-firing when multiple hooks mount.
   - [x] Add support for passing a `scrollViewRef` to check the local offset instead of `window.scrollY` for overlay components.
 
-### Phase 2: Shared Layout Integration
+### ~~Phase 2: Shared Layout Integration~~ [COMPLETED]
 Prioritize adding the hook to shared layout wrappers to instantly cover the majority of missing screens.
 - **Target File**: `src/features/profile/components/AccountLayout.js`
   - **Covers**: Profile (`/profile`), Orders (`/orders`), Favorites (`/favorites`).
-  - **Actions**: Import and call `usePullToRefresh` at the layout root.
+  - **Actions**: Import and call `usePullToRefresh` at the layout root. ✅
 - **Target File**: `src/features/shell/PageScrollLayout/PageScrollLayout.js`
   - **Covers**: Cart Full Page (`/cart`), Order Confirmation (`/order-confirmation`).
-  - **Actions**: Import and call `usePullToRefresh` at the layout root.
+  - **Actions**: Import and call `usePullToRefresh` at the layout root. ✅
 
-### Phase 3: High-Priority Standalone Screens
+### ~~Phase 3: High-Priority Standalone Screens~~ [COMPLETED]
 Address screens that manage their own layouts or bypass the components that contain the hook.
 - **Target File**: `src/features/catalog/CatalogView.js`
   - **Covers**: Home (`/`) and specific Catalog routes.
@@ -96,7 +96,7 @@ Address screens that manage their own layouts or bypass the components that cont
   - **Covers**: Contact Us (`/contact`).
   - **Actions**: Add `usePullToRefresh` to the root container.
 
-### Phase 4: Resolution of Problematic Integrations
+### ~~Phase 4: Resolution of Problematic Integrations~~ [COMPLETED]
 Fix screens that already have the hook but exhibit issues.
 - **Target File**: `src/features/cart/CartDrawer/CartDrawerList.js`
   - **Issue**: Uses an independent `ScrollView`, causing the `document`-level listener to misfire or conflict.

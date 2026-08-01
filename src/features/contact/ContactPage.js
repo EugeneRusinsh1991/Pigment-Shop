@@ -4,6 +4,7 @@ import commonStyles from '../../theme/commonStyles';
 import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
 import { layout } from '../../theme/tokens';
+import usePullToRefresh from '../../hooks/usePullToRefresh';
 import ContactAuxiliarySection from './ContactAuxiliarySection';
 import ContactFormSection from './ContactFormSection';
 import ContactInfoSection from './ContactInfoSection';
@@ -46,6 +47,7 @@ export default function ContactPage({ isDark }) {
   const { t } = useLanguage();
   const { width: windowWidth } = useWindowDimensions();
   const isMultiCol = windowWidth >= layout.breakpoints.mobile;
+  usePullToRefresh();
 
   return (
     <View

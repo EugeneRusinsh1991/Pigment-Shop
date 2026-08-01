@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { StyleSheet, View, ScrollView, RefreshControl } from 'react-native';
 import usePullToRefresh from '@/hooks/usePullToRefresh';
 import { EmptyState } from '@/components/ui/Feedback';
@@ -7,7 +7,8 @@ import { layout } from '@/theme/tokens';
 import CartDrawerItem from './CartDrawerItem';
 
 export default function CartDrawerList({ cart, isDark, onClose, onRefresh: onRefreshProp }) {
-  const { refreshing, onRefresh } = usePullToRefresh(onRefreshProp);
+  const scrollRef = useRef(null);
+  const { refreshing, onRefresh } = usePullToRefresh(onRefreshProp, { scrollViewRef: scrollRef });
   if (!cart?.items?.length) {
     return (
       <View style={styles.emptyContainer}>
@@ -23,6 +24,7 @@ export default function CartDrawerList({ cart, isDark, onClose, onRefresh: onRef
 
   return (
     <ScrollView 
+      ref={scrollRef}
       style={styles.list} 
       contentContainerStyle={styles.listContent}
       refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
