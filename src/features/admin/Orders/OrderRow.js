@@ -5,7 +5,7 @@ import { Badge } from '@/components/ui/Badge';
 import { AnimatedButton } from '@/components/ui/Button';
 import { DataTableCell, DataTableRow } from '@/components/domain/DataTable/DataTable';
 import { Text } from '@/components/ui/Text';
-import { View, Platform, Text as RNText } from 'react-native';
+import { View, Platform } from 'react-native';
 import { useLanguage } from '../../../context/LanguageContext';
 import { formatDateShortWithTime } from '../../../utils/dateFormatting';
 import { resolveStatusDef } from '../../../utils/orderStatus';
@@ -45,7 +45,7 @@ function CommentIcon({ filled, color, size = 12 }) {
       </svg>
     );
   }
-  return <RNText style={{ color, fontSize: size }}>💬</RNText>;
+  return <Text size={size} style={{ color }}>💬</Text>;
 }
 
 function NoteIcon({ filled, color, size = 12 }) {
@@ -57,7 +57,7 @@ function NoteIcon({ filled, color, size = 12 }) {
       </svg>
     );
   }
-  return <RNText style={{ color, fontSize: size }}>📝</RNText>;
+  return <Text size={size} style={{ color }}>📝</Text>;
 }
 
 function NoteIndicator({ hasNote, label, type }) {

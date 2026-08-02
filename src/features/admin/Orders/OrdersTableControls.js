@@ -106,7 +106,12 @@ export function StatusFilterBar({ t, activeFilter, onSelectFilter, count, isDark
               <Heading level={4} isDark={isDark}>
                 {t('catalogFilters') || 'Filter'}
               </Heading>
-              <TouchableOpacity onPress={() => setModalVisible(false)} hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}>
+              <TouchableOpacity
+                onPress={() => setModalVisible(false)}
+                hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
+                accessibilityRole="button"
+                accessibilityLabel={t('close') || 'Close'}
+              >
                 <CrossIcon size={18} color={isDark ? colors.textDark : colors.dark} />
               </TouchableOpacity>
             </View>

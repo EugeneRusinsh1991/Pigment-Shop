@@ -5,6 +5,7 @@ import { usePullToRefreshContext } from '../features/shell/PullToRefreshContext'
 
 const PULL_THRESHOLD = 80;
 const MAX_PULL = 140;
+const REFRESH_SETTLE_DELAY_MS = 300;
 
 // Global registry for pull-to-refresh handlers
 const activeHandlers = [];
@@ -128,7 +129,7 @@ export default function usePullToRefresh(customRefresh = null, options = {}) {
         console.warn('[usePullToRefresh] No customRefresh handler provided.');
       }
     } finally {
-      setTimeout(() => setRefreshing(false), 300);
+      setTimeout(() => setRefreshing(false), REFRESH_SETTLE_DELAY_MS);
     }
   }, [customRefresh, setRefreshing, options.isDynamicRoute, options.strategy]);
 

@@ -153,7 +153,7 @@ export default StyleSheet.create({
   subtextLight: { color: colors.secondaryLightText },
   adminBtn: {
     paddingVertical: layout.spacing.xs,
-    paddingHorizontal: layout.spacing.xs + 4,
+    paddingHorizontal: layout.spacing.md,
     borderRadius: layout.radii.xs,
     borderWidth: layout.borderWidth.thin,
     flexDirection: 'row',
@@ -171,7 +171,6 @@ export default StyleSheet.create({
   logoWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: -8,
   },
   logoImage: {
     width: 140,
@@ -181,11 +180,11 @@ export default StyleSheet.create({
     minWidth: 0,
   },
   betaBadge: {
-    paddingHorizontal: layout.spacing.xs + 4,
+    paddingHorizontal: layout.spacing.md,
     paddingVertical: layout.spacing.xxs,
     borderRadius: layout.radii.iconBtn,
     borderWidth: layout.borderWidth.thick,
-    marginLeft: -8,
+    marginLeft: -layout.spacing.sm,
   },
   betaBadgeDark: {
     backgroundColor: colors.dangerDarkShellBg,

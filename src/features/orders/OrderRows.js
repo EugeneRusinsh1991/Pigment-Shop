@@ -1,6 +1,6 @@
 import { StyleSheet, View } from 'react-native';
 import { Text } from '../../components/ui/Text';
-import { colors, layout, primitives, typography } from '../../theme/tokens';
+import { colors, layout, primitives } from '../../theme/tokens';
 import { getLocalizedValue } from '../../utils/localization';
 
 function getProductLabel(item, flatList, lang) {
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
   itemRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: layout.spacing.md + layout.spacing.xxxs,
+    paddingVertical: layout.spacing.md,
     paddingHorizontal: layout.spacing.xs,
     borderBottomWidth: layout.borderWidth.thin,
   },
@@ -102,14 +102,12 @@ const styles = StyleSheet.create({
     borderBottomWidth: layout.borderWidth.none,
   },
   textCell: {},
-  subtextCell: {
-    fontSize: typography.sizes.body2,
-  },
+  subtextCell: {},
   textRight: {
     textAlign: 'right',
   },
   orderIdBadge: {
-    paddingHorizontal: layout.spacing.sm + layout.spacing.xxxs,
+    paddingHorizontal: layout.spacing.sm,
     paddingVertical: layout.spacing.xxs,
     borderRadius: layout.radii.xs,
     borderWidth: layout.borderWidth.thin,
@@ -124,11 +122,9 @@ const styles = StyleSheet.create({
   },
   orderIdTextLight: {
     color: primitives.slate[800],
-    letterSpacing: 0.5,
   },
   orderIdTextDark: {
     color: primitives.slate[200],
-    letterSpacing: 0.5,
   },
   qtyBadge: {
     paddingHorizontal: layout.spacing.sm,
@@ -152,11 +148,9 @@ const styles = StyleSheet.create({
   },
   priceTextLight: {
     color: primitives.slate[900],
-    fontSize: typography.sizes.lg - 2,
   },
   priceTextDark: {
     color: primitives.slate[50],
-    fontSize: typography.sizes.lg - 2,
   },
 });
 

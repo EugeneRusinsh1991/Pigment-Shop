@@ -162,5 +162,5 @@ export default StyleSheet.create({
   footerBrandSubLight: { color: colors.secondaryDarkText },
   flexOne: { flex: 1 },
   narrowContent: { alignSelf: 'center', maxWidth: '100%', paddingHorizontal: layout.spacing.lg },
-  bottomSpacer: { height: 40 },
+  bottomSpacer: { height: layout.spacing.xxl },
 });

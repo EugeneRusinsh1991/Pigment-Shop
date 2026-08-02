@@ -98,7 +98,7 @@ export default StyleSheet.create({
     backgroundColor: colors.accent,
     borderRadius: layout.radii.full,
     paddingHorizontal: layout.spacing.xxl,
-    paddingVertical: layout.spacing.md + layout.spacing.xxs,
+    paddingVertical: layout.spacing.lg,
   },
   heroBtnText: {
     color: colors.white,

@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
   itemsHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: 10,
+    paddingVertical: layout.spacing.sm,
     paddingHorizontal: layout.spacing.xs,
     borderRadius: layout.radii.xs,
     marginTop: layout.spacing.md,
@@ -115,8 +115,6 @@ const styles = StyleSheet.create({
     backgroundColor: primitives.slate[800],
   },
   headerText: {
-    fontSize: 11,
-    letterSpacing: 0.5,
     textTransform: 'uppercase',
   },
   itemsListContainer: {

@@ -8,13 +8,15 @@ import usePullToRefresh from '../../../hooks/usePullToRefresh';
 import ProfileSidebar from './ProfileSidebar';
 import styles from './AccountLayoutStyles';
 
+const MOCK_REFRESH_DELAY_MS = 600;
+
 export default function AccountLayout({ title, children, isDark, auth }) {
   const { isWide, gridWidth } = useGridLayout();
   const { width: windowWidth } = useWindowDimensions();
   const isTablet = windowWidth >= layout.breakpoints.mobile && windowWidth < layout.breakpoints.desktop;
 
   usePullToRefresh(
-    async () => { await new Promise(r => setTimeout(r, 600)); }
+    async () => { await new Promise(r => setTimeout(r, MOCK_REFRESH_DELAY_MS)); }
   );
 
   return (

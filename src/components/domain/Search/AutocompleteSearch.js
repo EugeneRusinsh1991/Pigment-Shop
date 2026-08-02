@@ -5,6 +5,8 @@ import SearchDropdown from './SearchDropdown';
 import SearchInput from './SearchInput';
 import SearchStyles from './SearchStyles';
 
+const BLUR_DISMISS_DELAY_MS = 200;
+
 function matchItem(tokens, queryWords) {
   if (!tokens) return false;
   return queryWords.every((qWord) => tokens.some((pWord) => pWord.startsWith(qWord)));
@@ -161,7 +163,7 @@ export function AutocompleteSearch({ isDark, onActiveChange, variant = 'default'
         }}
         onBlur={() => {
           // Keep active long enough for item presses to register
-          setTimeout(() => setIsFocused(false), 200);
+          setTimeout(() => setIsFocused(false), BLUR_DISMISS_DELAY_MS);
         }}
         onSubmitEditing={handleSubmit}
       />

@@ -14,7 +14,7 @@ export default StyleSheet.create({
     backgroundColor: colors.backgroundLight,
   },
   scroll: {
-    paddingBottom: layout.spacing.xxl + 28,
+    paddingBottom: layout.spacing.xxl,
   },
   wideRow: {
     flexDirection: 'row',
@@ -56,7 +56,7 @@ export default StyleSheet.create({
     marginBottom: layout.spacing.xxs,
   },
   priceText: {
-    marginBottom: layout.spacing.sm + 2,
+    marginBottom: layout.spacing.md,
   },
   description: {
     marginBottom: layout.spacing.md,
@@ -116,7 +116,7 @@ export default StyleSheet.create({
   cartBtnMobile: {
     flex: 1,
     minWidth: 0,
-    paddingHorizontal: layout.spacing.lg + 4,
+    paddingHorizontal: layout.spacing.xl,
   },
   cartBtnText: {
     color: colors.white,
@@ -271,7 +271,7 @@ export default StyleSheet.create({
     paddingBottom: layout.spacing.xl,
   },
   loadingRoot: {
-    padding: layout.spacing.xxl + layout.spacing.sm,
+    padding: layout.spacing.xxl,
     alignItems: 'center',
     flex: 1,
     minHeight: '100%',
@@ -282,7 +282,7 @@ export default StyleSheet.create({
     paddingBottom: layout.spacing.none,
   },
   bottomSpacer: {
-    height: layout.spacing.xxl + layout.spacing.sm,
+    height: layout.spacing.xxl,
   },
 
   // Thumbnail Slot & Bar Styles

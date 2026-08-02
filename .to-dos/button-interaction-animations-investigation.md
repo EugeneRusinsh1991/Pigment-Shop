@@ -3,6 +3,7 @@
 **Target File:** `file:///d:/Magazine/_PigmentShop/.to-dos/button-interaction-animations-investigation.md`  
 **Status:** Complete Audit & Technical Specification (No Implementation Executed)  
 **Date:** August 2, 2026  
+**Model Recommendation:** ★ PH — 4d 7f +8r  
 
 ---
 
@@ -152,11 +153,16 @@ export const motion = {
       fullWidth: 0.988, // Full-width CTAs (Checkout, Add to Cart)
     },
 
-    // Bi-directional state change pop scale factors
+    // Bi-directional state change pop scale factors & semantic intent aliases
     pop: {
-      add: 1.20,      // Positive state change (e.g. Favorite added)
-      remove: 0.85,   // Negative state change (e.g. Favorite removed)
-      duration: 80,   // Timing step duration in ms
+      // Primary intents
+      activate: 1.20,   // Positive state change (e.g. Favorite added, Toggle ON)
+      deactivate: 0.85, // Negative state change (e.g. Favorite removed, Toggle OFF)
+      pulse: 1.12,      // Attention/feedback pulse without state shift
+      // Legacy domain aliases for backward compatibility
+      add: 1.20,
+      remove: 0.85,
+      duration: 80,     // Timing step duration in ms
     },
 
     // Unified spring physics profiles
@@ -218,11 +224,16 @@ export const motion = {
 ### 7.1 Interface Specification
 
 ```typescript
+type PopIntent = 'activate' | 'deactivate' | 'add' | 'remove' | 'pulse';
+type PhysicsPreset = 'snappy' | 'gentle';
+
 interface UseInteractionAnimationOptions {
-  size?: 'sm' | 'md' | 'lg' | 'circular' | number;
+  size?: 'sm' | 'md' | 'lg' | 'circular' | string | number;
   fullWidth?: boolean;
   disabled?: boolean;
   loading?: boolean;
+  reduceMotion?: boolean;
+  physicsPreset?: PhysicsPreset;
   activeOpacity?: number;
   customScaleTo?: number;
   onPress?: (e: any) => void;
@@ -236,7 +247,7 @@ interface UseInteractionAnimationReturn {
   handlePressIn: (e: any) => void;
   handlePressOut: (e: any) => void;
   handlePress: (e: any) => void;
-  triggerStatePop: (direction: 'add' | 'remove') => void;
+  triggerStatePop: (intent?: PopIntent) => void;
 }
 ```
 
@@ -252,6 +263,8 @@ export function useInteractionAnimation({
   fullWidth = false,
   disabled = false,
   loading = false,
+  reduceMotion = false,
+  physicsPreset = 'snappy',
   activeOpacity = motion.interaction.opacity.pressed,
   customScaleTo,
   onPress,
@@ -263,14 +276,21 @@ export function useInteractionAnimation({
 
   // Resolve target press scale based on button size tier & geometry
   const resolvedScaleTo = useCallback(() => {
+    if (reduceMotion) return 1;
     if (customScaleTo !== undefined) return customScaleTo;
     if (fullWidth) return motion.interaction.scale.fullWidth;
     if (size === 'circular' || typeof size === 'number') return motion.interaction.scale.circular;
     return motion.interaction.scale[size] || motion.interaction.scale.md;
-  }, [size, fullWidth, customScaleTo]);
+  }, [size, fullWidth, customScaleTo, reduceMotion]);
+
+  // Resolve spring physics configuration
+  const physicsConfig = motion.interaction.physics[physicsPreset] || motion.interaction.physics.snappy;
 
   const handlePressIn = useCallback((e) => {
     if (!disabled && !loading) {
+      scaleAnim.stopAnimation();
+      opacityAnim.stopAnimation();
+
       Animated.parallel([
         Animated.timing(opacityAnim, {
           toValue: activeOpacity,
@@ -285,10 +305,13 @@ export function useInteractionAnimation({
       ]).start();
     }
     if (onPressIn) onPressIn(e);
-  }, [disabled, loading, activeOpacity, resolvedScaleTo, onPressIn]);
+  }, [disabled, loading, activeOpacity, resolvedScaleTo, onPressIn, scaleAnim, opacityAnim]);
 
   const handlePressOut = useCallback((e) => {
     if (!disabled && !loading) {
+      scaleAnim.stopAnimation();
+      opacityAnim.stopAnimation();
+
       Animated.parallel([
         Animated.timing(opacityAnim, {
           toValue: 1,
@@ -297,22 +320,22 @@ export function useInteractionAnimation({
         }),
         Animated.spring(scaleAnim, {
           toValue: 1,
-          tension: motion.interaction.physics.snappy.tension,
-          friction: motion.interaction.physics.snappy.friction,
+          tension: physicsConfig.tension,
+          friction: physicsConfig.friction,
           useNativeDriver: Platform.OS !== 'web',
         }),
       ]).start();
     }
     if (onPressOut) onPressOut(e);
-  }, [disabled, loading, onPressOut]);
+  }, [disabled, loading, physicsConfig, onPressOut, scaleAnim, opacityAnim]);
 
-  // Bi-directional state animation trigger
-  const triggerStatePop = useCallback((direction = 'add') => {
-    if (disabled || loading) return;
+  // Bi-directional state animation trigger with interruption protection
+  const triggerStatePop = useCallback((intent = 'activate') => {
+    if (disabled || loading || reduceMotion) return;
 
-    const targetPopScale = direction === 'add'
-      ? motion.interaction.pop.add
-      : motion.interaction.pop.remove;
+    const targetPopScale = motion.interaction.pop[intent] || motion.interaction.pop.activate;
+
+    scaleAnim.stopAnimation();
 
     Animated.sequence([
       Animated.timing(scaleAnim, {
@@ -322,12 +345,12 @@ export function useInteractionAnimation({
       }),
       Animated.spring(scaleAnim, {
         toValue: 1,
-        tension: motion.interaction.physics.snappy.tension,
-        friction: motion.interaction.physics.snappy.friction,
+        tension: physicsConfig.tension,
+        friction: physicsConfig.friction,
         useNativeDriver: Platform.OS !== 'web',
       }),
     ]).start();
-  }, [disabled, loading]);
+  }, [disabled, loading, reduceMotion, physicsConfig, scaleAnim]);
 
   const handlePress = useCallback((e) => {
     if (disabled || loading) return;
@@ -369,9 +392,9 @@ export function FavoriteActionButton({ isFavorite, onToggle, ...props }) {
   useEffect(() => {
     if (prevFav.current !== isFavorite) {
       if (isFavorite) {
-        triggerStatePop('add');     // Scale pop (1.0 -> 1.20 -> 1.0)
+        triggerStatePop('activate');    // Scale pop (1.0 -> 1.20 -> 1.0)
       } else {
-        triggerStatePop('remove');  // Contract pop (1.0 -> 0.85 -> 1.0)
+        triggerStatePop('deactivate');  // Contract pop (1.0 -> 0.85 -> 1.0)
       }
     }
     prevFav.current = isFavorite;
@@ -407,19 +430,19 @@ In [`src/components/ui/Button/Button.js`](file:///d:/Magazine/_PigmentShop/src/c
 
 The following task breakdown outlines the required execution steps for future implementation phase:
 
-### Phase 1: Design Tokens Update
+### Phase 1: Design Tokens Update (`◐ FM — 1d 1f +1r`)
 - [ ] Add `motion.interaction` schema to [`src/theme/layout.js`](file:///d:/Magazine/_PigmentShop/src/theme/layout.js).
 - [ ] Maintain backward-compatibility bridges for legacy `motion.press`.
 
-### Phase 2: Core Hook Implementation
+### Phase 2: Core Hook Implementation (`◐ FM — 1d 2f +2r`)
 - [ ] Create `useInteractionAnimation.js` in [`src/components/ui/Button/`](file:///d:/Magazine/_PigmentShop/src/components/ui/Button/).
 - [ ] Add unit tests for hook event callbacks and state pop sequence triggers.
 
-### Phase 3: Component Migration
+### Phase 3: Component Migration (`◕ FH — 2d 4f +4r`)
 - [ ] Migrate [`Button.js`](file:///d:/Magazine/_PigmentShop/src/components/ui/Button/Button.js) to consume `useInteractionAnimation`.
 - [ ] Migrate [`CircularActionButton.js`](file:///d:/Magazine/_PigmentShop/src/components/ui/Button/CircularActionButton.js) (`FavoriteActionButton`, `CartActionButton`) to consume `useInteractionAnimation`.
 - [ ] Deprecate `useButtonAnimation.js` and `usePopAnimation.js` after verifying clean adoption.
 
-### Phase 4: Verification & Testing
+### Phase 4: Verification & Testing (`◐ FM — 1d 1f +3r`)
 - [ ] Verify favorite add pop (1.20x) and remove contract (0.85x) animations on desktop web and mobile.
 - [ ] Verify primary action buttons (`Add to Cart`, `Checkout`) across resolutions for tactile responsiveness.

@@ -57,5 +57,5 @@ export default StyleSheet.create({
   },
   flex1: { flex: 1 },
   contentWrapper: { alignSelf: 'center', width: '100%' },
-  bottomSpacer: { height: layout.spacing.xxl + layout.spacing.sm },
+  bottomSpacer: { height: layout.spacing.xxl },
 });

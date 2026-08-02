@@ -19,6 +19,8 @@ import {
 
 export const CatalogContext = createContext(null);
 
+const MOCK_REFRESH_DELAY_MS = 600;
+
 export function CatalogProvider({ children }) {
   const products   = useSyncExternalStore(subscribe, getProducts);
   const categories = useSyncExternalStore(subscribe, getCategories);
@@ -66,7 +68,7 @@ export function CatalogProvider({ children }) {
 
   // Acknowledged mock refresh implementation. Real data refetch should be connected here in a future phase.
   const refreshCatalog = useCallback(async () => {
-    await new Promise((resolve) => setTimeout(resolve, 600));
+    await new Promise((resolve) => setTimeout(resolve, MOCK_REFRESH_DELAY_MS));
   }, []);
 
   const value = useMemo(() => ({ 

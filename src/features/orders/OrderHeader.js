@@ -68,7 +68,6 @@ const styles = StyleSheet.create({
   subtitle: {
     textAlign: 'center',
     maxWidth: 420,
-    lineHeight: 22,
   },
 });
 
