@@ -1,6 +1,6 @@
 # 📄 Small & Pass-Through Files Findings
 
-*Generated on: 01.08.2026, 20:09:37*
+*Generated on: 02.08.2026, 11:16:19*
 
 ### Candidate Files for Refactoring/Elimination
 
@@ -46,6 +46,10 @@
 
 - **[envValidator.ts](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/helpers/envValidator.ts)** (`automation/browser-automation/helpers/envValidator.ts`)
   - Lines: 18 | Size: 468 B | Type: **Tiny File**
+  > 💡 This file contains very few lines; review if it adds unnecessary system noise.
+
+- **[inspect-product-data.mjs](file:///d:/Magazine/_PigmentShop/.tools/scripts/inspect-product-data.mjs)** (`scripts/inspect-product-data.mjs`)
+  - Lines: 20 | Size: 742 B | Type: **Tiny File**
   > 💡 This file contains very few lines; review if it adds unnecessary system noise.
 
 - **[devServerHelper.ts](file:///d:/Magazine/_PigmentShop/.tools/automation/browser-automation/helpers/devServerHelper.ts)** (`automation/browser-automation/helpers/devServerHelper.ts`)

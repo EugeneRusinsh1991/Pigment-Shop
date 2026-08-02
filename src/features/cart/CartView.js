@@ -38,7 +38,7 @@ export default function CartView({ isDark: isDarkProp }) {
     t 
   });
 
-  const isWide = windowWidth >= layout.breakpoints.mobile;
+  const isWide = windowWidth >= 880;
   const { totalPrice, totalItems } = calculateTotals();
 
   const handleCheckout = () => {

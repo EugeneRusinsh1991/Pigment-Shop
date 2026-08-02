@@ -21,6 +21,11 @@ export default StyleSheet.create({
     padding: layout.spacing.xxl,
     gap: layout.spacing.xxl,
   },
+  wideRowTablet: {
+    flexDirection: 'row',
+    padding: layout.spacing.xl,
+    gap: layout.spacing.xl,
+  },
   narrowStack: {
     paddingHorizontal: layout.spacing.lg,
     paddingTop: layout.spacing.sm,
@@ -160,6 +165,9 @@ export default StyleSheet.create({
   },
   carouselContainerWide: {
     height: 500,
+  },
+  carouselContainerTablet: {
+    height: 380,
   },
   imageFill: {
     position: 'absolute',

@@ -45,7 +45,7 @@ export default function ContactPage({ isDark }) {
   const { ic } = useTheme();
   const { t } = useLanguage();
   const { width: windowWidth } = useWindowDimensions();
-  const isMultiCol = windowWidth >= layout.breakpoints.mobile;
+  const isMultiCol = windowWidth >= layout.breakpoints.desktop;
 
   return (
     <View

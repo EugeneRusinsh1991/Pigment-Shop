@@ -1,5 +1,5 @@
-import React, { useCallback } from 'react';
-import { View, Animated } from 'react-native';
+import { useWindowDimensions, View, Animated } from 'react-native';
+import { layout } from '../../theme/tokens';
 import { Text } from '../../components/ui/Text/Text';
 import styles from './ProductPageStyles';
 import MediaRenderer from '../../components/ui/Media/MediaRenderer';
@@ -89,6 +89,8 @@ function ProductFavoriteBtn({ isWide, isDark, isFavorite, onToggleFavorite, prod
 }
 
 export function ProductImagePanel({ product, isWide, isFavorite, onToggleFavorite, isDark }) {
+  const { width: windowWidth } = useWindowDimensions();
+  const isTablet = windowWidth >= layout.breakpoints.mobile && windowWidth < layout.breakpoints.desktop;
   const images = getRawProductImages(product);
   const {
     currentIndex,
@@ -103,7 +105,7 @@ export function ProductImagePanel({ product, isWide, isFavorite, onToggleFavorit
 
   return (
     <View style={[styles.imageArea, isWide && styles.imageAreaWide]}>
-      <View style={[styles.carouselContainer, isWide && styles.carouselContainerWide]}>
+      <View style={[styles.carouselContainer, isTablet ? styles.carouselContainerTablet : isWide && styles.carouselContainerWide]}>
         <ProductGalleryLayers
           images={images}
           currentIndex={currentIndex}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Platform, StyleSheet } from 'react-native';
-import { primitives, semantic, shadows } from '../../../theme/tokens';
+import { layout, primitives, semantic, shadows } from '../../../theme/tokens';
 import { useTheme } from '../../../context/ThemeContext';
 import { usePullToRefreshContext } from '../../../features/shell/PullToRefreshContext';
 
@@ -103,11 +103,11 @@ export default function PullToRefreshIndicator({
 const styles = StyleSheet.create({
   nativeContainer: {
     position: 'absolute',
-    top: 0,
+    top: layout.spacing.none,
     alignSelf: 'center',
     width: 36,
     height: 36,
-    borderRadius: 18,
+    borderRadius: layout.radii.full,
     alignItems: 'center',
     justifyContent: 'center',
     zIndex: 9999,

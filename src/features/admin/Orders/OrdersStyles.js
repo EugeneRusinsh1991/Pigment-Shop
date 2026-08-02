@@ -103,7 +103,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: layout.spacing.xs + 2,
-    paddingVertical: 2,
+    paddingVertical: layout.spacing.xxxs,
     borderRadius: layout.radii.xs,
     borderWidth: layout.borderWidth.thin,
   },

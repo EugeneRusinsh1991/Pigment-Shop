@@ -93,7 +93,12 @@ function getBreakoutStyle(isWide, windowWidth) {
 
 export function getCarouselBaseStyle(isWide, windowWidth) {
   const breakoutStyle = getBreakoutStyle(isWide, windowWidth);
-  const responsiveStyle = isWide ? globalStyles.heroRightWide : globalStyles.heroRightMobile;
+  const isTablet = windowWidth && windowWidth >= layout.breakpoints.mobile && windowWidth < layout.breakpoints.desktop;
+  const responsiveStyle = isTablet
+    ? { height: 280 }
+    : isWide
+      ? globalStyles.heroRightWide
+      : globalStyles.heroRightMobile;
   return [globalStyles.heroRight, responsiveStyle, breakoutStyle];
 }
 

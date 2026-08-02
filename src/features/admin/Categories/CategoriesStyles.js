@@ -250,7 +250,7 @@ export default StyleSheet.create({
   },
   mobileContentCol: {
     flex: 1,
-    gap: 2,
+    gap: layout.spacing.xxxs,
   },
   mobileRowMain: {
     flexDirection: 'row',
@@ -262,6 +262,6 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: layout.spacing.xs,
-    marginTop: 1,
+    marginTop: layout.borderWidth.thin,
   },
 });

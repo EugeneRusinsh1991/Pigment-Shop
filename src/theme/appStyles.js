@@ -159,6 +159,6 @@ export default StyleSheet.create({
     width: '100%',
     minWidth: 0,
     overflow: 'visible',
-    paddingHorizontal: layout.spacing.lg,
+    paddingHorizontal: layout.spacing.none,
   },
 });

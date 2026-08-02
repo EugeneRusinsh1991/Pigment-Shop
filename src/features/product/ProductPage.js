@@ -1,5 +1,6 @@
 import { PageNavigation } from '@/components/domain/Navigation';
-import { View } from 'react-native';
+import { useWindowDimensions, View } from 'react-native';
+import { layout } from '../../theme/tokens';
 import { SkeletonLoader, ProductDetailSkeleton } from '../../components/ui/Feedback';
 import { ScrollFadeUp } from '../../components/ui/Motion';
 import { useProductPageState } from '../../hooks/useProductPageState';
@@ -25,8 +26,12 @@ function ProductPageHeader({ showNavigation, gridWidth, isDark, onBack, showBrea
 }
 
 function ProductDetails({ product, isWide, isDark, qty, onDecreaseQty, onIncreaseQty, onAddToCart, isFavorite, onToggleFavorite, reviewsState }) {
+  const { width: windowWidth } = useWindowDimensions();
+  const isTablet = windowWidth >= layout.breakpoints.mobile && windowWidth < layout.breakpoints.desktop;
+  const containerStyle = isTablet ? styles.wideRowTablet : (isWide ? styles.wideRow : styles.narrowStack);
+
   return (
-    <View style={[isWide ? styles.wideRow : styles.narrowStack]}>
+    <View style={containerStyle}>
       <ProductImagePanel
         product={product}
         isWide={isWide}

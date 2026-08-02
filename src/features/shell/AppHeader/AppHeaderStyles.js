@@ -31,7 +31,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     minWidth: 0,
-    paddingHorizontal: layout.spacing.md,
+    paddingHorizontal: layout.spacing.none,
   },
   leftSec: {
     flexDirection: 'row',

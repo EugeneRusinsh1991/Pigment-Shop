@@ -1,5 +1,6 @@
 import React from 'react';
-import { View } from 'react-native';
+import { useWindowDimensions, View } from 'react-native';
+import { layout } from '../../../theme/tokens';
 import { ScrollFadeUp } from '../../../components/ui/Motion';
 import { Heading } from '../../../components/ui/Text';
 import useGridLayout from '../../../hooks/useGridLayout';
@@ -9,6 +10,9 @@ import styles from './AccountLayoutStyles';
 
 export default function AccountLayout({ title, children, isDark, auth }) {
   const { isWide, gridWidth } = useGridLayout();
+  const { width: windowWidth } = useWindowDimensions();
+  const isTablet = windowWidth >= layout.breakpoints.mobile && windowWidth < layout.breakpoints.desktop;
+
   usePullToRefresh(
     async () => { await new Promise(r => setTimeout(r, 600)); }
   );
@@ -43,7 +47,7 @@ export default function AccountLayout({ title, children, isDark, auth }) {
           >
             {isWide ? (
               <>
-                <View style={styles.sidebarContainer}>
+                <View style={isTablet ? styles.sidebarContainerTablet : styles.sidebarContainer}>
                   <ScrollFadeUp>
                     <ProfileSidebar onLogout={auth?.logout} />
                   </ScrollFadeUp>

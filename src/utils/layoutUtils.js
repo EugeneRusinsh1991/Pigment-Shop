@@ -58,6 +58,19 @@ export function getDeviceTier(windowWidth) {
 }
 
 /**
+ * Returns total outer edge padding (left + right combined in px) for the given window width.
+ * @param {number} windowWidth
+ * @returns {number}
+ */
+export function getEdgePadding(windowWidth) {
+  const device = getDeviceTier(windowWidth);
+  if (device === 'mobile') return layoutTokens.spacing.lg * 2; // 32px (16px per side)
+  if (device === 'tablet') return layoutTokens.spacing.xl * 2; // 48px (24px per side)
+  if (windowWidth < layoutTokens.maxContentWidth) return layoutTokens.spacing.xl * 2;
+  return 0;
+}
+
+/**
  * Returns column count for standard or filtered grid.
  * @param {number} windowWidth
  * @param {boolean} [hasFilterSidebar=false]
@@ -81,7 +94,6 @@ export function getGridCols(windowWidth, hasFilterSidebar = false) {
  * @param {boolean} [hasFilterSidebar=false] - whether active filter sidebar is shown
  */
 export function getContentGridWidth(windowWidth, depth = 0, hasFilterSidebar = false) {
-  const isMobile = windowWidth < layoutTokens.breakpoints.mobile;
-  const edgePadding = isMobile ? layoutTokens.spacing.lg * 2 : 0;
+  const edgePadding = getEdgePadding(windowWidth);
   return Math.min(windowWidth, layoutTokens.maxContentWidth) - edgePadding;
 }

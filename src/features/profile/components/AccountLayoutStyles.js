@@ -26,6 +26,10 @@ const styles = StyleSheet.create({
     width: 260,
     flexShrink: 0,
   },
+  sidebarContainerTablet: {
+    width: 200,
+    flexShrink: 0,
+  },
   contentContainer: {
     flex: 1,
     width: '100%',

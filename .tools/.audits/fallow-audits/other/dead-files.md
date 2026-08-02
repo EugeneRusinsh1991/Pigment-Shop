@@ -1,6 +1,6 @@
 # 💀 Dead Files (Unused)
 
-*Generated on: 01.08.2026, 20:09:37*
+*Generated on: 02.08.2026, 11:16:19*
 
 Files that are not reachable or imported by any other codebase file:
 
@@ -15,6 +15,15 @@ Files that are not reachable or imported by any other codebase file:
 - [trace-diagnostic.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/trace-diagnostic.ts) (`auditors/perf-auditor/trace-diagnostic.ts`)
 - [types.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/types.ts) (`auditors/perf-auditor/types.ts`)
 - [v8-profile-resolver.ts](file:///d:/Magazine/_PigmentShop/.tools/auditors/perf-auditor/v8-profile-resolver.ts) (`auditors/perf-auditor/v8-profile-resolver.ts`)
+- [base-analyzer.js](file:///d:/Magazine/_PigmentShop/.tools/auditors/static-analysis/analyzers/base-analyzer.js) (`auditors/static-analysis/analyzers/base-analyzer.js`)
+- [eslint-analyzer.js](file:///d:/Magazine/_PigmentShop/.tools/auditors/static-analysis/analyzers/eslint-analyzer.js) (`auditors/static-analysis/analyzers/eslint-analyzer.js`)
+- [knip-analyzer.js](file:///d:/Magazine/_PigmentShop/.tools/auditors/static-analysis/analyzers/knip-analyzer.js) (`auditors/static-analysis/analyzers/knip-analyzer.js`)
+- [oxlint-analyzer.js](file:///d:/Magazine/_PigmentShop/.tools/auditors/static-analysis/analyzers/oxlint-analyzer.js) (`auditors/static-analysis/analyzers/oxlint-analyzer.js`)
+- [categorizer.js](file:///d:/Magazine/_PigmentShop/.tools/auditors/static-analysis/categorizer.js) (`auditors/static-analysis/categorizer.js`)
+- [config.js](file:///d:/Magazine/_PigmentShop/.tools/auditors/static-analysis/config.js) (`auditors/static-analysis/config.js`)
+- [normalizer.js](file:///d:/Magazine/_PigmentShop/.tools/auditors/static-analysis/normalizer.js) (`auditors/static-analysis/normalizer.js`)
+- [pipeline.js](file:///d:/Magazine/_PigmentShop/.tools/auditors/static-analysis/pipeline.js) (`auditors/static-analysis/pipeline.js`)
+- [markdown-reporter.js](file:///d:/Magazine/_PigmentShop/.tools/auditors/static-analysis/reporters/markdown-reporter.js) (`auditors/static-analysis/reporters/markdown-reporter.js`)
 - [12-raw-i18n-keys-auditor.js](file:///d:/Magazine/_PigmentShop/.tools/auditors/ui-auditor/12-raw-i18n-keys-auditor.js) (`auditors/ui-auditor/12-raw-i18n-keys-auditor.js`)
 - [a11y-auditor.js](file:///d:/Magazine/_PigmentShop/.tools/auditors/ui-auditor/a11y-auditor.js) (`auditors/ui-auditor/a11y-auditor.js`)
 - [auditor-utils.js](file:///d:/Magazine/_PigmentShop/.tools/auditors/ui-auditor/auditor-utils.js) (`auditors/ui-auditor/auditor-utils.js`)
