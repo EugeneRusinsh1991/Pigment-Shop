@@ -68,15 +68,16 @@ export function PriceInputs({ priceMin, priceMax, onMinChange, onMaxChange, isDa
   );
 }
 
-export function ResetButton({ onReset, label }) {
+export function ResetButton({ onReset, label, isDark }) {
   return (
     <Button
       testID="filter-reset-button"
       title={label}
       onPress={onReset}
-      variant="primary"
+      variant="accent"
       size="md"
       style={styles.resetBtn}
+      isDark={isDark}
     />
   );
 }

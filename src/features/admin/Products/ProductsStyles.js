@@ -111,7 +111,7 @@ export default StyleSheet.create({
     borderBottomColor: colors.secondaryLightBorder,
   },
   tableRowAlt: {
-    backgroundColor: colors.surfaceElevatedLight,
+    backgroundColor: colors.productCardLight,
   },
   rowNum: {
     width: 24,

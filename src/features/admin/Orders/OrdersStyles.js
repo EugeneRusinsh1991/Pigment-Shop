@@ -100,8 +100,10 @@ export default StyleSheet.create({
     marginTop: layout.spacing.xxs,
   },
   noteIndicatorPill: {
+    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
     paddingHorizontal: layout.spacing.xs + 2,
     paddingVertical: layout.spacing.xxxs,
     borderRadius: layout.radii.xs,
@@ -398,5 +400,11 @@ export default StyleSheet.create({
   },
   modalFlagFull: {
     width: '100%',
+  },
+  paginationWrapper: {
+    marginTop: layout.spacing.md,
+    paddingVertical: layout.spacing.xs,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });

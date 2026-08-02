@@ -43,20 +43,20 @@ const badgeSizes = {
 
 const statusColorMap = {
   pending: {
-    bgLight: colors.warningBgMid,
-    textLight: colors.warningDarkAlt,
-    borderLight: colors.warningMid,
-    bgDark: colors.warningSoftDarkBg,
-    textDark: colors.warningLight,
-    borderDark: colors.warningSoftDarkBorder,
-  },
-  processing: {
     bgLight: colors.infoBgMid,
     textLight: colors.infoDeep,
     borderLight: colors.infoLight,
     bgDark: colors.infoSoftDarkBg,
     textDark: colors.infoLight,
     borderDark: colors.infoSoftDarkBorder,
+  },
+  processing: {
+    bgLight: colors.warningBgMid,
+    textLight: colors.warningDarkAlt,
+    borderLight: colors.warningMid,
+    bgDark: colors.warningSoftDarkBg,
+    textDark: colors.warningLight,
+    borderDark: colors.warningSoftDarkBorder,
   },
   completed: {
     bgLight: colors.successBgAlt,
@@ -144,7 +144,7 @@ const variantColorResolvers = {
     return {
       bg: isDark ? st.bgDark : st.bgLight,
       text: isDark ? st.textDark : st.textLight,
-      border: isDark ? st.borderDark : st.borderLight,
+      border: colors.transparent,
     };
   },
   subtle: ({ isDark, customColor }) => {

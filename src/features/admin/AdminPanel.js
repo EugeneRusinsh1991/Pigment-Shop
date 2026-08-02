@@ -29,20 +29,23 @@ if (Platform.OS === 'web' && typeof document !== 'undefined') {
 import { Heading } from '@/components/ui/Text';
 import { useTheme } from '../../context/ThemeContext';
 import { useLanguage } from '../../context/LanguageContext';
+import { useAuth } from '../../context/AuthContext';
 import { useAdminAuth, useAdminDrafts } from '../../services/adminDomain';
-import { BackArrowIcon, LogoutIcon } from '@/components/Icons';
+import { UserIcon } from '@/components/Icons';
 import styles from './AdminPanelStyles';
 import AdminTabBar from './AdminTabBar';
+import AdminSidebar from './AdminSidebar';
 import AnalyticsDashboard from './Analytics/AnalyticsDashboard';
 import BannersManager from './Banners/BannersManager';
 import CategoriesManager from './Categories/CategoriesManager';
 import OrdersManager from './Orders/OrdersManager';
 import ProductsManager from './Products/ProductsManager';
 import UsersManager from './Users/UsersManager';
+import UserDropdown from '../shell/AppHeader/UserDropdown';
 import { PageTransition } from '@/components/ui/Motion';
 import { colors, layout } from '../../theme/tokens';
 
-import { Button, IconButton } from '@/components/ui/Button';
+import { IconButton } from '@/components/ui/Button';
 
 const TAB_COMPONENTS = {
   analytics: AnalyticsDashboard,
@@ -66,12 +69,15 @@ function renderActiveTab(activeTab, sessionDateRange, setSessionDateRange) {
 
 export default function AdminPanel({ onBack }) {
   const [activeTab, setActiveTab] = useState('analytics');
+  const [showUserMenu, setShowUserMenu] = useState(false);
   const { isDark } = useTheme();
   const { t } = useLanguage();
+  const { isAuthenticated } = useAuth();
   const { logoutAdmin } = useAdminAuth();
   const { loadDrafts } = useAdminDrafts();
   const { width } = useWindowDimensions();
   const isMobile = width < layout.breakpoints.mobile;
+  const isTablet = width >= layout.breakpoints.mobile && width < layout.breakpoints.desktop;
 
   const initialEnd = useMemo(() => {
     const end = new Date();
@@ -100,28 +106,57 @@ export default function AdminPanel({ onBack }) {
     await logoutAdmin();
   };
 
+  const iconColor = isDark ? colors.white : colors.dark;
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <View style={styles.headerLeft}>
+          <Heading level={2} style={styles.headerTitle}>{t('adminTitle')}</Heading>
+        </View>
+        <View style={styles.userMenuContainer}>
           <IconButton
-            icon={<BackArrowIcon color={colors.textLight} size={16} />}
-            onPress={onBack}
+            icon={<UserIcon color={iconColor} size={18} />}
+            onPress={() => setShowUserMenu((prev) => !prev)}
+            size={44}
             variant="transparent"
-            size="sm"
-            testID="admin-exit-control"
+            isDark={isDark}
+            data-testid="user-menu-btn"
           />
-          {!isMobile && <Heading level={2} style={styles.headerTitle}>{t('adminTitle')}</Heading>}
+          <UserDropdown
+            showUserMenu={showUserMenu}
+            isDark={isDark}
+            isAuthenticated={isAuthenticated}
+            onLogout={handleLogout}
+            onToggleUserMenu={() => setShowUserMenu(false)}
+            isMobile={isMobile}
+          />
         </View>
       </View>
-      <View>
-        <AdminTabBar activeTab={activeTab} onSelect={setActiveTab} isDark={isDark} />
-      </View>
-      <View style={styles.content}>
-        <PageTransition key={activeTab} trigger={activeTab}>
-          {renderActiveTab(activeTab, sessionDateRange, setSessionDateRange)}
-        </PageTransition>
-      </View>
+
+      {isMobile ? (
+        <>
+          <View>
+            <AdminTabBar activeTab={activeTab} onSelect={setActiveTab} isDark={isDark} />
+          </View>
+          <View style={styles.content}>
+            <PageTransition key={activeTab} trigger={activeTab}>
+              {renderActiveTab(activeTab, sessionDateRange, setSessionDateRange)}
+            </PageTransition>
+          </View>
+        </>
+      ) : (
+        <View style={styles.bodyWrapper}>
+          <View style={isTablet ? styles.sidebarContainerTablet : styles.sidebarContainer}>
+            <AdminSidebar activeTab={activeTab} onSelect={setActiveTab} />
+          </View>
+          <View style={styles.bodyContent}>
+            <PageTransition key={activeTab} trigger={activeTab}>
+              {renderActiveTab(activeTab, sessionDateRange, setSessionDateRange)}
+            </PageTransition>
+          </View>
+        </View>
+      )}
     </View>
   );
 }

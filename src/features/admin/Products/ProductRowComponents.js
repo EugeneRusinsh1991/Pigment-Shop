@@ -26,9 +26,6 @@ export const getRowStyle = (index, isMobile) => {
 export const getPlaceholderVal = (val) => val || '—';
 
 export function getHighlightStyle(isNew, discountPercent) {
-  if (isNew && discountPercent > 0) return { backgroundColor: colors.successBgTeal };
-  if (isNew) return { backgroundColor: colors.infoBgLight };
-  if (discountPercent > 0) return { backgroundColor: colors.successBgLight };
   return null;
 }
 

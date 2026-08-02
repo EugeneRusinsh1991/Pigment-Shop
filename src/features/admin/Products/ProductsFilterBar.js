@@ -27,6 +27,7 @@ export default function ProductsFilterBar({
         variant="chip"
         checked={onlyDiscount}
         onChange={onToggleDiscount}
+        style={{ flex: 1 }}
       >
         {t('adminProductsFilterDiscount')}
       </Flag>
@@ -34,6 +35,7 @@ export default function ProductsFilterBar({
         variant="chip"
         checked={onlyNew}
         onChange={onToggleNew}
+        style={{ flex: 1 }}
       >
         {t('adminProductsFilterNew')}
       </Flag>
@@ -42,6 +44,7 @@ export default function ProductsFilterBar({
         onPress={onAdd}
         variant="primary"
         size="md"
+        style={{ flex: 1 }}
       />
     </View>
   );

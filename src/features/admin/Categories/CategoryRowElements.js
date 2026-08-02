@@ -58,22 +58,41 @@ export function ToggleButton({ expanded, onToggle, t }) {
   );
 }
 
-export function ImageBadge({ image }) {
+export function isCategoryComplete(category) {
+  if (!category) return false;
+  const name = category.name;
+  const hasName = Boolean(name && (typeof name === 'string' ? name.trim() : (name.ru || name.en || name.uk)));
+  const desc = category.description;
+  const hasDesc = Boolean(desc && (typeof desc === 'string' ? desc.trim() : (desc.ru || desc.en || desc.uk)));
+  const image = category.image;
+  const hasImage = Boolean(image && (typeof image === 'string' ? image.trim() : false));
+  return hasName && hasDesc && hasImage;
+}
+
+export function CategoryCompletionBadge({ category, image }) {
   const { t } = useLanguage();
-  const has = !!image;
+  const targetCategory = category || { image };
+  const complete = isCategoryComplete(targetCategory);
   return (
-    <View style={[styles.imageBadge, has ? styles.imageBadgeSet : styles.imageBadgeNone]}>
+    <View style={[styles.imageBadge, complete ? styles.imageBadgeSet : styles.imageBadgeNone]}>
       <View style={elem_styles.badgeRow}>
-        {has
+        {complete
           ? <CheckIcon color={colors.success} size={12} />
           : <CrossIcon color={colors.dangerMid} size={12} />}
-        <Text variant="label" style={[styles.imageBadgeText, has ? styles.imageBadgeSetText : styles.imageBadgeNoneText, elem_styles.badgeText]}>
-          {has ? t('adminCategoriesImageSet') : t('adminCategoriesImageNone')}
+        <Text
+          variant="label"
+          style={[styles.imageBadgeText, complete ? styles.imageBadgeSetText : styles.imageBadgeNoneText, elem_styles.badgeText]}
+        >
+          {complete
+            ? (t('adminCategoriesComplete') || 'Complete')
+            : (t('adminCategoriesIncomplete') || 'Incomplete')}
         </Text>
       </View>
     </View>
   );
 }
+
+export const ImageBadge = CategoryCompletionBadge;
 
 export function getCategoryMeta(row, products) {
   const hasChildren = (row.children || []).length > 0;

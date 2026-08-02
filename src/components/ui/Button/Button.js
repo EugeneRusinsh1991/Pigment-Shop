@@ -5,7 +5,7 @@ import { useButtonProps, DEFAULT_ACTIVE_OPACITY, calculateHitSlop } from '../../
 import { colors, buttonTokens, motion } from '../../../theme/tokens';
 import styles from './ButtonStyles';
 import { useButtonTheme } from './useButtonTheme';
-import { useButtonAnimation } from './useButtonAnimation';
+import { useInteractionAnimation } from './useInteractionAnimation';
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
@@ -135,8 +135,16 @@ export default function Button({
     ...props
   });
 
-  const { scaleAnim, opacityAnim, handlePressIn, handlePressOut, handlePress } = useButtonAnimation({
-    animated, disabled, loading, activeOpacity, scaleTo, onPressIn, onPressOut, onPress,
+  const { scaleAnim, opacityAnim, handlePressIn, handlePressOut, handlePress } = useInteractionAnimation({
+    size,
+    fullWidth,
+    disabled,
+    loading,
+    activeOpacity,
+    customScaleTo: scaleTo !== motion.press.scale ? scaleTo : undefined,
+    onPressIn,
+    onPressOut,
+    onPress,
   });
 
   const containerStyle = buildContainerStyle(variant, size, resolvedContainer, fullWidth, disabled, style);

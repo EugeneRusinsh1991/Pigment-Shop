@@ -11,10 +11,10 @@ import styles from './OrdersStyles';
 // Canonical statuses with their locale keys
 export const STATUS_FILTERS = [
   { key: 'all',        localeKey: 'all',                  values: [] },
-  { key: 'pending',    localeKey: 'orderStatusPending',    values: ['Новый заказ', 'New', 'pending'] },
-  { key: 'processing', localeKey: 'orderStatusProcessing', values: ['В обработке', 'Processing'] },
-  { key: 'completed',  localeKey: 'orderStatusCompleted',  values: ['Выполнен', 'Completed'] },
-  { key: 'cancelled',  localeKey: 'orderStatusCancelled',  values: ['Отменён', 'Cancelled'] },
+  { key: 'pending',    localeKey: 'orderStatusPending',    values: ['Новый заказ', 'Нове замовлення', 'Новий замовлення', 'Новий', 'New', 'Pending', 'pending'] },
+  { key: 'processing', localeKey: 'orderStatusProcessing', values: ['В обработке', 'В обробці', 'Processing', 'processing'] },
+  { key: 'completed',  localeKey: 'orderStatusCompleted',  values: ['Выполнен', 'Виконано', 'Completed', 'completed'] },
+  { key: 'cancelled',  localeKey: 'orderStatusCancelled',  values: ['Отменён', 'Отменен', 'Скасовано', 'Cancelled', 'cancelled'] },
 ];
 
 export function StatusFilterBar({ t, activeFilter, onSelectFilter, count, isDark }) {

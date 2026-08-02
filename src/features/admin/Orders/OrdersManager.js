@@ -158,19 +158,19 @@ export default function OrdersManager({ dateRange: propDateRange, onDateRangeCha
           sortDirection,
           onSort: handleSort,
         })}
-      </ScrollView>
 
-      {!loading && !error && totalPages > 1 && (
-        <View style={adminStyles.fixedPaginationFooter}>
-          <CatalogPagination
-            currentPage={currentPage}
-            totalPages={totalPages}
-            onPrev={() => setCurrentPage((p) => Math.max(1, p - 1))}
-            onNext={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
-            loading={loading}
-          />
-        </View>
-      )}
+        {!loading && !error && totalPages > 1 && (
+          <View style={styles.paginationWrapper}>
+            <CatalogPagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPrev={() => setCurrentPage((p) => Math.max(1, p - 1))}
+              onNext={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+              loading={loading}
+            />
+          </View>
+        )}
+      </ScrollView>
     </View>
   );
 }

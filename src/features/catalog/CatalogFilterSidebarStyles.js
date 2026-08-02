@@ -70,6 +70,7 @@ const styles = StyleSheet.create({
 
   resetBtn: {
     backgroundColor: colors.accent,
+    borderColor: colors.accent,
     height: buttonTokens.sizes.md.height,
     borderRadius: buttonTokens.sizes.md.borderRadius,
     alignItems: 'center',

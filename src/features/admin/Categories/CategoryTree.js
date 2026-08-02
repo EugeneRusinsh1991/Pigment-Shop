@@ -105,10 +105,6 @@ export default function CategoryTree({ tree, onEdit, onAdd, products }) {
 
       <DataTable
         data={rows}
-        columns={[
-          { key: 'name', label: t('adminCategoriesColName'), style: isTablet ? [styles.colName, { flex: 3 }] : styles.colName, sortable: false },
-          { key: 'image', label: t('adminCategoriesColImage'), style: isTablet ? [styles.colImage, { flex: 0.6 }] : styles.colImage, sortable: false },
-        ]}
         emptyText={t('adminCategoriesEmpty')}
         renderRow={(row, idx) => (
           <DesktopCategoryRow

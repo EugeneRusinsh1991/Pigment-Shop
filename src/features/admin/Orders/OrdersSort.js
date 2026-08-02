@@ -1,11 +1,10 @@
 import { STATUS_FILTERS } from './OrdersTableControls';
 import { compareStrings, compareNumbers } from '../../../utils/sorting';
+import { resolveStatusKey } from '../../../utils/orderStatus';
 
 export function getStatusGroup(status) {
-  for (const s of STATUS_FILTERS) {
-    if (s.values.includes(status)) return s.key;
-  }
-  return 'pending';
+  if (!status) return 'pending';
+  return resolveStatusKey(status);
 }
 
 const sortGetters = {

@@ -123,12 +123,44 @@ export const iconTokens = {
 };
 
 export const motion = {
+  interaction: {
+    scale: {
+      circular: 0.92,
+      sm: 0.95,
+      md: 0.96,
+      lg: 0.96,
+      fullWidth: 0.965,
+    },
+    pop: {
+      activate: 1.20,
+      deactivate: 0.85,
+      pulse: 1.12,
+      add: 1.20,
+      remove: 0.85,
+      duration: 80,
+    },
+    physics: {
+      snappy: {
+        tension: 180,
+        friction: 10,
+      },
+      gentle: {
+        tension: 140,
+        friction: 12,
+      },
+    },
+    opacity: {
+      pressed: 0.82,
+      pressInDuration: 60,
+      pressOutDuration: 120,
+    },
+  },
   press: {
     duration: 90,
-    friction: 4,
-    tension: 40,
+    friction: 10,
+    tension: 180,
     scale: 0.97,
-    activeOpacity: 0.8,
+    activeOpacity: 0.82,
   },
   drawer: {
     slideDuration: 250,

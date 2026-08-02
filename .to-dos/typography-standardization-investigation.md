@@ -225,18 +225,39 @@ graph TD
 
 ## Task Breakdown
 
+> **Overall Initiative Rating:** ⚠️ BREAK DOWN INTO SUBTASKS (f = 30+, S > 12)
+
 ### Phase 1 — Typography Tokenization Audit & Tooling
-- [ ] **Task 1.1:** Add ESLint rule / AST scanner script to flag explicit `fontSize`, `fontWeight`, `lineHeight`, and `fontFamily` declarations in `StyleSheet.create` calls across `src/`.
-- [ ] **Task 1.2:** Enhance `warnFontOverrides` in [`src/components/ui/Text/Text.js`](file:///d:/Magazine/_PigmentShop/src/components/ui/Text/Text.js) to trigger build-time warnings during automated testing.
-- [ ] **Task 1.3:** Audit and purge raw `<RNText>` imports across `src/features/` and replace with `<Text>` primitive.
+*Overall Phase Rating:* ◕ FH — 2d 8f +7r
+
+- [ ] **Task 1.1:** Add ESLint rule / AST scanner script to flag explicit `fontSize`, `fontWeight`, `lineHeight`, and `fontFamily` declarations in `StyleSheet.create` calls across `src/`.  
+  `◐ FM — 1d 1f +2r — Task 1.1 [Parallel with Task 1.2]`
+- [ ] **Task 1.2:** Enhance `warnFontOverrides` in [`src/components/ui/Text/Text.js`](file:///d:/Magazine/_PigmentShop/src/components/ui/Text/Text.js) to trigger build-time warnings during automated testing.  
+  `◐ FM — 1d 1f +1r — Task 1.2 [Parallel with Task 1.1]`
+- [ ] **Task 1.3:** Audit and purge raw `<RNText>` imports across `src/features/` and replace with `<Text>` primitive.  
+  `◕ FH — 2d 6f +4r`
 
 ### Phase 2 — Token Definition & Semantic Classification Refactoring
-- [ ] **Task 2.1:** Standardize [`src/theme/typography.js`](file:///d:/Magazine/_PigmentShop/src/theme/typography.js) to define missing semantic tokens (`button`, `subtitle1`, `subtitle2`, `overline`).
-- [ ] **Task 2.2:** Refactor [`src/theme/layout.js`](file:///d:/Magazine/_PigmentShop/src/theme/layout.js) (`buttonTokens`, `badgeTokens`) to eliminate hardcoded numeric font sizes and reference `typography.sizes`.
-- [ ] **Task 2.3:** Update [`src/components/ui/Text/TextStyles.js`](file:///d:/Magazine/_PigmentShop/src/components/ui/Text/TextStyles.js) variant mapping table to incorporate updated semantic tokens.
+*Overall Phase Rating:* ◐ FM — 1d 3f +3r
+
+- [ ] **Task 2.1:** Standardize [`src/theme/typography.js`](file:///d:/Magazine/_PigmentShop/src/theme/typography.js) to define missing semantic tokens (`button`, `subtitle1`, `subtitle2`, `overline`).  
+  `○ FL — 1d 1f +0r`
+- [ ] **Task 2.2:** Refactor [`src/theme/layout.js`](file:///d:/Magazine/_PigmentShop/src/theme/layout.js) (`buttonTokens`, `badgeTokens`) to eliminate hardcoded numeric font sizes and reference `typography.sizes`.  
+  `◐ FM — 1d 1f +1r — Task 2.2 [Parallel with Task 2.3]`
+- [ ] **Task 2.3:** Update [`src/components/ui/Text/TextStyles.js`](file:///d:/Magazine/_PigmentShop/src/components/ui/Text/TextStyles.js) variant mapping table to incorporate updated semantic tokens.  
+  `◐ FM — 1d 1f +1r — Task 2.3 [Parallel with Task 2.2]`
 
 ### Phase 3 — Component Standardization & Refactoring Execution
-- [ ] **Task 3.1:** Refactor Shared UI Primitives ([`Button`](file:///d:/Magazine/_PigmentShop/src/components/ui/Button/), [`Badge`](file:///d:/Magazine/_PigmentShop/src/components/ui/Badge/), [`TextField`](file:///d:/Magazine/_PigmentShop/src/components/ui/TextField/), [`Card`](file:///d:/Magazine/_PigmentShop/src/components/ui/Card/), [`Modal`](file:///d:/Magazine/_PigmentShop/src/components/ui/Modal/)) to use semantic typography tokens.
-- [ ] **Task 3.2:** Refactor Storefront Feature Modules ([`catalog`](file:///d:/Magazine/_PigmentShop/src/features/catalog/), [`product`](file:///d:/Magazine/_PigmentShop/src/features/product/), [`cart`](file:///d:/Magazine/_PigmentShop/src/features/cart/), [`checkout`](file:///d:/Magazine/_PigmentShop/src/features/checkout/), [`orders`](file:///d:/Magazine/_PigmentShop/src/features/orders/), [`profile`](file:///d:/Magazine/_PigmentShop/src/features/profile/), [`shell`](file:///d:/Magazine/_PigmentShop/src/features/shell/)) to eliminate local font overrides.
-- [ ] **Task 3.3:** Refactor Admin Panel Modules ([`Analytics`](file:///d:/Magazine/_PigmentShop/src/features/admin/Analytics/), [`Orders`](file:///d:/Magazine/_PigmentShop/src/features/orders/), [`Products`](file:///d:/Magazine/_PigmentShop/src/features/admin/)) to enforce standardized table header and cell typography.
-- [ ] **Task 3.4:** Execute regression testing across Web and Native viewports to verify visual hierarchy, i18n text expansion, and mobile browser zoom behavior.
+*Overall Phase Rating:* ★ PH — 3d 12f +8r
+
+- [ ] **Task 3.1:** Refactor Shared UI Primitives ([`Button`](file:///d:/Magazine/_PigmentShop/src/components/ui/Button/), [`Badge`](file:///d:/Magazine/_PigmentShop/src/components/ui/Badge/), [`TextField`](file:///d:/Magazine/_PigmentShop/src/components/ui/TextField/), [`Card`](file:///d:/Magazine/_PigmentShop/src/components/ui/Card/), [`Modal`](file:///d:/Magazine/_PigmentShop/src/components/ui/Modal/)) to use semantic typography tokens.  
+  `◕ FH — 2d 5f +3r — Task 3.1 [Parallel with Task 3.3]`
+- [ ] **Task 3.2a:** Refactor Storefront Primary Purchase Flow Modules ([`catalog`](file:///d:/Magazine/_PigmentShop/src/features/catalog/), [`product`](file:///d:/Magazine/_PigmentShop/src/features/product/), [`cart`](file:///d:/Magazine/_PigmentShop/src/features/cart/), [`checkout`](file:///d:/Magazine/_PigmentShop/src/features/checkout/)) to eliminate local font overrides.  
+  `◕ FH — 2d 6f +4r — Task 3.2a [Parallel with Task 3.2b]`
+- [ ] **Task 3.2b:** Refactor Storefront Account & Shell Modules ([`orders`](file:///d:/Magazine/_PigmentShop/src/features/orders/), [`profile`](file:///d:/Magazine/_PigmentShop/src/features/profile/), [`shell`](file:///d:/Magazine/_PigmentShop/src/features/shell/)) to eliminate local font overrides.  
+  `◕ FH — 2d 5f +4r — Task 3.2b [Parallel with Task 3.2a]`
+- [ ] **Task 3.3:** Refactor Admin Panel Modules ([`Analytics`](file:///d:/Magazine/_PigmentShop/src/features/admin/Analytics/), [`Orders`](file:///d:/Magazine/_PigmentShop/src/features/orders/), [`Products`](file:///d:/Magazine/_PigmentShop/src/features/admin/)) to enforce standardized table header and cell typography.  
+  `◕ FH — 2d 6f +6r — Task 3.3 [Parallel with Task 3.1]`
+- [ ] **Task 3.4:** Execute regression testing across Web and Native viewports to verify visual hierarchy, i18n text expansion, and mobile browser zoom behavior.  
+  `○ FL — 1d 0f +4r`
+

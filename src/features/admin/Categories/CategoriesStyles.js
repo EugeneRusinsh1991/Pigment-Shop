@@ -264,4 +264,17 @@ export default StyleSheet.create({
     gap: layout.spacing.xs,
     marginTop: layout.borderWidth.thin,
   },
+  categorySingleRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: layout.spacing.sm,
+    flex: 1,
+  },
+  badgeGroupRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: layout.spacing.xs,
+    flexShrink: 0,
+  },
 });

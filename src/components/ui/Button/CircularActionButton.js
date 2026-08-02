@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { Animated } from 'react-native';
 import { IconButton } from './IconButton';
 import { buttonTokens, colors } from '../../../theme/tokens';
-import { usePopAnimation } from './usePopAnimation';
+import { useInteractionAnimation } from './useInteractionAnimation';
 import { HeartIcon, CartIcon } from '../../Icons';
 
 export function CircularActionButton({
@@ -19,10 +19,11 @@ export function CircularActionButton({
   const dim = typeof size === 'number' ? size : buttonTokens.circular[size] || buttonTokens.circular.md;
   const radius = dim / 2;
   
-  const { scaleAnim, handlePressIn, handlePressOut, handlePress } = usePopAnimation({
+  const { scaleAnim, handlePressIn, handlePressOut, handlePress } = useInteractionAnimation({
+    size: 'circular',
     onPress,
     disabled,
-    loading
+    loading,
   });
 
   return (
@@ -48,16 +49,21 @@ export function FavoriteActionButton({ isFavorite, onToggle, isDark, size = 'sm'
   const dim = typeof size === 'number' ? size : buttonTokens.circular[size] || buttonTokens.circular.md;
   const radius = dim / 2;
   
-  const { scaleAnim, handlePressIn, handlePressOut, handlePress, triggerPop } = usePopAnimation({
+  const { scaleAnim, handlePressIn, handlePressOut, handlePress, triggerStatePop } = useInteractionAnimation({
+    size: 'circular',
     onPress: onToggle,
   });
 
   useEffect(() => {
-    if (isFavorite && !prevFav.current) {
-      triggerPop();
+    if (prevFav.current !== isFavorite) {
+      if (isFavorite) {
+        triggerStatePop('activate');
+      } else {
+        triggerStatePop('deactivate');
+      }
     }
     prevFav.current = isFavorite;
-  }, [isFavorite, triggerPop]);
+  }, [isFavorite, triggerStatePop]);
 
   const activeColor = colors.accent;
   const inactiveColor = isDark ? colors.white : colors.dark;
@@ -84,9 +90,10 @@ export function CartActionButton({ onAddToCart, size = 'sm', style, variant = 's
   const dim = typeof size === 'number' ? size : buttonTokens.circular[size] || buttonTokens.circular.md;
   const radius = dim / 2;
   
-  const { scaleAnim, handlePressIn, handlePressOut, handlePress, triggerPop } = usePopAnimation({
+  const { scaleAnim, handlePressIn, handlePressOut, handlePress, triggerStatePop } = useInteractionAnimation({
+    size: 'circular',
     onPress: (e) => {
-      triggerPop();
+      triggerStatePop('activate');
       if (onAddToCart) onAddToCart(e);
     },
   });
