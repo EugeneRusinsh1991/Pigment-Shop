@@ -3,7 +3,7 @@ import { StyleSheet, View, Image } from 'react-native';
 import { Text } from '@/components/ui/Text';
 import { IconButton } from '@/components/ui/Button';
 import { CloseIcon, MinusIcon, PlusIcon } from '@/components/Icons';
-import { colors, layout, typography } from '@/theme/tokens';
+import { colors, layout, typography, hapticTokens } from '@/theme/tokens';
 import { PRODUCT_PLACEHOLDER } from '@/constants';
 import { formatCurrency } from '@/utils/currency';
 
@@ -40,6 +40,7 @@ export default function CartDrawerItem({ item, isDark, onUpdateQuantity, onRemov
             size={32}
             variant="transparent"
             isDark={isDark}
+            haptic={hapticTokens.warning}
           />
         </View>
         
@@ -57,6 +58,7 @@ export default function CartDrawerItem({ item, isDark, onUpdateQuantity, onRemov
               size={28}
               variant="transparent"
               isDark={isDark}
+              haptic={item.qty > 1 ? hapticTokens.selection : hapticTokens.warning}
             />
             <Text size="sm" weight="bold" style={styles.quantityText}>{item.qty}</Text>
             <IconButton
@@ -65,6 +67,7 @@ export default function CartDrawerItem({ item, isDark, onUpdateQuantity, onRemov
               size={28}
               variant="transparent"
               isDark={isDark}
+              haptic={hapticTokens.selection}
             />
           </View>
           <Text variant="subtitle2" weight="bold">

@@ -4,6 +4,7 @@ import Card from '../../components/ui/Card/Card';
 import { Text } from '../../components/ui/Text';
 import { FieldInput } from '../admin/SharedFormComponents';
 import useGridLayout from '../../hooks/useGridLayout';
+import { hapticTokens } from '../../theme/tokens';
 import styles from './ProfilePageStyles';
 
 function EmailField({ label, email, isDark, selectTheme }) {
@@ -53,6 +54,7 @@ function SaveButton({ saving, loading, onSave, label }) {
       disabled={saving || loading}
       variant="primary"
       size="md"
+      haptic={hapticTokens.success}
       style={styles.saveBtnMargin}
     />
   );

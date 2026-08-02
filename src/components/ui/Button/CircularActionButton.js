@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Animated } from 'react-native';
 import { IconButton } from './IconButton';
-import { buttonTokens, colors } from '../../../theme/tokens';
+import { buttonTokens, colors, hapticTokens } from '../../../theme/tokens';
 import { useInteractionAnimation } from './useInteractionAnimation';
 import { HeartIcon, CartIcon } from '../../Icons';
 
@@ -12,6 +12,7 @@ export function CircularActionButton({
   onPress,
   disabled,
   loading,
+  haptic,
   style,
   isDark,
   ...props
@@ -24,6 +25,7 @@ export function CircularActionButton({
     onPress,
     disabled,
     loading,
+    haptic,
   });
 
   return (
@@ -44,7 +46,7 @@ export function CircularActionButton({
   );
 }
 
-export function FavoriteActionButton({ isFavorite, onToggle, isDark, size = 'sm', style, variant, ...props }) {
+export function FavoriteActionButton({ isFavorite, onToggle, isDark, size = 'sm', style, variant, haptic = hapticTokens.impactLight, ...props }) {
   const prevFav = useRef(isFavorite);
   const dim = typeof size === 'number' ? size : buttonTokens.circular[size] || buttonTokens.circular.md;
   const radius = dim / 2;
@@ -52,6 +54,7 @@ export function FavoriteActionButton({ isFavorite, onToggle, isDark, size = 'sm'
   const { scaleAnim, handlePressIn, handlePressOut, handlePress, triggerStatePop } = useInteractionAnimation({
     size: 'circular',
     onPress: onToggle,
+    haptic,
   });
 
   useEffect(() => {
@@ -86,17 +89,19 @@ export function FavoriteActionButton({ isFavorite, onToggle, isDark, size = 'sm'
   );
 }
 
-export function CartActionButton({ onAddToCart, size = 'sm', style, variant = 'solid', isDark, ...props }) {
+export function CartActionButton({ onAddToCart, size = 'sm', style, variant = 'solid', isDark, haptic = hapticTokens.impactMedium, ...props }) {
   const dim = typeof size === 'number' ? size : buttonTokens.circular[size] || buttonTokens.circular.md;
   const radius = dim / 2;
   
   const { scaleAnim, handlePressIn, handlePressOut, handlePress, triggerStatePop } = useInteractionAnimation({
     size: 'circular',
+    haptic,
     onPress: (e) => {
       triggerStatePop('activate');
       if (onAddToCart) onAddToCart(e);
     },
   });
+
 
   return (
     <Animated.View style={[{ width: dim, height: dim, borderRadius: radius, overflow: 'hidden', alignItems: 'center', justifyContent: 'center', transform: [{ scale: scaleAnim }] }, style]}>

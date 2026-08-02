@@ -4,7 +4,7 @@ import { IconButton } from '../../components/ui/Button';
 import { Text } from '../../components/ui/Text';
 import { useLanguage } from '../../context/LanguageContext';
 import { useCartLogic } from '../../hooks/useCartLogic';
-import { colors, layout, shadow } from '../../theme/tokens';
+import { colors, layout, shadow, hapticTokens } from '../../theme/tokens';
 import { getLocalizedValue } from '../../utils/localization';
 
 export default function CartItem({ item, isDark, onIncrease, onDecrease, onRemove }) {
@@ -35,6 +35,7 @@ export default function CartItem({ item, isDark, onIncrease, onDecrease, onRemov
             onPress={onRemove}
             size={24}
             variant="transparent"
+            haptic={hapticTokens.warning}
             style={styles.removeBtn}
           />
         </View>
@@ -52,6 +53,7 @@ export default function CartItem({ item, isDark, onIncrease, onDecrease, onRemov
               onPress={onDecrease}
               size={28}
               variant="outline"
+              haptic={hapticTokens.selection}
             />
 
             <Text variant="body1" weight="bold" style={styles.qty}>{item.qty}</Text>
@@ -61,6 +63,7 @@ export default function CartItem({ item, isDark, onIncrease, onDecrease, onRemov
               onPress={onIncrease}
               size={28}
               variant="outline"
+              haptic={hapticTokens.selection}
             />
           </View>
 

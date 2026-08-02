@@ -1,6 +1,7 @@
 import { useState, useCallback, useEffect, useRef } from 'react';
 import { Platform } from 'react-native';
-import * as Haptics from 'expo-haptics';
+import { hapticsService } from '../services/haptics/hapticsService';
+import { hapticTokens } from '../theme/tokens';
 import { usePullToRefreshContext } from '../features/shell/PullToRefreshContext';
 
 const PULL_THRESHOLD = 80;
@@ -111,9 +112,7 @@ export default function usePullToRefresh(customRefresh = null, options = {}) {
 
   const onRefresh = useCallback(async () => {
     setRefreshing(true);
-    try {
-      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light).catch(() => {});
-    } catch (_) {}
+    hapticsService.trigger(hapticTokens.impactLight);
 
     const isDynamic = options.isDynamicRoute || options.strategy === 'refetch';
 

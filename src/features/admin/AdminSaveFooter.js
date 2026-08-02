@@ -35,6 +35,7 @@ export default function AdminSaveFooter({ isDirty, isSaving, onSave }) {
           disabled={isSaving}
           loading={isSaving}
           style={styles.saveButton}
+          haptic="success"
         />
       </View>
     </KeyboardAvoidingView>

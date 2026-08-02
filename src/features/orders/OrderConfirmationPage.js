@@ -2,6 +2,7 @@ import { useRouter } from 'expo-router';
 import { useEffect } from 'react';
 import { Button } from '../../components/ui/Button';
 import { ScrollFadeUp } from '../../components/ui/Motion';
+import { hapticTokens } from '../../theme/tokens';
 import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
 import useGridLayout from '../../hooks/useGridLayout';
@@ -50,6 +51,7 @@ export default function OrderConfirmationPage({ isDark, params }) {
         <Button
           title={t('btnOk')}
           onPress={() => router.push('/orders')}
+          haptic={hapticTokens.impactLight}
           variant="primary"
           size="lg"
         />

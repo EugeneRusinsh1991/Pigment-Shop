@@ -5,7 +5,8 @@ import { Text } from '../../components/ui/Text';
 import { useAuth } from '../../context/AuthContext';
 import { useErrorHandler } from '../../hooks/useErrorHandler';
 import { sendSupportMessage } from '../../services/contactService';
-import { colors } from '../../theme/tokens';
+import { hapticsService } from '../../services/haptics/hapticsService';
+import { colors, hapticTokens } from '../../theme/tokens';
 import styles from './ContactPageStyles';
 
 async function executeSupportSubmission(questionText, user) {
@@ -39,9 +40,11 @@ function useContactQuestionForm(user) {
       await executeSupportSubmission(questionText, user);
       setQuestionText('');
       setSubmitStatus('success');
+      hapticsService.trigger(hapticTokens.success);
     } catch (error) {
       handleError(error, { message: 'Error submitting contact question' });
       setSubmitStatus('error');
+      hapticsService.trigger(hapticTokens.error);
     } finally {
       setSubmitting(false);
     }

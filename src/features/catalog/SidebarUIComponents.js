@@ -1,6 +1,7 @@
 import { View } from 'react-native';
 import { Text, Heading } from '../../components/ui/Text';
 import Button from '../../components/ui/Button';
+import { hapticTokens } from '../../theme/tokens';
 import { Flag } from '../../components/domain/Flag';
 import styles from './CatalogFilterSidebarStyles';
 import { FieldInput } from '../admin/SharedFormComponents';
@@ -76,6 +77,7 @@ export function ResetButton({ onReset, label, isDark }) {
       onPress={onReset}
       variant="accent"
       size="md"
+      haptic={hapticTokens.impactLight}
       style={styles.resetBtn}
       isDark={isDark}
     />

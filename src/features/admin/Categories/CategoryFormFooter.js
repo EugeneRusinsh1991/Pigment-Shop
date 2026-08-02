@@ -50,6 +50,7 @@ export function CategoryFormFooter({
                 variant="danger"
                 size="md"
                 style={styles.flex1}
+                haptic="warning"
               />
             ) : (
               <View style={styles.flex1} />
@@ -70,6 +71,7 @@ export function CategoryFormFooter({
             variant="success"
             size="md"
             style={styles.flex1}
+            haptic="success"
           />
         </View>
       </View>

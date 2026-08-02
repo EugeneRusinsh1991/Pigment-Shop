@@ -2,6 +2,7 @@ import { Link } from 'expo-router';
 import { View } from 'react-native';
 import { Button } from '../../components/ui/Button';
 import { Text } from '../../components/ui/Text';
+import { hapticTokens } from '../../theme/tokens';
 import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
 import { FieldInput, FieldTextarea } from '../admin/SharedFormComponents';
@@ -109,6 +110,7 @@ export default function CartSummary({ totalItems, totalPrice, isWide, isDark, no
           title={t('cartCheckoutBtn')}
           variant="primary"
           size="lg"
+          haptic={hapticTokens.impactMedium}
           style={styles.checkoutBtnSpacing}
         />
       </Link>

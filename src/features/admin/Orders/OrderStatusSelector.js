@@ -7,6 +7,7 @@ import { Flag } from '@/components/domain/Flag';
 import { colors, layout } from '../../../theme/tokens';
 import styles from './OrdersStyles';
 import OrderStatusDropdownMenu from './OrderStatusDropdownMenu';
+import { useHaptics } from '../../../hooks/useHaptics';
 
 const STATUSES = [
   { value: 'New',        localeKey: 'orderStatusPending',    color: colors.infoStrong, bg: colors.infoBgMid },
@@ -44,8 +45,10 @@ function getLabel(t, localeKey, currentStatus, isOpen) {
 export default function OrderStatusSelector({ currentStatus, updating, onStatusChange, t }) {
   const [isOpen, setIsOpen] = useState(false);
   const statusObj = resolveStatus(currentStatus);
+  const { trigger } = useHaptics();
 
   const handleSelect = (statusValue) => {
+    trigger('impactMedium');
     onStatusChange(statusValue);
     setIsOpen(false);
   };

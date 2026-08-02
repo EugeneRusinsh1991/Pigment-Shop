@@ -6,6 +6,8 @@
  */
 import { useRef } from 'react';
 import { PanResponder } from 'react-native';
+import { hapticsService } from '../services/haptics/hapticsService';
+import { hapticTokens } from '../theme/tokens';
 
 export default function useSliderPanResponders(minLimit, maxLimit, trackWidthRef, minRef, maxRef, startVal, onChange) {
   const minPanRef = useRef(null);
@@ -22,6 +24,9 @@ export default function useSliderPanResponders(minLimit, maxLimit, trackWidthRef
         const deltaVal = deltaPct * (maxLimit - minLimit);
         let nextVal = Math.round(startVal.current + deltaVal);
         nextVal = Math.max(minLimit, Math.min(nextVal, maxRef.current - 100));
+        if (nextVal !== minRef.current) {
+          hapticsService.trigger(hapticTokens.selection);
+        }
         onChange(nextVal, maxRef.current);
       },
     });
@@ -41,6 +46,9 @@ export default function useSliderPanResponders(minLimit, maxLimit, trackWidthRef
         const deltaVal = deltaPct * (maxLimit - minLimit);
         let nextVal = Math.round(startVal.current + deltaVal);
         nextVal = Math.max(minRef.current + 100, Math.min(nextVal, maxLimit));
+        if (nextVal !== maxRef.current) {
+          hapticsService.trigger(hapticTokens.selection);
+        }
         onChange(minRef.current, nextVal);
       },
     });

@@ -103,6 +103,7 @@ export default function ProductFormModal({ product, onSave, onClose, onDelete })
               variant="dangerSoft"
               size="md"
               textStyle={{ color: colors.dangerStrong }}
+              haptic="warning"
             />
           ) : (
             <View />
@@ -120,6 +121,7 @@ export default function ProductFormModal({ product, onSave, onClose, onDelete })
               onPress={handleSave}
               variant="success"
               size="md"
+              haptic="success"
             />
           </View>
         </View>

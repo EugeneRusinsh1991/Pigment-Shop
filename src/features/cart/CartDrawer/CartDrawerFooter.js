@@ -4,7 +4,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { DrawerFooter } from '@/components/ui/Drawer';
 import { Text } from '@/components/ui/Text';
 import { Button } from '@/components/ui/Button';
-import { colors, layout } from '@/theme/tokens';
+import { colors, layout, hapticTokens } from '@/theme/tokens';
 import { formatCurrency } from '@/utils/currency';
 import { useRouter } from 'expo-router';
 import { useLanguage } from '@/context/LanguageContext';
@@ -38,6 +38,7 @@ export default function CartDrawerFooter({ cart, onClose, isDark }) {
         isDark={isDark}
         variant="primary"
         size="lg"
+        haptic={hapticTokens.selection}
         style={styles.checkoutBtn}
       />
     </DrawerFooter>

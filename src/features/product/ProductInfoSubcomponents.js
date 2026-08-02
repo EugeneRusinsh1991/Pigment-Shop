@@ -5,7 +5,7 @@ import { Button, FavoriteActionButton, IconButton } from '../../components/ui/Bu
 import { Heading, Text } from '../../components/ui/Text';
 import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
-import { colors } from '../../theme/tokens';
+import { colors, hapticTokens } from '../../theme/tokens';
 import { getLocalizedValue } from '../../utils/localization';
 import { useCartContext } from '../cart/CartContext';
 import styles from './ProductPageStyles';
@@ -26,6 +26,7 @@ function QtySelector({ qty, isDark, onDecrease, onIncrease }) {
         onPress={onDecrease}
         size="sm"
         variant="transparent"
+        haptic={hapticTokens.selection}
       />
       <Text variant="body2" weight="bold" style={styles.qtyVal}>{qty}</Text>
       <IconButton
@@ -34,6 +35,7 @@ function QtySelector({ qty, isDark, onDecrease, onIncrease }) {
         onPress={onIncrease}
         size="sm"
         variant="transparent"
+        haptic={hapticTokens.selection}
       />
     </View>
   );
@@ -96,6 +98,7 @@ function CartButton({ isInCart, isWide, finalPrice, qty, product, onAddToCart, t
       variant={isInCart ? 'accent' : 'primary'}
       size="lg"
       leftIcon={<CartIcon color={colors.white} size={16} />}
+      haptic={isInCart ? undefined : hapticTokens.impactMedium}
       style={isWide ? styles.cartBtnWide : styles.flex1}
     />
   );

@@ -3,7 +3,7 @@ import { AnimatedButton } from '../../components/ui/Button';
 import { Text } from '../../components/ui/Text';
 import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
-import { colors, layout } from '../../theme/tokens';
+import { colors, layout, hapticTokens } from '../../theme/tokens';
 
 function PaginationButton({ label, onPress, isDisabled, isDark }) {
   return (
@@ -15,6 +15,7 @@ function PaginationButton({ label, onPress, isDisabled, isDark }) {
       ]}
       onPress={isDisabled ? undefined : onPress}
       disabled={isDisabled}
+      haptic={hapticTokens.selection}
     >
       <Text
         style={[

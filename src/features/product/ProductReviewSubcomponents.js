@@ -3,6 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import Button, { AnimatedButton } from '../../components/ui/Button';
 import { Heading, Text } from '../../components/ui/Text';
 import Toggle from '../../components/ui/Toggle';
+import { hapticTokens } from '../../theme/tokens';
 import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
 import { FieldTextarea } from '../admin/SharedFormComponents';
@@ -147,6 +148,7 @@ export function ReviewForm({
         variant="accent"
         size="md"
         fullWidth
+        haptic={hapticTokens.success}
         style={[styles.reviewFormSubmitBtn]}
         onPress={config.onSubmit}
       />

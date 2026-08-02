@@ -1,4 +1,4 @@
-﻿import { useState } from 'react';
+import { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Button } from '../../components/ui/Button';
 import Card from '../../components/ui/Card/Card';
@@ -7,7 +7,8 @@ import TextField from '../../components/ui/TextField/TextField';
 import { useAuth } from '../../context/AuthContext';
 import { useErrorHandler } from '../../hooks/useErrorHandler';
 import { sendSupportMessage } from '../../services/contactService';
-import { colors, layout } from '../../theme/tokens';
+import { hapticsService } from '../../services/haptics/hapticsService';
+import { colors, layout, hapticTokens } from '../../theme/tokens';
 
 const styles = StyleSheet.create({
   card: {
@@ -57,9 +58,11 @@ function useContactForm(user) {
       await executeSupportSubmission(text, user);
       setText('');
       setStatus('success');
+      hapticsService.trigger(hapticTokens.success);
     } catch (error) {
       handleError(error, { message: 'Error submitting contact question' });
       setStatus('error');
+      hapticsService.trigger(hapticTokens.error);
     } finally {
       setSubmitting(false);
     }

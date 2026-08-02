@@ -1,6 +1,6 @@
  import { ChevronLeftIcon, ChevronRightIcon } from '@/components/Icons';
 import { useCatalog } from '@/features/catalog/CatalogContext';
-import { colors } from '@/theme/tokens';
+import { colors, hapticTokens } from '@/theme/tokens';
 import { useEffect, useState } from 'react';
 import { useWindowDimensions, View } from 'react-native';
 import { CarouselDots } from './HeroCarousel/CarouselDots';
@@ -17,12 +17,14 @@ function CarouselArrows({ show, onPrev, onNext }) {
       <AnimatedButton
         style={[localStyles.arrowBtn, localStyles.leftArrow]}
         onPress={onPrev}
+        haptic={hapticTokens.selection}
       >
         <ChevronLeftIcon color={colors.white} size={18} />
       </AnimatedButton>
       <AnimatedButton
         style={[localStyles.arrowBtn, localStyles.rightArrow]}
         onPress={onNext}
+        haptic={hapticTokens.selection}
       >
         <ChevronRightIcon color={colors.white} size={18} />
       </AnimatedButton>

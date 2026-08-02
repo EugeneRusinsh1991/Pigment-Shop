@@ -110,6 +110,7 @@ export default function Button({
   textStyle,
   activeOpacity = DEFAULT_ACTIVE_OPACITY,
   scaleTo = motion.press.scale,
+  haptic,
   isDark: isDarkProp,
   hitSlop,
   accessibilityRole,
@@ -142,10 +143,12 @@ export default function Button({
     loading,
     activeOpacity,
     customScaleTo: scaleTo !== motion.press.scale ? scaleTo : undefined,
+    haptic,
     onPressIn,
     onPressOut,
     onPress,
   });
+
 
   const containerStyle = buildContainerStyle(variant, size, resolvedContainer, fullWidth, disabled, style);
   const textCombinedStyle = buildTextStyle(variant, size, resolvedText, disabled, textStyle);

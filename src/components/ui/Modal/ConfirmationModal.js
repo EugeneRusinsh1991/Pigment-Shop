@@ -70,6 +70,7 @@ export default function ConfirmationModal({
           variant={confirmVariant}
           size="md"
           loading={loading}
+          haptic="impactMedium"
         />
       </View>
     </Modal>

@@ -78,6 +78,7 @@ export default function BannersManager() {
             });
           }}
           activeOpacity={motion.press.activeOpacity}
+          haptic="warning"
         >
           <Text variant="label" style={styles.deleteBtnText}>{t('adminBannersDeleteBtn')}</Text>
         </AnimatedButton>

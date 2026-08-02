@@ -14,7 +14,7 @@ import { useTheme } from '@/context/ThemeContext';
 import { useProfile } from '@/features/profile/useProfile';
 import { useDropdownAnimation } from '@/hooks/useDropdownAnimation';
 import { useAdminAuth } from '@/services/adminDomain';
-import { colors, layout, typography } from '@/theme/tokens';
+import { colors, layout, typography, hapticTokens } from '@/theme/tokens';
 import { Link } from 'expo-router';
 import { Animated, StyleSheet, View } from 'react-native';
 import styles from './UserDropdownStyles';
@@ -146,6 +146,7 @@ export default function UserDropdown({
             fullWidth
             leftIcon={<LogoutIcon color={dStyles.iconColor} size={typography.sizes.sm} />}
             title={t('userLogout')}
+            haptic={hapticTokens.warning}
             style={styles.dropdownItem}
             textStyle={dStyles.itemText}
             onPress={() => { onLogout(); onToggleUserMenu(); }}

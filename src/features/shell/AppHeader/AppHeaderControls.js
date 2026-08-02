@@ -2,7 +2,7 @@ import { BagIcon, CurrencyIcon, GlobeIcon, ThemeIcon, UserIcon } from '@/compone
 import { Badge } from '@/components/ui/Badge';
 import { IconButton } from '@/components/ui/Button';
 import { useCart } from '@/features/cart/CartContext';
-import { layout } from '@/theme/tokens';
+import { layout, hapticTokens } from '@/theme/tokens';
 import { StyleSheet, View } from 'react-native';
 import CurrencyDropdown from './CurrencyDropdown';
 import LangDropdown from './LangDropdown';
@@ -43,6 +43,7 @@ export default function AppHeaderControls({
           size={44}
           variant="transparent"
           isDark={isDark}
+          haptic={hapticTokens.impactLight}
           accessibilityLabel={t('accessibilityToggleTheme')}
         />
       )}
@@ -99,6 +100,7 @@ export default function AppHeaderControls({
         size={44}
         variant="transparent"
         isDark={isDark}
+        haptic={hapticTokens.selection}
         onPress={onToggleCartDrawer}
       />
 

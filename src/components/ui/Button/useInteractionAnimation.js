@@ -1,6 +1,7 @@
 import { useRef, useCallback } from 'react';
 import { Animated, Platform } from 'react-native';
 import { motion } from '../../../theme/tokens';
+import { hapticsService } from '../../../services/haptics/hapticsService';
 
 export function useInteractionAnimation({
   size = 'md',
@@ -11,6 +12,7 @@ export function useInteractionAnimation({
   physicsPreset = 'snappy',
   activeOpacity = motion.interaction.opacity.pressed,
   customScaleTo,
+  haptic,
   onPress,
   onPressIn,
   onPressOut,
@@ -95,9 +97,13 @@ export function useInteractionAnimation({
 
   const handlePress = useCallback((e) => {
     if (disabled || loading) return;
+    if (haptic) {
+      hapticsService.trigger(haptic);
+    }
     e?.stopPropagation?.();
     if (onPress) onPress(e);
-  }, [disabled, loading, onPress]);
+  }, [disabled, loading, haptic, onPress]);
+
 
   return {
     scaleAnim,

@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { buttonTokens, colors, layout } from '../../../theme/tokens';
+import { buttonTokens, colors, layout, hapticTokens } from '../../../theme/tokens';
 import Button from './Button';
 import { useButtonTheme } from './useButtonTheme';
 
@@ -29,8 +29,10 @@ export function ChipButton({
   textStyle,
   activeOpacity,
   isDark: isDarkProp,
+  haptic = hapticTokens.selection,
   ...props
 }) {
+
   const { isDark, container: resolvedContainer, text: resolvedText } = useButtonTheme({
     isDarkProp,
     variant,
@@ -63,8 +65,10 @@ export function ChipButton({
       onPress={onPress}
       activeOpacity={activeOpacity}
       isDark={isDark}
+      haptic={haptic}
       {...props}
     />
+
   );
 }
 

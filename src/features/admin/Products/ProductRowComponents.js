@@ -70,6 +70,7 @@ export function ProductRowActions({ product, onEdit, onDelete }) {
           onPress={() => onDelete(product)}
           size="sm"
           variant="transparent"
+          haptic="warning"
         />
       )}
     </View>

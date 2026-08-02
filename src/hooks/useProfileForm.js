@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useToast } from '../context/ToastContext';
 import { useProfile } from '../features/profile/useProfile';
+import { hapticsService } from '../services/haptics/hapticsService';
+import { hapticTokens } from '../theme/tokens';
 
 function getVal(str) {
   return typeof str === 'string' ? str : '';
@@ -46,10 +48,12 @@ export function useProfileForm(auth, t) {
   const handleSave = async () => {
     try {
       await saveProfile(form);
+      hapticsService.trigger(hapticTokens.success);
       if (showToast) {
         showToast(t('profileSaveSuccess') || 'Profile saved successfully', 'success');
       }
     } catch {
+      hapticsService.trigger(hapticTokens.error);
       if (showToast) {
         showToast(t('profileSaveError') || 'Failed to save profile', 'error');
       }
