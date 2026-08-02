@@ -53,7 +53,7 @@ function renderToggleOption(opt, index, ctx) {
     }
     ctx.animation?.setOptionLayout && ctx.animation.setOptionLayout(optionValue, layout);
   };
-  const handlePress = () => { if (!isActive && ctx.onChange) ctx.onChange(optionValue); };
+  const handlePress = () => { if ((!isActive || ctx.allowReselect) && ctx.onChange) ctx.onChange(optionValue); };
 
   const computedOptionStyle = getOptionStyle(isActive, ctx.animated, ctx.theme, ctx.activeOptionStyle, ctx.optionStyle, ctx.equalWidthStyle);
   const computedTextStyle = getOptionTextStyle(isActive, ctx.textSizeStyle, ctx.theme, ctx.textStyle, ctx.activeTextStyle);
@@ -83,8 +83,8 @@ function renderToggleOption(opt, index, ctx) {
 }
 
 function buildToggleContext(props, theme, animation, computedHitSlop, textSizeStyle, size, equalWidthStyle, onOptionMeasured) {
-  const { value, onChange, animated, optionStyle, activeOptionStyle, textStyle, activeTextStyle, disabled, role } = props;
-  return { value, onChange, animated, theme, optionStyle, activeOptionStyle, textStyle, activeTextStyle, computedHitSlop, disabled, textSizeStyle, animation, size, role, equalWidthStyle, onOptionMeasured };
+  const { value, onChange, animated, optionStyle, activeOptionStyle, textStyle, activeTextStyle, disabled, role, allowReselect } = props;
+  return { value, onChange, animated, theme, optionStyle, activeOptionStyle, textStyle, activeTextStyle, computedHitSlop, disabled, textSizeStyle, animation, size, role, equalWidthStyle, onOptionMeasured, allowReselect };
 }
 
 function computeToggleSizes(size, hitSlop) {
@@ -112,6 +112,7 @@ export default function Toggle({
   animated = true,
   role = 'button',
   equalWidth = false,
+  allowReselect = false,
   ...props
 }) {
   const theme = useToggleTheme({ isDarkProp, styleMap: styles });
@@ -142,7 +143,7 @@ export default function Toggle({
   );
 
   const ctx = buildToggleContext(
-    { value, onChange, animated, optionStyle, activeOptionStyle, textStyle, activeTextStyle, disabled, role },
+    { value, onChange, animated, optionStyle, activeOptionStyle, textStyle, activeTextStyle, disabled, role, allowReselect },
     theme,
     animation,
     computedHitSlop,

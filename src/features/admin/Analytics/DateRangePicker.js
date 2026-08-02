@@ -89,9 +89,32 @@ export default function DateRangePicker({ startDate, endDate, mode: modeProp, on
       setTempStartDate(s);
       setTempEndDate(e);
       setHoverDate(null);
-      onChange(s, e, 'custom');
-      setIsCalendarOpen(false);
     }
+  };
+
+  const handleApply = () => {
+    if (!tempStartDate) {
+      setIsCalendarOpen(false);
+      return;
+    }
+    let start = tempStartDate;
+    let end = tempEndDate || tempStartDate;
+    if (end < start) {
+      const temp = start;
+      start = end;
+      end = temp;
+    }
+
+    const s = new Date(start);
+    s.setHours(0, 0, 0, 0);
+    const e = new Date(end);
+    e.setHours(23, 59, 59, 999);
+
+    setTempStartDate(s);
+    setTempEndDate(e);
+    setMode('custom');
+    setIsCalendarOpen(false);
+    onChange(s, e, 'custom');
   };
 
   const navigateMonth = (direction) => {
@@ -118,11 +141,12 @@ export default function DateRangePicker({ startDate, endDate, mode: modeProp, on
   return (
     <View style={styles.datePickerContainer}>
       <View style={styles.calendarToggleWrapper}>
-          <Toggle
+        <Toggle
           options={options}
           value={mode}
           onChange={handlePresetSelect}
           size="md"
+          allowReselect={true}
         />
 
         {isCalendarOpen && (
@@ -136,6 +160,7 @@ export default function DateRangePicker({ startDate, endDate, mode: modeProp, on
             hoverDate={hoverDate}
             setHoverDate={setHoverDate}
             handleDayPress={handleDayPress}
+            onApply={handleApply}
           />
         )}
       </View>

@@ -2,10 +2,10 @@ import { Button } from '@/components/ui/Button';
 import { BackArrowIcon } from '@/components/Icons';
 import { Text } from '@/components/ui/Text';
 import { useCallback, useEffect, useState } from 'react';
-import { View } from 'react-native';
+import { View, ScrollView } from 'react-native';
 import { useLanguage } from '../../../context/LanguageContext';
 import { fetchUserNote, saveUserNote } from '../../../services/adminUsersService';
-import { colors } from '../../../theme/tokens';
+import { colors, layout } from '../../../theme/tokens';
 import AdminSaveFooter from '../AdminSaveFooter';
 import { useCrudWorkflow } from '../useCrudWorkflow';
 import UserInfoCard from './UserInfoCard';
@@ -46,8 +46,15 @@ export default function UserDetails({ user, onBack }) {
   const toggleExpand = (orderId) =>
     setExpandedOrders(prev => ({ ...prev, [orderId]: !prev[orderId] }));
 
+  const fullName = [user.firstName, user.lastName].filter(Boolean).join(' ') || t('adminUsersUnnamed');
+
   return (
-    <View style={styles.detailsPanel}>
+    <ScrollView
+      style={styles.detailsPanel}
+      contentContainerStyle={{ paddingBottom: layout.spacing.xxl + 80 }}
+      showsVerticalScrollIndicator={false}
+      showsHorizontalScrollIndicator={false}
+    >
       <Button
         leftIcon={<BackArrowIcon color={colors.secondaryLightText} size={14} />}
         title={t('btnBackLabel')}
@@ -57,6 +64,11 @@ export default function UserDetails({ user, onBack }) {
         style={styles.backBtnStyle}
       />
 
+      <View style={styles.headerRow}>
+        <Text variant="h2" style={styles.title}>{fullName}</Text>
+      </View>
+
+      <Text variant="h4" style={styles.sectionTitle}>{t('adminOrdersCustomer')}</Text>
       <UserInfoCard user={user} t={t} />
 
       <UserNoteSection
@@ -77,6 +89,6 @@ export default function UserDetails({ user, onBack }) {
         isSaving={savingNote} 
         onSave={handleSave} 
       />
-    </View>
+    </ScrollView>
   );
 }

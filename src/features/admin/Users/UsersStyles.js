@@ -118,18 +118,20 @@ export default StyleSheet.create({
   },
   clientInfoCard: {
     backgroundColor: colors.surfaceLight,
-    borderRadius: layout.radii.iconBtn,
+    borderRadius: layout.radii.md,
     padding: layout.spacing.lg,
-    marginBottom: layout.radii.lg,
+    marginBottom: layout.spacing.lg,
     ...shadow.card(),
     elevation: 2,
     flexDirection: 'row',
-    gap: layout.spacing.xl,
+    gap: layout.spacing.lg,
     flexWrap: 'wrap',
   },
   infoGroup: {
     flexDirection: 'column',
     gap: layout.spacing.xxs,
+    minWidth: 140,
+    flex: 1,
   },
   infoLabel: {
     color: colors.secondaryDarkText,
@@ -140,6 +142,7 @@ export default StyleSheet.create({
   },
   sectionTitle: {
     color: colors.dark,
+    marginTop: layout.spacing.md,
     marginBottom: layout.spacing.md,
   },
   ordersList: {
@@ -147,9 +150,9 @@ export default StyleSheet.create({
   },
   noteCard: {
     backgroundColor: colors.surfaceLight,
-    borderRadius: layout.radii.iconBtn,
+    borderRadius: layout.radii.md,
     padding: layout.spacing.lg,
-    marginBottom: layout.radii.lg,
+    marginBottom: layout.spacing.lg,
     ...shadow.card(),
     elevation: 2,
   },

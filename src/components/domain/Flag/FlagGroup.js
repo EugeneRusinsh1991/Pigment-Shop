@@ -28,28 +28,38 @@ export function FlagGroup({
     }
   };
 
-  const renderedChildren = React.Children.map(children, (child) => {
-    if (!React.isValidElement(child)) return child;
+  const renderChildrenRecursive = (childrenNode) => {
+    return React.Children.map(childrenNode, (child) => {
+      if (!React.isValidElement(child)) return child;
 
-    const childValue = child.props.value;
-    if (childValue !== undefined) {
-      const isChecked = multiple
-        ? Array.isArray(value) && value.includes(childValue)
-        : value === childValue;
+      const childValue = child.props.value;
+      if (childValue !== undefined) {
+        const isChecked = multiple
+          ? Array.isArray(value) && value.includes(childValue)
+          : value === childValue;
 
-      return React.cloneElement(child, {
-        checked: child.props.checked ?? isChecked,
-        onChange: (newChecked) => {
-          if (child.props.onChange) {
-            child.props.onChange(newChecked);
-          }
-          handleToggle(childValue);
-        },
-      });
-    }
+        return React.cloneElement(child, {
+          checked: child.props.checked ?? isChecked,
+          onChange: (newChecked) => {
+            if (child.props.onChange) {
+              child.props.onChange(newChecked);
+            }
+            handleToggle(childValue);
+          },
+        });
+      }
 
-    return child;
-  });
+      if (child.props && child.props.children) {
+        return React.cloneElement(child, {
+          children: renderChildrenRecursive(child.props.children),
+        });
+      }
+
+      return child;
+    });
+  };
+
+  const renderedChildren = renderChildrenRecursive(children);
 
   return (
     <View style={[styles.container, { flexDirection: direction, gap }, style]}>

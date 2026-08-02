@@ -1,6 +1,6 @@
 import { useRouter } from 'expo-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { View, Pressable, Platform } from 'react-native';
+import { View, Pressable, Platform, Keyboard, Animated } from 'react-native';
 import SearchDropdown from './SearchDropdown';
 import SearchInput from './SearchInput';
 import SearchStyles from './SearchStyles';
@@ -34,10 +34,36 @@ function SearchResultDropdown({ results, query, isDark, onSelect }) {
 export function AutocompleteSearch({ isDark, onActiveChange, variant = 'default', size = 'sm', flatList = [], searchIndex }) {
   const [query, setQuery] = useState('');
   const [isFocused, setIsFocused] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [shouldRender, setShouldRender] = useState(false);
+
+  const animValue = useRef(new Animated.Value(0)).current;
   const router = useRouter();
   const inputRef = useRef(null);
 
-  const isActive = isFocused;
+  const dropdownVisible = (isFocused || isSubmitted) && query.trim().length >= 2;
+  const isActive = dropdownVisible;
+
+  useEffect(() => {
+    if (dropdownVisible) {
+      setShouldRender(true);
+      Animated.timing(animValue, {
+        toValue: 1,
+        duration: 180,
+        useNativeDriver: Platform.OS !== 'web',
+      }).start();
+    } else {
+      Animated.timing(animValue, {
+        toValue: 0,
+        duration: 150,
+        useNativeDriver: Platform.OS !== 'web',
+      }).start(({ finished }) => {
+        if (finished) {
+          setShouldRender(false);
+        }
+      });
+    }
+  }, [dropdownVisible, animValue]);
 
   useEffect(() => {
     if (onActiveChange) {
@@ -53,18 +79,22 @@ export function AutocompleteSearch({ isDark, onActiveChange, variant = 'default'
   const handleSelect = () => {
     setQuery('');
     setIsFocused(false);
+    setIsSubmitted(false);
     if (inputRef.current) {
       inputRef.current.blur();
     }
   };
 
   const handleSubmit = () => {
-    if (results.length === 0) return;
-    router.push({ pathname: '/product/[id]', params: { id: results[0].id } });
-    handleSelect();
+    setIsSubmitted(true);
+    setIsFocused(false);
+    if (inputRef.current) {
+      inputRef.current.blur();
+    }
+    if (Platform.OS !== 'web') {
+      Keyboard.dismiss();
+    }
   };
-
-  const dropdownVisible = isFocused && query.trim().length >= 2;
 
   useEffect(() => {
     if (Platform.OS !== 'web' || typeof document === 'undefined') return;
@@ -79,18 +109,33 @@ export function AutocompleteSearch({ isDark, onActiveChange, variant = 'default'
 
   const backdropStyle = isDark ? SearchStyles.backdropDark : SearchStyles.backdropLight;
 
+  const dropdownAnimStyle = {
+    opacity: animValue,
+    transform: [
+      {
+        translateY: animValue.interpolate({
+          inputRange: [0, 1],
+          outputRange: [-8, 0],
+        }),
+      },
+    ],
+  };
+
   return (
     <View style={SearchStyles.autocompleteContainer}>
-      {dropdownVisible && (
-        <Pressable
-          style={backdropStyle}
-          onPress={() => {
-            setIsFocused(false);
-            if (inputRef.current) {
-              inputRef.current.blur();
-            }
-          }}
-        />
+      {shouldRender && (
+        <Animated.View style={[backdropStyle, { opacity: animValue }]}>
+          <Pressable
+            style={{ flex: 1 }}
+            onPress={() => {
+              setIsFocused(false);
+              setIsSubmitted(false);
+              if (inputRef.current) {
+                inputRef.current.blur();
+              }
+            }}
+          />
+        </Animated.View>
       )}
       <SearchInput
         ref={inputRef}
@@ -98,23 +143,32 @@ export function AutocompleteSearch({ isDark, onActiveChange, variant = 'default'
         variant={variant}
         size={size}
         value={query}
-        onChangeText={setQuery}
+        onChangeText={(text) => {
+          setQuery(text);
+          setIsSubmitted(false);
+        }}
         onClear={() => {
           setQuery('');
           setIsFocused(false);
+          setIsSubmitted(false);
           if (inputRef.current) {
             inputRef.current.blur();
           }
         }}
-        onFocus={() => setIsFocused(true)}
+        onFocus={() => {
+          setIsFocused(true);
+          setIsSubmitted(false);
+        }}
         onBlur={() => {
           // Keep active long enough for item presses to register
           setTimeout(() => setIsFocused(false), 200);
         }}
         onSubmitEditing={handleSubmit}
       />
-      {dropdownVisible && (
-        <SearchResultDropdown results={results} query={query} isDark={isDark} onSelect={handleSelect} />
+      {shouldRender && (
+        <Animated.View style={[SearchStyles.dropdownWrapper, dropdownAnimStyle]}>
+          <SearchResultDropdown results={results} query={query} isDark={isDark} onSelect={handleSelect} />
+        </Animated.View>
       )}
     </View>
   );

@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, TouchableOpacity } from 'react-native';
 import { Text } from '@/components/ui/Text';
+import { Button } from '@/components/ui/Button';
 import { useLanguage } from '../../../context/LanguageContext';
 import { localStyles as styles } from './DateRangeCalendarStyles';
 import { CalendarDayCell } from './CalendarDayCell';
@@ -72,7 +73,8 @@ export function DateRangeCalendar({
   tempEndDate,
   hoverDate,
   setHoverDate,
-  handleDayPress
+  handleDayPress,
+  onApply,
 }) {
   const { t } = useLanguage();
   const cells = getCalendarCells(year, month);
@@ -122,6 +124,14 @@ export function DateRangeCalendar({
           />
         ))}
       </View>
+
+      <Button
+        title={t('applyFilter') || t('catalogApplyFilters') || 'Apply'}
+        onPress={onApply}
+        variant="primary"
+        size="sm"
+        style={{ marginTop: 12, width: '100%' }}
+      />
     </View>
   );
 }

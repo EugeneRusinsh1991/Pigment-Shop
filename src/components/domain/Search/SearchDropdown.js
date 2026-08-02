@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, View, Image } from 'react-native';
+import { ScrollView, View, Image, StyleSheet } from 'react-native';
 import { Text } from '../../ui/Text';
 import { EmptyState } from '../../ui/Feedback';
 import { Link } from 'expo-router';
@@ -29,7 +29,9 @@ const ResultRow = React.forwardRef(({ item, isDark, onPress, ...rest }, ref) => 
       {item.image ? (
         <Image source={{ uri: item.image }} style={SearchStyles.resultImage} />
       ) : (
-        <Text variant="body1" size={16}>{item.icon || '📦'}</Text>
+        <View style={SearchStyles.resultIconBox}>
+          <Text variant="body1" size={16}>{item.icon || '📦'}</Text>
+        </View>
       )}
       <Text variant="body1" size={14} style={[SearchStyles.resultText, SearchStyles[`text_${isDark ? 'defaultDark' : 'defaultLight'}`]]} numberOfLines={1}>
         {label}
@@ -81,11 +83,16 @@ export default function SearchDropdown({ results, isDark, onSelect, isEmpty, que
       dataSet={{ noPull: 'true', searchDropdown: 'true' }}
     >
       <ScrollView keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false} style={SearchStyles.scrollView}>
-        {visibleResults.map((item) => (
-          <Link key={item.id} href={{ pathname: '/product/[id]', params: { id: item.id } }} asChild>
-            <ResultRow item={item} isDark={isDark} onPress={onSelect} />
-          </Link>
-        ))}
+        {visibleResults.map((item, index) => {
+          const isLast = index === visibleResults.length - 1 && hiddenCount <= 0;
+          const borderStyle = !isLast ? (isDark ? SearchStyles.resultRowBorderDark : SearchStyles.resultRowBorderLight) : null;
+          const rowStyle = StyleSheet.flatten([SearchStyles.resultRow, SearchStyles.resultRowContent, borderStyle]);
+          return (
+            <Link key={item.id} href={{ pathname: '/product/[id]', params: { id: item.id } }} asChild>
+              <ResultRow item={item} isDark={isDark} onPress={onSelect} style={rowStyle} />
+            </Link>
+          );
+        })}
         <MoreResultsHint count={hiddenCount} isDark={isDark} t={t} />
       </ScrollView>
     </View>

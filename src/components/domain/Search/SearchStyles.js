@@ -93,12 +93,14 @@ function createSearchStyles() {
       backgroundColor: 'rgba(0, 0, 0, 0.55)',
       zIndex: layout.zIndices.dropdown - 1,
     },
-    dropdownOverlay: {
+    dropdownWrapper: {
       position: 'absolute',
-      top: 40,
+      top: 42,
       left: 0,
       right: 0,
       zIndex: layout.zIndices.dropdown,
+    },
+    dropdownOverlay: {
       borderRadius: layout.radii.sm,
       borderWidth: layout.borderWidth.thin,
       overflow: 'hidden',
@@ -109,16 +111,31 @@ function createSearchStyles() {
       zIndex: layout.zIndices.dropdown,
     },
     resultRowContent: {
-      minHeight: 44,
+      height: 48,
       flexDirection: 'row',
       alignItems: 'center',
-      paddingHorizontal: layout.spacing.md,
-      gap: layout.spacing.sm,
+      paddingHorizontal: layout.spacing.lg,
+      gap: layout.spacing.lg,
+    },
+    resultRowBorderLight: {
+      borderBottomWidth: layout.borderWidth.thin,
+      borderBottomColor: colors.borderSlateLight,
+    },
+    resultRowBorderDark: {
+      borderBottomWidth: layout.borderWidth.thin,
+      borderBottomColor: colors.borderSlateDark,
     },
     resultImage: {
-      width: layout.spacing.xl,
-      height: layout.spacing.xl,
+      width: 36,
+      height: 36,
       borderRadius: layout.radii.xs,
+    },
+    resultIconBox: {
+      width: 36,
+      height: 36,
+      borderRadius: layout.radii.xs,
+      alignItems: 'center',
+      justifyContent: 'center',
     },
     resultText: {
       flex: 1,
@@ -132,7 +149,7 @@ function createSearchStyles() {
       textAlign: 'center',
     },
     scrollView: {
-      maxHeight: 300,
+      maxHeight: 320,
       ...(Platform.OS === 'web' ? { overscrollBehavior: 'contain' } : {}),
     },
   };

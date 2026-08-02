@@ -147,7 +147,7 @@ export function StatusFilterBar({ t, activeFilter, onSelectFilter, count, isDark
             </View>
 
             <Button
-              title={t('btnOk') || 'OK'}
+              title={t('applyFilter') || t('catalogApplyFilters') || 'Apply Filter'}
               onPress={() => setModalVisible(false)}
               variant="primary"
               size="md"
