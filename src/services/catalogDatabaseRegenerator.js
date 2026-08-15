@@ -1,43 +1,101 @@
-import { createRandomCatalogDataset, generateOrdersDataset } from './catalogDatabaseRegenerator.helpers.js';
+import {
+  generateCategoryHierarchy,
+  generateProductsForHolders,
+  generateProductActivity,
+  generateOrdersDataset,
+  generateSupportAndNotes,
+} from './catalogDatabaseRegenerator.helpers.js';
 import { catalogRepository } from './repositories/index.js';
-const { fetchExistingCatalogData, replaceCatalogData, signInAsAdmin } = catalogRepository;
+const {
+  fetchExistingCatalogContext,
+  batchDeleteCollections,
+  batchWriteCatalogData,
+  signInAsAdmin,
+} = catalogRepository;
 import { withServiceContract } from './serviceContract.js';
 
 function assertSuccess(res, fallbackMsg) {
   if (!res.success) throw new Error(res.error || fallbackMsg);
 }
 
+function validateOptions(options = {}) {
+  const rootCount = options.rootCount !== undefined ? Number(options.rootCount) : 3;
+  if (!Number.isInteger(rootCount) || rootCount < 1 || rootCount > 10) {
+    throw new Error('rootCount must be an integer between 1 and 10');
+  }
+  return { ...options, rootCount };
+}
+
 async function _regenerateCatalogDatabase(options = {}) {
+  const startTime = Date.now();
+
   if (process.env.NODE_ENV === 'production') {
     throw new Error('Database regeneration is disabled in production environment');
   }
 
-  if (options.authenticate) {
-    console.log(`Step 1: Signing in as admin... [mode: ${options.mode || 'standard'}]`);
+  const validOptions = validateOptions(options);
+  const onProgress = typeof validOptions.onProgress === 'function' ? validOptions.onProgress : () => {};
+
+  if (validOptions.authenticate) {
+    onProgress('auth', 5);
     const authRes = await signInAsAdmin();
     assertSuccess(authRes, 'Admin sign-in failed');
-    console.log('  Sign-in successful.');
   }
 
-  console.log('Step 2: Fetching existing data...');
-  const existingRes = await fetchExistingCatalogData();
-  assertSuccess(existingRes, 'Failed to fetch existing data');
-  const existingData = existingRes.data;
+  onProgress('fetch_context', 20);
+  const contextRes = await fetchExistingCatalogContext();
+  assertSuccess(contextRes, 'Failed to fetch catalog context');
+  const contextData = contextRes.data;
 
-  console.log(`  Found ${existingData.counts.products} products, ${existingData.counts.categories} categories, ${existingData.counts.orders} orders, ${existingData.users.length} users.`);
+  onProgress('clean_data', 40);
+  const deleteRes = await batchDeleteCollections(contextData);
+  assertSuccess(deleteRes, 'Failed to clean old catalog data');
 
-  console.log('Step 3: Deleting existing data (products, categories, orders)...');
+  onProgress('generate_data', 60);
+  const { categories, holders } = generateCategoryHierarchy(validOptions.rootCount);
+  const products = generateProductsForHolders(holders, validOptions);
+  const productActivity = generateProductActivity(products, contextData.users);
+  const orders = generateOrdersDataset(contextData.users, products, validOptions);
+  const { supportMessages, adminNotes } = generateSupportAndNotes(contextData.users, validOptions);
 
-  console.log('Step 4: Generating and writing new dataset...');
-  const dataset = createRandomCatalogDataset(options);
-  const ordersDataset = generateOrdersDataset(existingData.users, dataset.products, options);
+  onProgress('write_data', 80);
+  const writeRes = await batchWriteCatalogData({
+    categories,
+    products,
+    productActivity,
+    orders,
+    supportMessages,
+    adminNotes,
+  });
+  assertSuccess(writeRes, 'Failed to write catalog data');
 
-  const replaceRes = await replaceCatalogData(existingData, dataset, ordersDataset);
-  assertSuccess(replaceRes, 'Failed to replace catalog data');
+  onProgress('complete', 100);
 
-  console.log(`  Wrote ${dataset.categories.length} categories, ${dataset.products.length} products, and ${ordersDataset.length} orders.`);
+  const reviewsCount = Object.values(productActivity).reduce((acc, act) => acc + (act.reviews?.length || 0), 0);
+  const questionsCount = Object.values(productActivity).reduce((acc, act) => acc + (act.questions?.length || 0), 0);
+  const durationMs = Date.now() - startTime;
 
-  return { ...dataset, orders: ordersDataset };
+  const stats = {
+    categoriesCount: categories.length,
+    productsCount: products.length,
+    reviewsCount,
+    questionsCount,
+    ordersCount: orders.length,
+    supportMessagesCount: supportMessages.length,
+    adminNotesCount: adminNotes.length,
+  };
+
+  return {
+    categories,
+    products,
+    productActivity,
+    orders,
+    supportMessages,
+    adminNotes,
+    stats,
+    durationMs,
+  };
 }
 
 export const regenerateCatalogDatabase = withServiceContract(_regenerateCatalogDatabase, 'Failed to regenerate catalog database');
+export const regenerateDatabase = regenerateCatalogDatabase;

@@ -1,5 +1,20 @@
 # Dependency Issues Refactoring Subskill
 
+## Task Limitation Rule
+
+**CRITICAL**: When working with audit files, follow this strict process:
+
+1. Read the audit file provided in context
+2. Extract ONLY the first 3-5 problems from the top of the list
+3. Fix exactly those 3-5 problems and no more
+4. Stop immediately after completing them
+5. Do NOT continue to other problems in the file
+6. Complete work and exit
+
+This ensures incremental refactoring and allows the user to run audit between iterations.
+
+---
+
 ## Mission
 
 Safely resolve verified dependency issues (unused dependencies, unlisted dependencies, and circular dependencies) while preserving project build stability.
@@ -27,8 +42,9 @@ Never modify dependencies outside this report.
 # Execution Limits
 
 - Process sequentially ONE dependency issue at a time.
-- Upon completing and verifying a fix, immediately proceed to the next item without stopping.
-- Repeat sequentially until reaching the maximum limit of 10 items per execution session.
+- Take ONLY the first 3-5 items from the top.
+- Upon completing and verifying a fix, immediately proceed to the next item until 3-5 items are fixed.
+- Stop immediately after completing them.
 - Maximum attempts per item: 1.
 
 ---
@@ -47,7 +63,7 @@ Never modify dependencies outside this report.
 After fixing a dependency issue:
 
 1. Save changes (`package.json` or module refactoring).
-2. Run `npm run health` or `npm run audit:ui`.
+2. Run `npm run audit`.
 3. Verify project builds and dependency issues disappear from `dependency-issues.md`.
 
 ---
@@ -55,5 +71,5 @@ After fixing a dependency issue:
 # Stop Conditions
 
 Stop immediately when:
-- All dependency issues in `dependency-issues.md` are resolved;
+- 3-5 dependency issues in `dependency-issues.md` are resolved;
 - the dispatcher terminates execution.

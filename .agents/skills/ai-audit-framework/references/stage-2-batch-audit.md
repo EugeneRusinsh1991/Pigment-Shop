@@ -1,7 +1,7 @@
 # Stage 2 — Batch Audit
 
 ## Purpose & Scope
-Analyze exactly **one** designated audit batch using the selected Audit Profile. Save the report inside `.docs/ai-audit-framework/batches/<step_id>_batch_<name>.md`.
+Analyze exactly **one** designated audit batch using the selected Audit Profile. Save the report inside `.todos/ai-audit-framework/batches/<step_id>_batch_<name>.md`.
 
 ---
 
@@ -21,11 +21,11 @@ File names MUST include the step/sub-batch ID prefix:
 - Collect concrete code evidence for observations within the assigned batch according to profile focus areas.
 - Strictly adhere to the chosen Audit Profile (mark out-of-scope concerns as "Out of Scope").
 - Assign Severity (`Critical`, `High`, `Medium`, `Low`) and Confidence (`High`, `Medium`, `Low`).
-- Update execution history log in `.docs/ai-audit-framework/audit-config.md`.
+- Update execution history log in `.todos/ai-audit-framework/audit-config.md`.
 
 ---
 
-## Output Template (`.docs/ai-audit-framework/batches/<step_id>_batch_<name>.md`)
+## Output Template (`.todos/ai-audit-framework/batches/<step_id>_batch_<name>.md`)
 
 ```markdown
 # Stage 2 — Batch Audit Report: [<Batch Name>]
@@ -51,7 +51,7 @@ File names MUST include the step/sub-batch ID prefix:
 - **Impact**: [Technical or maintainability impact]
 
 ## Stage Completion Check
-- [ ] Saved as `.docs/ai-audit-framework/batches/<step_id>_batch_<name>.md`
+- [ ] Saved as `.todos/ai-audit-framework/batches/<step_id>_batch_<name>.md`
 - [ ] `audit-config.md` history log updated
 - [ ] Ready for next batch or Stage 3
 ```
@@ -59,4 +59,4 @@ File names MUST include the step/sub-batch ID prefix:
 ---
 
 ## Exit Criteria
-- Evidence-backed `<step_id>_batch_<name>.md` report generated inside `.docs/ai-audit-framework/batches/`.
+- Evidence-backed `<step_id>_batch_<name>.md` report generated inside `.todos/ai-audit-framework/batches/`.

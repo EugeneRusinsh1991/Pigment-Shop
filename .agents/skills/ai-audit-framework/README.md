@@ -1,6 +1,8 @@
-# AI Audit Framework — Complete User & Technical Guide
+# AI Audit Framework NEW — Complete User & Technical Guide
 
-The **AI Audit Framework** is a technology-agnostic, 5-phase software audit engine based on **Universal AI Audit Framework v2**.
+The **AI Audit Framework NEW** is the enhanced multi-pass version of the technology-agnostic, 5-phase software audit engine based on **Universal AI Audit Framework v2**.
+
+**🚀 NEW in this version**: Stages 3, 4, and 5 are now split into 3 passes each for deeper analysis and better problem detection. Single-pass execution was found to miss critical issues due to context overload.
 
 ---
 
@@ -10,6 +12,34 @@ Before running an audit, limit execution to your area of interest:
 - **Whole Project**: Scans the complete workspace codebase.
 - **Specific Folder**: Restricts analysis to a directory (e.g. `src/components/buttons/`, `src/features/auth/`).
 - **Logical Subsystem**: Filters by module responsibility across files (e.g. "Button & Input components", "Checkout Flow").
+
+---
+
+## 🔄 Multi-Pass Architecture (NEW)
+
+**Critical Improvement**: Stages 3, 4, and 5 are now split into 3 passes each to ensure deeper analysis and better problem detection. Single-pass execution was found to miss critical issues due to context overload.
+
+### Stage 3: Global Consolidation (3 Passes)
+- **3.1**: Pass 1 - Basic Consolidation (merge, group, deduplicate findings from all batches)
+- **3.2**: Pass 2 - Cross-Batch Analysis (identify patterns, systemic issues across batches)
+- **3.3**: Pass 3 - Business Impact Prioritization (P0-P3 classification, ROI, execution order)
+
+### Stage 4: Global Analysis (3 Passes)
+- **4.1**: Pass 1 - Pattern Detection & Classification (detect and classify patterns into Architectural, UX, Process, Technical types)
+- **4.2**: Pass 2 - Systemic Issues & Root Cause Analysis (5 Whys methodology, dependency mapping, architectural impact assessment)
+- **4.3**: Pass 3 - Strategic Recommendations & Roadmap (strategic recommendations, multi-phase roadmap, success metrics, risk assessment)
+
+### Stage 5: Refactoring Roadmap (3 Passes)
+- **5.1**: Pass 1 - Task Planning & High-Level Breakdown (transform strategic recommendations into task structure without file-level detail)
+- **5.2**: Pass 2 - Task Specification - Phase 1 (create detailed task specs for P0 Critical tasks with 100% file coverage)
+- **5.3**: Pass 3 - Task Specification - Phase 2&3 (create detailed task specs for P1 High and P2 Medium tasks with 100% file coverage)
+
+**Benefits of Multi-Pass Architecture**:
+- ✅ Deeper analysis with focused scope per pass
+- ✅ Better problem detection (no missed issues due to context overload)
+- ✅ Clearer separation of concerns (consolidation → analysis → specification)
+- ✅ More accurate model recommendations per specific task complexity
+- ✅ Easier to resume and track progress through audit-config.md
 
 ---
 
@@ -121,7 +151,19 @@ During normal execution in the same chat window, the AI reports progress concise
 
 ```text
 Stage 2.1 Complete. Saved batches/2.1_batch_ui.md.
-Next: Stage 2.2 (2.2_batch_state). Recommended Model: 🟠 Gemini 3.6 Flash (High).
+Next: Stage 2.2 (2.2_batch_state). Recommended Model: ◕ FH — 2d 5f +10r — S8.
+```
+
+**Multi-Pass Progress Example**:
+```text
+Stage 3.1 Complete. Saved stages/3.1-pass1-basic-consolidation.md.
+Next: Stage 3.2 (3.2-pass2-cross-batch-analysis). Recommended Model: ◕ FH — 2d 5f +10r — S8.
+
+Stage 3.2 Complete. Saved stages/3.2-pass2-cross-batch-analysis.md.
+Next: Stage 3.3 (3.3-pass3-business-impact-prioritization). Recommended Model: ◐ FM — 1d 3f +1r — S3.
+
+Stage 3.3 Complete. Saved stages/3.3-pass3-business-impact-prioritization.md.
+Next: Stage 4.1 (4.1-pass1-pattern-detection). Recommended Model: ◕ FH — 2d 5f +10r — S8.
 ```
 
 You simply switch your model if needed in the top dropdown of the **same chat** and type `/ai-audit-framework`.
@@ -143,17 +185,28 @@ The **New Chat Session Move Notice** is an **emergency block** that appears **ON
    Continue audit using /ai-audit-framework
 ```
 
+**Note**: With the multi-pass architecture, context overflow is less likely since each pass has a focused scope, but this emergency mechanism remains available for safety.
+
 ---
 
 ## 📜 Audit History Log & Batch File Naming (`audit-config.md`)
 
 ```markdown
 ## 📜 Execution History Log
-| Timestamp | Step ID | Action / Execution | Status | Artifact Created | Model Used |
+| Timestamp | Step ID | Action / Execution | Status | Artifact Created | Model Rating (/model-recommender) |
 |---|---|---|---|---|---|
-| 2026-07-25 09:30 | **1.0** | Project Inventory & Sub-Batch Sizing | ✅ Completed | `stages/1-project-inventory.md` | Gemini 3.6 Flash Medium |
-| 2026-07-25 09:32 | **2.1** | Audit Batch `ui-forms` | ✅ Completed | `batches/2.1-batch-ui-forms.md` | Gemini 3.6 Flash Medium |
-| 2026-07-25 09:35 | **2.2** | Audit Batch `state` | ⏳ Next Step | - | Gemini 3.6 Flash High |
+| 2026-08-11 | **1.0** | Project Inventory & Sub-Batch Sizing | ✅ Completed | `stages/1-project-inventory.md` | 🟢 FM — 1d 2f +1r — S3 |
+| 2026-08-11 | **2.1** | Button Batch Audit | ✅ Completed | `batches/2.1_batch_buttons.md` | 🟢 FM — 4d 8f +3r — S5 |
+| 2026-08-11 | **2.2** | Input Batch Audit | ✅ Completed | `batches/2.2_batch_inputs.md` | 🟢 FM — 2d 5f +2r — S5 |
+| 2026-08-11 | **3.1** | Global Consolidation - Pass 1 (Basic) | ✅ Completed | `stages/3.1-pass1-basic-consolidation.md` | 🟢 FM — 1d 3f +1r — S3 |
+| 2026-08-11 | **3.2** | Global Consolidation - Pass 2 (Cross-Batch Analysis) | ✅ Completed | `stages/3.2-pass2-cross-batch-analysis.md` | 🟢 FM — 1d 3f +1r — S3 |
+| 2026-08-11 | **3.3** | Global Consolidation - Pass 3 (Business Impact Prioritization) | ✅ Completed | `stages/3.3-pass3-business-impact-prioritization.md` | 🟢 FM — 1d 3f +1r — S3 |
+| 2026-08-11 | **4.1** | Global Analysis - Pass 1 (Pattern Detection & Classification) | ✅ Completed | `stages/4.1-pass1-pattern-detection.md` | 🟢 FM — 1d 3f +1r — S3 |
+| 2026-08-11 | **4.2** | Global Analysis - Pass 2 (Systemic Issues & Root Cause Analysis) | ✅ Completed | `stages/4.2-pass2-systemic-issues.md` | 🟢 FM — 1d 3f +1r — S3 |
+| 2026-08-11 | **4.3** | Global Analysis - Pass 3 (Strategic Recommendations & Roadmap) | ✅ Completed | `stages/4.3-pass3-strategic-recommendations.md` | 🟢 FM — 1d 3f +1r — S3 |
+| 2026-08-11 | **5.1** | Refactoring Roadmap - Pass 1 (Task Planning & High-Level Breakdown) | ✅ Completed | `stages/5.1-pass1-task-planning.md` | 🟢 FM — 1d 3f +1r — S3 |
+| 2026-08-11 | **5.2** | Refactoring Roadmap - Pass 2 (Task Specification - Phase 1 Critical Tasks) | ✅ Completed | `stages/5.2-pass2-phase1-tasks.md` | 🟢 FM — 2d 5f +2r — S6 |
+| 2026-08-11 | **5.3** | Refactoring Roadmap - Pass 3 (Task Specification - Phase 2 & 3 Tasks) | ✅ Completed | `stages/5.3-pass3-phase2-3-tasks.md` | 🟢 FM — 2d 5f +2r — S6 |
 ```
 
 ---
@@ -164,12 +217,57 @@ The **New Chat Session Move Notice** is an **emergency block** that appears **ON
 - **YOU**: `/ai-audit-framework`
 - **AI**: 
   > **Stage 2.1 Complete.** Saved `batches/2.1-batch-ui-forms.md`.  
-  > **Next**: Stage 2.2 (`2.2-batch-state`). **Recommended Model**: 🟠 `Gemini 3.6 Flash (High)`.
+  > **Next**: Stage 2.2 (`2.2-batch-state`). **Recommended Model**: `◕ FH — 2d 5f +10r — S8`.
 
-### 2. Emergency Move Notice Triggered (Context ~70%+ or Overflow Risk):
+### 2. Multi-Pass Progress Example (NEW):
+|- **YOU**: `/ai-audit-framework`
+|- **AI**:
+  > **Stage 3.1 Complete.** Saved `stages/3.1-pass1-basic-consolidation.md`.
+  > **Next**: Stage 3.2 (`3.2-pass2-cross-batch-analysis`). **Recommended Model**: `◕ FH — 2d 5f +10r — S8`.
+
+|- **YOU**: `/ai-audit-framework`
+|- **AI**:
+  > **Stage 3.2 Complete.** Saved `stages/3.2-pass2-cross-batch-analysis.md`.
+  > **Next**: Stage 3.3 (`3.3-pass3-business-impact-prioritization`). **Recommended Model**: `◐ FM — 1d 3f +1r — S3`.
+
+|- **YOU**: `/ai-audit-framework`
+|- **AI**:
+  > **Stage 3.3 Complete.** Saved `stages/3.3-pass3-business-impact-prioritization.md`.
+  > **Next**: Stage 4.1 (`4.1-pass1-pattern-detection`). **Recommended Model**: `◕ FH — 2d 5f +10r — S8`.
+
+### 3. Emergency Move Notice Triggered (Context ~70%+ or Overflow Risk):
 - **YOU**: `/ai-audit-framework`
 - **AI**: 
-  > **Stage 3 Complete.** Saved `stages/3-global-inventory.md`.  
-  > **Next**: Stage 4 (Global Analysis). **Recommended Model**: 🔴 `Gemini 3.1 Pro (High)`.  
-  > ⚠️ **CONTEXT OVERFLOW WARNING (~70%+ Used / Migration Needed)**  
+  > **Stage 5.3 Complete.** Saved `stages/5.3-pass3-phase2-3-tasks.md`.
+  > **Next**: EXECUTE TASKS - Begin Phase 1 task execution. **Recommended Model**: `◕ FH — 2d 5f +2r — S6`.  
+  > ⚠️ **CONTEXT OVERFLOW WARNING (~70%+ Used / Migration Needed)**
   > 💡 Please open a **NEW CHAT SESSION** and paste: `Continue audit using /ai-audit-framework`
+
+---
+
+## 🆚 Old vs New Architecture Comparison
+
+### Old Architecture (Single-Pass)
+- **Stage 3**: Single pass for Global Consolidation (merge + cross-batch analysis + prioritization)
+- **Stage 4**: Single pass for Global Analysis (pattern detection + systemic issues + strategic recommendations)
+- **Stage 5**: Single pass for Refactoring Roadmap (task planning + specification)
+- **Problem**: Too much scope per pass → AI misses critical issues due to context overload
+
+### New Architecture (Multi-Pass)
+- **Stage 3**: 3 passes (Basic Consolidation → Cross-Batch Analysis → Business Impact Prioritization)
+- **Stage 4**: 3 passes (Pattern Detection → Systemic Issues → Strategic Recommendations)
+- **Stage 5**: 3 passes (Task Planning → Phase 1 Task Spec → Phase 2&3 Task Spec)
+- **Benefit**: Focused scope per pass → Better problem detection, deeper analysis, no missed issues
+
+### Key Improvements
+1. **Better Problem Detection**: Multi-pass approach found issues that single-pass missed
+2. **Clearer Separation of Concerns**: Each pass has a specific, focused responsibility
+3. **More Accurate Model Recommendations**: Model selection based on specific task complexity per pass
+4. **Easier Progress Tracking**: audit-config.md tracks each pass separately
+5. **Reduced Context Overflow Risk**: Focused scope per pass reduces token usage
+
+### Migration from Old to New
+If you have an audit started with the old architecture, you can:
+1. Continue with the old flow (it still works)
+2. Start fresh with the new multi-pass architecture for better results
+3. The new architecture is backward compatible with existing audit-config.md files

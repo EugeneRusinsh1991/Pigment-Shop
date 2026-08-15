@@ -1,5 +1,20 @@
 # Complex Files
 
+## Task Limitation Rule
+
+**CRITICAL**: When working with audit files, follow this strict process:
+
+1. Read the audit file provided in context
+2. Extract ONLY the first 3-5 problems from the top of the list
+3. Fix exactly those 3-5 problems and no more
+4. Stop immediately after completing them
+5. Do NOT continue to other problems in the file
+6. Complete work and exit
+
+This ensures incremental refactoring and allows the user to run audit between iterations.
+
+---
+
 ## Mission
 
 Safely reduce file size and/or complexity while preserving existing behavior.
@@ -23,8 +38,9 @@ Never process files outside these reports.
 # Execution Limits
 
 - Process sequentially ONE file at a time.
-- Upon completing and verifying a file refactor, immediately proceed to the next file without stopping.
-- Repeat sequentially until reaching the maximum limit of 3 files per execution session.
+- Take ONLY the first 3-5 file size issues from the top.
+- Upon completing and verifying a file refactor, immediately proceed to the next file until 3-5 files are refactored.
+- Stop immediately after completing them.
 - Maximum attempts per file: 3.
 - Never process multiple files simultaneously in a single code edit.
 
@@ -145,8 +161,8 @@ Never:
 After every refactoring pass:
 
 1. Save changes.
-2. Run the appropriate audit (Large Files OR High Complexity).
-3. Check whether the current file still exists in the new report.
+2. Run `npm run audit`.
+3. Check whether the file still appears in the report.
 
 The audit report is the only source of truth.
 
@@ -217,7 +233,7 @@ Each extracted module should represent one meaningful responsibility.
 
 Stop immediately when:
 
-- 10 files have been processed;
+- 3-5 files have been processed;
 - both reports contain no remaining files;
 - the dispatcher terminates execution.
 

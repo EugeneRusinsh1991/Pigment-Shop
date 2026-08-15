@@ -1,5 +1,20 @@
 # Complex Methods
 
+## Task Limitation Rule
+
+**CRITICAL**: When working with audit files, follow this strict process:
+
+1. Read the audit file provided in context
+2. Extract ONLY the first 3-5 problems from the top of the list
+3. Fix exactly those 3-5 problems and no more
+4. Stop immediately after completing them
+5. Do NOT continue to other problems in the file
+6. Complete work and exit
+
+This ensures incremental refactoring and allows the user to run audit between iterations.
+
+---
+
 ## Mission
 
 Safely reduce the complexity of individual methods while preserving existing behavior.
@@ -23,8 +38,9 @@ Never process methods outside this report.
 # Execution Limits
 
 - Process sequentially ONE method at a time.
-- Upon completing and verifying a method refactor, immediately proceed to the next method without stopping.
-- Repeat sequentially up to a maximum of 5 methods per execution session.
+- Take ONLY the first 3-5 complexity issues from the top.
+- Upon completing and verifying a method refactor, immediately proceed to the next method until 3-5 methods are refactored.
+- Stop immediately after completing them.
 - Maximum attempts per method: 3.
 - Never refactor multiple methods simultaneously in a single code edit.
 
@@ -129,7 +145,7 @@ Never:
 After every refactoring pass:
 
 1. Save changes.
-2. Run the Complexity Health audit.
+2. Run the audit using terminal command `npm run audit`.
 3. Check whether the current method still appears in the report.
 
 The audit report is the only source of truth.
@@ -199,7 +215,7 @@ Never introduce new technical debt in order to eliminate existing technical debt
 
 Stop immediately when:
 
-- 15 methods have been processed;
+- 3-5 methods have been processed;
 - the Complexity Health report contains no remaining methods;
 - the dispatcher terminates execution.
 

@@ -1,5 +1,20 @@
 # Small Files
 
+## Task Limitation Rule
+
+**CRITICAL**: When working with audit files, follow this strict process:
+
+1. Read the audit file provided in context
+2. Extract ONLY the first 3-5 problems from the top of the list
+3. Fix exactly those 3-5 problems and no more
+4. Stop immediately after completing them
+5. Do NOT continue to other problems in the file
+6. Complete work and exit
+
+This ensures incremental refactoring and allows the user to run audit between iterations.
+
+---
+
 ## Mission
 
 Safely reduce unnecessary file fragmentation while preserving existing behavior.
@@ -25,8 +40,9 @@ Never process files outside this report.
 # Execution Limits
 
 - Process sequentially ONE file at a time.
-- Upon completing and verifying a file refactor, immediately proceed to the next file without stopping.
-- Repeat sequentially until reaching the maximum limit of 10 files per execution session.
+- Take ONLY the first 3-5 files from the top.
+- Upon completing and verifying a file refactor, immediately proceed to the next file until 3-5 files are merged.
+- Stop immediately after completing them.
 - Maximum attempts per file: 1.
 - Never process multiple unrelated files simultaneously in a single code edit.
 
@@ -124,8 +140,8 @@ Small size alone is never a sufficient reason to merge.
 After every refactoring pass:
 
 1. Save changes.
-2. Run the Small Files audit.
-3. Check whether the current file still exists in the report.
+2. Run `npm run audit`.
+3. Check whether the file still appears in the report.
 
 The audit report is the only source of truth.
 
@@ -185,7 +201,7 @@ Never sacrifice architecture for cosmetic metrics.
 
 Stop immediately when:
 
-- 20 files have been processed;
+- 3-5 files have been processed;
 - the Small Files report contains no remaining files;
 - the dispatcher terminates execution.
 

@@ -1,5 +1,20 @@
 # Code Duplication
 
+## Task Limitation Rule
+
+**CRITICAL**: When working with audit files, follow this strict process:
+
+1. Read the audit file provided in context
+2. Extract ONLY the first 3-5 problems from the top of the list (or 3-5 duplication pairs)
+3. Fix exactly those 3-5 problems and no more
+4. Stop immediately after completing them
+5. Do NOT continue to other problems in the file
+6. Complete work and exit
+
+This ensures incremental refactoring and allows the user to run audit between iterations.
+
+---
+
 ## Mission
 
 Safely eliminate duplicated code while preserving existing behavior.
@@ -23,8 +38,9 @@ Never process duplication outside this report.
 # Execution Limits
 
 - Process sequentially ONE duplication at a time.
-- Upon completing and verifying a duplication, immediately proceed to the next duplication without stopping.
-- Repeat sequentially up to a maximum of 5 duplications per execution session.
+- Take ONLY the first 3-5 duplication pairs from the top.
+- Upon completing and verifying a duplication, immediately proceed to the next duplication until 3-5 problems are fixed.
+- Stop immediately after completing them.
 - Maximum attempts per duplication: 2.
 - Never resolve multiple duplications simultaneously in a single code edit.
 
@@ -117,8 +133,8 @@ Never:
 After every refactoring pass:
 
 1. Save changes.
-2. Run the Code Duplication audit.
-3. Check whether the duplication still exists.
+2. Run `npm run audit`.
+3. Check whether the duplicate block still appears in the report.
 
 The audit report is the only source of truth.
 
@@ -187,7 +203,7 @@ Never introduce unnecessary abstractions solely to remove duplication.
 
 Stop immediately when:
 
-- 15 duplications have been processed;
+- 3-5 duplications have been processed;
 - the Code Duplication report contains no remaining duplications;
 - the dispatcher terminates execution.
 
