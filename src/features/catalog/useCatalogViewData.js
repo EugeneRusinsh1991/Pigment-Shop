@@ -23,7 +23,7 @@ export function useCatalogViewData({
   const { categoryTree } = useCatalog();
 
   const computedPath = useMemo(() => {
-    if (categoryId && categoryTree) {
+    if (categoryId && categoryTree && Array.isArray(categoryTree)) {
       return findCategoryPath(categoryTree, categoryId) || [];
     }
     return [];
@@ -31,18 +31,20 @@ export function useCatalogViewData({
 
   const { computedDepth, computedCurrentLevel, computedItems, computedCrumbs } = useMemo(() => {
     let depth = 0;
-    let currentLevel = { label: t('navRootCatalog'), items: categoryTree || [] };
-    let items = categoryTree || [];
+    const tree = Array.isArray(categoryTree) ? categoryTree : [];
+    let currentLevel = { label: t('navRootCatalog'), items: tree };
+    let items = tree;
     let crumbs = [];
 
-    if (computedPath.length > 0) {
+    if (computedPath && computedPath.length > 0) {
       depth = computedPath.length;
       const lastNode = computedPath[computedPath.length - 1];
-      currentLevel = { label: lastNode.label, items: lastNode.children || [] };
-      items = lastNode.children || [];
+      const children = Array.isArray(lastNode?.children) ? lastNode.children : [];
+      currentLevel = { label: lastNode?.label || '', items: children };
+      items = children;
       crumbs = computedPath.map((node) => ({
         id: node.id,
-        label: node.label,
+        label: node.label || '',
         href: { pathname: '/catalog/[categoryId]', params: { categoryId: node.id } },
       }));
     }

@@ -26,7 +26,7 @@ export function buildProductCategoryMap(rawCategories = []) {
 export function buildNormalizedProducts(rawProducts = [], productCategoryMap) {
   return rawProducts.map((product) => ({
     ...product,
-    categoryId: productCategoryMap ? (productCategoryMap.get(product.id) || null) : null,
+    categoryId: (productCategoryMap && productCategoryMap.get(product.id)) || product.categoryId || null,
   }));
 }
 

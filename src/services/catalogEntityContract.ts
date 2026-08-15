@@ -179,6 +179,7 @@ export function normalizeProductEntity(product?: RawProductInput | null): Normal
 
   return {
     ...rest,
+    categoryId: safeProduct.categoryId ?? null,
     label: getNormalizedLocalizedString(safeProduct.label),
     description: getNormalizedLocalizedString(safeProduct.description),
     id: validated.id || safeProduct.id || '',

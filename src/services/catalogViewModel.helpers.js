@@ -91,6 +91,9 @@ export function assembleCategoryTree(categoryNodes) {
   categoryNodes.forEach((node) => {
     const parent = node.parentId ? nodeMap.get(node.parentId) : null;
     if (parent) {
+      if (!Array.isArray(parent.children)) {
+        parent.children = [];
+      }
       const firstProductIdx = parent.children.findIndex((child) => !child.isCategory);
       if (firstProductIdx === -1) {
         parent.children.push(node);
@@ -100,10 +103,6 @@ export function assembleCategoryTree(categoryNodes) {
     } else {
       categoryTree.push(node);
     }
-  });
-
-  categoryNodes.forEach((node) => {
-    delete node.parentId;
   });
 
   return categoryTree;

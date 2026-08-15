@@ -22,8 +22,11 @@ function createCategoryCrumb(node, lang) {
 function getCategoryChain(categoryId, categoryLookup) {
   if (!categoryLookup || !categoryId) return [];
   const chain = [];
+  const visited = new Set();
   let current = categoryLookup.get(categoryId) || categoryLookup.get(String(categoryId));
   while (current) {
+    if (visited.has(current.id)) break;
+    visited.add(current.id);
     chain.unshift(current);
     if (!current.parentId) break;
     current = categoryLookup.get(current.parentId) || categoryLookup.get(String(current.parentId));

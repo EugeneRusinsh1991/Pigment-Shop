@@ -10,12 +10,17 @@
  * @returns {Array|null} Array of nodes representing path from root to target node, or null if not found.
  */
 export function findCategoryPath(nodes, targetId, currentPath = []) {
-  if (!nodes) return null;
+  if (!nodes || !Array.isArray(nodes) || targetId == null) return null;
+  const targetIdStr = String(targetId);
+
   for (const node of nodes) {
+    if (!node) continue;
     const nextPath = [...currentPath, node];
-    if (node.id === targetId) return nextPath;
-    const path = findCategoryPath(node.children, targetId, nextPath);
-    if (path) return path;
+    if (String(node.id) === targetIdStr) return nextPath;
+    if (node.children && Array.isArray(node.children)) {
+      const path = findCategoryPath(node.children, targetId, nextPath);
+      if (path) return path;
+    }
   }
   return null;
 }
@@ -27,7 +32,7 @@ export function findCategoryPath(nodes, targetId, currentPath = []) {
  * @returns {Array<string|number>}
  */
 export function getParentCategoryIds(categoryTree, selectedCategoryId) {
-  if (!categoryTree || !selectedCategoryId) return [];
+  if (!categoryTree || !Array.isArray(categoryTree) || selectedCategoryId == null) return [];
   const path = findCategoryPath(categoryTree, selectedCategoryId);
   return path ? path.map((node) => node.id) : [];
 }
