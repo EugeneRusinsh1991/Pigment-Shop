@@ -150,8 +150,8 @@ const CategoryCardInner = React.forwardRef(({ item, isDark, depth = 1, isBanner 
         />
         <View style={[styles.overlay, computedStyles.overlay]} />
         <View style={getContentStyle(computedStyles, activeIsBanner)}>
-          <Heading level={3} style={getLabelStyle(computedStyles, activeIsBanner)} numberOfLines={2} isDark={isDark}>{label}</Heading>
-          <Text style={getDescStyle(computedStyles, activeIsBanner)} numberOfLines={2} isDark={isDark}>{desc}</Text>
+          <Heading level={3} color="white" style={getLabelStyle(computedStyles, activeIsBanner)} numberOfLines={2}>{label}</Heading>
+          <Text color="white" style={getDescStyle(computedStyles, activeIsBanner)} numberOfLines={2}>{desc}</Text>
         </View>
       </View>
     </Card>

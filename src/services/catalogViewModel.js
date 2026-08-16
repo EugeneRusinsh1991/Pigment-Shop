@@ -1,13 +1,14 @@
 import {
-  CATEGORY_IMAGES,
   resolveLocalizedValue,
   resolveProductCategoryHierarchy,
   resolveCategoryDescription,
+  resolveProductImageFallback,
+  resolveCategoryImageFallback,
   productToLeaf,
   assembleCategoryTree,
   collectSubtreeIds,
 } from './catalogViewModel.helpers.js';
-import { CATEGORY_PLACEHOLDER } from '../constants/index.js';
+
 
 
 
@@ -44,6 +45,11 @@ export function buildCategoryLookup(categories = []) {
 export function buildFlatList(products = [], categoryLookup, lang = 'en') {
   const localizedProducts = products.map((product) => {
     const { categoryId, categoryLabel, subcategoryLabel } = resolveProductCategoryHierarchy(product, categoryLookup, lang);
+    const resolvedImage = resolveProductImageFallback(product);
+    const resolvedImages = Array.isArray(product.images) && product.images.length > 0
+      ? product.images.filter(Boolean)
+      : (resolvedImage ? [resolvedImage] : []);
+
     return {
       id: product.id,
       label: resolveLocalizedValue(product.label, lang),
@@ -53,10 +59,8 @@ export function buildFlatList(products = [], categoryLookup, lang = 'en') {
       subcategory: subcategoryLabel,
       isCategory: false,
       price: product.price,
-      image: product.image,
-      images: Array.isArray(product.images) && product.images.length > 0
-        ? product.images
-        : (product.image ? [product.image] : []),
+      image: resolvedImage,
+      images: resolvedImages,
       active: product.active,
       isNew: product.isNew,
       discountPercent: product.discountPercent,
@@ -84,8 +88,7 @@ export function buildCategoryTree(categories = [], flatList = [], lang = 'en') {
 
   const categoryNodes = categories.map((category) => {
     const label = resolveLocalizedValue(category.name, lang);
-    const nameRu = category.name?.ru || category.id;
-    const image = category.image || CATEGORY_IMAGES[nameRu] || CATEGORY_PLACEHOLDER;
+    const image = resolveCategoryImageFallback(category);
     const description = resolveCategoryDescription(category, label, lang);
     const assignedProducts = (productsByCategory.get(category.id) || [])
       .map((p) => ({ ...p, name: p.label }));

@@ -1,6 +1,7 @@
 import readline from 'node:readline/promises';
 import { stdin as input, stdout as output } from 'node:process';
 import { regenerateCatalogDatabase } from '../../src/services/catalogDatabaseRegenerator.js';
+import { validatePool, mediaPool } from '../../src/constants/mediaPool.js';
 
 export function parseArgs(argv = process.argv.slice(2)) {
   let rootCount = null;
@@ -61,6 +62,17 @@ function logProgress(step, percent) {
 
 async function main() {
   try {
+    // Pre-flight CLI validation check
+    try {
+      validatePool(mediaPool);
+    } catch (valErr) {
+      console.error('\n❌ Ошибка предварительной проверки пула медиафайлов (Pre-flight media pool check failed):');
+      console.error(`   ${valErr.message}`);
+      console.error('   👉 Пожалуйста, сначала выполните команду: npm run fetch-media-pool\n');
+      process.exitCode = 1;
+      return;
+    }
+
     const { rootCount: argRootCount, skipPrompt, mode } = parseArgs();
     const finalRootCount = argRootCount !== null
       ? argRootCount

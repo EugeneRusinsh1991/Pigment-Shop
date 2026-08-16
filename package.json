@@ -43,6 +43,7 @@
     "health": "node .tools/core/health/run-health.cjs",
     "pack": "node .tools/core/packer/run-pack.cjs",
     "generate-media": "node .tools/scripts/generateMediaManifest.js",
+    "fetch-media-pool": "node .tools/scripts/fetchCloudinaryMediaPool.mjs",
     "regenerate-database": "node .tools/scripts/regenerateDatabase.js",
     "regenerate-database-low": "node .tools/scripts/regenerateDatabase.js --low",
     "export:firebase": "node .tools/scripts/export-firebase-data.mjs",

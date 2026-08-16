@@ -80,6 +80,61 @@ export class CloudinaryStorageProvider extends BaseStorageProvider {
   }
 
   /**
+   * Fetches resources from Cloudinary Admin API with type classification.
+   *
+   * @param {'image' | 'video'} [resourceType='image']
+   * @returns {Promise<Array<{ id: string, name: string, path: string, url: string, type: string, category: string, format?: string }>>}
+   */
+  async listResources(resourceType = 'image') {
+    const { cloudName, apiKey, apiSecret } = this.config;
+    if (!cloudName || !apiKey || !apiSecret) {
+      return [];
+    }
+
+    try {
+      const auth = typeof btoa === 'function'
+        ? btoa(`${apiKey}:${apiSecret}`)
+        : Buffer.from(`${apiKey}:${apiSecret}`).toString('base64');
+
+      const url = `https://api.cloudinary.com/v1_1/${cloudName}/resources/${resourceType}/upload?max_results=500`;
+      const res = await fetch(url, {
+        headers: { Authorization: `Basic ${auth}` },
+      });
+
+      if (!res.ok) {
+        return [];
+      }
+
+      const data = await res.json();
+      return (data.resources || []).map((r) => {
+        const format = (r.format || r.secure_url.split('.').pop() || '').toLowerCase();
+        const isGif = format === 'gif';
+        const isVideo = resourceType === 'video';
+        const category = isVideo ? 'videos' : (isGif ? 'gifs' : 'images');
+        const type = isVideo ? 'video' : (isGif ? 'gif' : 'image');
+        const rawName = r.public_id ? r.public_id.split('/').pop() : r.secure_url.split('/').pop();
+        const cleanName = rawName && format && !rawName.toLowerCase().endsWith(`.${format}`)
+          ? `${rawName}.${format}`
+          : (rawName || `asset.${format || 'jpg'}`);
+
+        return {
+          id: r.public_id || r.secure_url,
+          name: cleanName,
+          path: r.secure_url,
+          url: r.secure_url,
+          type,
+          category,
+          format,
+          width: r.width,
+          height: r.height,
+        };
+      });
+    } catch (err) {
+      return [];
+    }
+  }
+
+  /**
    * Resolves a publicId or existing URL into an image source URL.
    *
    * @param {string} publicIdOrUrl

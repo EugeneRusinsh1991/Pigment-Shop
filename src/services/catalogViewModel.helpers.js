@@ -1,14 +1,33 @@
 import { getLocalizedValue } from '../utils/localization.js';
-import { CATEGORY_PLACEHOLDER } from '../constants/index.js';
+import { getDefaultProductImage, getDefaultCategoryImage, mediaPool } from '../constants/mediaPool.js';
 
-export const CATEGORY_IMAGES = {
-  'Иглы и картриджи': CATEGORY_PLACEHOLDER,
-  'Клеи и ресницы': CATEGORY_PLACEHOLDER,
-  'Базы и топы': CATEGORY_PLACEHOLDER,
-  'Пигменты для бровей': CATEGORY_PLACEHOLDER,
-  'Пигменты для губ': CATEGORY_PLACEHOLDER,
-  'Другое': CATEGORY_PLACEHOLDER,
-};
+export function resolveProductImageFallback(product) {
+  if (product && typeof product.image === 'string' && product.image.trim()) {
+    return product.image.trim();
+  }
+  if (product && Array.isArray(product.images) && product.images.length > 0 && product.images[0]) {
+    return product.images[0];
+  }
+  return typeof mediaPool.getDefaultProductImage === 'function'
+    ? mediaPool.getDefaultProductImage()
+    : getDefaultProductImage();
+}
+
+export function resolveCategoryImageFallback(category) {
+  if (category && typeof category.image === 'string' && category.image.trim()) {
+    return category.image.trim();
+  }
+  return typeof mediaPool.getDefaultCategoryImage === 'function'
+    ? mediaPool.getDefaultCategoryImage()
+    : getDefaultCategoryImage();
+}
+
+export const CATEGORY_IMAGES = new Proxy({}, {
+  get: () => (typeof mediaPool.getDefaultCategoryImage === 'function'
+    ? mediaPool.getDefaultCategoryImage()
+    : getDefaultCategoryImage()),
+});
+
 
 export function resolveLocalizedValue(value, lang) {
   return getLocalizedValue(value, lang);
@@ -60,6 +79,11 @@ export function resolveCategoryDescription(category, label, lang) {
 }
 
 export function productToLeaf(p) {
+  const fallbackImage = resolveProductImageFallback(p);
+  const images = Array.isArray(p.images) && p.images.length > 0
+    ? p.images.filter(Boolean)
+    : (fallbackImage ? [fallbackImage] : []);
+
   return {
     id: p.id,
     label: p.label,
@@ -69,10 +93,8 @@ export function productToLeaf(p) {
     discountPercent: p.discountPercent || 0,
     isNew: !!p.isNew,
     description: p.description,
-    image: p.image,
-    images: Array.isArray(p.images) && p.images.length > 0
-      ? p.images
-      : (p.image ? [p.image] : []),
+    image: fallbackImage,
+    images,
     stock: p.stock,
     sold: p.sold,
     category: p.category || '',

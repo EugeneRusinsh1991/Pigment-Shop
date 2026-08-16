@@ -32,6 +32,7 @@ yarn-error.*
 *.pem
 
 # local env files
+.env
 .env*.local
 
 # typescript
@@ -63,7 +64,6 @@ yarn-error.*
 /reports/
 
 # Documentation & Logs
-/.docs/
 /.audits/
 /.logs/
 *.log

@@ -17,7 +17,8 @@ export const STORAGE_PROVIDERS = {
  * @returns {string} 'cloudinary' | 'firebase' | 'local'
  */
 export function getActiveStorageProviderName() {
-  const provider = process.env.EXPO_PUBLIC_STORAGE_PROVIDER;
+  const env = typeof process !== 'undefined' && process.env ? process.env : {};
+  const provider = env.EXPO_PUBLIC_STORAGE_PROVIDER;
   if (provider && Object.values(STORAGE_PROVIDERS).includes(provider)) {
     return provider;
   }
@@ -26,13 +27,17 @@ export function getActiveStorageProviderName() {
 
 /**
  * Returns Cloudinary configuration settings.
+ * Safe for CLI scripts and browser runtime without DOM dependencies.
  *
- * @returns {{ cloudName: string, apiKey: string, uploadPreset: string }}
+ * @returns {{ cloudName: string, apiKey: string, apiSecret: string, uploadPreset: string }}
  */
 export function getCloudinaryConfig() {
+  const env = typeof process !== 'undefined' && process.env ? process.env : {};
   return {
-    cloudName: process.env.EXPO_PUBLIC_CLOUDINARY_CLOUD_NAME || 'iayng29j',
-    apiKey: process.env.EXPO_PUBLIC_CLOUDINARY_API_KEY || '243111452156969',
-    uploadPreset: process.env.EXPO_PUBLIC_CLOUDINARY_UPLOAD_PRESET || 'pigment_shop',
+    cloudName: env.EXPO_PUBLIC_CLOUDINARY_CLOUD_NAME || 'iayng29j',
+    apiKey: env.EXPO_PUBLIC_CLOUDINARY_API_KEY || '727263237727468',
+    apiSecret: env.CLOUDINARY_API_SECRET || 'NSjhtV3VaI7Da_cLl9RSLtWL4G8',
+    uploadPreset: env.EXPO_PUBLIC_CLOUDINARY_UPLOAD_PRESET || 'pigment_shop',
   };
 }
+

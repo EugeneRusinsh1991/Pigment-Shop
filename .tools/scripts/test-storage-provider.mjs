@@ -60,15 +60,16 @@ async function runStorageProviderTests() {
   const mediaResolve = resolveMediaUrl('products/test-image');
   console.log(`[PASS] StorageService contract & MediaAdapter delegation verified (URL: ${mediaResolve}).`);
 
-  // Test 6: Production Cloudinary Placeholder URLs Reachability
-  const prodImgUrl = 'https://res.cloudinary.com/iayng29j/image/upload/v1785611320/products/tjlw5jitzfkoaqfmj7ti.jpg';
-  const catImgUrl = 'https://res.cloudinary.com/iayng29j/image/upload/v1785611322/categories/g3yabymukhht0e8zeyc7.jpg';
+  // Test 6: Production Cloudinary Media Pool URLs Reachability
+  const mediaPoolData = JSON.parse(await import('node:fs').then(fs => fs.readFileSync(new URL('../../src/constants/mediaPool.json', import.meta.url), 'utf8')));
+  const prodImgUrl = mediaPoolData.productImages[0];
+  const catImgUrl = mediaPoolData.categoryImages[0];
   const res1 = await fetch(prodImgUrl);
   const res2 = await fetch(catImgUrl);
   if (!res1.ok || !res2.ok) {
-    throw new Error(`Cloudinary placeholder HTTP check failed: ${res1.status}, ${res2.status}`);
+    throw new Error(`Cloudinary media pool HTTP check failed: ${res1.status}, ${res2.status}`);
   }
-  console.log('[PASS] Production Cloudinary placeholder images verified HTTP 200 OK.');
+  console.log('[PASS] Production Cloudinary media pool images verified HTTP 200 OK.');
 
   console.log('--- All Storage Provider Verification Tests Passed Successfully! ---');
 }

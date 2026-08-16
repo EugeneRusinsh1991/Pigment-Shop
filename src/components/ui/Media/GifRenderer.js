@@ -6,7 +6,7 @@ import { mediaStyles } from './MediaStyles';
  * WebGifRenderer
  * Renders HTML5 img element on Web for GIF playback compatibility.
  */
-function WebGifRenderer({ uri, resizeMode, flatStyle }) {
+function WebGifRenderer({ uri, resizeMode, flatStyle, onError }) {
   return (
     <img 
       src={uri}
@@ -16,6 +16,7 @@ function WebGifRenderer({ uri, resizeMode, flatStyle }) {
         flatStyle
       ])}
       alt="media"
+      onError={onError}
     />
   );
 }
@@ -24,13 +25,14 @@ function WebGifRenderer({ uri, resizeMode, flatStyle }) {
  * GifRenderer
  * Dispatches GIF rendering between Web and Native (fallback to React Native Image).
  */
-export default function GifRenderer({ isWeb, uri, resizeMode, flatStyle, style }) {
+export default function GifRenderer({ isWeb, uri, resizeMode, flatStyle, style, onError }) {
   if (isWeb) {
     return (
       <WebGifRenderer
         uri={uri}
         resizeMode={resizeMode}
         flatStyle={flatStyle}
+        onError={onError}
       />
     );
   }
@@ -39,6 +41,7 @@ export default function GifRenderer({ isWeb, uri, resizeMode, flatStyle, style }
       source={{ uri }}
       style={style}
       resizeMode={resizeMode}
+      onError={onError}
     />
   );
 }

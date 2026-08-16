@@ -17,12 +17,73 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-export function generateCategoryHierarchy(rootCount = 4) {
+/**
+ * Resolves a category image deterministically ensuring distinct and category-matched assignment.
+ *
+ * @param {Object} category
+ * @param {number} index
+ * @param {Array<string>} [pool=CATEGORY_IMAGE_POOL]
+ * @returns {string}
+ */
+export function resolveCategoryImage(category, index = 0, pool = CATEGORY_IMAGE_POOL) {
+  if (category?.image) return category.image;
+  const imageList = Array.isArray(pool) && pool.length > 0 ? pool : CATEGORY_IMAGE_POOL;
+  if (!imageList || imageList.length === 0) return '';
+  const hash = String(category?.id || category?.tag || index).split('').reduce((acc, c) => acc + c.charCodeAt(0), 0);
+  return imageList[(hash + index) % imageList.length];
+}
+
+/**
+ * Resolves distinct, category-aligned product images for a product item.
+ *
+ * @param {Object} template
+ * @param {Object} holder
+ * @param {number} index
+ * @param {Array<string>} [productPool=PRODUCT_IMAGE_POOL]
+ * @param {Array<string>} [categoryPool=CATEGORY_IMAGE_POOL]
+ * @param {Object} [mediaPoolObj=null]
+ * @returns {Array<string>}
+ */
+export function resolveProductImages(template, holder, index = 0, productPool = PRODUCT_IMAGE_POOL, categoryPool = CATEGORY_IMAGE_POOL, mediaPoolObj = null) {
+  if (Array.isArray(template?.images) && template.images.length > 0) {
+    return template.images.filter(Boolean);
+  }
+
+  const tag = template?.categoryTag || template?.templateKey || holder?.tag || '';
+  let candidatePool = [];
+  if (mediaPoolObj?.categories && tag) {
+    for (const [catKey, urls] of Object.entries(mediaPoolObj.categories)) {
+      if (tag.toLowerCase().includes(catKey.toLowerCase()) || catKey.toLowerCase().includes(tag.toLowerCase())) {
+        candidatePool = urls;
+        break;
+      }
+    }
+  }
+
+  const pool = candidatePool.length > 0
+    ? candidatePool
+    : (Array.isArray(productPool) && productPool.length > 0 ? productPool : categoryPool);
+
+  if (!pool || pool.length === 0) {
+    return [PRODUCT_IMAGE_POOL[0] || CATEGORY_IMAGE_POOL[0] || ''];
+  }
+
+  const seed = (String(holder?.id || '').split('').reduce((acc, c) => acc + c.charCodeAt(0), 0) + index * 3) % pool.length;
+  const img1 = pool[seed % pool.length];
+  const img2 = pool[(seed + 1) % pool.length];
+  const img3 = pool[(seed + 2) % pool.length];
+
+  const unique = [...new Set([img1, img2, img3].filter(Boolean))];
+  return unique.length > 0 ? unique : [pool[0]];
+}
+
+export function generateCategoryHierarchy(rootCount = 4, customMediaPool = null) {
   const categories = [];
   const holders = [];
   const categoryMap = {};
 
   const totalRoots = Math.max(1, Number(rootCount) || 4);
+  const catPool = customMediaPool?.categoryImages || CATEGORY_IMAGE_POOL;
 
   for (let r = 0; r < totalRoots; r++) {
     const dictRoot = CATEGORY_DICTIONARIES[r % CATEGORY_DICTIONARIES.length];
@@ -34,9 +95,10 @@ export function generateCategoryHierarchy(rootCount = 4) {
       type: 'category_holder',
       depth: 1,
       index: r,
+      tag: dictRoot.tag || 'general',
       name: { ...dictRoot.name },
       description: { ...dictRoot.description },
-      image: dictRoot.image || CATEGORY_IMAGE_POOL[r % CATEGORY_IMAGE_POOL.length],
+      image: dictRoot.image || resolveCategoryImage(dictRoot, r, catPool),
       childCategoryIds: [],
     };
 
@@ -59,9 +121,10 @@ export function generateCategoryHierarchy(rootCount = 4) {
         type: 'category_holder',
         depth: 2,
         index: s,
+        tag: dictSub.tag || dictRoot.tag || 'general',
         name: { ...dictSub.name },
         description: { ...dictSub.description },
-        image: dictSub.image || CATEGORY_IMAGE_POOL[(r + s + 1) % CATEGORY_IMAGE_POOL.length],
+        image: dictSub.image || resolveCategoryImage(dictSub, r * 10 + s + 1, catPool),
         childCategoryIds: [],
       };
 
@@ -85,9 +148,10 @@ export function generateCategoryHierarchy(rootCount = 4) {
           type: 'product_holder',
           depth: 3,
           index: h,
+          tag: dictHolder.tag || dictSub.tag || dictRoot.tag || 'general',
           name: { ...dictHolder.name },
           description: { ...dictHolder.description },
-          image: CATEGORY_IMAGE_POOL[(r + s + h + 2) % CATEGORY_IMAGE_POOL.length],
+          image: dictHolder.image || resolveCategoryImage(dictHolder, r * 100 + s * 10 + h + 2, catPool),
           productIds: [],
           _rootName: rootCat.name,
           _subName: subCat.name,
@@ -107,14 +171,17 @@ export function generateCategoryHierarchy(rootCount = 4) {
 export function generateProductsForHolders(holders, options = {}) {
   const products = [];
   const isLow = options.mode === 'low';
-  let templateIdx = 0;
+  const mediaPoolObj = options.mediaPool || null;
+  const productPool = mediaPoolObj?.productImages || PRODUCT_IMAGE_POOL;
+  const categoryPool = mediaPoolObj?.categoryImages || CATEGORY_IMAGE_POOL;
+  let globalProdIdx = 0;
 
   for (const holder of holders) {
     const prodCount = isLow ? 1 : getRandomInt(2, 4);
 
     for (let p = 0; p < prodCount; p++) {
-      const template = PRODUCT_TEMPLATES[templateIdx % PRODUCT_TEMPLATES.length];
-      templateIdx++;
+      const template = PRODUCT_TEMPLATES[globalProdIdx % PRODUCT_TEMPLATES.length];
+      globalProdIdx++;
 
       const prodId = `prod-${holder.id}-${p + 1}`;
       const [minPrice, maxPrice] = template.priceRange || [300, 1500];
@@ -125,9 +192,7 @@ export function generateProductsForHolders(holders, options = {}) {
       const discountPercent = isDiscounted ? getRandomInt(5, 40) : 0;
       const isNew = Math.random() < 0.3;
 
-      const templateImages = Array.isArray(template.images) && template.images.length > 0
-        ? template.images
-        : [PRODUCT_IMAGE_POOL[getRandomInt(0, PRODUCT_IMAGE_POOL.length - 1)]];
+      const finalImages = resolveProductImages(template, holder, globalProdIdx, productPool, categoryPool, mediaPoolObj);
 
       const product = {
         id: prodId,
@@ -140,13 +205,14 @@ export function generateProductsForHolders(holders, options = {}) {
         discountPercent,
         isNew,
         sku: `SKU-${Math.random().toString(36).substring(2, 8).toUpperCase()}`,
-        image: templateImages[0],
-        images: [...templateImages],
+        image: finalImages[0],
+        images: [...finalImages],
         categoryId: holder.id,
         category: holder._rootName || holder.name,
         holderCategory: holder._subName || holder.name,
         productHolderCategory: holder.name,
         active: true,
+        categoryTag: template.categoryTag || template.templateKey || '',
       };
 
       if (!holder.productIds) {
@@ -238,15 +304,16 @@ function generateLocalizedName(baseName) {
 }
 
 function buildCategory(id, parentId, depth, baseName) {
+  const idx = parseInt(id.split('-').pop(), 10) || 0;
   const cat = {
     id,
     parentId,
     type: depth === 3 ? 'product_holder' : 'category_holder',
     name: generateLocalizedName(baseName),
     description: generateLocalizedName(`Описание для ${baseName}`),
-    image: PRODUCT_IMAGES[Math.floor(Math.random() * PRODUCT_IMAGES.length)],
+    image: resolveCategoryImage({ id }, idx),
     depth,
-    index: parseInt(id.split('-').pop(), 10) || 0,
+    index: idx,
   };
 
   if (depth < 3) {
@@ -260,6 +327,8 @@ function buildCategory(id, parentId, depth, baseName) {
 }
 
 function buildProduct(id, topCategoryName, holderCategoryName, productHolderCategoryName, baseName, categoryId = null) {
+  const prodIdx = parseInt(id.split('-').pop(), 10) || 0;
+  const resolvedImages = resolveProductImages({}, { id: categoryId }, prodIdx);
   return {
     id,
     label: generateLocalizedName(baseName),
@@ -269,7 +338,8 @@ function buildProduct(id, topCategoryName, holderCategoryName, productHolderCate
     discountPercent: 0,
     isNew: false,
     description: generateLocalizedName(`Универсальный продукт для ${baseName}`),
-    image: PRODUCT_IMAGES[Math.floor(Math.random() * PRODUCT_IMAGES.length)],
+    image: resolvedImages[0],
+    images: [...resolvedImages],
     categoryId,
     category: topCategoryName,
     holderCategory: holderCategoryName,

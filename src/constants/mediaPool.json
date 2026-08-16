@@ -1,0 +1,55 @@
+{
+  "categoryImages": [
+    "https://res.cloudinary.com/iayng29j/image/upload/v1786834268/photo_2026-08-15_22-39-24_bke97w.jpg",
+    "https://res.cloudinary.com/iayng29j/image/upload/v1786834268/photo_2026-08-16_01-48-13_2_c4dkst.jpg",
+    "https://res.cloudinary.com/iayng29j/image/upload/v1786834268/photo_2026-08-15_09-10-49_i2upxe.jpg",
+    "https://res.cloudinary.com/iayng29j/image/upload/v1786834268/photo_2026-08-16_01-48-08_gcx2az.jpg",
+    "https://res.cloudinary.com/iayng29j/image/upload/v1786834267/photo_2026-08-16_01-48-09_do31ar.jpg"
+  ],
+  "productImages": [
+    "https://res.cloudinary.com/iayng29j/image/upload/v1786834267/photo_2026-08-16_01-48-11_n8m412.jpg",
+    "https://res.cloudinary.com/iayng29j/image/upload/v1786834267/photo_2026-08-16_01-48-09_2_jpfw7c.jpg",
+    "https://res.cloudinary.com/iayng29j/image/upload/v1786834267/photo_2026-08-16_01-48-12_2_zh1wgt.jpg",
+    "https://res.cloudinary.com/iayng29j/image/upload/v1786834266/photo_2026-08-16_01-50-22_dahx08.jpg",
+    "https://res.cloudinary.com/iayng29j/image/upload/v1786834266/photo_2026-08-16_01-50-21_mg52ui.jpg",
+    "https://res.cloudinary.com/iayng29j/image/upload/v1786834266/photo_2026-08-16_01-48-10_zjiar0.jpg",
+    "https://res.cloudinary.com/iayng29j/image/upload/v1786834266/photo_2026-08-16_01-50-21_2_sit8hz.jpg",
+    "https://res.cloudinary.com/iayng29j/image/upload/v1786834266/photo_2026-08-16_01-48-12_sjuuh9.jpg",
+    "https://res.cloudinary.com/iayng29j/image/upload/v1786834266/photo_2026-08-16_01-48-13_gcz9zh.jpg",
+    "https://res.cloudinary.com/iayng29j/image/upload/v1786774181/nxWo-qZc_WjTzMxzaNZn7q8s0bQPTiMf9i34QwH5fzEvIQdrswVOZ3mXVZ7C2aX_ucFFCeMJZ-Zcm49yAscXcKi5G4xU8D6sSi0ZZfJE42xuCXWIDiW56YahaDzCEz8mMf4TlBKnTkL2PMzDY4jwFTovp4Z-A5-Qiwoe7bVj9D3m8Aj0fig1kNUusm9QBIxx_ciyhqp.jpg",
+    "https://res.cloudinary.com/iayng29j/image/upload/v1786774180/ZKwKq8cLK_56iRDEyMj2X5gwKV9uYrPrY5Jl7LuEAycCgUJJuyjgX2MPLaOybc-vfQHGRqoSLRblcZfF9n-tnPCGGxNbvSAo8h8Cj952TkF3bEeErDF6Jrkxzn4FtomSYcxOGtM0N3jY4E3F70k4aDk4UIbkY0SDC62Qzp0z6kMLHWEYlypJEF2nDOD-QDES_ufzo6z.jpg"
+  ],
+  "banners": [
+    "https://res.cloudinary.com/iayng29j/image/upload/v1786834268/photo_2026-08-15_22-39-24_bke97w.jpg",
+    "https://res.cloudinary.com/iayng29j/image/upload/v1786834268/photo_2026-08-16_01-48-13_2_c4dkst.jpg",
+    "https://res.cloudinary.com/iayng29j/image/upload/v1786834268/photo_2026-08-15_09-10-49_i2upxe.jpg",
+    "https://res.cloudinary.com/iayng29j/image/upload/v1786834268/photo_2026-08-16_01-48-08_gcx2az.jpg",
+    "https://res.cloudinary.com/iayng29j/image/upload/v1786834267/photo_2026-08-16_01-48-09_do31ar.jpg"
+  ],
+  "categories": {
+    "acrylic": [
+      "https://res.cloudinary.com/iayng29j/image/upload/v1786834268/photo_2026-08-15_22-39-24_bke97w.jpg",
+      "https://res.cloudinary.com/iayng29j/image/upload/v1786834268/photo_2026-08-16_01-48-13_2_c4dkst.jpg"
+    ],
+    "oil": [
+      "https://res.cloudinary.com/iayng29j/image/upload/v1786834268/photo_2026-08-15_09-10-49_i2upxe.jpg",
+      "https://res.cloudinary.com/iayng29j/image/upload/v1786834268/photo_2026-08-16_01-48-08_gcx2az.jpg"
+    ],
+    "watercolor": [
+      "https://res.cloudinary.com/iayng29j/image/upload/v1786834267/photo_2026-08-16_01-48-09_do31ar.jpg",
+      "https://res.cloudinary.com/iayng29j/image/upload/v1786834267/photo_2026-08-16_01-48-11_n8m412.jpg"
+    ],
+    "gouache": [
+      "https://res.cloudinary.com/iayng29j/image/upload/v1786834267/photo_2026-08-16_01-48-09_2_jpfw7c.jpg",
+      "https://res.cloudinary.com/iayng29j/image/upload/v1786834267/photo_2026-08-16_01-48-12_2_zh1wgt.jpg"
+    ],
+    "spray": [
+      "https://res.cloudinary.com/iayng29j/image/upload/v1786834266/photo_2026-08-16_01-50-22_dahx08.jpg",
+      "https://res.cloudinary.com/iayng29j/image/upload/v1786834266/photo_2026-08-16_01-50-21_mg52ui.jpg"
+    ],
+    "other": [
+      "https://res.cloudinary.com/iayng29j/image/upload/v1786834266/photo_2026-08-16_01-48-10_zjiar0.jpg",
+      "https://res.cloudinary.com/iayng29j/image/upload/v1786834266/photo_2026-08-16_01-50-21_2_sit8hz.jpg"
+    ]
+  }
+}

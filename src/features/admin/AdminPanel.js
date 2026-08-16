@@ -26,12 +26,13 @@ if (Platform.OS === 'web' && typeof document !== 'undefined') {
   }
 }
 
+import { useRouter } from 'expo-router';
 import { Heading } from '@/components/ui/Text';
 import { useTheme } from '../../context/ThemeContext';
 import { useLanguage } from '../../context/LanguageContext';
 import { useAuth } from '../../context/AuthContext';
 import { useAdminAuth, useAdminDrafts } from '../../services/adminDomain';
-import { UserIcon } from '@/components/Icons';
+import { UserIcon, BackArrowIcon } from '@/components/Icons';
 import styles from './AdminPanelStyles';
 import AdminTabBar from './AdminTabBar';
 import AdminSidebar from './AdminSidebar';
@@ -45,7 +46,7 @@ import UserDropdown from '../shell/AppHeader/UserDropdown';
 import { PageTransition } from '@/components/ui/Motion';
 import { colors, layout } from '../../theme/tokens';
 
-import { IconButton } from '@/components/ui/Button';
+import { Button, IconButton } from '@/components/ui/Button';
 
 const TAB_COMPONENTS = {
   analytics: AnalyticsDashboard,
@@ -68,6 +69,7 @@ function renderActiveTab(activeTab, sessionDateRange, setSessionDateRange) {
 }
 
 export default function AdminPanel({ onBack }) {
+  const router = useRouter();
   const [activeTab, setActiveTab] = useState('analytics');
   const [showUserMenu, setShowUserMenu] = useState(false);
   const { isDark } = useTheme();
@@ -106,12 +108,29 @@ export default function AdminPanel({ onBack }) {
     await logoutAdmin();
   };
 
+  const handleBack = () => {
+    if (onBack) {
+      onBack();
+    } else {
+      router.push('/');
+    }
+  };
+
   const iconColor = isDark ? colors.white : colors.dark;
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <View style={styles.headerLeft}>
+          <Button
+            leftIcon={<BackArrowIcon color={iconColor} size={16} />}
+            title={t('btnBackLabel')}
+            onPress={handleBack}
+            variant="ghost"
+            size="sm"
+            isDark={isDark}
+            data-testid="admin-back-btn"
+          />
           <Heading level={2} style={styles.headerTitle}>{t('adminTitle')}</Heading>
         </View>
         <View style={styles.userMenuContainer}>

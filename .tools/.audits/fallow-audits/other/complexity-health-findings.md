@@ -1,6 +1,6 @@
 # 🩺 Complexity Health Findings (Critical & High)
 
-*Generated on: 08.08.2026, 22:26:23*
+*Generated on: 16.08.2026, 02:16:00*
 
 ## 🔴 Critical (> 50 lines)
 
@@ -46,6 +46,12 @@
 - 🔴 **`deduplicateFindings`** [L57](file:///d:/Magazine/_PigmentShop/.tools/auditors/static-analysis/normalizer.js#L57)
   - Lines: 62 | Cyclomatic: 10 | Cognitive: 20 | CRAP: 110
 
+#### 📁 [export-firebase-data.mjs](file:///d:/Magazine/_PigmentShop/.tools/scripts/export-firebase-data.mjs)
+`scripts/export-firebase-data.mjs`
+
+- 🔴 **`exportFirebase`** [L47](file:///d:/Magazine/_PigmentShop/.tools/scripts/export-firebase-data.mjs#L47)
+  - Lines: 88 | Cyclomatic: 10 | Cognitive: 20 | CRAP: 110
+
 
 ## 🔴 Critical (≤ 50 lines)
 
@@ -84,5 +90,11 @@
 
 - 🔴 **`run`** [L25](file:///d:/Magazine/_PigmentShop/.tools/auditors/static-analysis/analyzers/base-analyzer.js#L25)
   - Lines: 46 | Cyclomatic: 11 | Cognitive: 12 | CRAP: 132
+
+#### 📁 [regenerateDatabase.js](file:///d:/Magazine/_PigmentShop/.tools/scripts/regenerateDatabase.js)
+`scripts/regenerateDatabase.js`
+
+- 🔴 **`parseArgs`** [L5](file:///d:/Magazine/_PigmentShop/.tools/scripts/regenerateDatabase.js#L5)
+  - Lines: 25 | Cyclomatic: 10 | Cognitive: 14 | CRAP: 110
 
 

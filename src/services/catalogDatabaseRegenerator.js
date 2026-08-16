@@ -6,6 +6,7 @@ import {
   generateSupportAndNotes,
 } from './catalogDatabaseRegenerator.helpers.js';
 import { catalogRepository } from './repositories/index.js';
+import { validatePool, mediaPool } from '../constants/mediaPool.js';
 const {
   fetchExistingCatalogContext,
   batchDeleteCollections,
@@ -33,6 +34,9 @@ async function _regenerateCatalogDatabase(options = {}) {
     throw new Error('Database regeneration is disabled in production environment');
   }
 
+  // Pre-flight media pool validation gate
+  validatePool(mediaPool);
+
   const validOptions = validateOptions(options);
   const onProgress = typeof validOptions.onProgress === 'function' ? validOptions.onProgress : () => {};
 
@@ -52,8 +56,8 @@ async function _regenerateCatalogDatabase(options = {}) {
   assertSuccess(deleteRes, 'Failed to clean old catalog data');
 
   onProgress('generate_data', 60);
-  const { categories, holders } = generateCategoryHierarchy(validOptions.rootCount);
-  const products = generateProductsForHolders(holders, validOptions);
+  const { categories, holders } = generateCategoryHierarchy(validOptions.rootCount, mediaPool);
+  const products = generateProductsForHolders(holders, { ...validOptions, mediaPool });
   const productActivity = generateProductActivity(products, contextData.users);
   const orders = generateOrdersDataset(contextData.users, products, validOptions);
   const { supportMessages, adminNotes } = generateSupportAndNotes(contextData.users, validOptions);

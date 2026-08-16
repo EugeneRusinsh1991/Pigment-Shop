@@ -12,7 +12,7 @@ import VideoRenderer from './VideoRenderer';
  * - Uses <img> on Web for .gif to avoid RNW caching/playback issues (via GifRenderer).
  * - Uses <Image> otherwise.
  */
-export default function MediaRenderer({ uri, style, resizeMode = 'cover', autoPlay = true, loop = true, muted = true, preload = 'auto', onReady, isActive = false, onProgress }) {
+export default function MediaRenderer({ uri, style, resizeMode = 'cover', autoPlay = true, loop = true, muted = true, preload = 'auto', onReady, isActive = false, onProgress, onError }) {
   const type = getMediaType(uri);
   if (type === 'none') return null;
 
@@ -39,6 +39,7 @@ export default function MediaRenderer({ uri, style, resizeMode = 'cover', autoPl
         onReady={onReady}
         shouldPlay={isActive}
         onProgress={onProgress}
+        onError={onError}
       />
     );
   }
@@ -51,6 +52,7 @@ export default function MediaRenderer({ uri, style, resizeMode = 'cover', autoPl
         resizeMode={resizeMode}
         flatStyle={flatStyle}
         style={[style]}
+        onError={onError}
       />
     );
   }
@@ -60,6 +62,7 @@ export default function MediaRenderer({ uri, style, resizeMode = 'cover', autoPl
       source={{ uri }}
       style={[style]}
       resizeMode={resizeMode}
+      onError={onError}
     />
   );
 }

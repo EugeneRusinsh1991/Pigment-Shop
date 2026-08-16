@@ -1,5 +1,5 @@
 import { AlertIcon, CrossIcon, RefreshIcon } from '@/components/Icons';
-import { ScrollView, View } from 'react-native';
+import { ActivityIndicator, ScrollView, View } from 'react-native';
 import { Text, Heading } from '@/components/ui/Text';
 import { useLanguage } from '../../../context/LanguageContext';
 import { MEDIA_CATEGORY } from '../../../media';
@@ -33,7 +33,7 @@ export function OutdatedBanner() {
   );
 }
 
-export function BrowserHeader({ onRefresh, onClose }) {
+export function BrowserHeader({ onRefresh, onClose, loading }) {
   const { t } = useLanguage();
   return (
     <View style={styles.header}>
@@ -44,6 +44,8 @@ export function BrowserHeader({ onRefresh, onClose }) {
         onPress={onRefresh}
         variant="secondary"
         size="sm"
+        loading={loading}
+        disabled={loading}
       />
       <IconButton
         icon={<CrossIcon color={colors.slateText} size={14} />}
@@ -71,14 +73,25 @@ export function BrowserTabs({ activeTab, onTabChange }) {
   );
 }
 
-export function BrowserBody({ currentItems, manifestReady, selectedItem, onSelectItem }) {
+export function BrowserBody({ currentItems, manifestReady, selectedItem, onSelectItem, loading }) {
+  if (loading) {
+    return (
+      <View style={[styles.body, { minHeight: 220, justifyContent: 'center', alignItems: 'center' }]}>
+        <ActivityIndicator size="large" color={colors.purpleStrong} />
+        <Text style={{ marginTop: 12, color: colors.secondaryLightText }} variant="caption">
+          Fetching live Cloudinary media...
+        </Text>
+      </View>
+    );
+  }
+
   if (currentItems.length === 0) {
     return (
       <ScrollView style={styles.body}>
         <EmptyState>
           {manifestReady
-            ? 'No assets in this category.'
-            : 'Run npm run generate-media to index your files.'}
+            ? 'No assets found in Cloudinary for this category.'
+            : 'Run npm run generate-media or fetch-media-pool to sync assets.'}
         </EmptyState>
       </ScrollView>
     );

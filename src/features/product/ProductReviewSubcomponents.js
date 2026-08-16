@@ -7,6 +7,7 @@ import { hapticTokens } from '../../theme/tokens';
 import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
 import { FieldTextarea } from '../admin/SharedFormComponents';
+import { getLocalizedValue } from '../../utils/localization';
 import styles from './ProductReviewsStyles';
 
 export { getAccountName, useReviewsState } from '../../hooks/useReviewsState';
@@ -25,13 +26,18 @@ export function SegmentedToggle({ options, activeValue, onChange, isDark, size =
 }
 
 export function ReviewCard({ rev, isDark }) {
+  const { lang } = useLanguage();
+  const author = getLocalizedValue(rev?.author, lang, '');
+  const comment = getLocalizedValue(rev?.comment, lang, '');
+  const date = typeof rev?.date === 'string' ? rev.date : '';
+
   return (
     <View style={[styles.reviewCard, isDark ? styles.reviewCardDark : styles.reviewCardLight]}>
       <View style={styles.reviewHeader}>
-        <Text style={styles.author}>{rev.author}</Text>
+        <Text style={styles.author}>{author}</Text>
       </View>
-      <Text color="desc" style={styles.comment}>{rev.comment}</Text>
-      <Text variant="caption" color="desc" style={styles.dateText}>{rev.date}</Text>
+      <Text color="desc" style={styles.comment}>{comment}</Text>
+      <Text variant="caption" color="desc" style={styles.dateText}>{date}</Text>
     </View>
   );
 }

@@ -1,42 +1,14 @@
-export const CATEGORY_IMAGE_POOL = [
-  'https://res.cloudinary.com/iayng29j/image/upload/v1785611322/categories/g3yabymukhht0e8zeyc7.jpg',
-  'https://res.cloudinary.com/iayng29j/image/upload/v1785611322/categories/pigments_main.jpg',
-  'https://res.cloudinary.com/iayng29j/image/upload/v1785611322/categories/lashes_main.jpg',
-  'https://res.cloudinary.com/iayng29j/image/upload/v1785611322/categories/equipment_main.jpg',
-  'https://res.cloudinary.com/iayng29j/image/upload/v1785611322/categories/sterilization_main.jpg',
-  'https://res.cloudinary.com/iayng29j/image/upload/v1785611322/categories/cartridges_main.jpg',
-  'https://res.cloudinary.com/iayng29j/image/upload/v1785611322/categories/care_accessories_main.jpg',
-  'https://res.cloudinary.com/iayng29j/image/upload/v1785611322/categories/anesthetics_main.jpg',
-];
+import mediaPool from '../constants/mediaPool.js';
 
-export const PRODUCT_IMAGE_POOL = [
-  'https://res.cloudinary.com/iayng29j/image/upload/v1785611320/products/tjlw5jitzfkoaqfmj7ti.jpg',
-  'https://res.cloudinary.com/iayng29j/image/upload/v1785611320/products/pigment_brow_brunette.jpg',
-  'https://res.cloudinary.com/iayng29j/image/upload/v1785611320/products/pigment_brow_blond.jpg',
-  'https://res.cloudinary.com/iayng29j/image/upload/v1785611320/products/pigment_lip_nude.jpg',
-  'https://res.cloudinary.com/iayng29j/image/upload/v1785611320/products/pigment_lip_coral.jpg',
-  'https://res.cloudinary.com/iayng29j/image/upload/v1785611320/products/pigment_eyeliner_black.jpg',
-  'https://res.cloudinary.com/iayng29j/image/upload/v1785611320/products/rotary_pm_machine_pro.jpg',
-  'https://res.cloudinary.com/iayng29j/image/upload/v1785611320/products/rotary_pen_wireless.jpg',
-  'https://res.cloudinary.com/iayng29j/image/upload/v1785611320/products/cartridge_needle_1rl_030.jpg',
-  'https://res.cloudinary.com/iayng29j/image/upload/v1785611320/products/cartridge_needle_3rs_025.jpg',
-  'https://res.cloudinary.com/iayng29j/image/upload/v1785611320/products/lash_glue_speed_expert.jpg',
-  'https://res.cloudinary.com/iayng29j/image/upload/v1785611320/products/lashes_mix_cc_curve.jpg',
-  'https://res.cloudinary.com/iayng29j/image/upload/v1785611320/products/lashes_mix_d_curve.jpg',
-  'https://res.cloudinary.com/iayng29j/image/upload/v1785611320/products/secondary_numbing_gel.jpg',
-  'https://res.cloudinary.com/iayng29j/image/upload/v1785611320/products/sterilization_autoclave_pouches.jpg',
-  'https://res.cloudinary.com/iayng29j/image/upload/v1785611320/products/microbrushes_ultra_fine.jpg',
-  'https://res.cloudinary.com/iayng29j/image/upload/v1785611320/products/aftercare_healing_balm.jpg',
-  'https://res.cloudinary.com/iayng29j/image/upload/v1785611320/products/caliper_measuring_ruler.jpg',
-];
-
+export const CATEGORY_IMAGE_POOL = mediaPool.categoryImages;
+export const PRODUCT_IMAGE_POOL = mediaPool.productImages;
 export const PRODUCT_IMAGES = PRODUCT_IMAGE_POOL;
-
-const SEED_BANNERS = PRODUCT_IMAGE_POOL.slice(0, 2);
+const SEED_BANNERS = mediaPool.banners;
 
 export const CATEGORY_DICTIONARIES = [
   {
     id: 'dir-pigments',
+    tag: 'pigments',
     name: {
       uk: 'Пігменти для перманентного макіяжу',
       ru: 'Пигменты для перманентного макияжа',
@@ -47,7 +19,6 @@ export const CATEGORY_DICTIONARIES = [
       ru: 'Премиальные пигменты для бровей, губ и век от мировых производителей.',
       en: 'Premium pigments for brows, lips, and eyeliners from top global brands.',
     },
-    image: CATEGORY_IMAGE_POOL[1],
     subcategories: [
       {
         id: 'sub-pigments-brows',
@@ -61,7 +32,6 @@ export const CATEGORY_DICTIONARIES = [
           ru: 'Стойкие минеральные и гибридные оттенки для перманента бровей.',
           en: 'Long-lasting mineral and hybrid brow shades for PMU.',
         },
-        image: CATEGORY_IMAGE_POOL[1],
         holders: [
           {
             id: 'holder-brows-mineral',
@@ -116,7 +86,6 @@ export const CATEGORY_DICTIONARIES = [
           ru: 'Широкая палитра от нюдовых до сочных ягодных тонов.',
           en: 'Broad palette from delicate nudes to vibrant berry tones.',
         },
-        image: CATEGORY_IMAGE_POOL[1],
         holders: [
           {
             id: 'holder-lips-nude',
@@ -158,7 +127,6 @@ export const CATEGORY_DICTIONARIES = [
           ru: 'Ультрачерные и теневые пигменты для стрелок и растушевки.',
           en: 'Carbon black and soft shadow pigments for permanent eyeliners.',
         },
-        image: CATEGORY_IMAGE_POOL[1],
         holders: [
           {
             id: 'holder-eyes-carbon',
@@ -192,6 +160,7 @@ export const CATEGORY_DICTIONARIES = [
   },
   {
     id: 'dir-lashes',
+    tag: 'lashes',
     name: {
       uk: 'Матеріали для вій',
       ru: 'Материалы для ресниц',
@@ -202,7 +171,6 @@ export const CATEGORY_DICTIONARIES = [
       ru: 'Профессиональные ресницы, клеи, препараты и инструменты для лэшмейкеров.',
       en: 'Professional eyelash trays, adhesives, solutions, and lash tools.',
     },
-    image: CATEGORY_IMAGE_POOL[2],
     subcategories: [
       {
         id: 'sub-lashes-extensions',
@@ -216,7 +184,6 @@ export const CATEGORY_DICTIONARIES = [
           ru: 'Ультралегкие моноволокна разнообразных изгибов и толщин.',
           en: 'Ultra-lightweight fibers in various curls and diameters.',
         },
-        image: CATEGORY_IMAGE_POOL[2],
         holders: [
           {
             id: 'holder-lashes-single',
@@ -258,7 +225,6 @@ export const CATEGORY_DICTIONARIES = [
           ru: 'Клеи мгновенной сцепки, обезжириватели, праймеры и ремуверы.',
           en: 'Fast-bonding glues, degreasers, primers, and gentle removers.',
         },
-        image: CATEGORY_IMAGE_POOL[2],
         holders: [
           {
             id: 'holder-lashes-glues',
@@ -300,7 +266,6 @@ export const CATEGORY_DICTIONARIES = [
           ru: 'Высокоточные пинцеты ручной заточки из японской стали.',
           en: 'Precision hand-ground tweezers made from Japanese steel.',
         },
-        image: CATEGORY_IMAGE_POOL[2],
         holders: [
           {
             id: 'holder-lashes-tweezers',
@@ -321,6 +286,7 @@ export const CATEGORY_DICTIONARIES = [
   },
   {
     id: 'dir-equipment',
+    tag: 'equipment',
     name: {
       uk: 'Обладнання та апарати',
       ru: 'Оборудование и аппараты',
@@ -331,7 +297,6 @@ export const CATEGORY_DICTIONARIES = [
       ru: 'Роторные машинки-ручки, блоки питания, педали и модульные картриджи.',
       en: 'Rotary PMU pens, power supplies, wireless batteries, and needle cartridges.',
     },
-    image: CATEGORY_IMAGE_POOL[3],
     subcategories: [
       {
         id: 'sub-equipment-machines',
@@ -345,7 +310,6 @@ export const CATEGORY_DICTIONARIES = [
           ru: 'Безвибрационные короткоходные и гибридные ручки для деликатных работ.',
           en: 'Low-vibration pens for ultra-precise hairline and lip strokes.',
         },
-        image: CATEGORY_IMAGE_POOL[3],
         holders: [
           {
             id: 'holder-machines-wireless',
@@ -387,7 +351,6 @@ export const CATEGORY_DICTIONARIES = [
           ru: 'Стерильные модули с защитной мембраной острых конфигураций.',
           en: 'Sterilized safety-membrane needle cartridges in all tapers.',
         },
-        image: CATEGORY_IMAGE_POOL[5],
         holders: [
           {
             id: 'holder-cartridges-rl',
@@ -421,6 +384,7 @@ export const CATEGORY_DICTIONARIES = [
   },
   {
     id: 'dir-sterilization',
+    tag: 'sterilization',
     name: {
       uk: 'Стерилізація та догляд',
       ru: 'Стерилизация и уход',
@@ -431,7 +395,6 @@ export const CATEGORY_DICTIONARIES = [
       ru: 'Крафт-пакеты, барьерная защита, антисептики и постпроцедурный уход.',
       en: 'Kraft pouches, barrier film, skin antiseptics, and healing care.',
     },
-    image: CATEGORY_IMAGE_POOL[4],
     subcategories: [
       {
         id: 'sub-sterilization-hygiene',
@@ -445,7 +408,6 @@ export const CATEGORY_DICTIONARIES = [
           ru: 'Одноразовые чехлы, нитриловые перчатки, микробраши и салфетки.',
           en: 'Single-use cord sleeves, nitrile gloves, microbrushes, and wipes.',
         },
-        image: CATEGORY_IMAGE_POOL[4],
         holders: [
           {
             id: 'holder-hygiene-barrier',
@@ -487,7 +449,6 @@ export const CATEGORY_DICTIONARIES = [
           ru: 'Специальные витаминные бальзамы и восстанавливающие кремы.',
           en: 'Specialized vitamin balms and soothing restorative creams.',
         },
-        image: CATEGORY_IMAGE_POOL[6],
         holders: [
           {
             id: 'holder-care-balms',
@@ -526,6 +487,7 @@ export const BRAND_NAMES = [
 export const PRODUCT_TEMPLATES = [
   {
     templateKey: 'pmu-pigment-brow',
+    categoryTag: 'brows',
     label: {
       uk: 'Пігмент для брів Dark Brunette 15мл',
       ru: 'Пигмент для бровей Dark Brunette 15мл',
@@ -538,10 +500,10 @@ export const PRODUCT_TEMPLATES = [
     },
     brand: 'PERMA BLEND',
     priceRange: [720, 1150],
-    images: [PRODUCT_IMAGE_POOL[1], PRODUCT_IMAGE_POOL[2]],
   },
   {
     templateKey: 'pmu-pigment-blond',
+    categoryTag: 'brows',
     label: {
       uk: 'Мінеральний пігмент Golden Blond 15мл',
       ru: 'Минеральный пигмент Golden Blond 15мл',
@@ -554,10 +516,10 @@ export const PRODUCT_TEMPLATES = [
     },
     brand: 'DRAIFF MIX',
     priceRange: [680, 990],
-    images: [PRODUCT_IMAGE_POOL[2], PRODUCT_IMAGE_POOL[1]],
   },
   {
     templateKey: 'pmu-pigment-lip-nude',
+    categoryTag: 'lips',
     label: {
       uk: 'Пігмент для губ Nude Velvet 15мл',
       ru: 'Пигмент для губ Nude Velvet 15мл',
@@ -570,10 +532,10 @@ export const PRODUCT_TEMPLATES = [
     },
     brand: 'TINEL',
     priceRange: [750, 1200],
-    images: [PRODUCT_IMAGE_POOL[3], PRODUCT_IMAGE_POOL[4]],
   },
   {
     templateKey: 'pmu-pigment-lip-berry',
+    categoryTag: 'lips',
     label: {
       uk: 'Пігмент для губ Wild Berry 15мл',
       ru: 'Пигмент для губ Wild Berry 15мл',
@@ -586,10 +548,10 @@ export const PRODUCT_TEMPLATES = [
     },
     brand: 'PERMA BLEND',
     priceRange: [790, 1250],
-    images: [PRODUCT_IMAGE_POOL[4], PRODUCT_IMAGE_POOL[3]],
   },
   {
     templateKey: 'pmu-pigment-eyeliner',
+    categoryTag: 'eyes',
     label: {
       uk: 'Концентрат Carbon Black Eyeliner 15мл',
       ru: 'Концентрат Carbon Black Eyeliner 15мл',
@@ -602,10 +564,10 @@ export const PRODUCT_TEMPLATES = [
     },
     brand: 'HANAFI',
     priceRange: [850, 1300],
-    images: [PRODUCT_IMAGE_POOL[5], PRODUCT_IMAGE_POOL[0]],
   },
   {
     templateKey: 'pmu-machine-rotary',
+    categoryTag: 'machines',
     label: {
       uk: 'Бездротовий апарат для ПМ Onyx Pen',
       ru: 'Беспроводной аппарат для ПМ Onyx Pen',
@@ -618,10 +580,10 @@ export const PRODUCT_TEMPLATES = [
     },
     brand: 'DEFENDERR',
     priceRange: [8500, 14500],
-    images: [PRODUCT_IMAGE_POOL[6], PRODUCT_IMAGE_POOL[7]],
   },
   {
     templateKey: 'pmu-machine-precision',
+    categoryTag: 'machines',
     label: {
       uk: 'Роторна машинка Hawk Pen Pro',
       ru: 'Роторная машинка Hawk Pen Pro',
@@ -634,10 +596,10 @@ export const PRODUCT_TEMPLATES = [
     },
     brand: 'CHEYENNE',
     priceRange: [12000, 18500],
-    images: [PRODUCT_IMAGE_POOL[7], PRODUCT_IMAGE_POOL[6]],
   },
   {
     templateKey: 'pmu-cartridges-1rl',
+    categoryTag: 'cartridges',
     label: {
       uk: 'Картриджі голки 1RL 0.25мм Long Taper (20 шт)',
       ru: 'Картриджи иглы 1RL 0.25мм Long Taper (20 шт)',
@@ -650,10 +612,10 @@ export const PRODUCT_TEMPLATES = [
     },
     brand: 'KWADRON',
     priceRange: [950, 1600],
-    images: [PRODUCT_IMAGE_POOL[8], PRODUCT_IMAGE_POOL[9]],
   },
   {
     templateKey: 'pmu-cartridges-3rs',
+    categoryTag: 'cartridges',
     label: {
       uk: 'Картриджі для розтушовки 3RS 0.30мм (20 шт)',
       ru: 'Картриджи для растушевки 3RS 0.30мм (20 шт)',
@@ -666,10 +628,10 @@ export const PRODUCT_TEMPLATES = [
     },
     brand: 'MAST PRO',
     priceRange: [820, 1400],
-    images: [PRODUCT_IMAGE_POOL[9], PRODUCT_IMAGE_POOL[8]],
   },
   {
     templateKey: 'lash-tray-single',
+    categoryTag: 'lashes',
     label: {
       uk: 'Вії Barbara Elegant Mix D 0.07 (16 ліній)',
       ru: 'Ресницы Barbara Elegant Mix D 0.07 (16 линий)',
@@ -682,10 +644,10 @@ export const PRODUCT_TEMPLATES = [
     },
     brand: 'BARBARA',
     priceRange: [380, 560],
-    images: [PRODUCT_IMAGE_POOL[11], PRODUCT_IMAGE_POOL[12]],
   },
   {
     templateKey: 'lash-tray-cc',
+    categoryTag: 'lashes',
     label: {
       uk: 'Вії Lovely Silicone CC 0.10 окремі довжини',
       ru: 'Ресницы Lovely Silicone CC 0.10 отдельные длины',
@@ -698,10 +660,10 @@ export const PRODUCT_TEMPLATES = [
     },
     brand: 'LOVELY',
     priceRange: [340, 520],
-    images: [PRODUCT_IMAGE_POOL[12], PRODUCT_IMAGE_POOL[11]],
   },
   {
     templateKey: 'lash-glue-fast',
+    categoryTag: 'adhesives',
     label: {
       uk: 'Клей для нарощування Speed Expert 5мл',
       ru: 'Клей для наращивания Speed Expert 5мл',
@@ -714,10 +676,10 @@ export const PRODUCT_TEMPLATES = [
     },
     brand: 'ENIGMA',
     priceRange: [540, 780],
-    images: [PRODUCT_IMAGE_POOL[10], PRODUCT_IMAGE_POOL[13]],
   },
   {
     templateKey: 'lash-tweezers-volume',
+    categoryTag: 'tools',
     label: {
       uk: 'Пінцет для об’ємного нарощування Expert L-Type',
       ru: 'Пинцет для объемного наращивания Expert L-Type',
@@ -730,10 +692,10 @@ export const PRODUCT_TEMPLATES = [
     },
     brand: 'LE MAITRE',
     priceRange: [650, 1100],
-    images: [PRODUCT_IMAGE_POOL[17], PRODUCT_IMAGE_POOL[16]],
   },
   {
     templateKey: 'hygiene-barrier-covers',
+    categoryTag: 'hygiene',
     label: {
       uk: 'Захисні чохли для машинок в рулоні (200 шт)',
       ru: 'Защитные чехлы для машинок в рулоне (200 шт)',
@@ -746,10 +708,10 @@ export const PRODUCT_TEMPLATES = [
     },
     brand: 'DEFENDERR',
     priceRange: [290, 480],
-    images: [PRODUCT_IMAGE_POOL[14], PRODUCT_IMAGE_POOL[15]],
   },
   {
     templateKey: 'hygiene-microbrushes',
+    categoryTag: 'hygiene',
     label: {
       uk: 'Мікробраші безворсові Ultra Fine (100 шт)',
       ru: 'Микробраши безворсовые Ultra Fine (100 шт)',
@@ -762,10 +724,10 @@ export const PRODUCT_TEMPLATES = [
     },
     brand: 'BARBARA',
     priceRange: [120, 220],
-    images: [PRODUCT_IMAGE_POOL[15], PRODUCT_IMAGE_POOL[14]],
   },
   {
     templateKey: 'care-healing-balm',
+    categoryTag: 'aftercare',
     label: {
       uk: 'Загоювальний крем-бальзам Heal Pro 30мл',
       ru: 'Заживляющий крем-бальзам Heal Pro 30мл',
@@ -778,7 +740,6 @@ export const PRODUCT_TEMPLATES = [
     },
     brand: 'DRAIFF MIX',
     priceRange: [250, 420],
-    images: [PRODUCT_IMAGE_POOL[16], PRODUCT_IMAGE_POOL[13]],
   },
 ];
 

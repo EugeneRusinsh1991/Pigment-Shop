@@ -1,6 +1,6 @@
 # 🧠 Highly Complex Files
 
-*Generated on: 08.08.2026, 22:26:23*
+*Generated on: 16.08.2026, 02:16:00*
 
 ### Highly Complex Files (< 200 lines)
 
@@ -42,4 +42,10 @@
 
 - **[normalizer.js](file:///d:/Magazine/_PigmentShop/.tools/auditors/static-analysis/normalizer.js)** (`auditors/static-analysis/normalizer.js`)
   - Lines: 126 | CRAP Max: 110 | Complex Funcs: 3 | Density: 25%
+
+- **[regenerateDatabase.js](file:///d:/Magazine/_PigmentShop/.tools/scripts/regenerateDatabase.js)** (`scripts/regenerateDatabase.js`)
+  - Lines: 99 | CRAP Max: 110 | Complex Funcs: 3 | Density: 23%
+
+- **[export-firebase-data.mjs](file:///d:/Magazine/_PigmentShop/.tools/scripts/export-firebase-data.mjs)** (`scripts/export-firebase-data.mjs`)
+  - Lines: 140 | CRAP Max: 110 | Complex Funcs: 1 | Density: 16%
 

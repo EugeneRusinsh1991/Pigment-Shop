@@ -11,6 +11,8 @@ import { MEDIA_CATEGORY } from './mediaTypes';
 
 const mediaManifest = {
   [MEDIA_CATEGORY.IMAGES]: [
+    'default_catalog_card.jpg',
+    'default_product_card.jpg',
     'photo_2026-07-11_09-31-45.jpg',
   ],
   [MEDIA_CATEGORY.GIFS]: [
@@ -21,7 +23,7 @@ const mediaManifest = {
     'kling_20260710_Image_to_Video__5122_0.mp4',
   ],
   regenerated: true,
-  generatedAt: 1785352679233,
+  generatedAt: 1786834972422,
 };
 
 export default mediaManifest;
