@@ -94,14 +94,6 @@ export default StyleSheet.create({
     borderBottomColor: colors.secondaryLightBorder,
     gap: layout.spacing.md,
   },
-  tableRowTablet: {
-    flexDirection: 'column',
-    paddingHorizontal: layout.spacing.lg,
-    paddingVertical: layout.spacing.sm,
-    borderBottomWidth: layout.borderWidth.thin,
-    borderBottomColor: colors.secondaryLightBorder,
-    gap: layout.spacing.xs,
-  },
   tableRowDesktop: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -117,31 +109,6 @@ export default StyleSheet.create({
     width: 24,
     color: colors.textDescDark,
     marginRight: layout.spacing.sm,
-  },
-  desktopTopRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: layout.spacing.md - 2,
-    flexWrap: 'wrap',
-  },
-  desktopBottomRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: layout.spacing.md - 2,
-  },
-  desktopStatusCell: {
-    flex: 1,
-    minWidth: 120,
-  },
-  desktopCell: {
-    color: colors.textLight,
-    minWidth: 80,
-  },
-  desktopProductCell: {
-    flex: 1,
-    minWidth: 120,
   },
   cardTopRow: {
     flexDirection: 'row',
@@ -247,15 +214,15 @@ export default StyleSheet.create({
   },
 
   /* Cell widths */
-  colProduct: { flex: 1.5 },
+  colProduct: { flex: 1.5, minWidth: 100 },
   colCategory: { flex: 1.5 },
-  colBrand: { flex: 1 },
-  colPrice: { flex: 0.8 },
-  colDiscount: { flex: 0.8 },
-  colStock: { flex: 0.7 },
-  colStatus: { flex: 0.8 },
-  colNew: { flex: 0.6 },
-  colActions: { flex: 0.6, flexDirection: 'row', gap: layout.spacing.sm, justifyContent: 'flex-end' },
+  colBrand: { flex: 0.9, minWidth: 60 },
+  colPrice: { flex: 0.8, minWidth: 50 },
+  colDiscount: { flex: 0.7, minWidth: 48 },
+  colStock: { flex: 0.6, minWidth: 40 },
+  colStatus: { flex: 0.8, minWidth: 70 },
+  colNew: { flex: 0.5, minWidth: 36 },
+  colActions: { flex: 0.5, minWidth: 40, flexDirection: 'row', gap: layout.spacing.xs, justifyContent: 'flex-end' },
 
   /* Product name & sku */
   productName: {

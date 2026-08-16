@@ -79,7 +79,7 @@ export default function AdminPanel({ onBack }) {
   const { loadDrafts } = useAdminDrafts();
   const { width } = useWindowDimensions();
   const isMobile = width < layout.breakpoints.mobile;
-  const isTablet = width >= layout.breakpoints.mobile && width < layout.breakpoints.desktop;
+  const isDesktop = width >= layout.breakpoints.desktop;
 
   const initialEnd = useMemo(() => {
     const end = new Date();
@@ -153,7 +153,7 @@ export default function AdminPanel({ onBack }) {
         </View>
       </View>
 
-      {isMobile ? (
+      {!isDesktop ? (
         <>
           <View>
             <AdminTabBar activeTab={activeTab} onSelect={setActiveTab} isDark={isDark} />
@@ -166,7 +166,7 @@ export default function AdminPanel({ onBack }) {
         </>
       ) : (
         <View style={styles.bodyWrapper}>
-          <View style={isTablet ? styles.sidebarContainerTablet : styles.sidebarContainer}>
+          <View style={styles.sidebarContainer}>
             <AdminSidebar activeTab={activeTab} onSelect={setActiveTab} />
           </View>
           <View style={styles.bodyContent}>

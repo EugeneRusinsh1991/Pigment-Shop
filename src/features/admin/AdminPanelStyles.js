@@ -89,12 +89,6 @@ const styles = StyleSheet.create({
     paddingTop: layout.spacing.xl,
     paddingLeft: layout.spacing.xl,
   },
-  sidebarContainerTablet: {
-    width: 200,
-    flexShrink: 0,
-    paddingTop: layout.spacing.xl,
-    paddingLeft: layout.spacing.xl,
-  },
   bodyContent: {
     flex: 1,
     width: '100%',
