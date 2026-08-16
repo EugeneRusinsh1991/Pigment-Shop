@@ -6,13 +6,13 @@
  * - Validation of MediaItem objects.
  * - Keeps rules in one place so adding a new format is a single-line change.
  */
-import { MEDIA_CATEGORY } from './mediaTypes';
+import { MEDIA_CATEGORY } from './mediaTypes.js';
 
 /** Supported file extensions by category. Lowercase, without leading dot. */
 const SUPPORTED_EXTENSIONS = {
   [MEDIA_CATEGORY.IMAGES]: ['jpg', 'jpeg', 'png', 'webp', 'svg'],
   [MEDIA_CATEGORY.GIFS]:   ['gif'],
-  [MEDIA_CATEGORY.VIDEOS]: ['mp4', 'webm'],
+  [MEDIA_CATEGORY.VIDEOS]: ['mp4', 'webm', 'mov', 'mkv', 'avi'],
 };
 
 /**

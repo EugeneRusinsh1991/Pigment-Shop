@@ -67,12 +67,13 @@ const BASE_URL = `https://api.cloudinary.com/v1_1/${cloudName}/resources/image/u
 const AUTH = Buffer.from(`${apiKey}:${apiSecret}`).toString('base64');
 
 /**
- * Fetches all image resources from Cloudinary Admin API with pagination support.
+ * Fetches all resources from Cloudinary Admin API with pagination support.
  *
  * @param {string} [prefix='']
+ * @param {'image'|'video'} [resourceType='image']
  * @returns {Promise<Array<{ public_id: string, secure_url: string, format: string, folder?: string }>>}
  */
-async function fetchAllResources(prefix = '') {
+async function fetchAllResources(prefix = '', resourceType = 'image') {
   const results = [];
   let nextCursor = null;
 
@@ -81,7 +82,7 @@ async function fetchAllResources(prefix = '') {
     if (prefix) params.set('prefix', prefix);
     if (nextCursor) params.set('next_cursor', nextCursor);
 
-    const url = `${BASE_URL}?${params}`;
+    const url = `https://api.cloudinary.com/v1_1/${cloudName}/resources/${resourceType}/upload?${params}`;
     const res = await fetch(url, {
       headers: { Authorization: `Basic ${AUTH}` },
     });
@@ -107,17 +108,21 @@ async function main() {
   console.log(`\n🌩️  Fetching Cloudinary media pool (Cloud: ${cloudName})...\n`);
 
   // Fetch all resources and folder-scoped subsets
-  const [allResources, categoryFolderRes, productFolderRes] = await Promise.all([
-    fetchAllResources(''),
-    fetchAllResources('categories/'),
-    fetchAllResources('products/'),
+  const [allResources, categoryFolderRes, productFolderRes, videoResources] = await Promise.all([
+    fetchAllResources('', 'image'),
+    fetchAllResources('categories/', 'image'),
+    fetchAllResources('products/', 'image'),
+    fetchAllResources('', 'video'),
   ]);
 
   console.log(`   📡 Total Cloudinary Images Discovered: ${allResources.length}`);
+  console.log(`   🎬 Total Cloudinary Videos Discovered: ${videoResources.length}`);
   console.log(`   📂 categories/ folder: ${categoryFolderRes.length}`);
   console.log(`   📦 products/ folder  : ${productFolderRes.length}`);
 
   const allUrls = allResources.map(toSecureUrl);
+  const videoUrls = videoResources.map(toSecureUrl);
+  const gifUrls = allResources.filter(r => (r.format || '').toLowerCase() === 'gif').map(toSecureUrl);
 
   let categoryImages = categoryFolderRes.map(toSecureUrl);
   let productImages = productFolderRes.map(toSecureUrl);
@@ -131,7 +136,6 @@ async function main() {
       const splitIdx = Math.max(1, Math.min(5, Math.floor(allUrls.length / 3)));
       categoryImages = allUrls.slice(0, splitIdx);
       productImages = allUrls.slice(splitIdx);
-      // Ensure pools meet standard minimums through repetition if media pool is small
       while (categoryImages.length < 5 && categoryImages.length > 0) {
         categoryImages.push(categoryImages[categoryImages.length % splitIdx]);
       }
@@ -145,7 +149,6 @@ async function main() {
   const categoryNames = ['acrylic', 'oil', 'watercolor', 'gouache', 'spray', 'other'];
   const categories = {};
   categoryNames.forEach((cat, idx) => {
-    // Distribute images across categories
     const count = Math.max(2, Math.floor(allUrls.length / categoryNames.length));
     const start = (idx * count) % Math.max(1, allUrls.length);
     const slice = allUrls.slice(start, start + count);
@@ -156,6 +159,9 @@ async function main() {
     categoryImages,
     productImages,
     banners: categoryImages,
+    videos: videoUrls,
+    gifs: gifUrls,
+    images: allUrls,
     categories,
   };
 
@@ -164,6 +170,8 @@ async function main() {
   console.log(`\n✅ mediaPool.json successfully generated & centralized → ${OUTPUT_PATH}`);
   console.log(`   📸 categoryImages : ${categoryImages.length}`);
   console.log(`   📦 productImages  : ${productImages.length}`);
+  console.log(`   🎬 videos         : ${videoUrls.length}`);
+  console.log(`   🎞️ gifs           : ${gifUrls.length}`);
   console.log(`   🎨 categories     : ${Object.keys(categories).join(', ')}`);
   console.log(`   🚩 banners        : ${mediaPool.banners.length}\n`);
 }

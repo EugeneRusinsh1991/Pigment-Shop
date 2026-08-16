@@ -7,7 +7,7 @@
  *
  * Structure: { category: [fileName, ...] }
  */
-import { MEDIA_CATEGORY } from './mediaTypes';
+import { MEDIA_CATEGORY } from './mediaTypes.js';
 
 const mediaManifest = {
   [MEDIA_CATEGORY.IMAGES]: [
