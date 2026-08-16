@@ -41,7 +41,7 @@ export default function CatalogFilterSidebar({
 }) {
   const { t } = useLanguage();
   const { width: windowWidth } = useWindowDimensions();
-  const panelWidth = windowWidth * 0.85;
+  const panelWidth = Math.min(windowWidth * 0.85, 380);
 
   const { showModal, slideAnim, scrimOpacity, handleClose } = useSlideAnimation(
     mobileVisible,

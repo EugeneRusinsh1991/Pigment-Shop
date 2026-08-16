@@ -82,8 +82,8 @@ function getCategoryCardHeight(isBanner, device) {
 }
 
 function getDeviceType(width) {
-  if (width >= 1024) return 'desktop';
-  if (width < 768) return 'mobile';
+  if (width >= layout.breakpoints.desktop) return 'desktop';
+  if (width < layout.breakpoints.mobile) return 'mobile';
   return 'tablet';
 }
 
@@ -124,7 +124,7 @@ const CategoryCardInner = React.forwardRef(({ item, isDark, depth = 1, isBanner 
   const { lang } = useLanguage();
   const { width: windowWidth } = useWindowDimensions();
   
-  const isMobile = windowWidth < 768;
+  const isMobile = windowWidth < layout.breakpoints.mobile;
   const device = getDeviceType(windowWidth);
   const { desc, label } = useCategoryContent(item, lang);
   const computedStyles = getCategoryCardStyles(isDark, isMobile);

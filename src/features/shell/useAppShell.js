@@ -3,6 +3,7 @@ import { useAuth } from '../../context/AuthContext';
 import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
 import { getContentGridWidth } from '../../utils/layoutUtils';
+import { layout } from '../../theme/layout';
 import { useVisualViewportDimensions } from '../../hooks/useVisualViewportDimensions';
 import { useCart } from '../cart/CartContext';
 import { useCatalog } from '../catalog/CatalogContext';
@@ -28,7 +29,7 @@ export function useAppShell() {
   // Layout state
   const { width: windowWidth, height: windowHeight } = useVisualViewportDimensions();
   const [isSearchActive, setIsSearchActive] = useState(false);
-  const isWide = windowWidth >= 768;
+  const isWide = windowWidth >= layout.breakpoints.mobile;
   const contentWidth = getContentGridWidth(windowWidth);
 
   // Navigation, UI Menu, Auth, Cart, Theme, Language

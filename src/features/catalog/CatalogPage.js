@@ -114,8 +114,8 @@ export default function CatalogPage({ isDark }) {
   const { filters, sortKey, setSortKey, setFilter, toggleCategory, resetFilters } =
     useCatalogFilters(flatList, categoryTree, navParams);
 
-  const { isNarrow, gridWidth, cols, cardWidth, gap } = useCatalogLayout();
-  const pageSize = isNarrow ? 14 : 15;
+  const { isNarrow, tier, gridWidth, cols, cardWidth, gap } = useCatalogLayout();
+  const pageSize = cols === 3 ? 15 : (isNarrow ? 14 : 15);
 
   const {
     currentPageProducts,

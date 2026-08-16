@@ -2,7 +2,7 @@ import { StyleSheet, View } from 'react-native';
 import { AnimatedButton } from '../../components/ui/Button';
 import { Text } from '../../components/ui/Text/Text';
 import { SORT_OPTIONS } from '../../hooks/useCatalogFilters';
-import { colors, layout } from '../../theme/tokens';
+import { buttonTokens, colors, layout } from '../../theme/tokens';
 import sidebarStyles from './CatalogFilterSidebarStyles';
 import CatalogPagination from './CatalogPagination';
 
@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
     position: 'relative',
   },
   sortDropdownPosition: {
-    top: layout.spacing.lg * 2 + 6,
+    top: layout.spacing.md + buttonTokens.sizes.md.height + layout.spacing.xs,
     right: layout.spacing.xxs,
     width: 250,
   },

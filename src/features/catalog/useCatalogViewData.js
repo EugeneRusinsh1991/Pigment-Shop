@@ -6,6 +6,7 @@ import { useTheme } from '../../context/ThemeContext';
 import useUnifiedCardGrid from '../../hooks/useUnifiedCardGrid';
 import { findCategoryPath } from '../../utils/categoryTreeUtils';
 import { getContentGridWidth } from '../../utils/layoutUtils';
+import { layout } from '../../theme/tokens';
 import { useCatalog } from './CatalogContext';
 
 
@@ -75,7 +76,7 @@ export function useCatalogRootData() {
   const { t } = useLanguage();
   const { categoryTree } = useCatalog();
   const { width } = useWindowDimensions();
-  const isWide = width >= 768;
+  const isWide = width >= layout.breakpoints.mobile;
 
   const depth = 0;
   const currentLevel = { label: t('navRootCatalog'), items: categoryTree || [] };

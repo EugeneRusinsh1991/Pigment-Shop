@@ -1,6 +1,7 @@
 import React from 'react';
 import { useWindowDimensions } from 'react-native';
 import { useLanguage } from '../../../context/LanguageContext';
+import { layout } from '../../../theme/tokens';
 import {
   resolveLocalizedValue,
   getEffectivePrice,
@@ -15,7 +16,7 @@ export default function ProductRow({ product, index, onEdit, onDelete }) {
   const effectivePrice = getEffectivePrice(product.price, product.discountPercent);
   const highlightStyle = getHighlightStyle(product.isNew, product.discountPercent);
 
-  const isTablet = width >= 768 && width < 1024;
+  const isTablet = width >= layout.breakpoints.mobile && width < layout.breakpoints.desktop;
 
   if (isTablet) {
     return (

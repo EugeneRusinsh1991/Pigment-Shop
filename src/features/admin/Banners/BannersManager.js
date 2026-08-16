@@ -8,7 +8,7 @@ import MediaRenderer from '@/components/ui/Media/MediaRenderer';
 import { triggerFileUpload } from '../../../utils/fileInput';
 import MediaBrowser from '../Media/MediaBrowser';
 import styles from './BannersStyles';
-import { motion } from '../../../theme/tokens';
+import { motion, layout } from '../../../theme/tokens';
 import { useBannersWorkflow } from './useBannersWorkflow';
 import { useDeleteConfirmation } from '../../../hooks/useDeleteConfirmation';
 import AdminSaveFooter from '../AdminSaveFooter';
@@ -16,7 +16,7 @@ import AdminSaveFooter from '../AdminSaveFooter';
 export default function BannersManager() {
   const { t } = useLanguage();
   const { width } = useWindowDimensions();
-  const isDesktop = width >= 768;
+  const isDesktop = width >= layout.breakpoints.mobile;
 
   const {
     bannersList,

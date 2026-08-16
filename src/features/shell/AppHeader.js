@@ -45,7 +45,7 @@ export default function AppHeader(props) {
   const isDark = props.isDark ?? isDarkContext;
   const theme = getHeaderTheme(isDark);
   const { width } = useWindowDimensions();
-  const isMobile = width < 768;
+  const isMobile = width < layout.breakpoints.mobile;
   const isDropdownOpen = Boolean(props.showUserMenu || props.showLangMenu || props.showCurrencyMenu || props.showCartDrawer);
   const insets = useSafeAreaInsets();
 

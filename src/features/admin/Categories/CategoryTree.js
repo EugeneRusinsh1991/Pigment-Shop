@@ -16,6 +16,7 @@ import styles from './CategoriesStyles';
 import { ChevronRightIcon, ChevronDownIcon } from '@/components/Icons';
 import { DesktopCategoryRow, MobileCategoryCard } from './CategoryRow';
 import { useLanguage } from '../../../context/LanguageContext';
+import { layout } from '../../../theme/tokens';
 import DataTable from '@/components/domain/DataTable/DataTable';
 
 /* ─── flatten tree respecting collapsed state ─────────────────── */
@@ -52,8 +53,8 @@ function collectParentIds(nodes, acc = new Set()) {
 export default function CategoryTree({ tree, onEdit, onAdd, products }) {
   const { t } = useLanguage();
   const { width } = useWindowDimensions();
-  const isMobile = width < 768;
-  const isTablet = width >= 768 && width < 1024;
+  const isMobile = width < layout.breakpoints.mobile;
+  const isTablet = width >= layout.breakpoints.mobile && width < layout.breakpoints.desktop;
 
   const parentIds = useMemo(() => collectParentIds(tree), [tree]);
   const [collapsed, setCollapsed] = useState(new Set());

@@ -95,7 +95,7 @@ function DefaultOrderHeader({ order, t, lang, isExpanded, getStyle, isAdminView 
 export default function OrderCard({ order, isDark, isExpanded, onToggle, getStyle, isAdminView = false }) {
   const { t, lang } = useLanguage();
   const { width: windowWidth } = useWindowDimensions();
-  const isMobile = windowWidth < 768;
+  const isMobile = windowWidth < layout.breakpoints.mobile;
 
   return (
     <Card

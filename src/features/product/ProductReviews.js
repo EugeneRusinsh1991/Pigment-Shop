@@ -3,6 +3,7 @@ import { Text } from '../../components/ui/Text/Text';
 import { useAuth } from '../../context/AuthContext';
 import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
+import { layout } from '../../theme/tokens';
 import { useProfile } from '../profile/useProfile';
 import styles from './ProductReviewsStyles';
 import {
@@ -34,7 +35,7 @@ function MobileFormArea({ isDark, isAuthenticated, state }) {
 export default function ProductReviews({ product, isDark, reviewsState: parentState }) {
   const { t } = useLanguage();
   const { width } = useWindowDimensions();
-  const isDesktop = width >= 768;
+  const isDesktop = width >= layout.breakpoints.mobile;
   const { isAuthenticated, user } = useAuth();
   const { profile } = useProfile(user);
 

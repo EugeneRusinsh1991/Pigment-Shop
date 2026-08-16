@@ -6,10 +6,12 @@ export const layout = {
   maxContentWidth: 1330,
   breakpoints: {
     sm: 640,
+    md: 768,
     mobile: 768,
     tablet: 768,
-    tabletMax: 1023,
-    desktop: 1024,
+    tabletMax: 1149,
+    desktop: 1150,
+    cartWide: 880,
   },
   radii: {
     none: 0,

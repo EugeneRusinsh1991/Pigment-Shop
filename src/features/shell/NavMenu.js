@@ -11,6 +11,7 @@ import styles from './NavMenu/NavMenuStyles';
 import { useNavMenuController } from './useNavMenuController';
 
 import Drawer from '../../components/ui/Drawer';
+import { layout } from '../../theme/layout';
 import { useSlideAnimation } from '../../hooks/useSlideAnimation';
 import { useDrawerBackHandler } from '../../hooks/useProductNavigation';
 
@@ -99,7 +100,7 @@ export default function NavMenu(props) {
   const isDark = isDarkProp ?? isDarkContext;
   const onSelectLanguage = onSelectLanguageProp ?? selectLanguage;
   const { width: windowWidth } = useWindowDimensions();
-  const isWide = windowWidth >= 768;
+  const isWide = windowWidth >= layout.breakpoints.mobile;
   const panelWidth = isWide ? 340 : windowWidth - 56;
 
   const { showModal, slideAnim, scrimOpacity, handleClose } = useSlideAnimation(

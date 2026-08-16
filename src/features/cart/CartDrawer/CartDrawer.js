@@ -1,6 +1,7 @@
 import React from 'react';
 import { useWindowDimensions } from 'react-native';
 import { Drawer } from '@/components/ui/Drawer';
+import { layout } from '@/theme/tokens';
 import { useCart } from '@/features/cart/CartContext';
 import { useTheme } from '@/context/ThemeContext';
 import { useSlideAnimation } from '@/hooks/useSlideAnimation';
@@ -12,7 +13,7 @@ export default function CartDrawer({ visible, onClose }) {
   const { isDark } = useTheme();
   const cart = useCart();
   const { width: windowWidth } = useWindowDimensions();
-  const isWide = windowWidth >= 768;
+  const isWide = windowWidth >= layout.breakpoints.mobile;
   const panelWidth = isWide ? 400 : windowWidth - 56;
 
   const { showModal, slideAnim, scrimOpacity, handleClose } = useSlideAnimation(

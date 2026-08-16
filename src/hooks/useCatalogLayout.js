@@ -17,8 +17,8 @@ import { SIDEBAR_WIDTH, MAIN_PADDING, getContentGridWidth } from '../utils/layou
  */
 export default function useCatalogLayout() {
   const { width: windowWidth } = useWindowDimensions();
-  const { cols, gap } = useUnifiedCardGrid({ hasFilterSidebar: true });
-  const isNarrow = windowWidth < layout.breakpoints.sm;
+  const isNarrow = windowWidth < layout.breakpoints.desktop;
+  const { tier, cols, gap } = useUnifiedCardGrid({ hasFilterSidebar: !isNarrow });
 
   const contentWidth = getContentGridWidth(windowWidth);
   const gridWidth = isNarrow ? contentWidth : contentWidth - SIDEBAR_WIDTH;
@@ -26,5 +26,5 @@ export default function useCatalogLayout() {
   const availableWidth = isNarrow ? gridWidth : gridWidth - MAIN_PADDING;
   const cardWidth = Math.max(140, Math.floor((availableWidth - gap * 2 * cols) / cols));
 
-  return { isNarrow, gridWidth, cols, cardWidth, gap };
+  return { isNarrow, tier, gridWidth, cols, cardWidth, gap };
 }
