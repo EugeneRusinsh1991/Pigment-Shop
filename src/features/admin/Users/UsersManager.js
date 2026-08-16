@@ -150,7 +150,7 @@ export default function UsersManager() {
 
   if (selectedUser) {
     return (
-      <View style={{ flex: 1 }}>
+      <View style={styles.container}>
         <UserDetails user={selectedUser} onBack={() => setSelectedUser(null)} />
       </View>
     );
@@ -188,18 +188,18 @@ export default function UsersManager() {
             onSelectUser={setSelectedUser}
           />
         )}
-      </ScrollView>
 
-      {showTable && totalPages > 1 && (
-        <View style={adminStyles.fixedPaginationFooter}>
-          <CatalogPagination
-            currentPage={currentPage}
-            totalPages={totalPages}
-            onPrev={() => setCurrentPage((p) => Math.max(1, p - 1))}
-            onNext={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
-          />
-        </View>
-      )}
+        {showTable && totalPages > 1 && (
+          <View style={adminStyles.paginationWrapper}>
+            <CatalogPagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPrev={() => setCurrentPage((p) => Math.max(1, p - 1))}
+              onNext={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+            />
+          </View>
+        )}
+      </ScrollView>
     </View>
   );
 }

@@ -7,6 +7,7 @@ import { colors, layout, shadow } from '../../../theme/tokens';
 export default StyleSheet.create({
   container: {
     padding: layout.spacing.xl,
+    flex: 1,
   },
   toolbar: {
     marginBottom: layout.spacing.md,

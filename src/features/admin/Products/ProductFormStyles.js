@@ -174,4 +174,92 @@ export default StyleSheet.create({
     borderTopColor: colors.borderLight,
     paddingTop: layout.spacing.xl,
   },
+
+  /* Product Media Picker */
+  imagePickerContainer: {
+    marginBottom: layout.radii.iconBtn,
+  },
+  imageSlotsRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: layout.spacing.md,
+  },
+  imageSlotCard: {
+    flex: 1,
+    minWidth: 130,
+    backgroundColor: colors.secondaryLightBg,
+    borderRadius: layout.radii.sm,
+    padding: layout.spacing.sm,
+    borderWidth: layout.borderWidth.thin,
+    borderColor: colors.navItemHoverDark,
+  },
+  imageSlotCardError: {
+    borderColor: colors.accent,
+  },
+  imageSlotHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: layout.spacing.xs,
+  },
+  imageSlotLabel: {
+    color: colors.textDescLight,
+    fontWeight: '500',
+  },
+  imageSlotPreview: {
+    width: '100%',
+    height: 100,
+    borderRadius: layout.radii.xs,
+    overflow: 'hidden',
+    backgroundColor: colors.surfaceSubtleLight,
+    borderWidth: layout.borderWidth.thin,
+    borderColor: colors.inputBorderLight,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  imageSlotPreviewImg: {
+    width: '100%',
+    height: '100%',
+  },
+  imageSlotPlaceholder: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: layout.spacing.xs,
+  },
+  imageSlotPlaceholderText: {
+    color: colors.textSubtleLight,
+    textAlign: 'center',
+  },
+  imageSlotActions: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: layout.spacing.xs,
+    marginTop: layout.spacing.xs,
+  },
+  imageSlotUploadBtn: {
+    flex: 1,
+    height: 32,
+    backgroundColor: colors.slateDark,
+    borderRadius: layout.radii.xs,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: layout.spacing.xxs,
+  },
+  imageSlotUploadText: {
+    color: colors.white,
+  },
+  imageSlotDeleteBtn: {
+    height: 32,
+    paddingHorizontal: layout.spacing.sm,
+    backgroundColor: colors.danger,
+    borderRadius: layout.radii.xs,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: layout.spacing.xxs,
+  },
+  imageSlotDeleteText: {
+    color: colors.white,
+  },
 });

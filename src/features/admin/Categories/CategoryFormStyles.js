@@ -142,34 +142,78 @@ export default StyleSheet.create({
   },
 
   /* Image picker */
+  imageSlotContainer: {
+    marginBottom: layout.spacing.lg,
+  },
   imagePickerRow: {
     flexDirection: 'row',
     gap: layout.spacing.sm,
     alignItems: 'center',
   },
-  imagePickerInput: {
-    flex: 1,
-    height: buttonTokens.sizes.md.height,
+  imageSlotCard: {
+    width: '100%',
+    maxWidth: 240,
     backgroundColor: colors.secondaryLightBg,
-    borderRadius: buttonTokens.sizes.md.borderRadius,
-    paddingHorizontal: layout.spacing.md,
-    color: colors.textLight,
+    borderRadius: layout.radii.sm,
+    padding: layout.spacing.sm,
     borderWidth: layout.borderWidth.thin,
     borderColor: colors.navItemHoverDark,
-    outlineStyle: 'none',
   },
-  uploadBtn: {
-    height: buttonTokens.sizes.md.height,
-    paddingHorizontal: layout.spacing.md,
-    backgroundColor: colors.secondaryLightBg,
-    borderRadius: buttonTokens.sizes.md.borderRadius,
+  imageSlotPreview: {
+    width: '100%',
+    height: 120,
+    borderRadius: layout.radii.xs,
+    overflow: 'hidden',
+    backgroundColor: colors.surfaceSubtleLight,
     borderWidth: layout.borderWidth.thin,
-    borderColor: colors.navItemHoverDark,
+    borderColor: colors.inputBorderLight,
     alignItems: 'center',
     justifyContent: 'center',
   },
-  uploadBtnText: {
-    color: colors.textDescLight,
+  imageSlotPreviewImg: {
+    width: '100%',
+    height: '100%',
+  },
+  imageSlotPlaceholder: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: layout.spacing.xs,
+  },
+  imageSlotPlaceholderText: {
+    color: colors.textSubtleLight,
+    textAlign: 'center',
+  },
+  imageSlotActions: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: layout.spacing.xs,
+    marginTop: layout.spacing.xs,
+  },
+  imageSlotUploadBtn: {
+    flex: 1,
+    height: 32,
+    backgroundColor: colors.slateDark,
+    borderRadius: layout.radii.xs,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: layout.spacing.xxs,
+  },
+  imageSlotUploadText: {
+    color: colors.white,
+  },
+  imageSlotDeleteBtn: {
+    height: 32,
+    paddingHorizontal: layout.spacing.sm,
+    backgroundColor: colors.danger,
+    borderRadius: layout.radii.xs,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: layout.spacing.xxs,
+  },
+  imageSlotDeleteText: {
+    color: colors.white,
   },
 
   /* Category Type non-editable row */

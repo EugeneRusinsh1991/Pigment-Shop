@@ -123,10 +123,10 @@ export default function AdminPanel({ onBack }) {
       <View style={styles.header}>
         <View style={styles.headerLeft}>
           <Button
-            leftIcon={<BackArrowIcon color={iconColor} size={16} />}
-            title={t('btnBackLabel')}
+            leftIcon={<BackArrowIcon color={colors.white} size={16} />}
+            title={t('adminExitToShop')}
             onPress={handleBack}
-            variant="ghost"
+            variant="danger"
             size="sm"
             isDark={isDark}
             data-testid="admin-back-btn"

@@ -146,12 +146,15 @@ const styles = StyleSheet.create({
   contentContainer: {
     paddingBottom: layout.spacing.xxl + layout.spacing.sm,
   },
-  fixedPaginationFooter: {
-    borderTopWidth: layout.borderWidth.thin,
-    borderTopColor: colors.borderLight,
-    backgroundColor: colors.surfaceLight,
+  paginationWrapper: {
+    marginTop: layout.spacing.md,
     paddingVertical: layout.spacing.xs,
-    paddingHorizontal: layout.spacing.md,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  fixedPaginationFooter: {
+    marginTop: layout.spacing.md,
+    paddingVertical: layout.spacing.xs,
     alignItems: 'center',
     justifyContent: 'center',
   },

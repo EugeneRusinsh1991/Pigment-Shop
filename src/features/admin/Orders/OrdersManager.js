@@ -116,7 +116,7 @@ export default function OrdersManager({ dateRange: propDateRange, onDateRangeCha
 
   if (selectedOrder) {
     return (
-      <View style={{ flex: 1 }}>
+      <View style={[styles.container, { flex: 1 }]}>
         <OrderDetails
           order={selectedOrder}
           onBack={() => setSelectedOrder(null)}

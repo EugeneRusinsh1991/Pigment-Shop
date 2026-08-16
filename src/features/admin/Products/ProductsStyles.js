@@ -177,7 +177,7 @@ export default StyleSheet.create({
   },
   priceEmphasis: {
     color: colors.textLight,
-    minWidth: 60,
+    minWidth: 44,
     textAlign: 'right',
   },
   metaText: {
@@ -214,14 +214,13 @@ export default StyleSheet.create({
   },
 
   /* Cell widths */
-  colProduct: { flex: 1.5, minWidth: 100 },
+  colProduct: { flex: 1.5, minWidth: 120 },
   colCategory: { flex: 1.5 },
   colBrand: { flex: 0.9, minWidth: 60 },
-  colPrice: { flex: 0.8, minWidth: 50 },
-  colDiscount: { flex: 0.7, minWidth: 48 },
-  colStock: { flex: 0.6, minWidth: 40 },
-  colStatus: { flex: 0.8, minWidth: 70 },
-  colNew: { flex: 0.5, minWidth: 36 },
+  colPrice: { minWidth: 60, width: 65, alignItems: 'flex-end', justifyContent: 'center' },
+  colDiscount: { minWidth: 70, width: 70, alignItems: 'center', justifyContent: 'center' },
+  colStock: { minWidth: 50, width: 50, alignItems: 'center', justifyContent: 'center' },
+  colNew: { minWidth: 44, width: 44, alignItems: 'center', justifyContent: 'center' },
   colActions: { flex: 0.5, minWidth: 40, flexDirection: 'row', gap: layout.spacing.xs, justifyContent: 'flex-end' },
 
   /* Product name & sku */
@@ -231,6 +230,14 @@ export default StyleSheet.create({
   productSku: {
     color: colors.textDescDark,
     marginTop: layout.spacing.xxs - 3,
+  },
+  badgeNewSquare: {
+    width: 18,
+    height: 18,
+    borderRadius: layout.radii.xs || 4,
+    backgroundColor: colors.accent,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   badgeNew: {
     backgroundColor: colors.infoBgMid,

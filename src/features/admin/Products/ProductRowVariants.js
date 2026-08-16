@@ -3,17 +3,14 @@ import { Text } from '@/components/ui/Text';
 import { DataTableCell, DataTableRow } from '@/components/domain/DataTable/DataTable';
 import {
   DiscountCell,
-  getPlaceholderVal,
   NewBadge,
-  ProductRowActions,
-  StatusBadge,
 } from './ProductRowComponents';
 import { layout, motion } from '../../../theme/tokens';
 import styles from './ProductsStyles';
 
 export { MobileProductRow } from './MobileProductRow';
 
-export function TabletProductRow({ product, index, label, effectivePrice, highlightStyle, onEdit, onDelete }) {
+export function TabletProductRow({ product, index, label, effectivePrice, highlightStyle, onEdit }) {
   return (
     <DataTableRow
       index={index}
@@ -30,11 +27,6 @@ export function TabletProductRow({ product, index, label, effectivePrice, highli
       <DataTableCell style={[styles.colProduct, { paddingRight: layout.spacing.sm }]}>
         <Text variant="subtitle2" style={styles.productName} numberOfLines={1} ellipsizeMode="tail">{label}</Text>
       </DataTableCell>
-      <DataTableCell style={styles.colBrand}>
-        <Text variant="caption" style={styles.cellText} numberOfLines={1} ellipsizeMode="tail">
-          {getPlaceholderVal(product.brand)}
-        </Text>
-      </DataTableCell>
       <DataTableCell style={styles.colDiscount}>
         <DiscountCell discountPercent={product.discountPercent} />
       </DataTableCell>
@@ -43,23 +35,17 @@ export function TabletProductRow({ product, index, label, effectivePrice, highli
           <NewBadge />
         )}
       </DataTableCell>
-      <DataTableCell style={styles.colStatus}>
-        <StatusBadge active={product.active} />
-      </DataTableCell>
       <DataTableCell style={styles.colStock}>
         <Text variant="caption" style={styles.cellText}>{product.stock}</Text>
       </DataTableCell>
       <DataTableCell style={styles.colPrice}>
         <Text variant="subtitle2" weight="bold" style={styles.priceEmphasis}>${effectivePrice.toLocaleString()}</Text>
       </DataTableCell>
-      <DataTableCell style={styles.colActions}>
-        <ProductRowActions product={product} onEdit={onEdit} onDelete={onDelete} />
-      </DataTableCell>
     </DataTableRow>
   );
 }
 
-export function DesktopProductRow({ product, index, label, effectivePrice, highlightStyle, onEdit, onDelete }) {
+export function DesktopProductRow({ product, index, label, effectivePrice, highlightStyle, onEdit }) {
   return (
     <DataTableRow
       index={index}
@@ -76,11 +62,6 @@ export function DesktopProductRow({ product, index, label, effectivePrice, highl
       <DataTableCell style={[styles.colProduct, { paddingRight: layout.spacing.md }]}>
         <Text variant="subtitle2" style={styles.productName} numberOfLines={1}>{label}</Text>
       </DataTableCell>
-      <DataTableCell style={styles.colBrand}>
-        <Text variant="caption" style={styles.cellText} numberOfLines={1}>
-          {getPlaceholderVal(product.brand)}
-        </Text>
-      </DataTableCell>
       <DataTableCell style={styles.colDiscount}>
         <DiscountCell discountPercent={product.discountPercent} />
       </DataTableCell>
@@ -89,17 +70,11 @@ export function DesktopProductRow({ product, index, label, effectivePrice, highl
           <NewBadge />
         )}
       </DataTableCell>
-      <DataTableCell style={styles.colStatus}>
-        <StatusBadge active={product.active} />
-      </DataTableCell>
       <DataTableCell style={styles.colStock}>
         <Text variant="caption" style={styles.cellText}>{product.stock}</Text>
       </DataTableCell>
       <DataTableCell style={styles.colPrice}>
         <Text variant="subtitle2" weight="bold" style={styles.priceEmphasis}>${effectivePrice.toLocaleString()}</Text>
-      </DataTableCell>
-      <DataTableCell style={styles.colActions}>
-        <ProductRowActions product={product} onEdit={onEdit} onDelete={onDelete} />
       </DataTableCell>
     </DataTableRow>
   );

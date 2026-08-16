@@ -4,7 +4,7 @@ import { Text } from '@/components/ui/Text';
 import { useLanguage } from '../../../context/LanguageContext';
 import { useTheme } from '../../../context/ThemeContext';
 import { Button, IconButton } from '@/components/ui/Button';
-import { EditIcon, TrashIcon } from '@/components/Icons';
+import { EditIcon, TrashIcon, CheckIcon } from '@/components/Icons';
 import { Badge } from '@/components/ui/Badge';
 import { colors, layout } from '../../../theme/tokens';
 import styles from './ProductsStyles';
@@ -30,9 +30,10 @@ export function getHighlightStyle(isNew, discountPercent) {
 }
 
 export function NewBadge() {
-  const { t } = useLanguage();
   return (
-    <Badge variant="new" label={t('badgeNew')} size="sm" />
+    <View style={styles.badgeNewSquare}>
+      <CheckIcon size={12} color={colors.white} />
+    </View>
   );
 }
 

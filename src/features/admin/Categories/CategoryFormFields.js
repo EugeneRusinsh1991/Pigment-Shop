@@ -9,15 +9,15 @@
  */
 import { AnimatedButton } from '@/components/ui/Button';
 import { Flag, FlagGroup } from '@/components/domain/Flag';
-import { ImageIcon, UploadIcon } from '@/components/Icons';
+import { TrashIcon, UploadIcon } from '@/components/Icons';
 import { Text } from '@/components/ui/Text';
-import TextField from '@/components/ui/TextField';
+import MediaRenderer from '@/components/ui/Media/MediaRenderer';
 import { useState } from 'react';
 import { View } from 'react-native';
 import { useLanguage } from '../../../context/LanguageContext';
 import { fromMediaRef } from '../../../media';
 import { colors, layout, motion } from '../../../theme/tokens';
-import { triggerFileInput } from '../../../utils/fileInput';
+import { triggerFileUpload } from '../../../utils/fileInput';
 import MediaBrowser from '../Media/MediaBrowser';
 import { FieldInput as SharedFieldInput, FieldTextarea as SharedFieldTextarea } from '../SharedFormComponents';
 import { CATEGORY_TYPE_COLORS } from './CategoriesStyles';
@@ -82,25 +82,64 @@ export function ImagePickerField({ value, onChange }) {
     onChange(fromMediaRef(item.path));
   }
 
+  const handleUpload = () => {
+    triggerFileUpload(
+      'cat-image-file-input',
+      (url) => onChange(url),
+      { folder: 'categories' }
+    );
+  };
+
+  const handleDelete = () => {
+    onChange('');
+  };
+
   return (
-    <View style={styles.fieldGroup}>
+    <View style={styles.imageSlotContainer}>
       <Text variant="label" style={styles.fieldLabel}>{t('adminCategoriesFormImage')}</Text>
-      <View style={styles.imagePickerRow}>
-        <TextField
-          containerStyle={{ flex: 1 }}
-          value={String(value ?? '')}
-          onChangeText={onChange}
-          placeholder={t('adminCategoriesFormImagePlaceholder')}
-          autoCapitalize="none"
-        />
-        <AnimatedButton style={[styles.uploadBtn, { flexDirection: 'row', alignItems: 'center', gap: layout.spacing.xxs }]} onPress={() => triggerFileUpload('cat-image-file-input', (url) => onChange(url), { folder: 'categories' })} activeOpacity={motion.press.activeOpacity}>
-          <UploadIcon color={colors.white} size={12} />
-          <Text variant="label" style={styles.uploadBtnText}>{t('adminCategoriesFormUploadBtn')}</Text>
+      <View style={styles.imageSlotCard}>
+        <AnimatedButton
+          style={styles.imageSlotPreview}
+          onPress={() => setBrowserOpen(true)}
+          activeOpacity={motion.press.activeOpacity}
+        >
+          {value ? (
+            <MediaRenderer uri={value} style={styles.imageSlotPreviewImg} resizeMode="cover" />
+          ) : (
+            <View style={styles.imageSlotPlaceholder}>
+              <Text variant="caption" style={styles.imageSlotPlaceholderText}>
+                {t('adminCategoriesNoImage') || t('adminBannersNoImage')}
+              </Text>
+            </View>
+          )}
         </AnimatedButton>
-        <AnimatedButton style={[styles.uploadBtn, { flexDirection: 'row', alignItems: 'center', gap: layout.spacing.xxs }]} onPress={() => setBrowserOpen(true)} activeOpacity={motion.press.activeOpacity}>
-          <ImageIcon color={colors.white} size={12} />
-          <Text variant="label" style={styles.uploadBtnText}>{t('adminBrowseMedia')}</Text>
-        </AnimatedButton>
+
+        <View style={styles.imageSlotActions}>
+          <AnimatedButton
+            style={styles.imageSlotUploadBtn}
+            onPress={handleUpload}
+            activeOpacity={motion.press.activeOpacity}
+          >
+            <UploadIcon color={colors.white} size={12} />
+            <Text variant="label" style={styles.imageSlotUploadText}>
+              {t('adminCategoriesFormUploadBtn')}
+            </Text>
+          </AnimatedButton>
+
+          {!!value && (
+            <AnimatedButton
+              style={styles.imageSlotDeleteBtn}
+              onPress={handleDelete}
+              activeOpacity={motion.press.activeOpacity}
+              haptic="warning"
+            >
+              <TrashIcon color={colors.white} size={12} />
+              <Text variant="label" style={styles.imageSlotDeleteText}>
+                {t('adminBannersDeleteBtn')}
+              </Text>
+            </AnimatedButton>
+          )}
+        </View>
       </View>
       <MediaBrowser
         visible={browserOpen}

@@ -78,7 +78,10 @@ export function getOrderTotalPrice(order) {
   return order.totalPrice?.toLocaleString() || 0;
 }
 
-export function getToggleText(isExpanded, t) {
+export function getToggleText(isExpanded, t, isAdminView = false) {
+  if (isAdminView) {
+    return isExpanded ? '▲' : '▼';
+  }
   return isExpanded ? `${t('orderHideDetails')} ▲` : `${t('orderShowDetails')} ▼`;
 }
 

@@ -13,9 +13,9 @@ export default StyleSheet.create({
   },
   headerRow: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: layout.spacing.xl,
+    gap: layout.spacing.md,
+    marginBottom: layout.spacing.md,
   },
   title: {
     color: colors.textLight,
@@ -164,7 +164,6 @@ export default StyleSheet.create({
   backBtn: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: layout.spacing.xl,
   },
   backBtnText: {
     marginLeft: layout.spacing.sm,
@@ -208,23 +207,36 @@ export default StyleSheet.create({
     borderBottomWidth: layout.borderWidth.thin,
     borderBottomColor: colors.secondaryLightBorder,
   },
+  itemName: {
+    color: colors.textLight,
+    flex: 2.2,
+    minWidth: 0,
+    paddingRight: layout.spacing.sm,
+    textAlign: 'left',
+  },
   itemLabel: {
     color: colors.textLight,
-    flex: 1,
+    flex: 2.2,
+    minWidth: 0,
+    paddingRight: layout.spacing.sm,
+    textAlign: 'left',
   },
   itemQty: {
     color: colors.slateText,
-    width: 60,
+    flex: 1,
+    minWidth: 60,
     textAlign: 'center',
   },
   itemUnitPrice: {
     color: colors.slateText,
-    width: 80,
-    textAlign: 'right',
+    flex: 1.2,
+    minWidth: 80,
+    textAlign: 'center',
   },
   itemPrice: {
     color: colors.textLight,
-    width: 80,
+    flex: 1.2,
+    minWidth: 80,
     textAlign: 'right',
   },
   itemColHeader: {

@@ -141,6 +141,9 @@ export function DesktopOrderRow({ order, onPress }) {
   const { t, lang } = useLanguage();
   const summary = getOrderSummary(order, t, lang);
 
+  const hasCustNote = Boolean(order.note && order.note.trim());
+  const hasAdminNote = Boolean((order.adminNote || order.adminNotes) && (order.adminNote || order.adminNotes).trim());
+
   return (
     <DataTableRow style={[styles.row, summary.rowBg, { flexDirection: 'column', alignItems: 'stretch' }]} onPress={onPress}>
       <View style={styles.rowMain}>
@@ -162,15 +165,17 @@ export function DesktopOrderRow({ order, onPress }) {
           <Text variant="subtitle2" weight="bold" style={[styles.tdText, { textAlign: 'right' }]}>${summary.formattedTotal}</Text>
         </DataTableCell>
       </View>
-      <View style={styles.rowNotes}>
-        <View style={styles.noteItem}>
-          <Text variant="overline" color="desc" style={styles.metaLabelInline}>{t('adminOrdersCustNote')}: </Text>
-          <Text variant="caption" style={styles.metaValue} numberOfLines={1}>{order.note || '—'}</Text>
-        </View>
-        <View style={styles.noteItem}>
-          <Text variant="overline" color="desc" style={styles.metaLabelInline}>{t('adminOrdersAdminNote')}: </Text>
-          <Text variant="caption" style={styles.metaValue} numberOfLines={1}>{order.adminNote || '—'}</Text>
-        </View>
+      <View style={styles.noteIndicatorsRow}>
+        <NoteIndicator
+          hasNote={hasCustNote}
+          label={t('adminOrdersCustNote') || 'Note'}
+          type="customer"
+        />
+        <NoteIndicator
+          hasNote={hasAdminNote}
+          label={t('adminOrdersAdminNote') || 'Admin'}
+          type="admin"
+        />
       </View>
     </DataTableRow>
   );

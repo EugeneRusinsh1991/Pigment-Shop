@@ -27,7 +27,7 @@ function OrderStatusBadge({ order, t }) {
   );
 }
 
-function MobileOrderHeader({ order, t, lang, isExpanded, getStyle }) {
+function MobileOrderHeader({ order, t, lang, isExpanded, getStyle, isAdminView }) {
   return (
     <View style={styles.mobileHeader}>
       <View style={styles.mobileRowTop}>
@@ -47,7 +47,7 @@ function MobileOrderHeader({ order, t, lang, isExpanded, getStyle }) {
         </View>
         <View style={styles.mobileColRight}>
           <Text style={[styles.toggleText, getStyle(styles.toggleTextDark, styles.toggleTextLight)]}>
-            {getToggleText(isExpanded, t)}
+            {getToggleText(isExpanded, t, isAdminView)}
           </Text>
         </View>
       </View>
@@ -85,7 +85,7 @@ function DefaultOrderHeader({ order, t, lang, isExpanded, getStyle, isAdminView 
 
       <View style={styles.desktopCol4}>
         <Text style={[styles.toggleText, getStyle(styles.toggleTextDark, styles.toggleTextLight)]}>
-          {getToggleText(isExpanded, t)}
+          {getToggleText(isExpanded, t, isAdminView)}
         </Text>
       </View>
     </View>
@@ -115,6 +115,7 @@ export default function OrderCard({ order, isDark, isExpanded, onToggle, getStyl
             lang={lang}
             isExpanded={isExpanded}
             getStyle={getStyle}
+            isAdminView={isAdminView}
           />
         ) : (
           <DefaultOrderHeader

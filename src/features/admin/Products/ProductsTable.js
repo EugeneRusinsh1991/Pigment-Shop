@@ -16,13 +16,10 @@ export default function ProductsTable({ products, sortField, sortDirection, onSo
   const columns = [
     { key: null, label: '#', style: styles.colIndex, sortable: false },
     { key: 'label', label: t('adminProductsColProduct'), style: styles.colProduct, sortable: true },
-    { key: 'brand', label: t('adminProductsColBrand'), style: styles.colBrand, sortable: true },
     { key: 'discountPercent', label: t('adminProductsColDiscount'), style: styles.colDiscount, sortable: true },
     { key: 'isNew', label: t('adminProductsColNew'), style: styles.colNew, sortable: true },
-    { key: 'active', label: t('adminProductsColStatus'), style: styles.colStatus, sortable: true },
     { key: 'stock', label: t('adminProductsColStock'), style: styles.colStock, sortable: true },
     { key: 'price', label: t('adminProductsColPrice'), style: styles.colPrice, sortable: true },
-    { key: 'actions', label: t('adminProductsColActions'), style: styles.colActions, sortable: false },
   ];
 
   return (

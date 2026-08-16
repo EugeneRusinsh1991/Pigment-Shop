@@ -125,17 +125,17 @@ export default function ProductsManager() {
           onSort={handleSort}
           onEdit={openEdit}
         />
+        {totalPages > 1 && (
+          <View style={adminStyles.paginationWrapper}>
+            <CatalogPagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPrev={() => setCurrentPage((p) => Math.max(1, p - 1))}
+              onNext={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+            />
+          </View>
+        )}
       </ScrollView>
-      {totalPages > 1 && (
-        <View style={adminStyles.fixedPaginationFooter}>
-          <CatalogPagination
-            currentPage={currentPage}
-            totalPages={totalPages}
-            onPrev={() => setCurrentPage((p) => Math.max(1, p - 1))}
-            onNext={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
-          />
-        </View>
-      )}
       <AdminSaveFooter 
         isDirty={isDirty} 
         isSaving={isSaving} 

@@ -73,14 +73,12 @@ export default function OrderDetails({ order, onBack, onStatusUpdated }) {
       showsVerticalScrollIndicator={false}
       showsHorizontalScrollIndicator={false}
     >
-      {/* Back button */}
-      <AnimatedButton size="sm" style={styles.backBtn} onPress={onBack}>
-        <BackArrowIcon color={colors.textDescLight} size={16} />
-        <Text variant="subtitle2" style={styles.backBtnText}>{t('adminOrdersBackBtn')}</Text>
-      </AnimatedButton>
-
-      {/* Title row — only order number, no date/total captions */}
+      {/* Header row: Back button + Order Title */}
       <View style={styles.headerRow}>
+        <AnimatedButton size="sm" style={styles.backBtn} onPress={onBack}>
+          <BackArrowIcon color={colors.textDescLight} size={16} />
+          <Text variant="subtitle2" style={styles.backBtnText}>{t('adminOrdersBackBtn')}</Text>
+        </AnimatedButton>
         <Text variant="h2" style={styles.title}>{t('orderNumber')}#{orderNumber}</Text>
       </View>
 
