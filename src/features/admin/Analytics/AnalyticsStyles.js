@@ -52,6 +52,31 @@ export default StyleSheet.create({
     borderBottomWidth: layout.borderWidth.thin,
     borderBottomColor: colors.secondaryLightBorder,
   },
+  cardHeaderTabs: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: layout.spacing.xs,
+    marginBottom: layout.spacing.md,
+    paddingBottom: layout.spacing.xs,
+    borderBottomWidth: layout.borderWidth.thin,
+    borderBottomColor: colors.secondaryLightBorder,
+  },
+  cardTabBtn: {
+    paddingVertical: layout.spacing.xs,
+    paddingHorizontal: layout.spacing.md,
+    borderRadius: layout.radii.full,
+    backgroundColor: colors.secondaryLightBg,
+  },
+  cardTabBtnActive: {
+    backgroundColor: colors.accent,
+  },
+  cardTabText: {
+    color: colors.textDescLight,
+    fontWeight: '600',
+  },
+  cardTabTextActive: {
+    color: colors.white,
+  },
   chartsRow: {
     flexDirection: 'row',
     gap: layout.spacing.lg,
@@ -60,6 +85,37 @@ export default StyleSheet.create({
   chartHalf: {
     flex: 1,
     minWidth: 280,
+  },
+
+  /* Low Stock */
+  lowStockRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingVertical: layout.spacing.sm,
+    borderBottomWidth: layout.borderWidth.thin,
+    borderBottomColor: colors.borderLight,
+  },
+  lowStockNameCol: {
+    flex: 1,
+    marginRight: layout.spacing.md,
+  },
+  lowStockBadge: {
+    paddingHorizontal: layout.spacing.sm,
+    paddingVertical: layout.spacing.xxs,
+    borderRadius: layout.radii.full,
+    backgroundColor: colors.secondaryLightBg,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  lowStockBadgeWarning: {
+    backgroundColor: colors.warningBgLight,
+  },
+  lowStockBadgeDanger: {
+    backgroundColor: colors.dangerBgLight,
+  },
+  lowStockQty: {
+    fontWeight: '700',
   },
 
   /* Bar Chart */
@@ -279,6 +335,72 @@ export default StyleSheet.create({
     gap: layout.spacing.sm,
     width: '100%',
   },
+  /* Top Customers */
+  customerRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: layout.spacing.sm,
+    borderBottomWidth: layout.borderWidth.thin,
+    borderBottomColor: colors.borderLight,
+    gap: layout.spacing.sm,
+  },
+  customerRank: {
+    width: 22,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  customerRankText: {
+    fontWeight: '700',
+    color: colors.secondaryDarkText,
+  },
+  customerAvatar: {
+    width: 34,
+    height: 34,
+    borderRadius: layout.radii.full,
+    backgroundColor: colors.secondaryLightBg,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  customerAvatarText: {
+    fontWeight: '700',
+    color: colors.accent,
+  },
+  customerInfo: {
+    flex: 1,
+    minWidth: 0,
+  },
+  customerName: {
+    fontWeight: '600',
+    color: colors.dark,
+    marginBottom: layout.spacing.xxs,
+  },
+  customerMeta: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: layout.spacing.xs,
+    flexWrap: 'wrap',
+  },
+  customerMetaText: {
+    color: colors.secondaryDarkText,
+  },
+  customerOrdersBadge: {
+    paddingHorizontal: layout.spacing.xs,
+    paddingVertical: 1,
+    borderRadius: layout.radii.full,
+    backgroundColor: colors.secondaryLightBg,
+  },
+  customerOrdersBadgeText: {
+    color: colors.textDescLight,
+  },
+  customerTotalSpent: {
+    alignItems: 'flex-end',
+    justifyContent: 'center',
+  },
+  customerSpentText: {
+    fontWeight: '700',
+    color: colors.accent,
+  },
+
   loadingIndicator: {
     marginVertical: layout.spacing.xxl + layout.spacing.sm,
   },

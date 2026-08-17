@@ -2,7 +2,7 @@ import { BoxIcon, ClipboardIcon, DollarIcon, TrendIcon } from '@/components/Icon
 import { Heading, Text } from '@/components/ui/Text';
 import Card from '@/components/ui/Card';
 import { useEffect, useMemo, useState } from 'react';
-import { ActivityIndicator, View, ScrollView } from 'react-native';
+import { ActivityIndicator, ScrollView, TouchableOpacity, View } from 'react-native';
 import adminStyles from '../AdminPanelStyles';
 import { useLanguage } from '../../../context/LanguageContext';
 import { getOrderStatuses, getRevenueChartData, getSummaryStats, getTopProducts } from '../../../data/adminAnalytics';
@@ -11,8 +11,10 @@ import { loadAdminOrders } from '../../../services/adminOrdersService';
 import { colors } from '../../../theme/tokens';
 import styles from './AnalyticsStyles';
 import DateRangePicker from './DateRangePicker';
+import LowStockList from './LowStockList';
 import OrderStatusChart from './OrderStatusChart';
 import RevenueChart from './RevenueChart';
+import TopCustomersList from './TopCustomersList';
 import TopProductsChart from './TopProductsChart';
 
 function StatCard({ label, value, icon, accentColor }) {
@@ -47,19 +49,60 @@ function RevenuePanel({ revenueData }) {
   const { t } = useLanguage();
   return (
     <Card style={styles.chartPanel}>
-      <Heading level={3} style={styles.chartTitle}>{t('adminAnalyticsRevenue14Days')}</Heading>
+      <Heading level={3} style={styles.chartTitle}>{t('adminAnalyticsRevenue')}</Heading>
       <RevenueChart revenueData={revenueData} />
     </Card>
   );
 }
 
-function BottomChartsRow({ topProducts, orderStatuses }) {
+function BottomChartsRow({ topProducts, orderStatuses, orders }) {
   const { t } = useLanguage();
+  const [activeTab, setActiveTab] = useState('topProducts');
+
   return (
     <View style={styles.chartsRow}>
       <Card style={[styles.chartPanel, styles.chartHalf]}>
-        <Heading level={3} style={styles.chartTitle}>{t('adminAnalyticsTopProducts')}</Heading>
-        <TopProductsChart productsData={topProducts} />
+        <View style={styles.cardHeaderTabs}>
+          <TouchableOpacity
+            style={[styles.cardTabBtn, activeTab === 'topProducts' && styles.cardTabBtnActive]}
+            onPress={() => setActiveTab('topProducts')}
+            accessibilityRole="button"
+          >
+            <Text
+              variant="subtitle2"
+              style={[styles.cardTabText, activeTab === 'topProducts' && styles.cardTabTextActive]}
+            >
+              {t('adminAnalyticsHitsOfSales')}
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.cardTabBtn, activeTab === 'lowStock' && styles.cardTabBtnActive]}
+            onPress={() => setActiveTab('lowStock')}
+            accessibilityRole="button"
+          >
+            <Text
+              variant="subtitle2"
+              style={[styles.cardTabText, activeTab === 'lowStock' && styles.cardTabTextActive]}
+            >
+              {t('adminAnalyticsLowStock')}
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.cardTabBtn, activeTab === 'topCustomers' && styles.cardTabBtnActive]}
+            onPress={() => setActiveTab('topCustomers')}
+            accessibilityRole="button"
+          >
+            <Text
+              variant="subtitle2"
+              style={[styles.cardTabText, activeTab === 'topCustomers' && styles.cardTabTextActive]}
+            >
+              {t('adminAnalyticsTopCustomers')}
+            </Text>
+          </TouchableOpacity>
+        </View>
+        {activeTab === 'topProducts' && <TopProductsChart productsData={topProducts} />}
+        {activeTab === 'lowStock' && <LowStockList />}
+        {activeTab === 'topCustomers' && <TopCustomersList orders={orders} />}
       </Card>
       <Card style={[styles.chartPanel, styles.chartHalf]}>
         <Heading level={3} style={styles.chartTitle}>{t('adminAnalyticsOrderStatuses')}</Heading>
@@ -153,7 +196,7 @@ export default function AnalyticsDashboard({ dateRange: propDateRange, onDateRan
         <>
           <StatsRow stats={stats} />
           <RevenuePanel revenueData={revenueData} />
-          <BottomChartsRow topProducts={topProducts} orderStatuses={orderStatuses} />
+          <BottomChartsRow topProducts={topProducts} orderStatuses={orderStatuses} orders={orders} />
         </>
       )}
     </ScrollView>
