@@ -3,12 +3,13 @@
  *
  * Horizontal bar chart showing products by units sold.
  */
-import React, { useMemo } from 'react';
-import { View } from 'react-native';
+import React, { useMemo, useState } from 'react';
+import { TouchableOpacity, View } from 'react-native';
+import { ChevronDownIcon } from '@/components/Icons';
 import { Text } from '@/components/ui/Text';
 import styles from './AnalyticsStyles';
 import { useLanguage } from '../../../context/LanguageContext';
-import { colors, layout } from '../../../theme/tokens';
+import { colors } from '../../../theme/tokens';
 import { getLocalizedValue } from '../../../utils/localization';
 
 function truncateLabel(label, maxLen = 28) {
@@ -17,9 +18,9 @@ function truncateLabel(label, maxLen = 28) {
   return label.slice(0, maxLen - 1) + '…';
 }
 
-
 export default function TopProductsChart({ productsData = [] }) {
   const { lang, t } = useLanguage();
+  const [isExpanded, setIsExpanded] = useState(false);
   
   const products = useMemo(() => {
     return productsData.map((p) => ({
@@ -28,7 +29,11 @@ export default function TopProductsChart({ productsData = [] }) {
     }));
   }, [productsData, lang]);
 
-  const maxValue = Math.max(...products.map((p) => p.value), 1);
+  const visibleProducts = useMemo(() => {
+    return isExpanded ? products.slice(0, 15) : products.slice(0, 5);
+  }, [products, isExpanded]);
+
+  const maxValue = Math.max(...visibleProducts.map((p) => p.value), 1);
 
   if (products.length === 0) {
     return (
@@ -42,7 +47,7 @@ export default function TopProductsChart({ productsData = [] }) {
 
   return (
     <View>
-      {products.map((p, i) => (
+      {visibleProducts.map((p, i) => (
         <View key={p.label + i} style={styles.barRow}>
           <Text variant="caption" color="secondary" style={styles.barLabel} numberOfLines={2}>
             {truncateLabel(p.label)}
@@ -63,6 +68,22 @@ export default function TopProductsChart({ productsData = [] }) {
           <Text variant="subtitle2" style={styles.barValue}>{p.value}</Text>
         </View>
       ))}
+      {products.length > 5 && (
+        <View style={styles.topProductsExpandRow}>
+          <TouchableOpacity
+            style={styles.topProductsExpandBtn}
+            onPress={() => setIsExpanded((prev) => !prev)}
+            accessibilityRole="button"
+            accessibilityLabel={isExpanded ? t('adminAnalyticsShowLess') : t('adminAnalyticsShowMore')}
+          >
+            <ChevronDownIcon
+              size={16}
+              color={colors.accent}
+              style={isExpanded ? styles.topProductsExpandIconRotated : undefined}
+            />
+          </TouchableOpacity>
+        </View>
+      )}
     </View>
   );
 }

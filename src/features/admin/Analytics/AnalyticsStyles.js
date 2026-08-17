@@ -119,6 +119,24 @@ export default StyleSheet.create({
   },
   topProductsSegment: {
   },
+  topProductsExpandRow: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: layout.spacing.sm,
+    paddingTop: layout.spacing.xs,
+  },
+  topProductsExpandBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: layout.spacing.xs,
+    paddingHorizontal: layout.spacing.md,
+    borderRadius: layout.radii.full,
+    backgroundColor: colors.secondaryLightBg,
+  },
+  topProductsExpandIconRotated: {
+    transform: [{ rotate: '180deg' }],
+  },
   svgRotate: {
     transform: 'rotate(-90deg)',
   },

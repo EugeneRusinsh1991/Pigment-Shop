@@ -130,7 +130,7 @@ export default function AnalyticsDashboard({ dateRange: propDateRange, onDateRan
   }, [dateRange]);
 
   const stats = useMemo(() => getSummaryStats(orders), [orders]);
-  const topProducts = useMemo(() => getTopProducts(orders, 5), [orders]);
+  const topProducts = useMemo(() => getTopProducts(orders, 15), [orders]);
   const revenueData = useMemo(() => getRevenueChartData(orders, dateRange.start, dateRange.end), [orders, dateRange]);
   const orderStatuses = useMemo(() => getOrderStatuses(orders), [orders]);
 
